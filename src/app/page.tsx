@@ -28,31 +28,34 @@ export default function HomePage() {
       <TrustBar />
 
       <section className="px-4 py-10 sm:px-6 lg:px-8 lg:py-14">
-        <div className="mx-auto max-w-6xl rounded-[20px] border border-slate-800 bg-slate-950 px-6 py-10 shadow-[0_32px_90px_rgba(15,23,42,0.24)] sm:px-8 lg:px-10">
-          <p className="text-balance text-2xl font-semibold tracking-[-0.05em] text-white sm:text-3xl lg:text-[2.7rem] lg:leading-[1.02]">
-            Farcelis is the system behind how modern operations actually run.
+        <div className="mx-auto max-w-6xl border-y border-slate-800 bg-slate-950 px-6 py-12 shadow-[0_32px_90px_rgba(15,23,42,0.24)] sm:px-8 lg:px-10">
+          <p className="max-w-5xl text-balance text-2xl font-semibold tracking-[-0.05em] text-white sm:text-3xl lg:text-[2.8rem] lg:leading-[1.02]">
+            Most organizations do not fail because of people.
+          </p>
+          <p className="mt-3 max-w-5xl text-balance text-2xl font-semibold tracking-[-0.05em] text-white sm:text-3xl lg:text-[2.8rem] lg:leading-[1.02]">
+            They fail because their systems cannot carry execution at scale.
+          </p>
+          <p className="mt-5 text-sm font-semibold uppercase tracking-[0.18em] text-white/56">
+            Farcelis is the layer that fixes that.
           </p>
         </div>
       </section>
 
       <section className="px-4 py-20 sm:px-6 lg:px-8 lg:py-28">
-        <div className="mx-auto max-w-7xl rounded-[24px] border border-slate-900 bg-slate-950 px-6 py-10 shadow-[0_32px_90px_rgba(15,23,42,0.2)] sm:px-8 lg:px-10 lg:py-12">
+        <div className="mx-auto max-w-7xl border border-slate-900 bg-slate-950 px-6 py-10 shadow-[0_32px_90px_rgba(15,23,42,0.2)] sm:px-8 lg:px-10 lg:py-12">
           <SectionHeader
             eyebrow="Capability Layer"
             title="Farcelis defines the capability layer behind operational control."
             description="Operational system design, execution architecture, workflow control environments, decision systems, and flagship Control Layer implementation operate together as one model."
             variant="inverse"
           />
-          <div className="mt-10 grid gap-4 md:grid-cols-2 xl:grid-cols-3">
+          <div className="mt-10 grid gap-8 border-t border-white/10 pt-8 md:grid-cols-2 xl:grid-cols-3">
             {whatFarcelisDoes.map((item) => (
-              <div
-                key={item.title}
-                className="rounded-[18px] border border-white/12 bg-white px-6 py-6 shadow-[0_20px_48px_rgba(15,23,42,0.18)]"
-              >
-                <h3 className="text-xl font-semibold tracking-[-0.03em] text-slate-950">
+              <div key={item.title} className="border-l border-white/16 pl-4">
+                <h3 className="text-xl font-semibold tracking-[-0.03em] text-white">
                   {item.title}
                 </h3>
-                <p className="mt-3 max-w-md text-base leading-7 text-slate-600">
+                <p className="mt-3 max-w-md text-base leading-7 text-white/68">
                   {item.description}
                 </p>
               </div>
@@ -68,11 +71,11 @@ export default function HomePage() {
             title="Most businesses are running without a control system."
             description="Work is scattered across tools, teams, and conversations. Execution breaks down without structure."
           />
-          <div className="mt-10 grid gap-4 sm:grid-cols-2 xl:grid-cols-4">
+          <div className="mt-10 grid gap-4 border-t border-slate-300 pt-8 sm:grid-cols-2 xl:grid-cols-4">
             {problemPoints.map((point) => (
               <div
                 key={point}
-                className="rounded-[18px] border border-slate-300 bg-white p-6 shadow-[0_18px_42px_rgba(15,23,42,0.08)]"
+                className="border-l border-slate-300 pl-4"
               >
                 <div className="text-lg font-semibold tracking-[-0.03em] text-slate-950">
                   {point}
@@ -84,41 +87,32 @@ export default function HomePage() {
       </section>
 
       <section className="px-4 py-20 sm:px-6 lg:px-8 lg:py-28">
-        <div className="mx-auto max-w-7xl rounded-[24px] border border-black bg-black px-6 py-10 shadow-[0_40px_120px_rgba(2,6,23,0.34)] sm:px-8 lg:px-10 lg:py-14">
+        <div className="mx-auto max-w-none border-y border-white/10 bg-black px-6 py-16 shadow-[0_48px_140px_rgba(2,6,23,0.4)] sm:px-8 lg:px-12 lg:py-24">
+          <div className="mx-auto max-w-7xl">
           <SectionHeader
             eyebrow="Why This Matters"
             title="Execution failure is usually a system failure."
             description="Without structure, work stalls at handoffs, priorities drift, and leadership reacts late. Most organizations do not break because effort disappears. They break because the operating system beneath execution cannot carry scale."
             variant="inverse"
           />
-          <div className="mt-10 grid gap-4 md:grid-cols-2 xl:grid-cols-4">
-            {urgencyPoints.map((item, index) => (
-              <div
-                key={item.title}
-                className={`rounded-[18px] border p-6 shadow-[0_24px_56px_rgba(15,23,42,0.24)] ${
-                  index === 3
-                    ? "border-white bg-white text-slate-950"
-                    : "border-white/10 bg-white/4 text-white backdrop-blur-sm"
-                }`}
-              >
-                <h3 className="text-xl font-semibold tracking-[-0.03em]">
+          <div className="mt-14 grid gap-10 border-t border-white/10 pt-10 md:grid-cols-2">
+            {urgencyPoints.map((item) => (
+              <div key={item.title} className="border-l border-white/16 pl-5">
+                <h3 className="text-2xl font-semibold tracking-[-0.04em] text-white sm:text-[1.75rem]">
                   {item.title}
                 </h3>
-                <p
-                  className={`mt-3 text-base leading-7 ${
-                    index === 3 ? "text-slate-700" : "text-white/72"
-                  }`}
-                >
+                <p className="mt-4 max-w-xl text-lg leading-8 text-white/72">
                   {item.description}
                 </p>
               </div>
             ))}
           </div>
+          </div>
         </div>
       </section>
 
       <section className="px-4 py-20 sm:px-6 lg:px-8 lg:py-28">
-        <div className="mx-auto max-w-7xl rounded-[24px] border border-slate-300 bg-[linear-gradient(180deg,rgba(255,255,255,0.96),rgba(244,238,230,0.96))] px-6 py-10 shadow-[0_32px_90px_rgba(15,23,42,0.12)] sm:px-8 lg:px-10 lg:py-12">
+        <div className="mx-auto max-w-7xl border border-slate-300 bg-[linear-gradient(180deg,rgba(255,255,255,0.96),rgba(244,238,230,0.96))] px-6 py-10 shadow-[0_32px_90px_rgba(15,23,42,0.12)] sm:px-8 lg:px-10 lg:py-12">
           <SectionHeader
             eyebrow="Flagship System"
             title="The Farcelis Control Layer is a flagship system inside the broader Farcelis operating model."
@@ -128,7 +122,7 @@ export default function HomePage() {
             {controlLayerIntro.map((item, index) => (
               <div
                 key={item.title}
-                className={`rounded-[18px] border p-6 shadow-[0_20px_48px_rgba(15,23,42,0.12)] ${
+                className={`border p-6 shadow-[0_20px_48px_rgba(15,23,42,0.12)] ${
                   index === 1
                     ? "border-slate-950 bg-slate-950 text-white"
                     : "border-slate-200 bg-white text-slate-950"
@@ -154,17 +148,17 @@ export default function HomePage() {
       </section>
 
       <section className="px-4 py-20 sm:px-6 lg:px-8 lg:py-28">
-        <div className="mx-auto max-w-7xl rounded-[24px] border border-slate-200 bg-[rgba(255,255,255,0.72)] px-6 py-10 shadow-[0_24px_60px_rgba(15,23,42,0.07)] sm:px-8 lg:px-10 lg:py-12">
+        <div className="mx-auto max-w-7xl border border-slate-200 bg-[rgba(255,255,255,0.72)] px-6 py-10 shadow-[0_24px_60px_rgba(15,23,42,0.07)] sm:px-8 lg:px-10 lg:py-12">
           <SectionHeader
             eyebrow="Operating Contexts"
             title="Farcelis builds structured environments across multiple contexts."
             description="The same systems discipline applies across enterprise operations, government environments, startup execution, and personal system management."
           />
-          <div className="mt-10 grid gap-4 md:grid-cols-2 xl:grid-cols-4">
+          <div className="mt-10 grid gap-6 border-t border-slate-300 pt-8 md:grid-cols-2 xl:grid-cols-4">
             {operatingContexts.map((item) => (
               <div
                 key={item.title}
-                className="rounded-[18px] border border-slate-200 bg-white p-6 shadow-[0_18px_42px_rgba(15,23,42,0.08)]"
+                className="border-l border-slate-300 pl-4"
               >
                 <h3 className="text-xl font-semibold tracking-[-0.03em] text-slate-950">
                   {item.title}
@@ -179,23 +173,23 @@ export default function HomePage() {
       </section>
 
       <section className="px-4 py-20 sm:px-6 lg:px-8 lg:py-28">
-        <div className="mx-auto max-w-7xl rounded-[24px] border border-slate-900 bg-slate-950 px-6 py-10 shadow-[0_32px_90px_rgba(15,23,42,0.18)] sm:px-8 lg:px-10 lg:py-12">
+        <div className="mx-auto max-w-7xl border border-slate-900 bg-slate-950 px-6 py-10 shadow-[0_32px_90px_rgba(15,23,42,0.18)] sm:px-8 lg:px-10 lg:py-12">
           <SectionHeader
             eyebrow="This Is For You"
             title="If complexity keeps rising while control keeps slipping, this is for you."
             description="Farcelis is for the people carrying execution pressure inside systems that are no longer holding."
             variant="inverse"
           />
-          <div className="mt-10 grid gap-4 lg:grid-cols-3">
+          <div className="mt-10 grid gap-6 border-t border-white/10 pt-8 lg:grid-cols-3">
             {audienceSignals.map((item) => (
               <div
                 key={item.title}
-                className="rounded-[18px] border border-white/10 bg-white px-6 py-6 shadow-[0_20px_48px_rgba(15,23,42,0.18)]"
+                className="border-l border-white/16 pl-4"
               >
-                <h3 className="text-xl font-semibold tracking-[-0.03em] text-slate-950">
+                <h3 className="text-xl font-semibold tracking-[-0.03em] text-white">
                   {item.title}
                 </h3>
-                <p className="mt-3 text-base leading-7 text-slate-600">
+                <p className="mt-3 text-base leading-7 text-white/72">
                   {item.description}
                 </p>
               </div>
@@ -205,17 +199,17 @@ export default function HomePage() {
       </section>
 
       <section className="px-4 py-20 sm:px-6 lg:px-8 lg:py-28">
-        <div className="mx-auto max-w-7xl rounded-[24px] border border-slate-200 bg-[rgba(255,255,255,0.72)] px-6 py-10 shadow-[0_24px_60px_rgba(15,23,42,0.07)] sm:px-8 lg:px-10 lg:py-12">
+        <div className="mx-auto max-w-7xl border border-slate-200 bg-[rgba(255,255,255,0.72)] px-6 py-10 shadow-[0_24px_60px_rgba(15,23,42,0.07)] sm:px-8 lg:px-10 lg:py-12">
           <SectionHeader
             eyebrow="System Flow"
             title="How It Works"
             description="Input → Intake → Assignment → Execution → Tracking → Completion"
             align="center"
           />
-          <div className="mt-10 grid gap-4 lg:grid-cols-6">
+          <div className="mt-10 grid gap-4 border-t border-slate-300 pt-8 lg:grid-cols-6">
             {flowSteps.map((step, index) => (
               <div key={step} className="grid gap-4">
-                <div className="rounded-[24px] border border-slate-200 bg-white px-5 py-6 text-center shadow-[0_18px_42px_rgba(15,23,42,0.06)]">
+                <div className="border border-slate-200 bg-white px-5 py-6 text-center shadow-[0_18px_42px_rgba(15,23,42,0.06)]">
                   <div className="text-sm font-semibold uppercase tracking-[0.18em] text-slate-500">
                     {index + 1}
                   </div>
@@ -233,7 +227,7 @@ export default function HomePage() {
       </section>
 
       <section className="px-4 py-20 sm:px-6 lg:px-8 lg:py-28">
-        <div className="mx-auto grid max-w-7xl gap-10 rounded-[24px] border border-slate-200 bg-white px-6 py-10 shadow-[0_28px_70px_rgba(15,23,42,0.09)] sm:px-8 lg:grid-cols-[minmax(0,0.92fr)_minmax(0,1.08fr)] lg:items-start lg:px-10 lg:py-12">
+        <div className="mx-auto grid max-w-7xl gap-10 border border-slate-200 bg-white px-6 py-10 shadow-[0_28px_70px_rgba(15,23,42,0.09)] sm:px-8 lg:grid-cols-[minmax(0,0.92fr)_minmax(0,1.08fr)] lg:items-start lg:px-10 lg:py-12">
           <div>
             <SectionHeader
               eyebrow="Inside the System"
@@ -244,7 +238,7 @@ export default function HomePage() {
               {capabilityPoints.map((point) => (
                 <div
                   key={point}
-                  className="rounded-2xl border border-slate-200 bg-white px-4 py-3 text-sm font-medium text-slate-700 shadow-[0_10px_24px_rgba(15,23,42,0.05)]"
+                  className="border border-slate-200 bg-white px-4 py-3 text-sm font-medium text-slate-700 shadow-[0_10px_24px_rgba(15,23,42,0.05)]"
                 >
                   {point}
                 </div>
@@ -256,7 +250,7 @@ export default function HomePage() {
       </section>
 
       <section className="px-4 py-20 sm:px-6 lg:px-8 lg:py-28">
-        <div className="mx-auto max-w-7xl rounded-[24px] border border-slate-200 bg-[rgba(255,255,255,0.74)] px-6 py-10 shadow-[0_24px_60px_rgba(15,23,42,0.07)] sm:px-8 lg:px-10 lg:py-12">
+        <div className="mx-auto max-w-7xl border border-slate-200 bg-[rgba(255,255,255,0.74)] px-6 py-10 shadow-[0_24px_60px_rgba(15,23,42,0.07)] sm:px-8 lg:px-10 lg:py-12">
           <SectionHeader
             eyebrow="Services"
             title="Services built for operational control, not loose AI activity."
@@ -269,7 +263,7 @@ export default function HomePage() {
       </section>
 
       <section className="px-4 py-20 sm:px-6 lg:px-8 lg:py-28">
-        <div className="mx-auto max-w-7xl rounded-[24px] border border-slate-900 bg-slate-950 px-6 py-10 shadow-[0_32px_90px_rgba(15,23,42,0.2)] sm:px-8 lg:px-10 lg:py-12">
+        <div className="mx-auto max-w-7xl border border-slate-900 bg-slate-950 px-6 py-10 shadow-[0_32px_90px_rgba(15,23,42,0.2)] sm:px-8 lg:px-10 lg:py-12">
           <SectionHeader
             eyebrow="Operating Proof"
             title="Executive visibility, workflow control, and delivery governance."
