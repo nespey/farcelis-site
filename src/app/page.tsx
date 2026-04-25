@@ -1,7 +1,9 @@
 import Link from "next/link";
 
+import { AnimatedFlow } from "@/components/AnimatedFlow";
 import { Hero } from "@/components/Hero";
 import { PartnerLogoGrid } from "@/components/PartnerLogoGrid";
+import { Reveal } from "@/components/Reveal";
 import { buildMetadata } from "@/lib/metadata";
 import {
   audienceSignals,
@@ -18,6 +20,7 @@ export default function HomePage() {
     <>
       <Hero />
 
+      <Reveal>
       <section className="relative overflow-hidden bg-[linear-gradient(180deg,#030712,#08111d)] px-4 py-24 sm:px-6 lg:px-12 lg:py-28">
         <div className="pointer-events-none absolute inset-0 bg-[radial-gradient(circle_at_82%_22%,rgba(20,74,106,0.22),transparent_22%)]" />
         <div className="relative">
@@ -33,7 +36,9 @@ export default function HomePage() {
           </p>
         </div>
       </section>
+      </Reveal>
 
+      <Reveal delayMs={40}>
       <section className="relative overflow-hidden bg-[linear-gradient(180deg,#0b1421,#102237)] px-4 py-24 text-white sm:px-6 lg:px-12 lg:py-28">
         <div className="pointer-events-none absolute inset-0 bg-[radial-gradient(circle_at_18%_26%,rgba(159,65,44,0.18),transparent_20%),radial-gradient(circle_at_78%_42%,rgba(84,170,224,0.16),transparent_26%)]" />
         <div className="relative grid gap-14 lg:grid-cols-[minmax(0,0.8fr)_minmax(500px,1.2fr)] lg:items-center">
@@ -88,7 +93,9 @@ export default function HomePage() {
           </div>
         </div>
       </section>
+      </Reveal>
 
+      <Reveal delayMs={60}>
       <section className="relative overflow-hidden bg-[linear-gradient(180deg,#06111d,#0f1e31)] px-4 py-24 text-white sm:px-6 lg:px-12 lg:py-28">
         <div className="pointer-events-none absolute inset-0 bg-[radial-gradient(circle_at_20%_80%,rgba(159,65,44,0.16),transparent_18%),linear-gradient(90deg,rgba(255,255,255,0.04)_1px,transparent_1px)] bg-[size:auto,120px_120px]" />
         <div className="relative">
@@ -101,20 +108,7 @@ export default function HomePage() {
             </h2>
           </div>
 
-          <div className="mt-14 overflow-x-auto pb-2">
-            <div className="flex min-w-max items-center gap-4 lg:gap-7">
-              {flowSteps.map((step, index) => (
-                <div key={step} className="flex items-center gap-4 lg:gap-7">
-                  <div className="bg-white/6 px-6 py-4 text-sm font-semibold uppercase tracking-[0.18em] text-white shadow-[0_18px_42px_rgba(2,6,23,0.22)] backdrop-blur-sm">
-                    {step}
-                  </div>
-                  {index < flowSteps.length - 1 ? (
-                    <div className="h-px w-10 bg-gradient-to-r from-white/10 via-[color:#d9a08b] to-white/10 lg:w-20" />
-                  ) : null}
-                </div>
-              ))}
-            </div>
-          </div>
+          <AnimatedFlow steps={flowSteps} />
 
           <p className="mt-8 max-w-2xl text-[17px] leading-8 text-white/62">
             Work enters one structure, moves through one defined path, and stays
@@ -122,7 +116,9 @@ export default function HomePage() {
           </p>
         </div>
       </section>
+      </Reveal>
 
+      <Reveal delayMs={80}>
       <section className="relative overflow-hidden bg-[linear-gradient(180deg,#fffdf9,#eff4fb)] px-4 py-24 sm:px-6 lg:px-12 lg:py-28">
         <div className="pointer-events-none absolute inset-0 bg-[radial-gradient(circle_at_15%_24%,rgba(20,74,106,0.08),transparent_20%),radial-gradient(circle_at_82%_72%,rgba(159,65,44,0.1),transparent_18%)]" />
         <div className="relative">
@@ -162,7 +158,9 @@ export default function HomePage() {
           </div>
         </div>
       </section>
+      </Reveal>
 
+      <Reveal delayMs={100}>
       <section className="relative overflow-hidden bg-[linear-gradient(180deg,#08111d,#0d1726)] px-4 py-24 text-white sm:px-6 lg:px-12 lg:py-28">
         <div className="pointer-events-none absolute inset-0 bg-[radial-gradient(circle_at_80%_22%,rgba(20,74,106,0.22),transparent_20%),radial-gradient(circle_at_18%_78%,rgba(159,65,44,0.14),transparent_20%)]" />
         <div className="relative">
@@ -194,7 +192,9 @@ export default function HomePage() {
           </div>
         </div>
       </section>
+      </Reveal>
 
+      <Reveal delayMs={120}>
       <section className="relative overflow-hidden bg-[linear-gradient(180deg,#020617,#09111d)] px-4 py-24 sm:px-6 lg:px-12 lg:py-28">
         <div className="pointer-events-none absolute inset-0 bg-[radial-gradient(circle_at_15%_20%,rgba(159,65,44,0.18),transparent_18%),radial-gradient(circle_at_85%_74%,rgba(20,74,106,0.22),transparent_22%)]" />
         <div className="relative">
@@ -213,7 +213,9 @@ export default function HomePage() {
           </div>
         </div>
       </section>
+      </Reveal>
 
+      <Reveal delayMs={140}>
       <section className="relative overflow-hidden bg-[linear-gradient(180deg,#0b1421,#102237)] px-4 py-24 text-white sm:px-6 lg:px-12 lg:py-28">
         <div className="pointer-events-none absolute inset-0 bg-[radial-gradient(circle_at_22%_22%,rgba(159,65,44,0.18),transparent_18%),radial-gradient(circle_at_78%_68%,rgba(20,74,106,0.22),transparent_20%)]" />
         <div className="relative max-w-5xl">
@@ -231,19 +233,20 @@ export default function HomePage() {
           <div className="mt-10 flex flex-col gap-3 sm:flex-row">
             <Link
               href="/contact"
-              className="inline-flex min-h-12 items-center justify-center rounded-full bg-[linear-gradient(135deg,#9f412c,#7e1f0d)] px-6 py-3 text-sm font-semibold text-white shadow-[0_18px_36px_rgba(126,31,13,0.28)] transition hover:translate-y-[-1px]"
+              className="interactive-button inline-flex min-h-12 items-center justify-center rounded-full bg-[linear-gradient(135deg,#9f412c,#7e1f0d)] px-6 py-3 text-sm font-semibold text-white shadow-[0_18px_36px_rgba(126,31,13,0.28)] transition"
             >
               Work With Farcelis
             </Link>
             <Link
               href="/contact"
-              className="inline-flex min-h-12 items-center justify-center rounded-full border border-white/16 bg-white/4 px-6 py-3 text-sm font-semibold text-white transition hover:border-white/28 hover:bg-white/8"
+              className="interactive-button inline-flex min-h-12 items-center justify-center rounded-full border border-white/16 bg-white/4 px-6 py-3 text-sm font-semibold text-white transition"
             >
               Schedule a Strategy Call
             </Link>
           </div>
         </div>
       </section>
+      </Reveal>
     </>
   );
 }

@@ -2,12 +2,12 @@ import Link from "next/link";
 
 export function Hero() {
   return (
-    <section className="relative min-h-[100svh] overflow-hidden bg-[linear-gradient(180deg,#020617_0%,#07111f_46%,#0b1523_100%)] px-4 pb-10 pt-20 sm:px-6 lg:px-12 lg:pb-12 lg:pt-24">
-      <div className="pointer-events-none absolute inset-0 bg-[radial-gradient(circle_at_16%_18%,rgba(255,255,255,0.09),transparent_20%),radial-gradient(circle_at_78%_24%,rgba(20,74,106,0.34),transparent_26%),radial-gradient(circle_at_72%_70%,rgba(159,65,44,0.18),transparent_22%),linear-gradient(90deg,rgba(255,255,255,0.04)_1px,transparent_1px),linear-gradient(rgba(255,255,255,0.04)_1px,transparent_1px)] bg-[size:auto,auto,auto,64px_64px,64px_64px]" />
-      <div className="pointer-events-none absolute inset-y-0 right-[-8vw] w-[52vw] bg-[radial-gradient(circle_at_50%_30%,rgba(64,142,197,0.22),transparent_58%)] blur-3xl" />
+    <section className="hero-surface relative min-h-[100svh] overflow-hidden bg-[linear-gradient(180deg,#020617_0%,#07111f_46%,#0b1523_100%)] px-4 pb-10 pt-20 sm:px-6 lg:px-12 lg:pb-12 lg:pt-24">
+      <div className="hero-grid pointer-events-none absolute inset-0 bg-[radial-gradient(circle_at_16%_18%,rgba(255,255,255,0.09),transparent_20%),radial-gradient(circle_at_78%_24%,rgba(20,74,106,0.34),transparent_26%),radial-gradient(circle_at_72%_70%,rgba(159,65,44,0.18),transparent_22%),linear-gradient(90deg,rgba(255,255,255,0.04)_1px,transparent_1px),linear-gradient(rgba(255,255,255,0.04)_1px,transparent_1px)] bg-[size:auto,auto,auto,64px_64px,64px_64px]" />
+      <div className="hero-glow pointer-events-none absolute inset-y-0 right-[-8vw] w-[52vw] bg-[radial-gradient(circle_at_50%_30%,rgba(64,142,197,0.22),transparent_58%)] blur-3xl" />
 
       <div className="relative grid min-h-[calc(100svh-8rem)] items-center gap-10 lg:grid-cols-[minmax(0,0.92fr)_minmax(460px,1.08fr)] lg:gap-0">
-        <div className="max-w-3xl lg:pr-10">
+        <div className="hero-copy max-w-3xl lg:pr-10">
           <p className="mb-5 text-[11px] font-semibold uppercase tracking-[0.3em] text-[color:#d9a08b]">
             Farcelis AI Consulting
           </p>
@@ -25,20 +25,20 @@ export function Hero() {
           <div className="mt-10 flex flex-col gap-3 sm:flex-row">
             <Link
               href="/contact"
-              className="inline-flex min-h-12 items-center justify-center rounded-full bg-[linear-gradient(135deg,#9f412c,#7e1f0d)] px-6 py-3 text-sm font-semibold text-white shadow-[0_18px_36px_rgba(126,31,13,0.34)] transition hover:translate-y-[-1px]"
+              className="interactive-button inline-flex min-h-12 items-center justify-center rounded-full bg-[linear-gradient(135deg,#9f412c,#7e1f0d)] px-6 py-3 text-sm font-semibold text-white shadow-[0_18px_36px_rgba(126,31,13,0.34)] transition"
             >
               Work With Farcelis
             </Link>
             <Link
               href="/control-layer"
-              className="inline-flex min-h-12 items-center justify-center rounded-full border border-white/16 bg-white/4 px-6 py-3 text-sm font-semibold text-white transition hover:border-white/28 hover:bg-white/8"
+              className="interactive-button inline-flex min-h-12 items-center justify-center rounded-full border border-white/16 bg-white/4 px-6 py-3 text-sm font-semibold text-white transition"
             >
               Explore the Control Layer
             </Link>
           </div>
         </div>
 
-        <div className="relative lg:-ml-6">
+        <div className="hero-panel relative lg:-ml-6">
           <div className="absolute inset-x-6 top-8 -z-10 h-[85%] bg-[radial-gradient(circle_at_50%_20%,rgba(86,197,255,0.22),transparent_44%),radial-gradient(circle_at_60%_72%,rgba(159,65,44,0.2),transparent_34%)] blur-3xl" />
           <div className="grid gap-4 border border-white/10 bg-[linear-gradient(180deg,rgba(2,6,23,0.72),rgba(15,23,42,0.62))] p-4 shadow-[0_48px_140px_rgba(2,6,23,0.5)] backdrop-blur-md sm:p-5">
             <div className="grid gap-px overflow-hidden border border-white/10 bg-white/10 lg:grid-cols-[0.8fr_1.2fr]">
