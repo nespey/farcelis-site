@@ -46,39 +46,39 @@ export function HomeExperience() {
       <div className="pointer-events-none absolute inset-0 bg-[linear-gradient(90deg,rgba(255,255,255,0.04)_1px,transparent_1px),linear-gradient(rgba(255,255,255,0.04)_1px,transparent_1px)] bg-[size:64px_64px]" />
 
       <Reveal>
-        <section className="relative">
-          <div className="mx-auto max-w-[1200px] px-6 py-[120px] sm:px-8 lg:px-10">
-            <div className="grid min-h-[78svh] items-center gap-12 lg:grid-cols-[minmax(0,0.78fr)_minmax(520px,1fr)]">
+        <section className="relative overflow-hidden hero-grid">
+          <div className="mx-auto max-w-[1200px] px-5 py-20 sm:px-6 lg:px-8">
+            <div className="grid min-h-[100svh] items-center gap-8 lg:grid-cols-[minmax(0,0.86fr)_minmax(640px,1.14fr)] lg:gap-10">
               <div className="max-w-[600px]">
                 <p className="mb-5 text-sm font-semibold uppercase tracking-[0.18em] text-[color:#d9a08b]">
                   Farcelis AI Consulting
                 </p>
-                <h1 className="max-w-[600px] text-balance text-[3.25rem] font-semibold tracking-[-0.08em] text-white sm:text-[3.75rem] lg:text-[4rem] lg:leading-[1.05]">
+                <h1 className="max-w-[600px] text-balance text-[3.5rem] font-semibold tracking-[-0.08em] text-white sm:text-[4.25rem] lg:text-[5rem] lg:leading-[1.02]">
                   Execution breaks long before it scales.
                 </h1>
-                <p className="mt-6 max-w-[560px] text-[1.25rem] leading-[1.6] text-white/72">
+                <p className="mt-5 max-w-[560px] text-[1.25rem] leading-[1.6] text-white/76">
                   Farcelis builds the operational systems that keep workflows,
                   decisions, and teams aligned under real pressure.
                 </p>
-                <div className="mt-8 flex flex-col gap-3 sm:flex-row">
+                <div className="mt-7 flex flex-col gap-3 sm:flex-row">
                   <Link
                     href="/contact"
-                    className="inline-flex min-h-12 items-center justify-center rounded-full bg-[color:#9f412c] px-6 py-3 text-sm font-semibold text-white transition-colors duration-150 hover:bg-[color:#7e1f0d]"
+                    className="inline-flex min-h-12 items-center justify-center rounded-full bg-[color:#9f412c] px-6 py-3 text-sm font-semibold text-white transition-all duration-150 hover:bg-[color:#7e1f0d]"
                   >
                     Work With Farcelis
                   </Link>
                   <Link
                     href="/control-layer"
-                    className="inline-flex min-h-12 items-center justify-center rounded-full border border-white/16 bg-white/4 px-6 py-3 text-sm font-semibold text-white transition-colors duration-150 hover:bg-white/8"
+                    className="inline-flex min-h-12 items-center justify-center rounded-full border border-white/16 bg-white/4 px-6 py-3 text-sm font-semibold text-white transition-all duration-150 hover:bg-white/8"
                   >
                     Explore the Control Layer
                   </Link>
                 </div>
               </div>
 
-              <div className="relative">
-                <div className="pointer-events-none absolute inset-x-8 top-10 -z-10 h-[82%] bg-[radial-gradient(circle_at_50%_30%,rgba(217,160,139,0.16),transparent_48%)] blur-3xl" />
-                <div className="hero-panel-sequence border border-white/10 bg-[#08111d]/92 p-4 shadow-[0_28px_90px_rgba(2,6,23,0.42)] backdrop-blur-sm sm:p-5 lg:p-6">
+              <div className="relative lg:pl-2">
+                <div className="hero-glow pointer-events-none absolute inset-x-4 top-8 -z-10 h-[84%] bg-[radial-gradient(circle_at_50%_35%,rgba(217,160,139,0.22),transparent_50%)] blur-3xl" />
+                <div className="hero-panel hero-panel-sequence border border-white/10 bg-[#08111d]/94 p-5 shadow-[0_28px_90px_rgba(2,6,23,0.42)] backdrop-blur-sm sm:p-6 lg:p-8">
                   <div className="hero-panel-row flex items-center justify-between border-b border-white/10 pb-4">
                     <div>
                       <p className="text-sm font-semibold uppercase tracking-[0.16em] text-white/40">
@@ -94,7 +94,7 @@ export function HomeExperience() {
                   </div>
 
                   <div className="hero-panel-row mt-4 grid gap-px overflow-hidden border border-white/10 bg-white/10 lg:grid-cols-[0.8fr_1.2fr]">
-                    <div className="system-ui-tile bg-[#09111d] p-5">
+                    <div className="system-ui-tile bg-[#09111d] p-6">
                       <p className="text-sm font-semibold uppercase tracking-[0.14em] text-white/40">
                         Intake State
                       </p>
@@ -104,7 +104,7 @@ export function HomeExperience() {
                         <div>Priority locked</div>
                       </div>
                     </div>
-                    <div className="system-ui-tile bg-white p-5 text-slate-950">
+                    <div className="system-ui-tile bg-white p-6 text-slate-950">
                       <p className="text-sm font-semibold uppercase tracking-[0.14em] text-slate-400">
                         Control Core
                       </p>
@@ -121,7 +121,7 @@ export function HomeExperience() {
                   </div>
 
                   <div className="hero-panel-row mt-4 grid gap-px overflow-hidden border border-white/10 bg-white/10 md:grid-cols-3">
-                    <div className="system-ui-tile bg-[#09111d] p-5">
+                    <div className="system-ui-tile bg-[#09111d] p-6">
                       <p className="text-sm font-semibold uppercase tracking-[0.14em] text-white/40">
                         Execution
                       </p>
@@ -129,7 +129,7 @@ export function HomeExperience() {
                         Teams stay aligned under pressure.
                       </p>
                     </div>
-                    <div className="system-ui-tile bg-[#0d1a2c] p-5">
+                    <div className="system-ui-tile bg-[#0d1a2c] p-6">
                       <p className="text-sm font-semibold uppercase tracking-[0.14em] text-white/40">
                         Visibility
                       </p>
@@ -137,7 +137,7 @@ export function HomeExperience() {
                         Leadership sees movement in real time.
                       </p>
                     </div>
-                    <div className="system-ui-tile bg-[linear-gradient(180deg,#12273a,#102237)] p-5">
+                    <div className="system-ui-tile bg-[linear-gradient(180deg,#12273a,#102237)] p-6">
                       <p className="text-sm font-semibold uppercase tracking-[0.14em] text-white/48">
                         System State
                       </p>
@@ -155,7 +155,8 @@ export function HomeExperience() {
 
       <Reveal>
         <section>
-          <div className="mx-auto max-w-[1200px] px-6 py-[120px] sm:px-8 lg:px-10">
+          <div className="mx-auto max-w-[1200px] px-5 py-20 sm:px-6 lg:px-8">
+            <div className="border-t border-white/10 pt-8">
             <p className="text-sm font-semibold uppercase tracking-[0.16em] text-[color:#d9a08b]">
               Hard Truth
             </p>
@@ -166,14 +167,15 @@ export function HomeExperience() {
             <p className="mt-6 max-w-[620px] text-[1.25rem] leading-[1.6] text-white/68">
               Farcelis is the layer that fixes that.
             </p>
+            </div>
           </div>
         </section>
       </Reveal>
 
       <Reveal>
         <section>
-          <div className="mx-auto max-w-[1200px] px-6 py-[120px] sm:px-8 lg:px-10">
-            <div className="grid gap-10 border-t border-white/10 pt-10 lg:grid-cols-[minmax(0,0.74fr)_minmax(0,1fr)]">
+          <div className="mx-auto max-w-[1200px] px-5 py-20 sm:px-6 lg:px-8">
+            <div className="grid gap-10 border-t border-white/10 pt-8 lg:grid-cols-[minmax(0,0.74fr)_minmax(0,1fr)]">
               <div>
                 <p className="text-sm font-semibold uppercase tracking-[0.16em] text-[color:#d9a08b]">
                   System Flow
@@ -201,8 +203,8 @@ export function HomeExperience() {
 
       <Reveal>
         <section>
-          <div className="mx-auto max-w-[1200px] px-6 py-[120px] sm:px-8 lg:px-10">
-            <div className="grid gap-10 border-t border-white/10 pt-10 lg:grid-cols-2">
+          <div className="mx-auto max-w-[1200px] px-5 py-20 sm:px-6 lg:px-8">
+            <div className="grid gap-10 border-t border-white/10 pt-8 lg:grid-cols-2">
               <div>
                 <p className="text-sm font-semibold uppercase tracking-[0.16em] text-[color:#d9a08b]">
                   Who This Is For
@@ -230,8 +232,8 @@ export function HomeExperience() {
 
       <Reveal>
         <section>
-          <div className="mx-auto max-w-[1200px] px-6 py-[120px] sm:px-8 lg:px-10">
-            <div className="border-t border-white/10 pt-10">
+          <div className="mx-auto max-w-[1200px] px-5 py-20 sm:px-6 lg:px-8">
+            <div className="border-t border-white/10 pt-8">
               <p className="text-sm font-semibold uppercase tracking-[0.16em] text-[color:#d9a08b]">
                 Services
               </p>
@@ -263,10 +265,10 @@ export function HomeExperience() {
 
       <Reveal>
         <section>
-          <div className="mx-auto max-w-[1200px] px-6 py-[120px] sm:px-8 lg:px-10">
-            <div className="border-t border-white/10 pt-10">
+          <div className="mx-auto max-w-[1200px] px-5 py-20 sm:px-6 lg:px-8">
+            <div className="border-t border-white/10 pt-8">
               <p className="text-sm font-semibold uppercase tracking-[0.16em] text-[color:#d9a08b]">
-                Proof
+                Selected environments and engagements
               </p>
               <h2 className="mt-5 max-w-[760px] text-balance text-[3rem] font-semibold tracking-[-0.08em] text-white lg:text-[4rem] lg:leading-[1.08]">
                 Organizations that have worked with Farcelis AI Consulting LLC.
@@ -279,16 +281,16 @@ export function HomeExperience() {
                 {marqueePartners.map((partner, index) => (
                   <div
                     key={`${partner.name}-${index}`}
-                    className="flex min-h-28 min-w-[260px] items-center justify-center border border-white/10 bg-black/18 px-8 py-8"
+                    className="proof-logo-tile flex min-h-32 min-w-[300px] items-center justify-center border border-white/10 bg-black/20 px-10 py-8"
                   >
                     {partner.logo ? (
-                      <div className="relative h-14 w-full">
+                      <div className="relative h-16 w-full">
                         <Image
                           src={partner.logo}
                           alt={partner.name}
                           fill
-                          sizes="260px"
-                          className="object-contain"
+                          sizes="300px"
+                          className="object-contain opacity-100 grayscale transition duration-150 hover:grayscale-0"
                         />
                       </div>
                     ) : null}
@@ -296,14 +298,17 @@ export function HomeExperience() {
                 ))}
               </div>
             </div>
+            <p className="mt-6 max-w-[720px] text-base leading-[1.6] text-white/62">
+              Execution systems deployed across cybersecurity, operations, and AI environments
+            </p>
           </div>
         </section>
       </Reveal>
 
       <Reveal>
         <section>
-          <div className="mx-auto max-w-[1200px] px-6 py-[120px] sm:px-8 lg:px-10">
-            <div className="border-t border-white/10 pt-10">
+          <div className="mx-auto max-w-[1200px] px-5 py-20 sm:px-6 lg:px-8">
+            <div className="border-t border-white/10 pt-8">
               <p className="text-sm font-semibold uppercase tracking-[0.16em] text-[color:#d9a08b]">
                 Decision Point
               </p>

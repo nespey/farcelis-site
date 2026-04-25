@@ -71,8 +71,8 @@ a {
 }
 
 @keyframes logoMarquee {
-  0% { transform: translate3d(0, 0, 0); }
-  100% { transform: translate3d(-50%, 0, 0); }
+  0% { transform: translate3d(-50%, 0, 0); }
+  100% { transform: translate3d(0, 0, 0); }
 }
 
 @keyframes heroProgressSlide {
@@ -90,6 +90,10 @@ a {
 
 .hero-panel {
   animation: heroPanelEnter 300ms ease-out both;
+  box-shadow:
+    0 28px 90px rgba(2, 6, 23, 0.42),
+    inset 0 1px 0 rgba(255, 255, 255, 0.05),
+    inset 0 -20px 40px rgba(2, 6, 23, 0.18);
 }
 
 .hero-panel-row {
@@ -119,7 +123,7 @@ a {
 }
 
 .logo-carousel-track {
-  animation: logoMarquee 28s linear infinite;
+  animation: logoMarquee 34s linear infinite;
   will-change: transform;
 }
 
@@ -127,13 +131,30 @@ a {
   opacity: 0;
   transform: translate3d(0, 20px, 0);
   transition:
-    opacity 400ms ease-out,
-    transform 400ms ease-out;
+    opacity 600ms ease,
+    transform 600ms ease;
 }
 
 .reveal-section.is-visible {
   opacity: 1;
   transform: translate3d(0, 0, 0);
+}
+
+.system-ui-tile,
+.proof-logo-tile,
+.hero-panel-sequence {
+  transition:
+    transform 150ms ease,
+    border-color 150ms ease,
+    box-shadow 150ms ease;
+}
+
+.system-ui-tile:hover,
+.proof-logo-tile:hover,
+.hero-panel-sequence:hover {
+  transform: translateY(-4px);
+  border-color: rgba(217, 160, 139, 0.28);
+  box-shadow: 0 18px 40px rgba(2, 6, 23, 0.22);
 }
 
 @media (prefers-reduced-motion: reduce) {
