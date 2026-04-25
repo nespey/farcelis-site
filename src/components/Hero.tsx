@@ -8,17 +8,17 @@ export function Hero() {
 
       <div className="relative mx-auto grid min-h-[calc(100svh-8rem)] max-w-[1200px] items-center gap-10 lg:grid-cols-[minmax(0,0.8fr)_minmax(560px,1fr)] lg:gap-8">
         <div className="max-w-[600px] lg:justify-self-center lg:pr-2">
-          <p className="mb-5 text-[11px] font-semibold uppercase tracking-[0.3em] text-[color:#d9a08b]">
+          <p className="mb-5 text-sm font-semibold uppercase tracking-[0.24em] text-[color:#d9a08b]">
             Farcelis AI Consulting
           </p>
-          <h1 className="max-w-[600px] text-balance text-[4rem] font-semibold tracking-[-0.12em] text-white sm:text-[5rem] lg:text-[6.6rem] lg:leading-[0.82]">
+          <h1 className="max-w-[600px] text-balance text-[3.2rem] font-semibold tracking-[-0.1em] text-white sm:text-[3.7rem] lg:text-[4rem] lg:leading-[1.05]">
             Execution breaks long before it scales.
           </h1>
-          <p className="mt-6 max-w-[560px] text-pretty text-[1.08rem] leading-8 text-white/72 sm:text-[1.16rem]">
+          <p className="mt-6 max-w-[560px] text-pretty text-[1.25rem] leading-[1.6] text-white/72">
             Farcelis builds the operational systems that keep workflows,
             decisions, and teams aligned under real pressure.
           </p>
-          <p className="mt-4 text-[11px] font-semibold uppercase tracking-[0.24em] text-white/42">
+          <p className="mt-4 text-sm font-semibold uppercase tracking-[0.18em] text-white/42">
             This is not software. It is the structure behind execution.
           </p>
 
@@ -52,9 +52,9 @@ export function Hero() {
 
             <div className="hero-panel-row grid gap-px overflow-hidden border border-white/10 bg-white/10 lg:grid-cols-[0.8fr_1.2fr]">
               <div className="bg-slate-950/82 p-5 shadow-[inset_0_1px_0_rgba(255,255,255,0.03)] transition-all duration-150 hover:border-white/20 hover:shadow-[0_0_0_1px_rgba(255,255,255,0.08),0_18px_36px_rgba(2,6,23,0.18)] hover:-translate-y-1">
-                <p className="text-[11px] font-semibold uppercase tracking-[0.24em] text-white/38">
-                  Intake State
-                </p>
+                  <p className="text-sm font-semibold uppercase tracking-[0.18em] text-white/38">
+                    Intake State
+                  </p>
                 <div className="mt-6 space-y-3 text-sm text-white/74">
                   <div>Requests captured</div>
                   <div>Ownership defined</div>
@@ -62,7 +62,7 @@ export function Hero() {
                 </div>
               </div>
               <div className="bg-white p-5 shadow-[inset_0_1px_0_rgba(255,255,255,0.45)] transition-all duration-150 hover:shadow-[0_0_0_1px_rgba(15,23,42,0.08),0_18px_36px_rgba(15,23,42,0.12)] hover:-translate-y-1">
-                <p className="text-[11px] font-semibold uppercase tracking-[0.24em] text-slate-400">
+                <p className="text-sm font-semibold uppercase tracking-[0.18em] text-slate-400">
                   Control Core
                 </p>
                 <div className="mt-6 flex flex-wrap items-center gap-3 text-sm font-medium text-slate-900">
@@ -81,7 +81,7 @@ export function Hero() {
 
             <div className="hero-panel-row grid gap-px overflow-hidden border border-white/10 bg-white/10 md:grid-cols-3">
               <div className="bg-[#09111d] p-5 shadow-[inset_0_1px_0_rgba(255,255,255,0.03)] transition-all duration-150 hover:shadow-[0_0_0_1px_rgba(255,255,255,0.08),0_18px_36px_rgba(2,6,23,0.18)] hover:-translate-y-1">
-                <p className="text-[11px] font-semibold uppercase tracking-[0.2em] text-white/36">
+                <p className="text-sm font-semibold uppercase tracking-[0.16em] text-white/36">
                   Execution
                 </p>
                 <p className="mt-5 text-lg font-semibold tracking-[-0.04em] text-white">
@@ -89,7 +89,7 @@ export function Hero() {
                 </p>
               </div>
               <div className="bg-[#0d1a2c] p-5 shadow-[inset_0_1px_0_rgba(255,255,255,0.03)] transition-all duration-150 hover:shadow-[0_0_0_1px_rgba(255,255,255,0.08),0_18px_36px_rgba(2,6,23,0.18)] hover:-translate-y-1">
-                <p className="text-[11px] font-semibold uppercase tracking-[0.2em] text-white/36">
+                <p className="text-sm font-semibold uppercase tracking-[0.16em] text-white/36">
                   Decisions
                 </p>
                 <p className="mt-5 text-lg font-semibold tracking-[-0.04em] text-white">
@@ -97,7 +97,7 @@ export function Hero() {
                 </p>
               </div>
               <div className="bg-[linear-gradient(135deg,#9f412c,#144a6a)] p-5 shadow-[inset_0_1px_0_rgba(255,255,255,0.12)] transition-all duration-150 hover:shadow-[0_0_0_1px_rgba(255,255,255,0.12),0_18px_36px_rgba(2,6,23,0.2)] hover:-translate-y-1">
-                <p className="text-[11px] font-semibold uppercase tracking-[0.2em] text-white/54">
+                <p className="text-sm font-semibold uppercase tracking-[0.16em] text-white/54">
                   System State
                 </p>
                 <p className="mt-5 text-lg font-semibold tracking-[-0.04em] text-white">

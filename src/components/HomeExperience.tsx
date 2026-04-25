@@ -130,14 +130,14 @@ export function HomeExperience() {
             <div className="system-viewport border border-white/10 bg-[linear-gradient(180deg,rgba(2,6,23,0.76),rgba(15,23,42,0.66))] p-4 shadow-[0_40px_140px_rgba(2,6,23,0.52)] backdrop-blur-md sm:p-5 lg:p-6">
               <div className="flex items-center justify-between border-b border-white/10 pb-3">
                 <div>
-                  <p className="text-xs font-semibold uppercase tracking-[0.24em] text-white/36">
+                  <p className="text-sm font-semibold uppercase tracking-[0.18em] text-white/36">
                     Farcelis Control Layer
                   </p>
-                  <p className="mt-2 text-sm font-medium text-white/72">
+                  <p className="mt-2 text-base font-medium leading-[1.6] text-white/72">
                     Operational System Interface
                   </p>
                 </div>
-                <div className="system-ping flex items-center gap-2 text-[11px] uppercase tracking-[0.22em] text-white/38">
+                <div className="system-ping flex items-center gap-2 text-sm uppercase tracking-[0.16em] text-white/38">
                   <span className="h-2 w-2 rounded-full bg-[color:#d9a08b]" />
                   Live
                 </div>
@@ -150,7 +150,7 @@ export function HomeExperience() {
               >
                 <div className="grid gap-px overflow-hidden border border-white/10 bg-white/10 lg:grid-cols-[0.88fr_1.12fr]">
                   <div className="bg-[#08111d] p-5">
-                    <p className="text-xs font-semibold uppercase tracking-[0.22em] text-white/34">
+                    <p className="text-sm font-semibold uppercase tracking-[0.16em] text-white/34">
                       Intake State
                     </p>
                     <div className="mt-6 space-y-3 text-sm text-white/72">
@@ -161,7 +161,7 @@ export function HomeExperience() {
                   </div>
 
                   <div className="bg-white p-5 text-slate-950">
-                    <p className="text-xs font-semibold uppercase tracking-[0.22em] text-slate-400">
+                    <p className="text-sm font-semibold uppercase tracking-[0.16em] text-slate-400">
                       Control Core
                     </p>
                     <div className="mt-6 flex flex-wrap items-center gap-3 text-sm font-medium">
@@ -185,7 +185,7 @@ export function HomeExperience() {
 
                 <div className="mt-4 grid gap-px overflow-hidden border border-white/10 bg-white/10 md:grid-cols-3">
                   <div className="bg-[#09111d] p-5">
-                    <p className="text-xs font-semibold uppercase tracking-[0.2em] text-white/34">
+                    <p className="text-sm font-semibold uppercase tracking-[0.16em] text-white/34">
                       Execution
                     </p>
                     <p className={`mt-5 text-lg font-semibold tracking-[-0.04em] text-white transition duration-500 ${activeStage >= 3 ? "translate-y-0 opacity-100" : "translate-y-2 opacity-70"}`}>
@@ -193,7 +193,7 @@ export function HomeExperience() {
                     </p>
                   </div>
                   <div className="bg-[#0d1a2c] p-5">
-                    <p className="text-xs font-semibold uppercase tracking-[0.2em] text-white/34">
+                    <p className="text-sm font-semibold uppercase tracking-[0.16em] text-white/34">
                       Visibility
                     </p>
                     <p className={`mt-5 text-lg font-semibold tracking-[-0.04em] text-white transition duration-500 ${activeStage >= 4 ? "translate-y-0 opacity-100" : "translate-y-2 opacity-70"}`}>
@@ -201,7 +201,7 @@ export function HomeExperience() {
                     </p>
                   </div>
                   <div className="bg-[linear-gradient(135deg,#9f412c,#144a6a)] p-5">
-                    <p className="text-xs font-semibold uppercase tracking-[0.2em] text-white/54">
+                    <p className="text-sm font-semibold uppercase tracking-[0.16em] text-white/54">
                       System State
                     </p>
                     <p className={`mt-5 text-lg font-semibold tracking-[-0.04em] text-white transition duration-500 ${activeStage >= 5 ? "translate-y-0 opacity-100" : "translate-y-2 opacity-78"}`}>
@@ -213,7 +213,7 @@ export function HomeExperience() {
 
               {activeStage === 6 ? (
                 <div className="mt-5 border border-white/10 bg-[#06101b] p-4">
-                  <p className="text-xs font-semibold uppercase tracking-[0.24em] text-white/34">
+                  <p className="text-sm font-semibold uppercase tracking-[0.18em] text-white/34">
                     Trusted Context
                   </p>
                   <div className="logo-carousel group relative mt-4 overflow-hidden">
@@ -259,24 +259,24 @@ export function HomeExperience() {
               <div className={`w-full max-w-[560px] transition-all duration-[400ms] ease-out ${
                 activeStage === index ? "opacity-100 translate-y-0" : "opacity-35 translate-y-5"
               }`}>
-                <p className="text-sm font-semibold uppercase tracking-[0.26em] text-[color:#d9a08b]">
+                <p className="text-sm font-semibold uppercase tracking-[0.18em] text-[color:#d9a08b]">
                   {stage.eyebrow}
                 </p>
                 <h1
-                  className={`mt-5 text-balance font-semibold tracking-[-0.1em] text-white ${
+                  className={`mt-5 text-balance font-semibold tracking-[-0.08em] text-white ${
                     index === 0
-                      ? "text-[3.8rem] sm:text-[5rem] lg:text-[6.8rem] lg:leading-[0.82]"
-                      : "text-[3rem] sm:text-[4rem] lg:text-[5rem] lg:leading-[0.88]"
+                      ? "text-[3.2rem] sm:text-[3.7rem] lg:text-[4rem] lg:leading-[1.05]"
+                      : "text-[2.8rem] sm:text-[3.3rem] lg:text-[4rem] lg:leading-[1.08]"
                   }`}
                 >
                   {stage.title}
                 </h1>
-                <p className="mt-7 max-w-2xl text-lg leading-8 text-white/62">
+                <p className="mt-6 max-w-2xl text-base leading-[1.6] text-white/62">
                   {stage.body}
                 </p>
 
                 {stage.accent ? (
-                  <p className="mt-5 text-sm font-semibold uppercase tracking-[0.22em] text-white/40">
+                  <p className="mt-4 text-sm font-semibold uppercase tracking-[0.16em] text-white/40">
                     {stage.accent}
                   </p>
                 ) : null}
@@ -315,7 +315,7 @@ export function HomeExperience() {
                         key={item}
                         className="grid gap-2 border-t border-white/10 pt-4 md:border-l md:border-t-0 md:pl-4"
                       >
-                        <span className="text-xs font-semibold uppercase tracking-[0.22em] text-white/34">
+                        <span className="text-sm font-semibold uppercase tracking-[0.16em] text-white/34">
                           0{serviceIndex + 1}
                         </span>
                         <span className="text-xl font-semibold tracking-[-0.04em] text-white">
