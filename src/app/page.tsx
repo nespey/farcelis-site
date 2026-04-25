@@ -1,22 +1,14 @@
-import { CTASection } from "@/components/CTASection";
-import { ControlLayerCards } from "@/components/ControlLayerCards";
+import Link from "next/link";
+
 import { Hero } from "@/components/Hero";
 import { PartnerLogoGrid } from "@/components/PartnerLogoGrid";
-import { ProofCards } from "@/components/ProofCards";
-import { SectionHeader } from "@/components/SectionHeader";
-import { ServiceCards } from "@/components/ServiceCards";
-import { TrustBar } from "@/components/TrustBar";
 import { buildMetadata } from "@/lib/metadata";
 import {
   audienceSignals,
-  capabilityPoints,
   controlLayerIntro,
   flowSteps,
-  operatingContexts,
-  problemPoints,
   seo,
-  urgencyPoints,
-  whatFarcelisDoes,
+  services,
 } from "@/lib/site-data";
 
 export const metadata = buildMetadata(seo.home);
@@ -25,271 +17,213 @@ export default function HomePage() {
   return (
     <>
       <Hero />
-      <TrustBar />
 
-      <section className="bg-[#09111d] px-4 py-16 sm:px-6 lg:px-8 lg:py-20">
+      <section className="bg-black px-4 py-20 sm:px-6 lg:px-8 lg:py-24">
         <div className="mx-auto max-w-6xl">
-          <p className="text-[11px] font-semibold uppercase tracking-[0.28em] text-white/44">
-            System Reality
+          <p className="text-[11px] font-semibold uppercase tracking-[0.3em] text-white/36">
+            Hard Truth
           </p>
-          <p className="mt-4 max-w-5xl text-balance text-[3rem] font-semibold tracking-[-0.08em] text-white sm:text-[4rem] lg:text-[4.8rem] lg:leading-[0.92]">
-            Most organizations do not fail because of people.
-            They fail because their systems cannot carry execution at scale.
+          <p className="mt-5 max-w-5xl text-balance text-[3.2rem] font-semibold tracking-[-0.09em] text-white sm:text-[4.3rem] lg:text-[5.6rem] lg:leading-[0.9]">
+            Most organizations do not fail because of people. They fail because
+            their systems cannot carry execution at scale.
           </p>
-          <p className="mt-8 max-w-2xl text-[17px] leading-8 text-white/62">
+          <p className="mt-7 max-w-2xl text-[17px] leading-8 text-white/58">
             Farcelis is the layer that fixes that.
           </p>
         </div>
       </section>
 
-      <section className="px-4 py-20 sm:px-6 lg:px-8 lg:py-28">
-        <div className="mx-auto max-w-7xl px-0 py-0">
-          <SectionHeader
-            eyebrow="Capability Layer"
-            title="Farcelis defines the capability layer behind operational control."
-            description="Operational system design, execution architecture, workflow control environments, decision systems, and flagship Control Layer implementation operate together as one model."
-          />
-          <div className="mt-10 grid gap-8 border-t border-slate-300 pt-8 md:grid-cols-2 xl:grid-cols-3">
-            {whatFarcelisDoes.map((item) => (
-              <div key={item.title} className="border-l border-slate-300 pl-4">
-                <h3 className="text-[1.35rem] font-semibold tracking-[-0.04em] text-slate-950">
-                  {item.title}
-                </h3>
-                <p className="mt-3 max-w-md text-[16px] leading-7 text-slate-600">
-                  {item.description}
-                </p>
-              </div>
-            ))}
+      <section className="bg-[color:var(--color-paper)] px-4 py-24 sm:px-6 lg:px-8 lg:py-28">
+        <div className="mx-auto grid max-w-7xl gap-12 lg:grid-cols-[minmax(0,0.92fr)_minmax(420px,1.08fr)] lg:items-center">
+          <div className="max-w-2xl">
+            <p className="text-[11px] font-semibold uppercase tracking-[0.28em] text-[color:#9f412c]">
+              The Control Layer
+            </p>
+            <h2 className="mt-4 text-balance text-[2.8rem] font-semibold tracking-[-0.08em] text-slate-950 sm:text-[3.6rem] lg:text-[4.4rem] lg:leading-[0.92]">
+              The Farcelis Control Layer is the execution system behind
+              operational control.
+            </h2>
+            <p className="mt-6 max-w-xl text-[17px] leading-8 text-slate-600">
+              It captures inflow, structures ownership, and keeps active work
+              visible before execution starts to drift.
+            </p>
+          </div>
+
+          <div className="border border-slate-200 bg-white p-5 shadow-[0_30px_80px_rgba(15,23,42,0.12)]">
+            <div className="grid gap-px overflow-hidden bg-slate-200 md:grid-cols-3">
+              {controlLayerIntro.map((item, index) => (
+                <div
+                  key={item.title}
+                  className={`p-5 ${
+                    index === 1 ? "bg-slate-950 text-white" : "bg-white text-slate-950"
+                  }`}
+                >
+                  <p
+                    className={`text-[11px] font-semibold uppercase tracking-[0.2em] ${
+                      index === 1 ? "text-white/48" : "text-slate-400"
+                    }`}
+                  >
+                    {item.title}
+                  </p>
+                  <p
+                    className={`mt-6 text-xl font-semibold tracking-[-0.04em] ${
+                      index === 1 ? "text-white" : "text-slate-950"
+                    }`}
+                  >
+                    {item.description}
+                  </p>
+                </div>
+              ))}
+            </div>
+
+            <div className="mt-4 border border-slate-200 bg-slate-50 px-4 py-4 text-sm leading-7 text-slate-600">
+              One operating environment. One structure for decisions,
+              priorities, and movement.
+            </div>
           </div>
         </div>
       </section>
 
-      <section className="px-4 py-20 sm:px-6 lg:px-8 lg:py-28">
+      <section className="border-y border-slate-200 bg-white px-4 py-20 sm:px-6 lg:px-8 lg:py-24">
         <div className="mx-auto max-w-7xl">
-          <SectionHeader
-            eyebrow="The Problem"
-            title="Most businesses are running without a control system."
-            description="Work is scattered across tools, teams, and conversations. Execution breaks down without structure."
-          />
-          <div className="mt-10 grid gap-4 border-t border-slate-300 pt-8 sm:grid-cols-2 xl:grid-cols-4">
-            {problemPoints.map((point) => (
-              <div
-                key={point}
-                className="border-l border-slate-300 pl-4"
-              >
-                <div className="text-lg font-semibold tracking-[-0.03em] text-slate-950">
-                  {point}
-                </div>
-              </div>
-            ))}
+          <div className="max-w-3xl">
+            <p className="text-[11px] font-semibold uppercase tracking-[0.28em] text-[color:#9f412c]">
+              System Flow
+            </p>
+            <h2 className="mt-4 text-balance text-[2.5rem] font-semibold tracking-[-0.08em] text-slate-950 sm:text-[3.1rem] lg:text-[3.8rem] lg:leading-[0.94]">
+              Structure work before it starts to break apart.
+            </h2>
           </div>
-        </div>
-      </section>
 
-      <section className="px-4 py-20 sm:px-6 lg:px-8 lg:py-28">
-        <div className="mx-auto max-w-none border-y border-white/10 bg-black px-6 py-16 shadow-[0_48px_140px_rgba(2,6,23,0.4)] sm:px-8 lg:px-12 lg:py-24">
-          <div className="mx-auto max-w-7xl">
-          <SectionHeader
-            eyebrow="Why This Matters"
-            title="Execution failure is usually a system failure."
-            description="Without structure, work stalls at handoffs, priorities drift, and leadership reacts late. Most organizations do not break because effort disappears. They break because the operating system beneath execution cannot carry scale."
-            variant="inverse"
-          />
-          <div className="mt-14 grid gap-10 border-t border-white/10 pt-10 md:grid-cols-2">
-            {urgencyPoints.map((item) => (
-              <div key={item.title} className="border-l border-white/16 pl-5">
-                <h3 className="text-2xl font-semibold tracking-[-0.04em] text-white sm:text-[1.75rem]">
-                  {item.title}
-                </h3>
-                <p className="mt-4 max-w-xl text-lg leading-8 text-white/72">
-                  {item.description}
-                </p>
-              </div>
-            ))}
-          </div>
-          </div>
-        </div>
-      </section>
-
-      <section className="px-4 py-20 sm:px-6 lg:px-8 lg:py-28">
-        <div className="mx-auto max-w-7xl bg-[linear-gradient(180deg,rgba(255,255,255,0.96),rgba(244,238,230,0.96))] px-6 py-10 sm:px-8 lg:px-10 lg:py-12">
-          <SectionHeader
-            eyebrow="Flagship System"
-            title="The Farcelis Control Layer is a flagship system inside the broader Farcelis operating model."
-            description="It is one of the primary ways Farcelis turns fragmented work, inconsistent workflows, and poor visibility into a structured execution environment."
-          />
-          <div className="mt-10 grid gap-6 lg:grid-cols-3">
-            {controlLayerIntro.map((item, index) => (
-              <div
-                key={item.title}
-                className={`border-l pl-4 ${
-                  index === 1
-                    ? "border-slate-950 text-slate-950"
-                    : "border-slate-300 text-slate-950"
-                }`}
-              >
-                <div className="text-xs font-semibold uppercase tracking-[0.18em] text-[inherit] opacity-60">
-                  {item.title}
-                </div>
-                <h3 className="mt-3 text-2xl font-semibold tracking-[-0.04em]">
-                  {item.title} everything that matters.
-                </h3>
-                <p className="mt-4 text-base leading-7 text-slate-600">
-                  {item.description}
-                </p>
-              </div>
-            ))}
-          </div>
-        </div>
-      </section>
-
-      <section className="px-4 py-20 sm:px-6 lg:px-8 lg:py-28">
-        <div className="mx-auto max-w-7xl border border-slate-200 bg-[rgba(255,255,255,0.72)] px-6 py-10 shadow-[0_24px_60px_rgba(15,23,42,0.07)] sm:px-8 lg:px-10 lg:py-12">
-          <SectionHeader
-            eyebrow="Operating Contexts"
-            title="Farcelis builds structured environments across multiple contexts."
-            description="The same systems discipline applies across enterprise operations, government environments, startup execution, and personal system management."
-          />
-          <div className="mt-10 grid gap-6 border-t border-slate-300 pt-8 md:grid-cols-2 xl:grid-cols-4">
-            {operatingContexts.map((item) => (
-              <div
-                key={item.title}
-                className="border-l border-slate-300 pl-4"
-              >
-                <h3 className="text-xl font-semibold tracking-[-0.03em] text-slate-950">
-                  {item.title}
-                </h3>
-                <p className="mt-3 text-base leading-7 text-slate-600">
-                  {item.description}
-                </p>
-              </div>
-            ))}
-          </div>
-        </div>
-      </section>
-
-      <section className="px-4 py-20 sm:px-6 lg:px-8 lg:py-28">
-        <div className="mx-auto max-w-7xl border border-slate-900 bg-slate-950 px-6 py-10 shadow-[0_32px_90px_rgba(15,23,42,0.18)] sm:px-8 lg:px-10 lg:py-12">
-          <SectionHeader
-            eyebrow="This Is For You"
-            title="If complexity keeps rising while control keeps slipping, this is for you."
-            description="Farcelis is for the people carrying execution pressure inside systems that are no longer holding."
-            variant="inverse"
-          />
-          <div className="mt-10 grid gap-6 border-t border-white/10 pt-8 lg:grid-cols-3">
-            {audienceSignals.map((item) => (
-              <div
-                key={item.title}
-                className="border-l border-white/16 pl-4"
-              >
-                <h3 className="text-xl font-semibold tracking-[-0.03em] text-white">
-                  {item.title}
-                </h3>
-                <p className="mt-3 text-base leading-7 text-white/72">
-                  {item.description}
-                </p>
-              </div>
-            ))}
-          </div>
-        </div>
-      </section>
-
-      <section className="px-4 py-20 sm:px-6 lg:px-8 lg:py-28">
-        <div className="mx-auto max-w-7xl border border-slate-200 bg-[rgba(255,255,255,0.72)] px-6 py-10 shadow-[0_24px_60px_rgba(15,23,42,0.07)] sm:px-8 lg:px-10 lg:py-12">
-          <SectionHeader
-            eyebrow="System Flow"
-            title="How It Works"
-            description="Input → Intake → Assignment → Execution → Tracking → Completion"
-            align="center"
-          />
-          <div className="mt-10 grid gap-4 border-t border-slate-300 pt-8 lg:grid-cols-6">
-            {flowSteps.map((step, index) => (
-              <div key={step} className="grid gap-4">
-                <div className="border border-slate-200 bg-white px-5 py-6 text-center shadow-[0_18px_42px_rgba(15,23,42,0.06)]">
-                  <div className="text-sm font-semibold uppercase tracking-[0.18em] text-slate-500">
-                    {index + 1}
+          <div className="mt-12 overflow-x-auto pb-2">
+            <div className="flex min-w-max items-center gap-3 lg:gap-5">
+              {flowSteps.map((step, index) => (
+                <div key={step} className="flex items-center gap-3 lg:gap-5">
+                  <div className="border border-slate-300 px-5 py-4 text-sm font-semibold uppercase tracking-[0.16em] text-slate-700">
+                    {step}
                   </div>
-                  <div className="mt-2 text-lg font-semibold text-slate-950">{step}</div>
-                </div>
-              </div>
-            ))}
-          </div>
-          <p className="mx-auto mt-6 max-w-3xl text-center text-base leading-7 text-slate-600 sm:text-lg">
-            Every piece of work enters a structured system. Nothing gets lost.
-            Nothing moves without visibility. The result is a controlled
-            operational environment where execution is predictable and scalable.
-          </p>
-        </div>
-      </section>
-
-      <section className="px-4 py-20 sm:px-6 lg:px-8 lg:py-28">
-        <div className="mx-auto grid max-w-7xl gap-10 bg-white px-6 py-10 sm:px-8 lg:grid-cols-[minmax(0,0.88fr)_minmax(0,1.12fr)] lg:items-start lg:px-10 lg:py-12">
-          <div>
-            <SectionHeader
-              eyebrow="Inside the System"
-              title="Inside the Farcelis Control Layer"
-              description="Sterilized interface cards show how one connected system handles intake, structure, priority, execution, and tracking without exposing client data."
-            />
-            <div className="mt-8 grid gap-3 border-t border-slate-300 pt-6">
-              {capabilityPoints.map((point) => (
-                <div key={point} className="border-l border-slate-300 pl-4 text-sm font-medium text-slate-700">
-                  {point}
+                  {index < flowSteps.length - 1 ? (
+                    <div className="h-px w-8 bg-slate-300 lg:w-14" />
+                  ) : null}
                 </div>
               ))}
             </div>
           </div>
-          <ControlLayerCards />
+
+          <p className="mt-8 max-w-2xl text-[17px] leading-8 text-slate-600">
+            Work enters one structure, moves through one defined path, and stays
+            visible while execution is live.
+          </p>
         </div>
       </section>
 
-      <section className="px-4 py-20 sm:px-6 lg:px-8 lg:py-28">
-        <div className="mx-auto max-w-7xl border border-slate-200 bg-[rgba(255,255,255,0.74)] px-6 py-10 shadow-[0_24px_60px_rgba(15,23,42,0.07)] sm:px-8 lg:px-10 lg:py-12">
-          <SectionHeader
-            eyebrow="Services"
-            title="Services built for operational control, not loose AI activity."
-            description="Farcelis combines AI consulting, workflow automation, and system design so execution actually improves once more tools are layered in."
-          />
-          <div className="mt-10">
-            <ServiceCards />
-          </div>
-        </div>
-      </section>
-
-      <section className="px-4 py-20 sm:px-6 lg:px-8 lg:py-28">
-        <div className="mx-auto max-w-7xl border border-slate-900 bg-slate-950 px-6 py-10 shadow-[0_32px_90px_rgba(15,23,42,0.2)] sm:px-8 lg:px-10 lg:py-12">
-          <SectionHeader
-            eyebrow="Operating Proof"
-            title="Executive visibility, workflow control, and delivery governance."
-            description="Real work shaped by live client environments, governance needs, and execution pressure."
-            variant="inverse"
-          />
-          <div className="mt-10">
-            <ProofCards />
-          </div>
-        </div>
-      </section>
-
-      <section className="px-4 py-20 sm:px-6 lg:px-8 lg:py-28">
+      <section className="bg-[linear-gradient(180deg,#06111d,#0a1726)] px-4 py-22 sm:px-6 lg:px-8 lg:py-28">
         <div className="mx-auto max-w-7xl">
-          <SectionHeader
-            eyebrow="Organizations"
-            title="Organizations that have worked with Farcelis AI Consulting LLC."
-            description="Farcelis AI Consulting LLC has supported organizations across operations, automation, and system design. This is relationship context only, not a product adoption claim."
-          />
-          <div className="mt-10">
+          <p className="text-[11px] font-semibold uppercase tracking-[0.28em] text-white/38">
+            Who This Is For
+          </p>
+          <div className="mt-8 grid gap-px bg-white/10 lg:grid-cols-3">
+            {audienceSignals.map((item) => (
+              <div key={item.title} className="bg-transparent px-0 py-6 lg:px-6">
+                <h3 className="max-w-sm text-[1.6rem] font-semibold tracking-[-0.05em] text-white">
+                  {item.title}
+                </h3>
+                <p className="mt-4 max-w-sm text-[16px] leading-7 text-white/68">
+                  {item.description}
+                </p>
+              </div>
+            ))}
+            <div className="bg-transparent px-0 py-6 lg:px-6">
+              <h3 className="max-w-sm text-[1.6rem] font-semibold tracking-[-0.05em] text-white">
+                For overloaded personal systems
+              </h3>
+              <p className="mt-4 max-w-sm text-[16px] leading-7 text-white/68">
+                If fragmented tools and disconnected priorities are taking over
+                your personal operating environment, this is for you.
+              </p>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <section className="bg-[color:var(--color-paper)] px-4 py-22 sm:px-6 lg:px-8 lg:py-28">
+        <div className="mx-auto max-w-7xl">
+          <p className="text-[11px] font-semibold uppercase tracking-[0.28em] text-[color:#9f412c]">
+            Services
+          </p>
+          <h2 className="mt-4 max-w-4xl text-balance text-[2.5rem] font-semibold tracking-[-0.08em] text-slate-950 sm:text-[3.2rem] lg:text-[4rem] lg:leading-[0.92]">
+            Farcelis operates across strategy, structure, automation, and
+            execution control.
+          </h2>
+
+          <div className="mt-12 border-t border-slate-300">
+            {services.map((service, index) => (
+              <div
+                key={service.title}
+                className="grid gap-4 border-b border-slate-300 py-8 lg:grid-cols-[120px_minmax(0,1fr)_minmax(0,0.9fr)] lg:items-start lg:gap-8"
+              >
+                <div className="text-[11px] font-semibold uppercase tracking-[0.24em] text-slate-400">
+                  0{index + 1}
+                </div>
+                <h3 className="max-w-xl text-[1.7rem] font-semibold tracking-[-0.05em] text-slate-950">
+                  {service.title}
+                </h3>
+                <p className="max-w-xl text-[16px] leading-7 text-slate-600">
+                  {service.description}
+                </p>
+              </div>
+            ))}
+          </div>
+        </div>
+      </section>
+
+      <section className="bg-black px-4 py-22 sm:px-6 lg:px-8 lg:py-28">
+        <div className="mx-auto max-w-7xl">
+          <p className="text-[11px] font-semibold uppercase tracking-[0.28em] text-white/38">
+            Proof
+          </p>
+          <h2 className="mt-4 max-w-4xl text-balance text-[2.6rem] font-semibold tracking-[-0.08em] text-white sm:text-[3.4rem] lg:text-[4.2rem] lg:leading-[0.92]">
+            Organizations that have worked with Farcelis AI Consulting LLC.
+          </h2>
+          <p className="mt-6 max-w-2xl text-[17px] leading-8 text-white/58">
+            Supported across operations, automation, and system design.
+          </p>
+
+          <div className="mt-12">
             <PartnerLogoGrid />
           </div>
         </div>
       </section>
 
-      <CTASection
-        title="If You Don't Control the System, You Can't Scale It."
-        description="Farcelis builds the operational structure, execution visibility, and flagship systems leaders need to scale with more confidence."
-        primaryLabel="Work With Farcelis"
-        primaryHref="/contact"
-        secondaryLabel="Schedule a Strategy Call"
-        secondaryHref="/contact"
-      />
+      <section className="border-t border-slate-200 bg-[color:var(--color-paper)] px-4 py-24 sm:px-6 lg:px-8 lg:py-28">
+        <div className="mx-auto max-w-5xl">
+          <p className="text-[11px] font-semibold uppercase tracking-[0.28em] text-[color:#9f412c]">
+            Decision Point
+          </p>
+          <h2 className="mt-4 text-balance text-[2.8rem] font-semibold tracking-[-0.09em] text-slate-950 sm:text-[3.6rem] lg:text-[4.6rem] lg:leading-[0.9]">
+            If you do not control the system, you do not control execution.
+          </h2>
+          <p className="mt-6 max-w-2xl text-[17px] leading-8 text-slate-600">
+            Work with Farcelis to put real structure behind the way your
+            operation runs.
+          </p>
+
+          <div className="mt-10 flex flex-col gap-3 sm:flex-row">
+            <Link
+              href="/contact"
+              className="inline-flex min-h-12 items-center justify-center rounded-full bg-[linear-gradient(135deg,#9f412c,#7e1f0d)] px-6 py-3 text-sm font-semibold text-white shadow-[0_18px_36px_rgba(126,31,13,0.28)] transition hover:translate-y-[-1px]"
+            >
+              Work With Farcelis
+            </Link>
+            <Link
+              href="/contact"
+              className="inline-flex min-h-12 items-center justify-center rounded-full border border-slate-300 px-6 py-3 text-sm font-semibold text-slate-900 transition hover:border-slate-950"
+            >
+              Schedule a Strategy Call
+            </Link>
+          </div>
+        </div>
+      </section>
     </>
   );
 }
