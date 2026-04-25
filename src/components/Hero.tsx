@@ -91,31 +91,32 @@ function HeroCards() {
 
 export function Hero() {
   return (
-    <section className="overflow-hidden px-4 pb-16 pt-10 sm:px-6 sm:pb-20 lg:px-8 lg:pb-24 lg:pt-16">
-      <div className="mx-auto grid max-w-7xl gap-10 lg:grid-cols-[minmax(0,1.05fr)_minmax(440px,0.95fr)] lg:items-center">
+    <section className="overflow-hidden px-4 pb-20 pt-10 sm:px-6 sm:pb-24 lg:px-8 lg:pb-28 lg:pt-16">
+      <div className="mx-auto grid max-w-7xl gap-10 rounded-[40px] border border-slate-200 bg-[linear-gradient(135deg,rgba(255,255,255,0.96),rgba(243,238,230,0.98))] px-6 py-8 shadow-[0_36px_100px_rgba(15,23,42,0.14)] sm:px-8 sm:py-10 lg:grid-cols-[minmax(0,1.02fr)_minmax(430px,0.98fr)] lg:items-center lg:px-12 lg:py-16">
         <div className="max-w-2xl">
           <p className="mb-4 text-xs font-semibold uppercase tracking-[0.24em] text-[color:#9f412c]">
-            Farcelis Control Layer
+            Farcelis AI Consulting
           </p>
-          <h1 className="text-balance text-4xl font-semibold tracking-[-0.06em] text-slate-950 sm:text-5xl lg:text-6xl">
-            Regain Control of Your Business Operations
+          <h1 className="text-balance text-4xl font-semibold tracking-[-0.07em] text-slate-950 sm:text-5xl lg:text-[4.5rem] lg:leading-[0.92]">
+            This is how serious operators run modern execution.
           </h1>
-          <p className="mt-6 max-w-xl text-pretty text-lg leading-8 text-slate-600">
-            Farcelis builds AI-powered Control Layers that organize workflows,
-            data, and decisions into one structured system so leaders can
-            operate with clarity, speed, and precision.
+          <p className="mt-6 max-w-2xl text-pretty text-lg leading-8 text-slate-600">
+            Farcelis defines the systems behind visibility, workflow control,
+            and decision precision. The Control Layer stands as the flagship
+            system inside a broader execution model built for operators under
+            real pressure.
           </p>
 
           <ul className="mt-8 grid gap-3 text-sm font-medium text-slate-700 sm:grid-cols-2">
             {[
-              "Centralized workflow control",
-              "Real-time visibility",
-              "Structured execution",
-              "Scalable operations",
+              "Operational systems built for real execution pressure",
+              "Workflow architecture with command-level visibility",
+              "Flagship Control Layer deployment for critical environments",
+              "Decision systems that keep leadership anchored in reality",
             ].map((item) => (
               <li
                 key={item}
-                className="rounded-2xl border border-slate-200 bg-white px-4 py-3 shadow-[0_10px_26px_rgba(15,23,42,0.05)]"
+                className="rounded-2xl border border-slate-200 bg-white px-4 py-3 shadow-[0_14px_32px_rgba(15,23,42,0.07)]"
               >
                 {item}
               </li>
@@ -127,13 +128,21 @@ export function Hero() {
               href="/contact"
               className="inline-flex min-h-12 items-center justify-center rounded-full bg-[linear-gradient(135deg,#9f412c,#7e1f0d)] px-6 py-3 text-sm font-semibold text-white shadow-[0_16px_36px_rgba(126,31,13,0.28)] transition hover:translate-y-[-1px]"
             >
-              Build Your Control Layer
+              Work With Farcelis
             </Link>
             <Link
-              href="/control-layer"
+              href="/contact"
               className="inline-flex min-h-12 items-center justify-center rounded-full border border-slate-300 bg-white px-6 py-3 text-sm font-semibold text-slate-800 transition hover:border-slate-900 hover:text-slate-950"
             >
-              See How It Works
+              Schedule a Strategy Call
+            </Link>
+          </div>
+          <div className="mt-4">
+            <Link
+              href="/control-layer"
+              className="inline-flex items-center justify-center text-sm font-semibold text-slate-700 transition hover:text-slate-950"
+            >
+              Explore the Control Layer
             </Link>
           </div>
         </div>
@@ -152,4 +161,3 @@ export function Hero() {
     </section>
   );
 }
-

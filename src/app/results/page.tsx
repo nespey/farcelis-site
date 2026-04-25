@@ -79,13 +79,12 @@ export default function ResultsPage() {
 
       <CTASection
         title="Bring structure to the work before more complexity compounds it."
-        description="Farcelis helps leadership teams create visibility, accountability, and cleaner execution systems before additional AI automation layers increase operational noise."
-        primaryLabel="Build Your Control Layer"
+        description="Farcelis creates visibility, accountability, and cleaner execution systems before additional AI automation layers increase operational noise."
+        primaryLabel="Work With Farcelis"
         primaryHref="/contact"
-        secondaryLabel="See the Control Layer"
+        secondaryLabel="Explore the Control Layer"
         secondaryHref="/control-layer"
       />
     </>
   );
 }
-

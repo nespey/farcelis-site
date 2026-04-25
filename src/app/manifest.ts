@@ -2,10 +2,10 @@ import type { MetadataRoute } from "next";
 
 export default function manifest(): MetadataRoute.Manifest {
   return {
-    name: "Farcelis | Control Layer System",
+    name: "Farcelis AI Consulting",
     short_name: "Farcelis",
     description:
-      "Farcelis builds AI-powered Control Layers that organize workflows, data, and decisions into one structured system.",
+      "Farcelis is an AI operational systems firm focused on workflow architecture, execution systems, and flagship Control Layer implementations.",
     start_url: "/",
     display: "standalone",
     background_color: "#f5f1ea",
@@ -29,4 +29,3 @@ export default function manifest(): MetadataRoute.Manifest {
     ],
   };
 }
-

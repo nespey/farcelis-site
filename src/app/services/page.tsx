@@ -33,9 +33,10 @@ export default function ServicesPage() {
             AI consulting and operational systems built for execution.
           </h1>
           <p className="mt-6 max-w-3xl text-pretty text-lg leading-8 text-slate-600">
-            Farcelis provides AI consulting, workflow automation, and Control
-            Layer design for organizations that need better visibility, stronger
-            execution systems, and more reliable decision support.
+            Farcelis builds AI consulting, workflow architecture, execution
+            systems, and flagship Control Layer implementations for
+            organizations that need stronger visibility, cleaner operations,
+            and more reliable decision support.
           </p>
         </div>
       </section>
@@ -44,7 +45,7 @@ export default function ServicesPage() {
         <div className="mx-auto max-w-7xl">
           <SectionHeader
             eyebrow="Service Paths"
-            title="Farcelis helps organizations move from operational chaos to structured execution."
+            title="Farcelis moves organizations from operational chaos to structured execution."
             description="The service model is designed to meet organizations at different stages of control, automation, and AI adoption."
           />
           <div className="mt-10 grid gap-6 lg:grid-cols-3">
@@ -81,13 +82,12 @@ export default function ServicesPage() {
 
       <CTASection
         title="Choose the service path that gives your operations structure first."
-        description="Farcelis combines strategic design, implementation, workflow automation, and AI enablement so the system behind execution is strong before more tooling gets added."
-        primaryLabel="Build Your Control Layer"
+        description="Farcelis combines strategic design, implementation, workflow automation, and AI enablement so the operating system behind execution is strong before more tooling gets added."
+        primaryLabel="Work With Farcelis"
         primaryHref="/contact"
-        secondaryLabel="See How It Works"
+        secondaryLabel="Explore the Control Layer"
         secondaryHref="/control-layer"
       />
     </>
   );
 }
-

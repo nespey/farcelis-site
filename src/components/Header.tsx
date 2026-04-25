@@ -36,13 +36,13 @@ export function Header() {
               href="/control-layer"
               className="hidden rounded-full border border-slate-300 px-4 py-2 text-sm font-semibold text-slate-800 transition hover:border-slate-900 hover:text-slate-950 sm:inline-flex"
             >
-              See How It Works
+              Explore the Control Layer
             </Link>
             <Link
               href="/contact"
               className="inline-flex rounded-full bg-[linear-gradient(135deg,#9f412c,#7e1f0d)] px-4 py-2 text-sm font-semibold text-white shadow-[0_12px_28px_rgba(126,31,13,0.22)] transition hover:translate-y-[-1px]"
             >
-              Build Your Control Layer
+              Work With Farcelis
             </Link>
           </div>
         </div>

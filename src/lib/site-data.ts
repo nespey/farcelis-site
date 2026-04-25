@@ -37,13 +37,18 @@ export type TeamMember = {
   bio: string[];
 };
 
+export type InfoCard = {
+  title: string;
+  description: string;
+};
+
 export const site = {
   name: "Farcelis AI Consulting LLC",
   shortName: "Farcelis",
   domain: "https://www.farcelis.io",
-  tagline: "AI Solutions for Smarter Business Operations",
+  tagline: "AI operational systems for leaders who need structure, visibility, and execution control.",
   summary:
-    "Farcelis builds AI-powered Control Layers that organize workflows, data, and decisions into one structured system so leaders can operate with clarity, speed, and precision.",
+    "Farcelis is an AI operational systems firm that designs workflow architecture, execution systems, and structured decision environments for founders, CEOs, organizations, and complex operating teams.",
   contact: {
     email: "info@farcelis.io",
     founderEmail: "nespey@farcelis.io",
@@ -88,7 +93,7 @@ export const seo = {
     path: "/",
     title: "Farcelis AI Consulting | Operational Systems & Control Layer",
     description:
-      "Farcelis builds AI-powered Control Layers that organize workflows, data, and decision-making into one structured system. Gain clarity, speed, and operational control.",
+      "Farcelis is an AI operational systems firm that designs workflow architecture, execution systems, and Control Layer implementations for leaders who need clarity, speed, and operational control.",
   },
   controlLayer: {
     path: "/control-layer",
@@ -100,7 +105,7 @@ export const seo = {
     path: "/services",
     title: "AI Consulting Services | Farcelis Operational Systems",
     description:
-      "Farcelis provides AI consulting and system design to structure workflows, automate operations, and improve execution across teams and organizations.",
+      "Farcelis builds AI consulting and operational system design engagements that structure workflows, automate operations, and improve execution across teams and organizations.",
   },
   team: {
     path: "/team",
@@ -116,9 +121,9 @@ export const seo = {
   },
   contact: {
     path: "/contact",
-    title: "Contact Farcelis | Build Your Control Layer",
+    title: "Contact Farcelis | AI Operational Systems Strategy Call",
     description:
-      "Connect with Farcelis to design and implement your Control Layer. Schedule a strategy call and bring structure to your operations.",
+      "Connect with Farcelis to discuss AI consulting, operational systems, workflow design, and Control Layer implementation for your organization.",
   },
 } satisfies Record<string, SeoEntry>;
 
@@ -194,7 +199,7 @@ export const services: Service[] = [
   {
     title: "AI Enablement",
     description:
-      "Farcelis helps teams adopt AI in practical operating environments through structured rollout support, enablement, and decision systems that reduce noise and improve execution.",
+      "Farcelis structures AI adoption inside practical operating environments through rollout support, enablement, and decision systems that reduce noise and improve execution.",
     points: [
       "Adoption readiness",
       "Team enablement",
@@ -227,6 +232,103 @@ export const problemPoints = [
   "No clear ownership",
   "Reactive decisions",
   "Limited visibility",
+];
+
+export const urgencyPoints = [
+  {
+    title: "Execution breaks at handoff points",
+    description:
+      "Work slows down when requests move between people, tools, and teams without a defined operating path.",
+  },
+  {
+    title: "Scale exposes weak systems",
+    description:
+      "Growth increases volume, pressure, and coordination load. Without structure, more effort only creates more drag.",
+  },
+  {
+    title: "Leadership reacts too late",
+    description:
+      "When visibility is delayed, decisions arrive after the problem has already moved through the system.",
+  },
+  {
+    title: "This is a system problem, not a people problem",
+    description:
+      "Good people still underperform inside weak operating environments. Structure is the layer that makes execution hold.",
+  },
+];
+
+export const whatFarcelisDoes: InfoCard[] = [
+  {
+    title: "Operational system design",
+    description:
+      "Farcelis structures the operating model that determines how work moves, who owns it, and what leadership can actually see.",
+  },
+  {
+    title: "Execution architecture",
+    description:
+      "Farcelis builds the architecture behind execution so reporting, accountability, and follow-through hold under real pressure.",
+  },
+  {
+    title: "Workflow control environments",
+    description:
+      "Farcelis defines the environment where workflows, handoffs, and routing logic stay controlled across teams and tools.",
+  },
+  {
+    title: "Decision systems",
+    description:
+      "Decision-making gains structure when leadership can see active work, pressure points, and operational movement in one frame.",
+  },
+  {
+    title: "Flagship Control Layer implementation",
+    description:
+      "The Control Layer stands as the flagship Farcelis system when an operation needs a stronger spine across people, processes, and tools.",
+  },
+  {
+    title: "Cross-domain operating range",
+    description:
+      "Farcelis applies the same systems discipline across enterprise, government, education, and personal environments where execution still needs control.",
+  },
+];
+
+export const operatingContexts: InfoCard[] = [
+  {
+    title: "Founders and CEOs",
+    description:
+      "Farcelis gives leadership teams a stronger view into priorities, execution, and decision-making before chaos compounds.",
+  },
+  {
+    title: "Businesses and enterprises",
+    description:
+      "Operational systems, automation pathways, and workflow architecture are designed to hold across larger teams and higher stakes.",
+  },
+  {
+    title: "Government and education",
+    description:
+      "Structured environments can support compliance-heavy, deadline-driven, and cross-functional operating realities where coordination matters.",
+  },
+  {
+    title: "Personal and household systems",
+    description:
+      "Farcelis applies the same systems thinking to personal environments where planning, priorities, and follow-through need more control.",
+  },
+];
+
+export const audienceSignals: InfoCard[] = [
+  {
+    title: "For founders and CEOs",
+    description:
+      "If growth is outrunning structure and every answer still depends on chasing updates, this is for you.",
+  },
+  {
+    title: "For operators",
+    description:
+      "If teams are losing execution control through manual follow-up, brittle handoffs, and reactive coordination, this is for you.",
+  },
+  {
+    title: "For organizations carrying complexity",
+    description:
+      "If complexity keeps multiplying across teams, stakeholders, systems, or even personal operations, this is for you.",
+  },
 ];
 
 export const capabilityPoints = [
@@ -431,4 +533,3 @@ export const certifications = [
     image: "/images/certifications/clickup-verified-power-user.jpeg",
   },
 ];
-

@@ -9,7 +9,7 @@ export function buildMetadata(entry: (typeof seo)[keyof typeof seo]): Metadata {
     metadataBase: new URL(site.domain),
     title: entry.title,
     description: entry.description,
-    applicationName: "Farcelis | Control Layer System",
+    applicationName: "Farcelis AI Consulting",
     keywords: [
       "Farcelis",
       "Farcelis AI Consulting",
@@ -33,7 +33,7 @@ export function buildMetadata(entry: (typeof seo)[keyof typeof seo]): Metadata {
           url: defaultOgImage,
           width: 1400,
           height: 900,
-          alt: `${site.shortName} Control Layer preview`,
+          alt: `${site.shortName} AI operational systems preview`,
         },
       ],
     },
@@ -45,4 +45,3 @@ export function buildMetadata(entry: (typeof seo)[keyof typeof seo]): Metadata {
     },
   };
 }
-

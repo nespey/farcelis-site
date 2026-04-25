@@ -20,6 +20,9 @@ export function ProofCards() {
             />
           </div>
           <div className="p-6">
+            <p className="text-xs font-semibold uppercase tracking-[0.18em] text-[color:#9f412c]">
+              Operating Signal
+            </p>
             <h3 className="text-2xl font-semibold tracking-[-0.03em] text-slate-950">
               {card.title}
             </h3>
@@ -30,4 +33,3 @@ export function ProofCards() {
     </div>
   );
 }
-

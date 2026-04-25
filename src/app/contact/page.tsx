@@ -20,12 +20,12 @@ export default function ContactPage() {
             Contact Farcelis
           </p>
           <h1 className="text-balance text-4xl font-semibold tracking-[-0.06em] text-slate-950 sm:text-5xl lg:text-6xl">
-            Build your Control Layer with a grounded strategy conversation.
+            Start a strategy conversation about your operating system.
           </h1>
           <p className="mt-6 max-w-3xl text-pretty text-lg leading-8 text-slate-600">
-            Connect with Farcelis to design and implement your Control Layer.
-            If you need better visibility into work, decisions, and execution
-            before scaling AI, start here.
+            Connect with Farcelis to discuss AI consulting, operational system
+            design, workflow architecture, or Control Layer implementation. If
+            execution is noisy, fragmented, or hard to govern, start here.
           </p>
         </div>
       </section>
@@ -100,10 +100,9 @@ export default function ContactPage() {
       <CTASection
         title="Start the conversation with the operating problem in front of you."
         description="Farcelis is designed to help founders, CEOs, operators, and teams bring structure to operational chaos before they scale more AI, more automation, or more complexity."
-        primaryLabel="Email Farcelis"
+        primaryLabel="Work With Farcelis"
         primaryHref={`mailto:${site.contact.founderEmail}`}
       />
     </>
   );
 }
-

@@ -16,9 +16,9 @@ export function Footer() {
             className="h-12 w-auto brightness-[1.6] contrast-[1.1]"
           />
           <p className="mt-5 max-w-xl text-base leading-7 text-slate-300">
-            Farcelis builds AI-powered operational systems, workflow automation,
-            and Control Layer environments for leaders who need clarity before
-            they scale.
+            Farcelis is an AI operational systems firm focused on workflow
+            architecture, execution environments, and flagship system
+            implementations for leaders who need more control before they scale.
           </p>
           <div className="mt-6 space-y-1 text-sm text-slate-400">
             <div>{site.contact.email}</div>
@@ -81,4 +81,3 @@ export function Footer() {
     </footer>
   );
 }
-

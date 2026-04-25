@@ -19,11 +19,11 @@ const spaceGrotesk = Space_Grotesk({
 export const metadata: Metadata = {
   metadataBase: new URL(site.domain),
   title: {
-    default: "Farcelis | Control Layer System",
+    default: "Farcelis AI Consulting",
     template: "%s",
   },
   description: site.summary,
-  applicationName: "Farcelis | Control Layer System",
+  applicationName: "Farcelis AI Consulting",
   icons: {
     icon: [
       { url: "/favicon.ico" },

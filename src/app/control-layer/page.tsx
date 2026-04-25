@@ -60,8 +60,10 @@ export default function ControlLayerPage() {
               The Farcelis Control Layer
             </h1>
             <p className="mt-6 max-w-2xl text-pretty text-lg leading-8 text-slate-600">
-              A structured operational system that organizes workflows, data,
-              and decisions into a single environment built for execution.
+              The Farcelis Control Layer is the flagship system inside the
+              broader Farcelis operating model. It gives organizations a
+              structured environment for workflows, decisions, visibility, and
+              execution when the operating system itself needs to be rebuilt.
             </p>
             <div className="mt-8 flex flex-col gap-3 sm:flex-row">
               <a
@@ -74,7 +76,7 @@ export default function ControlLayerPage() {
                 href="/contact"
                 className="inline-flex min-h-12 items-center justify-center rounded-full border border-slate-300 bg-white px-6 py-3 text-sm font-semibold text-slate-800 transition hover:border-slate-900 hover:text-slate-950"
               >
-                Build Your Control Layer
+                Work With Farcelis
               </a>
             </div>
           </div>
@@ -98,7 +100,7 @@ export default function ControlLayerPage() {
           <SectionHeader
             eyebrow="What It Is"
             title="What the Control Layer actually is."
-            description="The Farcelis Control Layer is not another disconnected tool. It is a structured system that sits above your existing tools and organizes how work flows through your business."
+            description="The Farcelis Control Layer is a flagship Farcelis implementation. It is a structured system that sits above your existing tools and organizes how work flows through the business."
           />
           <div className="mt-10 grid gap-6 lg:grid-cols-2">
             <div className="rounded-[28px] border border-slate-200 bg-white p-6 shadow-[0_20px_48px_rgba(15,23,42,0.08)]">
@@ -244,8 +246,8 @@ export default function ControlLayerPage() {
       </section>
 
       <CTASection
-        title="Build a system that actually runs your business."
-        description="If your organization is buried in noise, disconnected workflows, or execution drag, the Farcelis Control Layer is designed to stabilize operations first and scale with more confidence."
+        title="Build a stronger operating environment before complexity compounds."
+        description="If your organization is buried in noise, disconnected workflows, or execution drag, Farcelis can help determine whether the Control Layer is the right flagship implementation inside a broader systems strategy."
         primaryLabel="Request a Demo"
         primaryHref="/contact"
         secondaryLabel="Start a Strategy Call"
@@ -254,4 +256,3 @@ export default function ControlLayerPage() {
     </>
   );
 }
-
