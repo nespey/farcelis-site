@@ -124,8 +124,8 @@ export function HomeExperience() {
       <div className="pointer-events-none absolute inset-y-0 right-[-15vw] w-[42vw] bg-[radial-gradient(circle_at_50%_36%,rgba(84,170,224,0.18),transparent_56%)] blur-3xl" />
       <div className="pointer-events-none absolute bottom-[-10rem] left-[10%] h-[22rem] w-[22rem] rounded-full bg-[radial-gradient(circle,rgba(159,65,44,0.18),transparent_64%)] blur-3xl" />
 
-      <div className="relative grid lg:grid-cols-[minmax(0,1fr)_620px]">
-        <div className="px-5 pb-16 pt-20 sm:px-8 lg:min-h-screen lg:px-12 lg:pb-20 lg:pt-24">
+      <div className="relative mx-auto max-w-[1200px] lg:grid lg:grid-cols-[minmax(0,1fr)_560px] lg:gap-10">
+        <div className="px-5 pb-[120px] pt-20 sm:px-8 lg:min-h-screen lg:px-0 lg:pb-[120px] lg:pt-24">
           <div className="lg:sticky lg:top-0 lg:flex lg:min-h-screen lg:flex-col lg:justify-center">
             <div className="system-viewport border border-white/10 bg-[linear-gradient(180deg,rgba(2,6,23,0.76),rgba(15,23,42,0.66))] p-4 shadow-[0_40px_140px_rgba(2,6,23,0.52)] backdrop-blur-md sm:p-5 lg:p-6">
               <div className="flex items-center justify-between border-b border-white/10 pb-3">
@@ -246,7 +246,7 @@ export function HomeExperience() {
           </div>
         </div>
 
-        <div className="relative px-5 pb-24 sm:px-8 lg:px-12">
+        <div className="relative px-5 pb-[120px] sm:px-8 lg:px-0">
           {stages.map((stage, index) => (
             <div
               key={stage.key}
@@ -254,9 +254,9 @@ export function HomeExperience() {
                 stageRefs.current[index] = node;
               }}
               data-stage-index={index}
-              className="flex min-h-[88svh] items-center border-b border-white/8"
+              className="flex min-h-[88svh] items-center border-b border-white/8 py-[120px]"
             >
-              <div className={`w-full max-w-3xl transition-all duration-700 ${
+              <div className={`w-full max-w-[560px] transition-all duration-700 ${
                 activeStage === index ? "opacity-100 translate-y-0" : "opacity-35 translate-y-6"
               }`}>
                 <p className="text-sm font-semibold uppercase tracking-[0.26em] text-[color:#d9a08b]">
