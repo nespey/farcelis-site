@@ -27,15 +27,15 @@ export default function HomePage() {
       <Hero />
       <TrustBar />
 
-      <section className="px-4 py-10 sm:px-6 lg:px-8 lg:py-14">
-        <div className="mx-auto max-w-6xl border-y border-slate-800 bg-slate-950 px-6 py-12 shadow-[0_32px_90px_rgba(15,23,42,0.24)] sm:px-8 lg:px-10">
-          <p className="max-w-5xl text-balance text-2xl font-semibold tracking-[-0.05em] text-white sm:text-3xl lg:text-[2.8rem] lg:leading-[1.02]">
+      <section className="bg-[#09111d] px-4 py-16 sm:px-6 lg:px-8 lg:py-20">
+        <div className="mx-auto max-w-6xl">
+          <p className="max-w-5xl text-balance text-3xl font-semibold tracking-[-0.06em] text-white sm:text-4xl lg:text-[3.4rem] lg:leading-[0.98]">
             Most organizations do not fail because of people.
           </p>
-          <p className="mt-3 max-w-5xl text-balance text-2xl font-semibold tracking-[-0.05em] text-white sm:text-3xl lg:text-[2.8rem] lg:leading-[1.02]">
+          <p className="mt-4 max-w-5xl text-balance text-3xl font-semibold tracking-[-0.06em] text-white sm:text-4xl lg:text-[3.4rem] lg:leading-[0.98]">
             They fail because their systems cannot carry execution at scale.
           </p>
-          <p className="mt-5 text-sm font-semibold uppercase tracking-[0.18em] text-white/56">
+          <p className="mt-8 text-sm font-semibold uppercase tracking-[0.18em] text-white/50">
             Farcelis is the layer that fixes that.
           </p>
         </div>

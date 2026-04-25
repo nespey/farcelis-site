@@ -26,7 +26,7 @@ function HeroDiagram() {
   ];
 
   return (
-    <div className="rounded-[18px] border border-white/10 bg-slate-900 p-5 shadow-[0_28px_70px_rgba(2,6,23,0.32)] sm:p-6">
+    <div className="border border-white/10 bg-black/30 p-5 shadow-[0_28px_70px_rgba(2,6,23,0.32)] sm:p-6">
       <p className="mb-5 text-xs font-semibold uppercase tracking-[0.2em] text-slate-400">
         Farcelis Control Layer Interface Preview
       </p>
@@ -37,7 +37,7 @@ function HeroDiagram() {
               className={`rounded-2xl border px-4 py-4 ${
                 node.accent
                   ? "border-white bg-white text-slate-950 shadow-[0_18px_48px_rgba(15,23,42,0.24)]"
-                  : "border-white/10 bg-slate-950 text-white"
+                  : "border-white/10 bg-slate-950/70 text-white"
               }`}
             >
               <div className="text-sm font-semibold tracking-[0.03em]">{node.title}</div>
@@ -62,27 +62,20 @@ function HeroDiagram() {
 function HeroCards() {
   return (
     <div className="grid gap-4">
-      <div className="rounded-[18px] border border-white/10 bg-slate-900 p-5 shadow-[0_14px_36px_rgba(2,6,23,0.28)]">
-        <div className="text-sm font-semibold text-white">Intake Queue</div>
+      <div className="border border-white/10 bg-slate-950/70 p-5 shadow-[0_14px_36px_rgba(2,6,23,0.28)]">
+        <div className="text-sm font-semibold text-white">Workflow State</div>
         <div className="mt-3 space-y-2 text-sm text-white/64">
-          <div>Client Request — Pending</div>
-          <div>Internal Task — Needs Review</div>
-          <div>Leadership Note — Routed</div>
+          <div>Inputs captured</div>
+          <div>Ownership assigned</div>
+          <div>Execution aligned</div>
         </div>
       </div>
-      <div className="rounded-[18px] border border-white/10 bg-slate-900 p-5 shadow-[0_14px_36px_rgba(2,6,23,0.28)]">
-        <div className="text-sm font-semibold text-white">Workflow Engine</div>
-        <div className="mt-3 text-sm leading-7 text-white/64">
-          Intake → Structuring → Assignment → Execution
-        </div>
-      </div>
-      <div className="rounded-[18px] border border-white/10 bg-white p-5 shadow-[0_14px_36px_rgba(15,23,42,0.12)]">
-        <div className="text-sm font-semibold text-slate-900">System Tracking</div>
-        <div className="mt-3 grid grid-cols-2 gap-3 text-sm text-slate-700">
-          <div>Active Workflows: 12</div>
-          <div>Completed Tasks: 48</div>
-          <div>Pending Items: 7</div>
-          <div>Status: Operational</div>
+      <div className="border border-white/10 bg-white p-5 shadow-[0_14px_36px_rgba(15,23,42,0.12)]">
+        <div className="text-sm font-semibold text-slate-900">Decision Alignment</div>
+        <div className="mt-3 space-y-2 text-sm text-slate-600">
+          <div>Priority structure active</div>
+          <div>Leadership visibility live</div>
+          <div>System state stable</div>
         </div>
       </div>
     </div>
@@ -91,16 +84,18 @@ function HeroCards() {
 
 export function Hero() {
   return (
-    <section className="overflow-hidden px-4 pb-20 pt-10 sm:px-6 sm:pb-24 lg:px-8 lg:pb-28 lg:pt-16">
-      <div className="mx-auto grid max-w-7xl gap-10 rounded-[16px] border border-white/10 bg-[linear-gradient(180deg,#020617,#0f172a)] px-6 py-10 shadow-[0_52px_140px_rgba(2,6,23,0.5)] sm:px-8 sm:py-12 lg:grid-cols-[minmax(0,1.02fr)_minmax(430px,0.98fr)] lg:items-center lg:px-12 lg:py-20">
+    <section className="relative overflow-hidden bg-[linear-gradient(180deg,#020617_0%,#08111f_56%,#0b1421_100%)] px-4 pb-24 pt-16 sm:px-6 sm:pb-28 lg:px-8 lg:pb-32 lg:pt-24">
+      <div className="pointer-events-none absolute inset-0 bg-[radial-gradient(circle_at_18%_18%,rgba(255,255,255,0.06),transparent_24%),linear-gradient(90deg,rgba(255,255,255,0.03)_1px,transparent_1px),linear-gradient(rgba(255,255,255,0.03)_1px,transparent_1px)] bg-[size:auto,72px_72px,72px_72px]" />
+      <div className="pointer-events-none absolute inset-x-0 bottom-0 h-40 bg-gradient-to-t from-[color:var(--color-cream)] to-transparent" />
+      <div className="relative mx-auto grid max-w-7xl gap-12 lg:grid-cols-[minmax(0,1.06fr)_minmax(360px,0.94fr)] lg:items-center">
         <div className="max-w-2xl">
           <p className="mb-4 text-xs font-semibold uppercase tracking-[0.24em] text-[color:#d9a08b]">
             Farcelis AI Consulting
           </p>
-          <h1 className="text-balance text-5xl font-semibold tracking-[-0.08em] text-white sm:text-6xl lg:text-[5.2rem] lg:leading-[0.9]">
+          <h1 className="max-w-4xl text-balance text-5xl font-semibold tracking-[-0.09em] text-white sm:text-6xl lg:text-[6rem] lg:leading-[0.88]">
             Execution breaks long before it scales.
           </h1>
-          <p className="mt-6 max-w-xl text-pretty text-lg leading-8 text-white/72">
+          <p className="mt-6 max-w-lg text-pretty text-lg leading-8 text-white/72">
             Farcelis builds the operational systems that keep workflows,
             decisions, and teams aligned under real pressure.
           </p>
@@ -108,17 +103,14 @@ export function Hero() {
             This is not software. It is the structure behind execution.
           </p>
 
-          <ul className="mt-8 grid gap-3 text-sm font-medium text-white/88 sm:grid-cols-2">
+          <ul className="mt-10 grid gap-3 text-sm font-medium text-white/84 sm:grid-cols-2">
             {[
-              "Operational systems built for real execution pressure",
-              "Workflow architecture with command-level visibility",
-              "Flagship Control Layer deployment for critical environments",
-              "Decision systems that keep leadership anchored in reality",
+              "Operational systems under pressure",
+              "Workflow structure with visibility",
+              "Control Layer deployment",
+              "Decision systems for leadership",
             ].map((item) => (
-              <li
-                key={item}
-                className="border-l border-white/16 pl-4"
-              >
+              <li key={item} className="border-l border-white/16 pl-4">
                 {item}
               </li>
             ))}
@@ -141,7 +133,7 @@ export function Hero() {
         </div>
 
         <div className="relative">
-          <div className="absolute inset-x-10 top-10 -z-10 h-72 rounded-full bg-[radial-gradient(circle,rgba(20,74,106,0.32),transparent_65%)] blur-3xl" />
+          <div className="absolute inset-x-10 top-10 -z-10 h-72 bg-[radial-gradient(circle,rgba(20,74,106,0.32),transparent_65%)] blur-3xl" />
           <div className="grid gap-4 lg:hidden">
             <HeroCards />
           </div>
