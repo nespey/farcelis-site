@@ -71,8 +71,8 @@ a {
 }
 
 @keyframes logoMarquee {
-  0% { transform: translate3d(-50%, 0, 0); }
-  100% { transform: translate3d(0, 0, 0); }
+  0% { transform: translate3d(0, 0, 0); }
+  100% { transform: translate3d(-42%, 0, 0); }
 }
 
 @keyframes heroProgressSlide {
@@ -91,9 +91,10 @@ a {
 .hero-panel {
   animation: heroPanelEnter 300ms ease-out both;
   box-shadow:
-    0 28px 90px rgba(2, 6, 23, 0.42),
+    0 20px 60px rgba(2, 6, 23, 0.28),
     inset 0 1px 0 rgba(255, 255, 255, 0.05),
-    inset 0 -20px 40px rgba(2, 6, 23, 0.18);
+    inset 0 -18px 36px rgba(2, 6, 23, 0.12),
+    0 0 0 1px rgba(217, 160, 139, 0.06);
 }
 
 .hero-panel-row {
@@ -146,15 +147,22 @@ a {
   transition:
     transform 150ms ease,
     border-color 150ms ease,
-    box-shadow 150ms ease;
+    box-shadow 150ms ease,
+    background-color 150ms ease;
 }
 
 .system-ui-tile:hover,
 .proof-logo-tile:hover,
 .hero-panel-sequence:hover {
   transform: translateY(-4px);
-  border-color: rgba(217, 160, 139, 0.28);
-  box-shadow: 0 18px 40px rgba(2, 6, 23, 0.22);
+  border-color: rgba(217, 160, 139, 0.22);
+  box-shadow:
+    0 14px 32px rgba(2, 6, 23, 0.18),
+    0 0 0 1px rgba(217, 160, 139, 0.08);
+}
+
+.proof-logo-tile:hover {
+  background-color: rgba(255, 255, 255, 0.055);
 }
 
 @media (prefers-reduced-motion: reduce) {

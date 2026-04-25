@@ -2,10 +2,9 @@
 
 import Image from "next/image";
 import Link from "next/link";
-import { useMemo } from "react";
 
 import { Reveal } from "@/components/Reveal";
-import { partners, services } from "@/lib/site-data";
+import { services } from "@/lib/site-data";
 
 const flowSteps = [
   "Input",
@@ -35,25 +34,37 @@ const audienceItems = [
   },
 ];
 
-export function HomeExperience() {
-  const marqueePartners = useMemo(() => {
-    const visible = partners.slice(0, 3);
-    return [...visible, ...visible];
-  }, []);
+const proofLogos = [
+  { name: "4Throws", logo: "/logos/approved/4throws.png" },
+  { name: "K2 Renew", logo: "/logos/approved/k2-renew.png" },
+  { name: "Paragon Cyber Solutions", logo: "/logos/approved/paragon.png" },
+  { name: "NexAlign", logo: "/logos/approved/nexalign.jpeg" },
+  { name: "CityGov", logo: "/logos/approved/citygov-light.png" },
+  { name: "Eagle", logo: "/logos/approved/eagle-light.svg" },
+];
 
+export function HomeExperience() {
   return (
     <div className="relative overflow-hidden bg-[#050b14] text-white">
       <div className="pointer-events-none absolute inset-0 bg-[linear-gradient(90deg,rgba(255,255,255,0.04)_1px,transparent_1px),linear-gradient(rgba(255,255,255,0.04)_1px,transparent_1px)] bg-[size:64px_64px]" />
+      <div className="pointer-events-none absolute inset-0 bg-[radial-gradient(circle_at_80%_8%,rgba(217,160,139,0.1),transparent_18%),radial-gradient(circle_at_15%_60%,rgba(69,112,154,0.1),transparent_24%),linear-gradient(180deg,rgba(8,17,29,0.24),transparent_22%,rgba(7,14,24,0.18)_70%,rgba(3,7,13,0.28))]" />
+      <div
+        className="pointer-events-none absolute inset-0 opacity-[0.045] mix-blend-screen"
+        style={{
+          backgroundImage:
+            'url("data:image/svg+xml;utf8,<svg xmlns=\\"http://www.w3.org/2000/svg\\" width=\\"180\\" height=\\"180\\" viewBox=\\"0 0 180 180\\"><filter id=\\"n\\"><feTurbulence type=\\"fractalNoise\\" baseFrequency=\\"1.1\\" numOctaves=\\"2\\" stitchTiles=\\"stitch\\"/></filter><rect width=\\"180\\" height=\\"180\\" filter=\\"url(%23n)\\" opacity=\\"1\\"/></svg>")',
+        }}
+      />
 
       <Reveal>
         <section className="relative overflow-hidden hero-grid">
           <div className="mx-auto max-w-[1200px] px-5 py-20 sm:px-6 lg:px-8">
-            <div className="grid min-h-[100svh] items-center gap-8 lg:grid-cols-[minmax(0,0.86fr)_minmax(640px,1.14fr)] lg:gap-10">
+            <div className="grid min-h-[100svh] items-center gap-6 lg:grid-cols-[minmax(0,0.78fr)_minmax(760px,1.22fr)] lg:gap-6">
               <div className="max-w-[600px]">
                 <p className="mb-5 text-sm font-semibold uppercase tracking-[0.18em] text-[color:#d9a08b]">
                   Farcelis AI Consulting
                 </p>
-                <h1 className="max-w-[600px] text-balance text-[3.5rem] font-semibold tracking-[-0.08em] text-white sm:text-[4.25rem] lg:text-[5rem] lg:leading-[1.02]">
+                <h1 className="max-w-[600px] text-balance text-[3.9rem] font-semibold tracking-[-0.08em] text-white sm:text-[4.8rem] lg:text-[6rem] lg:leading-[0.98]">
                   Execution breaks long before it scales.
                 </h1>
                 <p className="mt-5 max-w-[560px] text-[1.25rem] leading-[1.6] text-white/76">
@@ -76,9 +87,9 @@ export function HomeExperience() {
                 </div>
               </div>
 
-              <div className="relative lg:pl-2">
-                <div className="hero-glow pointer-events-none absolute inset-x-4 top-8 -z-10 h-[84%] bg-[radial-gradient(circle_at_50%_35%,rgba(217,160,139,0.22),transparent_50%)] blur-3xl" />
-                <div className="hero-panel hero-panel-sequence border border-white/10 bg-[#08111d]/94 p-5 shadow-[0_28px_90px_rgba(2,6,23,0.42)] backdrop-blur-sm sm:p-6 lg:p-8">
+              <div className="relative lg:-ml-2">
+                <div className="hero-glow pointer-events-none absolute inset-x-0 top-6 -z-10 h-[86%] bg-[radial-gradient(circle_at_55%_35%,rgba(217,160,139,0.24),transparent_50%)] blur-3xl" />
+                <div className="hero-panel hero-panel-sequence border border-white/10 bg-[#0a1320]/96 p-6 backdrop-blur-sm sm:p-7 lg:p-9">
                   <div className="hero-panel-row flex items-center justify-between border-b border-white/10 pb-4">
                     <div>
                       <p className="text-sm font-semibold uppercase tracking-[0.16em] text-white/40">
@@ -94,7 +105,7 @@ export function HomeExperience() {
                   </div>
 
                   <div className="hero-panel-row mt-4 grid gap-px overflow-hidden border border-white/10 bg-white/10 lg:grid-cols-[0.8fr_1.2fr]">
-                    <div className="system-ui-tile bg-[#09111d] p-6">
+                    <div className="system-ui-tile bg-[#0d1624] p-6">
                       <p className="text-sm font-semibold uppercase tracking-[0.14em] text-white/40">
                         Intake State
                       </p>
@@ -104,7 +115,7 @@ export function HomeExperience() {
                         <div>Priority locked</div>
                       </div>
                     </div>
-                    <div className="system-ui-tile bg-white p-6 text-slate-950">
+                    <div className="system-ui-tile bg-[#f7f3ed] p-6 text-slate-950">
                       <p className="text-sm font-semibold uppercase tracking-[0.14em] text-slate-400">
                         Control Core
                       </p>
@@ -121,7 +132,7 @@ export function HomeExperience() {
                   </div>
 
                   <div className="hero-panel-row mt-4 grid gap-px overflow-hidden border border-white/10 bg-white/10 md:grid-cols-3">
-                    <div className="system-ui-tile bg-[#09111d] p-6">
+                    <div className="system-ui-tile bg-[#0d1624] p-6">
                       <p className="text-sm font-semibold uppercase tracking-[0.14em] text-white/40">
                         Execution
                       </p>
@@ -129,7 +140,7 @@ export function HomeExperience() {
                         Teams stay aligned under pressure.
                       </p>
                     </div>
-                    <div className="system-ui-tile bg-[#0d1a2c] p-6">
+                    <div className="system-ui-tile bg-[#102034] p-6">
                       <p className="text-sm font-semibold uppercase tracking-[0.14em] text-white/40">
                         Visibility
                       </p>
@@ -137,7 +148,7 @@ export function HomeExperience() {
                         Leadership sees movement in real time.
                       </p>
                     </div>
-                    <div className="system-ui-tile bg-[linear-gradient(180deg,#12273a,#102237)] p-6">
+                    <div className="system-ui-tile bg-[linear-gradient(180deg,#142b41,#102237)] p-6">
                       <p className="text-sm font-semibold uppercase tracking-[0.14em] text-white/48">
                         System State
                       </p>
@@ -154,9 +165,10 @@ export function HomeExperience() {
       </Reveal>
 
       <Reveal>
-        <section>
+        <section className="relative">
+          <div className="pointer-events-none absolute inset-0 bg-[linear-gradient(180deg,rgba(14,24,38,0.42),rgba(6,11,18,0.16))]" />
           <div className="mx-auto max-w-[1200px] px-5 py-20 sm:px-6 lg:px-8">
-            <div className="border-t border-white/10 pt-8">
+            <div className="relative border-t border-white/10 pt-8">
             <p className="text-sm font-semibold uppercase tracking-[0.16em] text-[color:#d9a08b]">
               Hard Truth
             </p>
@@ -173,9 +185,10 @@ export function HomeExperience() {
       </Reveal>
 
       <Reveal>
-        <section>
+        <section className="relative">
+          <div className="pointer-events-none absolute inset-0 bg-[radial-gradient(circle_at_15%_50%,rgba(58,88,122,0.12),transparent_30%),linear-gradient(180deg,rgba(8,15,25,0.22),rgba(5,11,20,0.04))]" />
           <div className="mx-auto max-w-[1200px] px-5 py-20 sm:px-6 lg:px-8">
-            <div className="grid gap-10 border-t border-white/10 pt-8 lg:grid-cols-[minmax(0,0.74fr)_minmax(0,1fr)]">
+            <div className="relative grid gap-10 border-t border-white/10 pt-8 lg:grid-cols-[minmax(0,0.74fr)_minmax(0,1fr)]">
               <div>
                 <p className="text-sm font-semibold uppercase tracking-[0.16em] text-[color:#d9a08b]">
                   System Flow
@@ -202,9 +215,10 @@ export function HomeExperience() {
       </Reveal>
 
       <Reveal>
-        <section>
+        <section className="relative">
+          <div className="pointer-events-none absolute inset-0 bg-[linear-gradient(180deg,rgba(12,22,36,0.16),rgba(5,11,20,0.02))]" />
           <div className="mx-auto max-w-[1200px] px-5 py-20 sm:px-6 lg:px-8">
-            <div className="grid gap-10 border-t border-white/10 pt-8 lg:grid-cols-2">
+            <div className="relative grid gap-10 border-t border-white/10 pt-8 lg:grid-cols-2">
               <div>
                 <p className="text-sm font-semibold uppercase tracking-[0.16em] text-[color:#d9a08b]">
                   Who This Is For
@@ -231,9 +245,10 @@ export function HomeExperience() {
       </Reveal>
 
       <Reveal>
-        <section>
+        <section className="relative">
+          <div className="pointer-events-none absolute inset-0 bg-[radial-gradient(circle_at_85%_18%,rgba(217,160,139,0.08),transparent_20%),linear-gradient(180deg,rgba(7,13,22,0.06),rgba(12,21,34,0.18))]" />
           <div className="mx-auto max-w-[1200px] px-5 py-20 sm:px-6 lg:px-8">
-            <div className="border-t border-white/10 pt-8">
+            <div className="relative border-t border-white/10 pt-8">
               <p className="text-sm font-semibold uppercase tracking-[0.16em] text-[color:#d9a08b]">
                 Services
               </p>
@@ -264,9 +279,10 @@ export function HomeExperience() {
       </Reveal>
 
       <Reveal>
-        <section>
+        <section className="relative">
+          <div className="pointer-events-none absolute inset-0 bg-[linear-gradient(180deg,rgba(13,23,37,0.4),rgba(4,8,14,0.14))]" />
           <div className="mx-auto max-w-[1200px] px-5 py-20 sm:px-6 lg:px-8">
-            <div className="border-t border-white/10 pt-8">
+            <div className="relative border-t border-white/10 pt-8">
               <p className="text-sm font-semibold uppercase tracking-[0.16em] text-[color:#d9a08b]">
                 Selected environments and engagements
               </p>
@@ -277,11 +293,11 @@ export function HomeExperience() {
             <div className="logo-carousel group relative mt-12 overflow-hidden">
               <div className="pointer-events-none absolute inset-y-0 left-0 z-10 w-16 bg-gradient-to-r from-[#050b14] to-transparent" />
               <div className="pointer-events-none absolute inset-y-0 right-0 z-10 w-16 bg-gradient-to-l from-[#050b14] to-transparent" />
-              <div className="logo-carousel-track flex w-max gap-8 group-hover:[animation-play-state:paused]">
-                {marqueePartners.map((partner, index) => (
+              <div className="logo-carousel-track flex w-max gap-10 group-hover:[animation-play-state:paused]">
+                {proofLogos.map((partner) => (
                   <div
-                    key={`${partner.name}-${index}`}
-                    className="proof-logo-tile flex min-h-32 min-w-[300px] items-center justify-center border border-white/10 bg-black/20 px-10 py-8"
+                    key={partner.name}
+                    className="proof-logo-tile flex min-h-32 min-w-[260px] items-center justify-center border border-white/10 bg-white/[0.03] px-8 py-8"
                   >
                     {partner.logo ? (
                       <div className="relative h-16 w-full">
@@ -289,8 +305,8 @@ export function HomeExperience() {
                           src={partner.logo}
                           alt={partner.name}
                           fill
-                          sizes="300px"
-                          className="object-contain opacity-100 grayscale transition duration-150 hover:grayscale-0"
+                          sizes="260px"
+                          className="object-contain opacity-100 transition duration-150"
                         />
                       </div>
                     ) : null}
@@ -306,9 +322,10 @@ export function HomeExperience() {
       </Reveal>
 
       <Reveal>
-        <section>
+        <section className="relative">
+          <div className="pointer-events-none absolute inset-0 bg-[linear-gradient(180deg,rgba(7,13,22,0.04),rgba(16,26,40,0.22))]" />
           <div className="mx-auto max-w-[1200px] px-5 py-20 sm:px-6 lg:px-8">
-            <div className="border-t border-white/10 pt-8">
+            <div className="relative border-t border-white/10 pt-8">
               <p className="text-sm font-semibold uppercase tracking-[0.16em] text-[color:#d9a08b]">
                 Decision Point
               </p>
