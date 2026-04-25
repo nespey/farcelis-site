@@ -84,7 +84,7 @@ export function HomeExperience() {
 
   return (
     <div className="relative overflow-hidden bg-[#050b14] text-white">
-      <div className="pointer-events-none absolute inset-0 bg-[linear-gradient(90deg,rgba(255,255,255,0.04)_1px,transparent_1px),linear-gradient(rgba(255,255,255,0.04)_1px,transparent_1px)] bg-[size:64px_64px]" />
+      <div className="pointer-events-none absolute inset-0 bg-[linear-gradient(90deg,rgba(255,255,255,0.016)_1px,transparent_1px),linear-gradient(rgba(255,255,255,0.016)_1px,transparent_1px)] bg-[size:64px_64px]" />
       <div className="pointer-events-none absolute inset-0 bg-[radial-gradient(circle_at_82%_8%,rgba(217,160,139,0.12),transparent_18%),radial-gradient(circle_at_16%_62%,rgba(69,112,154,0.14),transparent_26%),linear-gradient(180deg,rgba(10,18,30,0.18),rgba(4,9,15,0.14)_22%,rgba(10,19,31,0.24)_70%,rgba(3,7,13,0.34))]" />
       <div
         className="pointer-events-none absolute inset-0 opacity-[0.045] mix-blend-screen"
@@ -102,7 +102,7 @@ export function HomeExperience() {
                 <p className="mb-5 text-sm font-semibold uppercase tracking-[0.18em] text-[color:#d9a08b]">
                   Farcelis AI Consulting
                 </p>
-                <h1 className="max-w-[600px] text-balance text-[4.4rem] font-semibold tracking-[-0.085em] text-white sm:text-[5.4rem] lg:text-[7rem] lg:leading-[0.94]">
+                <h1 className="max-w-[600px] text-balance text-[4.6rem] font-semibold tracking-[-0.085em] text-white sm:text-[5.7rem] lg:text-[7.25rem] lg:leading-[0.98]">
                   Execution breaks long before it scales.
                 </h1>
                 <p className="mt-5 max-w-[560px] text-[1.25rem] leading-[1.6] text-white/76">
@@ -223,25 +223,25 @@ export function HomeExperience() {
       </Reveal>
 
       <Reveal>
-        <section className="relative">
-          <div className="pointer-events-none absolute inset-0 bg-[radial-gradient(circle_at_15%_50%,rgba(58,88,122,0.14),transparent_30%),linear-gradient(180deg,rgba(8,15,25,0.24),rgba(7,14,24,0.08))]" />
+        <section className="relative overflow-hidden bg-[#eef1f5] text-[#0f1724]">
+          <div className="pointer-events-none absolute inset-0 bg-[radial-gradient(circle_at_15%_50%,rgba(91,121,153,0.12),transparent_28%),linear-gradient(180deg,rgba(255,255,255,0.72),rgba(233,238,244,0.9))]" />
           <div className="mx-auto max-w-[1200px] px-5 py-20 sm:px-6 lg:px-8">
-            <div className="relative grid gap-10 border-t border-white/10 pt-8 lg:grid-cols-[minmax(0,0.74fr)_minmax(0,1fr)]">
+            <div className="relative grid gap-10 border-t border-slate-900/8 pt-8 lg:grid-cols-[minmax(0,0.74fr)_minmax(0,1fr)]">
               <div>
-                <p className="text-sm font-semibold uppercase tracking-[0.16em] text-[color:#d9a08b]">
+                <p className="text-sm font-semibold uppercase tracking-[0.16em] text-[#9f412c]">
                   System Flow
                 </p>
-                <h2 className="mt-5 max-w-[560px] text-balance text-[3rem] font-semibold tracking-[-0.08em] text-white lg:text-[4rem] lg:leading-[1.08]">
+                <h2 className="mt-5 max-w-[560px] text-balance text-[3rem] font-semibold tracking-[-0.08em] text-[#0f1724] lg:text-[4rem] lg:leading-[1.08]">
                   The Control Layer turns work into one controlled path.
                 </h2>
               </div>
               <div className="grid gap-4">
                 {flowSteps.map((step, index) => (
                   <div key={step} className="grid gap-4 md:grid-cols-[140px_minmax(0,1fr)] md:items-center">
-                    <div className="text-sm font-semibold uppercase tracking-[0.14em] text-white/36">
+                    <div className="text-sm font-semibold uppercase tracking-[0.14em] text-slate-500">
                       0{index + 1}
                     </div>
-                    <div className="border-l border-white/12 pl-4 text-[1.25rem] font-semibold tracking-[-0.03em] text-white">
+                    <div className="border-l border-slate-300 pl-4 text-[1.25rem] font-semibold tracking-[-0.03em] text-[#0f1724]">
                       {step}
                     </div>
                   </div>
@@ -283,14 +283,14 @@ export function HomeExperience() {
       </Reveal>
 
       <Reveal>
-        <section className="relative">
-          <div className="pointer-events-none absolute inset-0 bg-[radial-gradient(circle_at_85%_18%,rgba(217,160,139,0.1),transparent_20%),linear-gradient(180deg,rgba(8,15,24,0.08),rgba(14,25,39,0.22))]" />
+        <section className="relative overflow-hidden bg-[#f4f6f8] text-[#0f1724]">
+          <div className="pointer-events-none absolute inset-0 bg-[radial-gradient(circle_at_85%_18%,rgba(217,160,139,0.08),transparent_20%),linear-gradient(180deg,rgba(255,255,255,0.74),rgba(238,242,246,0.94))]" />
           <div className="mx-auto max-w-[1200px] px-5 py-20 sm:px-6 lg:px-8">
-            <div className="relative border-t border-white/10 pt-8">
-              <p className="text-sm font-semibold uppercase tracking-[0.16em] text-[color:#d9a08b]">
+            <div className="relative border-t border-slate-900/8 pt-8">
+              <p className="text-sm font-semibold uppercase tracking-[0.16em] text-[#9f412c]">
                 Services
               </p>
-              <h2 className="mt-5 max-w-[760px] text-balance text-[3rem] font-semibold tracking-[-0.08em] text-white lg:text-[4rem] lg:leading-[1.08]">
+              <h2 className="mt-5 max-w-[760px] text-balance text-[3rem] font-semibold tracking-[-0.08em] text-[#0f1724] lg:text-[4rem] lg:leading-[1.08]">
                 Farcelis operates across structure, automation, and execution control.
               </h2>
             </div>
@@ -298,15 +298,15 @@ export function HomeExperience() {
               {services.map((service, index) => (
                 <div
                   key={service.title}
-                  className="grid gap-4 border-t border-white/10 pt-6 lg:grid-cols-[120px_minmax(0,1fr)_minmax(0,0.9fr)] lg:gap-8"
+                  className="grid gap-4 border-t border-slate-900/8 pt-6 lg:grid-cols-[120px_minmax(0,1fr)_minmax(0,0.9fr)] lg:gap-8"
                 >
-                  <div className="text-sm font-semibold uppercase tracking-[0.14em] text-white/36">
+                  <div className="text-sm font-semibold uppercase tracking-[0.14em] text-slate-500">
                     0{index + 1}
                   </div>
-                  <h3 className="text-[1.6rem] font-semibold tracking-[-0.04em] text-white">
+                  <h3 className="text-[1.6rem] font-semibold tracking-[-0.04em] text-[#0f1724]">
                     {service.title}
                   </h3>
-                  <p className="text-base leading-[1.6] text-white/68">
+                  <p className="text-base leading-[1.6] text-slate-600">
                     {service.description}
                   </p>
                 </div>
@@ -338,10 +338,10 @@ export function HomeExperience() {
                 {proofLogos.map((partner) => (
                   <div
                     key={partner.name}
-                    className="proof-logo-tile flex min-h-32 min-w-[260px] items-center justify-center border border-white/12 bg-white/[0.045] px-8 py-8"
+                    className="proof-logo-tile flex min-h-32 min-w-[260px] items-center justify-center border border-white/12 bg-white/[0.055] px-8 py-8"
                   >
                     {partner.logo ? (
-                      <div className="relative h-16 w-full">
+                      <div className="relative h-14 w-full">
                         <Image
                           src={partner.logo}
                           alt={partner.name}
@@ -363,17 +363,17 @@ export function HomeExperience() {
       </Reveal>
 
       <Reveal>
-        <section className="relative">
-          <div className="pointer-events-none absolute inset-0 bg-[linear-gradient(180deg,rgba(7,13,22,0.06),rgba(16,26,40,0.24)),radial-gradient(circle_at_82%_24%,rgba(217,160,139,0.05),transparent_18%)]" />
+        <section className="relative overflow-hidden bg-[#eff2f5] text-[#0f1724]">
+          <div className="pointer-events-none absolute inset-0 bg-[linear-gradient(180deg,rgba(255,255,255,0.76),rgba(236,241,245,0.96)),radial-gradient(circle_at_82%_24%,rgba(217,160,139,0.06),transparent_18%)]" />
           <div className="mx-auto max-w-[1200px] px-5 py-20 sm:px-6 lg:px-8">
-            <div className="relative border-t border-white/10 pt-8">
-              <p className="text-sm font-semibold uppercase tracking-[0.16em] text-[color:#d9a08b]">
+            <div className="relative border-t border-slate-900/8 pt-8">
+              <p className="text-sm font-semibold uppercase tracking-[0.16em] text-[#9f412c]">
                 Decision Point
               </p>
-              <h2 className="mt-5 max-w-[760px] text-balance text-[3rem] font-semibold tracking-[-0.08em] text-white lg:text-[4rem] lg:leading-[1.08]">
+              <h2 className="mt-5 max-w-[760px] text-balance text-[3rem] font-semibold tracking-[-0.08em] text-[#0f1724] lg:text-[4rem] lg:leading-[1.08]">
                 If you do not control the system, you do not control execution.
               </h2>
-              <p className="mt-6 max-w-[620px] text-[1.25rem] leading-[1.6] text-white/68">
+              <p className="mt-6 max-w-[620px] text-[1.25rem] leading-[1.6] text-slate-600">
                 Work with Farcelis to put a real operational structure behind the way your organization runs.
               </p>
               <div className="mt-8 flex flex-col gap-3 sm:flex-row">
