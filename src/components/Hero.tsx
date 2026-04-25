@@ -84,15 +84,15 @@ function HeroCards() {
 
 export function Hero() {
   return (
-    <section className="relative overflow-hidden bg-[linear-gradient(180deg,#020617_0%,#08111f_56%,#0b1421_100%)] px-4 pb-24 pt-16 sm:px-6 sm:pb-28 lg:px-8 lg:pb-32 lg:pt-24">
+    <section className="relative overflow-hidden bg-[linear-gradient(180deg,#020617_0%,#08111f_56%,#0b1421_100%)] px-4 pb-16 pt-12 sm:px-6 sm:pb-20 lg:px-8 lg:pb-24 lg:pt-16">
       <div className="pointer-events-none absolute inset-0 bg-[radial-gradient(circle_at_18%_18%,rgba(255,255,255,0.06),transparent_24%),linear-gradient(90deg,rgba(255,255,255,0.03)_1px,transparent_1px),linear-gradient(rgba(255,255,255,0.03)_1px,transparent_1px)] bg-[size:auto,72px_72px,72px_72px]" />
       <div className="pointer-events-none absolute inset-x-0 bottom-0 h-40 bg-gradient-to-t from-[color:var(--color-cream)] to-transparent" />
-      <div className="relative mx-auto grid max-w-7xl gap-12 lg:grid-cols-[minmax(0,1.06fr)_minmax(360px,0.94fr)] lg:items-center">
+      <div className="relative mx-auto grid max-w-7xl gap-8 lg:grid-cols-[minmax(0,1.08fr)_minmax(340px,0.92fr)] lg:items-center">
         <div className="max-w-2xl">
           <p className="mb-4 text-xs font-semibold uppercase tracking-[0.24em] text-[color:#d9a08b]">
             Farcelis AI Consulting
           </p>
-          <h1 className="max-w-4xl text-balance text-5xl font-semibold tracking-[-0.09em] text-white sm:text-6xl lg:text-[6rem] lg:leading-[0.88]">
+          <h1 className="max-w-5xl text-balance text-[3.7rem] font-semibold tracking-[-0.11em] text-white sm:text-[4.7rem] lg:text-[7rem] lg:leading-[0.84]">
             Execution breaks long before it scales.
           </h1>
           <p className="mt-6 max-w-lg text-pretty text-lg leading-8 text-white/72">
@@ -103,7 +103,7 @@ export function Hero() {
             This is not software. It is the structure behind execution.
           </p>
 
-          <ul className="mt-10 grid gap-3 text-sm font-medium text-white/84 sm:grid-cols-2">
+          <ul className="mt-8 grid gap-3 text-sm font-medium text-white/84 sm:grid-cols-2">
             {[
               "Operational systems under pressure",
               "Workflow structure with visibility",
@@ -116,7 +116,7 @@ export function Hero() {
             ))}
           </ul>
 
-          <div className="mt-9 flex flex-col gap-3 sm:flex-row">
+          <div className="mt-8 flex flex-col gap-3 sm:flex-row">
             <Link
               href="/contact"
               className="inline-flex min-h-12 items-center justify-center rounded-full bg-[linear-gradient(135deg,#9f412c,#7e1f0d)] px-6 py-3 text-sm font-semibold text-white shadow-[0_16px_36px_rgba(126,31,13,0.32)] transition hover:translate-y-[-1px]"
@@ -133,7 +133,7 @@ export function Hero() {
         </div>
 
         <div className="relative">
-          <div className="absolute inset-x-10 top-10 -z-10 h-72 bg-[radial-gradient(circle,rgba(20,74,106,0.32),transparent_65%)] blur-3xl" />
+          <div className="absolute inset-x-10 top-6 -z-10 h-72 bg-[radial-gradient(circle,rgba(20,74,106,0.32),transparent_65%)] blur-3xl" />
           <div className="grid gap-4 lg:hidden">
             <HeroCards />
           </div>

@@ -8,25 +8,22 @@ export function ServiceCards() {
       {services.map((service) => (
         <article
           key={service.title}
-          className="rounded-[28px] border border-slate-200 bg-white p-6 shadow-[0_20px_48px_rgba(15,23,42,0.08)]"
+          className="border border-slate-200 bg-white p-6 shadow-[0_20px_48px_rgba(15,23,42,0.08)]"
         >
           <div className="flex items-start justify-between gap-4">
             <h3 className="max-w-lg text-2xl font-semibold tracking-[-0.03em] text-slate-950">
               {service.title}
             </h3>
-            <span className="rounded-full border border-slate-200 px-3 py-1 text-xs font-semibold uppercase tracking-[0.16em] text-slate-500">
+            <span className="border border-slate-200 px-3 py-1 text-xs font-semibold uppercase tracking-[0.16em] text-slate-500">
               Service
             </span>
           </div>
           <p className="mt-4 max-w-xl text-base leading-7 text-slate-600">
             {service.description}
           </p>
-          <ul className="mt-6 grid gap-3 text-sm text-slate-700 sm:grid-cols-2">
+          <ul className="mt-6 grid gap-3 border-t border-slate-200 pt-5 text-sm text-slate-700 sm:grid-cols-2">
             {service.points.map((point) => (
-              <li
-                key={point}
-                className="rounded-2xl border border-slate-200 bg-slate-50 px-4 py-3"
-              >
+              <li key={point} className="border-l border-slate-300 pl-4">
                 {point}
               </li>
             ))}
@@ -44,4 +41,3 @@ export function ServiceCards() {
     </div>
   );
 }
-

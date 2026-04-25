@@ -29,33 +29,33 @@ export default function HomePage() {
 
       <section className="bg-[#09111d] px-4 py-16 sm:px-6 lg:px-8 lg:py-20">
         <div className="mx-auto max-w-6xl">
-          <p className="max-w-5xl text-balance text-3xl font-semibold tracking-[-0.06em] text-white sm:text-4xl lg:text-[3.4rem] lg:leading-[0.98]">
-            Most organizations do not fail because of people.
+          <p className="text-[11px] font-semibold uppercase tracking-[0.28em] text-white/44">
+            System Reality
           </p>
-          <p className="mt-4 max-w-5xl text-balance text-3xl font-semibold tracking-[-0.06em] text-white sm:text-4xl lg:text-[3.4rem] lg:leading-[0.98]">
+          <p className="mt-4 max-w-5xl text-balance text-[3rem] font-semibold tracking-[-0.08em] text-white sm:text-[4rem] lg:text-[4.8rem] lg:leading-[0.92]">
+            Most organizations do not fail because of people.
             They fail because their systems cannot carry execution at scale.
           </p>
-          <p className="mt-8 text-sm font-semibold uppercase tracking-[0.18em] text-white/50">
+          <p className="mt-8 max-w-2xl text-[17px] leading-8 text-white/62">
             Farcelis is the layer that fixes that.
           </p>
         </div>
       </section>
 
       <section className="px-4 py-20 sm:px-6 lg:px-8 lg:py-28">
-        <div className="mx-auto max-w-7xl border border-slate-900 bg-slate-950 px-6 py-10 shadow-[0_32px_90px_rgba(15,23,42,0.2)] sm:px-8 lg:px-10 lg:py-12">
+        <div className="mx-auto max-w-7xl px-0 py-0">
           <SectionHeader
             eyebrow="Capability Layer"
             title="Farcelis defines the capability layer behind operational control."
             description="Operational system design, execution architecture, workflow control environments, decision systems, and flagship Control Layer implementation operate together as one model."
-            variant="inverse"
           />
-          <div className="mt-10 grid gap-8 border-t border-white/10 pt-8 md:grid-cols-2 xl:grid-cols-3">
+          <div className="mt-10 grid gap-8 border-t border-slate-300 pt-8 md:grid-cols-2 xl:grid-cols-3">
             {whatFarcelisDoes.map((item) => (
-              <div key={item.title} className="border-l border-white/16 pl-4">
-                <h3 className="text-xl font-semibold tracking-[-0.03em] text-white">
+              <div key={item.title} className="border-l border-slate-300 pl-4">
+                <h3 className="text-[1.35rem] font-semibold tracking-[-0.04em] text-slate-950">
                   {item.title}
                 </h3>
-                <p className="mt-3 max-w-md text-base leading-7 text-white/68">
+                <p className="mt-3 max-w-md text-[16px] leading-7 text-slate-600">
                   {item.description}
                 </p>
               </div>
@@ -112,7 +112,7 @@ export default function HomePage() {
       </section>
 
       <section className="px-4 py-20 sm:px-6 lg:px-8 lg:py-28">
-        <div className="mx-auto max-w-7xl border border-slate-300 bg-[linear-gradient(180deg,rgba(255,255,255,0.96),rgba(244,238,230,0.96))] px-6 py-10 shadow-[0_32px_90px_rgba(15,23,42,0.12)] sm:px-8 lg:px-10 lg:py-12">
+        <div className="mx-auto max-w-7xl bg-[linear-gradient(180deg,rgba(255,255,255,0.96),rgba(244,238,230,0.96))] px-6 py-10 sm:px-8 lg:px-10 lg:py-12">
           <SectionHeader
             eyebrow="Flagship System"
             title="The Farcelis Control Layer is a flagship system inside the broader Farcelis operating model."
@@ -122,23 +122,19 @@ export default function HomePage() {
             {controlLayerIntro.map((item, index) => (
               <div
                 key={item.title}
-                className={`border p-6 shadow-[0_20px_48px_rgba(15,23,42,0.12)] ${
+                className={`border-l pl-4 ${
                   index === 1
-                    ? "border-slate-950 bg-slate-950 text-white"
-                    : "border-slate-200 bg-white text-slate-950"
+                    ? "border-slate-950 text-slate-950"
+                    : "border-slate-300 text-slate-950"
                 }`}
               >
-                <div className="text-xs font-semibold uppercase tracking-[0.18em] text-[inherit] opacity-70">
+                <div className="text-xs font-semibold uppercase tracking-[0.18em] text-[inherit] opacity-60">
                   {item.title}
                 </div>
                 <h3 className="mt-3 text-2xl font-semibold tracking-[-0.04em]">
                   {item.title} everything that matters.
                 </h3>
-                <p
-                  className={`mt-4 text-base leading-7 ${
-                    index === 1 ? "text-white/72" : "text-slate-600"
-                  }`}
-                >
+                <p className="mt-4 text-base leading-7 text-slate-600">
                   {item.description}
                 </p>
               </div>
@@ -227,19 +223,16 @@ export default function HomePage() {
       </section>
 
       <section className="px-4 py-20 sm:px-6 lg:px-8 lg:py-28">
-        <div className="mx-auto grid max-w-7xl gap-10 border border-slate-200 bg-white px-6 py-10 shadow-[0_28px_70px_rgba(15,23,42,0.09)] sm:px-8 lg:grid-cols-[minmax(0,0.92fr)_minmax(0,1.08fr)] lg:items-start lg:px-10 lg:py-12">
+        <div className="mx-auto grid max-w-7xl gap-10 bg-white px-6 py-10 sm:px-8 lg:grid-cols-[minmax(0,0.88fr)_minmax(0,1.12fr)] lg:items-start lg:px-10 lg:py-12">
           <div>
             <SectionHeader
               eyebrow="Inside the System"
               title="Inside the Farcelis Control Layer"
               description="Sterilized interface cards show how one connected system handles intake, structure, priority, execution, and tracking without exposing client data."
             />
-            <div className="mt-8 grid gap-3">
+            <div className="mt-8 grid gap-3 border-t border-slate-300 pt-6">
               {capabilityPoints.map((point) => (
-                <div
-                  key={point}
-                  className="border border-slate-200 bg-white px-4 py-3 text-sm font-medium text-slate-700 shadow-[0_10px_24px_rgba(15,23,42,0.05)]"
-                >
+                <div key={point} className="border-l border-slate-300 pl-4 text-sm font-medium text-slate-700">
                   {point}
                 </div>
               ))}

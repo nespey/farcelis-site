@@ -368,12 +368,12 @@ export const controlLayerCards = [
   {
     title: "Intake Queue",
     lines: [
-      "Client Request — Pending",
-      "Internal Task — Needs Review",
-      "Data Input — New",
+      "New Request — Pending",
+      "Queued Work — Review",
+      "Incoming Input — New",
       "Leadership Note — Routed",
     ],
-    footer: "Status: Active Intake",
+    footer: "State: Active Intake",
   },
   {
     title: "Workflow Engine",
@@ -406,12 +406,12 @@ export const controlLayerCards = [
   {
     title: "System Tracking",
     lines: [
-      "Active Workflows: 12",
-      "Completed Tasks: 48",
-      "Pending Items: 7",
-      "Escalations: 2",
+      "Workflow Status: Active",
+      "Execution Status: Stable",
+      "Priority State: Live",
+      "Visibility Layer: On",
     ],
-    footer: "Status: Operational",
+    footer: "State: Operational",
   },
 ];
 
