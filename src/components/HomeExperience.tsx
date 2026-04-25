@@ -256,8 +256,8 @@ export function HomeExperience() {
               data-stage-index={index}
               className="flex min-h-[88svh] items-center border-b border-white/8 py-[120px]"
             >
-              <div className={`w-full max-w-[560px] transition-all duration-700 ${
-                activeStage === index ? "opacity-100 translate-y-0" : "opacity-35 translate-y-6"
+              <div className={`w-full max-w-[560px] transition-all duration-[400ms] ease-out ${
+                activeStage === index ? "opacity-100 translate-y-0" : "opacity-35 translate-y-5"
               }`}>
                 <p className="text-sm font-semibold uppercase tracking-[0.26em] text-[color:#d9a08b]">
                   {stage.eyebrow}
@@ -285,13 +285,13 @@ export function HomeExperience() {
                   <div className="mt-10 flex flex-col gap-3 sm:flex-row">
                     <Link
                       href="/contact"
-                      className="interactive-button inline-flex min-h-12 items-center justify-center rounded-full bg-[linear-gradient(135deg,#9f412c,#7e1f0d)] px-6 py-3 text-sm font-semibold text-white shadow-[0_18px_36px_rgba(126,31,13,0.34)] transition"
+                      className="inline-flex min-h-12 items-center justify-center rounded-full bg-[linear-gradient(135deg,#9f412c,#7e1f0d)] px-6 py-3 text-sm font-semibold text-white shadow-[0_18px_36px_rgba(126,31,13,0.34)] transition-colors duration-150"
                     >
                       Work With Farcelis
                     </Link>
                     <Link
                       href="/control-layer"
-                      className="interactive-button inline-flex min-h-12 items-center justify-center rounded-full border border-white/16 bg-white/4 px-6 py-3 text-sm font-semibold text-white transition"
+                      className="inline-flex min-h-12 items-center justify-center rounded-full border border-white/16 bg-white/4 px-6 py-3 text-sm font-semibold text-white transition-colors duration-150"
                     >
                       Explore the Control Layer
                     </Link>
@@ -330,13 +330,13 @@ export function HomeExperience() {
                   <div className="mt-10 flex flex-col gap-3 sm:flex-row">
                     <Link
                       href="/contact"
-                      className="interactive-button inline-flex min-h-12 items-center justify-center rounded-full bg-[linear-gradient(135deg,#9f412c,#7e1f0d)] px-6 py-3 text-sm font-semibold text-white shadow-[0_18px_36px_rgba(126,31,13,0.28)] transition"
+                      className="inline-flex min-h-12 items-center justify-center rounded-full bg-[linear-gradient(135deg,#9f412c,#7e1f0d)] px-6 py-3 text-sm font-semibold text-white shadow-[0_18px_36px_rgba(126,31,13,0.28)] transition-colors duration-150"
                     >
                       Work With Farcelis
                     </Link>
                     <Link
                       href="/contact"
-                      className="interactive-button inline-flex min-h-12 items-center justify-center rounded-full border border-white/16 bg-white/4 px-6 py-3 text-sm font-semibold text-white transition"
+                      className="inline-flex min-h-12 items-center justify-center rounded-full border border-white/16 bg-white/4 px-6 py-3 text-sm font-semibold text-white transition-colors duration-150"
                     >
                       Schedule a Strategy Call
                     </Link>

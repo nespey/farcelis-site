@@ -42,33 +42,32 @@ a {
   background: rgba(159, 65, 44, 0.18);
 }
 
-@keyframes heroGridShift {
-  0% { transform: translate3d(0, 0, 0); }
-  50% { transform: translate3d(-14px, 10px, 0); }
-  100% { transform: translate3d(0, 0, 0); }
+@keyframes heroBackgroundShift {
+  0% { background-position: 0% 0%, 0% 0%, 0% 0%, 0 0, 0 0; }
+  50% { background-position: 2% 3%, 98% 4%, 72% 68%, 6px 0, 0 6px; }
+  100% { background-position: 0% 0%, 0% 0%, 0% 0%, 0 0, 0 0; }
 }
 
 @keyframes heroGlowPulse {
-  0% { opacity: 0.7; transform: scale(1); }
-  50% { opacity: 1; transform: scale(1.04); }
-  100% { opacity: 0.7; transform: scale(1); }
+  0% { opacity: 0.72; }
+  50% { opacity: 1; }
+  100% { opacity: 0.72; }
 }
 
 @keyframes heroPanelEnter {
-  0% { opacity: 0; transform: translate3d(0, 28px, 0); }
-  100% { opacity: 1; transform: translate3d(0, 0, 0); }
+  0% { opacity: 0; }
+  100% { opacity: 1; }
 }
 
-@keyframes heroFloatUp {
-  0% { transform: translate3d(0, 0, 0); }
-  50% { transform: translate3d(0, -6px, 0); }
-  100% { transform: translate3d(0, 0, 0); }
+@keyframes heroRowReveal {
+  0% { opacity: 0; }
+  100% { opacity: 1; }
 }
 
-@keyframes heroFloatDown {
-  0% { transform: translate3d(0, 0, 0); }
-  50% { transform: translate3d(0, 8px, 0); }
-  100% { transform: translate3d(0, 0, 0); }
+@keyframes controlLayerGlow {
+  0% { box-shadow: 0 0 0 rgba(86, 197, 255, 0); }
+  50% { box-shadow: 0 0 18px rgba(86, 197, 255, 0.34); }
+  100% { box-shadow: 0 0 0 rgba(86, 197, 255, 0); }
 }
 
 @keyframes logoMarquee {
@@ -76,39 +75,47 @@ a {
   100% { transform: translate3d(-50%, 0, 0); }
 }
 
+@keyframes heroProgressSlide {
+  0% { transform: translateX(-100%); }
+  100% { transform: translateX(0%); }
+}
+
 .hero-grid {
-  animation: heroGridShift 22s ease-in-out infinite;
+  animation: heroBackgroundShift 12s ease-in-out infinite;
 }
 
 .hero-glow {
-  animation: heroGlowPulse 10s ease-in-out infinite;
-}
-
-.hero-copy {
-  animation: heroFloatUp 12s ease-in-out infinite;
-  will-change: transform;
+  animation: heroGlowPulse 12s ease-in-out infinite;
 }
 
 .hero-panel {
-  animation:
-    heroPanelEnter 900ms cubic-bezier(0.22, 1, 0.36, 1) 120ms both,
-    heroFloatDown 13s ease-in-out infinite 1s;
-  will-change: transform, opacity;
+  animation: heroPanelEnter 300ms ease-out both;
 }
 
-.interactive-button {
-  transition:
-    transform 220ms ease,
-    box-shadow 220ms ease,
-    border-color 220ms ease,
-    background-color 220ms ease;
+.hero-panel-row {
+  opacity: 0;
+  animation: heroRowReveal 240ms ease-out forwards;
 }
 
-.interactive-button:hover {
-  transform: translateY(-2px);
-  box-shadow:
-    0 22px 44px rgba(2, 6, 23, 0.28),
-    0 0 0 1px rgba(255, 255, 255, 0.08);
+.hero-panel-row:nth-of-type(1) {
+  animation-delay: 100ms;
+}
+
+.hero-panel-row:nth-of-type(2) {
+  animation-delay: 200ms;
+}
+
+.hero-panel-row:nth-of-type(3) {
+  animation-delay: 300ms;
+}
+
+.hero-control-stage {
+  animation: controlLayerGlow 2.2s ease-out 520ms infinite;
+}
+
+.hero-progress-bar {
+  transform: translateX(-100%);
+  animation: heroProgressSlide 900ms ease-out 420ms forwards;
 }
 
 .logo-carousel-track {
@@ -116,46 +123,12 @@ a {
   will-change: transform;
 }
 
-.logo-tile {
-  transition:
-    transform 220ms ease,
-    box-shadow 220ms ease,
-    border-color 220ms ease;
-}
-
-.logo-tile:hover {
-  transform: translateY(-3px);
-  border-color: rgba(255, 255, 255, 0.2);
-  box-shadow: 0 28px 60px rgba(2, 6, 23, 0.28);
-}
-
-.flow-step {
-  transition:
-    transform 320ms ease,
-    box-shadow 320ms ease,
-    background-color 320ms ease,
-    border-color 320ms ease,
-    color 320ms ease;
-}
-
-.flow-step-active {
-  transform: translateY(-2px);
-  background: linear-gradient(135deg, rgba(159, 65, 44, 0.38), rgba(20, 74, 106, 0.34));
-  box-shadow:
-    0 22px 48px rgba(2, 6, 23, 0.28),
-    0 0 0 1px rgba(217, 160, 139, 0.3);
-}
-
-.flow-step-complete {
-  background: rgba(255, 255, 255, 0.12);
-}
-
 .reveal-section {
   opacity: 0;
-  transform: translate3d(0, 28px, 0);
+  transform: translate3d(0, 20px, 0);
   transition:
-    opacity 700ms cubic-bezier(0.22, 1, 0.36, 1),
-    transform 700ms cubic-bezier(0.22, 1, 0.36, 1);
+    opacity 400ms ease-out,
+    transform 400ms ease-out;
 }
 
 .reveal-section.is-visible {
@@ -166,8 +139,10 @@ a {
 @media (prefers-reduced-motion: reduce) {
   .hero-grid,
   .hero-glow,
-  .hero-copy,
   .hero-panel,
+  .hero-panel-row,
+  .hero-control-stage,
+  .hero-progress-bar,
   .logo-carousel-track,
   .reveal-section {
     animation: none !important;
