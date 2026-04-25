@@ -2,6 +2,7 @@
 
 import Image from "next/image";
 import Link from "next/link";
+import { useEffect, useRef } from "react";
 
 import { Reveal } from "@/components/Reveal";
 import { services } from "@/lib/site-data";
@@ -44,10 +45,47 @@ const proofLogos = [
 ];
 
 export function HomeExperience() {
+  const logoTrackRef = useRef<HTMLDivElement | null>(null);
+
+  useEffect(() => {
+    const el = logoTrackRef.current;
+    if (!el) return;
+
+    let raf = 0;
+    let paused = false;
+    const speed = 0.35;
+
+    const tick = () => {
+      if (!paused) {
+        const maxScroll = el.scrollWidth - el.clientWidth;
+        el.scrollLeft = el.scrollLeft >= maxScroll - 1 ? 0 : el.scrollLeft + speed;
+      }
+      raf = window.requestAnimationFrame(tick);
+    };
+
+    const onEnter = () => {
+      paused = true;
+    };
+
+    const onLeave = () => {
+      paused = false;
+    };
+
+    el.addEventListener("mouseenter", onEnter);
+    el.addEventListener("mouseleave", onLeave);
+    raf = window.requestAnimationFrame(tick);
+
+    return () => {
+      window.cancelAnimationFrame(raf);
+      el.removeEventListener("mouseenter", onEnter);
+      el.removeEventListener("mouseleave", onLeave);
+    };
+  }, []);
+
   return (
     <div className="relative overflow-hidden bg-[#050b14] text-white">
       <div className="pointer-events-none absolute inset-0 bg-[linear-gradient(90deg,rgba(255,255,255,0.04)_1px,transparent_1px),linear-gradient(rgba(255,255,255,0.04)_1px,transparent_1px)] bg-[size:64px_64px]" />
-      <div className="pointer-events-none absolute inset-0 bg-[radial-gradient(circle_at_80%_8%,rgba(217,160,139,0.1),transparent_18%),radial-gradient(circle_at_15%_60%,rgba(69,112,154,0.1),transparent_24%),linear-gradient(180deg,rgba(8,17,29,0.24),transparent_22%,rgba(7,14,24,0.18)_70%,rgba(3,7,13,0.28))]" />
+      <div className="pointer-events-none absolute inset-0 bg-[radial-gradient(circle_at_82%_8%,rgba(217,160,139,0.12),transparent_18%),radial-gradient(circle_at_16%_62%,rgba(69,112,154,0.14),transparent_26%),linear-gradient(180deg,rgba(10,18,30,0.18),rgba(4,9,15,0.14)_22%,rgba(10,19,31,0.24)_70%,rgba(3,7,13,0.34))]" />
       <div
         className="pointer-events-none absolute inset-0 opacity-[0.045] mix-blend-screen"
         style={{
@@ -64,7 +102,7 @@ export function HomeExperience() {
                 <p className="mb-5 text-sm font-semibold uppercase tracking-[0.18em] text-[color:#d9a08b]">
                   Farcelis AI Consulting
                 </p>
-                <h1 className="max-w-[600px] text-balance text-[3.9rem] font-semibold tracking-[-0.08em] text-white sm:text-[4.8rem] lg:text-[6rem] lg:leading-[0.98]">
+                <h1 className="max-w-[600px] text-balance text-[4.4rem] font-semibold tracking-[-0.085em] text-white sm:text-[5.4rem] lg:text-[7rem] lg:leading-[0.94]">
                   Execution breaks long before it scales.
                 </h1>
                 <p className="mt-5 max-w-[560px] text-[1.25rem] leading-[1.6] text-white/76">
@@ -87,9 +125,9 @@ export function HomeExperience() {
                 </div>
               </div>
 
-              <div className="relative lg:-ml-2">
-                <div className="hero-glow pointer-events-none absolute inset-x-0 top-6 -z-10 h-[86%] bg-[radial-gradient(circle_at_55%_35%,rgba(217,160,139,0.24),transparent_50%)] blur-3xl" />
-                <div className="hero-panel hero-panel-sequence border border-white/10 bg-[#0a1320]/96 p-6 backdrop-blur-sm sm:p-7 lg:p-9">
+              <div className="relative lg:-ml-1">
+                <div className="hero-glow pointer-events-none absolute inset-x-[-2%] top-0 -z-10 h-[94%] bg-[radial-gradient(circle_at_56%_36%,rgba(196,227,255,0.16),transparent_32%),radial-gradient(circle_at_58%_28%,rgba(217,160,139,0.16),transparent_48%)] blur-3xl" />
+                <div className="hero-panel hero-panel-sequence border border-white/12 bg-[#0c1726]/98 p-6 backdrop-blur-sm sm:p-7 lg:p-9">
                   <div className="hero-panel-row flex items-center justify-between border-b border-white/10 pb-4">
                     <div>
                       <p className="text-sm font-semibold uppercase tracking-[0.16em] text-white/40">
@@ -105,7 +143,7 @@ export function HomeExperience() {
                   </div>
 
                   <div className="hero-panel-row mt-4 grid gap-px overflow-hidden border border-white/10 bg-white/10 lg:grid-cols-[0.8fr_1.2fr]">
-                    <div className="system-ui-tile bg-[#0d1624] p-6">
+                    <div className="system-ui-tile bg-[#111d2d] p-6">
                       <p className="text-sm font-semibold uppercase tracking-[0.14em] text-white/40">
                         Intake State
                       </p>
@@ -132,7 +170,7 @@ export function HomeExperience() {
                   </div>
 
                   <div className="hero-panel-row mt-4 grid gap-px overflow-hidden border border-white/10 bg-white/10 md:grid-cols-3">
-                    <div className="system-ui-tile bg-[#0d1624] p-6">
+                    <div className="system-ui-tile bg-[#111d2d] p-6">
                       <p className="text-sm font-semibold uppercase tracking-[0.14em] text-white/40">
                         Execution
                       </p>
@@ -166,7 +204,7 @@ export function HomeExperience() {
 
       <Reveal>
         <section className="relative">
-          <div className="pointer-events-none absolute inset-0 bg-[linear-gradient(180deg,rgba(14,24,38,0.42),rgba(6,11,18,0.16))]" />
+          <div className="pointer-events-none absolute inset-0 bg-[linear-gradient(180deg,rgba(16,28,44,0.46),rgba(7,13,22,0.18)),radial-gradient(circle_at_78%_18%,rgba(111,152,196,0.08),transparent_28%)]" />
           <div className="mx-auto max-w-[1200px] px-5 py-20 sm:px-6 lg:px-8">
             <div className="relative border-t border-white/10 pt-8">
             <p className="text-sm font-semibold uppercase tracking-[0.16em] text-[color:#d9a08b]">
@@ -186,7 +224,7 @@ export function HomeExperience() {
 
       <Reveal>
         <section className="relative">
-          <div className="pointer-events-none absolute inset-0 bg-[radial-gradient(circle_at_15%_50%,rgba(58,88,122,0.12),transparent_30%),linear-gradient(180deg,rgba(8,15,25,0.22),rgba(5,11,20,0.04))]" />
+          <div className="pointer-events-none absolute inset-0 bg-[radial-gradient(circle_at_15%_50%,rgba(58,88,122,0.14),transparent_30%),linear-gradient(180deg,rgba(8,15,25,0.24),rgba(7,14,24,0.08))]" />
           <div className="mx-auto max-w-[1200px] px-5 py-20 sm:px-6 lg:px-8">
             <div className="relative grid gap-10 border-t border-white/10 pt-8 lg:grid-cols-[minmax(0,0.74fr)_minmax(0,1fr)]">
               <div>
@@ -216,7 +254,7 @@ export function HomeExperience() {
 
       <Reveal>
         <section className="relative">
-          <div className="pointer-events-none absolute inset-0 bg-[linear-gradient(180deg,rgba(12,22,36,0.16),rgba(5,11,20,0.02))]" />
+          <div className="pointer-events-none absolute inset-0 bg-[linear-gradient(180deg,rgba(15,26,40,0.18),rgba(8,14,24,0.05)),radial-gradient(circle_at_80%_24%,rgba(217,160,139,0.05),transparent_20%)]" />
           <div className="mx-auto max-w-[1200px] px-5 py-20 sm:px-6 lg:px-8">
             <div className="relative grid gap-10 border-t border-white/10 pt-8 lg:grid-cols-2">
               <div>
@@ -246,7 +284,7 @@ export function HomeExperience() {
 
       <Reveal>
         <section className="relative">
-          <div className="pointer-events-none absolute inset-0 bg-[radial-gradient(circle_at_85%_18%,rgba(217,160,139,0.08),transparent_20%),linear-gradient(180deg,rgba(7,13,22,0.06),rgba(12,21,34,0.18))]" />
+          <div className="pointer-events-none absolute inset-0 bg-[radial-gradient(circle_at_85%_18%,rgba(217,160,139,0.1),transparent_20%),linear-gradient(180deg,rgba(8,15,24,0.08),rgba(14,25,39,0.22))]" />
           <div className="mx-auto max-w-[1200px] px-5 py-20 sm:px-6 lg:px-8">
             <div className="relative border-t border-white/10 pt-8">
               <p className="text-sm font-semibold uppercase tracking-[0.16em] text-[color:#d9a08b]">
@@ -280,7 +318,7 @@ export function HomeExperience() {
 
       <Reveal>
         <section className="relative">
-          <div className="pointer-events-none absolute inset-0 bg-[linear-gradient(180deg,rgba(13,23,37,0.4),rgba(4,8,14,0.14))]" />
+          <div className="pointer-events-none absolute inset-0 bg-[linear-gradient(180deg,rgba(16,27,42,0.42),rgba(5,10,16,0.18)),radial-gradient(circle_at_14%_30%,rgba(98,138,183,0.08),transparent_22%)]" />
           <div className="mx-auto max-w-[1200px] px-5 py-20 sm:px-6 lg:px-8">
             <div className="relative border-t border-white/10 pt-8">
               <p className="text-sm font-semibold uppercase tracking-[0.16em] text-[color:#d9a08b]">
@@ -290,14 +328,17 @@ export function HomeExperience() {
                 Organizations that have worked with Farcelis AI Consulting LLC.
               </h2>
             </div>
-            <div className="logo-carousel group relative mt-12 overflow-hidden">
+            <div
+              ref={logoTrackRef}
+              className="logo-carousel group relative mt-12 overflow-x-hidden"
+            >
               <div className="pointer-events-none absolute inset-y-0 left-0 z-10 w-16 bg-gradient-to-r from-[#050b14] to-transparent" />
               <div className="pointer-events-none absolute inset-y-0 right-0 z-10 w-16 bg-gradient-to-l from-[#050b14] to-transparent" />
-              <div className="logo-carousel-track flex w-max gap-10 group-hover:[animation-play-state:paused]">
+              <div className="logo-carousel-track flex w-max gap-10">
                 {proofLogos.map((partner) => (
                   <div
                     key={partner.name}
-                    className="proof-logo-tile flex min-h-32 min-w-[260px] items-center justify-center border border-white/10 bg-white/[0.03] px-8 py-8"
+                    className="proof-logo-tile flex min-h-32 min-w-[260px] items-center justify-center border border-white/12 bg-white/[0.045] px-8 py-8"
                   >
                     {partner.logo ? (
                       <div className="relative h-16 w-full">
@@ -323,7 +364,7 @@ export function HomeExperience() {
 
       <Reveal>
         <section className="relative">
-          <div className="pointer-events-none absolute inset-0 bg-[linear-gradient(180deg,rgba(7,13,22,0.04),rgba(16,26,40,0.22))]" />
+          <div className="pointer-events-none absolute inset-0 bg-[linear-gradient(180deg,rgba(7,13,22,0.06),rgba(16,26,40,0.24)),radial-gradient(circle_at_82%_24%,rgba(217,160,139,0.05),transparent_18%)]" />
           <div className="mx-auto max-w-[1200px] px-5 py-20 sm:px-6 lg:px-8">
             <div className="relative border-t border-white/10 pt-8">
               <p className="text-sm font-semibold uppercase tracking-[0.16em] text-[color:#d9a08b]">
