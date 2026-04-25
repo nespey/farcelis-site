@@ -92,7 +92,7 @@ function HeroCards() {
 export function Hero() {
   return (
     <section className="overflow-hidden px-4 pb-20 pt-10 sm:px-6 sm:pb-24 lg:px-8 lg:pb-28 lg:pt-16">
-      <div className="mx-auto grid max-w-7xl gap-10 rounded-[40px] border border-slate-200 bg-[linear-gradient(135deg,rgba(255,255,255,0.96),rgba(243,238,230,0.98))] px-6 py-8 shadow-[0_36px_100px_rgba(15,23,42,0.14)] sm:px-8 sm:py-10 lg:grid-cols-[minmax(0,1.02fr)_minmax(430px,0.98fr)] lg:items-center lg:px-12 lg:py-16">
+      <div className="mx-auto grid max-w-7xl gap-10 rounded-[24px] border border-slate-300 bg-[linear-gradient(135deg,rgba(255,255,255,0.98),rgba(239,234,225,1))] px-6 py-8 shadow-[0_44px_120px_rgba(15,23,42,0.18)] sm:px-8 sm:py-10 lg:grid-cols-[minmax(0,1.02fr)_minmax(430px,0.98fr)] lg:items-center lg:px-12 lg:py-18">
         <div className="max-w-2xl">
           <p className="mb-4 text-xs font-semibold uppercase tracking-[0.24em] text-[color:#9f412c]">
             Farcelis AI Consulting
@@ -148,7 +148,7 @@ export function Hero() {
         </div>
 
         <div className="relative">
-          <div className="absolute inset-x-10 top-10 -z-10 h-72 rounded-full bg-[radial-gradient(circle,rgba(20,74,106,0.18),transparent_65%)] blur-3xl" />
+          <div className="absolute inset-x-10 top-10 -z-10 h-72 rounded-full bg-[radial-gradient(circle,rgba(20,74,106,0.24),transparent_65%)] blur-3xl" />
           <div className="grid gap-4 lg:hidden">
             <HeroCards />
           </div>
