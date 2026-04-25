@@ -99,8 +99,8 @@ export function HomeExperience() {
 
   return (
     <div className="relative overflow-hidden bg-[#040a12] text-white">
-      <div className="pointer-events-none absolute inset-0 bg-[linear-gradient(90deg,rgba(255,255,255,0.004)_1px,transparent_1px),linear-gradient(rgba(255,255,255,0.004)_1px,transparent_1px)] bg-[size:64px_64px]" />
-      <div className="pointer-events-none absolute inset-0 bg-[radial-gradient(circle_at_50%_35%,rgba(86,120,156,0.08),transparent_26%),linear-gradient(90deg,rgba(2,6,12,0.5),rgba(9,18,30,0.14)_45%,rgba(3,7,13,0.56)),linear-gradient(180deg,rgba(9,16,28,0.22),rgba(4,9,15,0.16)_22%,rgba(8,16,28,0.24)_70%,rgba(3,7,13,0.38))]" />
+      <div className="pointer-events-none absolute inset-0 bg-[linear-gradient(90deg,rgba(255,255,255,0.003)_1px,transparent_1px),linear-gradient(rgba(255,255,255,0.003)_1px,transparent_1px)] bg-[size:64px_64px]" />
+      <div className="pointer-events-none absolute inset-0 bg-[radial-gradient(circle_at_42%_34%,rgba(86,120,156,0.07),transparent_24%),linear-gradient(90deg,rgba(2,6,12,0.46),rgba(9,18,30,0.12)_40%,rgba(3,7,13,0.66)),linear-gradient(180deg,rgba(10,18,30,0.22),rgba(5,10,16,0.18)_22%,rgba(8,16,28,0.26)_70%,rgba(3,7,13,0.42))]" />
       <div
         className="pointer-events-none absolute inset-0 opacity-[0.045] mix-blend-screen"
         style={{
@@ -141,11 +141,11 @@ export function HomeExperience() {
                 </div>
               </div>
 
-              <div className="relative lg:-ml-1">
-                <div className="hero-glow pointer-events-none absolute left-[-4%] top-6 -z-10 h-[72%] w-[46%] bg-[radial-gradient(circle_at_50%_35%,rgba(196,227,255,0.18),transparent_42%),radial-gradient(circle_at_60%_28%,rgba(217,160,139,0.12),transparent_56%)] blur-3xl" />
+              <div className="relative lg:-ml-14">
+                <div className="hero-glow pointer-events-none absolute left-[-10%] top-8 -z-10 h-[62%] w-[28%] bg-[radial-gradient(circle_at_50%_35%,rgba(196,227,255,0.18),transparent_42%),radial-gradient(circle_at_58%_28%,rgba(217,160,139,0.1),transparent_58%)] blur-3xl" />
                 <div
                   ref={heroPanelRef}
-                  className="hero-panel hero-panel-float hero-panel-sequence border border-white/12 bg-[#15253b]/98 p-6 backdrop-blur-sm sm:p-7 lg:p-9"
+                  className="hero-panel hero-panel-float hero-panel-sequence border border-white/12 bg-[#172940]/98 p-6 backdrop-blur-sm sm:p-7 lg:scale-[1.08] lg:p-9"
                 >
                   <div className="hero-panel-row flex items-center justify-between border-b border-white/10 pb-4">
                     <div>
@@ -225,17 +225,17 @@ export function HomeExperience() {
         <section className="relative">
           <div className="pointer-events-none absolute inset-0 bg-[linear-gradient(180deg,rgba(16,28,44,0.46),rgba(7,13,22,0.18)),radial-gradient(circle_at_78%_18%,rgba(111,152,196,0.08),transparent_28%)]" />
           <div className="mx-auto max-w-[1200px] px-5 py-20 sm:px-6 lg:px-8">
-            <div className="relative border-t border-white/10 pt-8">
-            <p className="text-sm font-semibold uppercase tracking-[0.16em] text-[color:#d9a08b]">
-              Hard Truth
-            </p>
-            <h2 className="mt-5 max-w-[900px] text-balance text-[3.2rem] font-semibold tracking-[-0.08em] text-white lg:text-[4rem] lg:leading-[1.08]">
-              Most organizations do not fail because of people. They fail
-              because their systems cannot carry execution at scale.
-            </h2>
-            <p className="mt-6 max-w-[620px] text-[1.25rem] leading-[1.6] text-white/68">
-              Farcelis is the layer that fixes that.
-            </p>
+            <div className="relative border-t border-white/6 pt-8">
+              <p className="text-sm font-semibold uppercase tracking-[0.16em] text-[color:#d9a08b]">
+                Hard Truth
+              </p>
+              <h2 className="mt-5 max-w-[900px] text-balance text-[3.2rem] font-semibold tracking-[-0.08em] text-white lg:text-[4rem] lg:leading-[1.08]">
+                Most organizations do not fail because of people. They fail
+                because their systems cannot carry execution at scale.
+              </h2>
+              <p className="mt-6 max-w-[620px] text-[1.25rem] leading-[1.6] text-white/62">
+                Farcelis is the layer that fixes that.
+              </p>
             </div>
           </div>
         </section>
@@ -248,7 +248,7 @@ export function HomeExperience() {
           <div className="pointer-events-none absolute inset-0 bg-[radial-gradient(circle_at_15%_50%,rgba(91,121,153,0.12),transparent_28%),linear-gradient(180deg,rgba(255,255,255,0.72),rgba(233,238,244,0.9))]" />
           <div className="mx-auto max-w-[1200px] px-5 py-20 sm:px-6 lg:px-8">
             <div className="relative grid gap-10 border-t border-slate-900/8 pt-8 lg:grid-cols-[minmax(0,0.7fr)_minmax(0,1fr)]">
-              <div>
+              <div className="lg:-ml-2">
                 <p className="text-sm font-semibold uppercase tracking-[0.16em] text-[#9f412c]">
                   System Flow
                 </p>
@@ -279,7 +279,7 @@ export function HomeExperience() {
           <div className="pointer-events-none absolute inset-x-0 top-0 h-24 bg-gradient-to-b from-[#eef1f5] via-[#eef1f500] to-transparent" />
           <div className="pointer-events-none absolute inset-0 bg-[linear-gradient(180deg,rgba(15,26,40,0.18),rgba(8,14,24,0.05)),radial-gradient(circle_at_80%_24%,rgba(217,160,139,0.05),transparent_20%)]" />
           <div className="mx-auto max-w-[1200px] px-5 py-20 sm:px-6 lg:px-8">
-            <div className="relative grid gap-10 border-t border-white/10 pt-8 lg:grid-cols-2">
+            <div className="relative grid gap-10 border-t border-white/6 pt-8 lg:grid-cols-2">
               <div className="lg:pl-10">
                 <p className="text-sm font-semibold uppercase tracking-[0.16em] text-[color:#d9a08b]">
                   Who This Is For
@@ -311,7 +311,7 @@ export function HomeExperience() {
           <div className="pointer-events-none absolute inset-x-0 top-0 h-24 bg-gradient-to-b from-[#08131f] via-[#f4f6f800] to-transparent" />
           <div className="pointer-events-none absolute inset-0 bg-[radial-gradient(circle_at_85%_18%,rgba(217,160,139,0.08),transparent_20%),linear-gradient(180deg,rgba(255,255,255,0.74),rgba(238,242,246,0.94))]" />
           <div className="mx-auto max-w-[1200px] px-5 py-20 sm:px-6 lg:px-8">
-            <div className="relative border-t border-slate-900/8 pt-8">
+            <div className="relative border-t border-slate-900/8 pt-8 lg:pl-3">
               <p className="text-sm font-semibold uppercase tracking-[0.16em] text-[#9f412c]">
                 Services
               </p>
@@ -345,7 +345,7 @@ export function HomeExperience() {
         <section className="relative">
           <div className="pointer-events-none absolute inset-0 bg-[linear-gradient(180deg,rgba(16,27,42,0.42),rgba(5,10,16,0.18)),radial-gradient(circle_at_14%_30%,rgba(98,138,183,0.08),transparent_22%)]" />
           <div className="mx-auto max-w-[1200px] px-5 py-20 sm:px-6 lg:px-8">
-            <div className="relative border-t border-white/10 pt-8">
+            <div className="relative border-t border-white/6 pt-8">
               <p className="text-sm font-semibold uppercase tracking-[0.16em] text-[color:#d9a08b]">
                 Selected environments and engagements
               </p>
@@ -381,7 +381,9 @@ export function HomeExperience() {
                           alt={partner.name}
                           fill
                           sizes="320px"
-                          className="object-contain opacity-100 transition duration-150"
+                          className={`object-contain opacity-100 transition duration-150 ${
+                            index < 2 ? "brightness-110 saturate-90" : "brightness-95 saturate-75"
+                          }`}
                         />
                       </div>
                     ) : null}

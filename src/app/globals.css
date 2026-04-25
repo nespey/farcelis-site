@@ -49,9 +49,9 @@ a {
 }
 
 @keyframes heroGlowPulse {
-  0% { opacity: 0.68; }
-  50% { opacity: 1; }
-  100% { opacity: 0.68; }
+  0% { opacity: 0.62; }
+  50% { opacity: 0.92; }
+  100% { opacity: 0.62; }
 }
 
 @keyframes heroPanelEnter {
@@ -99,15 +99,16 @@ a {
 .hero-panel {
   animation: heroPanelEnter 300ms ease-out both;
   box-shadow:
-    0 40px 110px rgba(2, 6, 23, 0.38),
+    0 52px 90px rgba(2, 6, 23, 0.4),
     0 0 52px rgba(180, 214, 255, 0.08),
     inset 0 1px 0 rgba(255, 255, 255, 0.06),
     inset 0 -20px 42px rgba(2, 6, 23, 0.16),
-    0 0 0 1px rgba(196, 227, 255, 0.06);
+    0 0 0 1px rgba(196, 227, 255, 0.06),
+    inset 0 1px 0 rgba(255, 255, 255, 0.16);
 }
 
 .hero-panel-float {
-  transform: translate3d(0, calc(var(--panel-parallax, 0px) * 0.45), 0);
+  transform: translate3d(0, calc(var(--panel-parallax, 0px) * 0.6), 0);
   animation:
     heroPanelEnter 300ms ease-out both,
     heroPanelFloat 7s ease-in-out infinite;
@@ -155,8 +156,8 @@ a {
   opacity: 0;
   transform: translate3d(0, 20px, 0);
   transition:
-    opacity 600ms ease,
-    transform 600ms ease;
+    opacity 620ms ease,
+    transform 620ms ease;
 }
 
 .reveal-section.is-visible {
@@ -225,7 +226,7 @@ a {
 }
 
 .proof-logo-secondary {
-  opacity: 0.72;
+  opacity: 0.82;
 }
 
 @media (prefers-reduced-motion: reduce) {
