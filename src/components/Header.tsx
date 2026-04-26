@@ -1,21 +1,45 @@
 import Image from "next/image";
 import Link from "next/link";
 
+const capabilityLinks = [
+  {
+    href: "/services",
+    label: "AI Consulting",
+    detail: "Execution-first AI strategy, implementation, and operating alignment.",
+  },
+  {
+    href: "/services",
+    label: "Workflow Architecture",
+    detail: "System design for routing, handoffs, ownership, and reporting.",
+  },
+  {
+    href: "/control-layer",
+    label: "Control Layer",
+    detail: "Flagship operating environment for intake, control, and intervention.",
+  },
+];
+
+const companyLinks = [
+  {
+    href: "/results",
+    label: "Results",
+    detail: "Credible proof, real environments, and execution-centered positioning.",
+  },
+  {
+    href: "/team",
+    label: "Leadership",
+    detail: "Meet the operating, systems, and growth leaders behind Farcelis.",
+  },
+  {
+    href: "/contact",
+    label: "Contact",
+    detail: "Start a strategy conversation where execution pressure is highest.",
+  },
+];
+
 export function Header() {
-  const capabilityLinks = [
-    { href: "/services", label: "AI Consulting" },
-    { href: "/services", label: "Workflow Architecture" },
-    { href: "/control-layer", label: "Control Layer" },
-  ];
-
-  const companyLinks = [
-    { href: "/results", label: "Results" },
-    { href: "/team", label: "Leadership" },
-    { href: "/contact", label: "Contact" },
-  ];
-
   return (
-    <header className="sticky top-0 z-50 border-b border-white/8 bg-[rgba(6,17,27,0.8)] backdrop-blur-xl">
+    <header className="sticky top-0 z-50 border-b border-white/8 bg-[rgba(8,18,30,0.74)] backdrop-blur-xl">
       <div className="pointer-events-none absolute inset-x-0 top-0 h-px bg-gradient-to-r from-transparent via-cyan-300/35 to-[color:var(--color-accent)]/40" />
       <div className="section-inner flex min-h-20 items-center justify-between gap-6">
         <Link href="/" className="flex items-center gap-3">
@@ -36,48 +60,82 @@ export function Header() {
           >
             Home
           </Link>
+
           <div className="group relative">
             <button className="text-sm font-medium tracking-[0.01em] text-slate-300 transition group-hover:text-white">
               Capabilities
             </button>
             <div className="pointer-events-none absolute left-0 top-full z-40 pt-4 opacity-0 transition duration-200 group-hover:pointer-events-auto group-hover:opacity-100">
-              <div className="surface-dark min-w-[240px] rounded-[22px] bg-[linear-gradient(180deg,rgba(97,192,215,0.08),rgba(255,255,255,0.03))] p-3">
-                {capabilityLinks.map((item) => (
-                  <Link
-                    key={item.label}
-                    href={item.href}
-                    className="block rounded-[14px] px-4 py-3 text-sm text-slate-300 transition hover:bg-white/[0.04] hover:text-white"
-                  >
-                    {item.label}
-                  </Link>
-                ))}
+              <div className="surface-dark min-w-[520px] rounded-[24px] bg-[linear-gradient(180deg,rgba(97,192,215,0.09),rgba(255,255,255,0.03)),linear-gradient(135deg,rgba(141,119,255,0.08),transparent_45%)] p-4">
+                <div className="grid gap-6 lg:grid-cols-[180px_minmax(0,1fr)]">
+                  <div>
+                    <div className="text-xs font-semibold uppercase tracking-[0.2em] text-[color:var(--color-accent)]">
+                      Capabilities
+                    </div>
+                    <p className="mt-3 text-sm leading-7 text-slate-400">
+                      AI consulting, workflow architecture, and flagship system deployments
+                      designed to stabilize execution.
+                    </p>
+                  </div>
+
+                  <div className="grid gap-2">
+                    {capabilityLinks.map((item) => (
+                      <Link
+                        key={item.label}
+                        href={item.href}
+                        className="block rounded-[16px] border border-white/6 px-4 py-3 transition hover:bg-white/[0.04] hover:text-white"
+                      >
+                        <div className="text-sm font-semibold text-slate-200">{item.label}</div>
+                        <div className="mt-1 text-xs leading-6 text-slate-400">{item.detail}</div>
+                      </Link>
+                    ))}
+                  </div>
+                </div>
               </div>
             </div>
           </div>
+
           <Link
             href="/services"
             className="text-sm font-medium tracking-[0.01em] text-slate-300 transition hover:text-white"
           >
             Services
           </Link>
+
           <div className="group relative">
             <button className="text-sm font-medium tracking-[0.01em] text-slate-300 transition group-hover:text-white">
               Company
             </button>
             <div className="pointer-events-none absolute left-0 top-full z-40 pt-4 opacity-0 transition duration-200 group-hover:pointer-events-auto group-hover:opacity-100">
-              <div className="surface-dark min-w-[220px] rounded-[22px] bg-[linear-gradient(180deg,rgba(141,119,255,0.08),rgba(255,255,255,0.03))] p-3">
-                {companyLinks.map((item) => (
-                  <Link
-                    key={item.label}
-                    href={item.href}
-                    className="block rounded-[14px] px-4 py-3 text-sm text-slate-300 transition hover:bg-white/[0.04] hover:text-white"
-                  >
-                    {item.label}
-                  </Link>
-                ))}
+              <div className="surface-dark min-w-[500px] rounded-[24px] bg-[linear-gradient(180deg,rgba(141,119,255,0.08),rgba(255,255,255,0.03)),linear-gradient(135deg,rgba(97,192,215,0.08),transparent_45%)] p-4">
+                <div className="grid gap-6 lg:grid-cols-[160px_minmax(0,1fr)]">
+                  <div>
+                    <div className="text-xs font-semibold uppercase tracking-[0.2em] text-[color:var(--color-accent)]">
+                      Company
+                    </div>
+                    <p className="mt-3 text-sm leading-7 text-slate-400">
+                      The proof, leadership, and strategy surfaces that explain how Farcelis
+                      operates beyond a single product.
+                    </p>
+                  </div>
+
+                  <div className="grid gap-2">
+                    {companyLinks.map((item) => (
+                      <Link
+                        key={item.label}
+                        href={item.href}
+                        className="block rounded-[16px] border border-white/6 px-4 py-3 transition hover:bg-white/[0.04] hover:text-white"
+                      >
+                        <div className="text-sm font-semibold text-slate-200">{item.label}</div>
+                        <div className="mt-1 text-xs leading-6 text-slate-400">{item.detail}</div>
+                      </Link>
+                    ))}
+                  </div>
+                </div>
               </div>
             </div>
           </div>
+
           <Link
             href="/contact"
             className="text-sm font-medium tracking-[0.01em] text-slate-300 transition hover:text-white"

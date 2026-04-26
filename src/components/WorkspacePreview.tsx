@@ -2,55 +2,42 @@
 
 import { useEffect, useState } from "react";
 
-type PreviewMode = "household" | "project";
+const sources = [
+  "Inbox",
+  "CRM",
+  "PM Board",
+  "Contracts",
+  "Calendar",
+  "Field Notes",
+];
 
-const modes: {
-  id: PreviewMode;
-  label: string;
-  title: string;
-  subtitle: string;
-  summary: string;
-  stats: { label: string; value: string; tone: string }[];
-  queue: { title: string; meta: string; tone: string }[];
-  rail: string[];
-}[] = [
+const outputs = [
+  "Owner routing",
+  "Inbox reply",
+  "Task update",
+  "Leadership note",
+  "Project status",
+  "Follow-up queue",
+];
+
+const stages = [
   {
-    id: "household",
-    label: "Household / Personal",
-    title: "Operations command view",
-    subtitle: "Where household, business, and opportunity stay aligned.",
-    summary: "Command strip, inbox control, action center, bills, and follow-up lanes in one environment.",
-    stats: [
-      { label: "Open actions", value: "19", tone: "from-rose-400/25 to-rose-400/5" },
-      { label: "Due this week", value: "15", tone: "from-amber-400/25 to-amber-400/5" },
-      { label: "Bills due", value: "2", tone: "from-cyan-400/25 to-cyan-400/5" },
-      { label: "Pipelines", value: "2", tone: "from-violet-400/25 to-violet-400/5" },
-    ],
-    queue: [
-      { title: "Immediate execution", meta: "Tasks, replies, and due-now actions", tone: "border-rose-400/30" },
-      { title: "Action center", meta: "Filter, assign, complete, and defer live work", tone: "border-cyan-400/30" },
-      { title: "Finance + follow-ups", meta: "Bills, obligations, and upcoming deadlines", tone: "border-amber-400/30" },
-    ],
-    rail: ["Dashboard", "Personal Ops", "Job Search", "Farcelis", "Finance", "Email Actions"],
+    label: "Capture",
+    summary: "Signals enter through inboxes, boards, forms, and source systems.",
+    activeSource: 0,
+    activeOutput: 0,
   },
   {
-    id: "project",
-    label: "Client / Project Ops",
-    title: "Executive project workspace",
-    subtitle: "Projects, partners, and execution activity across one operating frame.",
-    summary: "Owner filters, project controls, outreach actions, and source-system links brought into one command layer.",
-    stats: [
-      { label: "Projects", value: "104", tone: "from-emerald-400/25 to-emerald-400/5" },
-      { label: "Contacts", value: "330", tone: "from-sky-400/25 to-sky-400/5" },
-      { label: "Urgent flags", value: "8", tone: "from-orange-400/25 to-orange-400/5" },
-      { label: "Source systems", value: "3", tone: "from-fuchsia-400/25 to-fuchsia-400/5" },
-    ],
-    queue: [
-      { title: "Control strip", meta: "Search, owner filters, status filters, export, sync", tone: "border-emerald-400/30" },
-      { title: "Project queue", meta: "Cards with status, owner, stage, county, and system links", tone: "border-sky-400/30" },
-      { title: "Executive view", meta: "Operations, executive, and PM frames toggled in place", tone: "border-fuchsia-400/30" },
-    ],
-    rail: ["Operations", "Executive", "PM", "Projects", "Outreach", "Sync"],
+    label: "Stabilize",
+    summary: "The Control Layer normalizes requests, ownership, and pressure points.",
+    activeSource: 2,
+    activeOutput: 2,
+  },
+  {
+    label: "Route",
+    summary: "Priorities, inbox actions, and executive visibility stay aligned in one frame.",
+    activeSource: 3,
+    activeOutput: 4,
   },
 ];
 
@@ -59,140 +46,172 @@ type WorkspacePreviewProps = {
 };
 
 export function WorkspacePreview({ compact = false }: WorkspacePreviewProps) {
-  const [active, setActive] = useState<PreviewMode>("household");
+  const [step, setStep] = useState(0);
 
   useEffect(() => {
     const interval = window.setInterval(() => {
-      setActive((current) => (current === "household" ? "project" : "household"));
-    }, 4200);
+      setStep((current) => (current + 1) % stages.length);
+    }, 2600);
 
     return () => window.clearInterval(interval);
   }, []);
 
-  const current = modes.find((mode) => mode.id === active)!;
+  const current = stages[step]!;
 
   return (
-    <div className={`surface-dark overflow-hidden rounded-[34px] ${compact ? "px-5 py-5" : "px-6 py-6"}`}>
-      <div className="flex flex-col gap-4 border-b border-white/8 pb-5 lg:flex-row lg:items-center lg:justify-between">
-        <div>
-          <div className="text-xs font-semibold uppercase tracking-[0.22em] text-[color:var(--color-accent)]">
-            Farcelis Control Layer
+    <div className={`hero-panel-shell ${compact ? "" : "hero-panel-float"} relative`}>
+      <div
+        className={`relative overflow-hidden rounded-[30px] border border-white/10 bg-[linear-gradient(180deg,rgba(255,255,255,0.08),rgba(255,255,255,0.03)),linear-gradient(135deg,rgba(22,33,47,0.96),rgba(10,18,28,0.96))] shadow-[0_38px_90px_rgba(3,8,16,0.42),inset_0_1px_0_rgba(255,255,255,0.08)] ${
+          compact ? "px-4 py-4" : "px-5 py-5"
+        }`}
+      >
+        <div className="mb-4 flex items-center justify-between gap-4 border-b border-white/8 pb-4">
+          <div>
+            <div className="text-[11px] font-semibold uppercase tracking-[0.22em] text-[color:var(--color-accent)]">
+              Farcelis Control Layer
+            </div>
+            <div className="mt-2 text-[1.05rem] font-semibold tracking-[-0.03em] text-white">
+              Live operating workspace
+            </div>
+            <div className="mt-1 max-w-[36ch] text-sm leading-6 text-slate-300">
+              {current.summary}
+            </div>
           </div>
-          <div className="mt-2 text-lg font-medium text-white">{current.title}</div>
-          <div className="mt-1 max-w-[540px] text-sm leading-7 text-slate-300">{current.summary}</div>
-        </div>
-        <div className="flex flex-wrap gap-2">
-          {modes.map((mode) => (
-            <button
-              key={mode.id}
-              type="button"
-              onClick={() => setActive(mode.id)}
-              className={`rounded-full border px-4 py-2 text-xs font-semibold uppercase tracking-[0.18em] transition ${
-                mode.id === active
-                  ? "border-white/22 bg-white/10 text-white"
-                  : "border-white/8 bg-white/[0.03] text-slate-400 hover:border-white/14 hover:text-white"
-              }`}
-            >
-              {mode.label}
-            </button>
-          ))}
-        </div>
-      </div>
 
-      <div className={`mt-5 grid gap-5 ${compact ? "lg:grid-cols-[210px_minmax(0,1fr)]" : "lg:grid-cols-[220px_minmax(0,1fr)]"}`}>
-        <aside className="rounded-[26px] border border-white/8 bg-[#0e1826] px-4 py-4">
-          <div className="text-[11px] font-semibold uppercase tracking-[0.2em] text-slate-500">
-            Workspace
-          </div>
-          <div className="mt-4 grid gap-2">
-            {current.rail.map((item, index) => (
+          <div className="hidden gap-2 md:flex">
+            {["Household", "Project Ops", "Leadership"].map((item, index) => (
               <div
                 key={item}
-                className={`rounded-[16px] border px-4 py-3 text-sm font-medium transition ${
-                  index === 0
-                    ? "border-white/10 bg-white/8 text-white"
-                    : "border-white/6 bg-white/[0.02] text-slate-400"
+                className={`rounded-full border px-3 py-2 text-[11px] font-semibold uppercase tracking-[0.16em] ${
+                  index === step
+                    ? "border-white/18 bg-white/10 text-white"
+                    : "border-white/8 bg-white/[0.03] text-slate-500"
                 }`}
               >
                 {item}
               </div>
             ))}
           </div>
-        </aside>
+        </div>
 
-        <div className="space-y-4">
-          <div className="overflow-hidden rounded-[28px] border border-white/8 bg-[linear-gradient(135deg,rgba(255,248,236,0.88),rgba(201,226,255,0.6))] px-5 py-5 text-slate-950 shadow-[inset_0_1px_0_rgba(255,255,255,0.65)]">
-            <div className="text-xs font-semibold uppercase tracking-[0.2em] text-[#9f412c]">
-              {current.label}
+        <div className="grid gap-4 lg:grid-cols-[180px_minmax(0,1fr)_170px]">
+          <div className="space-y-2">
+            <div className="text-[11px] font-semibold uppercase tracking-[0.2em] text-slate-500">
+              Inputs
             </div>
-            <div className="mt-3 text-[clamp(1.7rem,2.4vw,2.5rem)] font-semibold tracking-[-0.05em]">
-              {current.subtitle}
-            </div>
-          </div>
-
-          <div className="grid gap-3 md:grid-cols-4">
-            {current.stats.map((stat) => (
+            {sources.map((source, index) => (
               <div
-                key={stat.label}
-                className={`rounded-[22px] border border-white/8 bg-gradient-to-br ${stat.tone} px-4 py-4`}
+                key={source}
+                className={`rounded-[16px] border px-3 py-3 text-sm transition ${
+                  index === current.activeSource
+                    ? "border-cyan-300/26 bg-cyan-300/10 text-cyan-50 shadow-[0_12px_28px_rgba(97,192,215,0.15)]"
+                    : "border-white/7 bg-white/[0.03] text-slate-400"
+                }`}
               >
-                <div className="text-[11px] font-semibold uppercase tracking-[0.18em] text-slate-300">
-                  {stat.label}
-                </div>
-                <div className="mt-3 text-3xl font-semibold tracking-[-0.05em] text-white">{stat.value}</div>
+                {source}
               </div>
             ))}
           </div>
 
-          <div className="grid gap-3 xl:grid-cols-[1.2fr_0.8fr]">
-            <div className="rounded-[24px] border border-white/8 bg-white/[0.03] p-4">
-              <div className="flex flex-wrap gap-3 border-b border-white/8 pb-4">
-                {["Search board", "Quick add", "Flag", "Sync"].map((item, index) => (
-                  <div
-                    key={item}
-                    className={`rounded-full border px-3 py-2 text-xs font-semibold uppercase tracking-[0.16em] ${
-                      index === 0
-                        ? "border-cyan-300/30 bg-cyan-300/10 text-cyan-100"
-                        : "border-white/8 bg-white/[0.03] text-slate-400"
-                    }`}
-                  >
-                    {item}
-                  </div>
-                ))}
-              </div>
-              <div className="mt-4 grid gap-3 md:grid-cols-2">
-                {[
-                  { title: "Open queue", detail: "Priority-first execution lane" },
-                  { title: "Inbox control", detail: "Signals converted into action records" },
-                  { title: "Recent activity", detail: "Operational movement and updates" },
-                  { title: "Upcoming pressure", detail: "Deadlines, obligations, follow-ups" },
-                ].map((block) => (
-                  <div
-                    key={block.title}
-                    className="rounded-[18px] border border-white/8 bg-[#101b2a] px-4 py-4"
-                  >
-                    <div className="text-[11px] font-semibold uppercase tracking-[0.18em] text-slate-500">
-                      {block.title}
-                    </div>
-                    <div className="mt-2 text-sm leading-7 text-slate-200">{block.detail}</div>
-                  </div>
-                ))}
-              </div>
-            </div>
-
-            <div className="grid gap-3">
-              {current.queue.map((item) => (
+          <div className="rounded-[24px] border border-white/8 bg-[#0e1825]/96 p-4">
+            <div className="flex flex-wrap items-center gap-2 border-b border-white/8 pb-4">
+              {["Search", "Filters", "Inbox", "Export", "Sync"].map((item, index) => (
                 <div
-                  key={item.title}
-                  className={`rounded-[22px] border bg-white/[0.03] px-4 py-4 ${item.tone}`}
+                  key={item}
+                  className={`rounded-full border px-3 py-2 text-[11px] font-semibold uppercase tracking-[0.16em] ${
+                    index === 2
+                      ? "border-[color:var(--color-accent)]/28 bg-[color:var(--color-accent)]/10 text-orange-50"
+                      : "border-white/8 bg-white/[0.03] text-slate-400"
+                  }`}
                 >
-                  <div className="text-[11px] font-semibold uppercase tracking-[0.18em] text-[color:var(--color-accent)]">
-                    {item.title}
-                  </div>
-                  <div className="mt-2 text-sm leading-7 text-slate-200">{item.meta}</div>
+                  {item}
                 </div>
               ))}
             </div>
+
+            <div className="mt-4 grid gap-3 md:grid-cols-[1.15fr_0.85fr]">
+              <div className="rounded-[18px] border border-white/7 bg-white/[0.03] p-4">
+                <div className="flex items-center justify-between">
+                  <div className="text-[11px] font-semibold uppercase tracking-[0.18em] text-slate-500">
+                    Intake queue
+                  </div>
+                  <div className="rounded-full border border-white/8 px-2.5 py-1 text-[10px] font-semibold uppercase tracking-[0.14em] text-slate-400">
+                    Active
+                  </div>
+                </div>
+                <div className="mt-4 space-y-2.5">
+                  {[
+                    "Client request routed to owner",
+                    "Inbox message converted to task",
+                    "Project action flagged for review",
+                    "Executive update prepared",
+                  ].map((item, index) => (
+                    <div
+                      key={item}
+                      className={`rounded-[14px] border px-3 py-3 text-sm leading-6 transition ${
+                        index === step + 1
+                          ? "border-white/14 bg-white/8 text-white"
+                          : "border-white/6 bg-[#111e2d] text-slate-400"
+                      }`}
+                    >
+                      {item}
+                    </div>
+                  ))}
+                </div>
+              </div>
+
+              <div className="space-y-3">
+                <div className="rounded-[18px] border border-white/7 bg-[linear-gradient(180deg,rgba(97,192,215,0.12),rgba(97,192,215,0.04))] p-4">
+                  <div className="text-[11px] font-semibold uppercase tracking-[0.18em] text-cyan-100">
+                    Executive view
+                  </div>
+                  <div className="mt-3 text-xl font-semibold tracking-[-0.04em] text-white">
+                    Visibility holds.
+                  </div>
+                  <div className="mt-2 text-sm leading-6 text-slate-200">
+                    Priority, ownership, and movement stay visible in one frame.
+                  </div>
+                </div>
+
+                <div className="hero-flow-line rounded-[18px] border border-white/7 bg-white/[0.03] p-4">
+                  <div className="text-[11px] font-semibold uppercase tracking-[0.18em] text-slate-500">
+                    Control flow
+                  </div>
+                  <div className="mt-3 grid grid-cols-3 gap-2">
+                    {stages.map((stage, index) => (
+                      <div
+                        key={stage.label}
+                        className={`rounded-[14px] border px-3 py-3 text-center text-xs font-semibold uppercase tracking-[0.14em] transition ${
+                          index === step
+                            ? "border-[color:var(--color-accent)]/24 bg-[color:var(--color-accent)]/12 text-orange-50"
+                            : "border-white/6 bg-[#111e2d] text-slate-500"
+                        }`}
+                      >
+                        {stage.label}
+                      </div>
+                    ))}
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <div className="space-y-2">
+            <div className="text-[11px] font-semibold uppercase tracking-[0.2em] text-slate-500">
+              Outputs
+            </div>
+            {outputs.map((output, index) => (
+              <div
+                key={output}
+                className={`rounded-[16px] border px-3 py-3 text-sm transition ${
+                  index === current.activeOutput
+                    ? "border-[color:var(--color-accent)]/24 bg-[color:var(--color-accent)]/10 text-orange-50 shadow-[0_12px_28px_rgba(242,139,91,0.12)]"
+                    : "border-white/7 bg-white/[0.03] text-slate-400"
+                }`}
+              >
+                {output}
+              </div>
+            ))}
           </div>
         </div>
       </div>

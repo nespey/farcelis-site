@@ -29,6 +29,7 @@ export type ProofCard = {
 };
 
 export type TeamMember = {
+  slug: string;
   name: string;
   role: string;
   email: string;
@@ -167,8 +168,8 @@ export const approvedLogos: Partner[] = [
   { name: "K2 Renew", logo: "/logos/approved/k2-renew.png", href: "https://k2renew.com/home" },
   { name: "Paragon Cyber Solutions", logo: "/logos/approved/paragon.png", href: "https://paragoncybersolutions.com/" },
   { name: "NexAlign", logo: "/logos/approved/nexalign.jpeg", href: "https://nexalign.app/login?from_url=https%3A%2F%2Fnexalign.app%2F" },
-  { name: "CityGov", logo: "/logos/approved/citygov-light.png", href: "https://www.citygov.com/" },
-  { name: "Eagle", logo: "/logos/approved/eagle-light.svg", href: "https://www.eagleeng.com/" },
+  { name: "CityGov", logo: "/logos/approved/citygov-dark.png", href: "https://www.citygov.com/" },
+  { name: "Eagle", logo: "/logos/approved/eagle-dark.png", href: "https://www.eagleeng.com/" },
 ];
 
 export const services: Service[] = [
@@ -426,6 +427,7 @@ export const controlLayerCards = [
 
 export const teamMembers: TeamMember[] = [
   {
+    slug: "nathan-espey",
     name: "Nathan Espey",
     role: "Founder & Chief Executive Officer",
     email: "nespey@farcelis.io",
@@ -447,6 +449,7 @@ export const teamMembers: TeamMember[] = [
     ],
   },
   {
+    slug: "katalin-espey",
     name: "Katalin Espey",
     role: "Chief Systems Officer",
     email: "kespey@farcelis.io",
@@ -468,6 +471,7 @@ export const teamMembers: TeamMember[] = [
     ],
   },
   {
+    slug: "celeste-hartley",
     name: "Celeste Hartley",
     role: "Chief Marketing Officer",
     email: "chartley@farcelis.io",
@@ -490,6 +494,7 @@ export const teamMembers: TeamMember[] = [
     ],
   },
   {
+    slug: "dominic-chase",
     name: "Dominic Chase",
     role: "Chief Operating Officer",
     email: "dchase@farcelis.io",
@@ -511,6 +516,10 @@ export const teamMembers: TeamMember[] = [
     ],
   },
 ];
+
+export function getTeamMemberBySlug(slug: string) {
+  return teamMembers.find((member) => member.slug === slug);
+}
 
 export const certifications = [
   {

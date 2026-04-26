@@ -15,6 +15,25 @@ const capabilityPillars = [
   "Execution systems",
 ];
 
+const integrationBands = [
+  "Outlook",
+  "Gmail",
+  "HubSpot",
+  "Salesforce",
+  "ClickUp",
+  "Asana",
+  "Monday.com",
+  "Smartsheet",
+  "Jira",
+  "SharePoint",
+  "Drive",
+  "Docs",
+  "Sheets",
+  "Slack",
+  "Teams",
+  "QuickBooks",
+];
+
 const companyContexts = [
   {
     label: "Founders and CEOs",
@@ -49,18 +68,18 @@ const proofSignals = [
 export function HomeExperience() {
   return (
     <div className="relative overflow-hidden">
-      <section className="section-shell section-shell-dark overflow-hidden pt-18 lg:min-h-[92svh] lg:pt-22">
+      <section className="section-shell section-shell-dark mesh-gold overflow-hidden pt-18 lg:min-h-[92svh] lg:pt-22">
         <div className="pointer-events-none absolute inset-0 subtle-grid" />
-        <div className="pointer-events-none absolute left-[10%] top-[12%] h-72 w-72 rounded-full bg-[radial-gradient(circle,rgba(106,181,214,0.16),transparent_68%)] blur-3xl" />
-        <div className="pointer-events-none absolute right-[8%] top-[16%] h-80 w-80 rounded-full bg-[radial-gradient(circle,rgba(214,140,106,0.15),transparent_72%)] blur-3xl" />
-        <div className="section-inner relative grid gap-12 lg:min-h-[76svh] lg:grid-cols-[minmax(0,0.78fr)_minmax(0,1.22fr)] lg:items-center">
+        <div className="pointer-events-none absolute left-[8%] top-[14%] h-56 w-56 rounded-full bg-[radial-gradient(circle,rgba(255,214,160,0.16),transparent_68%)] blur-3xl" />
+        <div className="pointer-events-none absolute right-[10%] top-[18%] h-72 w-72 rounded-full bg-[radial-gradient(circle,rgba(106,181,214,0.14),transparent_72%)] blur-3xl" />
+        <div className="section-inner relative grid gap-10 lg:min-h-[76svh] lg:grid-cols-[minmax(0,0.9fr)_minmax(0,1.1fr)] lg:items-center">
           <Reveal delayMs={30}>
-            <div className="max-w-[620px]">
+            <div className="max-w-[560px]">
               <p className="eyebrow text-[color:var(--color-accent)]">Farcelis AI Consulting LLC</p>
               <h1 className="display-hero mt-6 text-white">
                 Structure execution before complexity takes control.
               </h1>
-              <p className="lede mt-6 max-w-[580px]">
+              <p className="lede mt-5 max-w-[540px]">
                 Farcelis is an AI operational systems firm for founders, operators, and
                 organizations that need workflow architecture, execution control, and clearer
                 decision environments before more tooling makes the problem worse.
@@ -79,11 +98,11 @@ export function HomeExperience() {
                   See What Farcelis Builds
                 </Link>
               </div>
-              <div className="mt-8 flex flex-wrap gap-3">
+              <div className="mt-8 flex flex-wrap gap-2.5">
                 {capabilityPillars.map((item, index) => (
                   <span
                     key={item}
-                    className={`rounded-full px-4 py-2 text-sm font-medium ${
+                    className={`rounded-full px-3.5 py-2 text-[0.82rem] font-medium ${
                       index % 2 === 0
                         ? "border border-white/10 bg-white/[0.05] text-slate-200"
                         : "border border-cyan-200/12 bg-cyan-200/6 text-cyan-50"
@@ -97,20 +116,22 @@ export function HomeExperience() {
           </Reveal>
 
           <Reveal delayMs={110}>
-            <WorkspacePreview />
+            <div className="lg:pl-4">
+              <WorkspacePreview />
+            </div>
           </Reveal>
         </div>
       </section>
 
       <Reveal delayMs={70}>
-        <section className="section-shell section-shell-light pt-0">
-          <div className="section-inner grid gap-10 lg:grid-cols-[minmax(0,0.62fr)_minmax(0,1.38fr)] lg:items-end">
+        <section className="proof-band section-shell section-shell-light pt-0">
+          <div className="section-inner grid gap-8 lg:grid-cols-[minmax(0,0.48fr)_minmax(0,1.52fr)] lg:items-center">
             <div>
               <p className="eyebrow text-[#9f412c]">Selected environments and engagements</p>
-              <h2 className="section-title mt-5 max-w-[10ch] text-slate-950">
-                Real companies. Real environments. Precise language.
+              <h2 className="mt-4 max-w-[12ch] text-[clamp(1.8rem,3vw,2.6rem)] font-[550] tracking-[-0.06em] text-slate-950">
+                Proof anchored to real operating environments.
               </h2>
-              <p className="mt-5 max-w-[520px] text-base leading-8 text-slate-600">
+              <p className="mt-4 max-w-[520px] text-[0.98rem] leading-7 text-slate-600">
                 Organizations that have worked with Farcelis AI Consulting LLC.
               </p>
             </div>
@@ -152,8 +173,8 @@ export function HomeExperience() {
       </Reveal>
 
       <Reveal delayMs={150}>
-        <section className="section-shell section-shell-dark">
-          <div className="section-inner grid gap-12 lg:grid-cols-[minmax(0,0.68fr)_minmax(0,1.32fr)] lg:items-center">
+        <section className="section-shell section-shell-dark section-bridge-light">
+          <div className="section-inner grid gap-12 lg:grid-cols-[minmax(0,0.62fr)_minmax(0,1.38fr)] lg:items-center">
             <div>
               <p className="eyebrow text-[color:var(--color-accent)]">One Flagship Pillar</p>
               <h2 className="section-title mt-5 text-white">
@@ -179,12 +200,38 @@ export function HomeExperience() {
               </div>
             </div>
 
-            <div className="surface-dark rounded-[32px] px-6 py-7">
-              <div className="text-xs font-semibold uppercase tracking-[0.22em] text-[color:var(--color-accent)]">
-                Control flow
+            <div className="space-y-5">
+              <div className="integration-lane">
+                <div className="integration-lane-track">
+                  {[...integrationBands, ...integrationBands].map((item, index) => (
+                    <div key={`${item}-top-${index}`} className="integration-pill">
+                      {item}
+                    </div>
+                  ))}
+                </div>
               </div>
-              <div className="mt-6">
-                <SystemFlowRail steps={["Input", "Intake", "Route", "Execute", "Track", "Close"]} />
+
+              <div className="surface-dark rounded-[28px] px-4 py-4">
+                <WorkspacePreview compact />
+              </div>
+
+              <div className="integration-lane reverse">
+                <div className="integration-lane-track">
+                  {[...integrationBands.slice().reverse(), ...integrationBands.slice().reverse()].map((item, index) => (
+                    <div key={`${item}-bottom-${index}`} className="integration-pill">
+                      {item}
+                    </div>
+                  ))}
+                </div>
+              </div>
+
+              <div className="surface-dark rounded-[24px] px-6 py-6">
+                <div className="text-xs font-semibold uppercase tracking-[0.22em] text-[color:var(--color-accent)]">
+                  Control flow
+                </div>
+                <div className="mt-5">
+                  <SystemFlowRail steps={["Input", "Intake", "Route", "Execute", "Track", "Close"]} />
+                </div>
               </div>
             </div>
           </div>

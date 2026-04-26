@@ -66,27 +66,19 @@ export function LogoMarquee({ logos, dark = true }: LogoMarqueeProps) {
       />
 
       <div ref={trackRef} className="relative overflow-x-hidden">
-        <div className="flex w-max gap-6 pr-10">
+        <div className="flex w-max gap-7 pr-10">
         {logos.map((logo, index) => {
           const base = dark
-            ? index % 3 === 0
-              ? "border-cyan-300/12 bg-cyan-300/[0.06]"
-              : index % 3 === 1
-                ? "border-violet-300/12 bg-violet-300/[0.06]"
-                : "border-[color:var(--color-accent)]/12 bg-[color:var(--color-accent)]/[0.06]"
-            : index % 3 === 0
-              ? "border-cyan-200/30 bg-cyan-50/70"
-              : index % 3 === 1
-                ? "border-violet-200/30 bg-violet-50/80"
-                : "border-orange-200/30 bg-orange-50/80";
-          const minHeight =
-            index % 3 === 0 ? "h-[56px]" : index % 3 === 1 ? "h-[48px]" : "h-[52px]";
+            ? "border-white/8 bg-white/[0.04]"
+            : index % 2 === 0
+              ? "border-slate-200/80 bg-white/92"
+              : "border-slate-200/80 bg-slate-50/92";
 
           const tile = (
             <div
-              className={`logo-rail-tile hover-lift flex min-h-30 min-w-[250px] items-center justify-center rounded-[24px] border px-9 py-7 ${base}`}
+              className={`logo-rail-tile hover-lift flex min-h-[122px] min-w-[248px] items-center justify-center rounded-[24px] border px-8 py-7 ${base}`}
             >
-              <div className={`relative w-full ${minHeight}`}>
+              <div className="relative h-[52px] w-full">
                 {logo.logo ? (
                   <Image
                     src={logo.logo}
