@@ -30,7 +30,9 @@ export default function ContactPage() {
       <Reveal delayMs={70}>
         <section className="section-shell section-shell-light">
           <div className="section-inner grid gap-10 lg:grid-cols-[minmax(0,1.1fr)_380px]">
-            <div className="surface-light rounded-[30px] px-6 py-7">
+            <div className="surface-light relative overflow-hidden rounded-[30px] px-6 py-7">
+              <div className="light-orbit left-[-4rem] top-[-2rem] h-36 w-36 bg-[radial-gradient(circle,rgba(97,192,215,0.2),transparent_70%)]" />
+              <div className="light-orbit right-[-3rem] bottom-[-3rem] h-40 w-40 bg-[radial-gradient(circle,rgba(242,139,91,0.18),transparent_72%)]" />
               <p className="eyebrow text-[#9f412c]">Conversation Inputs</p>
               <div className="mt-6 divide-y divide-slate-200 border-y border-slate-200">
                 {prompts.map((prompt) => (
@@ -39,10 +41,18 @@ export default function ContactPage() {
                   </div>
                 ))}
               </div>
+              <div className="accent-tabs mt-7">
+                <div className="accent-tab accent-tab-light">Executive visibility gaps</div>
+                <div className="accent-tab accent-tab-light">Workflow drag and handoffs</div>
+                <div className="accent-tab accent-tab-light">AI adoption under pressure</div>
+              </div>
             </div>
 
             <aside className="surface-dark rounded-[30px] px-6 py-7 text-white">
               <p className="eyebrow text-[color:var(--color-accent)]">Contact Details</p>
+              <h2 className="mt-5 text-[2rem] font-semibold tracking-[-0.05em] text-white">
+                Start the strategy conversation where the operating pressure is highest.
+              </h2>
               <div className="mt-6 space-y-4">
                 <a
                   href={`mailto:${site.contact.founderEmail}`}
@@ -66,6 +76,12 @@ export default function ContactPage() {
                   <div className="mt-2 text-lg font-semibold">{site.contact.phone}</div>
                 </a>
               </div>
+              <a
+                href={`mailto:${site.contact.founderEmail}`}
+                className="site-cta mt-6 inline-flex min-h-12 w-full items-center justify-center rounded-full bg-[linear-gradient(135deg,#ff8e5b,#f05cff)] px-6 py-3 text-sm font-semibold text-white hover:shadow-[0_20px_40px_rgba(240,92,255,0.24)]"
+              >
+                Schedule a Strategy Call
+              </a>
             </aside>
           </div>
         </section>

@@ -11,6 +11,13 @@ const pathways = [
   "Governance before scale",
 ];
 
+const operatingBands = [
+  "Executive system design",
+  "Workflow control environments",
+  "AI-enabled execution",
+  "Flagship Control Layer deployment",
+];
+
 export default function ServicesPage() {
   return (
     <>
@@ -34,6 +41,13 @@ export default function ServicesPage() {
               <h2 className="section-title mt-5 text-white">
                 Each engagement is built around how execution actually needs to hold.
               </h2>
+              <div className="accent-tabs mt-8">
+                {operatingBands.map((band) => (
+                  <div key={band} className="accent-tab accent-tab-dark">
+                    {band}
+                  </div>
+                ))}
+              </div>
             </div>
 
             <div className="divide-y divide-white/8 border-y border-white/8">
@@ -58,34 +72,41 @@ export default function ServicesPage() {
       <Reveal delayMs={110}>
         <section className="section-shell section-shell-light">
           <div className="section-inner">
-            <div className="max-w-[780px]">
+            <div className="max-w-[860px]">
               <p className="eyebrow text-[#9f412c]">Capabilities</p>
               <h2 className="section-title mt-5 text-slate-950">
                 Farcelis service paths are distinct, but they all feed the same operating logic.
               </h2>
             </div>
 
-            <div className="mt-12 divide-y divide-slate-200 border-y border-slate-200">
+            <div className="mt-12 space-y-8">
               {services.map((service, index) => (
                 <div
                   key={service.title}
-                  className={`grid gap-5 py-8 lg:grid-cols-[88px_320px_minmax(0,1fr)] ${index % 2 === 1 ? "lg:translate-x-6" : ""}`}
+                  className={`feature-rail surface-light grid gap-6 overflow-hidden px-6 py-8 lg:grid-cols-[88px_300px_minmax(0,1fr)] lg:px-8 ${
+                    index % 2 === 1 ? "lg:translate-x-5" : ""
+                  }`}
                 >
                   <div className="text-sm font-semibold uppercase tracking-[0.18em] text-[#9f412c]">
                     0{index + 1}
                   </div>
-                  <h3 className="text-2xl font-semibold tracking-[-0.04em] text-slate-950">
-                    {service.title}
-                  </h3>
+                  <div>
+                    <div className="text-xs font-semibold uppercase tracking-[0.18em] text-slate-500">
+                      {service.points[0]}
+                    </div>
+                    <h3 className="mt-3 text-2xl font-semibold tracking-[-0.04em] text-slate-950">
+                      {service.title}
+                    </h3>
+                  </div>
                   <div>
                     <p className="max-w-[760px] text-base leading-8 text-slate-600">
                       {service.description}
                     </p>
-                    <div className="mt-5 flex flex-wrap gap-3">
+                    <div className="mt-6 flex flex-wrap gap-3">
                       {service.points.map((point) => (
                         <span
                           key={point}
-                          className="rounded-full border border-slate-200 bg-white px-4 py-2 text-sm font-medium text-slate-700"
+                          className="rounded-full border border-slate-200/80 bg-white/90 px-4 py-2 text-sm font-medium text-slate-700 shadow-[0_8px_18px_rgba(15,23,42,0.06)]"
                         >
                           {point}
                         </span>

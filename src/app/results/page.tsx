@@ -12,6 +12,13 @@ const proofFrames = [
   "Delivery governance stays credible without inflated claims or vague metrics.",
 ];
 
+const credibilitySignals = [
+  "Cybersecurity operating environments",
+  "Execution-heavy project operations",
+  "AI-enabled system design",
+  "Cross-functional delivery governance",
+];
+
 export default function ResultsPage() {
   return (
     <>
@@ -57,6 +64,13 @@ export default function ResultsPage() {
             <p className="mt-6 max-w-[720px] text-lg leading-8 text-slate-600">
               Execution systems deployed across cybersecurity, operations, and AI environments.
             </p>
+            <div className="accent-tabs mt-8">
+              {credibilitySignals.map((signal) => (
+                <div key={signal} className="accent-tab accent-tab-light">
+                  {signal}
+                </div>
+              ))}
+            </div>
             <div className="mt-10">
               <LogoMarquee logos={approvedLogos} dark={false} />
             </div>

@@ -325,6 +325,78 @@ a {
     linear-gradient(90deg, rgba(97, 192, 215, 0.08), rgba(141, 119, 255, 0.06), rgba(242, 139, 91, 0.08));
 }
 
+.accent-tabs {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.9rem;
+}
+
+.accent-tab {
+  border-radius: 999px;
+  border: 1px solid rgba(255, 255, 255, 0.1);
+  padding: 0.95rem 1.3rem;
+  font-size: 0.88rem;
+  font-weight: 600;
+  letter-spacing: 0.01em;
+  transition:
+    transform 180ms ease,
+    box-shadow 180ms ease,
+    border-color 180ms ease,
+    background-color 180ms ease;
+}
+
+.accent-tab:hover {
+  transform: translateY(-2px);
+}
+
+.accent-tab-dark {
+  background:
+    linear-gradient(135deg, rgba(97, 192, 215, 0.08), rgba(141, 119, 255, 0.08)),
+    rgba(255, 255, 255, 0.03);
+  color: #eff6ff;
+}
+
+.accent-tab-light {
+  background:
+    linear-gradient(135deg, rgba(97, 192, 215, 0.12), rgba(242, 139, 91, 0.12)),
+    rgba(255, 255, 255, 0.86);
+  color: #172030;
+  border-color: rgba(8, 18, 29, 0.08);
+}
+
+.feature-rail {
+  position: relative;
+  overflow: hidden;
+  border-radius: 32px;
+}
+
+.feature-rail::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  border-radius: inherit;
+  pointer-events: none;
+  background:
+    linear-gradient(135deg, rgba(97, 192, 215, 0.12), transparent 36%),
+    radial-gradient(circle at 92% 16%, rgba(242, 139, 91, 0.14), transparent 24%);
+}
+
+.light-orbit {
+  position: absolute;
+  border-radius: 999px;
+  filter: blur(46px);
+  pointer-events: none;
+  opacity: 0.9;
+}
+
+.proof-band {
+  border-top: 1px solid rgba(8, 18, 29, 0.08);
+  border-bottom: 1px solid rgba(8, 18, 29, 0.08);
+  background:
+    linear-gradient(180deg, rgba(255, 255, 255, 0.76), rgba(248, 250, 252, 0.94)),
+    linear-gradient(90deg, rgba(97, 192, 215, 0.06), rgba(242, 139, 91, 0.06));
+}
+
 @keyframes heroSignal {
   to {
     opacity: 1;

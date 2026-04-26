@@ -30,7 +30,9 @@ export default function TeamPage() {
               <section className={`section-shell ${light ? "section-shell-light" : "section-shell-dark"}`}>
                 <div className="section-inner grid gap-12 lg:grid-cols-[300px_minmax(0,1fr)] lg:items-start">
                   <div className={light ? "lg:order-2" : ""}>
-                    <div className={`overflow-hidden rounded-[30px] ${light ? "surface-light" : "surface-dark"} p-2`}>
+                    <div
+                      className={`overflow-hidden rounded-[30px] ${light ? "surface-light" : "surface-dark"} p-2`}
+                    >
                       <div className="relative aspect-[4/5] overflow-hidden rounded-[24px]">
                         <Image
                           src={member.image}
@@ -65,7 +67,7 @@ export default function TeamPage() {
                           key={specialty}
                           className={`rounded-full border px-4 py-2 text-sm font-medium ${
                             light
-                              ? "border-slate-200 bg-white text-slate-700"
+                              ? "border-slate-200 bg-white text-slate-700 shadow-[0_10px_18px_rgba(15,23,42,0.06)]"
                               : "border-white/10 bg-white/[0.04] text-slate-200"
                           }`}
                         >
@@ -74,10 +76,25 @@ export default function TeamPage() {
                       ))}
                     </div>
 
-                    <div className="mt-7">
+                    <div className="mt-8 grid gap-4 lg:grid-cols-[minmax(0,1fr)_260px]">
+                      <div
+                        className={`rounded-[24px] border px-5 py-5 ${
+                          light
+                            ? "border-slate-200 bg-[linear-gradient(135deg,rgba(97,192,215,0.1),rgba(242,139,91,0.08))] text-slate-700"
+                            : "border-white/10 bg-[linear-gradient(135deg,rgba(97,192,215,0.08),rgba(141,119,255,0.08))] text-slate-200"
+                        }`}
+                      >
+                        <div className="text-xs font-semibold uppercase tracking-[0.18em] text-[color:var(--color-accent)]">
+                          Leadership Signal
+                        </div>
+                        <p className="mt-3 text-base leading-7">
+                          {member.specialties.slice(0, 2).join(" and ")} stay anchored to how execution works in live operating environments.
+                        </p>
+                      </div>
+
                       <a
                         href={`mailto:${member.email}`}
-                        className={`site-cta inline-flex rounded-full border px-5 py-2.5 text-sm font-semibold ${
+                        className={`site-cta inline-flex items-center justify-center rounded-full border px-5 py-2.5 text-sm font-semibold ${
                           light
                             ? "border-slate-300 text-slate-900 hover:border-slate-950"
                             : "border-white/12 text-white hover:border-white/24"
