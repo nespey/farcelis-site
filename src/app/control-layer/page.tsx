@@ -2,6 +2,7 @@ import { LogoMarquee } from "@/components/LogoMarquee";
 import { PageIntro } from "@/components/PageIntro";
 import { Reveal } from "@/components/Reveal";
 import { SystemFlowRail } from "@/components/SystemFlowRail";
+import { WorkspacePreview } from "@/components/WorkspacePreview";
 import { approvedLogos, capabilityPoints, flowSteps, seo } from "@/lib/site-data";
 import { buildMetadata } from "@/lib/metadata";
 
@@ -20,8 +21,8 @@ export default function ControlLayerPage() {
     <>
       <PageIntro
         eyebrow="Flagship System"
-        title="The Farcelis Control Layer is the flagship implementation when execution needs one frame."
-        description="It sits above existing tools and gives leadership one operating environment for intake, routing, ownership, and intervention."
+        title="The Farcelis Control Layer is the flagship execution environment inside the broader Farcelis operating model."
+        description="It brings intake, routing, visibility, ownership, and intervention into one controlled frame without pretending to be the whole company."
         actions={[
           { href: "/contact", label: "Work With Farcelis" },
           { href: "/services", label: "See Service Paths", variant: "secondary" },
@@ -63,6 +64,14 @@ export default function ControlLayerPage() {
                 </div>
               ))}
             </div>
+          </div>
+        </section>
+      </Reveal>
+
+      <Reveal delayMs={90}>
+        <section className="section-shell section-shell-dark pt-0">
+          <div className="section-inner">
+            <WorkspacePreview compact />
           </div>
         </section>
       </Reveal>

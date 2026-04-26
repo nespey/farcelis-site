@@ -30,7 +30,8 @@ export function PageIntro({
   return (
     <section className={`section-shell section-shell-dark overflow-hidden ${compact ? "pt-16 lg:pt-20" : "pt-20 lg:pt-24"}`}>
       <div className="pointer-events-none absolute inset-0 subtle-grid" />
-      <div className="pointer-events-none absolute left-[12%] top-[14%] h-56 w-56 rounded-full bg-[radial-gradient(circle,rgba(214,140,106,0.12),transparent_68%)] blur-3xl" />
+      <div className="pointer-events-none absolute left-[12%] top-[14%] h-56 w-56 rounded-full bg-[radial-gradient(circle,rgba(214,140,106,0.14),transparent_68%)] blur-3xl" />
+      <div className="pointer-events-none absolute right-[14%] top-[18%] h-64 w-64 rounded-full bg-[radial-gradient(circle,rgba(97,192,215,0.13),transparent_70%)] blur-3xl" />
       <div className="section-inner relative grid gap-12 lg:grid-cols-[minmax(0,0.78fr)_minmax(280px,0.22fr)] lg:items-end">
         <div>
           <p className="eyebrow text-[color:var(--color-accent)]">{eyebrow}</p>
@@ -56,7 +57,7 @@ export function PageIntro({
         </div>
 
         {asideTitle || asideItems.length > 0 ? (
-          <aside className="surface-dark relative rounded-[28px] px-6 py-7">
+          <aside className="surface-dark relative rounded-[28px] bg-[linear-gradient(180deg,rgba(255,255,255,0.06),rgba(97,192,215,0.05))] px-6 py-7">
             {asideTitle ? (
               <p className="eyebrow text-[color:var(--color-accent)]">{asideTitle}</p>
             ) : null}
