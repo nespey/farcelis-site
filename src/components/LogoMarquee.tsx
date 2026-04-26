@@ -20,7 +20,7 @@ export function LogoMarquee({ logos, dark = true }: LogoMarqueeProps) {
 
     let frame = 0;
     let paused = false;
-    const speed = 0.22;
+    const speed = 0.3;
 
     const tick = () => {
       if (!paused) {
@@ -49,32 +49,42 @@ export function LogoMarquee({ logos, dark = true }: LogoMarqueeProps) {
   }, []);
 
   return (
-    <div ref={trackRef} className="relative overflow-x-hidden">
+    <div className={`logo-marquee-shell ${dark ? "" : "light"} p-4 sm:p-5`}>
       <div
         className={`pointer-events-none absolute inset-y-0 left-0 z-10 w-16 ${
           dark
             ? "bg-gradient-to-r from-[#06111b] to-transparent"
-            : "bg-gradient-to-r from-[#f4f6f8] to-transparent"
+            : "bg-gradient-to-r from-[#f8fafc] to-transparent"
         }`}
       />
       <div
         className={`pointer-events-none absolute inset-y-0 right-0 z-10 w-16 ${
           dark
             ? "bg-gradient-to-l from-[#06111b] to-transparent"
-            : "bg-gradient-to-l from-[#f4f6f8] to-transparent"
+            : "bg-gradient-to-l from-[#f8fafc] to-transparent"
         }`}
       />
 
-      <div className="flex w-max gap-6 pr-10">
+      <div ref={trackRef} className="relative overflow-x-hidden">
+        <div className="flex w-max gap-6 pr-10">
         {logos.map((logo, index) => {
           const base = dark
-            ? "border-white/8 bg-white/[0.04]"
-            : "border-slate-200 bg-white";
-          const minHeight = index % 3 === 0 ? "h-[54px]" : index % 3 === 1 ? "h-[46px]" : "h-[50px]";
+            ? index % 3 === 0
+              ? "border-cyan-300/12 bg-cyan-300/[0.06]"
+              : index % 3 === 1
+                ? "border-violet-300/12 bg-violet-300/[0.06]"
+                : "border-[color:var(--color-accent)]/12 bg-[color:var(--color-accent)]/[0.06]"
+            : index % 3 === 0
+              ? "border-cyan-200/30 bg-cyan-50/70"
+              : index % 3 === 1
+                ? "border-violet-200/30 bg-violet-50/80"
+                : "border-orange-200/30 bg-orange-50/80";
+          const minHeight =
+            index % 3 === 0 ? "h-[56px]" : index % 3 === 1 ? "h-[48px]" : "h-[52px]";
 
           const tile = (
             <div
-              className={`logo-rail-tile hover-lift flex min-h-28 min-w-[220px] items-center justify-center rounded-[22px] border px-8 py-6 ${base}`}
+              className={`logo-rail-tile hover-lift flex min-h-30 min-w-[250px] items-center justify-center rounded-[24px] border px-9 py-7 ${base}`}
             >
               <div className={`relative w-full ${minHeight}`}>
                 {logo.logo ? (
@@ -100,6 +110,7 @@ export function LogoMarquee({ logos, dark = true }: LogoMarqueeProps) {
             </div>
           );
         })}
+        </div>
       </div>
     </div>
   );

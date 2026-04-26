@@ -1,7 +1,9 @@
 @import "tailwindcss";
 
 :root {
-  --color-accent: #d68c6a;
+  --color-accent: #f28b5b;
+  --color-accent-2: #61c0d7;
+  --color-accent-3: #8d77ff;
   --color-ink: #06111b;
   --color-ink-2: #0b1622;
   --color-paper: #f4f6f8;
@@ -27,9 +29,10 @@ html {
 body {
   font-family: var(--font-inter), Arial, Helvetica, sans-serif;
   background:
-    radial-gradient(circle at 18% 8%, rgba(128, 167, 208, 0.12), transparent 24%),
-    radial-gradient(circle at 84% 10%, rgba(214, 140, 106, 0.1), transparent 18%),
-    linear-gradient(180deg, #06111b 0%, #091521 40%, #06111b 100%);
+    radial-gradient(circle at 16% 7%, rgba(97, 192, 215, 0.18), transparent 22%),
+    radial-gradient(circle at 82% 10%, rgba(242, 139, 91, 0.16), transparent 18%),
+    radial-gradient(circle at 58% 42%, rgba(141, 119, 255, 0.08), transparent 24%),
+    linear-gradient(180deg, #07121d 0%, #0b1724 42%, #08131d 100%);
   color: var(--color-text);
 }
 
@@ -61,19 +64,29 @@ a {
   height: 1px;
   width: min(1200px, calc(100% - 2.5rem));
   transform: translateX(-50%);
-  background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.08), transparent);
+  background: linear-gradient(
+    90deg,
+    transparent,
+    rgba(97, 192, 215, 0.1),
+    rgba(242, 139, 91, 0.08),
+    transparent
+  );
 }
 
 .section-shell-dark {
   background:
-    radial-gradient(circle at 18% 18%, rgba(74, 110, 151, 0.14), transparent 22%),
-    linear-gradient(180deg, rgba(7, 17, 29, 0.92), rgba(6, 13, 22, 0.98));
+    radial-gradient(circle at 14% 18%, rgba(97, 192, 215, 0.16), transparent 20%),
+    radial-gradient(circle at 86% 12%, rgba(242, 139, 91, 0.15), transparent 18%),
+    radial-gradient(circle at 62% 80%, rgba(141, 119, 255, 0.09), transparent 22%),
+    linear-gradient(180deg, rgba(8, 18, 30, 0.96), rgba(7, 14, 24, 0.98));
 }
 
 .section-shell-light {
   color: #08121d;
   background:
-    linear-gradient(180deg, rgba(244, 246, 248, 1), rgba(234, 239, 243, 1));
+    radial-gradient(circle at 12% 8%, rgba(97, 192, 215, 0.1), transparent 18%),
+    radial-gradient(circle at 82% 16%, rgba(242, 139, 91, 0.1), transparent 16%),
+    linear-gradient(180deg, rgba(248, 250, 252, 1), rgba(237, 242, 247, 1));
 }
 
 .section-inner {
@@ -131,16 +144,20 @@ a {
 
 .surface-dark {
   background:
-    linear-gradient(180deg, rgba(255, 255, 255, 0.05), rgba(255, 255, 255, 0.03)),
-    rgba(12, 22, 35, 0.72);
-  border: 1px solid rgba(255, 255, 255, 0.08);
+    linear-gradient(180deg, rgba(255, 255, 255, 0.06), rgba(255, 255, 255, 0.03)),
+    linear-gradient(135deg, rgba(97, 192, 215, 0.06), transparent 42%),
+    rgba(12, 22, 35, 0.76);
+  border: 1px solid rgba(255, 255, 255, 0.09);
   box-shadow:
-    0 28px 64px rgba(3, 8, 16, 0.32),
+    0 28px 64px rgba(3, 8, 16, 0.34),
+    0 0 0 1px rgba(97, 192, 215, 0.04),
     inset 0 1px 0 rgba(255, 255, 255, 0.06);
 }
 
 .surface-light {
-  background: rgba(255, 255, 255, 0.84);
+  background:
+    linear-gradient(180deg, rgba(255, 255, 255, 0.92), rgba(250, 252, 254, 0.86)),
+    linear-gradient(135deg, rgba(97, 192, 215, 0.08), transparent 40%);
   border: 1px solid rgba(8, 18, 29, 0.08);
   box-shadow:
     0 22px 54px rgba(15, 23, 42, 0.08),
@@ -168,7 +185,7 @@ a {
   width: 18rem;
   height: 18rem;
   border-radius: 999px;
-  background: radial-gradient(circle, rgba(214, 140, 106, 0.16), transparent 68%);
+  background: radial-gradient(circle, rgba(242, 139, 91, 0.18), transparent 68%);
   filter: blur(24px);
   pointer-events: none;
 }
@@ -181,7 +198,7 @@ a {
   width: 22rem;
   height: 22rem;
   border-radius: 999px;
-  background: radial-gradient(circle, rgba(122, 167, 212, 0.12), transparent 70%);
+  background: radial-gradient(circle, rgba(97, 192, 215, 0.16), transparent 70%);
   filter: blur(28px);
   pointer-events: none;
 }
@@ -250,8 +267,8 @@ a {
 .logo-rail-tile:hover {
   transform: translateY(-3px);
   box-shadow:
-    0 26px 56px rgba(3, 8, 16, 0.18),
-    0 0 0 1px rgba(214, 140, 106, 0.12);
+    0 26px 56px rgba(3, 8, 16, 0.22),
+    0 0 0 1px rgba(97, 192, 215, 0.18);
 }
 
 .hero-cta,
@@ -275,10 +292,37 @@ a {
 
 .subtle-grid {
   background-image:
-    linear-gradient(rgba(255, 255, 255, 0.03) 1px, transparent 1px),
-    linear-gradient(90deg, rgba(255, 255, 255, 0.03) 1px, transparent 1px);
+    linear-gradient(rgba(255, 255, 255, 0.022) 1px, transparent 1px),
+    linear-gradient(90deg, rgba(255, 255, 255, 0.022) 1px, transparent 1px);
   background-size: 42px 42px;
-  opacity: 0.28;
+  opacity: 0.18;
+}
+
+.vibrant-orbit {
+  position: absolute;
+  border-radius: 999px;
+  filter: blur(48px);
+  pointer-events: none;
+}
+
+.logo-marquee-shell {
+  position: relative;
+  overflow: hidden;
+  border: 1px solid rgba(255, 255, 255, 0.08);
+  border-radius: 30px;
+  background:
+    linear-gradient(180deg, rgba(255, 255, 255, 0.04), rgba(255, 255, 255, 0.02)),
+    linear-gradient(90deg, rgba(97, 192, 215, 0.06), rgba(141, 119, 255, 0.05), rgba(242, 139, 91, 0.06));
+  box-shadow:
+    0 28px 64px rgba(3, 8, 16, 0.22),
+    inset 0 1px 0 rgba(255, 255, 255, 0.06);
+}
+
+.logo-marquee-shell.light {
+  border-color: rgba(8, 18, 29, 0.08);
+  background:
+    linear-gradient(180deg, rgba(255, 255, 255, 0.88), rgba(248, 250, 252, 0.84)),
+    linear-gradient(90deg, rgba(97, 192, 215, 0.08), rgba(141, 119, 255, 0.06), rgba(242, 139, 91, 0.08));
 }
 
 @keyframes heroSignal {
@@ -303,6 +347,14 @@ a {
 @media (max-width: 1024px) {
   .section-shell {
     padding: 5.75rem 0;
+  }
+
+  .display-hero {
+    font-size: clamp(3rem, 10vw, 5rem);
+  }
+
+  .section-title {
+    max-width: 100%;
   }
 }
 

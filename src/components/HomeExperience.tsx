@@ -103,20 +103,20 @@ export function HomeExperience() {
       </section>
 
       <Reveal delayMs={70}>
-        <section className="section-shell section-shell-dark pt-0">
+        <section className="section-shell section-shell-light pt-0">
           <div className="section-inner grid gap-10 lg:grid-cols-[minmax(0,0.62fr)_minmax(0,1.38fr)] lg:items-end">
             <div>
-              <p className="eyebrow text-[color:var(--color-accent)]">Proof</p>
-              <h2 className="section-title mt-5 max-w-[10ch] text-white">
+              <p className="eyebrow text-[#9f412c]">Selected environments and engagements</p>
+              <h2 className="section-title mt-5 max-w-[10ch] text-slate-950">
                 Real companies. Real environments. Precise language.
               </h2>
-              <p className="mt-5 max-w-[520px] text-base leading-8 text-slate-400">
+              <p className="mt-5 max-w-[520px] text-base leading-8 text-slate-600">
                 Organizations that have worked with Farcelis AI Consulting LLC.
               </p>
             </div>
             <div>
-              <LogoMarquee logos={approvedLogos} dark />
-              <p className="mt-5 text-sm leading-7 text-slate-400">{proofSignals[1]}</p>
+              <LogoMarquee logos={approvedLogos} dark={false} />
+              <p className="mt-5 text-sm leading-7 text-slate-600">{proofSignals[1]}</p>
             </div>
           </div>
         </section>
@@ -237,7 +237,7 @@ export function HomeExperience() {
                   key={item.label}
                   className={`rounded-[24px] border px-5 py-5 ${
                     index === 0 || index === 3
-                      ? "border-cyan-300/12 bg-cyan-200/[0.05]"
+                      ? "border-cyan-300/18 bg-[linear-gradient(180deg,rgba(97,192,215,0.12),rgba(97,192,215,0.05))]"
                       : "border-white/10 bg-white/[0.04]"
                   }`}
                 >
@@ -268,10 +268,12 @@ export function HomeExperience() {
                     key={service.title}
                     className={`rounded-[26px] border px-6 py-6 ${
                       index === 1
-                        ? "border-[#2e7da4]/20 bg-[#eef7fb]"
-                        : index === 2
-                          ? "border-[#c75d33]/16 bg-[#fff5ef]"
-                          : "border-slate-200 bg-white"
+                        ? "border-[#2e7da4]/22 bg-[linear-gradient(180deg,#eef7fb,#f8fcff)]"
+                      : index === 2
+                          ? "border-[#c75d33]/18 bg-[linear-gradient(180deg,#fff5ef,#fffaf7)]"
+                          : index === 3
+                            ? "border-[#8d77ff]/18 bg-[linear-gradient(180deg,#f6f3ff,#fcfbff)]"
+                            : "border-slate-200 bg-white"
                     }`}
                   >
                     <div className="text-sm font-semibold uppercase tracking-[0.18em] text-[#9f412c]">

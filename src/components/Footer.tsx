@@ -6,7 +6,7 @@ import { certifications, site } from "@/lib/site-data";
 export function Footer() {
   return (
     <footer className="relative border-t border-white/8 bg-[#06111b] py-18 text-slate-300">
-      <div className="pointer-events-none absolute inset-0 bg-[radial-gradient(circle_at_12%_12%,rgba(214,140,106,0.08),transparent_24%),linear-gradient(180deg,rgba(255,255,255,0.01),rgba(255,255,255,0))]" />
+      <div className="pointer-events-none absolute inset-0 bg-[radial-gradient(circle_at_12%_12%,rgba(242,139,91,0.11),transparent_24%),radial-gradient(circle_at_84%_18%,rgba(97,192,215,0.1),transparent_20%),linear-gradient(180deg,rgba(255,255,255,0.01),rgba(255,255,255,0))]" />
       <div className="section-inner relative grid gap-12 lg:grid-cols-[minmax(0,0.95fr)_minmax(0,0.5fr)_minmax(0,0.55fr)]">
         <div>
           <Image

@@ -15,7 +15,8 @@ export function Header() {
   ];
 
   return (
-    <header className="sticky top-0 z-50 border-b border-white/8 bg-[rgba(6,17,27,0.82)] backdrop-blur-xl">
+    <header className="sticky top-0 z-50 border-b border-white/8 bg-[rgba(6,17,27,0.8)] backdrop-blur-xl">
+      <div className="pointer-events-none absolute inset-x-0 top-0 h-px bg-gradient-to-r from-transparent via-cyan-300/35 to-[color:var(--color-accent)]/40" />
       <div className="section-inner flex min-h-20 items-center justify-between gap-6">
         <Link href="/" className="flex items-center gap-3">
           <Image
@@ -40,7 +41,7 @@ export function Header() {
               Capabilities
             </button>
             <div className="pointer-events-none absolute left-0 top-full z-40 pt-4 opacity-0 transition duration-200 group-hover:pointer-events-auto group-hover:opacity-100">
-              <div className="surface-dark min-w-[240px] rounded-[22px] p-3">
+              <div className="surface-dark min-w-[240px] rounded-[22px] bg-[linear-gradient(180deg,rgba(97,192,215,0.08),rgba(255,255,255,0.03))] p-3">
                 {capabilityLinks.map((item) => (
                   <Link
                     key={item.label}
@@ -64,7 +65,7 @@ export function Header() {
               Company
             </button>
             <div className="pointer-events-none absolute left-0 top-full z-40 pt-4 opacity-0 transition duration-200 group-hover:pointer-events-auto group-hover:opacity-100">
-              <div className="surface-dark min-w-[220px] rounded-[22px] p-3">
+              <div className="surface-dark min-w-[220px] rounded-[22px] bg-[linear-gradient(180deg,rgba(141,119,255,0.08),rgba(255,255,255,0.03))] p-3">
                 {companyLinks.map((item) => (
                   <Link
                     key={item.label}
@@ -87,7 +88,7 @@ export function Header() {
 
         <Link
           href="/contact"
-          className="site-cta inline-flex min-h-11 items-center justify-center rounded-full bg-[linear-gradient(135deg,#d68c6a,#9f412c)] px-5 py-2.5 text-sm font-semibold text-white hover:shadow-[0_18px_38px_rgba(159,65,44,0.24)]"
+          className="site-cta inline-flex min-h-11 items-center justify-center rounded-full bg-[linear-gradient(135deg,#ff8e5b,#f05cff)] px-5 py-2.5 text-sm font-semibold text-white hover:shadow-[0_18px_38px_rgba(240,92,255,0.24)]"
         >
           Work With Farcelis
         </Link>

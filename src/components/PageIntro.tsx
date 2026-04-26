@@ -30,8 +30,9 @@ export function PageIntro({
   return (
     <section className={`section-shell section-shell-dark overflow-hidden ${compact ? "pt-16 lg:pt-20" : "pt-20 lg:pt-24"}`}>
       <div className="pointer-events-none absolute inset-0 subtle-grid" />
-      <div className="pointer-events-none absolute left-[12%] top-[14%] h-56 w-56 rounded-full bg-[radial-gradient(circle,rgba(214,140,106,0.14),transparent_68%)] blur-3xl" />
-      <div className="pointer-events-none absolute right-[14%] top-[18%] h-64 w-64 rounded-full bg-[radial-gradient(circle,rgba(97,192,215,0.13),transparent_70%)] blur-3xl" />
+      <div className="vibrant-orbit absolute left-[10%] top-[12%] h-56 w-56 bg-[radial-gradient(circle,rgba(242,139,91,0.2),transparent_68%)]" />
+      <div className="vibrant-orbit absolute right-[14%] top-[16%] h-64 w-64 bg-[radial-gradient(circle,rgba(97,192,215,0.18),transparent_70%)]" />
+      <div className="vibrant-orbit absolute right-[32%] top-[32%] h-48 w-48 bg-[radial-gradient(circle,rgba(141,119,255,0.12),transparent_70%)]" />
       <div className="section-inner relative grid gap-12 lg:grid-cols-[minmax(0,0.78fr)_minmax(280px,0.22fr)] lg:items-end">
         <div>
           <p className="eyebrow text-[color:var(--color-accent)]">{eyebrow}</p>
@@ -45,8 +46,8 @@ export function PageIntro({
                   href={action.href}
                   className={
                     action.variant === "secondary"
-                      ? "site-cta inline-flex min-h-12 items-center justify-center rounded-full border border-white/12 bg-white/4 px-6 py-3 text-sm font-semibold text-white hover:border-white/24 hover:bg-white/8 hover:shadow-[0_18px_34px_rgba(8,18,29,0.24)]"
-                      : "site-cta inline-flex min-h-12 items-center justify-center rounded-full bg-[linear-gradient(135deg,#d68c6a,#9f412c)] px-6 py-3 text-sm font-semibold text-white hover:shadow-[0_20px_40px_rgba(159,65,44,0.3)]"
+                      ? "site-cta inline-flex min-h-12 items-center justify-center rounded-full border border-cyan-200/18 bg-cyan-200/6 px-6 py-3 text-sm font-semibold text-cyan-50 hover:border-cyan-100/28 hover:bg-cyan-100/8 hover:shadow-[0_18px_34px_rgba(46,125,164,0.24)]"
+                      : "site-cta inline-flex min-h-12 items-center justify-center rounded-full bg-[linear-gradient(135deg,#ff8e5b,#f05cff)] px-6 py-3 text-sm font-semibold text-white hover:shadow-[0_20px_40px_rgba(240,92,255,0.24)]"
                   }
                 >
                   {action.label}
@@ -57,7 +58,7 @@ export function PageIntro({
         </div>
 
         {asideTitle || asideItems.length > 0 ? (
-          <aside className="surface-dark relative rounded-[28px] bg-[linear-gradient(180deg,rgba(255,255,255,0.06),rgba(97,192,215,0.05))] px-6 py-7">
+          <aside className="surface-dark relative rounded-[28px] bg-[linear-gradient(180deg,rgba(97,192,215,0.08),rgba(255,255,255,0.03)),linear-gradient(135deg,rgba(141,119,255,0.08),transparent_45%)] px-6 py-7">
             {asideTitle ? (
               <p className="eyebrow text-[color:var(--color-accent)]">{asideTitle}</p>
             ) : null}
