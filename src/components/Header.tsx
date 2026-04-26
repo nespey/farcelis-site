@@ -1,63 +1,41 @@
-import Link from "next/link";
 import Image from "next/image";
+import Link from "next/link";
 
 import { site } from "@/lib/site-data";
 
 export function Header() {
   return (
-    <header className="sticky top-0 z-50 border-b border-black/5 bg-[rgba(245,241,234,0.88)] backdrop-blur-xl">
-      <div className="mx-auto max-w-7xl px-4 py-4 sm:px-6 lg:px-8">
-        <div className="flex items-center justify-between gap-4">
-          <Link href="/" className="flex items-center gap-3 text-sm font-semibold tracking-[0.14em] text-slate-900 uppercase">
-            <Image
-              src="/logos/farcelis-ai-logo.png"
-              alt="Farcelis AI Consulting"
-              width={138}
-              height={45}
-              className="h-9 w-auto sm:h-10"
-              priority
-            />
-          </Link>
+    <header className="sticky top-0 z-50 border-b border-white/8 bg-[rgba(7,17,29,0.78)] backdrop-blur-xl">
+      <div className="mx-auto flex max-w-[1200px] items-center justify-between gap-6 px-5 py-4 sm:px-6 lg:px-8">
+        <Link href="/" className="flex items-center gap-3">
+          <Image
+            src="/logos/farcelis-ai-logo.png"
+            alt="Farcelis AI Consulting"
+            width={144}
+            height={44}
+            className="h-9 w-auto brightness-[1.55]"
+            priority
+          />
+        </Link>
 
-          <nav className="hidden items-center gap-6 lg:flex">
-            {site.nav.map((item) => (
-              <Link
-                key={item.href}
-                href={item.href}
-                className="text-sm font-medium text-slate-700 transition hover:text-slate-950"
-              >
-                {item.label}
-              </Link>
-            ))}
-          </nav>
-
-          <div className="flex items-center gap-3">
-            <Link
-              href="/control-layer"
-              className="hidden rounded-full border border-slate-300 px-4 py-2 text-sm font-semibold text-slate-800 transition hover:border-slate-900 hover:text-slate-950 sm:inline-flex"
-            >
-              Explore the Control Layer
-            </Link>
-            <Link
-              href="/contact"
-              className="inline-flex rounded-full bg-[linear-gradient(135deg,#9f412c,#7e1f0d)] px-4 py-2 text-sm font-semibold text-white shadow-[0_12px_28px_rgba(126,31,13,0.22)] transition hover:translate-y-[-1px]"
-            >
-              Work With Farcelis
-            </Link>
-          </div>
-        </div>
-
-        <nav className="mt-4 flex gap-3 overflow-x-auto pb-1 lg:hidden">
+        <nav className="hidden items-center gap-6 lg:flex">
           {site.nav.map((item) => (
             <Link
               key={item.href}
               href={item.href}
-              className="shrink-0 rounded-full border border-slate-300 bg-white px-4 py-2 text-sm font-medium text-slate-700 transition hover:border-slate-900 hover:text-slate-950"
+              className="text-sm font-medium text-slate-300 transition hover:text-white"
             >
               {item.label}
             </Link>
           ))}
         </nav>
+
+        <Link
+          href="/contact"
+          className="inline-flex min-h-11 items-center justify-center rounded-full bg-[linear-gradient(135deg,#d68c6a,#9f412c)] px-5 py-2.5 text-sm font-semibold text-white transition-all duration-200 hover:translate-y-[-2px] hover:shadow-[0_16px_30px_rgba(159,65,44,0.24)]"
+        >
+          Work With Farcelis
+        </Link>
       </div>
     </header>
   );

@@ -1,13 +1,7 @@
 @import "tailwindcss";
 
 :root {
-  --color-cream: #f5f1ea;
-  --color-paper: #fffdf9;
-  --color-ink: #101828;
-  --color-muted: #5b6472;
-  --color-accent: #9f412c;
-  --color-accent-dark: #7e1f0d;
-  --color-teal: #144a6a;
+  --color-accent: #d68c6a;
 }
 
 @theme inline {
@@ -39,122 +33,47 @@ a {
 }
 
 ::selection {
-  background: rgba(159, 65, 44, 0.18);
+  background: rgba(214, 140, 106, 0.24);
 }
 
-@keyframes heroBackgroundShift {
-  0% { background-position: 0% 0%, 0% 0%, 0% 0%, 0 0, 0 0; }
-  50% { background-position: 2% 3%, 98% 4%, 72% 68%, 6px 0, 0 6px; }
-  100% { background-position: 0% 0%, 0% 0%, 0% 0%, 0 0, 0 0; }
+@keyframes backdropShift {
+  0% {
+    background-position: 0% 0%, 100% 0%, 0% 0%;
+  }
+  50% {
+    background-position: 3% 2%, 96% 4%, 0% 0%;
+  }
+  100% {
+    background-position: 0% 0%, 100% 0%, 0% 0%;
+  }
 }
 
-@keyframes heroGlowPulse {
-  0% { opacity: 0.62; }
-  50% { opacity: 0.92; }
-  100% { opacity: 0.62; }
+@keyframes slabReveal {
+  0% {
+    opacity: 0;
+    transform: translate3d(0, 18px, 0);
+  }
+  100% {
+    opacity: 1;
+    transform: translate3d(0, 0, 0);
+  }
 }
 
-@keyframes heroPanelEnter {
-  0% { opacity: 0; }
-  100% { opacity: 1; }
-}
-
-@keyframes heroPanelFloat {
-  0% { transform: translate3d(0, 0, 0); }
-  50% { transform: translate3d(0, -8px, 0); }
-  100% { transform: translate3d(0, 0, 0); }
-}
-
-@keyframes controlLineSweep {
-  0% { transform: translateX(-120%); opacity: 0; }
-  20% { opacity: 1; }
-  80% { opacity: 1; }
-  100% { transform: translateX(120%); opacity: 0; }
-}
-
-@keyframes heroRowReveal {
-  0% { opacity: 0; }
-  100% { opacity: 1; }
-}
-
-@keyframes controlLayerGlow {
-  0% { box-shadow: 0 0 0 rgba(86, 197, 255, 0); }
-  50% { box-shadow: 0 0 18px rgba(86, 197, 255, 0.34); }
-  100% { box-shadow: 0 0 0 rgba(86, 197, 255, 0); }
-}
-
-@keyframes heroProgressSlide {
-  0% { transform: translateX(-100%); }
-  100% { transform: translateX(0%); }
-}
-
-.hero-grid {
-  animation: heroBackgroundShift 12s ease-in-out infinite;
-}
-
-.hero-glow {
-  animation: heroGlowPulse 12s ease-in-out infinite;
-}
-
-.hero-panel {
-  animation: heroPanelEnter 300ms ease-out both;
-  box-shadow:
-    0 52px 90px rgba(2, 6, 23, 0.4),
-    0 0 52px rgba(180, 214, 255, 0.08),
-    inset 0 1px 0 rgba(255, 255, 255, 0.06),
-    inset 0 -20px 42px rgba(2, 6, 23, 0.16),
-    0 0 0 1px rgba(196, 227, 255, 0.06),
-    inset 0 1px 0 rgba(255, 255, 255, 0.16);
-}
-
-.hero-panel-float {
-  transform: translate3d(0, calc(var(--panel-parallax, 0px) * 0.6), 0);
-  animation:
-    heroPanelEnter 300ms ease-out both,
-    heroPanelFloat 7s ease-in-out infinite;
-}
-
-.hero-progress-track {
-  position: relative;
-}
-
-.hero-progress-track::after {
-  content: "";
-  position: absolute;
-  inset: 0;
-  background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.82), transparent);
-  animation: controlLineSweep 4.8s ease-in-out infinite;
-}
-
-.hero-panel-row {
-  opacity: 0;
-  animation: heroRowReveal 240ms ease-out forwards;
-}
-
-.hero-panel-row:nth-of-type(1) {
-  animation-delay: 100ms;
-}
-
-.hero-panel-row:nth-of-type(2) {
-  animation-delay: 200ms;
-}
-
-.hero-panel-row:nth-of-type(3) {
-  animation-delay: 300ms;
-}
-
-.hero-control-stage {
-  animation: controlLayerGlow 2.2s ease-out 520ms infinite;
-}
-
-.hero-progress-bar {
-  transform: translateX(-100%);
-  animation: heroProgressSlide 900ms ease-out 420ms forwards;
+@keyframes flowPulse {
+  0% {
+    box-shadow: 0 0 0 rgba(214, 140, 106, 0);
+  }
+  50% {
+    box-shadow: 0 0 24px rgba(214, 140, 106, 0.22);
+  }
+  100% {
+    box-shadow: 0 0 0 rgba(214, 140, 106, 0);
+  }
 }
 
 .reveal-section {
   opacity: 0;
-  transform: translate3d(0, 20px, 0);
+  transform: translate3d(0, 26px, 0);
   transition:
     opacity 620ms ease,
     transform 620ms ease;
@@ -165,79 +84,66 @@ a {
   transform: translate3d(0, 0, 0);
 }
 
-.reveal-section .flow-list {
-  transform: translate3d(16px, 20px, 0);
-  transition:
-    opacity 600ms ease,
-    transform 600ms ease;
+.system-slab {
+  background:
+    linear-gradient(180deg, rgba(255, 255, 255, 0.06), rgba(255, 255, 255, 0.03)),
+    rgba(10, 19, 31, 0.62);
+  box-shadow:
+    0 22px 56px rgba(4, 10, 18, 0.28),
+    inset 0 1px 0 rgba(255, 255, 255, 0.08);
+  animation: slabReveal 620ms ease forwards;
 }
 
-.reveal-section.is-visible .flow-list {
-  transform: translate3d(0, 0, 0);
+.system-slab:nth-of-type(2) {
+  animation-delay: 120ms;
 }
 
-.reveal-section .side-list {
-  transform: translate3d(-16px, 20px, 0);
-  transition:
-    opacity 600ms ease,
-    transform 600ms ease;
+.system-slab:nth-of-type(3) {
+  animation-delay: 240ms;
 }
 
-.reveal-section.is-visible .side-list {
-  transform: translate3d(0, 0, 0);
-}
-
-.system-ui-tile,
-.proof-logo-tile,
-.hero-panel-sequence,
+.logo-rail-tile,
+.system-slab,
 .inline-flex.rounded-full {
   transition:
-    transform 150ms ease,
-    border-color 150ms ease,
-    box-shadow 150ms ease,
-    background-color 150ms ease;
-  box-shadow:
-    0 14px 34px rgba(2, 6, 23, 0.12),
-    0 0 0 1px rgba(255, 255, 255, 0.03);
+    transform 180ms ease,
+    box-shadow 180ms ease,
+    background-color 180ms ease,
+    border-color 180ms ease,
+    filter 180ms ease;
 }
 
-.system-ui-tile:hover,
-.proof-logo-tile:hover,
-.hero-panel-sequence:hover,
+.logo-rail-tile:hover,
+.system-slab:hover,
 .inline-flex.rounded-full:hover {
-  transform: translateY(-4px);
-  border-color: rgba(217, 160, 139, 0.22);
+  transform: translateY(-3px);
+}
+
+.logo-rail-tile:hover {
   box-shadow:
-    0 18px 42px rgba(2, 6, 23, 0.22),
-    0 0 0 1px rgba(196, 227, 255, 0.06);
+    0 22px 48px rgba(15, 23, 42, 0.18),
+    0 0 0 1px rgba(214, 140, 106, 0.08);
 }
 
-.proof-logo-tile:hover {
-  background-color: rgba(255, 255, 255, 0.045);
-  transform: translateY(-4px) scale(1.02);
+.system-slab:hover {
   box-shadow:
-    0 20px 44px rgba(2, 6, 23, 0.24),
-    0 0 0 1px rgba(196, 227, 255, 0.08),
-    0 0 22px rgba(217, 160, 139, 0.08);
+    0 28px 60px rgba(4, 10, 18, 0.32),
+    inset 0 1px 0 rgba(255, 255, 255, 0.1);
 }
 
-.proof-logo-primary {
-  opacity: 1;
+.hero-flow-active {
+  animation: flowPulse 2.4s ease-in-out infinite;
 }
 
-.proof-logo-secondary {
-  opacity: 0.82;
+.hero-backdrop-motion {
+  animation: backdropShift 14s ease-in-out infinite;
 }
 
 @media (prefers-reduced-motion: reduce) {
-  .hero-grid,
-  .hero-glow,
-  .hero-panel,
-  .hero-panel-row,
-  .hero-control-stage,
-  .hero-progress-bar,
-  .logo-carousel-track,
-  .reveal-section {
+  .reveal-section,
+  .system-slab,
+  .hero-backdrop-motion,
+  .hero-flow-active {
     animation: none !important;
     transition: none !important;
     transform: none !important;

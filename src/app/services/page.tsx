@@ -1,93 +1,96 @@
-import { CTASection } from "@/components/CTASection";
-import { SectionHeader } from "@/components/SectionHeader";
-import { ServiceCards } from "@/components/ServiceCards";
+import { PageIntro } from "@/components/PageIntro";
+import { Reveal } from "@/components/Reveal";
 import { buildMetadata } from "@/lib/metadata";
-import { seo } from "@/lib/site-data";
+import { seo, services } from "@/lib/site-data";
 
 export const metadata = buildMetadata(seo.services);
 
-const servicePathways = [
-  {
-    title: "Control Layer Strategy & Design",
-    body: "Define the operating structure, workflow architecture, reporting pathways, and accountability system needed before more AI complexity gets layered in.",
-  },
-  {
-    title: "Workflow & Agent Implementation",
-    body: "Deploy automation, assistants, routing logic, and supporting workflows inside a business structure that already makes operational sense.",
-  },
-  {
-    title: "Team Enablement & Operating Adoption",
-    body: "Help leaders and teams adopt the system in real environments so the new structure improves execution instead of remaining theoretical.",
-  },
+const pathways = [
+  "Control Layer strategy and design",
+  "Workflow and agent implementation",
+  "Execution adoption and enablement",
 ];
 
 export default function ServicesPage() {
   return (
     <>
-      <section className="px-4 pb-16 pt-12 sm:px-6 lg:px-8 lg:pb-24 lg:pt-16">
-        <div className="mx-auto max-w-5xl">
-          <p className="mb-4 text-xs font-semibold uppercase tracking-[0.24em] text-[color:#9f412c]">
-            Services
-          </p>
-          <h1 className="text-balance text-4xl font-semibold tracking-[-0.06em] text-slate-950 sm:text-5xl lg:text-6xl">
-            AI consulting and operational systems built for execution.
-          </h1>
-          <p className="mt-6 max-w-3xl text-pretty text-lg leading-8 text-slate-600">
-            Farcelis builds AI consulting, workflow architecture, execution
-            systems, and flagship Control Layer implementations for
-            organizations that need stronger visibility, cleaner operations,
-            and more reliable decision support.
-          </p>
-        </div>
-      </section>
+      <PageIntro
+        eyebrow="Services"
+        title="Farcelis builds the system before the complexity."
+        description="AI consulting, workflow architecture, execution design, and Control Layer deployment all sit inside one operating approach."
+        actions={[
+          { href: "/contact", label: "Work With Farcelis" },
+          { href: "/control-layer", label: "Explore the Control Layer", variant: "secondary" },
+        ]}
+      />
 
-      <section className="px-4 py-16 sm:px-6 lg:px-8 lg:py-24">
-        <div className="mx-auto max-w-7xl">
-          <SectionHeader
-            eyebrow="Service Paths"
-            title="Farcelis moves organizations from operational chaos to structured execution."
-            description="The service model is designed to meet organizations at different stages of control, automation, and AI adoption."
-          />
-          <div className="mt-10 grid gap-6 lg:grid-cols-3">
-            {servicePathways.map((item, index) => (
-              <div
-                key={item.title}
-                className={`rounded-[28px] border p-6 shadow-[0_20px_48px_rgba(15,23,42,0.08)] ${
-                  index === 1
-                    ? "border-slate-950 bg-slate-950 text-white"
-                    : "border-slate-200 bg-white"
-                }`}
-              >
-                <h2 className="text-2xl font-semibold tracking-[-0.04em]">
-                  {item.title}
-                </h2>
-                <p
-                  className={`mt-4 text-base leading-7 ${
-                    index === 1 ? "text-slate-200" : "text-slate-600"
+      <Reveal delayMs={60}>
+        <section className="py-18 lg:py-24">
+          <div className="mx-auto max-w-[1200px] px-5 sm:px-6 lg:px-8">
+            <div className="grid gap-4 md:grid-cols-3">
+              {pathways.map((item, index) => (
+                <div
+                  key={item}
+                  className={`rounded-[26px] border px-5 py-6 ${
+                    index === 1 ? "border-white/14 bg-white/8 text-white" : "border-white/8 bg-white/[0.03] text-slate-200"
                   }`}
                 >
-                  {item.body}
-                </p>
-              </div>
-            ))}
+                  <div className="text-sm font-semibold uppercase tracking-[0.2em] text-[#d68c6a]">
+                    Path
+                  </div>
+                  <div className="mt-4 text-2xl font-semibold tracking-[-0.04em]">{item}</div>
+                </div>
+              ))}
+            </div>
           </div>
-        </div>
-      </section>
+        </section>
+      </Reveal>
 
-      <section className="px-4 py-16 sm:px-6 lg:px-8 lg:py-24">
-        <div className="mx-auto max-w-7xl">
-          <ServiceCards />
-        </div>
-      </section>
-
-      <CTASection
-        title="Choose the service path that gives your operations structure first."
-        description="Farcelis combines strategic design, implementation, workflow automation, and AI enablement so the operating system behind execution is strong before more tooling gets added."
-        primaryLabel="Work With Farcelis"
-        primaryHref="/contact"
-        secondaryLabel="Explore the Control Layer"
-        secondaryHref="/control-layer"
-      />
+      <Reveal delayMs={100}>
+        <section className="overflow-hidden bg-[#f3f6f8] py-20 text-slate-950 lg:py-28">
+          <div className="pointer-events-none absolute inset-x-0 top-0 h-24 bg-gradient-to-b from-[#07111d] to-transparent" />
+          <div className="mx-auto max-w-[1200px] px-5 sm:px-6 lg:px-8">
+            <div className="mb-10 max-w-[760px]">
+              <p className="text-xs font-semibold uppercase tracking-[0.24em] text-[#9f412c]">
+                Service Model
+              </p>
+              <h2 className="mt-5 text-balance text-[2.8rem] font-semibold tracking-[-0.07em] text-slate-950 sm:text-[3.6rem] lg:text-[4.4rem]">
+                Each engagement is built around execution, not disconnected deliverables.
+              </h2>
+            </div>
+            <div className="divide-y divide-slate-200 border-y border-slate-200">
+              {services.map((service, index) => (
+                <div
+                  key={service.title}
+                  className={`grid gap-5 py-8 lg:grid-cols-[110px_minmax(0,0.9fr)_minmax(0,1.1fr)] ${
+                    index % 2 === 1 ? "lg:translate-x-6" : ""
+                  }`}
+                >
+                  <div className="text-sm font-semibold uppercase tracking-[0.18em] text-slate-500">
+                    0{index + 1}
+                  </div>
+                  <h2 className="text-2xl font-semibold tracking-[-0.04em] text-slate-950">
+                    {service.title}
+                  </h2>
+                  <div className="space-y-4">
+                    <p className="text-lg leading-8 text-slate-600">{service.description}</p>
+                    <div className="flex flex-wrap gap-3">
+                      {service.points.map((point) => (
+                        <span
+                          key={point}
+                          className="rounded-full border border-slate-300 bg-white px-4 py-2 text-sm font-medium text-slate-700"
+                        >
+                          {point}
+                        </span>
+                      ))}
+                    </div>
+                  </div>
+                </div>
+              ))}
+            </div>
+          </div>
+        </section>
+      </Reveal>
     </>
   );
 }

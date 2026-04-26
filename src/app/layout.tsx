@@ -49,9 +49,9 @@ export default function RootLayout({
       lang="en"
       className={`${inter.variable} ${spaceGrotesk.variable} h-full antialiased`}
     >
-      <body className="min-h-full bg-[color:var(--color-cream)] text-slate-950">
+      <body className="min-h-full bg-[#07111d] text-white">
         <div className="relative min-h-full overflow-x-hidden">
-          <div className="pointer-events-none absolute inset-x-0 top-0 -z-10 h-[560px] bg-[radial-gradient(circle_at_top,rgba(20,74,106,0.16),transparent_48%),radial-gradient(circle_at_20%_20%,rgba(159,65,44,0.10),transparent_38%)]" />
+          <div className="pointer-events-none absolute inset-0 -z-10 bg-[radial-gradient(circle_at_18%_0%,rgba(88,125,163,0.18),transparent_26%),radial-gradient(circle_at_82%_12%,rgba(214,140,106,0.12),transparent_20%),linear-gradient(180deg,#07111d,#050b14_55%,#07111d)]" />
           <Header />
           <main>{children}</main>
           <Footer />
