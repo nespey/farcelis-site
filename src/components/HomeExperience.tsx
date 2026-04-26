@@ -9,40 +9,51 @@ import { SystemFlowRail } from "@/components/SystemFlowRail";
 import { approvedLogos, services } from "@/lib/site-data";
 
 const capabilities = [
-  "AI consulting",
-  "Operational systems design",
-  "Workflow architecture",
-  "Execution environments",
-  "Control Layer deployment",
-  "Cross-domain operating models",
+  "AI consulting for live operational environments",
+  "Workflow architecture that holds under pressure",
+  "Execution systems for founders, teams, and organizations",
+  "Flagship Control Layer implementations",
+  "Decision environments built for visibility and intervention",
+  "Cross-domain systems from enterprise to personal operations",
 ];
 
 const audiences = [
   {
     label: "Founders and CEOs",
-    text: "When growth outruns structure and every answer still depends on chasing updates.",
+    text: "When growth, urgency, and visibility are no longer staying in the same frame.",
   },
   {
-    label: "Enterprises",
-    text: "When workflows sprawl across teams, tools, and reporting lines that no longer hold.",
+    label: "Operating teams",
+    text: "When handoffs, priorities, and reporting start breaking faster than people can patch them.",
   },
   {
-    label: "Government and education",
-    text: "When coordination, accountability, and visibility have to survive under pressure.",
+    label: "Organizations with complexity",
+    text: "When more tools, stakeholders, and volume are creating noise instead of controlled execution.",
   },
   {
     label: "Personal systems",
-    text: "When fragmented priorities turn daily execution into drag instead of forward motion.",
+    text: "When daily life needs stronger structure, continuity, and less drag from fragmented priorities.",
   },
 ];
 
 const proofSignals = [
-  "Executive visibility",
-  "Workflow control",
-  "Delivery governance",
+  "Executive visibility stays intact.",
+  "Workflow control survives complexity.",
+  "Delivery governance holds under pressure.",
 ];
 
-const flowSteps = ["Input", "Intake", "Assignment", "Execution", "Tracking", "Completion"];
+const flagshipPoints = [
+  "Capture every input into one structured intake layer.",
+  "Hold ownership, routing, and accountability inside one frame.",
+  "Give leadership a live view of what is moving, blocked, or drifting.",
+];
+
+const servicePillars = [
+  "Control Layer design and deployment",
+  "Custom AI consulting and agent architecture",
+  "Workflow automation aligned to execution logic",
+  "AI enablement built around operating discipline",
+];
 
 export function HomeExperience() {
   const visualRef = useRef<HTMLDivElement | null>(null);
@@ -52,8 +63,8 @@ export function HomeExperience() {
     if (!node) return;
 
     const onScroll = () => {
-      const offset = Math.min(window.scrollY * 0.045, 24);
-      node.style.setProperty("--visual-offset", `${offset}px`);
+      const offset = Math.min(window.scrollY * 0.035, 20);
+      node.style.transform = `translate3d(0, ${offset}px, 0)`;
     };
 
     onScroll();
@@ -62,121 +73,195 @@ export function HomeExperience() {
   }, []);
 
   return (
-    <div className="relative overflow-hidden bg-[#07111d] text-white">
-      <div className="pointer-events-none absolute inset-0 bg-[radial-gradient(circle_at_18%_12%,rgba(115,164,214,0.18),transparent_28%),radial-gradient(circle_at_82%_30%,rgba(214,140,106,0.12),transparent_24%),linear-gradient(180deg,rgba(7,17,29,0.88),rgba(5,11,20,1))]" />
-
-      <section className="relative overflow-hidden pb-22 pt-16 lg:pb-32 lg:pt-24">
-        <div className="mx-auto grid max-w-[1200px] gap-14 px-5 sm:px-6 lg:grid-cols-[minmax(0,0.86fr)_minmax(0,1.14fr)] lg:items-center lg:px-8">
-          <Reveal className="lg:pr-8" delayMs={40}>
-            <div className="relative">
-              <div className="pointer-events-none absolute -left-16 top-10 h-56 w-56 rounded-full bg-[radial-gradient(circle,rgba(196,227,255,0.18),transparent_68%)] blur-3xl" />
-              <p className="text-xs font-semibold uppercase tracking-[0.24em] text-[#d68c6a]">
-                Farcelis AI Consulting
-              </p>
-              <h1 className="mt-6 max-w-[620px] text-balance text-[4rem] font-semibold tracking-[-0.08em] text-white sm:text-[5.1rem] lg:text-[6.9rem] lg:leading-[0.95]">
-                Build the system behind execution.
+    <div className="relative overflow-hidden">
+      <section className="section-shell section-shell-dark overflow-hidden pt-20 lg:min-h-[88svh] lg:pt-24">
+        <div className="pointer-events-none absolute inset-0 subtle-grid" />
+        <div className="section-inner relative grid gap-12 lg:min-h-[72svh] lg:grid-cols-[minmax(0,0.82fr)_minmax(0,1.18fr)] lg:items-center">
+          <Reveal delayMs={40}>
+            <div className="max-w-[600px]">
+              <p className="eyebrow text-[color:var(--color-accent)]">Farcelis AI Consulting</p>
+              <h1 className="display-hero mt-6 text-white">
+                Build the operating system behind execution.
               </h1>
-              <p className="mt-6 max-w-[540px] text-lg leading-8 text-slate-300">
-                Farcelis designs AI consulting, workflow architecture, and operational systems
-                that keep priorities, decisions, and delivery aligned under real pressure.
+              <p className="lede mt-6 max-w-[560px]">
+                Farcelis is an AI operational systems firm. We structure workflows, decisions,
+                and execution environments so leaders can move with clarity before complexity
+                outruns control.
               </p>
               <div className="mt-8 flex flex-col gap-3 sm:flex-row">
                 <Link
                   href="/contact"
-                  className="inline-flex min-h-12 items-center justify-center rounded-full bg-[linear-gradient(135deg,#d68c6a,#9f412c)] px-6 py-3 text-sm font-semibold text-white transition-all duration-200 hover:translate-y-[-2px] hover:shadow-[0_18px_36px_rgba(159,65,44,0.28)]"
+                  className="hero-cta inline-flex min-h-12 items-center justify-center rounded-full bg-[linear-gradient(135deg,#d68c6a,#9f412c)] px-6 py-3 text-sm font-semibold text-white hover:shadow-[0_20px_40px_rgba(159,65,44,0.32)]"
                 >
                   Work With Farcelis
                 </Link>
                 <Link
                   href="/control-layer"
-                  className="inline-flex min-h-12 items-center justify-center rounded-full border border-white/12 bg-white/5 px-6 py-3 text-sm font-semibold text-white transition-all duration-200 hover:translate-y-[-2px] hover:border-white/24 hover:bg-white/8 hover:shadow-[0_14px_30px_rgba(15,23,42,0.24)]"
+                  className="hero-cta inline-flex min-h-12 items-center justify-center rounded-full border border-white/12 bg-white/4 px-6 py-3 text-sm font-semibold text-white hover:border-white/24 hover:bg-white/8"
                 >
                   Explore the Control Layer
                 </Link>
               </div>
+              <div className="mt-8 flex flex-wrap gap-3 text-sm text-slate-400">
+                <span className="signal-pill rounded-full px-4 py-2">AI consulting</span>
+                <span className="signal-pill rounded-full px-4 py-2">Operational systems</span>
+                <span className="signal-pill rounded-full px-4 py-2">Workflow architecture</span>
+              </div>
             </div>
           </Reveal>
 
-          <Reveal className="lg:pl-10" delayMs={140}>
-            <div
-              ref={visualRef}
-              className="relative"
-              style={{ transform: "translate3d(0, calc(var(--visual-offset, 0px) * 0.45), 0)" }}
-            >
-              <div className="pointer-events-none absolute inset-y-8 left-[12%] w-px bg-[linear-gradient(180deg,rgba(255,255,255,0),rgba(255,255,255,0.24),rgba(255,255,255,0))]" />
-              <div className="pointer-events-none absolute right-[8%] top-[8%] h-56 w-56 rounded-full bg-[radial-gradient(circle,rgba(214,140,106,0.14),transparent_70%)] blur-3xl" />
-              <div className="space-y-5">
-                {[
-                  ["Signal intake", "Requests, updates, and pressure points move into one controlled queue."],
-                  ["Control layer", "Routing, ownership, and priority logic hold the operation together."],
-                  ["Execution view", "Leadership sees what is moving, what is blocked, and where to intervene."],
-                ].map(([title, text], index) => (
-                  <div
-                    key={title}
-                    className={`system-slab relative ${
-                      index === 1 ? "ml-10 max-w-[92%]" : index === 2 ? "ml-20 max-w-[88%]" : "max-w-[84%]"
-                    } rounded-[28px] border border-white/10 px-6 py-6 backdrop-blur-md`}
-                  >
-                    <div className="text-xs font-semibold uppercase tracking-[0.2em] text-[#d68c6a]">
-                      {title}
+          <Reveal delayMs={120} className="hero-visual relative lg:pl-4">
+            <div ref={visualRef} className="relative">
+              <div className="surface-dark overflow-hidden rounded-[34px] px-6 py-6">
+                <div className="flex items-center justify-between border-b border-white/8 pb-4">
+                  <div>
+                    <div className="text-xs font-semibold uppercase tracking-[0.22em] text-[color:var(--color-accent)]">
+                      Farcelis Control Layer
                     </div>
-                    <div className="mt-3 max-w-[420px] text-lg leading-7 text-slate-200">{text}</div>
-                    <div className="mt-5 h-px w-full bg-[linear-gradient(90deg,rgba(255,255,255,0.18),rgba(214,140,106,0.5),rgba(255,255,255,0))]" />
+                    <div className="mt-2 text-base font-medium text-white">
+                      Operating view for live execution environments
+                    </div>
                   </div>
-                ))}
+                  <div className="rounded-full border border-white/10 bg-white/5 px-3 py-1 text-xs font-medium text-slate-300">
+                    Live Structure
+                  </div>
+                </div>
+
+                <div className="mt-6 grid gap-4 lg:grid-cols-[1.05fr_0.95fr]">
+                  <div className="space-y-4">
+                    {[
+                      ["Signal intake", "Requests, updates, and operating pressure flow into one controlled queue."],
+                      ["Routing logic", "Priority, ownership, and intervention paths stay visible instead of tribal."],
+                      ["Leadership view", "Decision-makers see motion, blockage, and responsibility in one frame."],
+                    ].map(([title, text]) => (
+                      <div
+                        key={title}
+                        className="hero-signal hover-lift rounded-[24px] border border-white/8 bg-white/[0.04] px-5 py-5"
+                      >
+                        <div className="text-xs font-semibold uppercase tracking-[0.2em] text-[color:var(--color-accent)]">
+                          {title}
+                        </div>
+                        <div className="mt-3 text-base leading-7 text-slate-200">{text}</div>
+                      </div>
+                    ))}
+                  </div>
+
+                  <div className="hero-signal system-line rounded-[24px] border border-white/8 bg-[linear-gradient(180deg,rgba(255,255,255,0.05),rgba(255,255,255,0.02))] px-6 py-6">
+                    <div className="pl-5">
+                      <div className="text-xs font-semibold uppercase tracking-[0.2em] text-slate-400">
+                        Execution Path
+                      </div>
+                      <div className="mt-5 space-y-5">
+                        {[
+                          "Input",
+                          "Intake",
+                          "Assignment",
+                          "Execution",
+                          "Tracking",
+                          "Completion",
+                        ].map((step, index) => (
+                          <div
+                            key={step}
+                            className={`flex items-center gap-4 ${index === 1 ? "flow-active" : ""}`}
+                          >
+                            <div className="flex h-9 w-9 items-center justify-center rounded-full border border-white/10 bg-white/6 text-sm font-semibold text-white">
+                              {index + 1}
+                            </div>
+                            <div className="text-sm font-medium tracking-[0.02em] text-slate-200">{step}</div>
+                          </div>
+                        ))}
+                      </div>
+                    </div>
+                  </div>
+                </div>
               </div>
             </div>
           </Reveal>
         </div>
       </section>
 
-      <Reveal delayMs={60}>
-        <section className="relative py-18 lg:py-24">
-          <div className="mx-auto max-w-[1200px] px-5 sm:px-6 lg:px-8">
-            <div className="max-w-[980px]">
-              <p className="text-xs font-semibold uppercase tracking-[0.24em] text-[#d68c6a]">
-                Problem Interruption
-              </p>
-              <h2 className="mt-5 text-balance text-[2.8rem] font-semibold tracking-[-0.07em] text-white sm:text-[3.6rem] lg:text-[4.6rem] lg:leading-[1.02]">
-                Most organizations do not fail because they lack people. They fail because the system behind execution never got built.
-              </h2>
+      <Reveal delayMs={80}>
+        <section className="section-shell section-shell-dark pt-0">
+          <div className="section-inner">
+            <div className="mb-6 flex items-center justify-between gap-6">
+              <div>
+                <p className="eyebrow text-[color:var(--color-accent)]">Selected environments and engagements</p>
+                <p className="mt-3 max-w-[620px] text-base leading-7 text-slate-400">
+                  Organizations that have worked with Farcelis AI Consulting LLC.
+                </p>
+              </div>
             </div>
+            <LogoMarquee logos={approvedLogos} dark />
           </div>
         </section>
       </Reveal>
 
       <Reveal delayMs={100}>
-        <section className="relative overflow-hidden bg-[#f2f5f8] py-20 text-slate-950 lg:py-28">
-          <div className="pointer-events-none absolute inset-x-0 top-0 h-24 bg-gradient-to-b from-[#07111d] to-transparent" />
-          <div className="mx-auto grid max-w-[1200px] gap-12 px-5 sm:px-6 lg:grid-cols-[minmax(0,0.9fr)_minmax(0,1.1fr)] lg:px-8">
+        <section className="section-shell section-shell-dark">
+          <div className="section-inner">
+            <p className="eyebrow text-[color:var(--color-accent)]">Problem Interruption</p>
+            <h2 className="section-title mt-5 max-w-[1050px] text-white">
+              Most organizations do not fail because they lack people. They fail because the
+              system behind execution never got built.
+            </h2>
+            <p className="mt-6 max-w-[700px] text-xl leading-9 text-slate-300">
+              Farcelis builds the layer that keeps operating pressure from turning into drag,
+              delay, and decision blindness.
+            </p>
+          </div>
+        </section>
+      </Reveal>
+
+      <Reveal delayMs={140}>
+        <section className="section-shell section-shell-light">
+          <div className="section-inner grid gap-12 lg:grid-cols-[minmax(0,0.8fr)_minmax(0,1.2fr)] lg:items-center">
             <div>
-              <p className="text-xs font-semibold uppercase tracking-[0.24em] text-[#9f412c]">
-                System Reveal
-              </p>
-              <h2 className="mt-5 max-w-[560px] text-balance text-[2.8rem] font-semibold tracking-[-0.07em] text-slate-950 sm:text-[3.6rem] lg:text-[4.4rem] lg:leading-[1.02]">
-                The Control Layer is the core system that makes execution visible.
+              <p className="eyebrow text-[#9f412c]">Flagship System</p>
+              <h2 className="section-title mt-5 text-slate-950">
+                The Control Layer is the flagship Farcelis system when execution needs one frame.
               </h2>
-              <p className="mt-6 max-w-[520px] text-lg leading-8 text-slate-600">
-                It is the flagship Farcelis implementation inside a broader operating model
-                built for AI consulting, workflow control, and execution systems.
+              <p className="mt-6 max-w-[560px] text-lg leading-8 text-slate-600">
+                It sits inside a broader Farcelis operating model for workflow architecture,
+                AI consulting, and execution design.
               </p>
+              <div className="mt-8 grid gap-3">
+                {flagshipPoints.map((point) => (
+                  <div
+                    key={point}
+                    className="border-l border-slate-300 pl-5 text-base leading-8 text-slate-700"
+                  >
+                    {point}
+                  </div>
+                ))}
+              </div>
             </div>
-            <div className="grid gap-px overflow-hidden rounded-[30px] border border-slate-200 bg-slate-200 shadow-[0_24px_60px_rgba(15,23,42,0.08)] md:grid-cols-3">
-              {[
-                ["Capture", "All inputs move into one controlled intake layer."],
-                ["Structure", "Ownership, routing, and priorities stay defined."],
-                ["Execute", "Teams move with visibility, accountability, and pace."],
-              ].map(([title, text], index) => (
+
+            <div className="surface-light rounded-[30px] px-6 py-8">
+              <SystemFlowRail steps={["Input", "Intake", "Route", "Execute", "Track", "Close"]} light />
+            </div>
+          </div>
+        </section>
+      </Reveal>
+
+      <Reveal delayMs={180}>
+        <section className="section-shell section-shell-dark">
+          <div className="section-inner grid gap-12 lg:grid-cols-[minmax(0,0.7fr)_minmax(0,1.3fr)]">
+            <div>
+              <p className="eyebrow text-[color:var(--color-accent)]">What Farcelis Does</p>
+              <h2 className="section-title mt-5 text-white">
+                Farcelis is the operating partner behind cleaner execution.
+              </h2>
+            </div>
+            <div className="divide-y divide-white/8 border-y border-white/8">
+              {capabilities.map((item, index) => (
                 <div
-                  key={title}
-                  className={`${index === 1 ? "bg-slate-950 text-white" : "bg-white text-slate-950"} px-6 py-8`}
+                  key={item}
+                  className={`grid gap-4 py-6 lg:grid-cols-[72px_minmax(0,1fr)] ${index % 2 === 1 ? "lg:translate-x-8" : ""}`}
                 >
-                  <div className={`text-xs font-semibold uppercase tracking-[0.2em] ${index === 1 ? "text-[#d68c6a]" : "text-slate-500"}`}>
-                    {title}
+                  <div className="text-sm font-semibold uppercase tracking-[0.18em] text-[color:var(--color-accent)]">
+                    0{index + 1}
                   </div>
-                  <div className={`mt-4 text-xl font-semibold tracking-[-0.03em] ${index === 1 ? "text-white" : "text-slate-950"}`}>
-                    {text}
-                  </div>
+                  <div className="text-xl font-medium leading-8 text-slate-200">{item}</div>
                 </div>
               ))}
             </div>
@@ -184,77 +269,22 @@ export function HomeExperience() {
         </section>
       </Reveal>
 
-      <Reveal delayMs={140}>
-        <section className="relative py-20 lg:py-28">
-          <div className="mx-auto max-w-[1200px] px-5 sm:px-6 lg:px-8">
-            <div className="mb-10 max-w-[700px]">
-              <p className="text-xs font-semibold uppercase tracking-[0.24em] text-[#d68c6a]">
-                Visual System Flow
-              </p>
-              <h2 className="mt-5 text-balance text-[2.6rem] font-semibold tracking-[-0.065em] text-white sm:text-[3.4rem] lg:text-[4rem] lg:leading-[1.04]">
-                A controlled path from intake to completion.
-              </h2>
-            </div>
-            <SystemFlowRail steps={flowSteps} />
-          </div>
-        </section>
-      </Reveal>
-
-      <Reveal delayMs={180}>
-        <section className="relative overflow-hidden bg-[#eef2f6] py-20 text-slate-950 lg:py-28">
-          <div className="pointer-events-none absolute inset-x-0 top-0 h-24 bg-gradient-to-b from-[#07111d] to-transparent" />
-          <div className="mx-auto max-w-[1200px] px-5 sm:px-6 lg:px-8">
-            <div className="grid gap-8 lg:grid-cols-[320px_minmax(0,1fr)]">
-              <div>
-                <p className="text-xs font-semibold uppercase tracking-[0.24em] text-[#9f412c]">
-                  What Farcelis Does
-                </p>
-                <h2 className="mt-5 text-balance text-[2.6rem] font-semibold tracking-[-0.065em] text-slate-950 sm:text-[3.4rem] lg:text-[4rem] lg:leading-[1.04]">
-                  More than a product. A capability system.
-                </h2>
-              </div>
-              <div className="grid gap-4 md:grid-cols-2">
-                {capabilities.map((item, index) => (
-                  <div
-                    key={item}
-                    className={`rounded-[24px] border border-slate-200 px-5 py-5 text-lg font-medium leading-7 text-slate-800 ${
-                      index % 3 === 1 ? "bg-slate-950 text-white" : "bg-white"
-                    }`}
-                  >
-                    {item}
-                  </div>
-                ))}
-              </div>
-            </div>
-          </div>
-        </section>
-      </Reveal>
-
       <Reveal delayMs={220}>
-        <section className="relative py-20 lg:py-28">
-          <div className="mx-auto max-w-[1200px] px-5 sm:px-6 lg:px-8">
-            <div className="mb-10 max-w-[760px]">
-              <p className="text-xs font-semibold uppercase tracking-[0.24em] text-[#d68c6a]">
-                Who This Is For
-              </p>
-              <h2 className="mt-5 text-balance text-[2.6rem] font-semibold tracking-[-0.065em] text-white sm:text-[3.4rem] lg:text-[4rem] lg:leading-[1.04]">
-                Farcelis works where complexity keeps outrunning structure.
+        <section className="section-shell section-shell-light">
+          <div className="section-inner grid gap-10 lg:grid-cols-[minmax(0,0.8fr)_minmax(0,1.2fr)]">
+            <div>
+              <p className="eyebrow text-[#9f412c]">Who This Is For</p>
+              <h2 className="section-title mt-5 text-slate-950">
+                Farcelis works anywhere complexity keeps outrunning structure.
               </h2>
             </div>
-            <div className="grid gap-6 md:grid-cols-2 xl:grid-cols-4">
-              {audiences.map((item, index) => (
-                <div
-                  key={item.label}
-                  className={`rounded-[28px] border px-6 py-6 ${
-                    index === 1
-                      ? "border-white/12 bg-white/8"
-                      : "border-white/8 bg-white/[0.03]"
-                  }`}
-                >
-                  <div className="text-xs font-semibold uppercase tracking-[0.2em] text-[#d68c6a]">
+            <div className="grid gap-5 sm:grid-cols-2">
+              {audiences.map((item) => (
+                <div key={item.label} className="border-t border-slate-200 pt-5">
+                  <div className="text-lg font-semibold tracking-[-0.03em] text-slate-950">
                     {item.label}
                   </div>
-                  <div className="mt-4 text-lg leading-7 text-slate-200">{item.text}</div>
+                  <div className="mt-3 text-base leading-8 text-slate-600">{item.text}</div>
                 </div>
               ))}
             </div>
@@ -263,26 +293,41 @@ export function HomeExperience() {
       </Reveal>
 
       <Reveal delayMs={260}>
-        <section className="relative overflow-hidden bg-[#f3f5f7] py-20 text-slate-950 lg:py-28">
-          <div className="pointer-events-none absolute inset-x-0 top-0 h-24 bg-gradient-to-b from-[#07111d] to-transparent" />
-          <div className="mx-auto max-w-[1200px] px-5 sm:px-6 lg:px-8">
-            <div className="mb-10 max-w-[720px]">
-              <p className="text-xs font-semibold uppercase tracking-[0.24em] text-[#9f412c]">
-                Services
-              </p>
-              <h2 className="mt-5 text-balance text-[2.6rem] font-semibold tracking-[-0.065em] text-slate-950 sm:text-[3.4rem] lg:text-[4rem] lg:leading-[1.04]">
-                The service model is built around system design, not disconnected deliverables.
+        <section className="section-shell section-shell-dark">
+          <div className="section-inner">
+            <div className="max-w-[760px]">
+              <p className="eyebrow text-[color:var(--color-accent)]">Services</p>
+              <h2 className="section-title mt-5 text-white">
+                Service paths built around system design instead of disconnected deliverables.
               </h2>
             </div>
-            <div className="divide-y divide-slate-200 border-y border-slate-200">
-              {services.map((service) => (
-                <div key={service.title} className="grid gap-4 py-8 lg:grid-cols-[320px_minmax(0,1fr)] lg:gap-10">
-                  <h3 className="text-2xl font-semibold tracking-[-0.04em] text-slate-950">
+            <div className="mt-10 divide-y divide-white/8 border-y border-white/8">
+              {services.map((service, index) => (
+                <div
+                  key={service.title}
+                  className={`grid gap-5 py-8 lg:grid-cols-[92px_320px_minmax(0,1fr)] ${index % 2 === 1 ? "lg:translate-x-6" : ""}`}
+                >
+                  <div className="text-sm font-semibold uppercase tracking-[0.18em] text-[color:var(--color-accent)]">
+                    0{index + 1}
+                  </div>
+                  <h3 className="text-2xl font-semibold tracking-[-0.045em] text-white">
                     {service.title}
                   </h3>
-                  <p className="max-w-[720px] text-lg leading-8 text-slate-600">
-                    {service.description}
-                  </p>
+                  <div>
+                    <p className="max-w-[760px] text-base leading-8 text-slate-300">
+                      {service.description}
+                    </p>
+                    <div className="mt-5 flex flex-wrap gap-3">
+                      {(service.points.length > 0 ? service.points : servicePillars).map((point) => (
+                        <span
+                          key={point}
+                          className="signal-pill rounded-full px-4 py-2 text-sm"
+                        >
+                          {point}
+                        </span>
+                      ))}
+                    </div>
+                  </div>
                 </div>
               ))}
             </div>
@@ -291,54 +336,49 @@ export function HomeExperience() {
       </Reveal>
 
       <Reveal delayMs={300}>
-        <section className="relative py-20 lg:py-28">
-          <div className="mx-auto max-w-[1200px] px-5 sm:px-6 lg:px-8">
-            <div className="grid gap-12 lg:grid-cols-[minmax(0,0.84fr)_minmax(0,1.16fr)] lg:items-end">
-              <div>
-                <p className="text-xs font-semibold uppercase tracking-[0.24em] text-[#d68c6a]">
-                  Proof
-                </p>
-                <h2 className="mt-5 text-balance text-[2.6rem] font-semibold tracking-[-0.065em] text-white sm:text-[3.4rem] lg:text-[4rem] lg:leading-[1.04]">
-                  Selected environments and engagements.
-                </h2>
-                <div className="mt-8 grid gap-3">
-                  {proofSignals.map((item) => (
-                    <div key={item} className="text-lg font-medium text-slate-300">
-                      {item}
-                    </div>
-                  ))}
+        <section className="section-shell section-shell-light">
+          <div className="section-inner grid gap-12 lg:grid-cols-[minmax(0,0.72fr)_minmax(0,1.28fr)]">
+            <div>
+              <p className="eyebrow text-[#9f412c]">Proof</p>
+              <h2 className="section-title mt-5 text-slate-950">
+                Credibility anchored to execution, not inflated outcomes.
+              </h2>
+            </div>
+            <div className="divide-y divide-slate-200 border-y border-slate-200">
+              {proofSignals.map((item) => (
+                <div key={item} className="py-6 text-2xl font-semibold tracking-[-0.04em] text-slate-900">
+                  {item}
                 </div>
+              ))}
+              <div className="py-6 text-base leading-8 text-slate-600">
+                Execution systems deployed across cybersecurity, operations, and AI environments.
               </div>
-              <LogoMarquee logos={approvedLogos} dark />
             </div>
           </div>
         </section>
       </Reveal>
 
       <Reveal delayMs={340}>
-        <section className="relative overflow-hidden bg-[#f2f5f8] py-20 text-slate-950 lg:py-28">
-          <div className="pointer-events-none absolute inset-x-0 top-0 h-24 bg-gradient-to-b from-[#07111d] to-transparent" />
-          <div className="mx-auto grid max-w-[1200px] gap-10 px-5 sm:px-6 lg:grid-cols-[minmax(0,0.9fr)_minmax(0,1.1fr)] lg:items-end lg:px-8">
+        <section className="section-shell section-shell-dark">
+          <div className="section-inner grid gap-8 lg:grid-cols-[minmax(0,0.9fr)_minmax(0,1.1fr)] lg:items-end">
             <div>
-              <p className="text-xs font-semibold uppercase tracking-[0.24em] text-[#9f412c]">
-                Next Step
-              </p>
-              <h2 className="mt-5 text-balance text-[2.8rem] font-semibold tracking-[-0.07em] text-slate-950 sm:text-[3.6rem] lg:text-[4.4rem] lg:leading-[1.02]">
+              <p className="eyebrow text-[color:var(--color-accent)]">Decision Point</p>
+              <h2 className="section-title mt-5 text-white">
                 Bring structure to the operation before more complexity compounds it.
               </h2>
             </div>
             <div className="flex flex-col gap-3 sm:flex-row sm:justify-end">
               <Link
                 href="/contact"
-                className="inline-flex min-h-12 items-center justify-center rounded-full bg-[linear-gradient(135deg,#d68c6a,#9f412c)] px-6 py-3 text-sm font-semibold text-white transition-all duration-200 hover:translate-y-[-2px] hover:shadow-[0_18px_36px_rgba(159,65,44,0.28)]"
+                className="site-cta inline-flex min-h-12 items-center justify-center rounded-full bg-[linear-gradient(135deg,#d68c6a,#9f412c)] px-6 py-3 text-sm font-semibold text-white hover:shadow-[0_20px_40px_rgba(159,65,44,0.28)]"
               >
                 Work With Farcelis
               </Link>
               <Link
-                href="/control-layer"
-                className="inline-flex min-h-12 items-center justify-center rounded-full border border-slate-300 bg-white px-6 py-3 text-sm font-semibold text-slate-900 transition-all duration-200 hover:translate-y-[-2px] hover:border-slate-950 hover:shadow-[0_14px_28px_rgba(15,23,42,0.08)]"
+                href="/contact"
+                className="site-cta inline-flex min-h-12 items-center justify-center rounded-full border border-white/12 bg-white/4 px-6 py-3 text-sm font-semibold text-white hover:border-white/24 hover:bg-white/8"
               >
-                See How the System Works
+                Schedule a Strategy Call
               </Link>
             </div>
           </div>

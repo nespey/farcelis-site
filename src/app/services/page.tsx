@@ -6,9 +6,9 @@ import { seo, services } from "@/lib/site-data";
 export const metadata = buildMetadata(seo.services);
 
 const pathways = [
-  "Control Layer strategy and design",
-  "Workflow and agent implementation",
-  "Execution adoption and enablement",
+  "System before tooling",
+  "Execution before automation",
+  "Governance before scale",
 ];
 
 export default function ServicesPage() {
@@ -16,29 +16,38 @@ export default function ServicesPage() {
     <>
       <PageIntro
         eyebrow="Services"
-        title="Farcelis builds the system before the complexity."
-        description="AI consulting, workflow architecture, execution design, and Control Layer deployment all sit inside one operating approach."
+        title="Farcelis builds the operating structure before the complexity compounds."
+        description="AI consulting, workflow architecture, execution design, and Control Layer deployment all sit inside one operational approach."
         actions={[
           { href: "/contact", label: "Work With Farcelis" },
           { href: "/control-layer", label: "Explore the Control Layer", variant: "secondary" },
         ]}
+        asideTitle="Operating Posture"
+        asideItems={pathways}
       />
 
       <Reveal delayMs={60}>
-        <section className="py-18 lg:py-24">
-          <div className="mx-auto max-w-[1200px] px-5 sm:px-6 lg:px-8">
-            <div className="grid gap-4 md:grid-cols-3">
+        <section className="section-shell section-shell-dark">
+          <div className="section-inner grid gap-12 lg:grid-cols-[minmax(0,0.72fr)_minmax(0,1.28fr)]">
+            <div>
+              <p className="eyebrow text-[color:var(--color-accent)]">Service Model</p>
+              <h2 className="section-title mt-5 text-white">
+                Each engagement is built around how execution actually needs to hold.
+              </h2>
+            </div>
+
+            <div className="divide-y divide-white/8 border-y border-white/8">
               {pathways.map((item, index) => (
                 <div
                   key={item}
-                  className={`rounded-[26px] border px-5 py-6 ${
-                    index === 1 ? "border-white/14 bg-white/8 text-white" : "border-white/8 bg-white/[0.03] text-slate-200"
-                  }`}
+                  className={`grid gap-4 py-6 lg:grid-cols-[78px_minmax(0,1fr)] ${index === 1 ? "lg:translate-x-8" : ""}`}
                 >
-                  <div className="text-sm font-semibold uppercase tracking-[0.2em] text-[#d68c6a]">
-                    Path
+                  <div className="text-sm font-semibold uppercase tracking-[0.18em] text-[color:var(--color-accent)]">
+                    0{index + 1}
                   </div>
-                  <div className="mt-4 text-2xl font-semibold tracking-[-0.04em]">{item}</div>
+                  <div className="text-2xl font-medium tracking-[-0.04em] text-slate-200">
+                    {item}
+                  </div>
                 </div>
               ))}
             </div>
@@ -46,39 +55,37 @@ export default function ServicesPage() {
         </section>
       </Reveal>
 
-      <Reveal delayMs={100}>
-        <section className="overflow-hidden bg-[#f3f6f8] py-20 text-slate-950 lg:py-28">
-          <div className="pointer-events-none absolute inset-x-0 top-0 h-24 bg-gradient-to-b from-[#07111d] to-transparent" />
-          <div className="mx-auto max-w-[1200px] px-5 sm:px-6 lg:px-8">
-            <div className="mb-10 max-w-[760px]">
-              <p className="text-xs font-semibold uppercase tracking-[0.24em] text-[#9f412c]">
-                Service Model
-              </p>
-              <h2 className="mt-5 text-balance text-[2.8rem] font-semibold tracking-[-0.07em] text-slate-950 sm:text-[3.6rem] lg:text-[4.4rem]">
-                Each engagement is built around execution, not disconnected deliverables.
+      <Reveal delayMs={110}>
+        <section className="section-shell section-shell-light">
+          <div className="section-inner">
+            <div className="max-w-[780px]">
+              <p className="eyebrow text-[#9f412c]">Capabilities</p>
+              <h2 className="section-title mt-5 text-slate-950">
+                Farcelis service paths are distinct, but they all feed the same operating logic.
               </h2>
             </div>
-            <div className="divide-y divide-slate-200 border-y border-slate-200">
+
+            <div className="mt-12 divide-y divide-slate-200 border-y border-slate-200">
               {services.map((service, index) => (
                 <div
                   key={service.title}
-                  className={`grid gap-5 py-8 lg:grid-cols-[110px_minmax(0,0.9fr)_minmax(0,1.1fr)] ${
-                    index % 2 === 1 ? "lg:translate-x-6" : ""
-                  }`}
+                  className={`grid gap-5 py-8 lg:grid-cols-[88px_320px_minmax(0,1fr)] ${index % 2 === 1 ? "lg:translate-x-6" : ""}`}
                 >
-                  <div className="text-sm font-semibold uppercase tracking-[0.18em] text-slate-500">
+                  <div className="text-sm font-semibold uppercase tracking-[0.18em] text-[#9f412c]">
                     0{index + 1}
                   </div>
-                  <h2 className="text-2xl font-semibold tracking-[-0.04em] text-slate-950">
+                  <h3 className="text-2xl font-semibold tracking-[-0.04em] text-slate-950">
                     {service.title}
-                  </h2>
-                  <div className="space-y-4">
-                    <p className="text-lg leading-8 text-slate-600">{service.description}</p>
-                    <div className="flex flex-wrap gap-3">
+                  </h3>
+                  <div>
+                    <p className="max-w-[760px] text-base leading-8 text-slate-600">
+                      {service.description}
+                    </p>
+                    <div className="mt-5 flex flex-wrap gap-3">
                       {service.points.map((point) => (
                         <span
                           key={point}
-                          className="rounded-full border border-slate-300 bg-white px-4 py-2 text-sm font-medium text-slate-700"
+                          className="rounded-full border border-slate-200 bg-white px-4 py-2 text-sm font-medium text-slate-700"
                         >
                           {point}
                         </span>

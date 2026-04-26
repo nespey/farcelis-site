@@ -8,8 +8,8 @@ export const metadata = buildMetadata(seo.results);
 
 const proofFrames = [
   "Executive visibility holds under pressure.",
-  "Workflow control stays intact across teams and tools.",
-  "Delivery governance survives complexity, deadlines, and competing priorities.",
+  "Workflow control survives complexity, handoffs, and change.",
+  "Delivery governance stays credible without inflated claims or vague metrics.",
 ];
 
 export default function ResultsPage() {
@@ -17,48 +17,49 @@ export default function ResultsPage() {
     <>
       <PageIntro
         eyebrow="Results and Proof"
-        title="Proof framed around live execution, not inflated claims."
-        description="Farcelis keeps proof anchored to visibility, workflow control, and delivery governance so the signal stays credible."
+        title="Farcelis frames proof around execution that actually holds."
+        description="Proof stays anchored to visibility, control, and governance so the signal remains credible to serious operators."
+        asideTitle="Proof Posture"
+        asideItems={[
+          "No inflated metrics",
+          "No implied product usage",
+          "Only confirmed relationship language",
+        ]}
       />
 
       <Reveal delayMs={60}>
-        <section className="py-18 lg:py-24">
-          <div className="mx-auto max-w-[1200px] px-5 sm:px-6 lg:px-8">
-            <div className="grid gap-5 md:grid-cols-3">
-              {proofFrames.map((item, index) => (
-                <div
-                  key={item}
-                  className={`rounded-[28px] border px-6 py-7 ${
-                    index === 1 ? "border-white/14 bg-white/8 text-white" : "border-white/8 bg-white/[0.03] text-slate-200"
-                  }`}
-                >
-                  <div className="text-xs font-semibold uppercase tracking-[0.2em] text-[#d68c6a]">
-                    Proof Signal
-                  </div>
-                  <div className="mt-4 text-2xl font-semibold tracking-[-0.04em]">{item}</div>
+        <section className="section-shell section-shell-dark">
+          <div className="section-inner divide-y divide-white/8 border-y border-white/8">
+            {proofFrames.map((item, index) => (
+              <div
+                key={item}
+                className={`grid gap-4 py-7 lg:grid-cols-[88px_minmax(0,1fr)] ${index === 1 ? "lg:translate-x-8" : ""}`}
+              >
+                <div className="text-sm font-semibold uppercase tracking-[0.18em] text-[color:var(--color-accent)]">
+                  0{index + 1}
                 </div>
-              ))}
-            </div>
+                <div className="text-[2rem] font-semibold tracking-[-0.05em] text-white lg:text-[2.6rem]">
+                  {item}
+                </div>
+              </div>
+            ))}
           </div>
         </section>
       </Reveal>
 
       <Reveal delayMs={120}>
-        <section className="overflow-hidden bg-[#f2f5f8] py-20 text-slate-950 lg:py-28">
-          <div className="pointer-events-none absolute inset-x-0 top-0 h-24 bg-gradient-to-b from-[#07111d] to-transparent" />
-          <div className="mx-auto max-w-[1200px] px-5 sm:px-6 lg:px-8">
-            <div className="mb-10 max-w-[760px]">
-              <p className="text-xs font-semibold uppercase tracking-[0.24em] text-[#9f412c]">
-                Organizations
-              </p>
-              <h2 className="mt-5 text-balance text-[2.8rem] font-semibold tracking-[-0.07em] text-slate-950 sm:text-[3.6rem] lg:text-[4.4rem]">
-                Organizations that have worked with Farcelis AI Consulting LLC.
-              </h2>
-              <p className="mt-6 max-w-[640px] text-lg leading-8 text-slate-600">
-                Relationship language stays precise. The grid below does not imply product usage or depth beyond confirmed work with Farcelis AI Consulting LLC.
-              </p>
+        <section className="section-shell section-shell-light">
+          <div className="section-inner">
+            <p className="eyebrow text-[#9f412c]">Selected environments and engagements</p>
+            <h2 className="section-title mt-5 text-slate-950">
+              Organizations that have worked with Farcelis AI Consulting LLC.
+            </h2>
+            <p className="mt-6 max-w-[720px] text-lg leading-8 text-slate-600">
+              Execution systems deployed across cybersecurity, operations, and AI environments.
+            </p>
+            <div className="mt-10">
+              <LogoMarquee logos={approvedLogos} dark={false} />
             </div>
-            <LogoMarquee logos={approvedLogos} dark={false} />
           </div>
         </section>
       </Reveal>

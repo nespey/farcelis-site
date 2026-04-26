@@ -51,7 +51,8 @@ export default function RootLayout({
     >
       <body className="min-h-full bg-[#07111d] text-white">
         <div className="relative min-h-full overflow-x-hidden">
-          <div className="pointer-events-none absolute inset-0 -z-10 bg-[radial-gradient(circle_at_18%_0%,rgba(88,125,163,0.18),transparent_26%),radial-gradient(circle_at_82%_12%,rgba(214,140,106,0.12),transparent_20%),linear-gradient(180deg,#07111d,#050b14_55%,#07111d)]" />
+          <div className="pointer-events-none absolute inset-0 -z-10 bg-[radial-gradient(circle_at_16%_0%,rgba(88,125,163,0.14),transparent_24%),radial-gradient(circle_at_84%_10%,rgba(214,140,106,0.1),transparent_18%),linear-gradient(180deg,#06111b,#07121e_45%,#06111b)]" />
+          <div className="pointer-events-none absolute inset-0 -z-10 opacity-20 subtle-grid" />
           <Header />
           <main>{children}</main>
           <Footer />

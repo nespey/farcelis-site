@@ -20,7 +20,7 @@ export function LogoMarquee({ logos, dark = true }: LogoMarqueeProps) {
 
     let frame = 0;
     let paused = false;
-    const speed = 0.28;
+    const speed = 0.22;
 
     const tick = () => {
       if (!paused) {
@@ -51,39 +51,38 @@ export function LogoMarquee({ logos, dark = true }: LogoMarqueeProps) {
   return (
     <div ref={trackRef} className="relative overflow-x-hidden">
       <div
-        className={`pointer-events-none absolute inset-y-0 left-0 z-10 w-20 ${
+        className={`pointer-events-none absolute inset-y-0 left-0 z-10 w-16 ${
           dark
-            ? "bg-gradient-to-r from-[#07111d] to-transparent"
-            : "bg-gradient-to-r from-[#f2f5f8] to-transparent"
+            ? "bg-gradient-to-r from-[#06111b] to-transparent"
+            : "bg-gradient-to-r from-[#f4f6f8] to-transparent"
         }`}
       />
       <div
-        className={`pointer-events-none absolute inset-y-0 right-0 z-10 w-20 ${
+        className={`pointer-events-none absolute inset-y-0 right-0 z-10 w-16 ${
           dark
-            ? "bg-gradient-to-l from-[#07111d] to-transparent"
-            : "bg-gradient-to-l from-[#f2f5f8] to-transparent"
+            ? "bg-gradient-to-l from-[#06111b] to-transparent"
+            : "bg-gradient-to-l from-[#f4f6f8] to-transparent"
         }`}
       />
-      <div className="flex w-max gap-10 pr-12">
+
+      <div className="flex w-max gap-6 pr-10">
         {logos.map((logo, index) => {
-          const height =
-            index === 0 ? "h-[72px]" : index === 1 ? "h-[76px]" : index > 3 ? "h-[60px]" : "h-[66px]";
-          const tone = index % 2 === 0 ? "bg-white/[0.05]" : "bg-white/[0.08]";
-          const wrapper = dark
-            ? `${tone} border-white/10`
-            : "bg-white border-slate-900/8";
+          const base = dark
+            ? "border-white/8 bg-white/[0.04]"
+            : "border-slate-200 bg-white";
+          const minHeight = index % 3 === 0 ? "h-[54px]" : index % 3 === 1 ? "h-[46px]" : "h-[50px]";
 
           const tile = (
             <div
-              className={`logo-rail-tile flex min-h-36 min-w-[300px] items-center justify-center rounded-[26px] border px-10 py-8 shadow-[0_18px_44px_rgba(15,23,42,0.08)] transition-all duration-200 ${wrapper}`}
+              className={`logo-rail-tile hover-lift flex min-h-28 min-w-[220px] items-center justify-center rounded-[22px] border px-8 py-6 ${base}`}
             >
-              <div className={`relative w-full ${height}`}>
+              <div className={`relative w-full ${minHeight}`}>
                 {logo.logo ? (
                   <Image
                     src={logo.logo}
                     alt={logo.name}
                     fill
-                    sizes="300px"
+                    sizes="220px"
                     className="object-contain"
                   />
                 ) : null}

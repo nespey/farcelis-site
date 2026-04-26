@@ -20,71 +20,46 @@ export default function ControlLayerPage() {
     <>
       <PageIntro
         eyebrow="Flagship System"
-        title="The Farcelis Control Layer."
-        description="The Control Layer is the flagship Farcelis implementation when an organization needs one operating frame for workflow, visibility, decisions, and execution."
+        title="The Farcelis Control Layer is the flagship implementation when execution needs one frame."
+        description="It sits above existing tools and gives leadership one operating environment for intake, routing, ownership, and intervention."
         actions={[
           { href: "/contact", label: "Work With Farcelis" },
           { href: "/services", label: "See Service Paths", variant: "secondary" },
         ]}
+        asideTitle="Operating Logic"
+        asideItems={[
+          "Built on top of current tools",
+          "Structured for visibility and control",
+          "Designed to hold under live pressure",
+        ]}
       />
 
       <Reveal delayMs={60}>
-        <section className="py-18 lg:py-24">
-          <div className="mx-auto grid max-w-[1200px] gap-10 px-5 sm:px-6 lg:grid-cols-[minmax(0,0.88fr)_minmax(0,1.12fr)] lg:px-8">
+        <section className="section-shell section-shell-dark">
+          <div className="section-inner grid gap-12 lg:grid-cols-[minmax(0,0.72fr)_minmax(0,1.28fr)]">
             <div>
-              <p className="text-xs font-semibold uppercase tracking-[0.24em] text-[#d68c6a]">
-                What It Does
-              </p>
-              <h2 className="mt-5 text-balance text-[2.8rem] font-semibold tracking-[-0.07em] text-white sm:text-[3.8rem] lg:text-[4.6rem] lg:leading-[1.02]">
-                One system layer that holds the work together.
+              <p className="eyebrow text-[color:var(--color-accent)]">What It Is</p>
+              <h2 className="section-title mt-5 text-white">
+                One layer that keeps people, workflows, and decisions moving inside the same system.
               </h2>
             </div>
-            <div className="space-y-6 text-lg leading-8 text-slate-300">
-              <p>
-                The Control Layer sits above existing tools and creates one controlled operating
-                environment for intake, routing, ownership, reporting, and intervention.
-              </p>
-              <p>
-                It is not more software for its own sake. It is the structure that keeps AI,
-                automation, workflows, and people moving in one visible direction.
-              </p>
-            </div>
-          </div>
-        </section>
-      </Reveal>
 
-      <Reveal delayMs={100}>
-        <section className="overflow-hidden bg-[#f2f5f8] py-20 text-slate-950 lg:py-28">
-          <div className="pointer-events-none absolute inset-x-0 top-0 h-24 bg-gradient-to-b from-[#07111d] to-transparent" />
-          <div className="mx-auto max-w-[1200px] px-5 sm:px-6 lg:px-8">
-            <div className="mb-10 max-w-[740px]">
-              <p className="text-xs font-semibold uppercase tracking-[0.24em] text-[#9f412c]">
-                System Flow
-              </p>
-              <h2 className="mt-5 text-balance text-[2.6rem] font-semibold tracking-[-0.065em] text-slate-950 sm:text-[3.4rem] lg:text-[4rem]">
-                Work moves through one controlled path.
-              </h2>
-            </div>
-            <SystemFlowRail steps={flowSteps} light />
-          </div>
-        </section>
-      </Reveal>
-
-      <Reveal delayMs={140}>
-        <section className="py-20 lg:py-28">
-          <div className="mx-auto max-w-[1200px] px-5 sm:px-6 lg:px-8">
-            <div className="grid gap-4 md:grid-cols-5">
-              {systemLayers.map((item, index) => (
+            <div className="divide-y divide-white/8 border-y border-white/8">
+              {[
+                "Creates one controlled intake path instead of scattered requests.",
+                "Holds ownership and routing logic in a visible operating frame.",
+                "Gives leadership one live view into movement, blockage, and intervention.",
+              ].map((item, index) => (
                 <div
                   key={item}
-                  className={`rounded-[26px] border px-5 py-6 ${
-                    index === 2 ? "border-white/16 bg-white/8 text-white" : "border-white/8 bg-white/[0.03] text-slate-200"
-                  }`}
+                  className={`grid gap-4 py-6 lg:grid-cols-[78px_minmax(0,1fr)] ${index === 1 ? "lg:translate-x-8" : ""}`}
                 >
-                  <div className="text-sm font-semibold uppercase tracking-[0.18em] text-[#d68c6a]">
-                    Layer
+                  <div className="text-sm font-semibold uppercase tracking-[0.18em] text-[color:var(--color-accent)]">
+                    0{index + 1}
                   </div>
-                  <div className="mt-4 text-xl font-semibold tracking-[-0.03em]">{item}</div>
+                  <div className="text-2xl font-medium tracking-[-0.04em] text-slate-200">
+                    {item}
+                  </div>
                 </div>
               ))}
             </div>
@@ -92,23 +67,64 @@ export default function ControlLayerPage() {
         </section>
       </Reveal>
 
-      <Reveal delayMs={180}>
-        <section className="overflow-hidden bg-[#f5f7f9] py-20 text-slate-950 lg:py-28">
-          <div className="pointer-events-none absolute inset-x-0 top-0 h-24 bg-gradient-to-b from-[#07111d] to-transparent" />
-          <div className="mx-auto grid max-w-[1200px] gap-10 px-5 sm:px-6 lg:grid-cols-[minmax(0,0.8fr)_minmax(0,1.2fr)] lg:px-8">
-            <div>
-              <p className="text-xs font-semibold uppercase tracking-[0.24em] text-[#9f412c]">
-                What Changes
-              </p>
-              <h2 className="mt-5 text-balance text-[2.6rem] font-semibold tracking-[-0.065em] text-slate-950 sm:text-[3.4rem] lg:text-[4rem]">
-                Visibility, ownership, and cleaner execution.
+      <Reveal delayMs={110}>
+        <section className="section-shell section-shell-light">
+          <div className="section-inner">
+            <div className="max-w-[760px]">
+              <p className="eyebrow text-[#9f412c]">System Flow</p>
+              <h2 className="section-title mt-5 text-slate-950">
+                Work moves through one controlled path from signal to completion.
               </h2>
             </div>
-            <div className="grid gap-3 md:grid-cols-2">
+            <div className="surface-light mt-12 rounded-[30px] px-6 py-8">
+              <SystemFlowRail steps={flowSteps} light />
+            </div>
+          </div>
+        </section>
+      </Reveal>
+
+      <Reveal delayMs={160}>
+        <section className="section-shell section-shell-dark">
+          <div className="section-inner grid gap-12 lg:grid-cols-[minmax(0,0.68fr)_minmax(0,1.32fr)]">
+            <div>
+              <p className="eyebrow text-[color:var(--color-accent)]">System Layers</p>
+              <h2 className="section-title mt-5 text-white">
+                The Control Layer is structured as an operating stack, not another surface.
+              </h2>
+            </div>
+
+            <div className="divide-y divide-white/8 border-y border-white/8">
+              {systemLayers.map((item, index) => (
+                <div
+                  key={item}
+                  className={`grid gap-4 py-6 lg:grid-cols-[78px_minmax(0,1fr)] ${index % 2 === 1 ? "lg:translate-x-6" : ""}`}
+                >
+                  <div className="text-sm font-semibold uppercase tracking-[0.18em] text-[color:var(--color-accent)]">
+                    0{index + 1}
+                  </div>
+                  <div className="text-2xl font-medium tracking-[-0.04em] text-slate-200">{item}</div>
+                </div>
+              ))}
+            </div>
+          </div>
+        </section>
+      </Reveal>
+
+      <Reveal delayMs={220}>
+        <section className="section-shell section-shell-light">
+          <div className="section-inner grid gap-12 lg:grid-cols-[minmax(0,0.75fr)_minmax(0,1.25fr)]">
+            <div>
+              <p className="eyebrow text-[#9f412c]">What Changes</p>
+              <h2 className="section-title mt-5 text-slate-950">
+                Visibility, ownership, and more reliable execution without more operational noise.
+              </h2>
+            </div>
+
+            <div className="grid gap-3 sm:grid-cols-2">
               {capabilityPoints.map((point) => (
                 <div
                   key={point}
-                  className="rounded-[22px] border border-slate-200 bg-white px-5 py-4 text-base font-medium text-slate-700"
+                  className="rounded-[20px] border border-slate-200 bg-white px-5 py-4 text-base font-medium text-slate-700"
                 >
                   {point}
                 </div>
@@ -118,14 +134,12 @@ export default function ControlLayerPage() {
         </section>
       </Reveal>
 
-      <Reveal delayMs={220}>
-        <section className="py-20 lg:py-28">
-          <div className="mx-auto grid max-w-[1200px] gap-10 px-5 sm:px-6 lg:grid-cols-[minmax(0,0.84fr)_minmax(0,1.16fr)] lg:items-end lg:px-8">
+      <Reveal delayMs={260}>
+        <section className="section-shell section-shell-dark">
+          <div className="section-inner grid gap-8 lg:grid-cols-[minmax(0,0.76fr)_minmax(0,1.24fr)] lg:items-end">
             <div>
-              <p className="text-xs font-semibold uppercase tracking-[0.24em] text-[#d68c6a]">
-                Organizations
-              </p>
-              <h2 className="mt-5 text-balance text-[2.6rem] font-semibold tracking-[-0.065em] text-white sm:text-[3.4rem] lg:text-[4rem]">
+              <p className="eyebrow text-[color:var(--color-accent)]">Organizations</p>
+              <h2 className="section-title mt-5 text-white">
                 Organizations that have worked with Farcelis AI Consulting LLC.
               </h2>
             </div>

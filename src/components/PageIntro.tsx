@@ -13,6 +13,8 @@ type PageIntroProps = {
   title: string;
   description: string;
   actions?: Action[];
+  asideTitle?: string;
+  asideItems?: string[];
   compact?: boolean;
 };
 
@@ -21,21 +23,19 @@ export function PageIntro({
   title,
   description,
   actions = [],
+  asideTitle,
+  asideItems = [],
   compact = false,
 }: PageIntroProps) {
   return (
-    <section className={`relative ${compact ? "pb-16 pt-10 lg:pb-20 lg:pt-14" : "pb-20 pt-14 lg:pb-28 lg:pt-18"}`}>
-      <div className="mx-auto max-w-[1200px] px-5 sm:px-6 lg:px-8">
-        <div className="max-w-[760px]">
-          <p className="text-xs font-semibold uppercase tracking-[0.24em] text-[color:#d68c6a]">
-            {eyebrow}
-          </p>
-          <h1 className="mt-5 text-balance text-[3.2rem] font-semibold tracking-[-0.075em] text-white sm:text-[4.6rem] lg:text-[5.8rem] lg:leading-[0.98]">
-            {title}
-          </h1>
-          <p className="mt-6 max-w-[640px] text-lg leading-8 text-slate-300">
-            {description}
-          </p>
+    <section className={`section-shell section-shell-dark overflow-hidden ${compact ? "pt-16 lg:pt-20" : "pt-20 lg:pt-24"}`}>
+      <div className="pointer-events-none absolute inset-0 subtle-grid" />
+      <div className="pointer-events-none absolute left-[12%] top-[14%] h-56 w-56 rounded-full bg-[radial-gradient(circle,rgba(214,140,106,0.12),transparent_68%)] blur-3xl" />
+      <div className="section-inner relative grid gap-12 lg:grid-cols-[minmax(0,0.78fr)_minmax(280px,0.22fr)] lg:items-end">
+        <div>
+          <p className="eyebrow text-[color:var(--color-accent)]">{eyebrow}</p>
+          <h1 className="display-page mt-5 text-white">{title}</h1>
+          <p className="lede mt-6 max-w-[720px]">{description}</p>
           {actions.length > 0 ? (
             <div className="mt-8 flex flex-col gap-3 sm:flex-row">
               {actions.map((action) => (
@@ -44,8 +44,8 @@ export function PageIntro({
                   href={action.href}
                   className={
                     action.variant === "secondary"
-                      ? "inline-flex min-h-12 items-center justify-center rounded-full border border-white/12 bg-white/5 px-6 py-3 text-sm font-semibold text-white transition-all duration-200 hover:translate-y-[-2px] hover:border-white/24 hover:bg-white/8 hover:shadow-[0_14px_30px_rgba(15,23,42,0.24)]"
-                      : "inline-flex min-h-12 items-center justify-center rounded-full bg-[linear-gradient(135deg,#d68c6a,#9f412c)] px-6 py-3 text-sm font-semibold text-white transition-all duration-200 hover:translate-y-[-2px] hover:shadow-[0_18px_36px_rgba(159,65,44,0.28)]"
+                      ? "site-cta inline-flex min-h-12 items-center justify-center rounded-full border border-white/12 bg-white/4 px-6 py-3 text-sm font-semibold text-white hover:border-white/24 hover:bg-white/8 hover:shadow-[0_18px_34px_rgba(8,18,29,0.24)]"
+                      : "site-cta inline-flex min-h-12 items-center justify-center rounded-full bg-[linear-gradient(135deg,#d68c6a,#9f412c)] px-6 py-3 text-sm font-semibold text-white hover:shadow-[0_20px_40px_rgba(159,65,44,0.3)]"
                   }
                 >
                   {action.label}
@@ -54,6 +54,24 @@ export function PageIntro({
             </div>
           ) : null}
         </div>
+
+        {asideTitle || asideItems.length > 0 ? (
+          <aside className="surface-dark relative rounded-[28px] px-6 py-7">
+            {asideTitle ? (
+              <p className="eyebrow text-[color:var(--color-accent)]">{asideTitle}</p>
+            ) : null}
+            <div className="mt-5 space-y-4">
+              {asideItems.map((item) => (
+                <div
+                  key={item}
+                  className="border-l border-white/12 pl-4 text-sm leading-7 text-slate-300"
+                >
+                  {item}
+                </div>
+              ))}
+            </div>
+          </aside>
+        ) : null}
       </div>
     </section>
   );
