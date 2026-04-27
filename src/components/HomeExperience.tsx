@@ -287,27 +287,30 @@ export function HomeExperience() {
       </Reveal>
 
       <Reveal delayMs={270}>
-        <section className="section-shell section-shell-dark">
-          <div className="section-inner grid gap-8 lg:grid-cols-[minmax(0,0.9fr)_minmax(0,1.1fr)] lg:items-end">
-            <div>
+        <section className="section-shell section-shell-dark py-18">
+          <div className="section-inner">
+            <div className="mx-auto max-w-[1120px] text-center">
               <p className="eyebrow text-[color:var(--color-accent)]">Decision Point</p>
-              <h2 className="section-title mt-5 text-white">
+              <h2 className="mx-auto mt-5 max-w-[20ch] text-[clamp(2.1rem,3.8vw,4rem)] font-medium leading-[1.08] tracking-[-0.05em] text-white">
                 If execution keeps slipping, the next move is not more software. It is a stronger system.
               </h2>
-            </div>
-            <div className="flex flex-col gap-3 sm:flex-row sm:justify-end">
-              <Link
-                href="/contact"
-                className="site-cta inline-flex min-h-12 items-center justify-center rounded-full bg-[linear-gradient(135deg,#f19a6b,#c75d33)] px-6 py-3 text-sm font-semibold text-white hover:shadow-[0_20px_40px_rgba(199,93,51,0.3)]"
-              >
-                Work With Farcelis
-              </Link>
-              <Link
-                href="/contact"
-                className="site-cta inline-flex min-h-12 items-center justify-center rounded-full border border-cyan-200/18 bg-cyan-100/6 px-6 py-3 text-sm font-semibold text-cyan-50 hover:border-cyan-100/28 hover:bg-cyan-100/9"
-              >
-                Schedule a Strategy Call
-              </Link>
+              <p className="mx-auto mt-5 max-w-[900px] text-lg leading-8 text-slate-300">
+                Farcelis builds the operating structure that keeps ownership, routing, and execution intact when the pressure increases.
+              </p>
+              <div className="mt-7 flex flex-col items-center justify-center gap-3 sm:flex-row">
+                <Link
+                  href="/contact"
+                  className="site-cta inline-flex min-h-12 items-center justify-center rounded-full bg-[linear-gradient(135deg,#f19a6b,#c75d33)] px-6 py-3 text-sm font-semibold text-white hover:shadow-[0_20px_40px_rgba(199,93,51,0.3)]"
+                >
+                  Work With Farcelis
+                </Link>
+                <Link
+                  href="/contact"
+                  className="site-cta inline-flex min-h-12 items-center justify-center rounded-full border border-cyan-200/18 bg-cyan-100/6 px-6 py-3 text-sm font-semibold text-cyan-50 hover:border-cyan-100/28 hover:bg-cyan-100/9"
+                >
+                  Schedule a Strategy Call
+                </Link>
+              </div>
             </div>
           </div>
         </section>
