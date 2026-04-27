@@ -3,6 +3,7 @@ import { Manrope } from "next/font/google";
 
 import { Footer } from "@/components/Footer";
 import { Header } from "@/components/Header";
+import { HoneycombBackground } from "@/components/HoneycombBackground";
 import { site } from "@/lib/site-data";
 import "./globals.css";
 
@@ -43,8 +44,7 @@ export default function RootLayout({
     <html lang="en" className={`${manrope.variable} h-full antialiased`}>
       <body className="min-h-full bg-[#07111d] text-white">
         <div className="relative min-h-full overflow-x-hidden">
-          <div className="pointer-events-none absolute inset-0 -z-10 bg-[radial-gradient(circle_at_16%_0%,rgba(88,125,163,0.14),transparent_24%),radial-gradient(circle_at_84%_10%,rgba(214,140,106,0.1),transparent_18%),linear-gradient(180deg,#06111b,#07121e_45%,#06111b)]" />
-          <div className="pointer-events-none absolute inset-0 -z-10 opacity-20 subtle-grid" />
+          <HoneycombBackground />
           <Header />
           <main>{children}</main>
           <Footer />
