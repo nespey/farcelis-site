@@ -145,8 +145,8 @@ export function HomeExperience() {
 
       <Reveal delayMs={150}>
         <section className="section-shell section-shell-dark section-bridge-light">
-          <div className="section-inner grid gap-10 lg:grid-cols-[minmax(0,0.58fr)_minmax(0,1.42fr)] lg:items-center">
-            <div>
+          <div className="section-inner">
+            <div className="mx-auto max-w-[860px] text-center">
               <p className="eyebrow text-[color:var(--color-accent)]">One Flagship Pillar</p>
               <h2 className="section-title mt-5 text-white">
                 The Control Layer is one flagship Farcelis implementation, not the whole company.
@@ -171,7 +171,7 @@ export function HomeExperience() {
               </div>
             </div>
 
-            <div className="space-y-5">
+            <div className="mx-auto mt-10 w-full max-w-[1120px] space-y-5">
               <IntegrationLogoLane />
 
               <div className="surface-dark rounded-[28px] px-4 py-4">
@@ -180,11 +180,11 @@ export function HomeExperience() {
 
               <IntegrationLogoLane reverse />
 
-              <div className="surface-dark rounded-[24px] px-6 py-6">
+              <div className="surface-dark rounded-[24px] px-6 py-6 text-center">
                 <div className="text-xs font-semibold uppercase tracking-[0.22em] text-[color:var(--color-accent)]">
                   Control flow
                 </div>
-                <div className="mt-5">
+                <div className="mx-auto mt-5 max-w-[900px]">
                   <SystemFlowRail steps={["Input", "Intake", "Route", "Execute", "Track", "Close"]} />
                 </div>
               </div>
