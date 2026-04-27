@@ -27,7 +27,6 @@ export function HeroBrandVisual() {
   return (
     <div className="relative min-h-[520px] px-4 py-4 lg:px-0">
       <div className="pointer-events-none absolute inset-0 opacity-80">
-        <div className="absolute inset-0 mesh-gold" />
         <div className="absolute inset-0 bg-[radial-gradient(circle_at_42%_28%,rgba(106,181,214,0.2),transparent_24%),radial-gradient(circle_at_48%_68%,rgba(255,214,160,0.18),transparent_20%)]" />
       </div>
 

@@ -29,7 +29,6 @@ export function PageIntro({
 }: PageIntroProps) {
   return (
     <section className={`section-shell section-shell-dark overflow-hidden ${compact ? "pt-16 lg:pt-20" : "pt-20 lg:pt-24"}`}>
-      <div className="pointer-events-none absolute inset-0 subtle-grid" />
       <div className="vibrant-orbit absolute left-[10%] top-[12%] h-56 w-56 bg-[radial-gradient(circle,rgba(242,139,91,0.2),transparent_68%)]" />
       <div className="vibrant-orbit absolute right-[14%] top-[16%] h-64 w-64 bg-[radial-gradient(circle,rgba(97,192,215,0.18),transparent_70%)]" />
       <div className="vibrant-orbit absolute right-[32%] top-[32%] h-48 w-48 bg-[radial-gradient(circle,rgba(141,119,255,0.12),transparent_70%)]" />

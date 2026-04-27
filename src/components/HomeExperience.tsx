@@ -38,8 +38,7 @@ const serviceFrames = [
 export function HomeExperience() {
   return (
     <div className="relative overflow-hidden">
-      <section className="section-shell section-shell-dark mesh-gold overflow-hidden pt-18 lg:min-h-[92svh] lg:pt-22">
-        <div className="pointer-events-none absolute inset-0 subtle-grid" />
+      <section className="section-shell section-shell-dark overflow-hidden pt-18 lg:min-h-[92svh] lg:pt-22">
         <div className="pointer-events-none absolute left-[8%] top-[14%] h-56 w-56 rounded-full bg-[radial-gradient(circle,rgba(255,214,160,0.16),transparent_68%)] blur-3xl" />
         <div className="pointer-events-none absolute right-[10%] top-[18%] h-72 w-72 rounded-full bg-[radial-gradient(circle,rgba(106,181,214,0.14),transparent_72%)] blur-3xl" />
         <div className="section-inner relative grid gap-10 lg:min-h-[76svh] lg:grid-cols-[minmax(0,0.9fr)_minmax(0,1.1fr)] lg:items-center">

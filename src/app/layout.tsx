@@ -3,7 +3,6 @@ import { Manrope } from "next/font/google";
 
 import { Footer } from "@/components/Footer";
 import { Header } from "@/components/Header";
-import { HoneycombBackground } from "@/components/HoneycombBackground";
 import { site } from "@/lib/site-data";
 import "./globals.css";
 
@@ -44,7 +43,6 @@ export default function RootLayout({
     <html lang="en" className={`${manrope.variable} h-full antialiased`}>
       <body className="min-h-full bg-[#07111d] text-white">
         <div className="relative min-h-full overflow-x-hidden">
-          <HoneycombBackground />
           <Header />
           <main>{children}</main>
           <Footer />
