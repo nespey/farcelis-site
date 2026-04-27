@@ -3,6 +3,18 @@ import Link from "next/link";
 
 import { certifications, site } from "@/lib/site-data";
 
+const exploreLeft = [
+  { href: "/", label: "Home" },
+  { href: "/control-layer", label: "Control Layer" },
+  { href: "/services", label: "Services" },
+];
+
+const exploreRight = [
+  { href: "/team", label: "Our Team" },
+  { href: "/results", label: "Results" },
+  { href: "/contact", label: "Contact" },
+];
+
 export function Footer() {
   return (
     <footer className="relative border-t border-white/8 bg-[#06111b] py-18 text-slate-300">
@@ -32,11 +44,47 @@ export function Footer() {
 
         <div>
           <p className="eyebrow text-[color:var(--color-accent)]">Explore</p>
-          <div className="mt-5 grid gap-3 text-sm leading-7 text-slate-300">
-            {site.nav.map((item) => (
-              <Link key={item.href} href={item.href} className="transition hover:text-white">
-                {item.label}
-              </Link>
+          <div className="mx-auto mt-5 grid max-w-[280px] grid-cols-2 gap-x-8 gap-y-3 text-center text-sm leading-7 text-slate-300">
+            <div className="grid gap-3">
+              {exploreLeft.map((item) => (
+                <Link key={item.href} href={item.href} className="transition hover:text-white">
+                  {item.label}
+                </Link>
+              ))}
+            </div>
+            <div className="grid gap-3">
+              {exploreRight.map((item) => (
+                <Link key={item.href} href={item.href} className="transition hover:text-white">
+                  {item.label}
+                </Link>
+              ))}
+            </div>
+          </div>
+          <div className="mx-auto mt-6 grid max-w-[280px] grid-cols-2 gap-3">
+            {[
+              {
+                src: "/images/certifications/sba-sdvosb.jpg",
+                alt: "SBA Service-Disabled Veteran-Owned Certified",
+              },
+              {
+                src: "/images/certifications/sba-edwosb.jpg",
+                alt: "SBA EDWOSB Certified",
+              },
+            ].map((badge) => (
+              <div
+                key={badge.src}
+                className="rounded-[16px] border border-white/8 bg-white/[0.04] p-2.5 shadow-[0_16px_34px_rgba(3,8,16,0.18)]"
+              >
+                <div className="relative aspect-[4/5] overflow-hidden rounded-[12px] bg-white/95">
+                  <Image
+                    src={badge.src}
+                    alt={badge.alt}
+                    fill
+                    sizes="140px"
+                    className="object-contain p-1.5"
+                  />
+                </div>
+              </div>
             ))}
           </div>
         </div>
