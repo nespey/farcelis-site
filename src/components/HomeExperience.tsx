@@ -291,10 +291,10 @@ export function HomeExperience() {
           <div className="section-inner">
             <div className="mx-auto max-w-[1200px] text-center">
               <p className="eyebrow text-[color:var(--color-accent)]">Decision Point</p>
-              <h2 className="mx-auto mt-4 max-w-[24ch] text-[clamp(1.8rem,3vw,3.05rem)] font-medium leading-[1.12] tracking-[-0.045em] text-white">
+              <h2 className="mx-auto mt-4 max-w-[1100px] text-[clamp(1.8rem,3vw,3.05rem)] font-medium leading-[1.12] tracking-[-0.045em] text-white">
                 If execution keeps slipping, the next move is not more software. It is a stronger system.
               </h2>
-              <p className="mx-auto mt-4 max-w-[1020px] text-[1.02rem] leading-8 text-slate-300">
+              <p className="mx-auto mt-4 max-w-[1100px] text-[1.02rem] leading-8 text-slate-300">
                 Farcelis builds the operating structure that keeps ownership, routing, and execution intact when the pressure increases.
               </p>
               <div className="mt-5 flex flex-col items-center justify-center gap-3 sm:flex-row">
