@@ -75,8 +75,8 @@ export function Header() {
           hidden ? "-translate-y-full" : "translate-y-0"
         } ${
           elevated
-            ? "bg-[rgba(8,18,30,0.92)] shadow-[0_18px_44px_rgba(3,8,16,0.28)]"
-            : "bg-[rgba(8,18,30,0.74)]"
+            ? "bg-[rgba(5,10,14,0.72)] shadow-[0_18px_44px_rgba(3,8,16,0.28)]"
+            : "bg-[rgba(5,10,14,0.56)]"
         }`}
       >
         <div className="pointer-events-none absolute inset-x-0 top-0 h-px bg-gradient-to-r from-transparent via-cyan-300/35 to-[color:var(--color-accent)]/40" />

@@ -28,7 +28,25 @@ html {
 
 body {
   font-family: var(--font-manrope), Arial, Helvetica, sans-serif;
-  background: #07121d;
+  background:
+    radial-gradient(
+      ellipse at 35% 40%,
+      #4f636f 0%,
+      #3e525f 20%,
+      #2b3e4a 40%,
+      #1c2b36 65%,
+      #0f1a23 85%,
+      #070d12 100%
+    ),
+    linear-gradient(
+      to bottom,
+      #2e3f4a 0%,
+      #1b2a34 40%,
+      #0d1720 70%,
+      #050a0e 100%
+    );
+  background-blend-mode: overlay;
+  background-attachment: fixed;
   color: var(--color-text);
 }
 
@@ -55,6 +73,7 @@ a {
 .section-shell {
   position: relative;
   padding: 7.5rem 0;
+  background: transparent;
 }
 
 .section-shell + .section-shell::before {
@@ -75,19 +94,12 @@ a {
 }
 
 .section-shell-dark {
-  background:
-    radial-gradient(circle at 14% 18%, rgba(97, 192, 215, 0.08), transparent 20%),
-    radial-gradient(circle at 86% 12%, rgba(242, 139, 91, 0.08), transparent 18%),
-    radial-gradient(circle at 62% 80%, rgba(141, 119, 255, 0.04), transparent 22%),
-    linear-gradient(180deg, rgba(8, 18, 30, 0.78), rgba(7, 14, 24, 0.82));
+  background: transparent;
 }
 
 .section-shell-light {
-  color: #08121d;
-  background:
-    radial-gradient(circle at 12% 8%, rgba(97, 192, 215, 0.1), transparent 18%),
-    radial-gradient(circle at 82% 16%, rgba(242, 139, 91, 0.1), transparent 16%),
-    linear-gradient(180deg, rgba(248, 250, 252, 1), rgba(237, 242, 247, 1));
+  color: var(--color-text);
+  background: transparent;
 }
 
 .section-inner {
@@ -170,12 +182,31 @@ a {
 
 .surface-light {
   background:
-    linear-gradient(180deg, rgba(255, 255, 255, 0.92), rgba(250, 252, 254, 0.86)),
+    linear-gradient(180deg, rgba(255, 255, 255, 0.06), rgba(255, 255, 255, 0.03)),
     linear-gradient(135deg, rgba(97, 192, 215, 0.08), transparent 40%);
-  border: 1px solid rgba(8, 18, 29, 0.08);
+  border: 1px solid rgba(255, 255, 255, 0.08);
   box-shadow:
-    0 22px 54px rgba(15, 23, 42, 0.08),
-    inset 0 1px 0 rgba(255, 255, 255, 0.7);
+    0 22px 54px rgba(3, 8, 16, 0.22),
+    inset 0 1px 0 rgba(255, 255, 255, 0.08);
+}
+
+.section-shell-light :is(h1, h2, h3, h4, .text-slate-950, .text-slate-900, .text-slate-700) {
+  color: #e6edf3 !important;
+}
+
+.section-shell-light :is(p, .text-slate-600, .text-slate-500, .text-slate-400) {
+  color: #9fb0bd !important;
+}
+
+.section-shell-light :is(.border-slate-200, .border-slate-300, .border-cyan-200\/60, .border-\[\#2e7da4\]\/22, .border-\[\#c75d33\]\/18, .border-\[\#8d77ff\]\/18) {
+  border-color: rgba(255, 255, 255, 0.1) !important;
+}
+
+.section-shell-light :is(.bg-white, .bg-cyan-50\/80, .bg-\[linear-gradient\(180deg\,\#fff7ef\,\#ffffff\)\], .bg-\[linear-gradient\(180deg\,\#eef7fb\,\#f8fcff\)\], .bg-\[linear-gradient\(180deg\,\#fff5ef\,\#fffaf7\)\], .bg-\[linear-gradient\(180deg\,\#f6f3ff\,\#fcfbff\)\]) {
+  background:
+    linear-gradient(180deg, rgba(255, 255, 255, 0.07), rgba(255, 255, 255, 0.04)),
+    linear-gradient(135deg, rgba(97, 192, 215, 0.06), transparent 42%),
+    rgba(12, 22, 35, 0.5) !important;
 }
 
 .system-line {
