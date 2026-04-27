@@ -2,7 +2,6 @@
 
 import Link from "next/link";
 
-import { HeroBrandVisual } from "@/components/HeroBrandVisual";
 import { IntegrationLogoLane } from "@/components/IntegrationLogoLane";
 import { LogoMarquee } from "@/components/LogoMarquee";
 import { Reveal } from "@/components/Reveal";
@@ -43,7 +42,7 @@ export function HomeExperience() {
         <div className="pointer-events-none absolute inset-0 subtle-grid" />
         <div className="pointer-events-none absolute left-[8%] top-[14%] h-56 w-56 rounded-full bg-[radial-gradient(circle,rgba(255,214,160,0.16),transparent_68%)] blur-3xl" />
         <div className="pointer-events-none absolute right-[10%] top-[18%] h-72 w-72 rounded-full bg-[radial-gradient(circle,rgba(106,181,214,0.14),transparent_72%)] blur-3xl" />
-        <div className="section-inner relative grid gap-10 lg:min-h-[76svh] lg:grid-cols-[minmax(0,0.82fr)_minmax(0,1.18fr)] lg:items-center">
+        <div className="section-inner relative grid gap-10 lg:min-h-[76svh] lg:grid-cols-[minmax(0,0.9fr)_minmax(0,1.1fr)] lg:items-center">
           <Reveal delayMs={30}>
             <div className="max-w-[560px]">
               <p className="eyebrow text-[color:var(--color-accent)]">Farcelis AI Consulting LLC</p>
@@ -82,8 +81,16 @@ export function HomeExperience() {
           </Reveal>
 
           <Reveal delayMs={110}>
-            <div className="lg:pl-4">
-              <HeroBrandVisual />
+            <div className="relative hidden min-h-[460px] lg:block">
+              <div className="absolute inset-[10%_6%_12%_14%] rounded-[40px] border border-white/8 bg-[linear-gradient(180deg,rgba(255,255,255,0.04),rgba(255,255,255,0.01)),linear-gradient(135deg,rgba(97,192,215,0.08),transparent_44%)] shadow-[0_28px_80px_rgba(3,8,16,0.28)]" />
+              <div className="absolute left-[18%] top-[18%] h-40 w-40 rounded-full bg-[radial-gradient(circle,rgba(255,214,160,0.22),transparent_68%)] blur-3xl" />
+              <div className="absolute right-[18%] top-[24%] h-48 w-48 rounded-full bg-[radial-gradient(circle,rgba(106,181,214,0.22),transparent_72%)] blur-3xl" />
+              <div className="absolute bottom-[18%] left-[22%] h-px w-[42%] bg-gradient-to-r from-transparent via-[rgba(255,214,160,0.55)] to-transparent" />
+              <div className="absolute bottom-[28%] right-[16%] h-px w-[36%] bg-gradient-to-r from-transparent via-[rgba(106,181,214,0.55)] to-transparent" />
+              <div className="absolute left-[24%] top-[22%] h-2.5 w-2.5 rounded-full bg-[rgba(255,214,160,0.9)] shadow-[0_0_20px_rgba(255,214,160,0.45)]" />
+              <div className="absolute left-[36%] top-[44%] h-2 w-2 rounded-full bg-[rgba(106,181,214,0.9)] shadow-[0_0_18px_rgba(106,181,214,0.4)]" />
+              <div className="absolute right-[26%] top-[32%] h-2.5 w-2.5 rounded-full bg-[rgba(106,181,214,0.9)] shadow-[0_0_20px_rgba(106,181,214,0.45)]" />
+              <div className="absolute right-[34%] bottom-[22%] h-2 w-2 rounded-full bg-[rgba(255,214,160,0.9)] shadow-[0_0_18px_rgba(255,214,160,0.4)]" />
             </div>
           </Reveal>
         </div>
