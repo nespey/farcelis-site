@@ -14,8 +14,8 @@
 }
 
 @theme inline {
-  --font-sans: var(--font-inter);
-  --font-heading: var(--font-space-grotesk);
+  --font-sans: var(--font-manrope);
+  --font-heading: var(--font-manrope);
 }
 
 * {
@@ -27,7 +27,7 @@ html {
 }
 
 body {
-  font-family: var(--font-inter), Arial, Helvetica, sans-serif;
+  font-family: var(--font-manrope), Arial, Helvetica, sans-serif;
   background:
     radial-gradient(circle at 16% 7%, rgba(97, 192, 215, 0.18), transparent 22%),
     radial-gradient(circle at 82% 10%, rgba(242, 139, 91, 0.16), transparent 18%),
@@ -40,7 +40,12 @@ h1,
 h2,
 h3,
 h4 {
-  font-family: var(--font-space-grotesk), Arial, Helvetica, sans-serif;
+  font-family: var(--font-manrope), Arial, Helvetica, sans-serif;
+  text-align: center;
+}
+
+main p {
+  text-align: center;
 }
 
 a {
@@ -99,41 +104,54 @@ a {
   font-weight: 700;
   letter-spacing: 0.24em;
   text-transform: uppercase;
+  text-align: center;
+  width: fit-content;
+  margin-inline: auto;
 }
 
 .display-hero {
   max-width: 12.5ch;
   font-size: clamp(2.65rem, 4.4vw, 4rem);
-  line-height: 1.06;
-  letter-spacing: -0.07em;
-  font-weight: 530;
+  line-height: 1.1;
+  letter-spacing: -0.05em;
+  font-weight: 500;
+  text-align: center;
+  margin-inline: auto;
 }
 
 .display-page {
   max-width: 12ch;
   font-size: clamp(2.35rem, 4vw, 3.7rem);
-  line-height: 1.01;
-  letter-spacing: -0.065em;
-  font-weight: 540;
+  line-height: 1.08;
+  letter-spacing: -0.045em;
+  font-weight: 500;
+  text-align: center;
+  margin-inline: auto;
 }
 
 .section-title {
   max-width: 13ch;
   font-size: clamp(1.75rem, 3vw, 2.7rem);
-  line-height: 1.08;
-  letter-spacing: -0.065em;
-  font-weight: 540;
+  line-height: 1.12;
+  letter-spacing: -0.04em;
+  font-weight: 500;
+  text-align: center;
+  margin-inline: auto;
 }
 
 .lede {
   font-size: clamp(0.98rem, 1.15vw, 1.08rem);
   line-height: 1.68;
   color: var(--color-body);
+  text-align: center;
+  margin-inline: auto;
 }
 
 .body-copy {
   font-size: 1.02rem;
   line-height: 1.8;
+  text-align: center;
+  margin-inline: auto;
 }
 
 .signal-pill {

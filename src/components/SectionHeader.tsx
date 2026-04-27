@@ -10,7 +10,7 @@ export function SectionHeader({
   eyebrow,
   title,
   description,
-  align = "left",
+  align = "center",
   variant = "default",
 }: SectionHeaderProps) {
   const isCenter = align === "center";
