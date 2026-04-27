@@ -146,16 +146,16 @@ export function HomeExperience() {
       <Reveal delayMs={150}>
         <section className="section-shell section-shell-dark section-bridge-light">
           <div className="section-inner">
-            <div className="mx-auto max-w-[860px] text-center">
+            <div className="mx-auto max-w-[1080px] text-center">
               <p className="eyebrow text-[color:var(--color-accent)]">One Flagship Pillar</p>
-              <h2 className="section-title mt-5 text-white">
+              <h2 className="mx-auto mt-5 max-w-[18ch] text-[clamp(2.2rem,4vw,4rem)] font-medium leading-[1.08] tracking-[-0.05em] text-white">
                 The Control Layer is one flagship Farcelis implementation, not the whole company.
               </h2>
-              <p className="mt-6 max-w-[560px] text-lg leading-8 text-slate-300">
+              <p className="mx-auto mt-6 max-w-[760px] text-lg leading-8 text-slate-300">
                 It is the operating frame Farcelis deploys when a business, team, or environment
                 needs one place for intake, routing, accountability, and intervention.
               </p>
-              <div className="mt-8 flex flex-col gap-3 sm:flex-row">
+              <div className="mt-8 flex flex-col items-center justify-center gap-3 sm:flex-row">
                 <Link
                   href="/control-layer"
                   className="site-cta inline-flex min-h-12 items-center justify-center rounded-full bg-[linear-gradient(135deg,#61c0d7,#2e7da4)] px-6 py-3 text-sm font-semibold text-white hover:shadow-[0_20px_40px_rgba(46,125,164,0.28)]"
@@ -180,11 +180,11 @@ export function HomeExperience() {
 
               <IntegrationLogoLane reverse />
 
-              <div className="surface-dark rounded-[24px] px-6 py-6 text-center">
+              <div className="surface-dark rounded-[24px] px-6 py-4 text-center">
                 <div className="text-xs font-semibold uppercase tracking-[0.22em] text-[color:var(--color-accent)]">
                   Control flow
                 </div>
-                <div className="mx-auto mt-5 max-w-[900px]">
+                <div className="mx-auto mt-4 max-w-[900px]">
                   <SystemFlowRail steps={["Input", "Intake", "Route", "Execute", "Track", "Close"]} />
                 </div>
               </div>

@@ -21,24 +21,24 @@ export function SystemFlowRail({ steps, light = false }: SystemFlowRailProps) {
   return (
     <div className="relative">
       <div
-        className={`absolute left-0 right-0 top-4 h-px ${
+        className={`absolute left-0 right-0 top-3 h-px ${
           light ? "bg-slate-300" : "bg-white/10"
         }`}
       />
       <div
-        className="absolute top-[11px] h-[7px] rounded-full bg-[linear-gradient(90deg,rgba(214,140,106,0),rgba(214,140,106,0.8),rgba(214,140,106,0))] transition-all duration-700"
+        className="absolute top-[8px] h-[6px] rounded-full bg-[linear-gradient(90deg,rgba(214,140,106,0),rgba(214,140,106,0.8),rgba(214,140,106,0))] transition-all duration-700"
         style={{
           left: `calc(${(activeIndex / steps.length) * 100}% + 2px)`,
           width: `calc(${100 / steps.length}% - 14px)`,
         }}
       />
-      <div className="grid gap-5 md:grid-cols-6">
+      <div className="grid gap-4 md:grid-cols-6">
         {steps.map((step, index) => {
           const isActive = index === activeIndex;
           return (
-            <div key={step} className="relative pt-8">
+            <div key={step} className="relative pt-6 text-center">
               <div
-                className={`mb-5 flex h-9 w-9 items-center justify-center rounded-full border text-sm font-semibold transition-all duration-500 ${
+                className={`mx-auto mb-3 flex h-9 w-9 items-center justify-center rounded-full border text-sm font-semibold transition-all duration-500 ${
                   isActive
                     ? light
                       ? "border-[#9f412c] bg-[#9f412c] text-white shadow-[0_0_24px_rgba(159,65,44,0.18)]"
@@ -51,14 +51,14 @@ export function SystemFlowRail({ steps, light = false }: SystemFlowRailProps) {
                 {index + 1}
               </div>
               <div
-                className={`text-[11px] font-semibold uppercase tracking-[0.18em] ${
+                className={`text-[10px] font-semibold uppercase tracking-[0.18em] ${
                   light ? "text-slate-500" : "text-white/40"
                 }`}
               >
                 Phase
               </div>
               <div
-                className={`mt-3 text-lg font-semibold tracking-[-0.03em] ${
+                className={`mt-2 text-[1.05rem] font-semibold tracking-[-0.03em] ${
                   light ? "text-slate-950" : "text-white"
                 }`}
               >
