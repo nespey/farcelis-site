@@ -2,7 +2,7 @@
 
 import Image from "next/image";
 import Link from "next/link";
-import { useEffect, useState } from "react";
+import { useEffect, useRef, useState } from "react";
 
 const capabilityLinks = [
   {
@@ -42,9 +42,27 @@ const companyLinks = [
 
 export function Header() {
   const [elevated, setElevated] = useState(false);
+  const [hidden, setHidden] = useState(false);
+  const lastScrollY = useRef(0);
 
   useEffect(() => {
-    const onScroll = () => setElevated(window.scrollY > 10);
+    const onScroll = () => {
+      const currentScrollY = window.scrollY;
+      const delta = currentScrollY - lastScrollY.current;
+
+      setElevated(currentScrollY > 10);
+
+      if (currentScrollY <= 24) {
+        setHidden(false);
+      } else if (delta > 8) {
+        setHidden(true);
+      } else if (delta < -8) {
+        setHidden(false);
+      }
+
+      lastScrollY.current = currentScrollY;
+    };
+
     onScroll();
     window.addEventListener("scroll", onScroll, { passive: true });
     return () => window.removeEventListener("scroll", onScroll);
@@ -52,7 +70,9 @@ export function Header() {
 
   return (
     <header
-      className={`sticky top-0 z-50 border-b border-white/8 backdrop-blur-xl transition ${
+      className={`sticky top-0 z-50 border-b border-white/8 backdrop-blur-xl transition duration-300 ${
+        hidden ? "-translate-y-full" : "translate-y-0"
+      } ${
         elevated
           ? "bg-[rgba(8,18,30,0.92)] shadow-[0_18px_44px_rgba(3,8,16,0.28)]"
           : "bg-[rgba(8,18,30,0.74)]"
