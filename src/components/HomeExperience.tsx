@@ -7,7 +7,7 @@ import { LogoMarquee } from "@/components/LogoMarquee";
 import { Reveal } from "@/components/Reveal";
 import { SystemFlowRail } from "@/components/SystemFlowRail";
 import { WorkspacePreview } from "@/components/WorkspacePreview";
-import { approvedLogos, businessSignals, services } from "@/lib/site-data";
+import { approvedLogos, services } from "@/lib/site-data";
 
 const companyContexts = [
   {
@@ -67,31 +67,11 @@ export function HomeExperience() {
                   See What Farcelis Builds
                 </Link>
               </div>
-              <div className="mt-7 flex flex-wrap gap-2.5 text-[0.84rem] text-slate-300">
-                {businessSignals.map((signal) => (
-                  <span
-                    key={signal}
-                    className="rounded-full border border-white/10 bg-white/[0.05] px-3.5 py-2 font-medium"
-                  >
-                    {signal}
-                  </span>
-                ))}
-              </div>
             </div>
           </Reveal>
 
           <Reveal delayMs={110}>
-            <div className="relative hidden min-h-[460px] lg:block">
-              <div className="absolute inset-[10%_6%_12%_14%] rounded-[40px] border border-white/8 bg-[linear-gradient(180deg,rgba(255,255,255,0.04),rgba(255,255,255,0.01)),linear-gradient(135deg,rgba(97,192,215,0.08),transparent_44%)] shadow-[0_28px_80px_rgba(3,8,16,0.28)]" />
-              <div className="absolute left-[18%] top-[18%] h-40 w-40 rounded-full bg-[radial-gradient(circle,rgba(255,214,160,0.22),transparent_68%)] blur-3xl" />
-              <div className="absolute right-[18%] top-[24%] h-48 w-48 rounded-full bg-[radial-gradient(circle,rgba(106,181,214,0.22),transparent_72%)] blur-3xl" />
-              <div className="absolute bottom-[18%] left-[22%] h-px w-[42%] bg-gradient-to-r from-transparent via-[rgba(255,214,160,0.55)] to-transparent" />
-              <div className="absolute bottom-[28%] right-[16%] h-px w-[36%] bg-gradient-to-r from-transparent via-[rgba(106,181,214,0.55)] to-transparent" />
-              <div className="absolute left-[24%] top-[22%] h-2.5 w-2.5 rounded-full bg-[rgba(255,214,160,0.9)] shadow-[0_0_20px_rgba(255,214,160,0.45)]" />
-              <div className="absolute left-[36%] top-[44%] h-2 w-2 rounded-full bg-[rgba(106,181,214,0.9)] shadow-[0_0_18px_rgba(106,181,214,0.4)]" />
-              <div className="absolute right-[26%] top-[32%] h-2.5 w-2.5 rounded-full bg-[rgba(106,181,214,0.9)] shadow-[0_0_20px_rgba(106,181,214,0.45)]" />
-              <div className="absolute right-[34%] bottom-[22%] h-2 w-2 rounded-full bg-[rgba(255,214,160,0.9)] shadow-[0_0_18px_rgba(255,214,160,0.4)]" />
-            </div>
+            <div className="hidden min-h-[460px] lg:block" />
           </Reveal>
         </div>
       </section>
@@ -157,16 +137,6 @@ export function HomeExperience() {
                 <p className="mt-4 text-base leading-7 text-slate-600">
                   Farcelis is showing up in the AI and operational systems conversation with a real signal base, not a placeholder brand story.
                 </p>
-                <div className="mt-5 flex flex-wrap gap-2.5">
-                  {businessSignals.map((signal) => (
-                    <span
-                      key={signal}
-                      className="rounded-full border border-slate-200 bg-slate-50 px-3 py-2 text-xs font-semibold tracking-[0.04em] text-slate-700"
-                    >
-                      {signal}
-                    </span>
-                  ))}
-                </div>
               </div>
             </div>
           </div>

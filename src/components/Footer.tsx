@@ -1,7 +1,7 @@
 import Image from "next/image";
 import Link from "next/link";
 
-import { businessSignals, certifications, site } from "@/lib/site-data";
+import { certifications, site } from "@/lib/site-data";
 
 export function Footer() {
   return (
@@ -26,16 +26,6 @@ export function Footer() {
             <div>{site.contact.phone}</div>
             {site.contact.addressLines.map((line) => (
               <div key={line}>{line}</div>
-            ))}
-          </div>
-          <div className="mt-6 flex flex-wrap gap-2.5">
-            {businessSignals.map((signal) => (
-              <span
-                key={signal}
-                className="rounded-full border border-white/10 bg-white/[0.05] px-3 py-1.5 text-xs font-medium tracking-[0.02em] text-slate-300"
-              >
-                {signal}
-              </span>
             ))}
           </div>
         </div>
