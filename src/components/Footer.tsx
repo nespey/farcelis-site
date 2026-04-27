@@ -1,13 +1,13 @@
 import Image from "next/image";
 import Link from "next/link";
 
-import { certifications, site } from "@/lib/site-data";
+import { businessSignals, certifications, site } from "@/lib/site-data";
 
 export function Footer() {
   return (
     <footer className="relative border-t border-white/8 bg-[#06111b] py-18 text-slate-300">
       <div className="pointer-events-none absolute inset-0 bg-[radial-gradient(circle_at_12%_12%,rgba(242,139,91,0.11),transparent_24%),radial-gradient(circle_at_84%_18%,rgba(97,192,215,0.1),transparent_20%),linear-gradient(180deg,rgba(255,255,255,0.01),rgba(255,255,255,0))]" />
-      <div className="section-inner relative grid gap-12 lg:grid-cols-[minmax(0,0.95fr)_minmax(0,0.5fr)_minmax(0,0.55fr)]">
+      <div className="section-inner relative grid gap-12 lg:grid-cols-[minmax(0,0.9fr)_minmax(0,0.44fr)_minmax(0,0.66fr)]">
         <div>
           <Image
             src="/logos/farcelis-ai-logo.png"
@@ -28,6 +28,16 @@ export function Footer() {
               <div key={line}>{line}</div>
             ))}
           </div>
+          <div className="mt-6 flex flex-wrap gap-2.5">
+            {businessSignals.map((signal) => (
+              <span
+                key={signal}
+                className="rounded-full border border-white/10 bg-white/[0.05] px-3 py-1.5 text-xs font-medium tracking-[0.02em] text-slate-300"
+              >
+                {signal}
+              </span>
+            ))}
+          </div>
         </div>
 
         <div>
@@ -43,13 +53,13 @@ export function Footer() {
 
         <div>
           <p className="eyebrow text-[color:var(--color-accent)]">Certifications</p>
-          <div className="mt-5 grid grid-cols-3 gap-3">
+          <div className="mt-5 grid grid-cols-3 gap-3 sm:grid-cols-4">
             {certifications.map((badge) => (
               <div
                 key={badge.name}
-                className="surface-dark rounded-[18px] p-3"
+                className="rounded-[16px] border border-white/8 bg-white/[0.04] p-2.5 shadow-[0_16px_34px_rgba(3,8,16,0.18)]"
               >
-                <div className="relative aspect-square overflow-hidden rounded-[14px] bg-white/95">
+                <div className="relative aspect-square overflow-hidden rounded-[12px] bg-white/95">
                   <Image
                     src={badge.image}
                     alt={badge.name}

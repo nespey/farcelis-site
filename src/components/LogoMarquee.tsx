@@ -2,54 +2,22 @@
 
 import Image from "next/image";
 import Link from "next/link";
-import { useEffect, useRef } from "react";
 
 import type { Partner } from "@/lib/site-data";
 
 type LogoMarqueeProps = {
   logos: Partner[];
   dark?: boolean;
+  bare?: boolean;
 };
 
-export function LogoMarquee({ logos, dark = true }: LogoMarqueeProps) {
-  const trackRef = useRef<HTMLDivElement | null>(null);
-
-  useEffect(() => {
-    const el = trackRef.current;
-    if (!el) return;
-
-    let frame = 0;
-    let paused = false;
-    const speed = 0.3;
-
-    const tick = () => {
-      if (!paused) {
-        const maxScroll = Math.max(0, el.scrollWidth - el.clientWidth);
-        el.scrollLeft = el.scrollLeft >= maxScroll - 1 ? 0 : el.scrollLeft + speed;
-      }
-      frame = window.requestAnimationFrame(tick);
-    };
-
-    const onEnter = () => {
-      paused = true;
-    };
-    const onLeave = () => {
-      paused = false;
-    };
-
-    el.addEventListener("mouseenter", onEnter);
-    el.addEventListener("mouseleave", onLeave);
-    frame = window.requestAnimationFrame(tick);
-
-    return () => {
-      window.cancelAnimationFrame(frame);
-      el.removeEventListener("mouseenter", onEnter);
-      el.removeEventListener("mouseleave", onLeave);
-    };
-  }, []);
+export function LogoMarquee({ logos, dark = true, bare = false }: LogoMarqueeProps) {
+  const renderLogos = [...logos, ...logos];
 
   return (
-    <div className={`logo-marquee-shell ${dark ? "" : "light"} p-4 sm:p-5`}>
+    <div
+      className={`${bare ? "relative overflow-hidden py-3" : `logo-marquee-shell ${dark ? "" : "light"} p-4 sm:p-5`}`}
+    >
       <div
         className={`pointer-events-none absolute inset-y-0 left-0 z-10 w-16 ${
           dark
@@ -65,9 +33,9 @@ export function LogoMarquee({ logos, dark = true }: LogoMarqueeProps) {
         }`}
       />
 
-      <div ref={trackRef} className="relative overflow-x-hidden">
-        <div className="flex w-max gap-7 pr-10">
-        {logos.map((logo, index) => {
+      <div className="logo-marquee-viewport relative overflow-hidden">
+        <div className="logo-marquee-track flex w-max gap-10 pr-10">
+          {renderLogos.map((logo, index) => {
           const base = dark
             ? "border-white/8 bg-white/[0.04]"
             : index % 2 === 0
@@ -76,16 +44,20 @@ export function LogoMarquee({ logos, dark = true }: LogoMarqueeProps) {
 
           const tile = (
             <div
-              className={`logo-rail-tile hover-lift flex min-h-[122px] min-w-[248px] items-center justify-center rounded-[24px] border px-8 py-7 ${base}`}
+              className={`logo-rail-tile hover-lift flex items-center justify-center ${
+                bare
+                  ? "min-h-[82px] min-w-[210px] px-4 py-4"
+                  : `min-h-[122px] min-w-[248px] rounded-[24px] border px-8 py-7 ${base}`
+              }`}
             >
-              <div className="relative h-[52px] w-full">
+              <div className={`relative w-full ${bare ? "h-[52px]" : "h-[52px]"}`}>
                 {logo.logo ? (
                   <Image
                     src={logo.logo}
                     alt={logo.name}
                     fill
-                    sizes="220px"
-                    className="object-contain"
+                    sizes={bare ? "180px" : "220px"}
+                    className={`object-contain transition duration-200 ${bare ? "drop-shadow-[0_10px_24px_rgba(15,23,42,0.08)]" : ""}`}
                   />
                 ) : null}
               </div>
@@ -101,7 +73,7 @@ export function LogoMarquee({ logos, dark = true }: LogoMarqueeProps) {
               {tile}
             </div>
           );
-        })}
+          })}
         </div>
       </div>
     </div>

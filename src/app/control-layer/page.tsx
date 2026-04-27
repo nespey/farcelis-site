@@ -1,9 +1,9 @@
-import { LogoMarquee } from "@/components/LogoMarquee";
+import { IntegrationLogoLane } from "@/components/IntegrationLogoLane";
 import { PageIntro } from "@/components/PageIntro";
 import { Reveal } from "@/components/Reveal";
 import { SystemFlowRail } from "@/components/SystemFlowRail";
 import { WorkspacePreview } from "@/components/WorkspacePreview";
-import { approvedLogos, capabilityPoints, flowSteps, seo } from "@/lib/site-data";
+import { capabilityPoints, flowSteps, seo } from "@/lib/site-data";
 import { buildMetadata } from "@/lib/metadata";
 
 export const metadata = buildMetadata(seo.controlLayer);
@@ -71,7 +71,13 @@ export default function ControlLayerPage() {
       <Reveal delayMs={90}>
         <section className="section-shell section-shell-dark pt-0">
           <div className="section-inner">
-            <WorkspacePreview compact />
+            <div className="space-y-5">
+              <IntegrationLogoLane />
+              <div className="surface-dark rounded-[30px] px-5 py-5">
+                <WorkspacePreview compact />
+              </div>
+              <IntegrationLogoLane reverse />
+            </div>
           </div>
         </section>
       </Reveal>
@@ -145,14 +151,48 @@ export default function ControlLayerPage() {
 
       <Reveal delayMs={260}>
         <section className="section-shell section-shell-dark">
-          <div className="section-inner grid gap-8 lg:grid-cols-[minmax(0,0.76fr)_minmax(0,1.24fr)] lg:items-end">
+          <div className="section-inner grid gap-10 lg:grid-cols-[minmax(0,0.66fr)_minmax(0,1.34fr)] lg:items-center">
             <div>
-              <p className="eyebrow text-[color:var(--color-accent)]">Organizations</p>
+              <p className="eyebrow text-[color:var(--color-accent)]">What It Connects To</p>
               <h2 className="section-title mt-5 text-white">
-                Organizations that have worked with Farcelis AI Consulting LLC.
+                The Control Layer is not another tool. It plugs into the systems already carrying the work.
               </h2>
+              <p className="mt-6 max-w-[560px] text-base leading-8 text-slate-300">
+                Email, CRM, project management, collaboration, reporting, and source systems can all be stabilized through the same operating layer.
+              </p>
             </div>
-            <LogoMarquee logos={approvedLogos} dark />
+            <div className="space-y-4">
+              <IntegrationLogoLane />
+              <div className="rounded-[26px] border border-white/8 bg-white/[0.03] p-4">
+                <WorkspacePreview compact />
+              </div>
+              <div className="grid gap-4 md:grid-cols-2">
+                {[
+                  {
+                    title: "Incoming systems",
+                    body: "Signals, tasks, requests, and messages enter through existing apps without forcing a total system replacement.",
+                  },
+                  {
+                    title: "Outgoing execution",
+                    body: "Ownership, responses, updates, and reporting move back out cleaner, faster, and more controlled.",
+                  },
+                ].map((item, index) => (
+                  <div
+                    key={item.title}
+                    className={`rounded-[24px] border px-5 py-5 ${
+                      index === 0
+                        ? "border-cyan-300/18 bg-[linear-gradient(180deg,rgba(97,192,215,0.12),rgba(97,192,215,0.05))]"
+                        : "border-[color:var(--color-accent)]/18 bg-[linear-gradient(180deg,rgba(242,139,91,0.12),rgba(242,139,91,0.04))]"
+                    }`}
+                  >
+                    <div className="text-sm font-semibold uppercase tracking-[0.18em] text-[color:var(--color-accent)]">
+                      {item.title}
+                    </div>
+                    <div className="mt-3 text-base leading-8 text-slate-200">{item.body}</div>
+                  </div>
+                ))}
+              </div>
+            </div>
           </div>
         </section>
       </Reveal>

@@ -70,14 +70,14 @@ export const site = {
     },
   ],
   legalLinks: [
-    { label: "Legal Notice", href: "https://www.farcelis.io/legal#legal" },
-    { label: "Privacy Policy", href: "https://www.farcelis.io/privacy#privacy" },
-    { label: "CA Consumer Policy", href: "https://www.farcelis.io/caconsumer#caconsumer" },
+    { label: "Legal Notice", href: "/legal" },
+    { label: "Privacy Policy", href: "/privacy" },
+    { label: "CA Consumer Policy", href: "/ca-consumer" },
     {
       label: "Accessibility, Accommodations & E-Verify",
-      href: "https://www.farcelis.io/ada#ada",
+      href: "/accessibility",
     },
-    { label: "Terms of Service", href: "https://www.farcelis.io/tos#tos" },
+    { label: "Terms of Service", href: "/terms" },
   ],
   nav: [
     { href: "/", label: "Home" },
@@ -550,4 +550,30 @@ export const certifications = [
     name: "ClickUp Verified Power User",
     image: "/images/certifications/clickup-verified-power-user.jpeg",
   },
+  {
+    name: "SharePoint Certification",
+    image: "/images/certifications/sharepoint-cert.png",
+  },
+  {
+    name: "Power Automate Certification",
+    image: "/images/certifications/power-automate-cert.png",
+  },
+  {
+    name: "AILCN Consultant Certification",
+    image: "/images/certifications/ailcn-consultant-cert.png",
+  },
+  {
+    name: "Microsoft Developer Certification",
+    image: "/images/certifications/microsoft-developer-cert.png",
+  },
+  {
+    name: "Chrome DevTools Certification",
+    image: "/images/certifications/chrome-devtools-cert.png",
+  },
+];
+
+export const businessSignals = [
+  "Small Business",
+  "Service-Disabled Veteran-Owned",
+  "Woman-Owned",
 ];

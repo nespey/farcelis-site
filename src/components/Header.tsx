@@ -1,5 +1,8 @@
+"use client";
+
 import Image from "next/image";
 import Link from "next/link";
+import { useEffect, useState } from "react";
 
 const capabilityLinks = [
   {
@@ -38,8 +41,23 @@ const companyLinks = [
 ];
 
 export function Header() {
+  const [elevated, setElevated] = useState(false);
+
+  useEffect(() => {
+    const onScroll = () => setElevated(window.scrollY > 10);
+    onScroll();
+    window.addEventListener("scroll", onScroll, { passive: true });
+    return () => window.removeEventListener("scroll", onScroll);
+  }, []);
+
   return (
-    <header className="sticky top-0 z-50 border-b border-white/8 bg-[rgba(8,18,30,0.74)] backdrop-blur-xl">
+    <header
+      className={`sticky top-0 z-50 border-b border-white/8 backdrop-blur-xl transition ${
+        elevated
+          ? "bg-[rgba(8,18,30,0.92)] shadow-[0_18px_44px_rgba(3,8,16,0.28)]"
+          : "bg-[rgba(8,18,30,0.74)]"
+      }`}
+    >
       <div className="pointer-events-none absolute inset-x-0 top-0 h-px bg-gradient-to-r from-transparent via-cyan-300/35 to-[color:var(--color-accent)]/40" />
       <div className="section-inner flex min-h-20 items-center justify-between gap-6">
         <Link href="/" className="flex items-center gap-3">
@@ -54,13 +72,6 @@ export function Header() {
         </Link>
 
         <nav className="hidden items-center gap-7 lg:flex">
-          <Link
-            href="/"
-            className="text-sm font-medium tracking-[0.01em] text-slate-300 transition hover:text-white"
-          >
-            Home
-          </Link>
-
           <div className="group relative">
             <button className="text-sm font-medium tracking-[0.01em] text-slate-300 transition group-hover:text-white">
               Capabilities
@@ -96,10 +107,10 @@ export function Header() {
           </div>
 
           <Link
-            href="/services"
+            href="/results"
             className="text-sm font-medium tracking-[0.01em] text-slate-300 transition hover:text-white"
           >
-            Services
+            Results
           </Link>
 
           <div className="group relative">
@@ -137,10 +148,10 @@ export function Header() {
           </div>
 
           <Link
-            href="/contact"
+            href="/team"
             className="text-sm font-medium tracking-[0.01em] text-slate-300 transition hover:text-white"
           >
-            Contact
+            Leadership
           </Link>
         </nav>
 
