@@ -9,7 +9,7 @@ import { SystemFlowRail } from "@/components/SystemFlowRail";
 import { WorkspacePreview } from "@/components/WorkspacePreview";
 import { approvedLogos, services } from "@/lib/site-data";
 
-const systemResponseCards = [
+const systemModules = [
   {
     label: "Workflow",
     text: "Intake, routing, and handoffs move through one operating path.",
@@ -139,21 +139,31 @@ export function HomeExperience() {
         <section className="structured-section section-shell-light">
           <div className="layout-container grid gap-12 lg:grid-cols-[minmax(0,0.4fr)_minmax(0,0.6fr)] lg:gap-[72px]">
             <div>
-              <p className="section-kicker text-[#9f412c]">Problem to system response</p>
-              <h2 className="mt-5 max-w-[16ch] text-[clamp(2rem,3vw,2.85rem)] font-medium leading-[1.08] tracking-[-0.045em] text-slate-950">
-                Operating problems are usually system failures hiding in plain sight.
+              <p className="section-kicker text-[#9f412c]">Why systems fail</p>
+              <h2 className="mt-5 max-w-[20ch] text-[clamp(2rem,3vw,2.85rem)] font-medium leading-[1.08] tracking-[-0.045em] text-slate-950">
+                Operating problems are rarely people problems. They are system failures hiding in plain sight.
               </h2>
+              <p className="mt-6 max-w-[480px] text-lg leading-8 text-slate-600">
+                When structure breaks, everything downstream absorbs the cost.
+              </p>
             </div>
-            <div className="grid gap-4 sm:grid-cols-2">
-              {systemResponseCards.map((item) => (
+            <div className="grid border-y border-slate-300/80 sm:grid-cols-2">
+              {systemModules.map((item, index) => (
                 <div
                   key={item.label}
-                  className="rounded-[24px] border border-slate-200 bg-white px-5 py-5 shadow-[0_18px_40px_rgba(15,23,42,0.06)]"
+                  className={`min-h-[190px] border-slate-300/80 py-6 sm:px-6 ${
+                    index % 2 === 0 ? "sm:border-r" : ""
+                  } ${index < 2 ? "border-b" : ""}`}
                 >
-                  <div className="text-xs font-semibold uppercase tracking-[0.18em] text-[#9f412c]">
-                    {item.label}
+                  <div className="flex items-center gap-3">
+                    <span className="text-xs font-semibold uppercase tracking-[0.18em] text-[#9f412c]">
+                      0{index + 1}
+                    </span>
+                    <span className="text-xs font-semibold uppercase tracking-[0.18em] text-slate-500">
+                      {item.label}
+                    </span>
                   </div>
-                  <div className="mt-4 text-[1.35rem] font-semibold tracking-[-0.04em] text-slate-950">
+                  <div className="mt-5 max-w-[24rem] text-[1.25rem] font-medium leading-8 tracking-[-0.035em] text-slate-950">
                     {item.text}
                   </div>
                 </div>
