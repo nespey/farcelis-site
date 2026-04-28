@@ -48,17 +48,23 @@ export function HomeExperience() {
                 Farcelis AI Consulting LLC
               </p>
               <h1 className="mt-8 max-w-[680px] text-left font-medium text-white">
-                <span className="block whitespace-nowrap text-[clamp(2.18rem,4.75vw,4.35rem)] leading-[1.08] tracking-[-0.05em]">
+                <span className="block whitespace-nowrap text-[clamp(1.85rem,8vw,4.35rem)] leading-[1.08] tracking-[-0.05em]">
                   If your systems can&apos;t hold,
                 </span>
-                <span className="mt-2 block whitespace-nowrap text-[clamp(1.92rem,3.8vw,3.35rem)] leading-[1.08] tracking-[-0.05em]">
+                <span className="mt-2 block whitespace-nowrap text-[clamp(1.7rem,7vw,3.35rem)] leading-[1.08] tracking-[-0.05em]">
                   nothing else matters.
                 </span>
               </h1>
-              <p className="home-hero-subcopy mt-10 max-w-[680px] text-[clamp(0.98rem,1.1vw,1.08rem)] leading-[1.72] text-white/70">
+              <p className="home-hero-subcopy mt-10 hidden max-w-[680px] text-[clamp(0.98rem,1.1vw,1.08rem)] leading-[1.72] text-white/70 sm:block">
                 <span className="block">Farcelis builds AI-driven execution infrastructure</span>
                 <span className="block">that brings order to complexity, aligns workflows, and</span>
                 <span className="block">gives companies control before growth turns unstable.</span>
+              </p>
+              <p className="home-hero-subcopy mt-9 max-w-[390px] text-[0.88rem] leading-[1.72] text-white/70 sm:hidden">
+                <span className="block">Farcelis builds AI-driven execution infrastructure</span>
+                <span className="block">that brings order to complexity,</span>
+                <span className="block">aligns workflows, and gives companies control</span>
+                <span className="block">before growth turns unstable.</span>
               </p>
               <div className="mt-12 flex flex-col gap-4 sm:flex-row">
                 <Link
