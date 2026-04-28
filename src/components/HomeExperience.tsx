@@ -66,27 +66,38 @@ export function HomeExperience() {
 
       <Reveal delayMs={70}>
         <section className="structured-section section-shell-light">
-          <div className="layout-container grid gap-12 lg:grid-cols-[minmax(0,0.4fr)_minmax(0,0.6fr)] lg:gap-[72px]">
-            <div>
-              <p className="section-kicker text-[#9f412c]">Problem to system response</p>
-              <h2 className="mt-5 max-w-[16ch] text-[clamp(2rem,3vw,2.85rem)] font-medium leading-[1.08] tracking-[-0.045em] text-slate-950">
-                Operating problems are usually system failures hiding in plain sight.
-              </h2>
-            </div>
-            <div className="grid gap-4 sm:grid-cols-2">
-              {systemResponseCards.map((item) => (
-                <div
-                  key={item.label}
-                  className="rounded-[24px] border border-slate-200 bg-white px-5 py-5 shadow-[0_18px_40px_rgba(15,23,42,0.06)]"
-                >
-                  <div className="text-xs font-semibold uppercase tracking-[0.18em] text-[#9f412c]">
-                    {item.label}
+          <div className="layout-container">
+            <div className="grid gap-10 lg:grid-cols-[minmax(0,0.72fr)_minmax(0,1.28fr)]">
+              <div>
+                <p className="section-kicker text-[#9f412c]">Service Paths</p>
+                <h2 className="mt-5 max-w-[13ch] text-[clamp(1.75rem,3vw,2.7rem)] font-medium leading-[1.12] tracking-[-0.04em] text-slate-950">
+                  Service paths designed to move an operation from chaos into controlled execution.
+                </h2>
+              </div>
+              <div className="space-y-5">
+                {services.map((service, index) => (
+                  <div
+                    key={service.title}
+                    className={`rounded-[26px] border px-6 py-6 ${
+                      index === 1
+                        ? "border-[#2e7da4]/22 bg-[linear-gradient(180deg,#eef7fb,#f8fcff)]"
+                        : index === 2
+                          ? "border-[#c75d33]/18 bg-[linear-gradient(180deg,#fff5ef,#fffaf7)]"
+                          : index === 3
+                            ? "border-[#8d77ff]/18 bg-[linear-gradient(180deg,#f6f3ff,#fcfbff)]"
+                            : "border-slate-200 bg-white"
+                    }`}
+                  >
+                    <div className="text-sm font-semibold uppercase tracking-[0.18em] text-[#9f412c]">
+                      {serviceFrames[index] ?? "Service path"}
+                    </div>
+                    <h3 className="mt-3 text-2xl font-semibold tracking-[-0.04em] text-slate-950">
+                      {service.title}
+                    </h3>
+                    <p className="mt-3 text-base leading-8 text-slate-600">{service.description}</p>
                   </div>
-                  <div className="mt-4 text-[1.35rem] font-semibold tracking-[-0.04em] text-slate-950">
-                    {item.text}
-                  </div>
-                </div>
-              ))}
+                ))}
+              </div>
             </div>
           </div>
         </section>
@@ -126,38 +137,27 @@ export function HomeExperience() {
 
       <Reveal delayMs={230}>
         <section className="structured-section section-shell-light">
-          <div className="layout-container">
-            <div className="grid gap-10 lg:grid-cols-[minmax(0,0.72fr)_minmax(0,1.28fr)]">
-              <div>
-                <p className="section-kicker text-[#9f412c]">Service Paths</p>
-                <h2 className="mt-5 max-w-[13ch] text-[clamp(1.75rem,3vw,2.7rem)] font-medium leading-[1.12] tracking-[-0.04em] text-slate-950">
-                  Service paths designed to move an operation from chaos into controlled execution.
-                </h2>
-              </div>
-              <div className="space-y-5">
-                {services.map((service, index) => (
-                  <div
-                    key={service.title}
-                    className={`rounded-[26px] border px-6 py-6 ${
-                      index === 1
-                        ? "border-[#2e7da4]/22 bg-[linear-gradient(180deg,#eef7fb,#f8fcff)]"
-                      : index === 2
-                          ? "border-[#c75d33]/18 bg-[linear-gradient(180deg,#fff5ef,#fffaf7)]"
-                          : index === 3
-                            ? "border-[#8d77ff]/18 bg-[linear-gradient(180deg,#f6f3ff,#fcfbff)]"
-                            : "border-slate-200 bg-white"
-                    }`}
-                  >
-                    <div className="text-sm font-semibold uppercase tracking-[0.18em] text-[#9f412c]">
-                      {serviceFrames[index] ?? "Service path"}
-                    </div>
-                    <h3 className="mt-3 text-2xl font-semibold tracking-[-0.04em] text-slate-950">
-                      {service.title}
-                    </h3>
-                    <p className="mt-3 text-base leading-8 text-slate-600">{service.description}</p>
+          <div className="layout-container grid gap-12 lg:grid-cols-[minmax(0,0.4fr)_minmax(0,0.6fr)] lg:gap-[72px]">
+            <div>
+              <p className="section-kicker text-[#9f412c]">Problem to system response</p>
+              <h2 className="mt-5 max-w-[16ch] text-[clamp(2rem,3vw,2.85rem)] font-medium leading-[1.08] tracking-[-0.045em] text-slate-950">
+                Operating problems are usually system failures hiding in plain sight.
+              </h2>
+            </div>
+            <div className="grid gap-4 sm:grid-cols-2">
+              {systemResponseCards.map((item) => (
+                <div
+                  key={item.label}
+                  className="rounded-[24px] border border-slate-200 bg-white px-5 py-5 shadow-[0_18px_40px_rgba(15,23,42,0.06)]"
+                >
+                  <div className="text-xs font-semibold uppercase tracking-[0.18em] text-[#9f412c]">
+                    {item.label}
                   </div>
-                ))}
-              </div>
+                  <div className="mt-4 text-[1.35rem] font-semibold tracking-[-0.04em] text-slate-950">
+                    {item.text}
+                  </div>
+                </div>
+              ))}
             </div>
           </div>
         </section>
