@@ -112,9 +112,9 @@ export function HomeExperience() {
                 <WorkspacePreview />
               </div>
 
-              <div className="mt-8 space-y-3">
+              <div className="mt-7 space-y-2">
                 <IntegrationLogoLane reverse />
-                <div className="surface-dark px-1 py-1">
+                <div className="surface-dark px-1 py-0">
                   <SystemFlowRail steps={["Input", "Intake", "Route", "Execute", "Track", "Close"]} />
                 </div>
                 <IntegrationLogoLane />
