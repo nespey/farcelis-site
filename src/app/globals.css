@@ -137,20 +137,15 @@ a {
   margin-right: 0;
 }
 
-.layout-container {
-  max-width: 1200px;
-  margin-left: 8%;
-  margin-right: auto;
-  padding-left: 24px;
-  padding-right: 24px;
-}
-
-.showcase-container {
-  max-width: 1400px;
-  margin-left: 8%;
-  margin-right: auto;
-  padding-left: 24px;
-  padding-right: 24px;
+.layout-container,
+.showcase-container,
+.section-inner {
+  width: 100%;
+  max-width: none;
+  margin-left: 0;
+  margin-right: 0;
+  padding-left: clamp(24px, 5vw, 72px);
+  padding-right: clamp(24px, 5vw, 72px);
 }
 
 .dashboard-showcase :is(h1, h2, h3, h4, p, .eyebrow, .section-kicker) {
@@ -330,14 +325,6 @@ a {
     width: 100%;
     min-height: 54px;
   }
-}
-
-.section-inner {
-  max-width: 1200px;
-  margin-left: 8%;
-  margin-right: auto;
-  padding-left: 24px;
-  padding-right: 24px;
 }
 
 .eyebrow {

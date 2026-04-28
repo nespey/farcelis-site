@@ -184,8 +184,8 @@ export function HomeExperience() {
 
       <Reveal delayMs={270}>
         <section className="structured-section structured-section--closing closing-cta-section">
-          <div className="mx-auto max-w-[1200px] px-6 lg:px-12">
-            <div className="mx-auto max-w-[1200px]">
+          <div className="w-full px-6 lg:px-12">
+            <div className="w-full">
               <h2 className="mx-auto max-w-[1040px] text-center text-[clamp(1.65rem,2.45vw,2.45rem)] font-medium leading-[1.14] tracking-[-0.04em] text-white">
                 If execution keeps slipping, the next move is not more software. It is a stronger system.
               </h2>
