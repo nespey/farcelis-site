@@ -185,9 +185,14 @@ a {
 }
 
 .closing-cta-section :is(h1, h2, h3, h4, p) {
-  text-align: center;
-  margin-left: auto;
-  margin-right: auto;
+  text-align: center !important;
+  margin-left: auto !important;
+  margin-right: auto !important;
+}
+
+.closing-cta-section .closing-cta-actions {
+  justify-content: center !important;
+  align-items: center !important;
 }
 
 .section-kicker {
