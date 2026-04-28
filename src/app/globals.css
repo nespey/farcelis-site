@@ -605,8 +605,8 @@ main :is(.border-t, .border-b, .border-y, .divide-y > :not([hidden]) ~ :not([hid
 }
 
 .proof-band {
-  border-top: 1px solid rgba(8, 18, 29, 0.08);
-  border-bottom: 1px solid rgba(8, 18, 29, 0.08);
+  border-top: 0;
+  border-bottom: 0;
   background:
     linear-gradient(180deg, rgba(255, 255, 255, 0.76), rgba(248, 250, 252, 0.94)),
     linear-gradient(90deg, rgba(97, 192, 215, 0.06), rgba(242, 139, 91, 0.06));
@@ -676,19 +676,6 @@ main :is(.border-t, .border-b, .border-y, .divide-y > :not([hidden]) ~ :not([hid
   width: 35%;
   background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.55), transparent);
   animation: sweep 5s ease-in-out infinite;
-}
-
-.section-bridge-dark::after,
-.section-bridge-light::after {
-  content: none;
-}
-
-.section-bridge-dark::after {
-  background: linear-gradient(180deg, rgba(81, 102, 113, 0), rgba(81, 102, 113, 0.1));
-}
-
-.section-bridge-light::after {
-  background: linear-gradient(180deg, rgba(81, 102, 113, 0), rgba(23, 40, 50, 0.14));
 }
 
 @keyframes heroSignal {

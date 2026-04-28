@@ -84,7 +84,7 @@ export function HomeExperience() {
       </Reveal>
 
       <Reveal delayMs={110}>
-        <section className="structured-section section-shell-light section-bridge-light">
+        <section className="structured-section section-shell-light">
           <div className="layout-container grid gap-10 lg:grid-cols-[minmax(0,0.92fr)_minmax(0,1.08fr)]">
             <div>
             <p className="section-kicker text-[#9f412c]">Why Farcelis Exists</p>
@@ -132,7 +132,7 @@ export function HomeExperience() {
       </Reveal>
 
       <Reveal delayMs={150}>
-        <section className="structured-section section-shell-dark section-bridge-light">
+        <section className="structured-section section-shell-dark">
           <div className="layout-container">
             <div className="max-w-[1080px]">
               <p className="section-kicker text-[color:var(--color-accent)]">One Flagship Pillar</p>
