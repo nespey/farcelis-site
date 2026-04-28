@@ -66,7 +66,7 @@ export function HomeExperience() {
 
       <Reveal delayMs={70}>
         <section className="structured-section section-shell-light pt-0">
-          <div className="section-container">
+          <div className="layout-container">
             <div>
               <p className="section-kicker text-[#9f412c]">Selected environments and engagements</p>
               <h2 className="mt-4 max-w-[16ch] text-[clamp(1.75rem,2.7vw,2.5rem)] font-[550] tracking-[-0.06em] text-slate-950">
@@ -85,7 +85,7 @@ export function HomeExperience() {
 
       <Reveal delayMs={110}>
         <section className="structured-section section-shell-light section-bridge-light">
-          <div className="section-container grid gap-10 lg:grid-cols-[minmax(0,0.92fr)_minmax(0,1.08fr)] lg:items-center">
+          <div className="layout-container grid gap-10 lg:grid-cols-[minmax(0,0.92fr)_minmax(0,1.08fr)]">
             <div>
             <p className="section-kicker text-[#9f412c]">Why Farcelis Exists</p>
             <h2 className="mt-5 max-w-[14ch] text-[clamp(1.75rem,3vw,2.7rem)] font-medium leading-[1.12] tracking-[-0.04em] text-slate-950">
@@ -133,7 +133,7 @@ export function HomeExperience() {
 
       <Reveal delayMs={150}>
         <section className="structured-section section-shell-dark section-bridge-light">
-          <div className="section-container">
+          <div className="layout-container">
             <div className="max-w-[1080px]">
               <p className="section-kicker text-[color:var(--color-accent)]">One Flagship Pillar</p>
               <h2 className="mt-5 max-w-[18ch] text-[clamp(2.2rem,4vw,4rem)] font-medium leading-[1.08] tracking-[-0.05em] text-white">
@@ -160,7 +160,7 @@ export function HomeExperience() {
             </div>
           </div>
 
-          <div className="section-container-wide mt-10 space-y-5">
+          <div className="layout-container mt-10 space-y-5">
               <IntegrationLogoLane />
 
               <div className="surface-dark rounded-[28px] px-4 py-4">
@@ -169,7 +169,7 @@ export function HomeExperience() {
 
               <IntegrationLogoLane reverse />
 
-              <div className="surface-dark rounded-[24px] px-6 py-4 text-center">
+              <div className="surface-dark rounded-[24px] px-6 py-4">
                 <div className="text-xs font-semibold uppercase tracking-[0.22em] text-[color:var(--color-accent)]">
                   Control flow
                 </div>
@@ -183,7 +183,7 @@ export function HomeExperience() {
 
       <Reveal delayMs={190}>
         <section className="structured-section section-shell-light">
-          <div className="section-container grid gap-12 lg:grid-cols-[minmax(0,0.7fr)_minmax(0,1.3fr)]">
+          <div className="layout-container grid gap-12 lg:grid-cols-[minmax(0,0.7fr)_minmax(0,1.3fr)]">
             <div>
               <p className="section-kicker text-[#9f412c]">What Farcelis Does</p>
               <h2 className="mt-5 max-w-[13ch] text-[clamp(1.75rem,3vw,2.7rem)] font-medium leading-[1.12] tracking-[-0.04em] text-slate-950">
@@ -237,7 +237,7 @@ export function HomeExperience() {
 
       <Reveal delayMs={230}>
         <section className="structured-section section-shell-light">
-          <div className="section-container">
+          <div className="layout-container">
             <div className="grid gap-10 lg:grid-cols-[minmax(0,0.72fr)_minmax(0,1.28fr)]">
               <div>
                 <p className="section-kicker text-[#9f412c]">Service Paths</p>
@@ -276,7 +276,7 @@ export function HomeExperience() {
 
       <Reveal delayMs={270}>
         <section className="structured-section py-20">
-          <div className="section-container">
+          <div className="layout-container">
             <div className="max-w-[1200px]">
               <h2 className="max-w-[1100px] text-[clamp(1.8rem,3vw,3.05rem)] font-medium leading-[1.12] tracking-[-0.045em] text-white">
                 If execution keeps slipping, the next move is not more software. It is a stronger system.
