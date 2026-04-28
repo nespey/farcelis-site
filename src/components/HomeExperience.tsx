@@ -43,27 +43,34 @@ export function HomeExperience() {
         <div className="pointer-events-none absolute right-[10%] top-[18%] h-72 w-72 rounded-full bg-[radial-gradient(circle,rgba(106,181,214,0.14),transparent_72%)] blur-3xl" />
         <div className="section-inner relative grid gap-10 lg:min-h-[76svh] lg:grid-cols-[minmax(0,0.9fr)_minmax(0,1.1fr)] lg:items-center">
           <Reveal delayMs={30}>
-            <div className="max-w-[560px]">
-              <p className="eyebrow text-[color:var(--color-accent)]">Farcelis AI Consulting LLC</p>
-              <h1 className="display-hero mt-6 text-white">
-                Farcelis structures execution before complexity takes control.
-              </h1>
-              <p className="lede mt-5 max-w-[540px]">
-                AI consulting, workflow architecture, execution systems, and the flagship Control
-                Layer all sit inside one operating model built to stabilize complexity before it compounds.
+            <div className="home-hero-copy max-w-[700px] text-left lg:col-start-2 lg:justify-self-end">
+              <p className="eyebrow mx-0 text-left text-[0.82rem] tracking-[0.18em] text-[color:var(--color-accent)]">
+                Farcelis AI Consulting LLC
               </p>
-              <div className="mt-8 flex flex-col gap-3 sm:flex-row">
+              <h1 className="hero-brand-type mt-8 max-w-[680px] text-white">
+                <span className="block text-[clamp(3.15rem,6vw,5.1rem)] leading-[0.95] tracking-[-0.035em]">
+                  If your systems can&apos;t hold,
+                </span>
+                <span className="mt-3 block text-[clamp(2.75rem,5.1vw,4.45rem)] leading-[0.98] tracking-[-0.025em]">
+                  nothing else matters.
+                </span>
+              </h1>
+              <p className="hero-brand-type mt-10 max-w-[660px] text-[clamp(1.2rem,1.65vw,1.5rem)] leading-[1.55] tracking-[0.01em] text-white/74">
+                Farcelis builds AI-driven execution infrastructure that brings order to complexity,
+                aligns workflows, and gives companies control before growth turns unstable.
+              </p>
+              <div className="mt-12 flex flex-col gap-4 sm:flex-row">
                 <Link
                   href="/contact"
                   className="hero-cta inline-flex min-h-12 items-center justify-center rounded-full bg-[linear-gradient(135deg,#f19a6b,#c75d33)] px-6 py-3 text-sm font-semibold text-white hover:shadow-[0_20px_40px_rgba(199,93,51,0.32)]"
                 >
-                  Work With Farcelis
+                  Start Building Structure
                 </Link>
                 <Link
                   href="/services"
                   className="hero-cta inline-flex min-h-12 items-center justify-center rounded-full border border-cyan-200/18 bg-cyan-200/6 px-6 py-3 text-sm font-semibold text-cyan-50 hover:border-cyan-100/28 hover:bg-cyan-100/8"
                 >
-                  See What Farcelis Builds
+                  Explore the System
                 </Link>
               </div>
             </div>

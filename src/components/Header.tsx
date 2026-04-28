@@ -179,7 +179,7 @@ export function Header() {
             href="/contact"
             className="site-cta inline-flex min-h-11 items-center justify-center rounded-full bg-[linear-gradient(135deg,#ff8e5b,#f05cff)] px-5 py-2.5 text-sm font-semibold text-white hover:shadow-[0_18px_38px_rgba(240,92,255,0.24)]"
           >
-            Work With Farcelis
+            Start Building Structure
           </Link>
         </div>
       </header>
