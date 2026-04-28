@@ -170,7 +170,9 @@ export function WorkspacePreview({ compact = false }: WorkspacePreviewProps) {
     <div className={`hero-panel-shell relative mx-auto w-full ${compact ? "max-w-[1040px]" : "max-w-[1120px]"}`}>
       <div
         className={`workspace-preview relative overflow-hidden rounded-[32px] border border-white/10 bg-[linear-gradient(180deg,rgba(255,255,255,0.08),rgba(255,255,255,0.03)),linear-gradient(135deg,rgba(22,33,47,0.98),rgba(9,16,26,0.97))] shadow-[0_42px_110px_rgba(3,8,16,0.45),inset_0_1px_0_rgba(255,255,255,0.08)] ${
-          compact ? "px-5 py-5 md:px-7 md:py-7" : "px-6 py-6 md:px-8 md:py-8"
+          compact
+            ? "min-h-[820px] px-5 py-5 md:min-h-[720px] md:px-7 md:py-7 xl:min-h-[650px]"
+            : "min-h-[900px] px-6 py-6 md:min-h-[780px] md:px-8 md:py-8 xl:min-h-[720px]"
         }`}
       >
         <div className="pointer-events-none absolute inset-x-0 top-0 h-24 bg-[linear-gradient(180deg,rgba(255,255,255,0.06),transparent)]" />
@@ -187,7 +189,7 @@ export function WorkspacePreview({ compact = false }: WorkspacePreviewProps) {
                 <div className="mt-2 text-[1.1rem] font-semibold tracking-[-0.03em] text-white md:text-[1.2rem]">
                   Live operating workspace
                 </div>
-                <div className="mt-2 max-w-[54ch] text-sm leading-7 text-slate-300">
+                <div className="mt-2 min-h-[3.5rem] max-w-[54ch] text-sm leading-7 text-slate-300">
                   {current.summary}
                 </div>
               </div>
@@ -196,7 +198,7 @@ export function WorkspacePreview({ compact = false }: WorkspacePreviewProps) {
                 {views.map((view, index) => (
                   <div
                     key={view.id}
-                    className={`rounded-full border px-3 py-2 text-[11px] font-semibold uppercase tracking-[0.16em] transition ${
+                    className={`min-h-9 rounded-full border px-3 py-2 text-[11px] font-semibold uppercase tracking-[0.16em] transition ${
                       index === viewIndex
                         ? accentClasses.badge
                         : "border-white/8 bg-white/[0.03] text-slate-500"
@@ -212,7 +214,7 @@ export function WorkspacePreview({ compact = false }: WorkspacePreviewProps) {
               {current.counters.map((counter, index) => (
                 <div
                   key={counter.label}
-                  className={`hero-signal rounded-[18px] border px-4 py-4 text-left ${
+                  className={`hero-signal min-h-[116px] rounded-[18px] border px-4 py-4 text-left ${
                     index === activeRow ? accentClasses.panel : "border-white/7 bg-white/[0.04]"
                   }`}
                 >
@@ -243,7 +245,7 @@ export function WorkspacePreview({ compact = false }: WorkspacePreviewProps) {
                   ].map((item, index) => (
                     <div
                       key={item}
-                      className={`rounded-[14px] border px-3 py-3 text-sm transition ${
+                      className={`min-h-[46px] rounded-[14px] border px-3 py-3 text-sm transition ${
                         index === viewIndex + 1
                           ? accentClasses.active
                           : "border-white/6 bg-[#111d2c] text-slate-400"
@@ -263,7 +265,7 @@ export function WorkspacePreview({ compact = false }: WorkspacePreviewProps) {
                   {current.actions.map((item, index) => (
                     <div
                       key={item}
-                      className={`rounded-full border px-3 py-2 text-[11px] font-semibold uppercase tracking-[0.15em] ${
+                      className={`min-h-9 rounded-full border px-3 py-2 text-[11px] font-semibold uppercase tracking-[0.15em] ${
                         index === activeRow
                           ? accentClasses.badge
                           : "border-white/8 bg-white/[0.03] text-slate-400"
@@ -292,7 +294,7 @@ export function WorkspacePreview({ compact = false }: WorkspacePreviewProps) {
                       {current.panels.leftCards.map((card, index) => (
                         <div
                           key={card.title}
-                          className={`rounded-[18px] border px-4 py-4 transition ${
+                          className={`min-h-[176px] rounded-[18px] border px-4 py-4 transition md:min-h-[160px] ${
                             index === activeRow % 2
                               ? accentClasses.panel
                               : "border-white/6 bg-[#111d2c]"
@@ -318,7 +320,7 @@ export function WorkspacePreview({ compact = false }: WorkspacePreviewProps) {
                       {current.panels.centerRows.map((item, index) => (
                         <div
                           key={item}
-                          className={`rounded-[15px] border px-4 py-3 text-sm leading-6 transition ${
+                          className={`min-h-[52px] rounded-[15px] border px-4 py-3 text-sm leading-6 transition ${
                             index === activeRow
                               ? accentClasses.active
                               : "border-white/6 bg-[#111d2c] text-slate-400"
@@ -352,7 +354,7 @@ export function WorkspacePreview({ compact = false }: WorkspacePreviewProps) {
                       {current.panels.rightRows.map((item, index) => (
                         <div
                           key={item}
-                          className={`rounded-[15px] border px-4 py-3 text-sm transition ${
+                          className={`min-h-[48px] rounded-[15px] border px-4 py-3 text-sm transition ${
                             index === (activeRow + 1) % current.panels.rightRows.length
                               ? accentClasses.active
                               : "border-white/6 bg-[#111d2c] text-slate-400"
