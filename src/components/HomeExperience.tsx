@@ -95,10 +95,11 @@ export function HomeExperience() {
       <Reveal delayMs={150}>
         <section className="structured-section structured-section--showcase section-shell-dark dashboard-showcase">
           <div className="showcase-container">
-            <div className="mx-auto max-w-[880px]">
-              <p className="section-kicker text-[color:var(--color-accent)]">Feature Showcase</p>
-              <h2 className="mt-5 text-[clamp(2.2rem,4vw,4rem)] font-medium leading-[1.08] tracking-[-0.05em] text-white">
-                The Control Layer turns scattered execution into a live operating workspace.
+            <div className="mx-auto max-w-[1080px]">
+              <h2 className="text-[clamp(2.2rem,4vw,4rem)] font-medium leading-[1.08] tracking-[-0.05em] text-white">
+                The Farcelis Control Layer<span className="align-super text-[0.28em] tracking-normal">TM</span> turns scattered execution
+                <br />
+                into a live operating workspace.
               </h2>
               <p className="mx-auto mt-6 max-w-[760px] text-lg leading-8 text-slate-300">
                 It is the operating frame Farcelis deploys when a business, team, or environment
