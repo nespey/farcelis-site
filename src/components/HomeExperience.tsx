@@ -38,54 +38,29 @@ const serviceFrames = [
 export function HomeExperience() {
   return (
     <div className="relative overflow-hidden">
-      <section className="section-shell section-shell-dark overflow-hidden pt-18 lg:min-h-[92svh] lg:pt-22">
-        <div className="pointer-events-none absolute left-[8%] top-[14%] h-56 w-56 rounded-full bg-[radial-gradient(circle,rgba(255,214,160,0.16),transparent_68%)] blur-3xl" />
-        <div className="pointer-events-none absolute right-[10%] top-[18%] h-72 w-72 rounded-full bg-[radial-gradient(circle,rgba(106,181,214,0.14),transparent_72%)] blur-3xl" />
-        <div className="section-inner relative grid gap-10 lg:min-h-[76svh] lg:grid-cols-[minmax(0,0.9fr)_minmax(0,1.1fr)] lg:items-center">
-          <Reveal delayMs={30}>
-            <div className="home-hero-copy max-w-[700px] text-left lg:col-start-2 lg:justify-self-end">
-              <p className="hero-brand-type eyebrow mx-0 text-left text-[clamp(1.08rem,1.35vw,1.3rem)] tracking-[0.2em] text-[color:var(--color-accent)]">
-                Farcelis AI Consulting LLC
-              </p>
-              <h1 className="mt-8 max-w-[680px] text-left font-medium text-white">
-                <span className="block whitespace-nowrap text-[clamp(1.85rem,8vw,4.35rem)] leading-[1.08] tracking-[-0.05em]">
-                  If your systems can&apos;t hold,
-                </span>
-                <span className="mt-2 block whitespace-nowrap text-[clamp(1.7rem,7vw,3.35rem)] leading-[1.08] tracking-[-0.05em]">
-                  nothing else matters.
-                </span>
-              </h1>
-              <p className="home-hero-subcopy mt-10 hidden max-w-[680px] text-[clamp(0.98rem,1.1vw,1.08rem)] leading-[1.72] text-white/70 sm:block">
-                <span className="block">Farcelis builds AI-driven execution infrastructure</span>
-                <span className="block">that brings order to complexity, aligns workflows, and</span>
-                <span className="block">gives companies control before growth turns unstable.</span>
-              </p>
-              <p className="home-hero-subcopy mt-9 max-w-[390px] text-[0.88rem] leading-[1.72] text-white/70 sm:hidden">
-                <span className="block">Farcelis builds AI-driven execution infrastructure</span>
-                <span className="block">that brings order to complexity,</span>
-                <span className="block">aligns workflows, and gives companies control</span>
-                <span className="block">before growth turns unstable.</span>
-              </p>
-              <div className="mt-12 flex flex-col gap-4 sm:flex-row">
-                <Link
-                  href="/contact"
-                  className="hero-cta inline-flex min-h-12 items-center justify-center rounded-full bg-[linear-gradient(135deg,#f19a6b,#c75d33)] px-6 py-3 text-sm font-semibold text-white hover:shadow-[0_20px_40px_rgba(199,93,51,0.32)]"
-                >
-                  Start Building Structure
-                </Link>
-                <Link
-                  href="/services"
-                  className="hero-cta inline-flex min-h-12 items-center justify-center rounded-full border border-cyan-200/18 bg-cyan-200/6 px-6 py-3 text-sm font-semibold text-cyan-50 hover:border-cyan-100/28 hover:bg-cyan-100/8"
-                >
-                  Explore the System
-                </Link>
-              </div>
-            </div>
-          </Reveal>
+      <section className="hero">
+        <div className="hero-inner">
+          <div className="eyebrow">Farcelis AI Consulting LLC</div>
 
-          <Reveal delayMs={110}>
-            <div className="hidden min-h-[460px] lg:block" />
-          </Reveal>
+          <h1 className="hero-title">
+            If your systems can&apos;t hold,
+            <br />
+            nothing else matters.
+          </h1>
+
+          <p className="hero-subtext">
+            Farcelis builds AI-driven execution infrastructure that brings order to complexity,
+            aligns workflows, and gives companies control before growth turns unstable.
+          </p>
+
+          <div className="hero-actions">
+            <Link href="/contact" className="btn-primary">
+              Start Building Structure
+            </Link>
+            <Link href="/services" className="btn-secondary">
+              Explore the System
+            </Link>
+          </div>
         </div>
       </section>
 
