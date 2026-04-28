@@ -48,10 +48,10 @@ export function HomeExperience() {
                 Farcelis AI Consulting LLC
               </p>
               <h1 className="mt-8 max-w-[680px] text-left font-medium text-white">
-                <span className="block text-[clamp(2.85rem,5vw,4rem)] leading-[1.08] tracking-[-0.05em]">
+                <span className="block whitespace-nowrap text-[clamp(2.08rem,4.55vw,4rem)] leading-[1.08] tracking-[-0.05em]">
                   If your systems can&apos;t hold,
                 </span>
-                <span className="mt-2 block text-[clamp(2.5rem,4.4vw,3.65rem)] leading-[1.08] tracking-[-0.05em]">
+                <span className="mt-2 block whitespace-nowrap text-[clamp(2.08rem,4.1vw,3.65rem)] leading-[1.08] tracking-[-0.05em]">
                   nothing else matters.
                 </span>
               </h1>
