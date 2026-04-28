@@ -112,8 +112,18 @@ a {
 
 .structured-section {
   position: relative;
-  padding: 6.5rem 0;
+  padding: 7.5rem 0;
   background: transparent;
+}
+
+.structured-section--major {
+  padding-top: 9rem;
+  padding-bottom: 9rem;
+}
+
+.structured-section--closing {
+  padding-top: 8rem;
+  padding-bottom: 8.5rem;
 }
 
 .structured-section :is(h1, h2, h3, h4, p, .eyebrow) {
@@ -214,7 +224,13 @@ a {
 
 @media (max-width: 700px) {
   .structured-section {
-    padding: 5rem 0;
+    padding: 4.75rem 0;
+  }
+
+  .structured-section--major,
+  .structured-section--closing {
+    padding-top: 5rem;
+    padding-bottom: 5rem;
   }
 
   .hero {

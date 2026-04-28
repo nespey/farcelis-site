@@ -65,7 +65,7 @@ export function HomeExperience() {
       </section>
 
       <Reveal delayMs={70}>
-        <section className="structured-section section-shell-light pt-0">
+        <section className="structured-section section-shell-light">
           <div className="layout-container">
             <div>
               <p className="section-kicker text-[#9f412c]">Selected environments and engagements</p>
@@ -132,7 +132,7 @@ export function HomeExperience() {
       </Reveal>
 
       <Reveal delayMs={150}>
-        <section className="structured-section section-shell-dark">
+        <section className="structured-section structured-section--major section-shell-dark">
           <div className="layout-container">
             <div className="max-w-[1080px]">
               <p className="section-kicker text-[color:var(--color-accent)]">One Flagship Pillar</p>
@@ -182,7 +182,7 @@ export function HomeExperience() {
       </Reveal>
 
       <Reveal delayMs={190}>
-        <section className="structured-section section-shell-light">
+        <section className="structured-section structured-section--major section-shell-light">
           <div className="layout-container grid gap-12 lg:grid-cols-[minmax(0,0.7fr)_minmax(0,1.3fr)]">
             <div>
               <p className="section-kicker text-[#9f412c]">What Farcelis Does</p>
@@ -275,7 +275,7 @@ export function HomeExperience() {
       </Reveal>
 
       <Reveal delayMs={270}>
-        <section className="structured-section py-20">
+        <section className="structured-section structured-section--closing">
           <div className="layout-container">
             <div className="max-w-[1200px]">
               <h2 className="max-w-[1100px] text-[clamp(1.8rem,3vw,3.05rem)] font-medium leading-[1.12] tracking-[-0.045em] text-white">
