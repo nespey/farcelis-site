@@ -83,7 +83,7 @@ export function HomeExperience() {
       <Reveal delayMs={70}>
         <section className="structured-section section-shell-light">
           <div className="layout-container">
-            <div className="grid gap-10 lg:grid-cols-[minmax(0,0.72fr)_minmax(0,1.28fr)]">
+            <div className="grid gap-12 lg:grid-cols-[minmax(0,0.72fr)_minmax(0,1.28fr)]">
               <div>
                 <p className="section-kicker text-[#9f412c]">Implementation Path</p>
                 <h2 className="mt-5 max-w-[18ch] text-[clamp(1.75rem,3vw,2.7rem)] font-medium leading-[1.12] tracking-[-0.04em] text-slate-950">
@@ -95,25 +95,25 @@ export function HomeExperience() {
               </div>
               <div className="relative">
                 <div className="absolute left-[1.42rem] top-7 hidden h-[calc(100%-3.5rem)] w-px bg-slate-300/80 sm:block" />
-                <div className="space-y-8">
-                {implementationSteps.map((step) => (
-                  <div
-                    key={step.number}
-                    className="relative grid gap-4 border-b border-slate-300/70 pb-8 last:border-b-0 last:pb-0 sm:grid-cols-[3.2rem_minmax(0,1fr)]"
-                  >
-                    <div className="relative z-10 flex h-12 w-12 items-center justify-center rounded-full border border-slate-300 bg-[#f5f0e8] text-sm font-semibold tracking-[0.12em] text-[#9f412c]">
-                      {step.number}
+                <div className="space-y-9">
+                  {implementationSteps.map((step) => (
+                    <div
+                      key={step.number}
+                      className="relative grid gap-5 border-b border-slate-300/70 pb-9 last:border-b-0 last:pb-0 sm:grid-cols-[3.2rem_minmax(0,1fr)]"
+                    >
+                      <div className="relative z-10 flex h-12 w-12 items-center justify-center rounded-full border border-slate-300 bg-[#f5f0e8] text-sm font-semibold tracking-[0.12em] text-[#9f412c]">
+                        {step.number}
+                      </div>
+                      <div className="pt-1">
+                        <h3 className="text-2xl font-semibold tracking-[-0.04em] text-slate-950">
+                          {step.title}
+                        </h3>
+                        <p className="mt-2 max-w-[620px] text-base leading-8 text-slate-600">
+                          {step.description}
+                        </p>
+                      </div>
                     </div>
-                    <div className="pt-1">
-                      <h3 className="text-2xl font-semibold tracking-[-0.04em] text-slate-950">
-                        {step.title}
-                      </h3>
-                      <p className="mt-2 max-w-[620px] text-base leading-8 text-slate-600">
-                        {step.description}
-                      </p>
-                    </div>
-                  </div>
-                ))}
+                  ))}
                 </div>
               </div>
             </div>
@@ -169,9 +169,9 @@ export function HomeExperience() {
               {systemModules.map((item, index) => (
                 <div
                   key={item.label}
-                  className={`min-h-[190px] border-slate-300/80 py-6 sm:px-6 ${
+                  className={`min-h-[190px] border-slate-300/80 py-7 sm:px-6 ${
                     index % 2 === 0 ? "sm:border-r" : ""
-                  } ${index < 2 ? "border-b" : ""}`}
+                  } ${index < 3 ? "border-b" : ""} ${index === 2 ? "sm:border-b-0" : ""}`}
                 >
                   <div className="flex items-center gap-3">
                     <span className="text-xs font-semibold uppercase tracking-[0.18em] text-[#9f412c]">
