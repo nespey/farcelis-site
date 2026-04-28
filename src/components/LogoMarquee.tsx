@@ -11,6 +11,11 @@ type LogoMarqueeProps = {
   bare?: boolean;
 };
 
+const bareLogoScale: Record<string, string> = {
+  "4Throws": "scale-[1.55]",
+  "Paragon Cyber Solutions": "scale-[1.45]",
+};
+
 export function LogoMarquee({ logos, dark = true, bare = false }: LogoMarqueeProps) {
   const renderLogos = [...logos, ...logos];
 
@@ -59,10 +64,12 @@ export function LogoMarquee({ logos, dark = true, bare = false }: LogoMarqueePro
                   {logo.logo ? (
                     <Image
                       src={logo.logo}
-                      alt={logo.name}
-                      fill
-                      sizes={bare ? "190px" : "220px"}
-                      className={`object-contain transition duration-200 ${bare ? "drop-shadow-[0_14px_22px_rgba(3,8,16,0.2)]" : ""}`}
+                    alt={logo.name}
+                    fill
+                    sizes={bare ? "190px" : "220px"}
+                      className={`object-contain transition duration-200 ${
+                        bare ? `drop-shadow-[0_14px_22px_rgba(3,8,16,0.2)] ${bareLogoScale[logo.name] ?? ""}` : ""
+                      }`}
                     />
                   ) : null}
                 </div>
