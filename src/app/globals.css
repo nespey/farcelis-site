@@ -180,21 +180,16 @@ a {
     linear-gradient(180deg, rgba(255, 255, 255, 0.06), rgba(255, 255, 255, 0.03)),
     linear-gradient(135deg, rgba(97, 192, 215, 0.06), transparent 42%),
     rgba(12, 22, 35, 0.7);
-  border: 1px solid rgba(255, 255, 255, 0.09);
-  box-shadow:
-    0 28px 64px rgba(3, 8, 16, 0.34),
-    0 0 0 1px rgba(97, 192, 215, 0.04),
-    inset 0 1px 0 rgba(255, 255, 255, 0.06);
+  border: 1px solid transparent;
+  box-shadow: none;
 }
 
 .surface-light {
   background:
     linear-gradient(180deg, rgba(255, 255, 255, 0.06), rgba(255, 255, 255, 0.03)),
     linear-gradient(135deg, rgba(97, 192, 215, 0.08), transparent 40%);
-  border: 1px solid rgba(255, 255, 255, 0.08);
-  box-shadow:
-    0 22px 54px rgba(3, 8, 16, 0.22),
-    inset 0 1px 0 rgba(255, 255, 255, 0.08);
+  border: 1px solid transparent;
+  box-shadow: none;
 }
 
 .section-shell-light :is(h1, h2, h3, h4, .text-slate-950, .text-slate-900, .text-slate-700) {
@@ -206,7 +201,7 @@ a {
 }
 
 .section-shell-light :is(.border-slate-200, .border-slate-300, .border-cyan-200\/60, .border-\[\#2e7da4\]\/22, .border-\[\#c75d33\]\/18, .border-\[\#8d77ff\]\/18) {
-  border-color: rgba(255, 255, 255, 0.1) !important;
+  border-color: transparent !important;
 }
 
 .section-shell-light :is(.bg-white, .bg-cyan-50\/80, .bg-\[linear-gradient\(180deg\,\#fff7ef\,\#ffffff\)\], .bg-\[linear-gradient\(180deg\,\#eef7fb\,\#f8fcff\)\], .bg-\[linear-gradient\(180deg\,\#fff5ef\,\#fffaf7\)\], .bg-\[linear-gradient\(180deg\,\#f6f3ff\,\#fcfbff\)\]) {
@@ -214,6 +209,24 @@ a {
     linear-gradient(180deg, rgba(255, 255, 255, 0.07), rgba(255, 255, 255, 0.04)),
     linear-gradient(135deg, rgba(97, 192, 215, 0.06), transparent 42%),
     rgba(12, 22, 35, 0.5) !important;
+}
+
+main :is(
+  .border-white\/6,
+  .border-white\/7,
+  .border-white\/8,
+  .border-white\/10,
+  .border-white\/12,
+  .border-white\/16,
+  .border-slate-200,
+  .border-slate-200\/80,
+  .border-slate-300
+) {
+  border-color: transparent !important;
+}
+
+main :is(.border-t, .border-b, .border-y, .divide-y > :not([hidden]) ~ :not([hidden])) {
+  border-color: transparent !important;
 }
 
 .system-line {
