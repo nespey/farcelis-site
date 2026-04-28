@@ -8,7 +8,7 @@
   --color-ink-2: #0b1622;
   --color-paper: #f4f6f8;
   --color-paper-2: #e9eef3;
-  --color-text: #f7fafc;
+  --color-text: #e6edf3;
   --color-muted: #98a6b8;
   --color-body: #c7d0dc;
 }
@@ -47,7 +47,7 @@ body {
     );
   background-blend-mode: overlay;
   background-attachment: fixed;
-  color: var(--color-text);
+  color: #e6edf3;
 }
 
 h1,

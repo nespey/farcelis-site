@@ -31,7 +31,7 @@ export const metadata: Metadata = {
 };
 
 export const viewport: Viewport = {
-  themeColor: "#111827",
+  themeColor: "#070d12",
 };
 
 export default function RootLayout({
@@ -41,7 +41,7 @@ export default function RootLayout({
 }>) {
   return (
     <html lang="en" className={`${manrope.variable} h-full antialiased`}>
-      <body className="min-h-full bg-[#07111d] text-white">
+      <body className="min-h-full">
         <div className="relative min-h-full overflow-x-hidden">
           <Header />
           <main>{children}</main>

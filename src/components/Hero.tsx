@@ -2,8 +2,8 @@ import Link from "next/link";
 
 export function Hero() {
   return (
-    <section className="hero-surface relative min-h-[100svh] overflow-hidden bg-[linear-gradient(180deg,#020617_0%,#07111f_46%,#0b1523_100%)] px-4 pb-10 pt-20 sm:px-6 lg:px-12 lg:pb-12 lg:pt-24">
-      <div className="hero-grid pointer-events-none absolute inset-0 bg-[radial-gradient(circle_at_16%_18%,rgba(255,255,255,0.09),transparent_20%),radial-gradient(circle_at_78%_24%,rgba(20,74,106,0.34),transparent_26%),radial-gradient(circle_at_72%_70%,rgba(159,65,44,0.18),transparent_22%),linear-gradient(90deg,rgba(255,255,255,0.04)_1px,transparent_1px),linear-gradient(rgba(255,255,255,0.04)_1px,transparent_1px)] bg-[size:auto,auto,auto,64px_64px,64px_64px]" />
+    <section className="hero-surface relative min-h-[100svh] overflow-hidden bg-transparent px-4 pb-10 pt-20 sm:px-6 lg:px-12 lg:pb-12 lg:pt-24">
+      <div className="hero-grid pointer-events-none absolute inset-0 bg-[linear-gradient(90deg,rgba(255,255,255,0.035)_1px,transparent_1px),linear-gradient(rgba(255,255,255,0.035)_1px,transparent_1px)] bg-[size:64px_64px,64px_64px]" />
       <div className="hero-glow pointer-events-none absolute inset-y-0 right-[-8vw] w-[52vw] bg-[radial-gradient(circle_at_50%_30%,rgba(64,142,197,0.22),transparent_58%)] blur-3xl" />
 
       <div className="relative mx-auto grid min-h-[calc(100svh-8rem)] max-w-[1200px] items-center gap-10 lg:grid-cols-[minmax(0,0.8fr)_minmax(560px,1fr)] lg:gap-8">
