@@ -121,6 +121,11 @@ a {
   padding-bottom: 9rem;
 }
 
+.structured-section--showcase {
+  padding-top: 10rem;
+  padding-bottom: 9rem;
+}
+
 .structured-section--closing {
   padding-top: 8rem;
   padding-bottom: 8.5rem;
@@ -138,6 +143,45 @@ a {
   margin-right: auto;
   padding-left: 24px;
   padding-right: 24px;
+}
+
+.showcase-container {
+  max-width: 1400px;
+  margin-left: 8%;
+  margin-right: auto;
+  padding-left: 24px;
+  padding-right: 24px;
+}
+
+.dashboard-showcase :is(h1, h2, h3, h4, p, .eyebrow, .section-kicker) {
+  text-align: center;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+.dashboard-preview-glow {
+  position: relative;
+  isolation: isolate;
+}
+
+.dashboard-preview-glow::before {
+  content: "";
+  position: absolute;
+  inset: -28px -24px;
+  z-index: -1;
+  border-radius: 42px;
+  background:
+    radial-gradient(circle at 24% 18%, rgba(97, 192, 215, 0.2), transparent 36%),
+    radial-gradient(circle at 78% 28%, rgba(242, 139, 91, 0.16), transparent 40%),
+    linear-gradient(135deg, rgba(97, 192, 215, 0.08), rgba(255, 255, 255, 0.02));
+  filter: blur(12px);
+}
+
+.dashboard-preview-glow .workspace-preview {
+  box-shadow:
+    0 54px 140px rgba(3, 8, 16, 0.58),
+    0 0 72px rgba(97, 192, 215, 0.12),
+    inset 0 1px 0 rgba(255, 255, 255, 0.08);
 }
 
 .section-kicker {
@@ -228,6 +272,7 @@ a {
   }
 
   .structured-section--major,
+  .structured-section--showcase,
   .structured-section--closing {
     padding-top: 5rem;
     padding-bottom: 5rem;

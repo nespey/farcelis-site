@@ -112,39 +112,23 @@ export function HomeExperience() {
       </Reveal>
 
       <Reveal delayMs={150}>
-        <section className="structured-section structured-section--major section-shell-dark">
-          <div className="layout-container">
-            <div className="max-w-[1080px]">
-              <p className="section-kicker text-[color:var(--color-accent)]">One Flagship Pillar</p>
-              <h2 className="mt-5 max-w-[18ch] text-[clamp(2.2rem,4vw,4rem)] font-medium leading-[1.08] tracking-[-0.05em] text-white">
-                The Control Layer is one flagship Farcelis implementation, not the whole company.
+        <section className="structured-section structured-section--showcase section-shell-dark dashboard-showcase">
+          <div className="showcase-container">
+            <div className="mx-auto max-w-[880px]">
+              <p className="section-kicker text-[color:var(--color-accent)]">Feature Showcase</p>
+              <h2 className="mt-5 text-[clamp(2.2rem,4vw,4rem)] font-medium leading-[1.08] tracking-[-0.05em] text-white">
+                The Control Layer turns scattered execution into a live operating workspace.
               </h2>
-              <p className="mt-6 max-w-[760px] text-lg leading-8 text-slate-300">
+              <p className="mx-auto mt-6 max-w-[760px] text-lg leading-8 text-slate-300">
                 It is the operating frame Farcelis deploys when a business, team, or environment
                 needs one place for intake, routing, accountability, and intervention.
               </p>
-              <div className="mt-8 flex flex-col items-start gap-3 sm:flex-row">
-                <Link
-                  href="/control-layer"
-                  className="site-cta inline-flex min-h-12 items-center justify-center rounded-full bg-[linear-gradient(135deg,#61c0d7,#2e7da4)] px-6 py-3 text-sm font-semibold text-white hover:shadow-[0_20px_40px_rgba(46,125,164,0.28)]"
-                >
-                  Explore the Control Layer
-                </Link>
-                <Link
-                  href="/contact"
-                  className="site-cta inline-flex min-h-12 items-center justify-center rounded-full border border-white/12 bg-white/4 px-6 py-3 text-sm font-semibold text-white hover:border-white/24 hover:bg-white/8"
-                >
-                  Start a Strategy Call
-                </Link>
-              </div>
             </div>
           </div>
 
-          <div className="layout-container mt-10 space-y-5">
-              <IntegrationLogoLane />
-
-              <div className="surface-dark rounded-[28px] px-4 py-4">
-                <WorkspacePreview compact />
+          <div className="showcase-container mt-16 space-y-7 lg:mt-20">
+              <div className="dashboard-preview-glow">
+                <WorkspacePreview />
               </div>
 
               <IntegrationLogoLane reverse />
