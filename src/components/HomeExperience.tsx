@@ -183,7 +183,7 @@ export function HomeExperience() {
       </Reveal>
 
       <Reveal delayMs={270}>
-        <section className="structured-section structured-section--closing">
+        <section className="structured-section structured-section--closing closing-cta-section">
           <div className="layout-container">
             <div className="mx-auto max-w-[1200px]">
               <h2 className="mx-auto max-w-[1100px] text-center text-[clamp(1.8rem,3vw,3.05rem)] font-medium leading-[1.12] tracking-[-0.045em] text-white">
