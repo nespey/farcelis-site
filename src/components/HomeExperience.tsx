@@ -194,16 +194,15 @@ export function HomeExperience() {
       <Reveal delayMs={250}>
         <section className="structured-section section-shell-light">
           <div className="showcase-container">
-            <div className="max-w-[760px]">
-              <p className="section-kicker text-[#9f412c]">Selected environments and engagements</p>
-              <h2 className="mt-4 max-w-[24ch] text-[clamp(1.35rem,2vw,1.75rem)] font-[550] leading-[1.18] tracking-[-0.04em] text-slate-950">
-                Validation from operating environments where structure has to hold.
+            <div className="mx-auto max-w-[860px] text-center">
+              <h2 className="text-[clamp(1.45rem,2.15vw,1.95rem)] font-[550] leading-[1.18] tracking-[-0.04em] text-slate-950">
+                Validation comes from environments where structure has to hold.
               </h2>
-              <p className="mt-4 max-w-[680px] text-[0.95rem] leading-7 text-slate-600">
-                Real work across cybersecurity, operations, intelligence, and execution design.
+              <p className="mx-auto mt-5 max-w-[760px] text-base leading-8 text-slate-600">
+                Working inside real operations sharpens both sides. Systems get tested. Assumptions get broken. What holds becomes repeatable.
               </p>
             </div>
-            <div className="mt-8 opacity-80">
+            <div className="mt-12 opacity-80">
               <LogoMarquee logos={approvedLogos} dark={false} bare />
             </div>
           </div>
