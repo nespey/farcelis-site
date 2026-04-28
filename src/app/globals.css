@@ -337,6 +337,13 @@ a {
   margin-inline: 0;
 }
 
+.footer-column-heading {
+  width: 100%;
+  text-align: center;
+  margin-left: auto;
+  margin-right: auto;
+}
+
 .display-hero {
   max-width: 12.5ch;
   font-size: clamp(2.65rem, 4.4vw, 4rem);

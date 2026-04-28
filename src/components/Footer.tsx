@@ -42,9 +42,9 @@ export function Footer() {
           </div>
         </div>
 
-        <div>
-          <p className="eyebrow text-[color:var(--color-accent)]">Explore</p>
-          <div className="mx-auto mt-5 grid max-w-[280px] grid-cols-2 gap-x-8 gap-y-3 text-center text-sm leading-7 text-slate-300">
+        <div className="mx-auto w-full max-w-[320px]">
+          <p className="eyebrow footer-column-heading text-[color:var(--color-accent)]">Explore</p>
+          <div className="mt-5 grid w-full grid-cols-2 gap-x-8 gap-y-3 text-center text-sm leading-7 text-slate-300">
             <div className="grid gap-3">
               {exploreLeft.map((item) => (
                 <Link key={item.href} href={item.href} className="transition hover:text-white">
@@ -60,7 +60,7 @@ export function Footer() {
               ))}
             </div>
           </div>
-          <div className="mx-auto mt-6 grid max-w-[280px] grid-cols-2 gap-3">
+          <div className="mx-auto mt-6 grid w-full max-w-[280px] grid-cols-2 gap-3">
             {[
               {
                 src: "/images/certifications/sba-sdvosb.jpg",
@@ -89,9 +89,9 @@ export function Footer() {
           </div>
         </div>
 
-        <div>
-          <p className="eyebrow text-[color:var(--color-accent)]">Certifications</p>
-          <div className="mt-5 grid grid-cols-3 gap-3 sm:grid-cols-4">
+        <div className="mx-auto w-full max-w-[560px]">
+          <p className="eyebrow footer-column-heading text-[color:var(--color-accent)]">Certifications</p>
+          <div className="mt-5 grid w-full grid-cols-3 gap-3 sm:grid-cols-4">
             {certifications.map((badge) => (
               <div
                 key={badge.name}
