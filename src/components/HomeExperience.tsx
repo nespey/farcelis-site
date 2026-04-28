@@ -7,7 +7,7 @@ import { LogoMarquee } from "@/components/LogoMarquee";
 import { Reveal } from "@/components/Reveal";
 import { SystemFlowRail } from "@/components/SystemFlowRail";
 import { WorkspacePreview } from "@/components/WorkspacePreview";
-import { approvedLogos, services } from "@/lib/site-data";
+import { approvedLogos } from "@/lib/site-data";
 
 const systemModules = [
   {
@@ -28,11 +28,27 @@ const systemModules = [
   },
 ];
 
-const serviceFrames = [
-  "Flagship Control Layer implementations",
-  "Custom AI consulting and agents",
-  "Workflow automation grounded in operating logic",
-  "Enablement built for adoption and execution",
+const implementationSteps = [
+  {
+    number: "01",
+    title: "Control Layer Design",
+    description: "Map intake, routing, ownership, and visibility into one operating structure.",
+  },
+  {
+    number: "02",
+    title: "Systems & Agents",
+    description: "Deploy AI support where the work needs decisions, handoffs, and context preserved.",
+  },
+  {
+    number: "03",
+    title: "Workflow Automation",
+    description: "Connect tools and tasks so execution moves without creating new coordination drag.",
+  },
+  {
+    number: "04",
+    title: "Enablement",
+    description: "Train the operating rhythm so the structure holds under real pressure.",
+  },
 ];
 
 export function HomeExperience() {
@@ -69,34 +85,36 @@ export function HomeExperience() {
           <div className="layout-container">
             <div className="grid gap-10 lg:grid-cols-[minmax(0,0.72fr)_minmax(0,1.28fr)]">
               <div>
-                <p className="section-kicker text-[#9f412c]">Service Paths</p>
-                <h2 className="mt-5 max-w-[13ch] text-[clamp(1.75rem,3vw,2.7rem)] font-medium leading-[1.12] tracking-[-0.04em] text-slate-950">
-                  Service paths designed to move an operation from chaos into controlled execution.
+                <p className="section-kicker text-[#9f412c]">Implementation Path</p>
+                <h2 className="mt-5 max-w-[18ch] text-[clamp(1.75rem,3vw,2.7rem)] font-medium leading-[1.12] tracking-[-0.04em] text-slate-950">
+                  Structure doesn&apos;t get installed all at once. It gets built, layered, and enforced over time.
                 </h2>
+                <p className="mt-6 max-w-[460px] text-lg leading-8 text-slate-600">
+                  These are the paths that move operations from chaos into control.
+                </p>
               </div>
-              <div className="space-y-5">
-                {services.map((service, index) => (
+              <div className="relative">
+                <div className="absolute left-[1.42rem] top-7 hidden h-[calc(100%-3.5rem)] w-px bg-slate-300/80 sm:block" />
+                <div className="space-y-8">
+                {implementationSteps.map((step) => (
                   <div
-                    key={service.title}
-                    className={`rounded-[26px] border px-6 py-6 ${
-                      index === 1
-                        ? "border-[#2e7da4]/22 bg-[linear-gradient(180deg,#eef7fb,#f8fcff)]"
-                        : index === 2
-                          ? "border-[#c75d33]/18 bg-[linear-gradient(180deg,#fff5ef,#fffaf7)]"
-                          : index === 3
-                            ? "border-[#8d77ff]/18 bg-[linear-gradient(180deg,#f6f3ff,#fcfbff)]"
-                            : "border-slate-200 bg-white"
-                    }`}
+                    key={step.number}
+                    className="relative grid gap-4 border-b border-slate-300/70 pb-8 last:border-b-0 last:pb-0 sm:grid-cols-[3.2rem_minmax(0,1fr)]"
                   >
-                    <div className="text-sm font-semibold uppercase tracking-[0.18em] text-[#9f412c]">
-                      {serviceFrames[index] ?? "Service path"}
+                    <div className="relative z-10 flex h-12 w-12 items-center justify-center rounded-full border border-slate-300 bg-[#f5f0e8] text-sm font-semibold tracking-[0.12em] text-[#9f412c]">
+                      {step.number}
                     </div>
-                    <h3 className="mt-3 text-2xl font-semibold tracking-[-0.04em] text-slate-950">
-                      {service.title}
-                    </h3>
-                    <p className="mt-3 text-base leading-8 text-slate-600">{service.description}</p>
+                    <div className="pt-1">
+                      <h3 className="text-2xl font-semibold tracking-[-0.04em] text-slate-950">
+                        {step.title}
+                      </h3>
+                      <p className="mt-2 max-w-[620px] text-base leading-8 text-slate-600">
+                        {step.description}
+                      </p>
+                    </div>
                   </div>
                 ))}
+                </div>
               </div>
             </div>
           </div>
