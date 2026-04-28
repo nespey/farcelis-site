@@ -107,22 +107,19 @@ export function HomeExperience() {
             </div>
           </div>
 
-          <div className="showcase-container mt-16 space-y-7 lg:mt-20">
+          <div className="showcase-container mt-16 lg:mt-20">
               <div className="dashboard-preview-glow">
                 <WorkspacePreview />
               </div>
 
-              <IntegrationLogoLane reverse />
-
-              <div className="surface-dark rounded-[24px] px-6 py-4">
-                <div className="text-xs font-semibold uppercase tracking-[0.22em] text-[color:var(--color-accent)]">
-                  Control flow
-                </div>
-                <div className="mt-4 max-w-[900px]">
+              <div className="mt-8 space-y-3">
+                <IntegrationLogoLane reverse />
+                <div className="surface-dark px-1 py-1">
                   <SystemFlowRail steps={["Input", "Intake", "Route", "Execute", "Track", "Close"]} />
                 </div>
+                <IntegrationLogoLane />
               </div>
-          </div>
+            </div>
         </section>
       </Reveal>
 

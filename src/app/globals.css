@@ -739,6 +739,14 @@ main :is(.border-t, .border-b, .border-y, .divide-y > :not([hidden]) ~ :not([hid
   animation: sweep 5s ease-in-out infinite;
 }
 
+.system-flow-rail {
+  scrollbar-width: none;
+}
+
+.system-flow-rail::-webkit-scrollbar {
+  display: none;
+}
+
 @keyframes heroSignal {
   to {
     opacity: 1;
