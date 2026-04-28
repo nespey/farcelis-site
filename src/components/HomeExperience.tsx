@@ -44,7 +44,7 @@ export function HomeExperience() {
         <div className="section-inner relative grid gap-10 lg:min-h-[76svh] lg:grid-cols-[minmax(0,0.9fr)_minmax(0,1.1fr)] lg:items-center">
           <Reveal delayMs={30}>
             <div className="home-hero-copy max-w-[700px] text-left lg:col-start-2 lg:justify-self-end">
-              <p className="hero-brand-type eyebrow mx-0 text-left text-[0.9rem] tracking-[0.2em] text-[color:var(--color-accent)]">
+              <p className="hero-brand-type eyebrow mx-0 text-left text-[1rem] tracking-[0.2em] text-[color:var(--color-accent)]">
                 Farcelis AI Consulting LLC
               </p>
               <h1 className="mt-8 max-w-[680px] text-left font-medium text-white">
