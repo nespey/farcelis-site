@@ -9,22 +9,22 @@ import { SystemFlowRail } from "@/components/SystemFlowRail";
 import { WorkspacePreview } from "@/components/WorkspacePreview";
 import { approvedLogos, services } from "@/lib/site-data";
 
-const companyContexts = [
+const systemResponseCards = [
   {
-    label: "Founders and CEOs",
-    text: "When growth, visibility, and urgency stop fitting into the same operating frame.",
+    label: "Workflow",
+    text: "Intake, routing, and handoffs move through one operating path.",
   },
   {
-    label: "Businesses and enterprises",
-    text: "When tools multiply, handoffs break, and execution needs one controlled operating layer.",
+    label: "Execution",
+    text: "Owners, priorities, and next actions stay visible as work moves.",
   },
   {
-    label: "Government and education",
-    text: "When structure, accountability, and coordination have to hold under pressure.",
+    label: "Control",
+    text: "Leaders see drift early enough to intervene before it spreads.",
   },
   {
-    label: "Personal systems",
-    text: "When daily operations, finances, communication, and priorities need the same discipline as business systems.",
+    label: "Alignment",
+    text: "Teams, tools, and decisions stay connected to the same operating logic.",
   },
 ];
 
@@ -66,47 +66,27 @@ export function HomeExperience() {
 
       <Reveal delayMs={70}>
         <section className="structured-section section-shell-light">
-          <div className="layout-container grid gap-10 lg:grid-cols-[minmax(0,0.92fr)_minmax(0,1.08fr)]">
+          <div className="layout-container grid gap-12 lg:grid-cols-[minmax(0,0.4fr)_minmax(0,0.6fr)] lg:gap-[72px]">
             <div>
-            <p className="section-kicker text-[#9f412c]">Why Farcelis Exists</p>
-            <h2 className="mt-5 max-w-[14ch] text-[clamp(1.75rem,3vw,2.7rem)] font-medium leading-[1.12] tracking-[-0.04em] text-slate-950">
-              Most operating problems are not people problems. They are system failures hiding in plain sight.
-            </h2>
-              <p className="mt-6 max-w-[620px] text-base leading-8 text-slate-600">
-                When work is scattered across conversations, tools, and owners, leaders see the problem after it has already moved. Farcelis exists to create the layer where signals become action before execution breaks.
-              </p>
+              <p className="section-kicker text-[#9f412c]">Problem to system response</p>
+              <h2 className="mt-5 max-w-[16ch] text-[clamp(2rem,3vw,2.85rem)] font-medium leading-[1.08] tracking-[-0.045em] text-slate-950">
+                Operating problems are usually system failures hiding in plain sight.
+              </h2>
             </div>
-            <div className="grid gap-4 md:grid-cols-[minmax(0,1fr)_minmax(0,0.92fr)]">
-              <div className="rounded-[28px] border border-slate-200 bg-[linear-gradient(180deg,#fff7ef,#ffffff)] p-6 shadow-[0_20px_46px_rgba(15,23,42,0.08)]">
-                <div className="text-xs font-semibold uppercase tracking-[0.18em] text-[#9f412c]">
-                  Pressure points
+            <div className="grid gap-4 sm:grid-cols-2">
+              {systemResponseCards.map((item) => (
+                <div
+                  key={item.label}
+                  className="rounded-[24px] border border-slate-200 bg-white px-5 py-5 shadow-[0_18px_40px_rgba(15,23,42,0.06)]"
+                >
+                  <div className="text-xs font-semibold uppercase tracking-[0.18em] text-[#9f412c]">
+                    {item.label}
+                  </div>
+                  <div className="mt-4 text-[1.35rem] font-semibold tracking-[-0.04em] text-slate-950">
+                    {item.text}
+                  </div>
                 </div>
-                <div className="mt-4 space-y-4">
-                  {[
-                    "Work scatters across conversations, tools, and owners.",
-                    "Leadership sees the problem after it has already moved.",
-                    "More software increases motion without increasing control.",
-                  ].map((item) => (
-                    <div
-                      key={item}
-                      className="rounded-[18px] border border-slate-200 bg-white px-4 py-4 text-base font-medium leading-7 text-slate-700"
-                    >
-                      {item}
-                    </div>
-                  ))}
-                </div>
-              </div>
-              <div className="rounded-[28px] border border-slate-200 bg-white p-5 shadow-[0_20px_46px_rgba(15,23,42,0.08)]">
-                <div className="text-xs font-semibold uppercase tracking-[0.18em] text-[#9f412c]">
-                  Outside recognition
-                </div>
-                <div className="mt-4 text-[1.25rem] font-semibold tracking-[-0.04em] text-slate-950">
-                  Featured by Digital Reference among AI &amp; ML consultants making things happen in Tampa.
-                </div>
-                <p className="mt-4 text-base leading-7 text-slate-600">
-                  Farcelis is showing up in the AI and operational systems conversation with a real signal base, not a placeholder brand story.
-                </p>
-              </div>
+              ))}
             </div>
           </div>
         </section>
@@ -177,60 +157,6 @@ export function HomeExperience() {
                   <SystemFlowRail steps={["Input", "Intake", "Route", "Execute", "Track", "Close"]} />
                 </div>
               </div>
-          </div>
-        </section>
-      </Reveal>
-
-      <Reveal delayMs={190}>
-        <section className="structured-section structured-section--major section-shell-light">
-          <div className="layout-container grid gap-12 lg:grid-cols-[minmax(0,0.7fr)_minmax(0,1.3fr)]">
-            <div>
-              <p className="section-kicker text-[#9f412c]">What Farcelis Does</p>
-              <h2 className="mt-5 max-w-[13ch] text-[clamp(1.75rem,3vw,2.7rem)] font-medium leading-[1.12] tracking-[-0.04em] text-slate-950">
-                One company model across strategy, systems, execution, and where the work has to hold.
-              </h2>
-            </div>
-            <div className="grid gap-5">
-              <div className="rounded-[26px] border border-slate-200 bg-white px-6 py-6 shadow-[0_18px_40px_rgba(15,23,42,0.06)]">
-              {[
-                "AI consulting for operating environments that cannot tolerate blind spots.",
-                "Workflow architecture that keeps handoffs, reporting, and decision paths intact.",
-                "Execution systems that align people, priorities, and action under one structure.",
-                "Control Layer deployments when the organization needs a flagship operating frame.",
-              ].map((item, index) => (
-                <div
-                  key={item}
-                    className={`grid gap-4 py-5 ${index !== 3 ? "border-b border-slate-200" : ""} lg:grid-cols-[minmax(0,1fr)_280px]`}
-                >
-                    <div className="text-2xl font-medium tracking-[-0.04em] text-slate-900">{item}</div>
-                    <div className="text-sm leading-7 text-slate-500">
-                      {index === 0 && "Advisory, strategy, and implementation grounded in how execution really behaves."}
-                      {index === 1 && "Operational architecture that keeps routing, handoffs, and reporting from collapsing."}
-                      {index === 2 && "The structures, controls, and decision systems that keep teams moving cleanly."}
-                      {index === 3 && "Flagship deployments when the business needs a visible command layer."}
-                    </div>
-                </div>
-              ))}
-              </div>
-
-              <div className="grid gap-4 sm:grid-cols-2">
-                {companyContexts.map((item, index) => (
-                  <div
-                    key={item.label}
-                    className={`rounded-[22px] border px-5 py-5 ${
-                      index === 0 || index === 3
-                        ? "border-cyan-200/60 bg-cyan-50/80"
-                        : "border-slate-200 bg-white"
-                    }`}
-                  >
-                    <div className="text-xs font-semibold uppercase tracking-[0.18em] text-[#9f412c]">
-                      {item.label}
-                    </div>
-                    <div className="mt-3 text-base leading-7 text-slate-600">{item.text}</div>
-                  </div>
-                ))}
-              </div>
-            </div>
           </div>
         </section>
       </Reveal>
