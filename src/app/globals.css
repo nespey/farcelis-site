@@ -110,6 +110,48 @@ a {
   background: transparent;
 }
 
+.structured-section {
+  position: relative;
+  padding: 6.5rem 0;
+  background: transparent;
+}
+
+.structured-section :is(h1, h2, h3, h4, p, .eyebrow) {
+  text-align: left;
+  margin-left: 0;
+  margin-right: 0;
+}
+
+.section-container,
+.section-container-wide {
+  width: min(1200px, calc(100% - 3rem));
+  margin-left: auto;
+  margin-right: auto;
+}
+
+.section-container-wide {
+  width: min(1400px, calc(100% - 3rem));
+}
+
+.section-kicker {
+  font-size: 0.72rem;
+  font-weight: 700;
+  line-height: 1.4;
+  letter-spacing: 0.22em;
+  text-transform: uppercase;
+}
+
+@media (min-width: 1024px) {
+  .section-container,
+  .section-container-wide {
+    width: min(1200px, calc(100% - 6rem));
+  }
+
+  .section-container-wide {
+    width: min(1400px, calc(100% - 6rem));
+  }
+}
+
 .hero {
   min-height: calc(100svh - 5rem);
   display: flex;
@@ -185,6 +227,15 @@ a {
 }
 
 @media (max-width: 700px) {
+  .structured-section {
+    padding: 5rem 0;
+  }
+
+  .section-container,
+  .section-container-wide {
+    width: calc(100% - 3rem);
+  }
+
   .hero {
     min-height: calc(100svh - 5rem);
     padding: 3.5rem 0;

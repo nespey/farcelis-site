@@ -65,10 +65,10 @@ export function HomeExperience() {
       </section>
 
       <Reveal delayMs={70}>
-        <section className="section-shell section-shell-light pt-0">
-          <div className="section-inner">
+        <section className="structured-section section-shell-light pt-0">
+          <div className="section-container">
             <div>
-              <p className="eyebrow text-[#9f412c]">Selected environments and engagements</p>
+              <p className="section-kicker text-[#9f412c]">Selected environments and engagements</p>
               <h2 className="mt-4 max-w-[16ch] text-[clamp(1.75rem,2.7vw,2.5rem)] font-[550] tracking-[-0.06em] text-slate-950">
                 Proud to have worked with strong clients who sharpened our systems as we strengthened theirs.
               </h2>
@@ -84,11 +84,11 @@ export function HomeExperience() {
       </Reveal>
 
       <Reveal delayMs={110}>
-        <section className="section-shell section-shell-light section-bridge-light">
-          <div className="section-inner grid gap-10 lg:grid-cols-[minmax(0,0.92fr)_minmax(0,1.08fr)] lg:items-center">
+        <section className="structured-section section-shell-light section-bridge-light">
+          <div className="section-container grid gap-10 lg:grid-cols-[minmax(0,0.92fr)_minmax(0,1.08fr)] lg:items-center">
             <div>
-            <p className="eyebrow text-[#9f412c]">Why Farcelis Exists</p>
-            <h2 className="section-title mt-5 max-w-[14ch] text-slate-950">
+            <p className="section-kicker text-[#9f412c]">Why Farcelis Exists</p>
+            <h2 className="mt-5 max-w-[14ch] text-[clamp(1.75rem,3vw,2.7rem)] font-medium leading-[1.12] tracking-[-0.04em] text-slate-950">
               Most operating problems are not people problems. They are system failures hiding in plain sight.
             </h2>
               <p className="mt-6 max-w-[620px] text-base leading-8 text-slate-600">
@@ -132,18 +132,18 @@ export function HomeExperience() {
       </Reveal>
 
       <Reveal delayMs={150}>
-        <section className="section-shell section-shell-dark section-bridge-light">
-          <div className="section-inner">
-            <div className="mx-auto max-w-[1080px] text-center">
-              <p className="eyebrow text-[color:var(--color-accent)]">One Flagship Pillar</p>
-              <h2 className="mx-auto mt-5 max-w-[18ch] text-[clamp(2.2rem,4vw,4rem)] font-medium leading-[1.08] tracking-[-0.05em] text-white">
+        <section className="structured-section section-shell-dark section-bridge-light">
+          <div className="section-container">
+            <div className="max-w-[1080px]">
+              <p className="section-kicker text-[color:var(--color-accent)]">One Flagship Pillar</p>
+              <h2 className="mt-5 max-w-[18ch] text-[clamp(2.2rem,4vw,4rem)] font-medium leading-[1.08] tracking-[-0.05em] text-white">
                 The Control Layer is one flagship Farcelis implementation, not the whole company.
               </h2>
-              <p className="mx-auto mt-6 max-w-[760px] text-lg leading-8 text-slate-300">
+              <p className="mt-6 max-w-[760px] text-lg leading-8 text-slate-300">
                 It is the operating frame Farcelis deploys when a business, team, or environment
                 needs one place for intake, routing, accountability, and intervention.
               </p>
-              <div className="mt-8 flex flex-col items-center justify-center gap-3 sm:flex-row">
+              <div className="mt-8 flex flex-col items-start gap-3 sm:flex-row">
                 <Link
                   href="/control-layer"
                   className="site-cta inline-flex min-h-12 items-center justify-center rounded-full bg-[linear-gradient(135deg,#61c0d7,#2e7da4)] px-6 py-3 text-sm font-semibold text-white hover:shadow-[0_20px_40px_rgba(46,125,164,0.28)]"
@@ -158,8 +158,9 @@ export function HomeExperience() {
                 </Link>
               </div>
             </div>
+          </div>
 
-            <div className="mx-auto mt-10 w-full max-w-[1120px] space-y-5">
+          <div className="section-container-wide mt-10 space-y-5">
               <IntegrationLogoLane />
 
               <div className="surface-dark rounded-[28px] px-4 py-4">
@@ -172,21 +173,20 @@ export function HomeExperience() {
                 <div className="text-xs font-semibold uppercase tracking-[0.22em] text-[color:var(--color-accent)]">
                   Control flow
                 </div>
-                <div className="mx-auto mt-4 max-w-[900px]">
+                <div className="mt-4 max-w-[900px]">
                   <SystemFlowRail steps={["Input", "Intake", "Route", "Execute", "Track", "Close"]} />
                 </div>
               </div>
-            </div>
           </div>
         </section>
       </Reveal>
 
       <Reveal delayMs={190}>
-        <section className="section-shell section-shell-light">
-          <div className="section-inner grid gap-12 lg:grid-cols-[minmax(0,0.7fr)_minmax(0,1.3fr)]">
+        <section className="structured-section section-shell-light">
+          <div className="section-container grid gap-12 lg:grid-cols-[minmax(0,0.7fr)_minmax(0,1.3fr)]">
             <div>
-              <p className="eyebrow text-[#9f412c]">What Farcelis Does</p>
-              <h2 className="section-title mt-5 text-slate-950">
+              <p className="section-kicker text-[#9f412c]">What Farcelis Does</p>
+              <h2 className="mt-5 max-w-[13ch] text-[clamp(1.75rem,3vw,2.7rem)] font-medium leading-[1.12] tracking-[-0.04em] text-slate-950">
                 One company model across strategy, systems, execution, and where the work has to hold.
               </h2>
             </div>
@@ -236,12 +236,12 @@ export function HomeExperience() {
       </Reveal>
 
       <Reveal delayMs={230}>
-        <section className="section-shell section-shell-light">
-          <div className="section-inner">
+        <section className="structured-section section-shell-light">
+          <div className="section-container">
             <div className="grid gap-10 lg:grid-cols-[minmax(0,0.72fr)_minmax(0,1.28fr)]">
               <div>
-                <p className="eyebrow text-[#9f412c]">Service Paths</p>
-                <h2 className="section-title mt-5 text-slate-950">
+                <p className="section-kicker text-[#9f412c]">Service Paths</p>
+                <h2 className="mt-5 max-w-[13ch] text-[clamp(1.75rem,3vw,2.7rem)] font-medium leading-[1.12] tracking-[-0.04em] text-slate-950">
                   Service paths designed to move an operation from chaos into controlled execution.
                 </h2>
               </div>
@@ -275,16 +275,16 @@ export function HomeExperience() {
       </Reveal>
 
       <Reveal delayMs={270}>
-        <section className="section-shell py-10">
-          <div className="section-inner">
-            <div className="mx-auto max-w-[1200px] text-center">
-              <h2 className="mx-auto max-w-[1100px] text-[clamp(1.8rem,3vw,3.05rem)] font-medium leading-[1.12] tracking-[-0.045em] text-white">
+        <section className="structured-section py-20">
+          <div className="section-container">
+            <div className="max-w-[1200px]">
+              <h2 className="max-w-[1100px] text-[clamp(1.8rem,3vw,3.05rem)] font-medium leading-[1.12] tracking-[-0.045em] text-white">
                 If execution keeps slipping, the next move is not more software. It is a stronger system.
               </h2>
-              <p className="mx-auto mt-4 max-w-[1100px] text-[1.02rem] leading-8 text-slate-300">
+              <p className="mt-4 max-w-[900px] text-[1.02rem] leading-8 text-slate-300">
                 Farcelis builds the operating structure that keeps ownership, routing, and execution intact when the pressure increases.
               </p>
-              <div className="mt-4 flex flex-col items-center justify-center gap-3 sm:flex-row">
+              <div className="mt-6 flex flex-col items-start gap-3 sm:flex-row">
                 <Link
                   href="/contact"
                   className="site-cta inline-flex min-h-12 items-center justify-center rounded-full bg-[linear-gradient(135deg,#f19a6b,#c75d33)] px-6 py-3 text-sm font-semibold text-white hover:shadow-[0_20px_40px_rgba(199,93,51,0.3)]"
