@@ -55,9 +55,10 @@ export function HomeExperience() {
                   nothing else matters.
                 </span>
               </h1>
-              <p className="mx-auto mt-10 max-w-[620px] text-center text-[clamp(1.02rem,1.16vw,1.12rem)] leading-[1.68] text-white/70">
-                Farcelis builds AI-driven execution infrastructure that brings order to complexity,
-                aligns workflows, and gives companies control before growth turns unstable.
+              <p className="home-hero-subcopy mt-10 max-w-[680px] text-[clamp(0.98rem,1.1vw,1.08rem)] leading-[1.72] text-white/70">
+                <span className="block">Farcelis builds AI-driven execution infrastructure</span>
+                <span className="block">that brings order to complexity, aligns workflows, and</span>
+                <span className="block">gives companies control before growth turns unstable.</span>
               </p>
               <div className="mt-12 flex flex-col gap-4 sm:flex-row">
                 <Link
