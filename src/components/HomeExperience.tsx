@@ -47,11 +47,11 @@ export function HomeExperience() {
               <p className="hero-brand-type eyebrow mx-0 text-left text-[0.9rem] tracking-[0.2em] text-[color:var(--color-accent)]">
                 Farcelis AI Consulting LLC
               </p>
-              <h1 className="mt-8 max-w-[680px] text-left font-semibold text-white">
-                <span className="block text-[clamp(3rem,5.8vw,4.8rem)] leading-[0.95] tracking-[-0.065em]">
+              <h1 className="mt-8 max-w-[680px] text-left font-medium text-white">
+                <span className="block text-[clamp(2.85rem,5vw,4rem)] leading-[1.08] tracking-[-0.05em]">
                   If your systems can&apos;t hold,
                 </span>
-                <span className="mt-3 block text-[clamp(2.65rem,5vw,4.2rem)] leading-[0.98] tracking-[-0.06em]">
+                <span className="mt-2 block text-[clamp(2.5rem,4.4vw,3.65rem)] leading-[1.08] tracking-[-0.05em]">
                   nothing else matters.
                 </span>
               </h1>
