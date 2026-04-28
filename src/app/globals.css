@@ -176,18 +176,13 @@ a {
 }
 
 .surface-dark {
-  background:
-    linear-gradient(180deg, rgba(255, 255, 255, 0.06), rgba(255, 255, 255, 0.03)),
-    linear-gradient(135deg, rgba(97, 192, 215, 0.06), transparent 42%),
-    rgba(12, 22, 35, 0.7);
+  background: transparent;
   border: 1px solid transparent;
   box-shadow: none;
 }
 
 .surface-light {
-  background:
-    linear-gradient(180deg, rgba(255, 255, 255, 0.06), rgba(255, 255, 255, 0.03)),
-    linear-gradient(135deg, rgba(97, 192, 215, 0.08), transparent 40%);
+  background: transparent;
   border: 1px solid transparent;
   box-shadow: none;
 }
