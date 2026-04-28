@@ -45,7 +45,7 @@ export default function ControlLayerPage() {
               </h2>
             </div>
 
-            <div className="divide-y divide-white/8 border-y border-white/8">
+            <div className="grid gap-3">
               {[
                 "Creates one controlled intake path instead of scattered requests.",
                 "Holds ownership and routing logic in a visible operating frame.",
@@ -108,7 +108,7 @@ export default function ControlLayerPage() {
               </h2>
             </div>
 
-            <div className="divide-y divide-white/8 border-y border-white/8">
+            <div className="grid gap-3">
               {systemLayers.map((item, index) => (
                 <div
                   key={item}

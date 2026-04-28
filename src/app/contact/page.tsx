@@ -34,7 +34,7 @@ export default function ContactPage() {
               <div className="light-orbit left-[-4rem] top-[-2rem] h-36 w-36 bg-[radial-gradient(circle,rgba(97,192,215,0.2),transparent_70%)]" />
               <div className="light-orbit right-[-3rem] bottom-[-3rem] h-40 w-40 bg-[radial-gradient(circle,rgba(242,139,91,0.18),transparent_72%)]" />
               <p className="eyebrow text-[#9f412c]">Conversation Inputs</p>
-              <div className="mt-6 divide-y divide-slate-200 border-y border-slate-200">
+              <div className="mt-6 grid gap-3">
                 {prompts.map((prompt) => (
                   <div key={prompt} className="py-5 text-lg leading-8 text-slate-700">
                     {prompt}

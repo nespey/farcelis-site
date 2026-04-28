@@ -97,20 +97,7 @@ a {
 }
 
 .section-shell + .section-shell::before {
-  content: "";
-  position: absolute;
-  left: 50%;
-  top: 0;
-  height: 1px;
-  width: min(1200px, calc(100% - 2.5rem));
-  transform: translateX(-50%);
-  background: linear-gradient(
-    90deg,
-    transparent,
-    rgba(97, 192, 215, 0.1),
-    rgba(242, 139, 91, 0.08),
-    transparent
-  );
+  content: none;
 }
 
 .section-shell-dark {
@@ -531,13 +518,7 @@ a {
 
 .section-bridge-dark::after,
 .section-bridge-light::after {
-  content: "";
-  position: absolute;
-  left: 0;
-  right: 0;
-  bottom: -1px;
-  height: 110px;
-  pointer-events: none;
+  content: none;
 }
 
 .section-bridge-dark::after {

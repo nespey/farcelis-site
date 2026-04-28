@@ -49,7 +49,7 @@ export default function ResultsPage() {
 
       <Reveal delayMs={60}>
         <section className="section-shell section-shell-dark">
-          <div className="section-inner divide-y divide-white/8 border-y border-white/8">
+          <div className="section-inner grid gap-3">
             {proofFrames.map((item, index) => (
               <div
                 key={item}

@@ -50,7 +50,7 @@ export default function ServicesPage() {
               </div>
             </div>
 
-            <div className="divide-y divide-white/8 border-y border-white/8">
+            <div className="grid gap-3">
               {pathways.map((item, index) => (
                 <div
                   key={item}

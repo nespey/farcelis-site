@@ -71,15 +71,14 @@ export function Header() {
   return (
     <>
       <header
-        className={`fixed inset-x-0 top-0 z-50 border-b border-white/8 backdrop-blur-xl transition-transform duration-300 ${
+        className={`fixed inset-x-0 top-0 z-50 backdrop-blur-xl transition-transform duration-300 ${
           hidden ? "-translate-y-full" : "translate-y-0"
         } ${
           elevated
-            ? "bg-[rgba(5,10,14,0.72)] shadow-[0_18px_44px_rgba(3,8,16,0.28)]"
-            : "bg-[rgba(5,10,14,0.56)]"
+            ? "bg-[rgba(18,32,42,0.42)]"
+            : "bg-transparent"
         }`}
       >
-        <div className="pointer-events-none absolute inset-x-0 top-0 h-px bg-gradient-to-r from-transparent via-cyan-300/35 to-[color:var(--color-accent)]/40" />
         <div className="section-inner flex min-h-20 items-center justify-between gap-6">
           <Link href="/" className="flex items-center gap-3">
             <Image

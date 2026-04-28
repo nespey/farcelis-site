@@ -17,7 +17,7 @@ const exploreRight = [
 
 export function Footer() {
   return (
-    <footer className="relative border-t border-white/8 bg-transparent py-18 text-slate-300">
+    <footer className="relative bg-transparent py-18 text-slate-300">
       <div className="pointer-events-none absolute inset-0 bg-[radial-gradient(circle_at_12%_12%,rgba(242,139,91,0.08),transparent_24%),radial-gradient(circle_at_84%_18%,rgba(97,192,215,0.08),transparent_20%),linear-gradient(180deg,rgba(255,255,255,0.01),rgba(255,255,255,0))]" />
       <div className="section-inner relative grid gap-12 lg:grid-cols-[minmax(0,0.9fr)_minmax(0,0.44fr)_minmax(0,0.66fr)]">
         <div>
@@ -112,7 +112,7 @@ export function Footer() {
         </div>
       </div>
 
-      <div className="section-inner relative mt-12 flex flex-col gap-4 border-t border-white/8 pt-6 text-sm text-slate-400 lg:flex-row lg:items-center lg:justify-between">
+      <div className="section-inner relative mt-12 flex flex-col gap-4 pt-6 text-sm text-slate-400 lg:flex-row lg:items-center lg:justify-between">
         <div>© 2026 Farcelis AI Consulting. All rights reserved.</div>
         <div className="flex flex-wrap gap-x-4 gap-y-2">
           {site.legalLinks.map((item) => (
