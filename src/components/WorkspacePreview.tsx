@@ -167,7 +167,7 @@ export function WorkspacePreview({ compact = false }: WorkspacePreviewProps) {
   }, [current.accent]);
 
   return (
-    <div className={`hero-panel-shell relative mx-auto w-full ${compact ? "max-w-[1040px]" : "max-w-[1120px]"}`}>
+    <div className={`hero-panel-shell relative mx-auto w-full ${compact ? "max-w-[1040px]" : "max-w-[1400px]"}`}>
       <div
         className={`workspace-preview relative overflow-hidden rounded-[32px] border border-white/10 bg-[linear-gradient(180deg,rgba(255,255,255,0.08),rgba(255,255,255,0.03)),linear-gradient(135deg,rgba(22,33,47,0.98),rgba(9,16,26,0.97))] shadow-[0_42px_110px_rgba(3,8,16,0.45),inset_0_1px_0_rgba(255,255,255,0.08)] ${
           compact
