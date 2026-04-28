@@ -167,9 +167,9 @@ export function WorkspacePreview({ compact = false }: WorkspacePreviewProps) {
   }, [current.accent]);
 
   return (
-    <div className={`hero-panel-shell relative mx-auto w-full ${compact ? "max-w-[1040px]" : "max-w-[1400px]"}`}>
+    <div className={`hero-panel-shell relative mx-auto w-full ${compact ? "max-w-[1040px]" : "max-w-none"}`}>
       <div
-        className={`workspace-preview relative overflow-hidden rounded-[32px] border border-white/10 bg-[linear-gradient(180deg,rgba(255,255,255,0.08),rgba(255,255,255,0.03)),linear-gradient(135deg,rgba(22,33,47,0.98),rgba(9,16,26,0.97))] shadow-[0_42px_110px_rgba(3,8,16,0.45),inset_0_1px_0_rgba(255,255,255,0.08)] ${
+        className={`workspace-preview relative overflow-hidden rounded-[32px] border border-white/16 bg-[linear-gradient(180deg,rgba(255,255,255,0.12),rgba(255,255,255,0.035)),linear-gradient(135deg,rgba(27,40,56,0.99),rgba(7,13,22,0.99))] shadow-[0_56px_150px_rgba(3,8,16,0.68),0_0_84px_rgba(97,192,215,0.14),inset_0_1px_0_rgba(255,255,255,0.12)] ${
           compact
             ? "min-h-[820px] px-5 py-5 md:min-h-[720px] md:px-7 md:py-7 xl:min-h-[650px]"
             : "min-h-[900px] px-6 py-6 md:min-h-[780px] md:px-8 md:py-8 xl:min-h-[720px]"

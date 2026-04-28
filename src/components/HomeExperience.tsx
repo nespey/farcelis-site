@@ -106,8 +106,8 @@ export function HomeExperience() {
       <Reveal delayMs={150}>
         <section className="structured-section structured-section--showcase section-shell-dark dashboard-showcase">
           <div className="showcase-container">
-            <div className="mx-auto max-w-[1080px]">
-              <h2 className="text-[clamp(2.2rem,4vw,4rem)] font-medium leading-[1.08] tracking-[-0.05em] text-white">
+            <div className="mx-auto max-w-[1380px]">
+              <h2 className="text-[clamp(2.1rem,3.55vw,3.7rem)] font-medium leading-[1.08] tracking-[-0.05em] text-white">
                 The Farcelis Control Layer<span className="align-super text-[0.28em] tracking-normal">TM</span> turns scattered execution
                 <br />
                 into a live operating workspace.
