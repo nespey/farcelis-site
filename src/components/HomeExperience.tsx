@@ -165,7 +165,7 @@ export function HomeExperience() {
 
       <Reveal delayMs={250}>
         <section className="structured-section section-shell-light">
-          <div className="layout-container">
+          <div className="showcase-container">
             <div className="max-w-[760px]">
               <p className="section-kicker text-[#9f412c]">Selected environments and engagements</p>
               <h2 className="mt-4 max-w-[24ch] text-[clamp(1.35rem,2vw,1.75rem)] font-[550] leading-[1.18] tracking-[-0.04em] text-slate-950">

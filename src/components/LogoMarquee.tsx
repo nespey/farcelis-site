@@ -16,25 +16,29 @@ export function LogoMarquee({ logos, dark = true, bare = false }: LogoMarqueePro
 
   return (
     <div
-      className={`${bare ? "relative overflow-hidden py-3" : `logo-marquee-shell ${dark ? "" : "light"} p-4 sm:p-5`}`}
+      className={`${bare ? "relative overflow-hidden py-2" : `logo-marquee-shell ${dark ? "" : "light"} p-4 sm:p-5`}`}
     >
-      <div
-        className={`pointer-events-none absolute inset-y-0 left-0 z-10 w-16 ${
-          dark
-            ? "bg-gradient-to-r from-[#06111b] to-transparent"
-            : "bg-gradient-to-r from-[#f8fafc] to-transparent"
-        }`}
-      />
-      <div
-        className={`pointer-events-none absolute inset-y-0 right-0 z-10 w-16 ${
-          dark
-            ? "bg-gradient-to-l from-[#06111b] to-transparent"
-            : "bg-gradient-to-l from-[#f8fafc] to-transparent"
-        }`}
-      />
+      {!bare ? (
+        <>
+          <div
+            className={`pointer-events-none absolute inset-y-0 left-0 z-10 w-16 ${
+              dark
+                ? "bg-gradient-to-r from-[#06111b] to-transparent"
+                : "bg-gradient-to-r from-[#f8fafc] to-transparent"
+            }`}
+          />
+          <div
+            className={`pointer-events-none absolute inset-y-0 right-0 z-10 w-16 ${
+              dark
+                ? "bg-gradient-to-l from-[#06111b] to-transparent"
+                : "bg-gradient-to-l from-[#f8fafc] to-transparent"
+            }`}
+          />
+        </>
+      ) : null}
 
       <div className="logo-marquee-viewport relative overflow-hidden">
-        <div className="logo-marquee-track flex w-max gap-10 pr-10">
+        <div className={`logo-marquee-track flex w-max ${bare ? "gap-6 pr-6" : "gap-10 pr-10"}`}>
           {renderLogos.map((logo, index) => {
           const base = dark
             ? "border-white/8 bg-white/[0.04]"
@@ -46,18 +50,18 @@ export function LogoMarquee({ logos, dark = true, bare = false }: LogoMarqueePro
             <div
               className={`logo-rail-tile hover-lift flex items-center justify-center ${
                 bare
-                  ? "min-h-[82px] min-w-[210px] px-4 py-4"
+                  ? "min-h-[112px] min-w-[190px] px-3 py-3"
                   : `min-h-[122px] min-w-[248px] rounded-[24px] border px-8 py-7 ${base}`
               }`}
             >
-              <div className={`relative w-full ${bare ? "h-[52px]" : "h-[52px]"}`}>
+              <div className={`relative w-full ${bare ? "h-[92px]" : "h-[52px]"}`}>
                 {logo.logo ? (
                   <Image
                     src={logo.logo}
                     alt={logo.name}
                     fill
-                    sizes={bare ? "180px" : "220px"}
-                    className={`object-contain transition duration-200 ${bare ? "drop-shadow-[0_10px_24px_rgba(15,23,42,0.08)]" : ""}`}
+                    sizes={bare ? "190px" : "220px"}
+                    className={`object-contain transition duration-200 ${bare ? "drop-shadow-[0_14px_22px_rgba(3,8,16,0.2)]" : ""}`}
                   />
                 ) : null}
               </div>
