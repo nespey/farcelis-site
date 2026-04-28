@@ -142,7 +142,7 @@ a {
   min-height: calc(100svh - 5rem);
   display: flex;
   align-items: center;
-  background: linear-gradient(135deg, rgba(47, 79, 95, 0.36), rgba(15, 42, 56, 0.16));
+  background: transparent;
   padding: 4rem 0;
 }
 
