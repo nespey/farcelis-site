@@ -66,25 +66,6 @@ export function HomeExperience() {
 
       <Reveal delayMs={70}>
         <section className="structured-section section-shell-light">
-          <div className="layout-container">
-            <div>
-              <p className="section-kicker text-[#9f412c]">Selected environments and engagements</p>
-              <h2 className="mt-4 max-w-[16ch] text-[clamp(1.75rem,2.7vw,2.5rem)] font-[550] tracking-[-0.06em] text-slate-950">
-                Proud to have worked with strong clients who sharpened our systems as we strengthened theirs.
-              </h2>
-              <p className="mt-4 max-w-[760px] text-[0.98rem] leading-7 text-slate-600">
-                Real operating environments across cybersecurity, operations, intelligence, and execution design.
-              </p>
-            </div>
-            <div className="mt-10">
-              <LogoMarquee logos={approvedLogos} dark={false} bare />
-            </div>
-          </div>
-        </section>
-      </Reveal>
-
-      <Reveal delayMs={110}>
-        <section className="structured-section section-shell-light">
           <div className="layout-container grid gap-10 lg:grid-cols-[minmax(0,0.92fr)_minmax(0,1.08fr)]">
             <div>
             <p className="section-kicker text-[#9f412c]">Why Farcelis Exists</p>
@@ -126,6 +107,25 @@ export function HomeExperience() {
                   Farcelis is showing up in the AI and operational systems conversation with a real signal base, not a placeholder brand story.
                 </p>
               </div>
+            </div>
+          </div>
+        </section>
+      </Reveal>
+
+      <Reveal delayMs={110}>
+        <section className="structured-section section-shell-light">
+          <div className="layout-container">
+            <div className="max-w-[760px]">
+              <p className="section-kicker text-[#9f412c]">Selected environments and engagements</p>
+              <h2 className="mt-4 max-w-[24ch] text-[clamp(1.35rem,2vw,1.75rem)] font-[550] leading-[1.18] tracking-[-0.04em] text-slate-950">
+                Validation from operating environments where structure has to hold.
+              </h2>
+              <p className="mt-4 max-w-[680px] text-[0.95rem] leading-7 text-slate-600">
+                Real work across cybersecurity, operations, intelligence, and execution design.
+              </p>
+            </div>
+            <div className="mt-8 opacity-80">
+              <LogoMarquee logos={approvedLogos} dark={false} bare />
             </div>
           </div>
         </section>
