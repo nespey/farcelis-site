@@ -92,25 +92,6 @@ export function HomeExperience() {
         </section>
       </Reveal>
 
-      <Reveal delayMs={110}>
-        <section className="structured-section section-shell-light">
-          <div className="layout-container">
-            <div className="max-w-[760px]">
-              <p className="section-kicker text-[#9f412c]">Selected environments and engagements</p>
-              <h2 className="mt-4 max-w-[24ch] text-[clamp(1.35rem,2vw,1.75rem)] font-[550] leading-[1.18] tracking-[-0.04em] text-slate-950">
-                Validation from operating environments where structure has to hold.
-              </h2>
-              <p className="mt-4 max-w-[680px] text-[0.95rem] leading-7 text-slate-600">
-                Real work across cybersecurity, operations, intelligence, and execution design.
-              </p>
-            </div>
-            <div className="mt-8 opacity-80">
-              <LogoMarquee logos={approvedLogos} dark={false} bare />
-            </div>
-          </div>
-        </section>
-      </Reveal>
-
       <Reveal delayMs={150}>
         <section className="structured-section structured-section--showcase section-shell-dark dashboard-showcase">
           <div className="showcase-container">
@@ -179,6 +160,25 @@ export function HomeExperience() {
                   </div>
                 ))}
               </div>
+            </div>
+          </div>
+        </section>
+      </Reveal>
+
+      <Reveal delayMs={250}>
+        <section className="structured-section section-shell-light">
+          <div className="layout-container">
+            <div className="max-w-[760px]">
+              <p className="section-kicker text-[#9f412c]">Selected environments and engagements</p>
+              <h2 className="mt-4 max-w-[24ch] text-[clamp(1.35rem,2vw,1.75rem)] font-[550] leading-[1.18] tracking-[-0.04em] text-slate-950">
+                Validation from operating environments where structure has to hold.
+              </h2>
+              <p className="mt-4 max-w-[680px] text-[0.95rem] leading-7 text-slate-600">
+                Real work across cybersecurity, operations, intelligence, and execution design.
+              </p>
+            </div>
+            <div className="mt-8 opacity-80">
+              <LogoMarquee logos={approvedLogos} dark={false} bare />
             </div>
           </div>
         </section>
