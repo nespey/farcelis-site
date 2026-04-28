@@ -42,9 +42,9 @@ export function Footer() {
           </div>
         </div>
 
-        <div className="mx-auto w-full max-w-[320px]">
+        <div className="mx-auto w-full max-w-[280px]">
           <p className="eyebrow footer-column-heading text-[color:var(--color-accent)]">Explore</p>
-          <div className="mt-5 grid w-full grid-cols-2 gap-x-8 gap-y-3 text-center text-sm leading-7 text-slate-300">
+          <div className="mt-5 grid w-full grid-cols-2 gap-x-4 gap-y-3 text-center text-sm leading-7 text-slate-300">
             <div className="grid gap-3">
               {exploreLeft.map((item) => (
                 <Link key={item.href} href={item.href} className="transition hover:text-white">
@@ -60,7 +60,7 @@ export function Footer() {
               ))}
             </div>
           </div>
-          <div className="mx-auto mt-6 grid w-full max-w-[280px] grid-cols-2 gap-3">
+          <div className="mt-6 grid w-full grid-cols-2 gap-3">
             {[
               {
                 src: "/images/certifications/sba-sdvosb.jpg",
