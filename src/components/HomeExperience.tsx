@@ -44,18 +44,18 @@ export function HomeExperience() {
         <div className="section-inner relative grid gap-10 lg:min-h-[76svh] lg:grid-cols-[minmax(0,0.9fr)_minmax(0,1.1fr)] lg:items-center">
           <Reveal delayMs={30}>
             <div className="home-hero-copy max-w-[700px] text-left lg:col-start-2 lg:justify-self-end">
-              <p className="eyebrow mx-0 text-left text-[0.82rem] tracking-[0.18em] text-[color:var(--color-accent)]">
+              <p className="hero-brand-type eyebrow mx-0 text-left text-[0.9rem] tracking-[0.2em] text-[color:var(--color-accent)]">
                 Farcelis AI Consulting LLC
               </p>
-              <h1 className="hero-brand-type mt-8 max-w-[680px] text-white">
-                <span className="block text-[clamp(3.15rem,6vw,5.1rem)] leading-[0.95] tracking-[-0.035em]">
+              <h1 className="mt-8 max-w-[680px] text-left font-semibold text-white">
+                <span className="block text-[clamp(3rem,5.8vw,4.8rem)] leading-[0.95] tracking-[-0.065em]">
                   If your systems can&apos;t hold,
                 </span>
-                <span className="mt-3 block text-[clamp(2.75rem,5.1vw,4.45rem)] leading-[0.98] tracking-[-0.025em]">
+                <span className="mt-3 block text-[clamp(2.65rem,5vw,4.2rem)] leading-[0.98] tracking-[-0.06em]">
                   nothing else matters.
                 </span>
               </h1>
-              <p className="hero-brand-type mt-10 max-w-[660px] text-[clamp(1.2rem,1.65vw,1.5rem)] leading-[1.55] tracking-[0.01em] text-white/74">
+              <p className="mt-10 max-w-[660px] text-left text-[clamp(1.14rem,1.35vw,1.28rem)] leading-[1.6] text-white/74">
                 Farcelis builds AI-driven execution infrastructure that brings order to complexity,
                 aligns workflows, and gives companies control before growth turns unstable.
               </p>
