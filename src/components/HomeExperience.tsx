@@ -186,10 +186,10 @@ export function HomeExperience() {
         <section className="structured-section structured-section--closing closing-cta-section">
           <div className="w-full px-6 lg:px-12">
             <div className="w-full">
-              <h2 className="mx-auto max-w-[1040px] text-center text-[clamp(1.65rem,2.45vw,2.45rem)] font-medium leading-[1.14] tracking-[-0.04em] text-white">
+              <h2 className="mx-auto max-w-none text-center text-[clamp(1.5rem,2.1vw,2.05rem)] font-medium leading-[1.12] tracking-[-0.04em] text-white">
                 If execution keeps slipping, the next move is not more software. It is a stronger system.
               </h2>
-              <p className="mx-auto mt-5 max-w-[940px] text-center text-[clamp(1.08rem,1.35vw,1.25rem)] leading-8 text-slate-300">
+              <p className="mx-auto mt-5 max-w-none text-center text-[clamp(0.98rem,1.08vw,1.08rem)] leading-7 text-slate-300">
                 Farcelis builds the operating structure that keeps ownership, routing, and execution intact when the pressure increases.
               </p>
               <div className="closing-cta-actions mt-6 flex flex-col items-center justify-center gap-3 sm:flex-row">
