@@ -150,36 +150,26 @@ export function HomeExperience() {
       </Reveal>
 
       <section className="structured-section system-compact-section section-shell-dark execution-layer-section">
-        <div className="execution-cascade mx-auto w-full max-w-[1280px] px-[clamp(24px,5vw,72px)]">
-          <div className="execution-cascade-header">
+        <div className="execution-outcome mx-auto w-full px-[clamp(24px,5vw,72px)]">
+          <div className="execution-outcome-header">
             <p className="section-kicker text-[#f28b5b]">Execution Layer</p>
             <h2>
-              Where structure shows up
+              What changes when this works
             </h2>
             <p>
-              Once the system is in place, execution becomes consistent across every surface.
+              Work stops resetting. It <span>starts compounding</span>.
             </p>
           </div>
 
-          <div className="execution-cascade-body">
-            <div className="execution-cascade-column execution-cascade-left">
-              <p>Content starts <span>getting used</span> instead of rewritten.</p>
-              <p>Websites and platforms start supporting how work actually moves.</p>
-              <p>Internal workflows stop breaking between teams.</p>
-              <p>Outputs stay aligned instead of drifting apart.</p>
-            </div>
-            <div className="execution-cascade-axis" aria-hidden="true" />
-            <div className="execution-cascade-column execution-cascade-right">
-              <p>Search and distribution begin compounding instead of resetting.</p>
-              <p>Portfolios and presence begin reflecting real capability.</p>
-              <p>Decisions carry forward instead of restarting.</p>
-              <p>Execution becomes predictable instead of reactive.</p>
-            </div>
+          <div className="execution-outcome-body">
+            <p>Work stops restarting every time something changes.</p>
+            <p>Decisions carry forward instead of getting lost.</p>
+            <p>Execution moves without constant coordination.</p>
+            <p>The business starts operating as a system.</p>
           </div>
 
-          <div className="execution-cascade-anchor">
-            <p>The system doesn’t just organize work.</p>
-            <p>It changes how work shows up everywhere.</p>
+          <div className="execution-outcome-anchor">
+            <p>Everything starts working together.</p>
           </div>
         </div>
       </section>
