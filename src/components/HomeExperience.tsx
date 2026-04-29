@@ -9,25 +9,6 @@ import { SystemFlowRail } from "@/components/SystemFlowRail";
 import { WorkspacePreview } from "@/components/WorkspacePreview";
 import { approvedLogos } from "@/lib/site-data";
 
-const executionOutputs = [
-  {
-    label: "Content",
-    text: "Articles, blogs, resumes, and narratives that actually get used.",
-  },
-  {
-    label: "Visibility",
-    text: "Search, social, and distribution that compound instead of reset.",
-  },
-  {
-    label: "Platforms",
-    text: "Websites, systems, and code that support how work actually moves.",
-  },
-  {
-    label: "Identity",
-    text: "Portfolios and digital presence that reflect real capability.",
-  },
-];
-
 export function HomeExperience() {
   return (
     <div className="relative overflow-hidden">
@@ -169,28 +150,31 @@ export function HomeExperience() {
       </Reveal>
 
       <section className="structured-section system-compact-section section-shell-dark execution-layer-section">
-        <div className="mx-auto w-full max-w-[1200px] px-[clamp(24px,5vw,72px)]">
-          <div className="max-w-[620px]">
+        <div className="execution-cascade mx-auto w-full max-w-[880px] px-[clamp(24px,5vw,72px)]">
+          <div className="execution-cascade-header">
             <p className="section-kicker text-[#f28b5b]">Execution Layer</p>
-            <h2 className="mt-4 text-[clamp(1.75rem,2.05vw,2rem)] font-medium leading-[1.16] tracking-[-0.04em] text-white">
+            <h2>
               Where structure shows up
             </h2>
-            <p className="mt-3 text-[clamp(1rem,1.08vw,1.125rem)] leading-7 text-slate-300">
+            <p>
               Once the system is in place, execution becomes consistent across every surface.
             </p>
           </div>
 
-          <div className="mt-10 grid gap-x-16 gap-y-8 md:grid-cols-2">
-            {executionOutputs.map((item) => (
-              <div key={item.label}>
-                <div className="text-[clamp(0.875rem,1vw,1rem)] font-semibold tracking-[0.08em] text-slate-400">
-                  {item.label}
-                </div>
-                <p className="mt-1 max-w-[460px] text-[clamp(1rem,1.08vw,1.125rem)] leading-7 text-slate-100">
-                  {item.text}
-                </p>
-              </div>
-            ))}
+          <div className="execution-cascade-body">
+            <p>Content starts getting used instead of rewritten.</p>
+            <p>Search and distribution begin compounding instead of resetting.</p>
+            <p>Websites and platforms start supporting how work actually moves.</p>
+            <p>Portfolios and presence begin reflecting real capability.</p>
+            <p>Internal workflows stop breaking between teams.</p>
+            <p>Decisions carry forward instead of restarting.</p>
+            <p>Outputs stay aligned instead of drifting apart.</p>
+            <p>Execution becomes predictable instead of reactive.</p>
+          </div>
+
+          <div className="execution-cascade-anchor">
+            <p>The system doesn’t just organize work.</p>
+            <p>It changes how work shows up everywhere.</p>
           </div>
         </div>
       </section>

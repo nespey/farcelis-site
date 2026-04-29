@@ -521,6 +521,63 @@ a {
   margin-right: auto;
 }
 
+.execution-layer-section .execution-cascade :is(h2, p) {
+  text-align: center;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+.execution-cascade-header {
+  text-align: center;
+}
+
+.execution-cascade-header h2 {
+  margin-top: 1rem;
+  font-size: clamp(1.75rem, 2.05vw, 2rem);
+  font-weight: 500;
+  line-height: 1.16;
+  letter-spacing: -0.04em;
+  color: #ffffff;
+}
+
+.execution-cascade-header p:not(.section-kicker) {
+  max-width: 650px;
+  margin-top: 0.75rem;
+  font-size: clamp(1rem, 1.08vw, 1.125rem);
+  line-height: 1.45;
+  color: #cbd5df;
+}
+
+.execution-cascade-body {
+  margin-top: clamp(2.5rem, 4vw, 3.5rem);
+}
+
+.execution-cascade-body p {
+  font-size: clamp(1rem, 1.12vw, 1.125rem);
+  line-height: 1.3;
+  color: #f1f6f9;
+}
+
+.execution-cascade-body p + p {
+  margin-top: 1.05rem;
+}
+
+.execution-cascade-anchor {
+  margin-top: clamp(2.9rem, 4.6vw, 4rem);
+}
+
+.execution-cascade-anchor p {
+  font-size: clamp(1.14rem, 1.35vw, 1.35rem);
+  font-weight: 500;
+  line-height: 1.25;
+  letter-spacing: -0.035em;
+  color: #ffffff;
+}
+
+.execution-cascade-anchor p + p {
+  margin-top: 0.35rem;
+}
+
 .dashboard-preview-glow {
   position: relative;
   isolation: isolate;
