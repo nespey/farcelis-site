@@ -83,6 +83,12 @@ main p {
   text-align: left;
 }
 
+main > section {
+  border-top: 0 !important;
+  border-bottom: 0 !important;
+  outline: 0;
+}
+
 a {
   text-decoration: none;
 }
@@ -193,7 +199,7 @@ a {
   align-items: center;
   gap: clamp(3rem, 6vw, 7rem);
   padding: clamp(5.5rem, 8vw, 8rem) clamp(24px, 5vw, 72px);
-  background: linear-gradient(180deg, rgba(4, 13, 20, 0.18), rgba(4, 13, 20, 0.3));
+  background: transparent;
 }
 
 .system-hook-left {
