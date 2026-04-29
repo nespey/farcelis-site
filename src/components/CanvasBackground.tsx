@@ -16,11 +16,16 @@ type FlowPath = {
   alpha: number;
   speed: number;
   phase: number;
-  driftAmplitude: number;
+  basePosition: number;
+  depthFactor: number;
   driftSpeed: number;
-  waveAmplitude: number;
-  waveFrequency: number;
+  driftPhase: number;
+  noiseFrequency: number;
+  curveFrequency: number;
+  curveAmplitude: number;
   weavePhase: number;
+  blur: number;
+  glow: number;
 };
 
 type RenderedPath = {
@@ -79,9 +84,11 @@ const strandNoise = (seed: number) => {
   return value - Math.floor(value);
 };
 
+const lerp = (start: number, end: number, progress: number) => start + (end - start) * progress;
+
 const buildSpinePoints = (width: number, viewportHeight: number, virtualHeight: number) => {
   const points: Point[] = [];
-  let y = viewportHeight * 0.32;
+  let y = viewportHeight * 0.18;
   let sweepRight = true;
   let sweepIndex = 0;
 
@@ -93,7 +100,7 @@ const buildSpinePoints = (width: number, viewportHeight: number, virtualHeight: 
       y: y + verticalVariance,
     });
 
-    y += viewportHeight * (sweepIndex === 0 ? 0.4 : 0.58 + (sweepIndex % 3) * 0.045);
+    y += viewportHeight * (sweepIndex === 0 ? 0.48 : 0.58 + (sweepIndex % 3) * 0.045);
     sweepRight = !sweepRight;
     sweepIndex += 1;
   }
@@ -137,86 +144,75 @@ const tangentAt = (samples: Point[], index: number): Point => {
 
 const buildPath = (
   pathIndex: number,
-  pathCount: number,
+  _pathCount: number,
   width: number,
   viewportHeight: number,
   virtualHeight: number,
   spineSamples: Point[],
 ): FlowPath => {
-  const centerIndex = (pathCount - 1) / 2;
-  const strandPosition = pathIndex - centerIndex;
-  const normalizedPosition = centerIndex === 0 ? 0 : strandPosition / centerIndex;
-  const clusterBias = Math.sign(normalizedPosition) * Math.pow(Math.abs(normalizedPosition), 0.74);
   const seed = pathIndex + 1;
-  const looseJitter = (strandNoise(seed * 2.7) - 0.5) * 0.34;
-  const clusteredPosition = clamp(clusterBias + looseJitter, -1.12, 1.12);
-  const topSpread = viewportHeight * (0.14 + strandNoise(seed * 1.9) * 0.085);
-  const lowerSpread = viewportHeight * (0.052 + strandNoise(seed * 6.6) * 0.018);
-  const phase = pathIndex * 0.71;
-  const verticalLag = viewportHeight * ((strandNoise(seed * 4.1) - 0.5) * 0.06);
-  const curvatureDrift = viewportHeight * (0.018 + strandNoise(seed * 3.3) * 0.018);
-  const samples = spineSamples.map((point, sampleIndex) => {
-    const progress = clamp((point.y + viewportHeight * 0.2) / virtualHeight, 0, 1);
-    const convergence = 1 - progress * 0.52;
-    const spread = lowerSpread + topSpread * convergence;
-    const normal = normalAt(spineSamples, sampleIndex);
-    const tangent = tangentAt(spineSamples, sampleIndex);
-    const microDrift =
-      Math.sin(sampleIndex * 0.041 + phase) * curvatureDrift * (0.5 + convergence * 0.5) +
-      Math.cos(sampleIndex * 0.017 + phase * 1.4) * width * 0.0042 * (0.45 + convergence * 0.55);
-    const crossingWeave =
-      Math.sin(progress * Math.PI * (2.4 + strandNoise(seed * 8.7) * 1.5) + phase * 1.8) *
-      spread *
-      0.11;
-    const crossOffset = clusteredPosition * spread + microDrift + crossingWeave;
-    const alongOffset =
-      verticalLag * (0.35 + convergence * 0.65) +
-      Math.sin(sampleIndex * 0.029 + phase * 1.7) * viewportHeight * 0.016 * (0.45 + convergence * 0.55);
-
-    return {
-      x: point.x + normal.x * crossOffset + tangent.x * alongOffset,
-      y: point.y + normal.y * crossOffset + tangent.y * alongOffset,
-    };
-  });
 
   let length = 0;
-  for (let index = 1; index < samples.length; index += 1) {
-    length += distance(samples[index - 1]!, samples[index]!);
+  for (let index = 1; index < spineSamples.length; index += 1) {
+    length += distance(spineSamples[index - 1]!, spineSamples[index]!);
   }
+
+  const depthFactor = strandNoise(seed * 5.9);
 
   return {
     color: palette[pathIndex % palette.length]!,
-    points: samples,
-    samples,
+    points: spineSamples,
+    samples: spineSamples,
     length,
-    width: 1.1 + strandNoise(seed * 5.9) * 0.9,
-    alpha: 0.13 + strandNoise(seed * 7.1) * 0.12,
-    speed: 0.017 + pathIndex * 0.0015,
-    phase: pathIndex * 0.091,
-    driftAmplitude: viewportHeight * (0.008 + strandNoise(seed * 9.3) * 0.014),
-    driftSpeed: 0.00018 + strandNoise(seed * 10.1) * 0.00012,
-    waveAmplitude: viewportHeight * (0.007 + strandNoise(seed * 11.7) * 0.011),
-    waveFrequency: 0.024 + strandNoise(seed * 12.4) * 0.025,
+    width: lerp(0.5, 2, depthFactor),
+    alpha: lerp(0.06, 0.26, depthFactor),
+    speed: 0.015 + strandNoise(seed * 7.1) * 0.01,
+    phase: strandNoise(seed * 8.2),
+    basePosition: strandNoise(seed * 9.3) * 2 - 1,
+    depthFactor,
+    driftSpeed: 0.00012 + strandNoise(seed * 10.1) * 0.00018,
+    driftPhase: strandNoise(seed * 10.9) * Math.PI * 2,
+    noiseFrequency: 1.25 + strandNoise(seed * 11.4) * 2.65,
+    curveFrequency: 3.4 + strandNoise(seed * 12.4) * 4.8,
+    curveAmplitude: viewportHeight * (0.018 + strandNoise(seed * 13.2) * 0.035),
     weavePhase: strandNoise(seed * 13.8) * Math.PI * 2,
+    blur: lerp(1.6, 0, depthFactor),
+    glow: depthFactor > 0.78 ? lerp(3, 8, depthFactor) : 0,
   };
 };
 
 const renderPath = (path: FlowPath, time: number): RenderedPath => {
-  const timeDrift = Math.sin(time * path.driftSpeed + path.weavePhase) * path.driftAmplitude;
+  const maxBundleWidth = window.innerHeight * 0.34;
+  const minBundleWidth = window.innerHeight * 0.13;
   const samples = path.samples.map((point, index) => {
     const normal = normalAt(path.samples, index);
     const tangent = tangentAt(path.samples, index);
-    const organicWave =
-      Math.sin(index * path.waveFrequency + time * path.driftSpeed * 1.65 + path.weavePhase) *
-      path.waveAmplitude;
-    const secondaryWave =
-      Math.cos(index * path.waveFrequency * 0.43 + time * path.driftSpeed * 0.9 + path.phase) *
-      path.waveAmplitude *
-      0.45;
+    const progress = clamp((point.y + window.innerHeight * 0.15) / Math.max(path.samples[path.samples.length - 1]!.y, 1), 0, 1);
+    const bundleWidth = lerp(maxBundleWidth, minBundleWidth, progress);
+    const position = progress * Math.PI * 2;
+    const slowDrift = Math.sin(time * path.driftSpeed + path.driftPhase) * 0.22;
+    const smoothNoise =
+      Math.sin(position * path.noiseFrequency + path.weavePhase + time * path.driftSpeed * 1.4) * 0.42 +
+      Math.cos(position * (path.noiseFrequency * 0.43) + path.phase * Math.PI * 2) * 0.28 +
+      Math.sin(position * 0.65 + path.basePosition * Math.PI) * 0.18;
+    const interaction = 0.9 + 0.1 * Math.sin(position * 1.4 + path.phase * Math.PI * 2);
+    const curveOffset =
+      Math.sin(position * path.curveFrequency + path.weavePhase + time * path.driftSpeed * 0.9) *
+      path.curveAmplitude;
+    const lateralOscillation =
+      Math.sin(position * (2.1 + path.depthFactor * 1.8) + time * path.driftSpeed * 2.1 + path.driftPhase) *
+      bundleWidth *
+      0.08;
+    const signal = clamp((path.basePosition * 0.5 + smoothNoise * 0.5 + slowDrift) * interaction, -1, 1);
+    const crossOffset = signal * bundleWidth + curveOffset + lateralOscillation;
+    const alongOffset =
+      Math.cos(position * 2.7 + path.weavePhase + time * path.driftSpeed) *
+      window.innerHeight *
+      0.018;
 
     return {
-      x: point.x + normal.x * (timeDrift + organicWave) + tangent.x * secondaryWave,
-      y: point.y + normal.y * (timeDrift + organicWave) + tangent.y * secondaryWave,
+      x: point.x + normal.x * crossOffset + tangent.x * alongOffset,
+      y: point.y + normal.y * crossOffset + tangent.y * alongOffset,
     };
   });
 
@@ -275,13 +271,14 @@ export function CanvasBackground() {
       context.setTransform(pixelRatio, 0, 0, pixelRatio, 0, 0);
       const virtualHeight = getVirtualHeight(height);
       const { samples: spineSamples } = buildSpinePoints(width, height, virtualHeight);
-      const pathCount = 15;
+      const pathCount = 32;
       paths = Array.from({ length: pathCount }, (_, index) =>
         buildPath(index, pathCount, width, height, virtualHeight, spineSamples),
-      );
+      ).sort((a, b) => a.depthFactor - b.depthFactor);
     };
 
     const strokePath = (path: FlowPath, renderedPath: RenderedPath) => {
+      context.save();
       context.beginPath();
       renderedPath.samples.forEach((point, index) => {
         const y = point.y - scrollY;
@@ -295,7 +292,10 @@ export function CanvasBackground() {
       context.strokeStyle = path.color;
       context.lineWidth = path.width;
       context.globalAlpha = path.alpha;
+      context.shadowColor = path.color;
+      context.shadowBlur = path.blur;
       context.stroke();
+      context.restore();
     };
 
     const drawEnergy = (path: FlowPath, renderedPath: RenderedPath, time: number) => {
@@ -331,7 +331,7 @@ export function CanvasBackground() {
       context.lineWidth = path.width + 0.95;
       context.globalAlpha = path.alpha * 1.45;
       context.shadowColor = path.color;
-      context.shadowBlur = 8;
+      context.shadowBlur = path.glow;
       context.stroke();
       context.restore();
     };
@@ -343,7 +343,9 @@ export function CanvasBackground() {
 
       const renderedPaths = paths.map((path) => ({ path, renderedPath: renderPath(path, time) }));
       renderedPaths.forEach(({ path, renderedPath }) => strokePath(path, renderedPath));
-      renderedPaths.forEach(({ path, renderedPath }) => drawEnergy(path, renderedPath, time));
+      renderedPaths
+        .filter(({ path }) => path.depthFactor > 0.48)
+        .forEach(({ path, renderedPath }) => drawEnergy(path, renderedPath, time));
 
       context.globalAlpha = 1;
       context.globalCompositeOperation = "source-over";
