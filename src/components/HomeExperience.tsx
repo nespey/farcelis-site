@@ -58,24 +58,82 @@ export function HomeExperience() {
       </section>
 
       <section className="system-hook-section">
-        <div className="system-flow">
-          <div className="system-flow-line" aria-hidden="true" />
-
-          <p className="flow-signal flow-break-a">Work doesn’t move cleanly.</p>
-          <p className="flow-signal flow-break-b">Ownership drifts.</p>
-          <p className="flow-signal flow-break-c">Problems show up too late.</p>
-          <p className="flow-signal flow-break-d">Teams fall out of sync.</p>
-
-          <p className="flow-pivot">This isn’t random.</p>
-          <p className="flow-intervention">Structure gets rebuilt.</p>
-
-          <p className="flow-signal flow-build flow-build-a">Define how work flows.</p>
-          <p className="flow-signal flow-build flow-build-b">Stabilize decisions and handoffs.</p>
-          <p className="flow-signal flow-build flow-build-c">Remove coordination drag.</p>
-          <p className="flow-signal flow-build flow-build-d">Make it hold under pressure.</p>
+        <div className="system-anchor">
+          <h2>
+            Operating problems
+            <br />
+            aren’t people problems.
+            <br />
+            <br />
+            They’re system failures
+            <br />
+            hiding in plain sight.
+          </h2>
+          <p>When structure breaks, everything downstream pays for it.</p>
+          <p className="system-payoff">
+            Execution starts moving
+            <br />
+            <span>without friction.</span>
+          </p>
         </div>
 
-        <p className="system-flow-final">Execution starts moving without friction.</p>
+        <div className="system-timeline">
+          <div className="timeline-line timeline-line-chaos" aria-hidden="true" />
+          <div className="timeline-line timeline-line-stable" aria-hidden="true" />
+
+          <div className="timeline-row timeline-row-a">
+            <span className="timeline-node timeline-node-orange" aria-hidden="true" />
+            <span className="timeline-text">Work doesn’t move cleanly.</span>
+          </div>
+          <div className="timeline-row timeline-row-b">
+            <span className="timeline-node timeline-node-orange" aria-hidden="true" />
+            <span className="timeline-text">Ownership drifts.</span>
+          </div>
+          <div className="timeline-row timeline-row-c">
+            <span className="timeline-node timeline-node-orange" aria-hidden="true" />
+            <span className="timeline-text">Problems show up too late.</span>
+          </div>
+          <div className="timeline-row timeline-row-d">
+            <span className="timeline-node timeline-node-orange" aria-hidden="true" />
+            <span className="timeline-text">Teams fall out of sync.</span>
+          </div>
+
+          <div className="timeline-pivot">
+            <span className="timeline-pivot-rule" aria-hidden="true" />
+            <span className="timeline-node timeline-node-pivot" aria-hidden="true" />
+            <span className="timeline-pivot-text">This isn’t random.</span>
+          </div>
+
+          <div className="timeline-row timeline-row-intervene">
+            <span className="timeline-node timeline-node-white" aria-hidden="true" />
+            <span className="timeline-text timeline-text-strong">
+              Leadership intervenes.
+              <br />
+              Partners with Farcelis.
+            </span>
+          </div>
+          <div className="timeline-row timeline-row-build-a">
+            <span className="timeline-node timeline-node-green" aria-hidden="true" />
+            <span className="timeline-text">Structure gets rebuilt.</span>
+          </div>
+          <div className="timeline-row timeline-row-build-b">
+            <span className="timeline-node timeline-node-green" aria-hidden="true" />
+            <span className="timeline-text">Define how work flows.</span>
+          </div>
+          <div className="timeline-row timeline-row-build-c">
+            <span className="timeline-node timeline-node-green" aria-hidden="true" />
+            <span className="timeline-text">Stabilize decisions and handoffs.</span>
+          </div>
+          <div className="timeline-row timeline-row-build-d">
+            <span className="timeline-node timeline-node-green" aria-hidden="true" />
+            <span className="timeline-text">Remove coordination drag.</span>
+          </div>
+          <div className="timeline-row timeline-row-build-e">
+            <span className="timeline-node timeline-node-green" aria-hidden="true" />
+            <span className="timeline-text">Make it hold under pressure.</span>
+          </div>
+          <span className="timeline-arrow" aria-hidden="true">↓</span>
+        </div>
       </section>
 
       <Reveal delayMs={230}>
