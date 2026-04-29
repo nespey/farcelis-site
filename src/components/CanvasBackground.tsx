@@ -3,9 +3,9 @@
 import { useEffect, useRef } from "react";
 
 const palette = [
-  "rgba(97, 192, 215, 0.22)",
-  "rgba(242, 139, 91, 0.16)",
-  "rgba(232, 238, 242, 0.12)",
+  "rgba(112, 213, 235, 0.4)",
+  "rgba(255, 154, 102, 0.34)",
+  "rgba(235, 243, 248, 0.26)",
 ];
 
 export function CanvasBackground() {
@@ -63,9 +63,11 @@ export function CanvasBackground() {
         }
       }
 
+      const isProminent = lineIndex % 4 === 0;
+
       context.strokeStyle = palette[lineIndex % palette.length]!;
-      context.lineWidth = lineIndex % 5 === 0 ? 1.4 : 0.9;
-      context.globalAlpha = 0.34;
+      context.lineWidth = isProminent ? 2.2 : lineIndex % 3 === 0 ? 1.75 : 1.35;
+      context.globalAlpha = isProminent ? 0.78 : 0.58;
       context.stroke();
     };
 
