@@ -162,30 +162,35 @@ export function HomeExperience() {
                 Operating problems are rarely people problems. They are system failures hiding in plain sight.
               </h2>
               <p className="mt-6 max-w-[480px] text-lg leading-8 text-slate-600">
-                When structure breaks, everything downstream absorbs the cost.
+                When structure breaks, everything downstream pays for it.
               </p>
             </div>
-            <div className="grid border-y border-slate-300/80 sm:grid-cols-2">
-              {systemModules.map((item, index) => (
-                <div
-                  key={item.label}
-                  className={`min-h-[190px] border-slate-300/80 py-7 sm:px-6 ${
-                    index % 2 === 0 ? "sm:border-r" : ""
-                  } ${index < 3 ? "border-b" : ""} ${index === 2 ? "sm:border-b-0" : ""}`}
-                >
-                  <div className="flex items-center gap-3">
-                    <span className="text-xs font-semibold uppercase tracking-[0.18em] text-[#9f412c]">
-                      0{index + 1}
-                    </span>
-                    <span className="text-xs font-semibold uppercase tracking-[0.18em] text-slate-500">
-                      {item.label}
-                    </span>
+            <div>
+              <div className="grid border-y border-slate-300/80 sm:grid-cols-2">
+                {systemModules.map((item, index) => (
+                  <div
+                    key={item.label}
+                    className={`min-h-[190px] border-slate-300/80 py-7 sm:px-6 ${
+                      index % 2 === 0 ? "sm:border-r" : ""
+                    } ${index < 3 ? "border-b" : ""} ${index === 2 ? "sm:border-b-0" : ""}`}
+                  >
+                    <div className="flex items-center gap-3">
+                      <span className="text-xs font-semibold uppercase tracking-[0.18em] text-[#9f412c]">
+                        0{index + 1}
+                      </span>
+                      <span className="text-xs font-semibold uppercase tracking-[0.18em] text-slate-500">
+                        {item.label}
+                      </span>
+                    </div>
+                    <div className="mt-5 max-w-[24rem] text-[1.25rem] font-medium leading-8 tracking-[-0.035em] text-slate-950">
+                      {item.text}
+                    </div>
                   </div>
-                  <div className="mt-5 max-w-[24rem] text-[1.25rem] font-medium leading-8 tracking-[-0.035em] text-slate-950">
-                    {item.text}
-                  </div>
-                </div>
-              ))}
+                ))}
+              </div>
+              <p className="mt-8 max-w-[720px] border-l-2 border-[#9f412c] pl-5 text-[clamp(1.35rem,2vw,1.9rem)] font-medium leading-[1.18] tracking-[-0.04em] text-slate-950">
+                Fix the structure, and the problems stop compounding.
+              </p>
             </div>
           </div>
         </section>
