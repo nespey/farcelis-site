@@ -154,43 +154,46 @@ export function HomeExperience() {
       </Reveal>
 
       <Reveal delayMs={230}>
-        <section className="structured-section section-shell-light">
-          <div className="layout-container grid gap-12 lg:grid-cols-[minmax(0,0.4fr)_minmax(0,0.6fr)] lg:gap-[72px]">
-            <div>
-              <p className="section-kicker text-[#9f412c]">Why systems fail</p>
-              <h2 className="mt-5 max-w-[20ch] text-[clamp(2rem,3vw,2.85rem)] font-medium leading-[1.08] tracking-[-0.045em] text-slate-950">
+        <section className="structured-section section-shell-dark systems-fail-section">
+          <div className="layout-container">
+            <div className="grid gap-14 lg:grid-cols-[minmax(0,0.46fr)_minmax(0,0.54fr)] lg:gap-[88px]">
+              <div>
+                <p className="section-kicker text-[#f28b5b]">Why Systems Fail</p>
+                <h2 className="mt-6 max-w-[17ch] text-[clamp(2.45rem,4.1vw,4.15rem)] font-medium leading-[1.02] tracking-[-0.06em] text-white">
                 Operating problems are rarely people problems. They are system failures hiding in plain sight.
-              </h2>
-              <p className="mt-6 max-w-[480px] text-lg leading-8 text-slate-600">
+                </h2>
+                <p className="mt-7 max-w-[520px] text-[clamp(1.08rem,1.35vw,1.32rem)] leading-8 text-slate-300">
                 When structure breaks, everything downstream pays for it.
-              </p>
-            </div>
-            <div>
-              <div className="grid border-y border-slate-300/80 sm:grid-cols-2">
+                </p>
+              </div>
+
+              <div>
+                <div className="grid border-y border-cyan-100/16 sm:grid-cols-2">
                 {systemModules.map((item, index) => (
                   <div
                     key={item.label}
-                    className={`min-h-[190px] border-slate-300/80 py-7 sm:px-6 ${
+                    className={`min-h-[210px] border-cyan-100/16 py-8 sm:px-7 ${
                       index % 2 === 0 ? "sm:border-r" : ""
                     } ${index < 3 ? "border-b" : ""} ${index === 2 ? "sm:border-b-0" : ""}`}
                   >
                     <div className="flex items-center gap-3">
-                      <span className="text-xs font-semibold uppercase tracking-[0.18em] text-[#9f412c]">
+                      <span className="text-xs font-semibold uppercase tracking-[0.2em] text-[#f28b5b]">
                         0{index + 1}
                       </span>
-                      <span className="text-xs font-semibold uppercase tracking-[0.18em] text-slate-500">
+                      <span className="text-xs font-semibold uppercase tracking-[0.22em] text-slate-400">
                         {item.label}
                       </span>
                     </div>
-                    <div className="mt-5 max-w-[24rem] text-[1.25rem] font-medium leading-8 tracking-[-0.035em] text-slate-950">
+                    <div className="mt-6 max-w-[24rem] text-[clamp(1.12rem,1.45vw,1.42rem)] font-medium leading-8 tracking-[-0.04em] text-slate-100">
                       {item.text}
                     </div>
                   </div>
                 ))}
-              </div>
-              <p className="mt-8 max-w-[720px] border-l-2 border-[#9f412c] pl-5 text-[clamp(1.35rem,2vw,1.9rem)] font-medium leading-[1.18] tracking-[-0.04em] text-slate-950">
+                </div>
+                <p className="mt-10 max-w-[760px] border-l-2 border-[#f28b5b] pl-6 text-[clamp(1.55rem,2.3vw,2.35rem)] font-medium leading-[1.12] tracking-[-0.05em] text-white">
                 Fix the structure, and the problems stop compounding.
-              </p>
+                </p>
+              </div>
             </div>
           </div>
         </section>
