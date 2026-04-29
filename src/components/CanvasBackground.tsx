@@ -16,6 +16,16 @@ type FlowPath = {
   alpha: number;
   speed: number;
   phase: number;
+  driftAmplitude: number;
+  driftSpeed: number;
+  waveAmplitude: number;
+  waveFrequency: number;
+  weavePhase: number;
+};
+
+type RenderedPath = {
+  samples: Point[];
+  length: number;
 };
 
 const palette = [
@@ -76,7 +86,7 @@ const buildSpinePoints = (width: number, viewportHeight: number, virtualHeight: 
   let sweepIndex = 0;
 
   while (y < virtualHeight + viewportHeight * 0.7) {
-    const offscreenDepth = width * (0.24 + (sweepIndex % 3) * 0.035);
+    const offscreenDepth = width * (0.42 + (sweepIndex % 3) * 0.055);
     const verticalVariance = Math.sin(sweepIndex * 1.37) * viewportHeight * 0.045;
     points.push({
       x: sweepRight ? -offscreenDepth : width + offscreenDepth,
@@ -140,24 +150,28 @@ const buildPath = (
   const seed = pathIndex + 1;
   const looseJitter = (strandNoise(seed * 2.7) - 0.5) * 0.34;
   const clusteredPosition = clamp(clusterBias + looseJitter, -1.12, 1.12);
-  const topSpread = viewportHeight * (0.075 + strandNoise(seed * 1.9) * 0.045);
-  const lowerSpread = viewportHeight * 0.022;
+  const topSpread = viewportHeight * (0.14 + strandNoise(seed * 1.9) * 0.085);
+  const lowerSpread = viewportHeight * (0.052 + strandNoise(seed * 6.6) * 0.018);
   const phase = pathIndex * 0.71;
   const verticalLag = viewportHeight * ((strandNoise(seed * 4.1) - 0.5) * 0.06);
-  const curvatureDrift = viewportHeight * (0.01 + strandNoise(seed * 3.3) * 0.012);
+  const curvatureDrift = viewportHeight * (0.018 + strandNoise(seed * 3.3) * 0.018);
   const samples = spineSamples.map((point, sampleIndex) => {
     const progress = clamp((point.y + viewportHeight * 0.2) / virtualHeight, 0, 1);
-    const convergence = 1 - progress * 0.78;
+    const convergence = 1 - progress * 0.52;
     const spread = lowerSpread + topSpread * convergence;
     const normal = normalAt(spineSamples, sampleIndex);
     const tangent = tangentAt(spineSamples, sampleIndex);
     const microDrift =
-      Math.sin(sampleIndex * 0.053 + phase) * curvatureDrift * convergence +
-      Math.cos(sampleIndex * 0.019 + phase * 1.4) * width * 0.0028 * convergence;
-    const crossOffset = clusteredPosition * spread + microDrift;
+      Math.sin(sampleIndex * 0.041 + phase) * curvatureDrift * (0.5 + convergence * 0.5) +
+      Math.cos(sampleIndex * 0.017 + phase * 1.4) * width * 0.0042 * (0.45 + convergence * 0.55);
+    const crossingWeave =
+      Math.sin(progress * Math.PI * (2.4 + strandNoise(seed * 8.7) * 1.5) + phase * 1.8) *
+      spread *
+      0.11;
+    const crossOffset = clusteredPosition * spread + microDrift + crossingWeave;
     const alongOffset =
       verticalLag * (0.35 + convergence * 0.65) +
-      Math.sin(sampleIndex * 0.031 + phase * 1.7) * viewportHeight * 0.012 * convergence;
+      Math.sin(sampleIndex * 0.029 + phase * 1.7) * viewportHeight * 0.016 * (0.45 + convergence * 0.55);
 
     return {
       x: point.x + normal.x * crossOffset + tangent.x * alongOffset,
@@ -179,7 +193,39 @@ const buildPath = (
     alpha: 0.13 + strandNoise(seed * 7.1) * 0.12,
     speed: 0.017 + pathIndex * 0.0015,
     phase: pathIndex * 0.091,
+    driftAmplitude: viewportHeight * (0.008 + strandNoise(seed * 9.3) * 0.014),
+    driftSpeed: 0.00018 + strandNoise(seed * 10.1) * 0.00012,
+    waveAmplitude: viewportHeight * (0.007 + strandNoise(seed * 11.7) * 0.011),
+    waveFrequency: 0.024 + strandNoise(seed * 12.4) * 0.025,
+    weavePhase: strandNoise(seed * 13.8) * Math.PI * 2,
   };
+};
+
+const renderPath = (path: FlowPath, time: number): RenderedPath => {
+  const timeDrift = Math.sin(time * path.driftSpeed + path.weavePhase) * path.driftAmplitude;
+  const samples = path.samples.map((point, index) => {
+    const normal = normalAt(path.samples, index);
+    const tangent = tangentAt(path.samples, index);
+    const organicWave =
+      Math.sin(index * path.waveFrequency + time * path.driftSpeed * 1.65 + path.weavePhase) *
+      path.waveAmplitude;
+    const secondaryWave =
+      Math.cos(index * path.waveFrequency * 0.43 + time * path.driftSpeed * 0.9 + path.phase) *
+      path.waveAmplitude *
+      0.45;
+
+    return {
+      x: point.x + normal.x * (timeDrift + organicWave) + tangent.x * secondaryWave,
+      y: point.y + normal.y * (timeDrift + organicWave) + tangent.y * secondaryWave,
+    };
+  });
+
+  let length = 0;
+  for (let index = 1; index < samples.length; index += 1) {
+    length += distance(samples[index - 1]!, samples[index]!);
+  }
+
+  return { samples, length };
 };
 
 const pointAtDistance = (samples: Point[], targetDistance: number): Point => {
@@ -235,9 +281,9 @@ export function CanvasBackground() {
       );
     };
 
-    const strokePath = (path: FlowPath) => {
+    const strokePath = (path: FlowPath, renderedPath: RenderedPath) => {
       context.beginPath();
-      path.samples.forEach((point, index) => {
+      renderedPath.samples.forEach((point, index) => {
         const y = point.y - scrollY;
         if (index === 0) {
           context.moveTo(point.x, y);
@@ -252,12 +298,12 @@ export function CanvasBackground() {
       context.stroke();
     };
 
-    const drawEnergy = (path: FlowPath, time: number) => {
+    const drawEnergy = (path: FlowPath, renderedPath: RenderedPath, time: number) => {
       const loop = reducedMotion ? path.phase : (time * path.speed * 0.001 + path.phase) % 1;
-      const headDistance = loop * path.length;
-      const tailDistance = path.length * 0.11;
-      const gradientStart = pointAtDistance(path.samples, Math.max(0, headDistance - tailDistance));
-      const gradientEnd = pointAtDistance(path.samples, headDistance);
+      const headDistance = loop * renderedPath.length;
+      const tailDistance = renderedPath.length * 0.11;
+      const gradientStart = pointAtDistance(renderedPath.samples, Math.max(0, headDistance - tailDistance));
+      const gradientEnd = pointAtDistance(renderedPath.samples, headDistance);
       const gradient = context.createLinearGradient(
         gradientStart.x,
         gradientStart.y - scrollY,
@@ -271,7 +317,7 @@ export function CanvasBackground() {
 
       context.save();
       context.beginPath();
-      path.samples.forEach((point, index) => {
+      renderedPath.samples.forEach((point, index) => {
         const y = point.y - scrollY;
         if (index === 0) {
           context.moveTo(point.x, y);
@@ -279,7 +325,7 @@ export function CanvasBackground() {
           context.lineTo(point.x, y);
         }
       });
-      context.setLineDash([path.length * 0.11, path.length]);
+      context.setLineDash([renderedPath.length * 0.11, renderedPath.length]);
       context.lineDashOffset = -headDistance;
       context.strokeStyle = gradient;
       context.lineWidth = path.width + 0.95;
@@ -295,8 +341,9 @@ export function CanvasBackground() {
       context.clearRect(0, 0, width, height);
       context.globalCompositeOperation = "screen";
 
-      paths.forEach((path) => strokePath(path));
-      paths.forEach((path) => drawEnergy(path, time));
+      const renderedPaths = paths.map((path) => ({ path, renderedPath: renderPath(path, time) }));
+      renderedPaths.forEach(({ path, renderedPath }) => strokePath(path, renderedPath));
+      renderedPaths.forEach(({ path, renderedPath }) => drawEnergy(path, renderedPath, time));
 
       context.globalAlpha = 1;
       context.globalCompositeOperation = "source-over";
