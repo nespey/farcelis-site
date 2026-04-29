@@ -550,37 +550,39 @@ a {
 }
 
 .execution-cascade-body {
-  position: relative;
+  display: grid;
+  grid-template-columns: minmax(0, 40%) minmax(72px, 20%) minmax(0, 40%);
+  align-items: start;
+  width: min(1040px, 100%);
+  margin-left: auto;
+  margin-right: auto;
   margin-top: clamp(3rem, 4.6vw, 4.25rem);
-  padding-top: 0.25rem;
-  padding-bottom: 0.25rem;
 }
 
-.execution-cascade-body p {
-  width: fit-content;
-  max-width: min(70ch, 100%);
+.execution-cascade-column {
+  display: flex;
+  min-width: 0;
+  flex-direction: column;
+  gap: clamp(1.45rem, 2.1vw, 2rem);
+}
+
+.execution-cascade-column p {
+  max-width: 100%;
   font-size: clamp(1rem, 1.12vw, 1.125rem);
   line-height: 1.3;
-  text-align: left;
   color: #f1f6f9;
 }
 
-.execution-cascade-body p + p {
-  margin-top: clamp(1.35rem, 1.8vw, 1.7rem);
+.execution-cascade-left p {
+  text-align: left;
 }
 
-.execution-cascade-body p:nth-child(odd) {
-  margin-left: 50%;
-  transform: translateX(calc(-50% - clamp(0.7rem, 1.25vw, 1.35rem)));
+.execution-cascade-right p {
+  text-align: right;
 }
 
-.execution-cascade-body p:nth-child(even) {
-  margin-left: 50%;
-  transform: translateX(calc(-50% + clamp(0.7rem, 1.25vw, 1.35rem)));
-}
-
-.execution-cascade-body p:nth-child(-n + 4) {
-  opacity: 0.85;
+.execution-cascade-axis {
+  min-height: 1px;
 }
 
 .execution-cascade-anchor {
@@ -806,15 +808,24 @@ a {
     inset: 18px;
   }
 
-  .execution-cascade-body p,
-  .execution-cascade-body p:nth-child(n) {
-    max-width: 100%;
-    margin-left: 0;
-    transform: none;
+  .execution-cascade-body {
+    display: block;
   }
 
-  .execution-cascade-body p + p {
+  .execution-cascade-axis {
+    display: none;
+  }
+
+  .execution-cascade-column {
+    gap: 1.25rem;
+  }
+
+  .execution-cascade-right {
     margin-top: 1.25rem;
+  }
+
+  .execution-cascade-right p {
+    text-align: left;
   }
 
   .hero {

@@ -162,14 +162,19 @@ export function HomeExperience() {
           </div>
 
           <div className="execution-cascade-body">
-            <p>Content starts getting used instead of rewritten.</p>
-            <p>Search and distribution begin compounding instead of resetting.</p>
-            <p>Websites and platforms start supporting how work actually moves.</p>
-            <p>Portfolios and presence begin reflecting real capability.</p>
-            <p>Internal workflows stop breaking between teams.</p>
-            <p>Decisions carry forward instead of restarting.</p>
-            <p>Outputs stay aligned instead of drifting apart.</p>
-            <p>Execution becomes predictable instead of reactive.</p>
+            <div className="execution-cascade-column execution-cascade-left">
+              <p>Content starts getting used instead of rewritten.</p>
+              <p>Websites and platforms start supporting how work actually moves.</p>
+              <p>Internal workflows stop breaking between teams.</p>
+              <p>Outputs stay aligned instead of drifting apart.</p>
+            </div>
+            <div className="execution-cascade-axis" aria-hidden="true" />
+            <div className="execution-cascade-column execution-cascade-right">
+              <p>Search and distribution begin compounding instead of resetting.</p>
+              <p>Portfolios and presence begin reflecting real capability.</p>
+              <p>Decisions carry forward instead of restarting.</p>
+              <p>Execution becomes predictable instead of reactive.</p>
+            </div>
           </div>
 
           <div className="execution-cascade-anchor">
