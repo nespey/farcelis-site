@@ -17,7 +17,9 @@ const bareLogoScale: Record<string, string> = {
 };
 
 export function LogoMarquee({ logos, dark = true, bare = false }: LogoMarqueeProps) {
-  const renderLogos = [...logos, ...logos];
+  const renderLogos = bare
+    ? [...logos, ...logos, ...logos, ...logos]
+    : [...logos, ...logos];
 
   return (
     <div
@@ -43,7 +45,7 @@ export function LogoMarquee({ logos, dark = true, bare = false }: LogoMarqueePro
       ) : null}
 
       <div className="logo-marquee-viewport relative overflow-hidden">
-        <div className={`logo-marquee-track flex w-max ${bare ? "gap-6 pr-6" : "gap-10 pr-10"}`}>
+        <div className={`logo-marquee-track flex w-max ${bare ? "gap-4 pr-4" : "gap-10 pr-10"}`}>
           {renderLogos.map((logo, index) => {
             const key = `${logo.name}-${index}`;
             const base = dark
@@ -56,7 +58,7 @@ export function LogoMarquee({ logos, dark = true, bare = false }: LogoMarqueePro
               <div
                 className={`logo-rail-tile hover-lift flex items-center justify-center ${
                   bare
-                    ? "min-h-[112px] min-w-[190px] px-3 py-3"
+                    ? "min-h-[112px] min-w-[170px] px-2 py-3"
                     : `min-h-[122px] min-w-[248px] rounded-[24px] border px-8 py-7 ${base}`
                 }`}
               >
