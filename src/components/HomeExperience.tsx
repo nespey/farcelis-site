@@ -81,7 +81,7 @@ export function HomeExperience() {
 
           <div className="timeline-pivot">
             <span className="timeline-pivot-rule" aria-hidden="true" />
-            <span className="timeline-node timeline-node-pivot" aria-hidden="true" />
+            <span className="timeline-node timeline-node-pivot" data-system-pivot aria-hidden="true" />
             <span className="timeline-pivot-text">This isn’t random.</span>
           </div>
 

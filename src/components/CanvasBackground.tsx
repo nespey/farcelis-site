@@ -90,12 +90,12 @@ const lerp = (start: number, end: number, progress: number) => start + (end - st
 const buildSpinePoints = (width: number, viewportHeight: number, virtualHeight: number) => {
   const firstOffscreenDepth = width * 0.46;
   const points: Point[] = [
-    { x: -firstOffscreenDepth, y: -viewportHeight * 0.04 },
-    { x: width * 0.42, y: viewportHeight * 0.08 },
-    { x: width * 0.88, y: viewportHeight * 0.18 },
-    { x: width + firstOffscreenDepth, y: viewportHeight * 0.34 },
+    { x: -firstOffscreenDepth, y: -viewportHeight * 0.08 },
+    { x: width * 0.5, y: viewportHeight * 0.02 },
+    { x: width * 0.92, y: viewportHeight * 0.24 },
+    { x: width + firstOffscreenDepth, y: viewportHeight * 0.64 },
   ];
-  let y = viewportHeight * 0.9;
+  let y = viewportHeight * 1.02;
   let sweepRight = true;
   let sweepIndex = 1;
 
@@ -171,8 +171,8 @@ const buildPath = (
     points: spineSamples,
     samples: spineSamples,
     length,
-    width: lerp(0.45, 1.55, depthFactor),
-    alpha: lerp(0.1, 0.32, depthFactor),
+    width: lerp(1.25, 3.4, depthFactor),
+    alpha: lerp(0.16, 0.42, depthFactor),
     speed: 0.015 + strandNoise(seed * 7.1) * 0.01,
     phase: strandNoise(seed * 8.2) * Math.PI * 2,
     strandIndex: pathIndex,
@@ -182,47 +182,47 @@ const buildPath = (
     depthFactor,
     driftSpeed: 0.00022 + strandNoise(seed * 10.7) * 0.00012,
     driftPhase: strandNoise(seed * 10.9) * Math.PI * 2,
-    curveAmplitude: viewportHeight * (0.006 + strandNoise(seed * 13.2) * 0.012),
+    curveAmplitude: viewportHeight * (0.012 + strandNoise(seed * 13.2) * 0.018),
     weavePhase: strandNoise(seed * 13.8) * Math.PI * 2,
     blur: lerp(1.6, 0, depthFactor),
-    glow: depthFactor > 0.86 ? lerp(2, 6, depthFactor) : 0,
+    glow: depthFactor > 0.84 ? lerp(2, 7, depthFactor) : 0,
   };
 };
 
 const renderPath = (path: FlowPath, time: number): RenderedPath => {
-  const maxBundleWidth = Math.min(Math.max(520, window.innerHeight * 0.58), window.innerWidth < 768 ? 310 : 620);
-  const minBundleWidth = 80;
+  const maxBundleWidth = window.innerWidth < 768 ? 180 : 260;
+  const minBundleWidth = 42;
   const samples = path.samples.map((point, index) => {
     const normal = normalAt(path.samples, index);
     const tangent = tangentAt(path.samples, index);
     const progress = clamp((point.y + window.innerHeight * 0.15) / Math.max(path.samples[path.samples.length - 1]!.y, 1), 0, 1);
-    const heroTighten = 1 - Math.exp(-11 * clamp(progress / 0.18, 0, 1));
-    const postHeroTighten = clamp((progress - 0.2) / 0.8, 0, 1);
-    const entryWidth = lerp(maxBundleWidth, Math.max(120, maxBundleWidth * 0.22), heroTighten);
-    const bundleWidth = Math.max(lerp(entryWidth, minBundleWidth, postHeroTighten), 60);
+    const heroTighten = 1 - Math.exp(-12 * clamp(progress / 0.24, 0, 1));
+    const postHeroTighten = clamp((progress - 0.24) / 0.76, 0, 1);
+    const entryWidth = lerp(maxBundleWidth, Math.max(64, maxBundleWidth * 0.28), heroTighten);
+    const bundleWidth = Math.max(lerp(entryWidth, minBundleWidth, postHeroTighten), 36);
     const strandProgress = path.totalStrands <= 1 ? 0.5 : path.strandIndex / (path.totalStrands - 1);
-    const heroDivergence = 1 + 0.32 * (1 - clamp(progress / 0.16, 0, 1));
+    const heroDivergence = 1 + 0.16 * (1 - clamp(progress / 0.16, 0, 1));
     const signedStrand = strandProgress * 2 - 1;
     const clusteredStrand = Math.sign(signedStrand) * Math.pow(Math.abs(signedStrand), 0.84);
     const baseOffset = clusteredStrand * bundleWidth * 0.5 * heroDivergence;
     const position = progress * path.length;
     const heroVariance = 1 + 0.45 * (1 - clamp(progress / 0.22, 0, 1));
-    const wave = Math.sin(position * 0.006 + path.phase) * 12 * path.amplitude * heroVariance;
-    const drift = Math.sin(time * path.driftSpeed + path.phase) * 5 * path.drift * heroVariance;
-    const interaction = 0.96 + 0.04 * Math.sin(position * 0.004 + path.phase);
+    const wave = Math.sin(position * 0.0105 + path.phase) * 18 * path.amplitude * heroVariance;
+    const drift = Math.sin(time * path.driftSpeed + path.phase) * 4 * path.drift * heroVariance;
+    const interaction = 0.94 + 0.06 * Math.sin(position * 0.0065 + path.phase);
     const curveOffset =
       Math.sin(position * 0.018 + path.weavePhase + time * path.driftSpeed * 0.9) *
       path.curveAmplitude;
     const lateralOscillation =
       Math.sin(position * 0.0045 + time * path.driftSpeed * 2.1 + path.driftPhase) *
       bundleWidth *
-      0.01 *
+      0.035 *
       path.amplitude;
     const crossOffset = (baseOffset + wave + drift) * interaction + curveOffset + lateralOscillation;
     const alongOffset =
       Math.cos(position * 0.007 + path.weavePhase + time * path.driftSpeed) *
       window.innerHeight *
-      0.004;
+      0.003;
 
     return {
       x: point.x + normal.x * crossOffset + tangent.x * alongOffset,
@@ -273,6 +273,27 @@ export function CanvasBackground() {
     let scrollY = 0;
     let pixelRatio = 1;
     let paths: FlowPath[] = [];
+    let lastPivotPulse = 0;
+
+    const pulseSystemPivot = (x: number, y: number, time: number) => {
+      if (time - lastPivotPulse < 2200) return;
+
+      const pivot = document.querySelector<HTMLElement>("[data-system-pivot]");
+      if (!pivot) return;
+
+      const rect = pivot.getBoundingClientRect();
+      const pivotX = rect.left + rect.width / 2;
+      const pivotY = rect.top + rect.height / 2;
+      const triggerRadius = Math.max(96, Math.min(width, height) * 0.08);
+
+      if (Math.hypot(x - pivotX, y - pivotY) > triggerRadius) return;
+
+      lastPivotPulse = time;
+      pivot.classList.remove("timeline-node-pivot--burst");
+      void pivot.offsetWidth;
+      pivot.classList.add("timeline-node-pivot--burst");
+      window.setTimeout(() => pivot.classList.remove("timeline-node-pivot--burst"), 2400);
+    };
 
     const resize = () => {
       pixelRatio = Math.min(window.devicePixelRatio || 1, 2);
@@ -285,7 +306,7 @@ export function CanvasBackground() {
       context.setTransform(pixelRatio, 0, 0, pixelRatio, 0, 0);
       const virtualHeight = getVirtualHeight(height);
       const { samples: spineSamples } = buildSpinePoints(width, height, virtualHeight);
-      const pathCount = 26;
+      const pathCount = 13;
       paths = Array.from({ length: pathCount }, (_, index) =>
         buildPath(index, pathCount, width, height, virtualHeight, spineSamples),
       ).sort((a, b) => a.depthFactor - b.depthFactor);
@@ -318,6 +339,10 @@ export function CanvasBackground() {
       const tailDistance = renderedPath.length * 0.11;
       const gradientStart = pointAtDistance(renderedPath.samples, Math.max(0, headDistance - tailDistance));
       const gradientEnd = pointAtDistance(renderedPath.samples, headDistance);
+      if (path.depthFactor > 0.68) {
+        pulseSystemPivot(gradientEnd.x, gradientEnd.y - scrollY, time);
+      }
+
       const gradient = context.createLinearGradient(
         gradientStart.x,
         gradientStart.y - scrollY,
