@@ -131,6 +131,11 @@ a {
   padding-bottom: 8.5rem;
 }
 
+.structured-section.system-compact-section {
+  padding-top: 5rem;
+  padding-bottom: 5rem;
+}
+
 .structured-section :is(h1, h2, h3, h4, p, .eyebrow) {
   text-align: left;
   margin-left: 0;
@@ -320,6 +325,11 @@ a {
   .structured-section--closing {
     padding-top: 5rem;
     padding-bottom: 5rem;
+  }
+
+  .structured-section.system-compact-section {
+    padding-top: 4rem;
+    padding-bottom: 4rem;
   }
 
   .hero {
