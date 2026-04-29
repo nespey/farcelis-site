@@ -15,6 +15,23 @@ const exploreRight = [
   { href: "/contact", label: "Contact" },
 ];
 
+const certificationFooterImage = (image: string) => {
+  const file = image.split("/").pop() ?? image;
+  return `/images/certifications/footer/${file.replace(/\.(jpe?g|png)$/i, ".png")}`;
+};
+
+const certificationToneClass = (name: string) => {
+  if (/ailcn|databricks|chrome|superhuman/i.test(name)) {
+    return "brightness-[1.28] contrast-[1.12] saturate-[1.08]";
+  }
+
+  if (/microsoft developer/i.test(name)) {
+    return "brightness-[1.18] contrast-[1.08] saturate-[1.18]";
+  }
+
+  return "brightness-[1.08] contrast-[1.06] saturate-[1.06]";
+};
+
 export function Footer() {
   return (
     <footer className="relative bg-transparent py-18 text-slate-300">
@@ -91,21 +108,19 @@ export function Footer() {
 
         <div className="mx-auto w-full max-w-[560px]">
           <p className="eyebrow footer-column-heading text-[color:var(--color-accent)]">Certifications</p>
-          <div className="mt-5 grid w-full grid-cols-3 gap-3 sm:grid-cols-4">
+          <div className="mt-5 grid w-full grid-cols-4 items-center justify-items-center gap-x-5 gap-y-4 sm:grid-cols-6">
             {certifications.map((badge) => (
               <div
                 key={badge.name}
-                className="rounded-[16px] border border-white/8 bg-white/[0.04] p-2.5 shadow-[0_16px_34px_rgba(3,8,16,0.18)]"
+                className="relative h-12 w-18"
               >
-                <div className="relative aspect-square overflow-hidden rounded-[12px] bg-white/95">
-                  <Image
-                    src={badge.image}
-                    alt={badge.name}
-                    fill
-                    sizes="(max-width: 768px) 30vw, 10vw"
-                    className="object-contain p-2"
-                  />
-                </div>
+                <Image
+                  src={certificationFooterImage(badge.image)}
+                  alt={badge.name}
+                  fill
+                  sizes="72px"
+                  className={`object-contain drop-shadow-[0_8px_16px_rgba(0,0,0,0.24)] ${certificationToneClass(badge.name)}`}
+                />
               </div>
             ))}
           </div>
