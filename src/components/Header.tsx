@@ -92,30 +92,27 @@ export function Header() {
                 Capabilities
               </button>
               <div className="pointer-events-none absolute left-0 top-full z-40 pt-4 opacity-0 transition duration-200 group-hover:pointer-events-auto group-hover:opacity-100">
-                <div className="surface-dark min-w-[520px] rounded-[24px] border border-cyan-100/14 bg-[#173343] p-4 shadow-[0_28px_80px_rgba(3,8,16,0.46)]">
-                  <div className="grid gap-6 lg:grid-cols-[180px_minmax(0,1fr)]">
-                    <div>
-                      <div className="text-xs font-semibold uppercase tracking-[0.2em] text-[color:var(--color-accent)]">
+                <div className="surface-dark min-w-[460px] rounded-[24px] border border-cyan-100/14 bg-[#173343] p-4 shadow-[0_28px_80px_rgba(3,8,16,0.46)]">
+                  <div className="rounded-[18px] border border-cyan-100/10 bg-[#1c3c4d] px-4 py-3">
+                    <div className="text-xs font-semibold uppercase tracking-[0.2em] text-[color:var(--color-accent)]">
                         Capabilities
-                      </div>
-                      <p className="mt-3 text-sm leading-7 text-slate-200">
-                        AI consulting, workflow architecture, and flagship system deployments
-                        designed to stabilize execution.
-                      </p>
                     </div>
+                    <p className="mt-2 text-sm leading-6 text-slate-100">
+                      AI consulting, workflow architecture, and flagship system deployments designed to stabilize execution.
+                    </p>
+                  </div>
 
-                    <div className="grid gap-2">
-                      {capabilityLinks.map((item) => (
-                        <Link
-                          key={item.label}
-                          href={item.href}
-                          className="block rounded-[16px] border border-cyan-100/12 bg-[#1c3c4d] px-4 py-3 transition hover:border-cyan-100/22 hover:bg-[#24495c] hover:text-white"
-                        >
-                          <div className="text-sm font-semibold text-white">{item.label}</div>
-                          <div className="mt-1 text-xs leading-6 text-slate-200">{item.detail}</div>
-                        </Link>
-                      ))}
-                    </div>
+                  <div className="mt-3 grid gap-2">
+                    {capabilityLinks.map((item) => (
+                      <Link
+                        key={item.label}
+                        href={item.href}
+                        className="block rounded-[16px] border border-cyan-100/12 bg-[#1c3c4d] px-4 py-3 transition hover:border-cyan-100/22 hover:bg-[#24495c] hover:text-white"
+                      >
+                        <div className="text-sm font-semibold text-white">{item.label}</div>
+                        <div className="mt-1 text-xs leading-6 text-slate-100">{item.detail}</div>
+                      </Link>
+                    ))}
                   </div>
                 </div>
               </div>
@@ -133,30 +130,27 @@ export function Header() {
                 Company
               </button>
               <div className="pointer-events-none absolute left-0 top-full z-40 pt-4 opacity-0 transition duration-200 group-hover:pointer-events-auto group-hover:opacity-100">
-                <div className="surface-dark min-w-[500px] rounded-[24px] border border-cyan-100/14 bg-[#173343] p-4 shadow-[0_28px_80px_rgba(3,8,16,0.46)]">
-                  <div className="grid gap-6 lg:grid-cols-[160px_minmax(0,1fr)]">
-                    <div>
-                      <div className="text-xs font-semibold uppercase tracking-[0.2em] text-[color:var(--color-accent)]">
+                <div className="surface-dark min-w-[420px] rounded-[24px] border border-cyan-100/14 bg-[#173343] p-4 shadow-[0_28px_80px_rgba(3,8,16,0.46)]">
+                  <div className="rounded-[18px] border border-cyan-100/10 bg-[#1c3c4d] px-4 py-3">
+                    <div className="text-xs font-semibold uppercase tracking-[0.2em] text-[color:var(--color-accent)]">
                         Company
-                      </div>
-                      <p className="mt-3 text-sm leading-7 text-slate-200">
-                        The proof and strategy surfaces that explain how Farcelis operates beyond a
-                        single product.
-                      </p>
                     </div>
+                    <p className="mt-2 text-sm leading-6 text-slate-100">
+                      Proof and strategy surfaces that explain how Farcelis operates beyond a single product.
+                    </p>
+                  </div>
 
-                    <div className="grid gap-2">
-                      {companyLinks.map((item) => (
-                        <Link
-                          key={item.label}
-                          href={item.href}
-                          className="block rounded-[16px] border border-cyan-100/12 bg-[#1c3c4d] px-4 py-3 transition hover:border-cyan-100/22 hover:bg-[#24495c] hover:text-white"
-                        >
-                          <div className="text-sm font-semibold text-white">{item.label}</div>
-                          <div className="mt-1 text-xs leading-6 text-slate-200">{item.detail}</div>
-                        </Link>
-                      ))}
-                    </div>
+                  <div className="mt-3 grid gap-2">
+                    {companyLinks.map((item) => (
+                      <Link
+                        key={item.label}
+                        href={item.href}
+                        className="block rounded-[16px] border border-cyan-100/12 bg-[#1c3c4d] px-4 py-3 transition hover:border-cyan-100/22 hover:bg-[#24495c] hover:text-white"
+                      >
+                        <div className="text-sm font-semibold text-white">{item.label}</div>
+                        <div className="mt-1 text-xs leading-6 text-slate-100">{item.detail}</div>
+                      </Link>
+                    ))}
                   </div>
                 </div>
               </div>
