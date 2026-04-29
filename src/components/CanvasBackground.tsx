@@ -37,17 +37,33 @@ const quadraticPoint = (start: Point, control: Point, end: Point, progress: numb
 
 const distance = (a: Point, b: Point) => Math.hypot(b.x - a.x, b.y - a.y);
 
-const buildPath = (pathIndex: number, pathCount: number, width: number, height: number): FlowPath => {
-  const segmentCount = 10 + (pathIndex % 4);
+const getVirtualHeight = (viewportHeight: number) => {
+  const documentHeight = Math.max(
+    document.documentElement.scrollHeight,
+    document.body.scrollHeight,
+    viewportHeight,
+  );
+
+  return Math.max(documentHeight + viewportHeight * 0.75, viewportHeight * 2.6);
+};
+
+const buildPath = (
+  pathIndex: number,
+  pathCount: number,
+  width: number,
+  viewportHeight: number,
+  virtualHeight: number,
+): FlowPath => {
+  const segmentCount = 24 + (pathIndex % 5);
   const laneProgress = pathCount <= 1 ? 0.5 : pathIndex / (pathCount - 1);
   const startY =
-    -height * 0.08 +
-    laneProgress * height * 1.08 +
-    Math.sin(pathIndex * 1.73) * height * 0.035;
+    -viewportHeight * 0.35 +
+    laneProgress * viewportHeight * 1.18 +
+    Math.sin(pathIndex * 1.73) * viewportHeight * 0.05;
   const endY =
     startY +
-    height * (0.34 + (pathIndex % 5) * 0.025) +
-    Math.cos(pathIndex * 1.17) * height * 0.06;
+    virtualHeight * (1.02 + (pathIndex % 5) * 0.025) +
+    Math.cos(pathIndex * 1.17) * viewportHeight * 0.12;
   const verticalStep = (endY - startY) / segmentCount;
   const startX = -width * (0.18 + (pathIndex % 3) * 0.025);
   const endX = width * (1.16 + (pathIndex % 4) * 0.025);
@@ -61,11 +77,14 @@ const buildPath = (pathIndex: number, pathCount: number, width: number, height: 
     const swing = direction * swingBase * (1 - progress * 0.18);
     const localVariance =
       Math.sin((segment + 1) * (pathIndex + 2) * 0.53) * width * 0.01 +
-      Math.cos((segment + pathIndex) * 0.72) * height * 0.012;
+      Math.cos((segment + pathIndex) * 0.72) * viewportHeight * 0.012;
 
     points.push({
       x: startX + segment * horizontalStep + swing + localVariance,
-      y: startY + segment * verticalStep + Math.sin(segment * 0.9 + pathIndex) * height * 0.014,
+      y:
+        startY +
+        segment * verticalStep +
+        Math.sin(segment * 0.9 + pathIndex) * viewportHeight * 0.018,
     });
   }
 
@@ -77,7 +96,9 @@ const buildPath = (pathIndex: number, pathCount: number, width: number, height: 
     const direction = pointIndex % 2 === 0 ? 1 : -1;
     const control: Point = {
       x: (start.x + end.x) / 2 + direction * (width * (0.014 + (pathIndex % 3) * 0.004)),
-      y: (start.y + end.y) / 2 - height * (0.012 + ((pathIndex + pointIndex) % 3) * 0.004),
+      y:
+        (start.y + end.y) / 2 -
+        viewportHeight * (0.012 + ((pathIndex + pointIndex) % 3) * 0.004),
     };
 
     for (let step = 0; step <= 22; step += 1) {
@@ -135,6 +156,7 @@ export function CanvasBackground() {
     let animationFrame = 0;
     let width = 0;
     let height = 0;
+    let scrollY = 0;
     let pixelRatio = 1;
     let paths: FlowPath[] = [];
 
@@ -147,17 +169,21 @@ export function CanvasBackground() {
       canvas.style.width = `${width}px`;
       canvas.style.height = `${height}px`;
       context.setTransform(pixelRatio, 0, 0, pixelRatio, 0, 0);
+      const virtualHeight = getVirtualHeight(height);
       const pathCount = 13;
-      paths = Array.from({ length: pathCount }, (_, index) => buildPath(index, pathCount, width, height));
+      paths = Array.from({ length: pathCount }, (_, index) =>
+        buildPath(index, pathCount, width, height, virtualHeight),
+      );
     };
 
     const strokePath = (path: FlowPath) => {
       context.beginPath();
       path.samples.forEach((point, index) => {
+        const y = point.y - scrollY;
         if (index === 0) {
-          context.moveTo(point.x, point.y);
+          context.moveTo(point.x, y);
         } else {
-          context.lineTo(point.x, point.y);
+          context.lineTo(point.x, y);
         }
       });
 
@@ -175,9 +201,9 @@ export function CanvasBackground() {
       const gradientEnd = pointAtDistance(path.samples, headDistance);
       const gradient = context.createLinearGradient(
         gradientStart.x,
-        gradientStart.y,
+        gradientStart.y - scrollY,
         gradientEnd.x,
-        gradientEnd.y,
+        gradientEnd.y - scrollY,
       );
 
       gradient.addColorStop(0, "rgba(255,255,255,0)");
@@ -187,10 +213,11 @@ export function CanvasBackground() {
       context.save();
       context.beginPath();
       path.samples.forEach((point, index) => {
+        const y = point.y - scrollY;
         if (index === 0) {
-          context.moveTo(point.x, point.y);
+          context.moveTo(point.x, y);
         } else {
-          context.lineTo(point.x, point.y);
+          context.lineTo(point.x, y);
         }
       });
       context.setLineDash([path.length * 0.11, path.length]);
@@ -204,7 +231,8 @@ export function CanvasBackground() {
       context.restore();
     };
 
-    const draw = (time = 0) => {
+    const draw = (time = 0, scheduleNextFrame = true) => {
+      scrollY = window.scrollY;
       context.clearRect(0, 0, width, height);
       context.globalCompositeOperation = "screen";
 
@@ -214,7 +242,7 @@ export function CanvasBackground() {
       context.globalAlpha = 1;
       context.globalCompositeOperation = "source-over";
 
-      if (!reducedMotion) {
+      if (!reducedMotion && scheduleNextFrame) {
         animationFrame = window.requestAnimationFrame(draw);
       }
     };
@@ -222,10 +250,14 @@ export function CanvasBackground() {
     resize();
     draw();
 
+    const handleScroll = () => draw(performance.now(), false);
+
     window.addEventListener("resize", resize);
+    window.addEventListener("scroll", handleScroll, { passive: true });
 
     return () => {
       window.removeEventListener("resize", resize);
+      window.removeEventListener("scroll", handleScroll);
       window.cancelAnimationFrame(animationFrame);
     };
   }, []);
