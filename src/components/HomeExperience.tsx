@@ -149,28 +149,15 @@ export function HomeExperience() {
         </section>
       </Reveal>
 
-      <section className="structured-section system-compact-section section-shell-dark execution-layer-section">
-        <div className="execution-outcome mx-auto w-full px-[clamp(24px,5vw,72px)]">
-          <div className="execution-outcome-header">
-            <p className="section-kicker text-[#f28b5b]">Execution Layer</p>
-            <h2>
-              What changes when this works
-            </h2>
-            <p>
-              Work stops resetting. It <span>starts compounding</span>.
-            </p>
-          </div>
-
-          <div className="execution-outcome-body">
-            <p>Work stops restarting every time something changes.</p>
-            <p>Decisions carry forward instead of getting lost.</p>
-            <p>Execution moves without constant coordination.</p>
-            <p>The business starts operating as a system.</p>
-          </div>
-
-          <div className="execution-outcome-anchor">
-            <p>Everything starts working together.</p>
-          </div>
+      <section className="execution-transition section-shell-dark">
+        <div className="execution-transition-inner">
+          <p className="section-kicker text-[#f28b5b]">Execution Layer</p>
+          <p className="execution-transition-headline">
+            Work stops resetting. It <span>starts compounding</span>.
+          </p>
+          <p>
+            Execution starts moving <span>without friction</span>.
+          </p>
         </div>
       </section>
 
