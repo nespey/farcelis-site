@@ -64,9 +64,14 @@ const getVirtualHeight = (viewportHeight: number) => {
 
 const clamp = (value: number, min: number, max: number) => Math.min(Math.max(value, min), max);
 
+const strandNoise = (seed: number) => {
+  const value = Math.sin(seed * 12.9898) * 43758.5453;
+  return value - Math.floor(value);
+};
+
 const buildSpinePoints = (width: number, viewportHeight: number, virtualHeight: number) => {
   const points: Point[] = [];
-  let y = viewportHeight * 0.18;
+  let y = viewportHeight * 0.32;
   let sweepRight = true;
   let sweepIndex = 0;
 
@@ -78,7 +83,7 @@ const buildSpinePoints = (width: number, viewportHeight: number, virtualHeight: 
       y: y + verticalVariance,
     });
 
-    y += viewportHeight * (sweepIndex === 0 ? 0.46 : 0.58 + (sweepIndex % 3) * 0.045);
+    y += viewportHeight * (sweepIndex === 0 ? 0.4 : 0.58 + (sweepIndex % 3) * 0.045);
     sweepRight = !sweepRight;
     sweepIndex += 1;
   }
@@ -110,6 +115,16 @@ const normalAt = (samples: Point[], index: number): Point => {
   return { x: -dy / length, y: dx / length };
 };
 
+const tangentAt = (samples: Point[], index: number): Point => {
+  const previous = samples[Math.max(0, index - 1)]!;
+  const next = samples[Math.min(samples.length - 1, index + 1)]!;
+  const dx = next.x - previous.x;
+  const dy = next.y - previous.y;
+  const length = Math.hypot(dx, dy) || 1;
+
+  return { x: dx / length, y: dy / length };
+};
+
 const buildPath = (
   pathIndex: number,
   pathCount: number,
@@ -121,22 +136,32 @@ const buildPath = (
   const centerIndex = (pathCount - 1) / 2;
   const strandPosition = pathIndex - centerIndex;
   const normalizedPosition = centerIndex === 0 ? 0 : strandPosition / centerIndex;
-  const topSpread = viewportHeight * (0.09 + (pathIndex % 3) * 0.012);
+  const clusterBias = Math.sign(normalizedPosition) * Math.pow(Math.abs(normalizedPosition), 0.74);
+  const seed = pathIndex + 1;
+  const looseJitter = (strandNoise(seed * 2.7) - 0.5) * 0.34;
+  const clusteredPosition = clamp(clusterBias + looseJitter, -1.12, 1.12);
+  const topSpread = viewportHeight * (0.075 + strandNoise(seed * 1.9) * 0.045);
   const lowerSpread = viewportHeight * 0.022;
   const phase = pathIndex * 0.71;
+  const verticalLag = viewportHeight * ((strandNoise(seed * 4.1) - 0.5) * 0.06);
+  const curvatureDrift = viewportHeight * (0.01 + strandNoise(seed * 3.3) * 0.012);
   const samples = spineSamples.map((point, sampleIndex) => {
     const progress = clamp((point.y + viewportHeight * 0.2) / virtualHeight, 0, 1);
     const convergence = 1 - progress * 0.78;
     const spread = lowerSpread + topSpread * convergence;
     const normal = normalAt(spineSamples, sampleIndex);
+    const tangent = tangentAt(spineSamples, sampleIndex);
     const microDrift =
-      Math.sin(sampleIndex * 0.085 + phase) * viewportHeight * 0.008 * convergence +
-      Math.cos(sampleIndex * 0.037 + phase * 1.4) * width * 0.0035 * convergence;
-    const offset = normalizedPosition * spread + microDrift;
+      Math.sin(sampleIndex * 0.053 + phase) * curvatureDrift * convergence +
+      Math.cos(sampleIndex * 0.019 + phase * 1.4) * width * 0.0028 * convergence;
+    const crossOffset = clusteredPosition * spread + microDrift;
+    const alongOffset =
+      verticalLag * (0.35 + convergence * 0.65) +
+      Math.sin(sampleIndex * 0.031 + phase * 1.7) * viewportHeight * 0.012 * convergence;
 
     return {
-      x: point.x + normal.x * offset,
-      y: point.y + normal.y * offset,
+      x: point.x + normal.x * crossOffset + tangent.x * alongOffset,
+      y: point.y + normal.y * crossOffset + tangent.y * alongOffset,
     };
   });
 
@@ -150,8 +175,8 @@ const buildPath = (
     points: samples,
     samples,
     length,
-    width: pathIndex % 4 === 0 ? 1.85 : pathIndex % 3 === 0 ? 1.55 : 1.28,
-    alpha: pathIndex % 4 === 0 ? 0.24 : 0.16,
+    width: 1.1 + strandNoise(seed * 5.9) * 0.9,
+    alpha: 0.13 + strandNoise(seed * 7.1) * 0.12,
     speed: 0.017 + pathIndex * 0.0015,
     phase: pathIndex * 0.091,
   };
