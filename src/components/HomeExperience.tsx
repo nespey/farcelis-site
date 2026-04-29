@@ -9,44 +9,6 @@ import { SystemFlowRail } from "@/components/SystemFlowRail";
 import { WorkspacePreview } from "@/components/WorkspacePreview";
 import { approvedLogos } from "@/lib/site-data";
 
-const systemModules = [
-  {
-    label: "Workflow",
-    text: "Work doesn’t move cleanly.",
-  },
-  {
-    label: "Execution",
-    text: "Ownership and priorities drift.",
-  },
-  {
-    label: "Control",
-    text: "Problems show up too late.",
-  },
-  {
-    label: "Alignment",
-    text: "Teams and tools fall out of sync.",
-  },
-];
-
-const implementationItems = [
-  {
-    label: "Design",
-    text: "Define how work flows.",
-  },
-  {
-    label: "Support",
-    text: "Stabilize decisions and handoffs.",
-  },
-  {
-    label: "Automation",
-    text: "Remove coordination drag.",
-  },
-  {
-    label: "Enablement",
-    text: "Make it hold under pressure.",
-  },
-];
-
 const executionOutputs = [
   {
     label: "Content",
@@ -95,71 +57,38 @@ export function HomeExperience() {
         </div>
       </section>
 
-      <Reveal delayMs={70}>
-        <section className="structured-section system-compact-section section-shell-dark systems-fail-section">
-          <div className="layout-container">
-            <div className="flex flex-col gap-10 lg:flex-row lg:items-center lg:gap-16">
-              <div className="lg:w-[55%]">
-                <p className="section-kicker text-[#f28b5b]">Why Systems Fail</p>
-                <h2 className="mt-4 max-w-[680px] text-[clamp(2rem,2.35vw,2.25rem)] font-medium leading-[1.14] tracking-[-0.04em] text-white">
-                  Operating problems aren’t people problems.
-                  <br />
-                  They’re system failures hiding in plain sight.
-                </h2>
-                <p className="mt-4 max-w-[480px] text-[clamp(1rem,1.15vw,1.125rem)] leading-7 text-slate-300">
-                  When structure breaks, everything downstream pays for it.
-                </p>
-              </div>
-
-              <div className="space-y-6 lg:w-[45%]">
-                {systemModules.map((item) => (
-                  <div key={item.label}>
-                    <div className="text-[clamp(0.875rem,1vw,1rem)] font-semibold tracking-[0.08em] text-slate-400">
-                      {item.label}
-                    </div>
-                    <p className="mt-1 text-[clamp(1rem,1.08vw,1.125rem)] leading-7 text-slate-100">
-                      {item.text}
-                    </p>
-                  </div>
-                ))}
-              </div>
-            </div>
-          </div>
-        </section>
-      </Reveal>
-
-      <Reveal delayMs={150}>
-        <section className="structured-section system-compact-section section-shell-light">
-          <div className="layout-container">
-            <div className="flex flex-col gap-10 lg:flex-row lg:items-center lg:gap-16">
-              <div className="lg:w-[55%]">
-                <p className="section-kicker text-[#9f412c]">Implementation Path</p>
-                <h2 className="mt-4 max-w-[620px] text-[clamp(2rem,2.35vw,2.25rem)] font-medium leading-[1.14] tracking-[-0.04em] text-slate-950">
-                  Structure gets built, not installed.
-                </h2>
-                <p className="mt-4 max-w-[460px] text-[clamp(1rem,1.15vw,1.125rem)] leading-7 text-slate-600">
-                  Layered. Connected. Enforced over time.
-                </p>
-              </div>
-              <div className="space-y-6 lg:w-[45%]">
-                {implementationItems.map((item) => (
-                  <div key={item.label}>
-                    <div className="text-[clamp(0.875rem,1vw,1rem)] font-semibold tracking-[0.08em] text-slate-500">
-                      {item.label}
-                    </div>
-                    <p className="mt-1 text-[clamp(1rem,1.08vw,1.125rem)] leading-7 text-slate-900">
-                      {item.text}
-                    </p>
-                  </div>
-                ))}
-              </div>
-            </div>
-            <p className="mt-10 text-[clamp(1.2rem,1.55vw,1.45rem)] font-medium leading-[1.2] tracking-[-0.035em] text-slate-950">
-              Execution starts moving without friction.
+      <section className="system-hook-section">
+        <div className="system-hook-left">
+          <div>
+            <h2>
+              Operating problems aren’t people problems.
+              <br />
+              They’re system failures hiding in plain sight.
+            </h2>
+            <p className="system-hook-muted">
+              When structure breaks, everything downstream pays for it.
             </p>
+            <p className="system-hook-final">Execution starts moving without friction.</p>
           </div>
-        </section>
-      </Reveal>
+        </div>
+
+        <div className="system-hook-right">
+          <div className="system-hook-flow-line" aria-hidden="true" />
+          <div className="system-hook-flow">
+            <p className="signal signal-a">Work doesn’t move cleanly.</p>
+            <p className="signal signal-b">Ownership drifts.</p>
+            <p className="signal signal-c">Problems show up too late.</p>
+            <p className="signal signal-d">Teams fall out of sync.</p>
+
+            <p className="signal-pivot">This isn’t random.</p>
+
+            <p className="signal signal-e">Define how work flows.</p>
+            <p className="signal signal-f">Stabilize decisions and handoffs.</p>
+            <p className="signal signal-g">Remove coordination drag.</p>
+            <p className="signal signal-h">Make it hold under pressure.</p>
+          </div>
+        </div>
+      </section>
 
       <Reveal delayMs={230}>
         <section className="structured-section structured-section--showcase section-shell-dark dashboard-showcase">

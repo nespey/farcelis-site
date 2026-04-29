@@ -185,6 +185,165 @@ a {
   padding-right: clamp(24px, 5vw, 72px);
 }
 
+.system-hook-section {
+  position: relative;
+  display: flex;
+  min-height: 760px;
+  width: 100%;
+  align-items: center;
+  gap: clamp(3rem, 6vw, 7rem);
+  padding: clamp(5.5rem, 8vw, 8rem) clamp(24px, 5vw, 72px);
+  background: linear-gradient(180deg, rgba(4, 13, 20, 0.18), rgba(4, 13, 20, 0.3));
+}
+
+.system-hook-left {
+  display: flex;
+  width: 43%;
+  min-width: 0;
+  align-items: center;
+}
+
+.system-hook-left h2 {
+  max-width: 680px;
+  font-size: clamp(2rem, 2.35vw, 2.25rem);
+  font-weight: 500;
+  line-height: 1.14;
+  letter-spacing: -0.04em;
+  color: #ffffff;
+}
+
+.system-hook-muted {
+  max-width: 480px;
+  margin-top: 1.1rem;
+  font-size: clamp(1rem, 1.12vw, 1.125rem);
+  line-height: 1.55;
+  color: #c6d2dc;
+}
+
+.system-hook-final {
+  margin-top: clamp(3.5rem, 7vw, 6rem);
+  font-size: clamp(1.2rem, 1.55vw, 1.45rem);
+  font-weight: 500;
+  line-height: 1.2;
+  letter-spacing: -0.035em;
+  color: #ffffff;
+}
+
+.system-hook-right {
+  position: relative;
+  flex: 1;
+  min-height: 590px;
+  min-width: 0;
+}
+
+.system-hook-flow-line {
+  position: absolute;
+  top: 0;
+  bottom: 0;
+  left: 46%;
+  width: 1px;
+  background: linear-gradient(
+    to bottom,
+    transparent,
+    rgba(198, 210, 220, 0.18) 8%,
+    rgba(242, 139, 91, 0.58) 50%,
+    rgba(198, 210, 220, 0.18) 92%,
+    transparent
+  );
+}
+
+.system-hook-flow {
+  position: relative;
+  min-height: 590px;
+  font-size: clamp(1rem, 1.08vw, 1.125rem);
+  line-height: 1.25;
+  color: #eaf1f5;
+}
+
+.system-hook-flow p {
+  margin: 0;
+  white-space: nowrap;
+}
+
+.signal,
+.signal-pivot {
+  position: absolute;
+}
+
+.signal::before {
+  content: "";
+  position: absolute;
+  top: 50%;
+  height: 1px;
+  width: clamp(1.5rem, 3vw, 2.5rem);
+  background: rgba(242, 139, 91, 0.38);
+}
+
+.signal-a {
+  top: 2%;
+  left: calc(46% + clamp(2.3rem, 4vw, 3.7rem));
+}
+
+.signal-a::before,
+.signal-c::before,
+.signal-f::before,
+.signal-h::before {
+  right: calc(100% + 0.9rem);
+}
+
+.signal-b {
+  top: 15%;
+  right: calc(54% + clamp(2rem, 4vw, 3.5rem));
+}
+
+.signal-b::before,
+.signal-d::before,
+.signal-e::before,
+.signal-g::before {
+  left: calc(100% + 0.9rem);
+}
+
+.signal-c {
+  top: 28%;
+  left: calc(46% + clamp(1.4rem, 3vw, 2.6rem));
+}
+
+.signal-d {
+  top: 40%;
+  right: calc(54% + clamp(1.2rem, 3vw, 2.3rem));
+}
+
+.signal-pivot {
+  top: 50%;
+  left: calc(46% + clamp(2rem, 4vw, 3.4rem));
+  transform: translateY(-50%);
+  font-size: clamp(1.15rem, 1.45vw, 1.35rem);
+  font-weight: 500;
+  line-height: 1.15;
+  letter-spacing: -0.03em;
+  color: #f28b5b;
+}
+
+.signal-e {
+  top: 63%;
+  right: calc(54% + clamp(1.8rem, 4vw, 3rem));
+}
+
+.signal-f {
+  top: 73%;
+  left: calc(46% + clamp(2.5rem, 5vw, 4.5rem));
+}
+
+.signal-g {
+  top: 84%;
+  right: calc(54% + clamp(1rem, 3vw, 2.2rem));
+}
+
+.signal-h {
+  top: 95%;
+  left: calc(46% + clamp(1.4rem, 3vw, 2.6rem));
+}
+
 .dashboard-showcase :is(h1, h2, h3, h4, p, .eyebrow, .section-kicker) {
   text-align: center;
   margin-left: auto;
@@ -330,6 +489,62 @@ a {
   .structured-section.system-compact-section {
     padding-top: 4rem;
     padding-bottom: 4rem;
+  }
+
+  .system-hook-section {
+    min-height: auto;
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 4rem;
+    padding-top: 4.5rem;
+    padding-bottom: 4.5rem;
+  }
+
+  .system-hook-left {
+    width: 100%;
+  }
+
+  .system-hook-left h2 {
+    font-size: clamp(1.9rem, 7vw, 2.25rem);
+  }
+
+  .system-hook-final {
+    margin-top: 3rem;
+  }
+
+  .system-hook-right {
+    width: 100%;
+    min-height: 620px;
+  }
+
+  .system-hook-flow-line {
+    left: 1rem;
+  }
+
+  .system-hook-flow {
+    min-height: 620px;
+    padding-left: 2.4rem;
+  }
+
+  .system-hook-flow p {
+    max-width: calc(100vw - 5rem);
+    white-space: normal;
+  }
+
+  .signal,
+  .signal-pivot {
+    left: 2.4rem !important;
+    right: auto !important;
+  }
+
+  .signal::before {
+    right: calc(100% + 0.7rem) !important;
+    left: auto !important;
+    width: 1rem;
+  }
+
+  .signal-pivot {
+    transform: translateY(-50%);
   }
 
   .hero {
