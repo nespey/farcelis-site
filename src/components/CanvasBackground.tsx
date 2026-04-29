@@ -65,25 +65,20 @@ const getVirtualHeight = (viewportHeight: number) => {
 const clamp = (value: number, min: number, max: number) => Math.min(Math.max(value, min), max);
 
 const buildSpinePoints = (width: number, viewportHeight: number, virtualHeight: number) => {
-  const points: Point[] = [
-    { x: -width * 0.2, y: viewportHeight * 0.04 },
-    { x: width * 0.72, y: viewportHeight * 0.14 },
-    { x: width * 1.18, y: viewportHeight * 0.34 },
-    { x: width * 0.1, y: viewportHeight * 0.78 },
-  ];
-
+  const points: Point[] = [];
+  let y = viewportHeight * 0.18;
   let sweepRight = true;
-  let y = viewportHeight * 1.28;
   let sweepIndex = 0;
 
-  while (y < virtualHeight + viewportHeight * 0.55) {
-    const edgeInset = width * (0.07 + (sweepIndex % 3) * 0.018);
-    const variance = Math.sin(sweepIndex * 1.19) * width * 0.035;
+  while (y < virtualHeight + viewportHeight * 0.7) {
+    const offscreenDepth = width * (0.24 + (sweepIndex % 3) * 0.035);
+    const verticalVariance = Math.sin(sweepIndex * 1.37) * viewportHeight * 0.045;
     points.push({
-      x: sweepRight ? width * (1.04 - edgeInset / width) + variance : edgeInset + variance,
-      y,
+      x: sweepRight ? -offscreenDepth : width + offscreenDepth,
+      y: y + verticalVariance,
     });
-    y += viewportHeight * (0.46 + (sweepIndex % 4) * 0.035);
+
+    y += viewportHeight * (sweepIndex === 0 ? 0.46 : 0.58 + (sweepIndex % 3) * 0.045);
     sweepRight = !sweepRight;
     sweepIndex += 1;
   }
