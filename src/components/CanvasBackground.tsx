@@ -90,11 +90,13 @@ const lerp = (start: number, end: number, progress: number) => start + (end - st
 const buildSpinePoints = (width: number, viewportHeight: number, virtualHeight: number) => {
   const firstOffscreenDepth = width * 0.46;
   const points: Point[] = [
-    { x: -firstOffscreenDepth, y: viewportHeight * 0.16 },
-    { x: width + firstOffscreenDepth, y: viewportHeight * 0.58 },
+    { x: -firstOffscreenDepth, y: -viewportHeight * 0.04 },
+    { x: width * 0.42, y: viewportHeight * 0.08 },
+    { x: width * 0.88, y: viewportHeight * 0.18 },
+    { x: width + firstOffscreenDepth, y: viewportHeight * 0.34 },
   ];
-  let y = viewportHeight * 1.08;
-  let sweepRight = false;
+  let y = viewportHeight * 0.9;
+  let sweepRight = true;
   let sweepIndex = 1;
 
   while (y < virtualHeight + viewportHeight * 0.7) {
@@ -170,7 +172,7 @@ const buildPath = (
     samples: spineSamples,
     length,
     width: lerp(0.45, 1.55, depthFactor),
-    alpha: lerp(0.08, 0.28, depthFactor),
+    alpha: lerp(0.1, 0.32, depthFactor),
     speed: 0.015 + strandNoise(seed * 7.1) * 0.01,
     phase: strandNoise(seed * 8.2) * Math.PI * 2,
     strandIndex: pathIndex,
@@ -188,18 +190,25 @@ const buildPath = (
 };
 
 const renderPath = (path: FlowPath, time: number): RenderedPath => {
-  const maxBundleWidth = Math.max(520, window.innerHeight * 0.58);
+  const maxBundleWidth = Math.min(Math.max(520, window.innerHeight * 0.58), window.innerWidth < 768 ? 310 : 620);
   const minBundleWidth = 80;
   const samples = path.samples.map((point, index) => {
     const normal = normalAt(path.samples, index);
     const tangent = tangentAt(path.samples, index);
     const progress = clamp((point.y + window.innerHeight * 0.15) / Math.max(path.samples[path.samples.length - 1]!.y, 1), 0, 1);
-    const bundleWidth = Math.max(lerp(maxBundleWidth, minBundleWidth, progress), 60);
+    const heroTighten = 1 - Math.exp(-11 * clamp(progress / 0.18, 0, 1));
+    const postHeroTighten = clamp((progress - 0.2) / 0.8, 0, 1);
+    const entryWidth = lerp(maxBundleWidth, Math.max(120, maxBundleWidth * 0.22), heroTighten);
+    const bundleWidth = Math.max(lerp(entryWidth, minBundleWidth, postHeroTighten), 60);
     const strandProgress = path.totalStrands <= 1 ? 0.5 : path.strandIndex / (path.totalStrands - 1);
-    const baseOffset = (strandProgress - 0.5) * bundleWidth;
+    const heroDivergence = 1 + 0.32 * (1 - clamp(progress / 0.16, 0, 1));
+    const signedStrand = strandProgress * 2 - 1;
+    const clusteredStrand = Math.sign(signedStrand) * Math.pow(Math.abs(signedStrand), 0.84);
+    const baseOffset = clusteredStrand * bundleWidth * 0.5 * heroDivergence;
     const position = progress * path.length;
-    const wave = Math.sin(position * 0.006 + path.phase) * 12 * path.amplitude;
-    const drift = Math.sin(time * path.driftSpeed + path.phase) * 5 * path.drift;
+    const heroVariance = 1 + 0.45 * (1 - clamp(progress / 0.22, 0, 1));
+    const wave = Math.sin(position * 0.006 + path.phase) * 12 * path.amplitude * heroVariance;
+    const drift = Math.sin(time * path.driftSpeed + path.phase) * 5 * path.drift * heroVariance;
     const interaction = 0.96 + 0.04 * Math.sin(position * 0.004 + path.phase);
     const curveOffset =
       Math.sin(position * 0.018 + path.weavePhase + time * path.driftSpeed * 0.9) *
