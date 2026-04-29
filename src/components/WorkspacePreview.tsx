@@ -16,7 +16,7 @@ const views = [
       { label: "Owner gaps", value: "3" },
       { label: "SLA risk", value: "4" },
     ],
-    actions: ["Search board", "Quick add", "Route owner", "Sync inboxes", "Open drawer"],
+    actions: ["Search board", "Quick add", "Route owner", "Sync inboxes", "Details"],
     panels: {
       leftTitle: "Live inboxes",
       leftCards: [
@@ -62,7 +62,7 @@ const views = [
       { label: "Blocked", value: "7" },
       { label: "Reports", value: "11" },
     ],
-    actions: ["All owners", "Project status", "Generate report", "Refresh view", "Open drawer"],
+    actions: ["All owners", "Project status", "Generate report", "Refresh view", "Details"],
     panels: {
       leftTitle: "Filters and commands",
       leftCards: [
@@ -108,7 +108,7 @@ const views = [
       { label: "At risk", value: "2" },
       { label: "Closed today", value: "9" },
     ],
-    actions: ["Executive frame", "Visibility", "Leadership note", "Close loop", "Open drawer"],
+    actions: ["Executive frame", "Visibility", "Leadership note", "Close loop", "Details"],
     panels: {
       leftTitle: "Signals entering frame",
       leftCards: [
@@ -270,7 +270,7 @@ export function WorkspacePreview({ compact = false }: WorkspacePreviewProps) {
                     "Action center",
                     "Executive frame",
                     "Exception log",
-                    "Owner drawer",
+                    "Detail view",
                   ].map((item, index) => (
                     <div
                       key={item}
@@ -395,14 +395,17 @@ export function WorkspacePreview({ compact = false }: WorkspacePreviewProps) {
                     </div>
                   </div>
 
-                  <div className="rounded-[18px] border border-white/7 bg-[#111d2c] p-3">
+                  <div className="rounded-[18px] border border-cyan-200/12 bg-[linear-gradient(180deg,rgba(97,192,215,0.08),rgba(17,29,44,0.96))] p-3">
                     <div className="flex items-center justify-between gap-3">
                       <div className="text-[10px] font-semibold uppercase tracking-[0.16em] text-slate-500">
-                        Side drawer
+                        Selected work detail
                       </div>
                       <div className={accentClasses.badge + " rounded-full border px-2.5 py-1 text-[10px] font-semibold uppercase tracking-[0.14em]"}>
-                        Open
+                        Expanded
                       </div>
+                    </div>
+                    <div className="mt-2 text-xs leading-5 text-slate-300">
+                      A clicked row opens a contextual detail panel with the fields needed to close the loop.
                     </div>
                     <div className="mt-3 grid gap-2">
                       {["Owner", "Priority", "SLA", "Source"].map((item, index) => (
