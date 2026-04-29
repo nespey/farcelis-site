@@ -150,7 +150,7 @@ export function HomeExperience() {
       </Reveal>
 
       <section className="structured-section system-compact-section section-shell-dark execution-layer-section">
-        <div className="execution-cascade mx-auto w-full max-w-[880px] px-[clamp(24px,5vw,72px)]">
+        <div className="execution-cascade mx-auto w-full max-w-[1280px] px-[clamp(24px,5vw,72px)]">
           <div className="execution-cascade-header">
             <p className="section-kicker text-[#f28b5b]">Execution Layer</p>
             <h2>
