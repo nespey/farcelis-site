@@ -37,29 +37,35 @@ const quadraticPoint = (start: Point, control: Point, end: Point, progress: numb
 
 const distance = (a: Point, b: Point) => Math.hypot(b.x - a.x, b.y - a.y);
 
-const buildPath = (pathIndex: number, width: number, height: number): FlowPath => {
-  const segmentCount = 7 + (pathIndex % 3);
-  const startY = -height * (0.2 + pathIndex * 0.055);
-  const endY = height * (1.08 + pathIndex * 0.04);
+const buildPath = (pathIndex: number, pathCount: number, width: number, height: number): FlowPath => {
+  const segmentCount = 10 + (pathIndex % 4);
+  const laneProgress = pathCount <= 1 ? 0.5 : pathIndex / (pathCount - 1);
+  const startY =
+    -height * 0.08 +
+    laneProgress * height * 1.08 +
+    Math.sin(pathIndex * 1.73) * height * 0.035;
+  const endY =
+    startY +
+    height * (0.34 + (pathIndex % 5) * 0.025) +
+    Math.cos(pathIndex * 1.17) * height * 0.06;
   const verticalStep = (endY - startY) / segmentCount;
-  const startX = -width * (0.18 + (pathIndex % 4) * 0.035);
-  const drift = width * (0.78 + (pathIndex % 5) * 0.045);
-  const swingBase = width * (0.08 + (pathIndex % 4) * 0.014);
-  const laneOffset = (pathIndex - 5) * Math.max(28, Math.min(width, height) * 0.025);
+  const startX = -width * (0.18 + (pathIndex % 3) * 0.025);
+  const endX = width * (1.16 + (pathIndex % 4) * 0.025);
+  const horizontalStep = (endX - startX) / segmentCount;
+  const swingBase = width * (0.025 + (pathIndex % 4) * 0.006);
   const points: Point[] = [];
 
   for (let segment = 0; segment <= segmentCount; segment += 1) {
     const progress = segment / segmentCount;
     const direction = segment % 2 === 0 ? 1 : -1;
-    const structureBias = progress * drift;
-    const swing = direction * swingBase * (1 - progress * 0.34);
+    const swing = direction * swingBase * (1 - progress * 0.18);
     const localVariance =
-      Math.sin((segment + 1) * (pathIndex + 2) * 0.71) * width * 0.018 +
-      Math.cos((segment + pathIndex) * 0.9) * height * 0.01;
+      Math.sin((segment + 1) * (pathIndex + 2) * 0.53) * width * 0.01 +
+      Math.cos((segment + pathIndex) * 0.72) * height * 0.012;
 
     points.push({
-      x: startX + structureBias + swing + localVariance + laneOffset,
-      y: startY + segment * verticalStep + Math.sin(segment * 1.23 + pathIndex) * height * 0.018,
+      x: startX + segment * horizontalStep + swing + localVariance,
+      y: startY + segment * verticalStep + Math.sin(segment * 0.9 + pathIndex) * height * 0.014,
     });
   }
 
@@ -70,13 +76,13 @@ const buildPath = (pathIndex: number, width: number, height: number): FlowPath =
     const end = points[pointIndex + 1]!;
     const direction = pointIndex % 2 === 0 ? 1 : -1;
     const control: Point = {
-      x: (start.x + end.x) / 2 + direction * (width * (0.035 + (pathIndex % 3) * 0.008)),
-      y: (start.y + end.y) / 2 - height * (0.02 + ((pathIndex + pointIndex) % 3) * 0.006),
+      x: (start.x + end.x) / 2 + direction * (width * (0.014 + (pathIndex % 3) * 0.004)),
+      y: (start.y + end.y) / 2 - height * (0.012 + ((pathIndex + pointIndex) % 3) * 0.004),
     };
 
-    for (let step = 0; step <= 18; step += 1) {
+    for (let step = 0; step <= 22; step += 1) {
       if (pointIndex > 0 && step === 0) continue;
-      samples.push(quadraticPoint(start, control, end, step / 18));
+      samples.push(quadraticPoint(start, control, end, step / 22));
     }
   }
 
@@ -141,7 +147,8 @@ export function CanvasBackground() {
       canvas.style.width = `${width}px`;
       canvas.style.height = `${height}px`;
       context.setTransform(pixelRatio, 0, 0, pixelRatio, 0, 0);
-      paths = Array.from({ length: 11 }, (_, index) => buildPath(index, width, height));
+      const pathCount = 13;
+      paths = Array.from({ length: pathCount }, (_, index) => buildPath(index, pathCount, width, height));
     };
 
     const strokePath = (path: FlowPath) => {
