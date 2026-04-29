@@ -29,10 +29,25 @@ const interpolate = (a: Point, b: Point, progress: number): Point => ({
   y: a.y + (b.y - a.y) * progress,
 });
 
-const quadraticPoint = (start: Point, control: Point, end: Point, progress: number): Point => {
-  const first = interpolate(start, control, progress);
-  const second = interpolate(control, end, progress);
-  return interpolate(first, second, progress);
+const catmullRomPoint = (previous: Point, start: Point, end: Point, next: Point, progress: number): Point => {
+  const t = progress;
+  const t2 = t * t;
+  const t3 = t2 * t;
+
+  return {
+    x:
+      0.5 *
+      (2 * start.x +
+        (-previous.x + end.x) * t +
+        (2 * previous.x - 5 * start.x + 4 * end.x - next.x) * t2 +
+        (-previous.x + 3 * start.x - 3 * end.x + next.x) * t3),
+    y:
+      0.5 *
+      (2 * start.y +
+        (-previous.y + end.y) * t +
+        (2 * previous.y - 5 * start.y + 4 * end.y - next.y) * t2 +
+        (-previous.y + 3 * start.y - 3 * end.y + next.y) * t3),
+  };
 };
 
 const distance = (a: Point, b: Point) => Math.hypot(b.x - a.x, b.y - a.y);
@@ -47,65 +62,88 @@ const getVirtualHeight = (viewportHeight: number) => {
   return Math.max(documentHeight + viewportHeight * 0.75, viewportHeight * 2.6);
 };
 
+const clamp = (value: number, min: number, max: number) => Math.min(Math.max(value, min), max);
+
+const buildSpinePoints = (width: number, viewportHeight: number, virtualHeight: number) => {
+  const points: Point[] = [
+    { x: -width * 0.2, y: viewportHeight * 0.04 },
+    { x: width * 0.72, y: viewportHeight * 0.14 },
+    { x: width * 1.18, y: viewportHeight * 0.34 },
+    { x: width * 0.1, y: viewportHeight * 0.78 },
+  ];
+
+  let sweepRight = true;
+  let y = viewportHeight * 1.28;
+  let sweepIndex = 0;
+
+  while (y < virtualHeight + viewportHeight * 0.55) {
+    const edgeInset = width * (0.07 + (sweepIndex % 3) * 0.018);
+    const variance = Math.sin(sweepIndex * 1.19) * width * 0.035;
+    points.push({
+      x: sweepRight ? width * (1.04 - edgeInset / width) + variance : edgeInset + variance,
+      y,
+    });
+    y += viewportHeight * (0.46 + (sweepIndex % 4) * 0.035);
+    sweepRight = !sweepRight;
+    sweepIndex += 1;
+  }
+
+  const samples: Point[] = [];
+
+  for (let pointIndex = 0; pointIndex < points.length - 1; pointIndex += 1) {
+    const previous = points[Math.max(0, pointIndex - 1)]!;
+    const start = points[pointIndex]!;
+    const end = points[pointIndex + 1]!;
+    const next = points[Math.min(points.length - 1, pointIndex + 2)]!;
+
+    for (let step = 0; step <= 40; step += 1) {
+      if (pointIndex > 0 && step === 0) continue;
+      samples.push(catmullRomPoint(previous, start, end, next, step / 40));
+    }
+  }
+
+  return { points, samples };
+};
+
+const normalAt = (samples: Point[], index: number): Point => {
+  const previous = samples[Math.max(0, index - 1)]!;
+  const next = samples[Math.min(samples.length - 1, index + 1)]!;
+  const dx = next.x - previous.x;
+  const dy = next.y - previous.y;
+  const length = Math.hypot(dx, dy) || 1;
+
+  return { x: -dy / length, y: dx / length };
+};
+
 const buildPath = (
   pathIndex: number,
   pathCount: number,
   width: number,
   viewportHeight: number,
   virtualHeight: number,
+  spineSamples: Point[],
 ): FlowPath => {
-  const segmentCount = 24 + (pathIndex % 5);
-  const laneProgress = pathCount <= 1 ? 0.5 : pathIndex / (pathCount - 1);
-  const startY =
-    -viewportHeight * 0.35 +
-    laneProgress * viewportHeight * 1.18 +
-    Math.sin(pathIndex * 1.73) * viewportHeight * 0.05;
-  const endY =
-    startY +
-    virtualHeight * (1.02 + (pathIndex % 5) * 0.025) +
-    Math.cos(pathIndex * 1.17) * viewportHeight * 0.12;
-  const verticalStep = (endY - startY) / segmentCount;
-  const startX = -width * (0.18 + (pathIndex % 3) * 0.025);
-  const endX = width * (1.16 + (pathIndex % 4) * 0.025);
-  const horizontalStep = (endX - startX) / segmentCount;
-  const swingBase = width * (0.025 + (pathIndex % 4) * 0.006);
-  const points: Point[] = [];
+  const centerIndex = (pathCount - 1) / 2;
+  const strandPosition = pathIndex - centerIndex;
+  const normalizedPosition = centerIndex === 0 ? 0 : strandPosition / centerIndex;
+  const topSpread = viewportHeight * (0.09 + (pathIndex % 3) * 0.012);
+  const lowerSpread = viewportHeight * 0.022;
+  const phase = pathIndex * 0.71;
+  const samples = spineSamples.map((point, sampleIndex) => {
+    const progress = clamp((point.y + viewportHeight * 0.2) / virtualHeight, 0, 1);
+    const convergence = 1 - progress * 0.78;
+    const spread = lowerSpread + topSpread * convergence;
+    const normal = normalAt(spineSamples, sampleIndex);
+    const microDrift =
+      Math.sin(sampleIndex * 0.085 + phase) * viewportHeight * 0.008 * convergence +
+      Math.cos(sampleIndex * 0.037 + phase * 1.4) * width * 0.0035 * convergence;
+    const offset = normalizedPosition * spread + microDrift;
 
-  for (let segment = 0; segment <= segmentCount; segment += 1) {
-    const progress = segment / segmentCount;
-    const direction = segment % 2 === 0 ? 1 : -1;
-    const swing = direction * swingBase * (1 - progress * 0.18);
-    const localVariance =
-      Math.sin((segment + 1) * (pathIndex + 2) * 0.53) * width * 0.01 +
-      Math.cos((segment + pathIndex) * 0.72) * viewportHeight * 0.012;
-
-    points.push({
-      x: startX + segment * horizontalStep + swing + localVariance,
-      y:
-        startY +
-        segment * verticalStep +
-        Math.sin(segment * 0.9 + pathIndex) * viewportHeight * 0.018,
-    });
-  }
-
-  const samples: Point[] = [];
-
-  for (let pointIndex = 0; pointIndex < points.length - 1; pointIndex += 1) {
-    const start = points[pointIndex]!;
-    const end = points[pointIndex + 1]!;
-    const direction = pointIndex % 2 === 0 ? 1 : -1;
-    const control: Point = {
-      x: (start.x + end.x) / 2 + direction * (width * (0.014 + (pathIndex % 3) * 0.004)),
-      y:
-        (start.y + end.y) / 2 -
-        viewportHeight * (0.012 + ((pathIndex + pointIndex) % 3) * 0.004),
+    return {
+      x: point.x + normal.x * offset,
+      y: point.y + normal.y * offset,
     };
-
-    for (let step = 0; step <= 22; step += 1) {
-      if (pointIndex > 0 && step === 0) continue;
-      samples.push(quadraticPoint(start, control, end, step / 22));
-    }
-  }
+  });
 
   let length = 0;
   for (let index = 1; index < samples.length; index += 1) {
@@ -114,13 +152,13 @@ const buildPath = (
 
   return {
     color: palette[pathIndex % palette.length]!,
-    points,
+    points: samples,
     samples,
     length,
-    width: pathIndex % 4 === 0 ? 2.1 : pathIndex % 3 === 0 ? 1.7 : 1.35,
-    alpha: pathIndex % 4 === 0 ? 0.34 : 0.22,
-    speed: 0.018 + pathIndex * 0.0018,
-    phase: pathIndex * 0.137,
+    width: pathIndex % 4 === 0 ? 1.85 : pathIndex % 3 === 0 ? 1.55 : 1.28,
+    alpha: pathIndex % 4 === 0 ? 0.24 : 0.16,
+    speed: 0.017 + pathIndex * 0.0015,
+    phase: pathIndex * 0.091,
   };
 };
 
@@ -170,9 +208,10 @@ export function CanvasBackground() {
       canvas.style.height = `${height}px`;
       context.setTransform(pixelRatio, 0, 0, pixelRatio, 0, 0);
       const virtualHeight = getVirtualHeight(height);
-      const pathCount = 13;
+      const { samples: spineSamples } = buildSpinePoints(width, height, virtualHeight);
+      const pathCount = 15;
       paths = Array.from({ length: pathCount }, (_, index) =>
-        buildPath(index, pathCount, width, height, virtualHeight),
+        buildPath(index, pathCount, width, height, virtualHeight, spineSamples),
       );
     };
 
@@ -223,10 +262,10 @@ export function CanvasBackground() {
       context.setLineDash([path.length * 0.11, path.length]);
       context.lineDashOffset = -headDistance;
       context.strokeStyle = gradient;
-      context.lineWidth = path.width + 1.2;
-      context.globalAlpha = path.alpha * 1.75;
+      context.lineWidth = path.width + 0.95;
+      context.globalAlpha = path.alpha * 1.45;
       context.shadowColor = path.color;
-      context.shadowBlur = 10;
+      context.shadowBlur = 8;
       context.stroke();
       context.restore();
     };
