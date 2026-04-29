@@ -137,6 +137,38 @@ a {
   margin-right: 0;
 }
 
+.validation-inner {
+  max-width: 720px;
+  margin: 0 auto;
+  text-align: center;
+}
+
+.validation-section .validation-inner :is(h2, p) {
+  text-align: center;
+}
+
+.validation-inner h2 {
+  max-width: 640px;
+  margin: 0 auto;
+}
+
+.validation-inner p {
+  margin-top: 16px;
+}
+
+.logo-row {
+  display: flex;
+  justify-content: center;
+  gap: 40px;
+  margin-top: 48px;
+  flex-wrap: wrap;
+}
+
+.logo-row > * {
+  width: 100%;
+  min-width: 0;
+}
+
 .layout-container,
 .showcase-container,
 .section-inner {
