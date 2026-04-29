@@ -88,10 +88,14 @@ const strandNoise = (seed: number) => {
 const lerp = (start: number, end: number, progress: number) => start + (end - start) * progress;
 
 const buildSpinePoints = (width: number, viewportHeight: number, virtualHeight: number) => {
-  const points: Point[] = [];
-  let y = viewportHeight * 0.18;
-  let sweepRight = true;
-  let sweepIndex = 0;
+  const firstOffscreenDepth = width * 0.46;
+  const points: Point[] = [
+    { x: -firstOffscreenDepth, y: viewportHeight * 0.16 },
+    { x: width + firstOffscreenDepth, y: viewportHeight * 0.58 },
+  ];
+  let y = viewportHeight * 1.08;
+  let sweepRight = false;
+  let sweepIndex = 1;
 
   while (y < virtualHeight + viewportHeight * 0.7) {
     const offscreenDepth = width * (0.42 + (sweepIndex % 3) * 0.055);
@@ -166,7 +170,7 @@ const buildPath = (
     samples: spineSamples,
     length,
     width: lerp(0.45, 1.55, depthFactor),
-    alpha: lerp(0.05, 0.24, depthFactor),
+    alpha: lerp(0.08, 0.28, depthFactor),
     speed: 0.015 + strandNoise(seed * 7.1) * 0.01,
     phase: strandNoise(seed * 8.2) * Math.PI * 2,
     strandIndex: pathIndex,
@@ -176,7 +180,7 @@ const buildPath = (
     depthFactor,
     driftSpeed: 0.00022 + strandNoise(seed * 10.7) * 0.00012,
     driftPhase: strandNoise(seed * 10.9) * Math.PI * 2,
-    curveAmplitude: viewportHeight * (0.018 + strandNoise(seed * 13.2) * 0.035),
+    curveAmplitude: viewportHeight * (0.006 + strandNoise(seed * 13.2) * 0.012),
     weavePhase: strandNoise(seed * 13.8) * Math.PI * 2,
     blur: lerp(1.6, 0, depthFactor),
     glow: depthFactor > 0.86 ? lerp(2, 6, depthFactor) : 0,
@@ -194,22 +198,22 @@ const renderPath = (path: FlowPath, time: number): RenderedPath => {
     const strandProgress = path.totalStrands <= 1 ? 0.5 : path.strandIndex / (path.totalStrands - 1);
     const baseOffset = (strandProgress - 0.5) * bundleWidth;
     const position = progress * path.length;
-    const wave = Math.sin(position * 0.01 + path.phase) * 40 * path.amplitude;
-    const drift = Math.sin(time * path.driftSpeed + path.phase) * 20 * path.drift;
-    const interaction = 0.9 + 0.1 * Math.sin(position * 0.006 + path.phase);
+    const wave = Math.sin(position * 0.006 + path.phase) * 12 * path.amplitude;
+    const drift = Math.sin(time * path.driftSpeed + path.phase) * 5 * path.drift;
+    const interaction = 0.96 + 0.04 * Math.sin(position * 0.004 + path.phase);
     const curveOffset =
       Math.sin(position * 0.018 + path.weavePhase + time * path.driftSpeed * 0.9) *
       path.curveAmplitude;
     const lateralOscillation =
       Math.sin(position * 0.0045 + time * path.driftSpeed * 2.1 + path.driftPhase) *
       bundleWidth *
-      0.035 *
+      0.01 *
       path.amplitude;
     const crossOffset = (baseOffset + wave + drift) * interaction + curveOffset + lateralOscillation;
     const alongOffset =
       Math.cos(position * 0.007 + path.weavePhase + time * path.driftSpeed) *
       window.innerHeight *
-      0.018;
+      0.004;
 
     return {
       x: point.x + normal.x * crossOffset + tangent.x * alongOffset,
