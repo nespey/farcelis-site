@@ -209,9 +209,9 @@ a {
 
 .system-anchor h2 {
   max-width: 560px;
-  font-size: clamp(2.25rem, 3.1vw, 3.75rem);
+  font-size: clamp(2rem, 2.7vw, 3.2rem);
   font-weight: 500;
-  line-height: 1.13;
+  line-height: 1.07;
   letter-spacing: -0.055em;
   color: #ffffff;
 }
@@ -253,7 +253,7 @@ a {
 
 .timeline-line-chaos {
   top: 0;
-  height: 46%;
+  height: 45%;
   background: linear-gradient(
     to bottom,
     rgba(255, 105, 55, 0.1),
@@ -263,18 +263,18 @@ a {
   );
   clip-path: polygon(
     50% 0,
-    50% 12%,
-    35% 16%,
-    24% 23%,
-    42% 29%,
-    34% 38%,
-    48% 47%,
-    39% 57%,
-    63% 68%,
-    55% 79%,
+    54% 10%,
+    34% 15%,
+    28% 23%,
+    46% 31%,
+    37% 39%,
+    58% 48%,
+    43% 58%,
+    66% 70%,
+    52% 83%,
     50% 100%
   );
-  filter: drop-shadow(0 0 16px rgba(255, 103, 52, 0.48));
+  filter: drop-shadow(0 0 18px rgba(255, 103, 52, 0.58));
 }
 
 .timeline-line-stable {
@@ -283,7 +283,8 @@ a {
   background: linear-gradient(
     to bottom,
     rgba(255, 255, 255, 0.95),
-    rgba(145, 244, 187, 0.98) 22%,
+    rgba(255, 255, 255, 0.95) 15%,
+    rgba(145, 244, 187, 0.98) 26%,
     rgba(126, 235, 173, 0.9) 86%,
     rgba(126, 235, 173, 0)
   );
@@ -374,43 +375,57 @@ a {
 }
 
 .timeline-row-a {
-  top: 8%;
+  top: 6%;
 }
 
 .timeline-row-b {
-  top: 20.5%;
+  top: 17.5%;
 }
 
 .timeline-row-c {
-  top: 33%;
+  top: 34%;
 }
 
 .timeline-row-d {
-  top: 45.5%;
+  top: 43%;
 }
 
 .timeline-row-intervene {
-  top: 56.5%;
+  top: 57%;
 }
 
 .timeline-row-build-a {
-  top: 67%;
+  top: 68%;
 }
 
 .timeline-row-build-b {
-  top: 75%;
+  top: 76%;
 }
 
 .timeline-row-build-c {
-  top: 83%;
+  top: 84%;
 }
 
 .timeline-row-build-d {
-  top: 91%;
+  top: 92%;
 }
 
 .timeline-row-build-e {
-  top: 99%;
+  top: 100%;
+}
+
+.timeline-row-a .timeline-text,
+.timeline-row-b .timeline-text,
+.timeline-row-c .timeline-text,
+.timeline-row-d .timeline-text {
+  opacity: 0.72;
+}
+
+.timeline-row-a::after,
+.timeline-row-b::after,
+.timeline-row-c::after,
+.timeline-row-d::after {
+  opacity: 0.42;
 }
 
 .timeline-pivot {
@@ -441,18 +456,19 @@ a {
   position: absolute;
   top: 50%;
   left: 0;
-  width: 46px;
-  height: 46px;
+  width: 62px;
+  height: 62px;
   transform: translate(-50%, -50%);
   border: 1px solid rgba(255, 116, 72, 0.78);
   background: rgba(255, 116, 72, 0.16);
   box-shadow:
-    0 0 0 10px rgba(255, 103, 52, 0.08),
-    0 0 38px rgba(255, 103, 52, 0.52);
+    0 0 0 13px rgba(255, 103, 52, 0.1),
+    0 0 0 28px rgba(255, 103, 52, 0.045),
+    0 0 54px rgba(255, 103, 52, 0.68);
 }
 
 .timeline-node-pivot::after {
-  inset: 15px;
+  inset: 21px;
   background: #ffd0b7;
   box-shadow: 0 0 18px rgba(255, 116, 72, 0.9);
 }
