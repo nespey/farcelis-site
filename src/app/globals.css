@@ -93,6 +93,17 @@ a {
   text-decoration: none;
 }
 
+.site-canvas-background {
+  position: fixed;
+  inset: 0;
+  z-index: 0;
+  width: 100vw;
+  height: 100vh;
+  pointer-events: none;
+  opacity: 0.42;
+  mix-blend-mode: screen;
+}
+
 ::selection {
   background: rgba(214, 140, 106, 0.24);
 }

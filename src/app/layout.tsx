@@ -2,6 +2,7 @@ import type { Metadata, Viewport } from "next";
 import { Manrope } from "next/font/google";
 import localFont from "next/font/local";
 
+import { CanvasBackground } from "@/components/CanvasBackground";
 import { Footer } from "@/components/Footer";
 import { Header } from "@/components/Header";
 import { site } from "@/lib/site-data";
@@ -50,9 +51,12 @@ export default function RootLayout({
     <html lang="en" className={`${manrope.variable} ${ferwalter.variable} h-full antialiased`}>
       <body className="min-h-full">
         <div className="relative min-h-full overflow-x-hidden">
-          <Header />
-          <main>{children}</main>
-          <Footer />
+          <CanvasBackground />
+          <div className="relative z-10">
+            <Header />
+            <main>{children}</main>
+            <Footer />
+          </div>
         </div>
       </body>
     </html>
