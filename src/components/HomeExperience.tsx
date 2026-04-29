@@ -47,6 +47,25 @@ const implementationItems = [
   },
 ];
 
+const executionOutputs = [
+  {
+    label: "Content",
+    text: "Articles, blogs, resumes, and narratives that actually get used.",
+  },
+  {
+    label: "Visibility",
+    text: "Search, social, and distribution that compound instead of reset.",
+  },
+  {
+    label: "Platforms",
+    text: "Websites, systems, and code that support how work actually moves.",
+  },
+  {
+    label: "Identity",
+    text: "Portfolios and digital presence that reflect real capability.",
+  },
+];
+
 export function HomeExperience() {
   return (
     <div className="relative overflow-hidden">
@@ -174,7 +193,34 @@ export function HomeExperience() {
         </section>
       </Reveal>
 
-      <Reveal delayMs={250}>
+      <section className="structured-section system-compact-section section-shell-dark execution-layer-section">
+        <div className="mx-auto w-full max-w-[1200px] px-[clamp(24px,5vw,72px)]">
+          <div className="max-w-[620px]">
+            <p className="section-kicker text-[#f28b5b]">Execution Layer</p>
+            <h2 className="mt-4 text-[clamp(1.75rem,2.05vw,2rem)] font-medium leading-[1.16] tracking-[-0.04em] text-white">
+              Where structure shows up
+            </h2>
+            <p className="mt-3 text-[clamp(1rem,1.08vw,1.125rem)] leading-7 text-slate-300">
+              Once the system is in place, execution becomes consistent across every surface.
+            </p>
+          </div>
+
+          <div className="mt-10 grid gap-x-16 gap-y-8 md:grid-cols-2">
+            {executionOutputs.map((item) => (
+              <div key={item.label}>
+                <div className="text-[clamp(0.875rem,1vw,1rem)] font-semibold tracking-[0.08em] text-slate-400">
+                  {item.label}
+                </div>
+                <p className="mt-1 max-w-[460px] text-[clamp(1rem,1.08vw,1.125rem)] leading-7 text-slate-100">
+                  {item.text}
+                </p>
+              </div>
+            ))}
+          </div>
+        </div>
+      </section>
+
+      <Reveal delayMs={270}>
         <section className="structured-section section-shell-light validation-section">
           <div className="showcase-container">
             <div className="validation-inner">
@@ -192,7 +238,7 @@ export function HomeExperience() {
         </section>
       </Reveal>
 
-      <Reveal delayMs={270}>
+      <Reveal delayMs={290}>
         <section className="structured-section structured-section--closing closing-cta-section">
           <div className="w-full px-6 lg:px-12">
             <div className="w-full">
