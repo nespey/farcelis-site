@@ -573,6 +573,23 @@ a {
   color: #f1f6f9;
 }
 
+.execution-cascade-column p:first-child {
+  font-size: clamp(1.06rem, 1.2vw, 1.22rem);
+  line-height: 1.24;
+  letter-spacing: -0.018em;
+  color: #ffffff;
+}
+
+.execution-cascade-column p:nth-child(2),
+.execution-cascade-column p:nth-child(3) {
+  opacity: 0.88;
+}
+
+.execution-cascade-column p:nth-child(4) {
+  font-size: clamp(0.95rem, 1.05vw, 1.07rem);
+  color: rgba(214, 225, 232, 0.74);
+}
+
 .execution-cascade-left p {
   text-align: left;
 }
@@ -586,11 +603,11 @@ a {
 }
 
 .execution-cascade-anchor {
-  margin-top: clamp(5.5rem, 7.5vw, 7.25rem);
+  margin-top: clamp(6rem, 8.5vw, 8.25rem);
 }
 
 .execution-cascade-anchor p {
-  font-size: clamp(1.14rem, 1.35vw, 1.35rem);
+  font-size: clamp(1.2rem, 1.45vw, 1.45rem);
   font-weight: 500;
   line-height: 1.25;
   letter-spacing: -0.035em;
