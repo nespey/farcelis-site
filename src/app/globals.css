@@ -225,8 +225,8 @@ a {
 }
 
 .system-anchor .system-payoff {
-  margin-top: clamp(9.5rem, 16vw, 15rem);
-  font-size: clamp(1.85rem, 2.65vw, 3rem);
+  margin-top: clamp(10.5rem, 17vw, 16rem);
+  font-size: clamp(2rem, 2.9vw, 3.3rem);
   font-weight: 500;
   line-height: 1.12;
   letter-spacing: -0.055em;
@@ -278,17 +278,17 @@ a {
 }
 
 .timeline-line-stable {
-  top: 53%;
+  top: 56%;
   bottom: 0;
   background: linear-gradient(
     to bottom,
     rgba(255, 255, 255, 0.95),
     rgba(255, 255, 255, 0.95) 15%,
-    rgba(165, 255, 200, 1) 26%,
-    rgba(137, 255, 188, 0.96) 86%,
-    rgba(137, 255, 188, 0)
+    rgba(180, 255, 210, 1) 26%,
+    rgba(148, 255, 193, 1) 86%,
+    rgba(148, 255, 193, 0)
   );
-  box-shadow: 0 0 22px rgba(137, 255, 188, 0.26);
+  box-shadow: 0 0 28px rgba(148, 255, 193, 0.34);
 }
 
 .timeline-row,
@@ -333,17 +333,22 @@ a {
 }
 
 .timeline-node-orange {
+  width: 16px;
+  height: 16px;
   border: 2px solid #ff6042;
   box-shadow: 0 0 20px rgba(255, 72, 46, 0.58);
 }
 
 .timeline-node-orange::after {
+  inset: 3.5px;
   background: #ff8b5c;
 }
 
 .timeline-node-white {
+  width: 15px;
+  height: 15px;
   border: 2px solid #edf5fa;
-  box-shadow: 0 0 16px rgba(237, 245, 250, 0.42);
+  box-shadow: 0 0 10px rgba(237, 245, 250, 0.26);
 }
 
 .timeline-node-white::after {
@@ -351,12 +356,15 @@ a {
 }
 
 .timeline-node-green {
-  border: 2px solid #a5ffc8;
-  box-shadow: 0 0 18px rgba(137, 255, 188, 0.45);
+  width: 12px;
+  height: 12px;
+  border: 2px solid #b4ffd2;
+  box-shadow: 0 0 18px rgba(148, 255, 193, 0.58);
 }
 
 .timeline-node-green::after {
-  background: #a5ffc8;
+  inset: 2.5px;
+  background: #b4ffd2;
 }
 
 .timeline-text {
@@ -370,53 +378,53 @@ a {
 }
 
 .timeline-text-strong {
-  font-weight: 560;
+  font-weight: 650;
   color: #ffffff;
 }
 
 .timeline-row-a {
   top: 5%;
-  transform: translate(-0.72rem, -50%);
+  transform: translate(-0.9rem, -50%);
 }
 
 .timeline-row-b {
-  top: 15.5%;
-  transform: translate(-0.28rem, -50%);
+  top: 12%;
+  transform: translate(-0.18rem, -50%);
 }
 
 .timeline-row-c {
-  top: 31.5%;
-  transform: translate(-0.92rem, -50%);
+  top: 30%;
+  transform: translate(-1.05rem, -50%);
 }
 
 .timeline-row-d {
-  top: 41.5%;
+  top: 38.5%;
   transform: translate(-0.42rem, -50%);
 }
 
 .timeline-row-intervene {
-  top: 63%;
-  gap: clamp(1.25rem, 2.5vw, 2.25rem);
-  transform: translate(-0.5rem, -50%);
+  top: 66%;
+  gap: clamp(1.6rem, 3vw, 2.8rem);
+  transform: translate(-0.22rem, -50%);
 }
 
 .timeline-row-build-a {
-  top: 74%;
+  top: 76%;
   transform: translate(-0.5rem, -50%);
 }
 
 .timeline-row-build-b {
-  top: 81%;
+  top: 82.5%;
   transform: translate(-0.5rem, -50%);
 }
 
 .timeline-row-build-c {
-  top: 88%;
+  top: 89%;
   transform: translate(-0.5rem, -50%);
 }
 
 .timeline-row-build-d {
-  top: 95%;
+  top: 95.5%;
   transform: translate(-0.5rem, -50%);
 }
 
@@ -429,18 +437,18 @@ a {
 .timeline-row-b .timeline-text,
 .timeline-row-c .timeline-text,
 .timeline-row-d .timeline-text {
-  opacity: 0.64;
+  opacity: 0.72;
 }
 
 .timeline-row-a::after,
 .timeline-row-b::after,
 .timeline-row-c::after,
 .timeline-row-d::after {
-  opacity: 0.34;
+  opacity: 0.36;
 }
 
 .timeline-pivot {
-  top: 50%;
+  top: 47%;
   right: 0;
   height: 0;
   transform: translateY(-50%);
@@ -450,8 +458,8 @@ a {
 .timeline-pivot-rule {
   position: absolute;
   top: 50%;
-  left: clamp(-18rem, -24vw, -9rem);
-  width: clamp(34rem, 66vw, 60rem);
+  left: clamp(-20rem, -28vw, -10rem);
+  width: clamp(32rem, 50vw, 54rem);
   height: 1px;
   transform: translateY(-50%);
   background: repeating-linear-gradient(
@@ -467,19 +475,19 @@ a {
   position: absolute;
   top: 50%;
   left: 0;
-  width: 82px;
-  height: 82px;
+  width: 106px;
+  height: 106px;
   transform: translate(-50%, -50%);
   border: 1px solid rgba(255, 116, 72, 0.78);
   background: rgba(255, 116, 72, 0.16);
   box-shadow:
-    0 0 0 16px rgba(255, 103, 52, 0.14),
-    0 0 0 40px rgba(255, 103, 52, 0.065),
-    0 0 78px rgba(255, 103, 52, 0.86);
+    0 0 0 20px rgba(255, 103, 52, 0.16),
+    0 0 0 56px rgba(255, 103, 52, 0.075),
+    0 0 108px rgba(255, 103, 52, 0.96);
 }
 
 .timeline-node-pivot::after {
-  inset: 29px;
+  inset: 38px;
   background: #ffd0b7;
   box-shadow: 0 0 24px rgba(255, 116, 72, 1);
 }
@@ -712,12 +720,12 @@ a {
   }
 
   .timeline-node-pivot {
-    width: 38px;
-    height: 38px;
+    width: 52px;
+    height: 52px;
   }
 
   .timeline-node-pivot::after {
-    inset: 12px;
+    inset: 18px;
   }
 
   .hero {
