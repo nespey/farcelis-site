@@ -209,9 +209,9 @@ a {
 
 .system-anchor h2 {
   max-width: 560px;
-  font-size: clamp(2rem, 2.7vw, 3.2rem);
+  font-size: clamp(1.9rem, 2.45vw, 2.9rem);
   font-weight: 500;
-  line-height: 1.07;
+  line-height: 1.03;
   letter-spacing: -0.055em;
   color: #ffffff;
 }
@@ -225,8 +225,8 @@ a {
 }
 
 .system-anchor .system-payoff {
-  margin-top: clamp(8rem, 14vw, 13rem);
-  font-size: clamp(1.65rem, 2.4vw, 2.8rem);
+  margin-top: clamp(9.5rem, 16vw, 15rem);
+  font-size: clamp(1.85rem, 2.65vw, 3rem);
   font-weight: 500;
   line-height: 1.12;
   letter-spacing: -0.055em;
@@ -253,7 +253,7 @@ a {
 
 .timeline-line-chaos {
   top: 0;
-  height: 45%;
+  height: 43%;
   background: linear-gradient(
     to bottom,
     rgba(255, 105, 55, 0.1),
@@ -263,32 +263,32 @@ a {
   );
   clip-path: polygon(
     50% 0,
-    54% 10%,
-    34% 15%,
-    28% 23%,
-    46% 31%,
-    37% 39%,
-    58% 48%,
-    43% 58%,
-    66% 70%,
-    52% 83%,
+    58% 8%,
+    30% 14%,
+    39% 23%,
+    24% 31%,
+    55% 39%,
+    41% 50%,
+    66% 61%,
+    35% 73%,
+    58% 87%,
     50% 100%
   );
-  filter: drop-shadow(0 0 18px rgba(255, 103, 52, 0.58));
+  filter: drop-shadow(0 0 22px rgba(255, 72, 46, 0.68));
 }
 
 .timeline-line-stable {
-  top: 48%;
+  top: 53%;
   bottom: 0;
   background: linear-gradient(
     to bottom,
     rgba(255, 255, 255, 0.95),
     rgba(255, 255, 255, 0.95) 15%,
-    rgba(145, 244, 187, 0.98) 26%,
-    rgba(126, 235, 173, 0.9) 86%,
-    rgba(126, 235, 173, 0)
+    rgba(165, 255, 200, 1) 26%,
+    rgba(137, 255, 188, 0.96) 86%,
+    rgba(137, 255, 188, 0)
   );
-  box-shadow: 0 0 18px rgba(126, 235, 173, 0.2);
+  box-shadow: 0 0 22px rgba(137, 255, 188, 0.26);
 }
 
 .timeline-row,
@@ -333,12 +333,12 @@ a {
 }
 
 .timeline-node-orange {
-  border: 2px solid #ff7448;
-  box-shadow: 0 0 18px rgba(255, 103, 52, 0.5);
+  border: 2px solid #ff6042;
+  box-shadow: 0 0 20px rgba(255, 72, 46, 0.58);
 }
 
 .timeline-node-orange::after {
-  background: #ff9a63;
+  background: #ff8b5c;
 }
 
 .timeline-node-white {
@@ -351,12 +351,12 @@ a {
 }
 
 .timeline-node-green {
-  border: 2px solid #91f4bb;
-  box-shadow: 0 0 16px rgba(126, 235, 173, 0.34);
+  border: 2px solid #a5ffc8;
+  box-shadow: 0 0 18px rgba(137, 255, 188, 0.45);
 }
 
 .timeline-node-green::after {
-  background: #91f4bb;
+  background: #a5ffc8;
 }
 
 .timeline-text {
@@ -375,61 +375,72 @@ a {
 }
 
 .timeline-row-a {
-  top: 6%;
+  top: 5%;
+  transform: translate(-0.72rem, -50%);
 }
 
 .timeline-row-b {
-  top: 17.5%;
+  top: 15.5%;
+  transform: translate(-0.28rem, -50%);
 }
 
 .timeline-row-c {
-  top: 34%;
+  top: 31.5%;
+  transform: translate(-0.92rem, -50%);
 }
 
 .timeline-row-d {
-  top: 43%;
+  top: 41.5%;
+  transform: translate(-0.42rem, -50%);
 }
 
 .timeline-row-intervene {
-  top: 57%;
+  top: 63%;
+  gap: clamp(1.25rem, 2.5vw, 2.25rem);
+  transform: translate(-0.5rem, -50%);
 }
 
 .timeline-row-build-a {
-  top: 68%;
+  top: 74%;
+  transform: translate(-0.5rem, -50%);
 }
 
 .timeline-row-build-b {
-  top: 76%;
+  top: 81%;
+  transform: translate(-0.5rem, -50%);
 }
 
 .timeline-row-build-c {
-  top: 84%;
+  top: 88%;
+  transform: translate(-0.5rem, -50%);
 }
 
 .timeline-row-build-d {
-  top: 92%;
+  top: 95%;
+  transform: translate(-0.5rem, -50%);
 }
 
 .timeline-row-build-e {
-  top: 100%;
+  top: 102%;
+  transform: translate(-0.5rem, -50%);
 }
 
 .timeline-row-a .timeline-text,
 .timeline-row-b .timeline-text,
 .timeline-row-c .timeline-text,
 .timeline-row-d .timeline-text {
-  opacity: 0.72;
+  opacity: 0.64;
 }
 
 .timeline-row-a::after,
 .timeline-row-b::after,
 .timeline-row-c::after,
 .timeline-row-d::after {
-  opacity: 0.42;
+  opacity: 0.34;
 }
 
 .timeline-pivot {
-  top: 48%;
+  top: 50%;
   right: 0;
   height: 0;
   transform: translateY(-50%);
@@ -439,8 +450,8 @@ a {
 .timeline-pivot-rule {
   position: absolute;
   top: 50%;
-  left: clamp(-13rem, -16vw, -6rem);
-  width: clamp(24rem, 48vw, 44rem);
+  left: clamp(-18rem, -24vw, -9rem);
+  width: clamp(34rem, 66vw, 60rem);
   height: 1px;
   transform: translateY(-50%);
   background: repeating-linear-gradient(
@@ -456,21 +467,21 @@ a {
   position: absolute;
   top: 50%;
   left: 0;
-  width: 62px;
-  height: 62px;
+  width: 82px;
+  height: 82px;
   transform: translate(-50%, -50%);
   border: 1px solid rgba(255, 116, 72, 0.78);
   background: rgba(255, 116, 72, 0.16);
   box-shadow:
-    0 0 0 13px rgba(255, 103, 52, 0.1),
-    0 0 0 28px rgba(255, 103, 52, 0.045),
-    0 0 54px rgba(255, 103, 52, 0.68);
+    0 0 0 16px rgba(255, 103, 52, 0.14),
+    0 0 0 40px rgba(255, 103, 52, 0.065),
+    0 0 78px rgba(255, 103, 52, 0.86);
 }
 
 .timeline-node-pivot::after {
-  inset: 21px;
+  inset: 29px;
   background: #ffd0b7;
-  box-shadow: 0 0 18px rgba(255, 116, 72, 0.9);
+  box-shadow: 0 0 24px rgba(255, 116, 72, 1);
 }
 
 .timeline-pivot-text {
