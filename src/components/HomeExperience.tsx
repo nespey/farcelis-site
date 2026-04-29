@@ -156,43 +156,45 @@ export function HomeExperience() {
       <Reveal delayMs={230}>
         <section className="structured-section section-shell-dark systems-fail-section">
           <div className="layout-container">
-            <div className="grid gap-14 lg:grid-cols-[minmax(0,0.44fr)_minmax(0,0.56fr)] lg:gap-[96px]">
-              <div>
+            <div className="grid gap-16 lg:grid-cols-[minmax(0,0.54fr)_minmax(0,0.46fr)] lg:gap-[112px]">
+              <div className="lg:py-6">
                 <p className="section-kicker text-[#f28b5b]">Why Systems Fail</p>
-                <h2 className="mt-6 max-w-[18ch] text-[clamp(2.5rem,4.2vw,4.25rem)] font-medium leading-[1.02] tracking-[-0.06em] text-white">
+                <h2 className="mt-8 max-w-[19ch] text-[clamp(2.75rem,4.9vw,5.05rem)] font-medium leading-[0.98] tracking-[-0.065em] text-white">
                   Operating problems are rarely people problems.
                   <br />
                   <br />
                   They are system failures hiding in plain sight.
                 </h2>
-                <p className="mt-8 max-w-[440px] text-[clamp(1.08rem,1.25vw,1.25rem)] leading-8 text-slate-300">
+                <p className="mt-10 max-w-[470px] text-[clamp(1.12rem,1.32vw,1.35rem)] leading-8 text-slate-300">
                   When structure breaks, everything downstream pays for it.
                 </p>
               </div>
 
-              <div className="space-y-7">
+              <div className="space-y-6 lg:pt-10">
                 {systemModules.map((item, index) => {
                   const isWorkflow = index === 0;
-                  const offsets = ["", "lg:ml-[10%]", "lg:ml-[20%]", ""];
+                  const offsets = ["", "lg:ml-[16%]", "lg:ml-[30%]", "lg:ml-[6%]"];
 
                   return (
                     <div
                       key={item.label}
-                      className={`border-l border-cyan-100/18 pl-6 ${offsets[index]} ${
-                        isWorkflow ? "pb-5" : ""
+                      className={`border-l pl-6 ${offsets[index]} ${
+                        isWorkflow
+                          ? "border-[#f28b5b]/70 pb-10 pl-8"
+                          : "border-cyan-100/14 opacity-88"
                       }`}
                     >
                       <div className="flex items-center gap-3">
                         <span
                           className={`font-semibold uppercase tracking-[0.2em] text-[#f28b5b] ${
-                            isWorkflow ? "text-sm" : "text-xs"
+                            isWorkflow ? "text-base" : "text-xs"
                           }`}
                         >
                           0{index + 1}
                         </span>
                         <span
                           className={`font-semibold uppercase tracking-[0.22em] text-slate-400 ${
-                            isWorkflow ? "text-sm" : "text-xs"
+                            isWorkflow ? "text-sm text-slate-300" : "text-xs"
                           }`}
                         >
                           {item.label}
@@ -201,8 +203,8 @@ export function HomeExperience() {
                       <div
                         className={`mt-4 max-w-[42rem] font-medium tracking-[-0.04em] text-slate-100 ${
                           isWorkflow
-                            ? "text-[clamp(1.45rem,2vw,2rem)] leading-[1.22]"
-                            : "text-[clamp(1.08rem,1.28vw,1.28rem)] leading-8"
+                            ? "text-[clamp(1.7rem,2.35vw,2.35rem)] leading-[1.18]"
+                            : "text-[clamp(1rem,1.12vw,1.15rem)] leading-7"
                         }`}
                       >
                         {item.text}
@@ -213,10 +215,10 @@ export function HomeExperience() {
               </div>
             </div>
 
-            <p className="mt-14 max-w-none border-t border-cyan-100/16 pt-9 text-[clamp(2rem,3.6vw,3.65rem)] font-medium leading-[1.02] tracking-[-0.06em] text-white">
-              Fix the structure,
+            <p className="mt-16 max-w-none border-t border-cyan-100/16 pt-10 text-[clamp(2.25rem,4vw,4.1rem)] font-medium leading-[0.98] tracking-[-0.065em] text-white">
+              Fix the structure.
               <br />
-              and the problems stop compounding.
+              The problems stop compounding.
             </p>
           </div>
         </section>
