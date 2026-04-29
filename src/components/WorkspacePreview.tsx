@@ -255,7 +255,7 @@ export function WorkspacePreview({ compact = false }: WorkspacePreviewProps) {
                 {views.map((view, index) => (
                   <div
                     key={view.id}
-                    className={`min-h-8 rounded-full border px-2.5 py-1.5 text-[10px] font-semibold uppercase tracking-[0.15em] transition ${
+                    className={`min-h-8 rounded-full border px-2.5 py-1.5 text-[11px] font-semibold uppercase tracking-[0.15em] transition ${
                       index === viewIndex
                         ? accentClasses.badge
                         : "border-white/8 bg-white/[0.03] text-slate-500"
@@ -275,7 +275,7 @@ export function WorkspacePreview({ compact = false }: WorkspacePreviewProps) {
                     index === activeRow ? accentClasses.panel : "border-white/7 bg-white/[0.04]"
                   }`}
                 >
-                  <div className="text-[10px] font-semibold uppercase tracking-[0.16em] text-slate-400">
+                  <div className="text-[11px] font-semibold uppercase tracking-[0.16em] text-slate-400">
                     {counter.label}
                   </div>
                   <div className="mt-2 text-[1.28rem] font-semibold tracking-[-0.05em] text-white">
@@ -289,7 +289,7 @@ export function WorkspacePreview({ compact = false }: WorkspacePreviewProps) {
           <div className="grid gap-4 xl:grid-cols-[240px_minmax(0,1fr)]">
             <div className="space-y-4">
               <div className="rounded-[20px] border border-white/7 bg-white/[0.04] p-3">
-                <div className="text-[10px] font-semibold uppercase tracking-[0.18em] text-slate-500">
+                <div className="text-[11px] font-semibold uppercase tracking-[0.18em] text-slate-500">
                   Workspace channels
                 </div>
                 <div className="mt-3 space-y-2">
@@ -317,14 +317,14 @@ export function WorkspacePreview({ compact = false }: WorkspacePreviewProps) {
               </div>
 
               <div className="rounded-[20px] border border-white/7 bg-white/[0.04] p-3">
-                <div className="text-[10px] font-semibold uppercase tracking-[0.18em] text-slate-500">
+                <div className="text-[11px] font-semibold uppercase tracking-[0.18em] text-slate-500">
                   Action strip
                 </div>
                 <div className="mt-3 flex flex-wrap gap-2">
                   {current.actions.map((item, index) => (
                     <div
                       key={item}
-                      className={`min-h-8 rounded-full border px-2.5 py-1.5 text-[10px] font-semibold uppercase tracking-[0.14em] ${
+                      className={`min-h-8 rounded-full border px-2.5 py-1.5 text-[11px] font-semibold uppercase tracking-[0.14em] ${
                         index === activeRow
                           ? accentClasses.badge
                           : "border-white/8 bg-white/[0.03] text-slate-400"
@@ -342,10 +342,10 @@ export function WorkspacePreview({ compact = false }: WorkspacePreviewProps) {
                 <div className="space-y-4">
                   <div className="rounded-[18px] border border-white/7 bg-white/[0.03] p-3">
                     <div className="flex items-center justify-between gap-3">
-                      <div className="text-[10px] font-semibold uppercase tracking-[0.16em] text-slate-500">
+                      <div className="text-[11px] font-semibold uppercase tracking-[0.16em] text-slate-500">
                         {current.panels.leftTitle}
                       </div>
-                      <div className="rounded-full border border-white/8 px-2.5 py-1 text-[10px] font-semibold uppercase tracking-[0.14em] text-slate-400">
+                      <div className="rounded-full border border-white/8 px-2.5 py-1 text-[11px] font-semibold uppercase tracking-[0.14em] text-slate-400">
                         Live
                       </div>
                     </div>
@@ -363,7 +363,7 @@ export function WorkspacePreview({ compact = false }: WorkspacePreviewProps) {
                             {card.title}
                           </div>
                           <div className="mt-2 text-xs leading-5 text-slate-300">{card.meta}</div>
-                          <div className="mt-3 text-[10px] font-semibold uppercase tracking-[0.16em] text-slate-500">
+                          <div className="mt-3 text-[11px] font-semibold uppercase tracking-[0.16em] text-slate-500">
                             {card.footer}
                           </div>
                         </div>
@@ -372,7 +372,7 @@ export function WorkspacePreview({ compact = false }: WorkspacePreviewProps) {
                   </div>
 
                   <div className="rounded-[18px] border border-white/7 bg-white/[0.03] p-3">
-                    <div className="text-[10px] font-semibold uppercase tracking-[0.16em] text-slate-500">
+                    <div className="text-[11px] font-semibold uppercase tracking-[0.16em] text-slate-500">
                       {current.panels.centerTitle}
                     </div>
                     <div className="mt-3 grid gap-2 md:grid-cols-2">
@@ -397,7 +397,7 @@ export function WorkspacePreview({ compact = false }: WorkspacePreviewProps) {
                         key={group.title}
                         className="rounded-[18px] border border-white/7 bg-white/[0.03] p-3"
                       >
-                        <div className="text-[10px] font-semibold uppercase tracking-[0.16em] text-slate-500">
+                        <div className="text-[11px] font-semibold uppercase tracking-[0.16em] text-slate-500">
                           {group.title}
                         </div>
                         <div className="mt-3 grid gap-2">
@@ -407,7 +407,7 @@ export function WorkspacePreview({ compact = false }: WorkspacePreviewProps) {
                             return (
                               <div
                                 key={item}
-                                className={`grid min-h-[38px] grid-cols-[minmax(0,1fr)_64px] items-center gap-3 rounded-[12px] border px-3 py-2 text-[11px] transition ${
+                                className={`grid min-h-[38px] grid-cols-[minmax(0,1fr)_64px] items-center gap-3 rounded-[12px] border px-3 py-2 text-xs transition ${
                                   isActive
                                     ? accentClasses.active
                                     : "border-white/6 bg-[#111d2c] text-slate-400"
@@ -428,7 +428,7 @@ export function WorkspacePreview({ compact = false }: WorkspacePreviewProps) {
 
                 <div className="space-y-4">
                   <div className="rounded-[18px] border border-white/7 bg-[linear-gradient(180deg,rgba(97,192,215,0.12),rgba(97,192,215,0.04))] p-3">
-                    <div className="text-[10px] font-semibold uppercase tracking-[0.16em] text-cyan-100">
+                    <div className="text-[11px] font-semibold uppercase tracking-[0.16em] text-cyan-100">
                       Executive view
                     </div>
                     <div className="mt-2 text-[1.15rem] font-semibold tracking-[-0.05em] text-white">
@@ -440,7 +440,7 @@ export function WorkspacePreview({ compact = false }: WorkspacePreviewProps) {
                   </div>
 
                   <div className="rounded-[18px] border border-white/7 bg-white/[0.03] p-3">
-                    <div className="text-[10px] font-semibold uppercase tracking-[0.16em] text-slate-500">
+                    <div className="text-[11px] font-semibold uppercase tracking-[0.16em] text-slate-500">
                       {current.panels.rightTitle}
                     </div>
                     <div className="mt-3 grid gap-2 sm:grid-cols-2 lg:grid-cols-1">
@@ -461,10 +461,10 @@ export function WorkspacePreview({ compact = false }: WorkspacePreviewProps) {
 
                   <div className="rounded-[18px] border border-cyan-200/12 bg-[linear-gradient(180deg,rgba(97,192,215,0.08),rgba(17,29,44,0.96))] p-3">
                     <div className="flex items-center justify-between gap-3">
-                      <div className="text-[10px] font-semibold uppercase tracking-[0.16em] text-slate-500">
+                      <div className="text-[11px] font-semibold uppercase tracking-[0.16em] text-slate-500">
                         Selected work detail
                       </div>
-                      <div className={accentClasses.badge + " rounded-full border px-2.5 py-1 text-[10px] font-semibold uppercase tracking-[0.14em]"}>
+                      <div className={accentClasses.badge + " rounded-full border px-2.5 py-1 text-[11px] font-semibold uppercase tracking-[0.14em]"}>
                         Expanded
                       </div>
                     </div>
@@ -475,7 +475,7 @@ export function WorkspacePreview({ compact = false }: WorkspacePreviewProps) {
                       {["Owner", "Priority", "SLA", "Source"].map((item, index) => (
                         <div
                           key={item}
-                          className="grid grid-cols-[82px_minmax(0,1fr)_18px] items-center gap-2 rounded-[12px] border border-white/6 bg-[#0b1421] px-3 py-2 text-[11px] text-slate-300"
+                          className="grid grid-cols-[82px_minmax(0,1fr)_18px] items-center gap-2 rounded-[12px] border border-white/6 bg-[#0b1421] px-3 py-2 text-xs text-slate-300"
                         >
                           <span className="text-slate-500">{item}</span>
                           <span>{["Assigned", "High", "Today", "Synced"][index]}</span>

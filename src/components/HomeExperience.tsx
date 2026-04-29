@@ -121,7 +121,7 @@ export function HomeExperience() {
         <section className="structured-section structured-section--showcase section-shell-dark dashboard-showcase">
           <div className="showcase-container">
             <div className="mx-auto max-w-[1380px]">
-              <h2 className="text-[clamp(2.1rem,3.55vw,3.7rem)] font-medium leading-[1.08] tracking-[-0.05em] text-white">
+              <h2 className="text-[clamp(2rem,2.65vw,2.5rem)] font-medium leading-[1.1] tracking-[-0.045em] text-white">
                 The Farcelis Control Layer<span className="align-super text-[0.28em] tracking-normal">TM</span> turns scattered execution
                 <br />
                 into a live operating workspace.
@@ -176,7 +176,7 @@ export function HomeExperience() {
                 <br />
                 It is a stronger system.
               </h2>
-              <p className="mx-auto mt-5 max-w-none text-center text-[clamp(0.98rem,1.08vw,1.08rem)] leading-7 text-slate-300">
+              <p className="mx-auto mt-5 max-w-none text-center text-[clamp(1rem,1.08vw,1.08rem)] leading-7 text-slate-300">
                 Farcelis builds the operating structure that keeps ownership, routing, and execution intact when the pressure increases.
               </p>
               <div className="closing-cta-actions mt-6 flex flex-col items-center justify-center gap-3 sm:flex-row">

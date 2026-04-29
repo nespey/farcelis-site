@@ -713,7 +713,7 @@ a {
   .timeline-text {
     max-width: calc(100vw - 5.5rem);
     white-space: normal;
-    font-size: clamp(0.98rem, 4.3vw, 1.08rem);
+    font-size: clamp(1rem, 4.3vw, 1.08rem);
   }
 
   .timeline-pivot-rule {
@@ -755,7 +755,7 @@ a {
 
   .hero-title {
     margin-bottom: 22px;
-    font-size: clamp(2rem, 7.35vw, 2.75rem);
+    font-size: clamp(2.25rem, 7.35vw, 2.75rem);
     line-height: 1.12;
     letter-spacing: -0.05em;
   }
@@ -763,7 +763,7 @@ a {
   .hero-subtext {
     margin-bottom: 32px;
     max-width: 31rem;
-    font-size: 15px;
+    font-size: 16px;
     line-height: 1.65;
   }
 
