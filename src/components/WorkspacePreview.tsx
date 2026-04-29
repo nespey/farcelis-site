@@ -45,6 +45,16 @@ const views = [
         "Missing attachment routed for review",
         "Exception log synced to leadership",
       ],
+      lowerGroups: [
+        {
+          title: "Routing fields",
+          rows: ["Owner locked", "Context attached", "Follow-up window"],
+        },
+        {
+          title: "Output controls",
+          rows: ["Reply staged", "Packet linked", "Close criteria"],
+        },
+      ],
       rightTitle: "Immediate execution",
       rightRows: ["Finalize packet", "Confirm owner", "Issue reply", "Close loop", "Escalate blocker"],
     },
@@ -91,6 +101,16 @@ const views = [
         "Blocked dependency attached to owner",
         "Weekly view rebuilt for leadership",
       ],
+      lowerGroups: [
+        {
+          title: "Live fields",
+          rows: ["Owner status", "Next checkpoint", "Dependency state"],
+        },
+        {
+          title: "Report controls",
+          rows: ["Export scope", "Source freshness", "Review cadence"],
+        },
+      ],
       rightTitle: "Action routes",
       rightRows: ["ClickUp", "Outreach", "Sync data", "Escalate", "Archive output"],
     },
@@ -136,6 +156,16 @@ const views = [
         "Leadership output prepared and closed",
         "Risk note added to executive queue",
         "Owner confirmation attached",
+      ],
+      lowerGroups: [
+        {
+          title: "Decision fields",
+          rows: ["Sponsor ready", "Risk posture", "Escalation path"],
+        },
+        {
+          title: "Closure controls",
+          rows: ["Decision memo", "Owner proof", "Next rhythm"],
+        },
       ],
       rightTitle: "Outputs leaving frame",
       rightRows: ["Owner routing", "Inbox reply", "Project status", "Leadership note", "Board update"],
@@ -359,6 +389,40 @@ export function WorkspacePreview({ compact = false }: WorkspacePreviewProps) {
                         </div>
                       ))}
                     </div>
+                  </div>
+
+                  <div className="grid gap-4 md:grid-cols-2">
+                    {current.panels.lowerGroups.map((group, groupIndex) => (
+                      <div
+                        key={group.title}
+                        className="rounded-[18px] border border-white/7 bg-white/[0.03] p-3"
+                      >
+                        <div className="text-[10px] font-semibold uppercase tracking-[0.16em] text-slate-500">
+                          {group.title}
+                        </div>
+                        <div className="mt-3 grid gap-2">
+                          {group.rows.map((item, index) => {
+                            const isActive = (activeRow + groupIndex) % group.rows.length === index;
+
+                            return (
+                              <div
+                                key={item}
+                                className={`grid min-h-[38px] grid-cols-[minmax(0,1fr)_64px] items-center gap-3 rounded-[12px] border px-3 py-2 text-[11px] transition ${
+                                  isActive
+                                    ? accentClasses.active
+                                    : "border-white/6 bg-[#111d2c] text-slate-400"
+                                }`}
+                              >
+                                <span>{item}</span>
+                                <span className="text-right font-semibold uppercase tracking-[0.12em] text-slate-500">
+                                  {isActive ? "Live" : "Queued"}
+                                </span>
+                              </div>
+                            );
+                          })}
+                        </div>
+                      </div>
+                    ))}
                   </div>
                 </div>
 
