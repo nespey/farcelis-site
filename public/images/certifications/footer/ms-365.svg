@@ -1,0 +1,29 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 500 500" role="img" aria-labelledby="title">
+  <title id="title">Microsoft 365</title>
+  <defs>
+    <linearGradient id="top" x1="132" y1="73" x2="398" y2="199" gradientUnits="userSpaceOnUse">
+      <stop offset="0" stop-color="#7c7af2"/>
+      <stop offset="0.48" stop-color="#3571d8"/>
+      <stop offset="1" stop-color="#55d6ec"/>
+    </linearGradient>
+    <linearGradient id="left" x1="73" y1="114" x2="236" y2="393" gradientUnits="userSpaceOnUse">
+      <stop offset="0" stop-color="#a978df"/>
+      <stop offset="0.58" stop-color="#497bdd"/>
+      <stop offset="1" stop-color="#1b73c9"/>
+    </linearGradient>
+    <linearGradient id="bottom" x1="107" y1="405" x2="411" y2="292" gradientUnits="userSpaceOnUse">
+      <stop offset="0" stop-color="#3b88f1"/>
+      <stop offset="0.46" stop-color="#bd82e8"/>
+      <stop offset="1" stop-color="#7753aa"/>
+    </linearGradient>
+    <linearGradient id="right" x1="355" y1="114" x2="429" y2="384" gradientUnits="userSpaceOnUse">
+      <stop offset="0" stop-color="#4fd2e8"/>
+      <stop offset="0.52" stop-color="#4799df"/>
+      <stop offset="1" stop-color="#7651a7"/>
+    </linearGradient>
+  </defs>
+  <path fill="url(#top)" d="M157 37c38-22 84-22 122 0l158 91c38 22 61 62 61 105v70c0 17-14 30-31 30-5 0-10-1-15-4L289 235c-24-14-54-14-78 0l-61 35V93c0-23 12-44 32-56Z"/>
+  <path fill="url(#left)" d="M63 115 182 46c19-11 43 3 43 25v164c0 28 15 54 39 68l58 33-151 87c-38 22-84 22-122 0l-11-6C14 403 0 378 0 351V221c0-44 24-84 63-106Z"/>
+  <path fill="url(#bottom)" d="m170 423 151-87c24-14 39-40 39-68v-66l107 62c19 11 31 31 31 53v3c0 44-24 84-62 106l-157 91c-38 22-85 22-123 0l-47-27c-24-14-24-48 0-62Z"/>
+  <path fill="url(#right)" d="M360 202v66c0 28-15 54-39 68L170 423l-61-35c-24-14-24-49 0-63l102-59c24-14 54-14 78 0l163 94c20 12 46-3 46-26V233c0-43-23-83-61-105L279 37c-38-22-84-22-122 0l-47 27c-24 14-24 49 0 63Z" opacity=".88"/>
+</svg>

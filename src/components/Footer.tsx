@@ -16,7 +16,7 @@ const exploreRight = [
 const certificationFooterImage = (image: string) => {
   const file = image.split("/").pop() ?? image;
   if (/microsoft-developer-cert/i.test(file)) {
-    return "/images/certifications/footer/ms-365.png";
+    return "/images/certifications/footer/ms-365.svg";
   }
 
   return `/images/certifications/footer/${file.replace(/\.(jpe?g|png)$/i, ".png")}`;
@@ -28,7 +28,7 @@ const certificationToneClass = (name: string) => {
   }
 
   if (/microsoft developer/i.test(name)) {
-    return "brightness-[1.18] contrast-[1.08] saturate-[1.18]";
+    return "brightness-[1.12] contrast-[1.06] saturate-[1.08]";
   }
 
   return "brightness-[1.08] contrast-[1.06] saturate-[1.06]";
@@ -65,7 +65,7 @@ export function Footer() {
 
         <div className="mx-auto w-full max-w-[260px]">
           <p className="eyebrow footer-column-heading text-[color:var(--color-accent)]">Explore</p>
-          <div className="mt-5 grid w-full grid-cols-2 gap-x-6 gap-y-2 text-center text-sm leading-6 text-slate-300">
+          <div className="mx-auto mt-5 grid w-[190px] grid-cols-2 gap-x-4 gap-y-2 text-center text-sm leading-6 text-slate-300">
             <div className="grid gap-2">
               {exploreLeft.map((item) => (
                 <Link key={item.href} href={item.href} className="transition hover:text-white">
