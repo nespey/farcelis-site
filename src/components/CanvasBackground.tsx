@@ -16,12 +16,13 @@ type FlowPath = {
   alpha: number;
   speed: number;
   phase: number;
-  basePosition: number;
+  strandIndex: number;
+  totalStrands: number;
+  amplitude: number;
+  drift: number;
   depthFactor: number;
   driftSpeed: number;
   driftPhase: number;
-  noiseFrequency: number;
-  curveFrequency: number;
   curveAmplitude: number;
   weavePhase: number;
   blur: number;
@@ -113,9 +114,9 @@ const buildSpinePoints = (width: number, viewportHeight: number, virtualHeight: 
     const end = points[pointIndex + 1]!;
     const next = points[Math.min(points.length - 1, pointIndex + 2)]!;
 
-    for (let step = 0; step <= 40; step += 1) {
+    for (let step = 0; step <= 96; step += 1) {
       if (pointIndex > 0 && step === 0) continue;
-      samples.push(catmullRomPoint(previous, start, end, next, step / 40));
+      samples.push(catmullRomPoint(previous, start, end, next, step / 96));
     }
   }
 
@@ -144,7 +145,7 @@ const tangentAt = (samples: Point[], index: number): Point => {
 
 const buildPath = (
   pathIndex: number,
-  _pathCount: number,
+  pathCount: number,
   width: number,
   viewportHeight: number,
   virtualHeight: number,
@@ -164,49 +165,49 @@ const buildPath = (
     points: spineSamples,
     samples: spineSamples,
     length,
-    width: lerp(0.5, 2, depthFactor),
-    alpha: lerp(0.06, 0.26, depthFactor),
+    width: lerp(0.45, 1.55, depthFactor),
+    alpha: lerp(0.05, 0.24, depthFactor),
     speed: 0.015 + strandNoise(seed * 7.1) * 0.01,
-    phase: strandNoise(seed * 8.2),
-    basePosition: strandNoise(seed * 9.3) * 2 - 1,
+    phase: strandNoise(seed * 8.2) * Math.PI * 2,
+    strandIndex: pathIndex,
+    totalStrands: pathCount,
+    amplitude: lerp(0.3, 1, strandNoise(seed * 9.3)),
+    drift: lerp(0.2, 0.6, strandNoise(seed * 10.1)),
     depthFactor,
-    driftSpeed: 0.00012 + strandNoise(seed * 10.1) * 0.00018,
+    driftSpeed: 0.00022 + strandNoise(seed * 10.7) * 0.00012,
     driftPhase: strandNoise(seed * 10.9) * Math.PI * 2,
-    noiseFrequency: 1.25 + strandNoise(seed * 11.4) * 2.65,
-    curveFrequency: 3.4 + strandNoise(seed * 12.4) * 4.8,
     curveAmplitude: viewportHeight * (0.018 + strandNoise(seed * 13.2) * 0.035),
     weavePhase: strandNoise(seed * 13.8) * Math.PI * 2,
     blur: lerp(1.6, 0, depthFactor),
-    glow: depthFactor > 0.78 ? lerp(3, 8, depthFactor) : 0,
+    glow: depthFactor > 0.86 ? lerp(2, 6, depthFactor) : 0,
   };
 };
 
 const renderPath = (path: FlowPath, time: number): RenderedPath => {
-  const maxBundleWidth = window.innerHeight * 0.34;
-  const minBundleWidth = window.innerHeight * 0.13;
+  const maxBundleWidth = Math.max(520, window.innerHeight * 0.58);
+  const minBundleWidth = 80;
   const samples = path.samples.map((point, index) => {
     const normal = normalAt(path.samples, index);
     const tangent = tangentAt(path.samples, index);
     const progress = clamp((point.y + window.innerHeight * 0.15) / Math.max(path.samples[path.samples.length - 1]!.y, 1), 0, 1);
-    const bundleWidth = lerp(maxBundleWidth, minBundleWidth, progress);
-    const position = progress * Math.PI * 2;
-    const slowDrift = Math.sin(time * path.driftSpeed + path.driftPhase) * 0.22;
-    const smoothNoise =
-      Math.sin(position * path.noiseFrequency + path.weavePhase + time * path.driftSpeed * 1.4) * 0.42 +
-      Math.cos(position * (path.noiseFrequency * 0.43) + path.phase * Math.PI * 2) * 0.28 +
-      Math.sin(position * 0.65 + path.basePosition * Math.PI) * 0.18;
-    const interaction = 0.9 + 0.1 * Math.sin(position * 1.4 + path.phase * Math.PI * 2);
+    const bundleWidth = Math.max(lerp(maxBundleWidth, minBundleWidth, progress), 60);
+    const strandProgress = path.totalStrands <= 1 ? 0.5 : path.strandIndex / (path.totalStrands - 1);
+    const baseOffset = (strandProgress - 0.5) * bundleWidth;
+    const position = progress * path.length;
+    const wave = Math.sin(position * 0.01 + path.phase) * 40 * path.amplitude;
+    const drift = Math.sin(time * path.driftSpeed + path.phase) * 20 * path.drift;
+    const interaction = 0.9 + 0.1 * Math.sin(position * 0.006 + path.phase);
     const curveOffset =
-      Math.sin(position * path.curveFrequency + path.weavePhase + time * path.driftSpeed * 0.9) *
+      Math.sin(position * 0.018 + path.weavePhase + time * path.driftSpeed * 0.9) *
       path.curveAmplitude;
     const lateralOscillation =
-      Math.sin(position * (2.1 + path.depthFactor * 1.8) + time * path.driftSpeed * 2.1 + path.driftPhase) *
+      Math.sin(position * 0.0045 + time * path.driftSpeed * 2.1 + path.driftPhase) *
       bundleWidth *
-      0.08;
-    const signal = clamp((path.basePosition * 0.5 + smoothNoise * 0.5 + slowDrift) * interaction, -1, 1);
-    const crossOffset = signal * bundleWidth + curveOffset + lateralOscillation;
+      0.035 *
+      path.amplitude;
+    const crossOffset = (baseOffset + wave + drift) * interaction + curveOffset + lateralOscillation;
     const alongOffset =
-      Math.cos(position * 2.7 + path.weavePhase + time * path.driftSpeed) *
+      Math.cos(position * 0.007 + path.weavePhase + time * path.driftSpeed) *
       window.innerHeight *
       0.018;
 
@@ -271,7 +272,7 @@ export function CanvasBackground() {
       context.setTransform(pixelRatio, 0, 0, pixelRatio, 0, 0);
       const virtualHeight = getVirtualHeight(height);
       const { samples: spineSamples } = buildSpinePoints(width, height, virtualHeight);
-      const pathCount = 32;
+      const pathCount = 26;
       paths = Array.from({ length: pathCount }, (_, index) =>
         buildPath(index, pathCount, width, height, virtualHeight, spineSamples),
       ).sort((a, b) => a.depthFactor - b.depthFactor);
