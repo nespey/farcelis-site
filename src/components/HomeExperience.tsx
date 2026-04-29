@@ -149,18 +149,6 @@ export function HomeExperience() {
         </section>
       </Reveal>
 
-      <section className="execution-transition section-shell-dark">
-        <div className="execution-transition-inner">
-          <p className="section-kicker text-[#f28b5b]">Execution Layer</p>
-          <p className="execution-transition-headline">
-            Work stops resetting. It <span>starts compounding</span>.
-          </p>
-          <p>
-            Execution starts moving <span>without friction</span>.
-          </p>
-        </div>
-      </section>
-
       <Reveal delayMs={270}>
         <section className="structured-section section-shell-light validation-section">
           <div className="showcase-container">

@@ -525,36 +525,6 @@ a {
   padding-bottom: clamp(4.75rem, 6vw, 6.5rem);
 }
 
-.execution-transition {
-  padding: clamp(2rem, 3.4vw, 3.75rem) 0 clamp(3.75rem, 5vw, 5.25rem);
-}
-
-.execution-transition-inner {
-  width: min(700px, calc(100% - 48px));
-  margin-left: clamp(24px, 5vw, 72px);
-  margin-right: auto;
-  text-align: left;
-}
-
-.execution-transition-inner p:not(.section-kicker) {
-  margin-top: 0.58rem;
-  font-size: clamp(1.18rem, 1.32vw, 1.34rem);
-  font-weight: 400;
-  line-height: 1.38;
-  letter-spacing: -0.02em;
-  color: #e7eef4;
-}
-
-.execution-transition-inner .execution-transition-headline {
-  margin-top: 0.85rem;
-  font-size: clamp(1.38rem, 1.78vw, 1.78rem);
-  color: #ffffff;
-}
-
-.execution-transition-inner span {
-  color: #ff9a66;
-}
-
 .validation-section {
   padding-top: clamp(5rem, 6.2vw, 6.25rem);
 }
