@@ -29,11 +29,6 @@ const companyLinks = [
     detail: "Credible proof, real environments, and execution-centered positioning.",
   },
   {
-    href: "/team",
-    label: "Leadership",
-    detail: "Meet the operating, systems, and growth leaders behind Farcelis.",
-  },
-  {
     href: "/contact",
     label: "Contact",
     detail: "Start a strategy conversation where execution pressure is highest.",
@@ -97,13 +92,13 @@ export function Header() {
                 Capabilities
               </button>
               <div className="pointer-events-none absolute left-0 top-full z-40 pt-4 opacity-0 transition duration-200 group-hover:pointer-events-auto group-hover:opacity-100">
-                <div className="surface-dark min-w-[520px] rounded-[24px] bg-[linear-gradient(180deg,rgba(97,192,215,0.09),rgba(255,255,255,0.03)),linear-gradient(135deg,rgba(141,119,255,0.08),transparent_45%)] p-4">
+                <div className="surface-dark min-w-[520px] rounded-[24px] border border-cyan-100/14 bg-[#173343] p-4 shadow-[0_28px_80px_rgba(3,8,16,0.46)]">
                   <div className="grid gap-6 lg:grid-cols-[180px_minmax(0,1fr)]">
                     <div>
                       <div className="text-xs font-semibold uppercase tracking-[0.2em] text-[color:var(--color-accent)]">
                         Capabilities
                       </div>
-                      <p className="mt-3 text-sm leading-7 text-slate-400">
+                      <p className="mt-3 text-sm leading-7 text-slate-200">
                         AI consulting, workflow architecture, and flagship system deployments
                         designed to stabilize execution.
                       </p>
@@ -114,10 +109,10 @@ export function Header() {
                         <Link
                           key={item.label}
                           href={item.href}
-                          className="block rounded-[16px] border border-white/6 px-4 py-3 transition hover:bg-white/[0.04] hover:text-white"
+                          className="block rounded-[16px] border border-cyan-100/12 bg-[#1c3c4d] px-4 py-3 transition hover:border-cyan-100/22 hover:bg-[#24495c] hover:text-white"
                         >
-                          <div className="text-sm font-semibold text-slate-200">{item.label}</div>
-                          <div className="mt-1 text-xs leading-6 text-slate-400">{item.detail}</div>
+                          <div className="text-sm font-semibold text-white">{item.label}</div>
+                          <div className="mt-1 text-xs leading-6 text-slate-200">{item.detail}</div>
                         </Link>
                       ))}
                     </div>
@@ -138,15 +133,15 @@ export function Header() {
                 Company
               </button>
               <div className="pointer-events-none absolute left-0 top-full z-40 pt-4 opacity-0 transition duration-200 group-hover:pointer-events-auto group-hover:opacity-100">
-                <div className="surface-dark min-w-[500px] rounded-[24px] bg-[linear-gradient(180deg,rgba(141,119,255,0.08),rgba(255,255,255,0.03)),linear-gradient(135deg,rgba(97,192,215,0.08),transparent_45%)] p-4">
+                <div className="surface-dark min-w-[500px] rounded-[24px] border border-cyan-100/14 bg-[#173343] p-4 shadow-[0_28px_80px_rgba(3,8,16,0.46)]">
                   <div className="grid gap-6 lg:grid-cols-[160px_minmax(0,1fr)]">
                     <div>
                       <div className="text-xs font-semibold uppercase tracking-[0.2em] text-[color:var(--color-accent)]">
                         Company
                       </div>
-                      <p className="mt-3 text-sm leading-7 text-slate-400">
-                        The proof, leadership, and strategy surfaces that explain how Farcelis
-                        operates beyond a single product.
+                      <p className="mt-3 text-sm leading-7 text-slate-200">
+                        The proof and strategy surfaces that explain how Farcelis operates beyond a
+                        single product.
                       </p>
                     </div>
 
@@ -155,10 +150,10 @@ export function Header() {
                         <Link
                           key={item.label}
                           href={item.href}
-                          className="block rounded-[16px] border border-white/6 px-4 py-3 transition hover:bg-white/[0.04] hover:text-white"
+                          className="block rounded-[16px] border border-cyan-100/12 bg-[#1c3c4d] px-4 py-3 transition hover:border-cyan-100/22 hover:bg-[#24495c] hover:text-white"
                         >
-                          <div className="text-sm font-semibold text-slate-200">{item.label}</div>
-                          <div className="mt-1 text-xs leading-6 text-slate-400">{item.detail}</div>
+                          <div className="text-sm font-semibold text-white">{item.label}</div>
+                          <div className="mt-1 text-xs leading-6 text-slate-200">{item.detail}</div>
                         </Link>
                       ))}
                     </div>
