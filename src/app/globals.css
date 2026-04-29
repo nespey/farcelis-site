@@ -768,20 +768,6 @@ main :is(.border-t, .border-b, .border-y, .divide-y > :not([hidden]) ~ :not([hid
   pointer-events: none;
 }
 
-.hero-flow-line {
-  position: relative;
-  overflow: hidden;
-}
-
-.hero-flow-line::after {
-  content: "";
-  position: absolute;
-  inset: 0 auto 0 -35%;
-  width: 35%;
-  background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.55), transparent);
-  animation: sweep 5s ease-in-out infinite;
-}
-
 .system-flow-rail {
   scrollbar-width: none;
 }

@@ -13,8 +13,10 @@ const views = [
       { label: "Due this week", value: "15" },
       { label: "Live inboxes", value: "2" },
       { label: "Ready to route", value: "6" },
+      { label: "Owner gaps", value: "3" },
+      { label: "SLA risk", value: "4" },
     ],
-    actions: ["Search board", "Quick add", "Route owner", "Sync inboxes"],
+    actions: ["Search board", "Quick add", "Route owner", "Sync inboxes", "Open drawer"],
     panels: {
       leftTitle: "Live inboxes",
       leftCards: [
@@ -28,6 +30,11 @@ const views = [
           meta: "Family, setup, and operations intake",
           footer: "1 converted • 3 queued",
         },
+        {
+          title: "Ops intake",
+          meta: "SLA, finance, and routing exceptions",
+          footer: "3 flagged • 1 blocked",
+        },
       ],
       centerTitle: "Action center",
       centerRows: [
@@ -35,9 +42,11 @@ const views = [
         "Inbox message converted into task",
         "Follow-up queued for same-day response",
         "Executive update prepared for review",
+        "Missing attachment routed for review",
+        "Exception log synced to leadership",
       ],
       rightTitle: "Immediate execution",
-      rightRows: ["Finalize packet", "Confirm owner", "Issue reply", "Close loop"],
+      rightRows: ["Finalize packet", "Confirm owner", "Issue reply", "Close loop", "Escalate blocker"],
     },
   },
   {
@@ -50,8 +59,10 @@ const views = [
       { label: "Contacts", value: "330" },
       { label: "Actions queued", value: "14" },
       { label: "Sync status", value: "Live" },
+      { label: "Blocked", value: "7" },
+      { label: "Reports", value: "11" },
     ],
-    actions: ["All owners", "Project status", "Generate report", "Refresh view"],
+    actions: ["All owners", "Project status", "Generate report", "Refresh view", "Open drawer"],
     panels: {
       leftTitle: "Filters and commands",
       leftCards: [
@@ -65,6 +76,11 @@ const views = [
           meta: "Visibility frame for active work",
           footer: "Live status",
         },
+        {
+          title: "Exceptions",
+          meta: "Blocked work, approvals, and stale paths",
+          footer: "7 surfaced",
+        },
       ],
       centerTitle: "Project workspace",
       centerRows: [
@@ -72,9 +88,11 @@ const views = [
         "Outreach path aligned to status",
         "Action report queued for export",
         "Source system refreshed into frame",
+        "Blocked dependency attached to owner",
+        "Weekly view rebuilt for leadership",
       ],
       rightTitle: "Action routes",
-      rightRows: ["ClickUp", "Outreach", "Sync data", "Escalate"],
+      rightRows: ["ClickUp", "Outreach", "Sync data", "Escalate", "Archive output"],
     },
   },
   {
@@ -87,8 +105,10 @@ const views = [
       { label: "Owners active", value: "5" },
       { label: "Decision points", value: "3" },
       { label: "Outputs live", value: "12" },
+      { label: "At risk", value: "2" },
+      { label: "Closed today", value: "9" },
     ],
-    actions: ["Executive frame", "Visibility", "Leadership note", "Close loop"],
+    actions: ["Executive frame", "Visibility", "Leadership note", "Close loop", "Open drawer"],
     panels: {
       leftTitle: "Signals entering frame",
       leftCards: [
@@ -102,6 +122,11 @@ const views = [
           meta: "Flagged, routed, and tracked",
           footer: "Visible",
         },
+        {
+          title: "Decision request",
+          meta: "Context bundled before review",
+          footer: "Ready",
+        },
       ],
       centerTitle: "Control Layer response",
       centerRows: [
@@ -109,9 +134,11 @@ const views = [
         "Priority pressure surfaced for review",
         "Inbox and project motion stabilized",
         "Leadership output prepared and closed",
+        "Risk note added to executive queue",
+        "Owner confirmation attached",
       ],
       rightTitle: "Outputs leaving frame",
-      rightRows: ["Owner routing", "Inbox reply", "Project status", "Leadership note"],
+      rightRows: ["Owner routing", "Inbox reply", "Project status", "Leadership note", "Board update"],
     },
   },
 ] as const;
@@ -134,7 +161,7 @@ export function WorkspacePreview({ compact = false }: WorkspacePreviewProps) {
 
   useEffect(() => {
     const rowInterval = window.setInterval(() => {
-      setActiveRow((current) => (current + 1) % 4);
+      setActiveRow((current) => (current + 1) % 6);
     }, 1300);
 
     return () => window.clearInterval(rowInterval);
@@ -186,10 +213,10 @@ export function WorkspacePreview({ compact = false }: WorkspacePreviewProps) {
                 <div className="text-[11px] font-semibold uppercase tracking-[0.24em] text-[color:var(--color-accent)]">
                   Farcelis Control Layer
                 </div>
-                <div className="mt-2 text-[1.1rem] font-semibold tracking-[-0.03em] text-white md:text-[1.2rem]">
+                <div className="mt-2 text-[1rem] font-semibold tracking-[-0.03em] text-white md:text-[1.08rem]">
                   Live operating workspace
                 </div>
-                <div className="mt-2 min-h-[3.5rem] max-w-[54ch] text-sm leading-7 text-slate-300">
+                <div className="mt-2 min-h-[2.6rem] max-w-[58ch] text-xs leading-6 text-slate-300">
                   {current.summary}
                 </div>
               </div>
@@ -198,7 +225,7 @@ export function WorkspacePreview({ compact = false }: WorkspacePreviewProps) {
                 {views.map((view, index) => (
                   <div
                     key={view.id}
-                    className={`min-h-9 rounded-full border px-3 py-2 text-[11px] font-semibold uppercase tracking-[0.16em] transition ${
+                    className={`min-h-8 rounded-full border px-2.5 py-1.5 text-[10px] font-semibold uppercase tracking-[0.15em] transition ${
                       index === viewIndex
                         ? accentClasses.badge
                         : "border-white/8 bg-white/[0.03] text-slate-500"
@@ -210,18 +237,18 @@ export function WorkspacePreview({ compact = false }: WorkspacePreviewProps) {
               </div>
             </div>
 
-            <div className="grid gap-3 sm:grid-cols-2 xl:grid-cols-4">
+            <div className="grid gap-3 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-6">
               {current.counters.map((counter, index) => (
                 <div
                   key={counter.label}
-                  className={`hero-signal min-h-[116px] rounded-[18px] border px-4 py-4 text-left ${
+                  className={`hero-signal min-h-[88px] rounded-[16px] border px-3 py-3 text-left ${
                     index === activeRow ? accentClasses.panel : "border-white/7 bg-white/[0.04]"
                   }`}
                 >
-                  <div className="text-[11px] font-semibold uppercase tracking-[0.18em] text-slate-400">
+                  <div className="text-[10px] font-semibold uppercase tracking-[0.16em] text-slate-400">
                     {counter.label}
                   </div>
-                  <div className="mt-2 text-[1.65rem] font-semibold tracking-[-0.05em] text-white">
+                  <div className="mt-2 text-[1.28rem] font-semibold tracking-[-0.05em] text-white">
                     {counter.value}
                   </div>
                 </div>
@@ -229,23 +256,25 @@ export function WorkspacePreview({ compact = false }: WorkspacePreviewProps) {
             </div>
           </div>
 
-          <div className="grid gap-4 xl:grid-cols-[260px_minmax(0,1fr)]">
+          <div className="grid gap-4 xl:grid-cols-[240px_minmax(0,1fr)]">
             <div className="space-y-4">
-              <div className="rounded-[22px] border border-white/7 bg-white/[0.04] p-4">
-                <div className="text-[11px] font-semibold uppercase tracking-[0.2em] text-slate-500">
+              <div className="rounded-[20px] border border-white/7 bg-white/[0.04] p-3">
+                <div className="text-[10px] font-semibold uppercase tracking-[0.18em] text-slate-500">
                   Workspace channels
                 </div>
-                <div className="mt-4 space-y-2.5">
+                <div className="mt-3 space-y-2">
                   {[
                     "Dashboard",
                     "Inbox control",
                     "Documents",
                     "Action center",
                     "Executive frame",
+                    "Exception log",
+                    "Owner drawer",
                   ].map((item, index) => (
                     <div
                       key={item}
-                      className={`min-h-[46px] rounded-[14px] border px-3 py-3 text-sm transition ${
+                      className={`min-h-[38px] rounded-[12px] border px-3 py-2 text-xs transition ${
                         index === viewIndex + 1
                           ? accentClasses.active
                           : "border-white/6 bg-[#111d2c] text-slate-400"
@@ -257,15 +286,15 @@ export function WorkspacePreview({ compact = false }: WorkspacePreviewProps) {
                 </div>
               </div>
 
-              <div className="rounded-[22px] border border-white/7 bg-white/[0.04] p-4">
-                <div className="text-[11px] font-semibold uppercase tracking-[0.2em] text-slate-500">
+              <div className="rounded-[20px] border border-white/7 bg-white/[0.04] p-3">
+                <div className="text-[10px] font-semibold uppercase tracking-[0.18em] text-slate-500">
                   Action strip
                 </div>
-                <div className="mt-4 flex flex-wrap gap-2">
+                <div className="mt-3 flex flex-wrap gap-2">
                   {current.actions.map((item, index) => (
                     <div
                       key={item}
-                      className={`min-h-9 rounded-full border px-3 py-2 text-[11px] font-semibold uppercase tracking-[0.15em] ${
+                      className={`min-h-8 rounded-full border px-2.5 py-1.5 text-[10px] font-semibold uppercase tracking-[0.14em] ${
                         index === activeRow
                           ? accentClasses.badge
                           : "border-white/8 bg-white/[0.03] text-slate-400"
@@ -278,33 +307,33 @@ export function WorkspacePreview({ compact = false }: WorkspacePreviewProps) {
               </div>
             </div>
 
-            <div className="rounded-[24px] border border-white/8 bg-[#0d1724]/92 p-4 md:p-5">
-              <div className="grid gap-4 lg:grid-cols-[minmax(0,1.05fr)_minmax(0,0.95fr)]">
+            <div className="rounded-[24px] border border-white/8 bg-[#0d1724]/92 p-3 md:p-4">
+              <div className="grid gap-4 lg:grid-cols-[minmax(0,1.1fr)_minmax(0,0.9fr)]">
                 <div className="space-y-4">
-                  <div className="rounded-[20px] border border-white/7 bg-white/[0.03] p-4">
+                  <div className="rounded-[18px] border border-white/7 bg-white/[0.03] p-3">
                     <div className="flex items-center justify-between gap-3">
-                      <div className="text-[11px] font-semibold uppercase tracking-[0.18em] text-slate-500">
+                      <div className="text-[10px] font-semibold uppercase tracking-[0.16em] text-slate-500">
                         {current.panels.leftTitle}
                       </div>
                       <div className="rounded-full border border-white/8 px-2.5 py-1 text-[10px] font-semibold uppercase tracking-[0.14em] text-slate-400">
                         Live
                       </div>
                     </div>
-                    <div className="mt-4 grid gap-3 md:grid-cols-2">
+                    <div className="mt-3 grid gap-3 md:grid-cols-3">
                       {current.panels.leftCards.map((card, index) => (
                         <div
                           key={card.title}
-                          className={`min-h-[176px] rounded-[18px] border px-4 py-4 transition md:min-h-[160px] ${
+                          className={`min-h-[132px] rounded-[16px] border px-3 py-3 transition ${
                             index === activeRow % 2
                               ? accentClasses.panel
                               : "border-white/6 bg-[#111d2c]"
                           }`}
                         >
-                          <div className="text-sm font-semibold tracking-[-0.02em] text-white">
+                          <div className="text-xs font-semibold tracking-[-0.02em] text-white">
                             {card.title}
                           </div>
-                          <div className="mt-2 text-sm leading-6 text-slate-300">{card.meta}</div>
-                          <div className="mt-4 text-[11px] font-semibold uppercase tracking-[0.18em] text-slate-500">
+                          <div className="mt-2 text-xs leading-5 text-slate-300">{card.meta}</div>
+                          <div className="mt-3 text-[10px] font-semibold uppercase tracking-[0.16em] text-slate-500">
                             {card.footer}
                           </div>
                         </div>
@@ -312,15 +341,15 @@ export function WorkspacePreview({ compact = false }: WorkspacePreviewProps) {
                     </div>
                   </div>
 
-                  <div className="rounded-[20px] border border-white/7 bg-white/[0.03] p-4">
-                    <div className="text-[11px] font-semibold uppercase tracking-[0.18em] text-slate-500">
+                  <div className="rounded-[18px] border border-white/7 bg-white/[0.03] p-3">
+                    <div className="text-[10px] font-semibold uppercase tracking-[0.16em] text-slate-500">
                       {current.panels.centerTitle}
                     </div>
-                    <div className="mt-4 space-y-2.5">
+                    <div className="mt-3 grid gap-2 md:grid-cols-2">
                       {current.panels.centerRows.map((item, index) => (
                         <div
                           key={item}
-                          className={`min-h-[52px] rounded-[15px] border px-4 py-3 text-sm leading-6 transition ${
+                          className={`min-h-[44px] rounded-[13px] border px-3 py-2 text-xs leading-5 transition ${
                             index === activeRow
                               ? accentClasses.active
                               : "border-white/6 bg-[#111d2c] text-slate-400"
@@ -334,33 +363,56 @@ export function WorkspacePreview({ compact = false }: WorkspacePreviewProps) {
                 </div>
 
                 <div className="space-y-4">
-                  <div className="rounded-[20px] border border-white/7 bg-[linear-gradient(180deg,rgba(97,192,215,0.12),rgba(97,192,215,0.04))] p-4">
-                    <div className="text-[11px] font-semibold uppercase tracking-[0.18em] text-cyan-100">
+                  <div className="rounded-[18px] border border-white/7 bg-[linear-gradient(180deg,rgba(97,192,215,0.12),rgba(97,192,215,0.04))] p-3">
+                    <div className="text-[10px] font-semibold uppercase tracking-[0.16em] text-cyan-100">
                       Executive view
                     </div>
-                    <div className="mt-3 text-[1.45rem] font-semibold tracking-[-0.05em] text-white">
+                    <div className="mt-2 text-[1.15rem] font-semibold tracking-[-0.05em] text-white">
                       Visibility stays intact.
                     </div>
-                    <div className="mt-2 text-sm leading-7 text-slate-200">
+                    <div className="mt-2 text-xs leading-6 text-slate-200">
                       Intake, routing, ownership, and outputs remain in one operating frame.
                     </div>
                   </div>
 
-                  <div className="hero-flow-line rounded-[20px] border border-white/7 bg-white/[0.03] p-4">
-                    <div className="text-[11px] font-semibold uppercase tracking-[0.18em] text-slate-500">
+                  <div className="rounded-[18px] border border-white/7 bg-white/[0.03] p-3">
+                    <div className="text-[10px] font-semibold uppercase tracking-[0.16em] text-slate-500">
                       {current.panels.rightTitle}
                     </div>
-                    <div className="mt-4 space-y-2.5">
+                    <div className="mt-3 grid gap-2 sm:grid-cols-2 lg:grid-cols-1">
                       {current.panels.rightRows.map((item, index) => (
                         <div
                           key={item}
-                          className={`min-h-[48px] rounded-[15px] border px-4 py-3 text-sm transition ${
+                          className={`min-h-[40px] rounded-[13px] border px-3 py-2 text-xs transition ${
                             index === (activeRow + 1) % current.panels.rightRows.length
                               ? accentClasses.active
                               : "border-white/6 bg-[#111d2c] text-slate-400"
                           }`}
                         >
                           {item}
+                        </div>
+                      ))}
+                    </div>
+                  </div>
+
+                  <div className="rounded-[18px] border border-white/7 bg-[#111d2c] p-3">
+                    <div className="flex items-center justify-between gap-3">
+                      <div className="text-[10px] font-semibold uppercase tracking-[0.16em] text-slate-500">
+                        Side drawer
+                      </div>
+                      <div className={accentClasses.badge + " rounded-full border px-2.5 py-1 text-[10px] font-semibold uppercase tracking-[0.14em]"}>
+                        Open
+                      </div>
+                    </div>
+                    <div className="mt-3 grid gap-2">
+                      {["Owner", "Priority", "SLA", "Source"].map((item, index) => (
+                        <div
+                          key={item}
+                          className="grid grid-cols-[82px_minmax(0,1fr)_18px] items-center gap-2 rounded-[12px] border border-white/6 bg-[#0b1421] px-3 py-2 text-[11px] text-slate-300"
+                        >
+                          <span className="text-slate-500">{item}</span>
+                          <span>{["Assigned", "High", "Today", "Synced"][index]}</span>
+                          <span className="text-slate-500">⌄</span>
                         </div>
                       ))}
                     </div>
