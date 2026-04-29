@@ -193,161 +193,157 @@ a {
 
 .system-hook-section {
   position: relative;
-  display: flex;
-  min-height: 760px;
+  display: block;
   width: 100%;
-  align-items: center;
-  gap: clamp(3rem, 6vw, 7rem);
   padding: clamp(5.5rem, 8vw, 8rem) clamp(24px, 5vw, 72px);
   background: transparent;
 }
 
-.system-hook-left {
-  display: flex;
-  width: 43%;
-  min-width: 0;
-  align-items: center;
-}
-
-.system-hook-left h2 {
-  max-width: 680px;
-  font-size: clamp(2rem, 2.35vw, 2.25rem);
-  font-weight: 500;
-  line-height: 1.14;
-  letter-spacing: -0.04em;
-  color: #ffffff;
-}
-
-.system-hook-muted {
-  max-width: 480px;
-  margin-top: 1.1rem;
-  font-size: clamp(1rem, 1.12vw, 1.125rem);
-  line-height: 1.55;
-  color: #c6d2dc;
-}
-
-.system-hook-final {
-  margin-top: clamp(3.5rem, 7vw, 6rem);
-  font-size: clamp(1.2rem, 1.55vw, 1.45rem);
-  font-weight: 500;
-  line-height: 1.2;
-  letter-spacing: -0.035em;
-  color: #ffffff;
-}
-
-.system-hook-right {
+.system-flow {
   position: relative;
-  flex: 1;
-  min-height: 590px;
-  min-width: 0;
+  min-height: clamp(720px, 66vw, 860px);
+  width: min(920px, 100%);
+  margin: 0 auto;
 }
 
-.system-hook-flow-line {
+.system-flow-line {
   position: absolute;
   top: 0;
   bottom: 0;
-  left: 46%;
+  left: 50%;
   width: 1px;
+  transform: translateX(-50%);
   background: linear-gradient(
     to bottom,
     transparent,
-    rgba(198, 210, 220, 0.18) 8%,
-    rgba(242, 139, 91, 0.58) 50%,
-    rgba(198, 210, 220, 0.18) 92%,
+    rgba(198, 210, 220, 0.14) 7%,
+    rgba(198, 210, 220, 0.22) 37%,
+    rgba(242, 139, 91, 0.66) 49%,
+    rgba(198, 210, 220, 0.34) 61%,
+    rgba(198, 210, 220, 0.2) 93%,
     transparent
   );
 }
 
-.system-hook-flow {
-  position: relative;
-  min-height: 590px;
+.system-flow p {
+  margin: 0;
+  white-space: nowrap;
+}
+
+.flow-signal,
+.flow-pivot,
+.flow-intervention {
+  position: absolute;
   font-size: clamp(1rem, 1.08vw, 1.125rem);
   line-height: 1.25;
   color: #eaf1f5;
 }
 
-.system-hook-flow p {
-  margin: 0;
-  white-space: nowrap;
-}
-
-.signal,
-.signal-pivot {
-  position: absolute;
-}
-
-.signal::before {
+.flow-signal::before,
+.flow-intervention::before {
   content: "";
   position: absolute;
   top: 50%;
   height: 1px;
-  width: clamp(1.5rem, 3vw, 2.5rem);
-  background: rgba(242, 139, 91, 0.38);
+  background: rgba(198, 210, 220, 0.25);
 }
 
-.signal-a {
+.flow-break-a,
+.flow-break-b,
+.flow-break-c,
+.flow-break-d {
+  color: rgba(234, 241, 245, 0.66);
+}
+
+.flow-break-a {
   top: 2%;
-  left: calc(46% + clamp(2.3rem, 4vw, 3.7rem));
+  left: calc(50% + clamp(2.4rem, 5vw, 4.6rem));
 }
 
-.signal-a::before,
-.signal-c::before,
-.signal-f::before,
-.signal-h::before {
+.flow-break-b {
+  top: 13%;
+  right: calc(50% + clamp(2rem, 4vw, 3.9rem));
+}
+
+.flow-break-c {
+  top: 26%;
+  left: calc(50% + clamp(1.4rem, 3vw, 2.8rem));
+}
+
+.flow-break-d {
+  top: 37%;
+  right: calc(50% + clamp(2.8rem, 6vw, 5.2rem));
+}
+
+.flow-break-a::before,
+.flow-break-c::before,
+.flow-build::before,
+.flow-intervention::before {
   right: calc(100% + 0.9rem);
+  width: clamp(1rem, 2vw, 1.8rem);
 }
 
-.signal-b {
-  top: 15%;
-  right: calc(54% + clamp(2rem, 4vw, 3.5rem));
-}
-
-.signal-b::before,
-.signal-d::before,
-.signal-e::before,
-.signal-g::before {
+.flow-break-b::before,
+.flow-break-d::before {
   left: calc(100% + 0.9rem);
+  width: clamp(1rem, 2vw, 1.8rem);
 }
 
-.signal-c {
-  top: 28%;
-  left: calc(46% + clamp(1.4rem, 3vw, 2.6rem));
-}
-
-.signal-d {
-  top: 40%;
-  right: calc(54% + clamp(1.2rem, 3vw, 2.3rem));
-}
-
-.signal-pivot {
-  top: 50%;
-  left: calc(46% + clamp(2rem, 4vw, 3.4rem));
+.flow-pivot {
+  top: 48%;
+  left: calc(50% + clamp(3.5rem, 9vw, 8rem));
   transform: translateY(-50%);
-  font-size: clamp(1.15rem, 1.45vw, 1.35rem);
-  font-weight: 500;
-  line-height: 1.15;
-  letter-spacing: -0.03em;
+  font-size: clamp(1.35rem, 2vw, 1.85rem);
+  font-weight: 560;
+  line-height: 1.1;
+  letter-spacing: -0.04em;
   color: #f28b5b;
 }
 
-.signal-e {
-  top: 63%;
-  right: calc(54% + clamp(1.8rem, 4vw, 3rem));
+.flow-intervention {
+  top: 59%;
+  left: calc(50% + clamp(2rem, 4vw, 3.8rem));
+  font-weight: 600;
+  color: #ffffff;
 }
 
-.signal-f {
-  top: 73%;
-  left: calc(46% + clamp(2.5rem, 5vw, 4.5rem));
+.flow-intervention::before {
+  background: rgba(242, 139, 91, 0.5);
 }
 
-.signal-g {
-  top: 84%;
-  right: calc(54% + clamp(1rem, 3vw, 2.2rem));
+.flow-build {
+  left: calc(50% + clamp(2rem, 4vw, 3.8rem));
+  color: #ffffff;
 }
 
-.signal-h {
-  top: 95%;
-  left: calc(46% + clamp(1.4rem, 3vw, 2.6rem));
+.flow-build::before {
+  background: rgba(242, 139, 91, 0.32);
+}
+
+.flow-build-a {
+  top: 69%;
+}
+
+.flow-build-b {
+  top: 77%;
+}
+
+.flow-build-c {
+  top: 85%;
+}
+
+.flow-build-d {
+  top: 93%;
+}
+
+.system-flow-final {
+  margin: clamp(3.25rem, 6vw, 5rem) auto 0;
+  text-align: center;
+  font-size: clamp(1.35rem, 1.8vw, 1.75rem);
+  font-weight: 560;
+  line-height: 1.15;
+  letter-spacing: -0.04em;
+  color: #ffffff;
 }
 
 .dashboard-showcase :is(h1, h2, h3, h4, p, .eyebrow, .section-kicker) {
@@ -498,58 +494,39 @@ a {
   }
 
   .system-hook-section {
-    min-height: auto;
-    flex-direction: column;
-    align-items: flex-start;
-    gap: 4rem;
     padding-top: 4.5rem;
     padding-bottom: 4.5rem;
   }
 
-  .system-hook-left {
-    width: 100%;
+  .system-flow {
+    min-height: 680px;
+    margin-left: 0;
   }
 
-  .system-hook-left h2 {
-    font-size: clamp(1.9rem, 7vw, 2.25rem);
+  .system-flow-line {
+    left: 1.1rem;
   }
 
-  .system-hook-final {
-    margin-top: 3rem;
-  }
-
-  .system-hook-right {
-    width: 100%;
-    min-height: 620px;
-  }
-
-  .system-hook-flow-line {
-    left: 1rem;
-  }
-
-  .system-hook-flow {
-    min-height: 620px;
-    padding-left: 2.4rem;
-  }
-
-  .system-hook-flow p {
+  .system-flow p {
     max-width: calc(100vw - 5rem);
     white-space: normal;
   }
 
-  .signal,
-  .signal-pivot {
-    left: 2.4rem !important;
+  .flow-signal,
+  .flow-intervention {
+    left: 3rem !important;
     right: auto !important;
   }
 
-  .signal::before {
+  .flow-signal::before,
+  .flow-intervention::before {
     right: calc(100% + 0.7rem) !important;
     left: auto !important;
     width: 1rem;
   }
 
-  .signal-pivot {
+  .flow-pivot {
+    left: 1.7rem;
     transform: translateY(-50%);
   }
 

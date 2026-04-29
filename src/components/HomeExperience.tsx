@@ -58,36 +58,24 @@ export function HomeExperience() {
       </section>
 
       <section className="system-hook-section">
-        <div className="system-hook-left">
-          <div>
-            <h2>
-              Operating problems aren’t people problems.
-              <br />
-              They’re system failures hiding in plain sight.
-            </h2>
-            <p className="system-hook-muted">
-              When structure breaks, everything downstream pays for it.
-            </p>
-            <p className="system-hook-final">Execution starts moving without friction.</p>
-          </div>
+        <div className="system-flow">
+          <div className="system-flow-line" aria-hidden="true" />
+
+          <p className="flow-signal flow-break-a">Work doesn’t move cleanly.</p>
+          <p className="flow-signal flow-break-b">Ownership drifts.</p>
+          <p className="flow-signal flow-break-c">Problems show up too late.</p>
+          <p className="flow-signal flow-break-d">Teams fall out of sync.</p>
+
+          <p className="flow-pivot">This isn’t random.</p>
+          <p className="flow-intervention">Structure gets rebuilt.</p>
+
+          <p className="flow-signal flow-build flow-build-a">Define how work flows.</p>
+          <p className="flow-signal flow-build flow-build-b">Stabilize decisions and handoffs.</p>
+          <p className="flow-signal flow-build flow-build-c">Remove coordination drag.</p>
+          <p className="flow-signal flow-build flow-build-d">Make it hold under pressure.</p>
         </div>
 
-        <div className="system-hook-right">
-          <div className="system-hook-flow-line" aria-hidden="true" />
-          <div className="system-hook-flow">
-            <p className="signal signal-a">Work doesn’t move cleanly.</p>
-            <p className="signal signal-b">Ownership drifts.</p>
-            <p className="signal signal-c">Problems show up too late.</p>
-            <p className="signal signal-d">Teams fall out of sync.</p>
-
-            <p className="signal-pivot">This isn’t random.</p>
-
-            <p className="signal signal-e">Define how work flows.</p>
-            <p className="signal signal-f">Stabilize decisions and handoffs.</p>
-            <p className="signal signal-g">Remove coordination drag.</p>
-            <p className="signal signal-h">Make it hold under pressure.</p>
-          </div>
-        </div>
+        <p className="system-flow-final">Execution starts moving without friction.</p>
       </section>
 
       <Reveal delayMs={230}>
