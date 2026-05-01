@@ -105,14 +105,21 @@ a {
   will-change: transform;
 }
 
-.funnel-shimmer {
+.chaos-field-layer {
   position: fixed;
-  inset: 0;
+  top: 0;
+  right: 0;
+  left: 0;
   z-index: 2;
+  height: min(190vh, 1800px);
   pointer-events: none;
   overflow: hidden;
-  mix-blend-mode: screen;
-  opacity: 0.28;
+  background:
+    linear-gradient(90deg, rgba(16, 34, 44, 0.12) 0%, rgba(16, 34, 44, 0.22) 31%, rgba(16, 34, 44, 0) 58%),
+    url("/images/home/chaos-field.png") top right / cover no-repeat;
+  opacity: 0.74;
+  transform-origin: top center;
+  will-change: transform;
 }
 
 .hero,
@@ -121,18 +128,28 @@ a {
   z-index: 10;
 }
 
-.funnel-shimmer::before {
+.chaos-field-layer::before {
   content: "";
   position: absolute;
-  top: 8vh;
+  inset: 0;
+  background:
+    radial-gradient(ellipse at 27% 49%, rgba(18, 39, 50, 0.82) 0%, rgba(18, 39, 50, 0.7) 23%, rgba(18, 39, 50, 0.18) 42%, transparent 62%),
+    linear-gradient(180deg, rgba(8, 20, 28, 0.04), rgba(8, 20, 28, 0.42));
+}
+
+.chaos-field-layer::after {
+  content: "";
+  position: absolute;
+  top: 5vh;
   right: 8vw;
-  width: min(46vw, 780px);
-  height: min(24vw, 360px);
+  width: min(42vw, 760px);
+  height: min(28vw, 420px);
   border-radius: 999px;
-  background: linear-gradient(105deg, transparent 18%, rgba(232, 248, 255, 0.22) 48%, transparent 74%);
-  filter: blur(24px);
-  transform: rotate(12deg) translateX(-14%);
-  animation: funnelShimmer 9s ease-in-out infinite;
+  background: linear-gradient(110deg, transparent 18%, rgba(214, 244, 255, 0.22) 48%, transparent 74%);
+  filter: blur(28px);
+  opacity: 0.3;
+  transform: rotate(10deg) translateX(-12%);
+  animation: fieldShimmer 12s ease-in-out infinite;
 }
 
 ::selection {
@@ -1280,7 +1297,7 @@ main :is(.border-t, .border-b, .border-y, .divide-y > :not([hidden]) ~ :not([hid
   }
 }
 
-@keyframes funnelShimmer {
+@keyframes fieldShimmer {
   0%, 100% {
     opacity: 0.16;
     transform: rotate(12deg) translateX(-18%) scaleX(0.96);
@@ -1370,19 +1387,29 @@ main :is(.border-t, .border-b, .border-y, .divide-y > :not([hidden]) ~ :not([hid
 }
 
 @media (max-width: 700px) {
-  .funnel-shimmer::before {
-    top: 7vh;
-    right: -28vw;
-    width: 82vw;
-    height: 38vh;
-    opacity: 0.18;
+  .chaos-field-layer {
+    height: 170vh;
+    background:
+      linear-gradient(90deg, rgba(16, 34, 44, 0.42), rgba(16, 34, 44, 0.1)),
+      url("/images/home/chaos-field.png") top right 31% / auto 82vh no-repeat;
+    opacity: 0.58;
+  }
+
+  .chaos-field-layer::before {
+    background:
+      radial-gradient(ellipse at 28% 52%, rgba(18, 39, 50, 0.9) 0%, rgba(18, 39, 50, 0.72) 34%, rgba(18, 39, 50, 0.18) 58%, transparent 74%),
+      linear-gradient(180deg, rgba(8, 20, 28, 0.02), rgba(8, 20, 28, 0.48));
+  }
+
+  .chaos-field-layer::after {
+    display: none;
   }
 }
 
 @media (prefers-reduced-motion: reduce) {
   .hero-signal,
   .flow-active,
-  .funnel-shimmer::before,
+  .chaos-field-layer::after,
   .reveal-section {
     animation: none !important;
     transition: none !important;
