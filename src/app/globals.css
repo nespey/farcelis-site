@@ -111,18 +111,22 @@ a {
   right: 0;
   left: 0;
   z-index: 2;
-  height: min(280vh, 2600px);
+  height: min(240vh, 2300px);
   pointer-events: none;
   overflow: hidden;
   background:
-    radial-gradient(ellipse at 27% 38%, rgba(63, 86, 96, 0.18) 0%, rgba(25, 48, 58, 0.54) 34%, rgba(14, 29, 38, 0.18) 62%, transparent 78%),
-    linear-gradient(90deg, rgba(18, 39, 50, 0.62) 0%, rgba(18, 39, 50, 0.5) 31%, rgba(18, 39, 50, 0.08) 57%, rgba(18, 39, 50, 0.18) 100%),
-    url("/images/home/chaos-field.png") top right / cover no-repeat;
-  background-blend-mode: normal, color, screen;
-  opacity: 0.86;
-  filter: saturate(0.78) hue-rotate(-8deg) brightness(0.88) contrast(1.04);
-  mask-image: linear-gradient(to bottom, #000 0%, #000 64%, rgba(0, 0, 0, 0.82) 80%, rgba(0, 0, 0, 0.32) 92%, transparent 100%);
-  -webkit-mask-image: linear-gradient(to bottom, #000 0%, #000 64%, rgba(0, 0, 0, 0.82) 80%, rgba(0, 0, 0, 0.32) 92%, transparent 100%);
+    linear-gradient(90deg, rgba(18, 39, 50, 0.18) 0%, rgba(18, 39, 50, 0.1) 28%, rgba(18, 39, 50, 0) 52%),
+    url("/images/home/chaos-field.png") top right / min(132vw, 2280px) auto no-repeat;
+  opacity: 0.94;
+  filter: saturate(1.03) brightness(0.98) contrast(1.02);
+  mask-image:
+    linear-gradient(to right, transparent 0%, rgba(0, 0, 0, 0.58) 16%, #000 34%, #000 100%),
+    linear-gradient(to bottom, #000 0%, #000 58%, rgba(0, 0, 0, 0.6) 78%, transparent 100%);
+  -webkit-mask-image:
+    linear-gradient(to right, transparent 0%, rgba(0, 0, 0, 0.58) 16%, #000 34%, #000 100%),
+    linear-gradient(to bottom, #000 0%, #000 58%, rgba(0, 0, 0, 0.6) 78%, transparent 100%);
+  mask-composite: intersect;
+  -webkit-mask-composite: source-in;
   transform-origin: top center;
   will-change: transform;
   animation: chaosFieldDrift 28s ease-in-out infinite alternate;
@@ -139,10 +143,8 @@ a {
   position: absolute;
   inset: 0;
   background:
-    radial-gradient(ellipse at 26% 48%, rgba(24, 48, 59, 0.86) 0%, rgba(23, 45, 55, 0.74) 24%, rgba(21, 41, 51, 0.22) 44%, transparent 65%),
-    linear-gradient(180deg, rgba(83, 107, 116, 0.1) 0%, rgba(21, 39, 48, 0.22) 40%, rgba(18, 39, 50, 0.64) 67vh, rgba(18, 39, 50, 0.9) 92vh, rgba(18, 39, 50, 0.96) 100%),
-    linear-gradient(90deg, rgba(18, 39, 50, 0.58) 0%, rgba(18, 39, 50, 0.28) 38%, transparent 72%);
-  animation: fieldTintBreath 18s ease-in-out infinite;
+    radial-gradient(ellipse at 28% 47%, rgba(18, 39, 50, 0.7) 0%, rgba(18, 39, 50, 0.48) 24%, rgba(18, 39, 50, 0.12) 44%, transparent 64%),
+    linear-gradient(180deg, transparent 0%, transparent 42%, rgba(18, 39, 50, 0.12) 66%, rgba(18, 39, 50, 0.34) 86%, rgba(18, 39, 50, 0.52) 100%);
 }
 
 .chaos-field-layer::after {
@@ -1320,25 +1322,13 @@ main :is(.border-t, .border-b, .border-y, .divide-y > :not([hidden]) ~ :not([hid
   0% {
     background-position:
       center,
-      center,
       top right;
   }
 
   100% {
     background-position:
       center,
-      center,
       top 1.6vh right 1.25vw;
-  }
-}
-
-@keyframes fieldTintBreath {
-  0%, 100% {
-    opacity: 0.94;
-  }
-
-  50% {
-    opacity: 0.78;
   }
 }
 
@@ -1424,18 +1414,22 @@ main :is(.border-t, .border-b, .border-y, .divide-y > :not([hidden]) ~ :not([hid
   .chaos-field-layer {
     height: 220vh;
     background:
-      radial-gradient(ellipse at 28% 46%, rgba(63, 86, 96, 0.16), rgba(18, 39, 50, 0.58) 46%, transparent 72%),
-      linear-gradient(90deg, rgba(18, 39, 50, 0.74), rgba(18, 39, 50, 0.18)),
-      url("/images/home/chaos-field.png") top right / cover no-repeat;
-    opacity: 0.64;
-    mask-image: linear-gradient(to bottom, #000 0%, #000 58%, rgba(0, 0, 0, 0.74) 78%, transparent 100%);
-    -webkit-mask-image: linear-gradient(to bottom, #000 0%, #000 58%, rgba(0, 0, 0, 0.74) 78%, transparent 100%);
+      linear-gradient(90deg, rgba(18, 39, 50, 0.18), rgba(18, 39, 50, 0)),
+      url("/images/home/chaos-field.png") top right -64vw / cover no-repeat;
+    opacity: 0.78;
+    mask-image:
+      linear-gradient(to right, transparent 0%, transparent 30%, rgba(0, 0, 0, 0.22) 52%, rgba(0, 0, 0, 0.76) 74%, #000 100%),
+      linear-gradient(to bottom, #000 0%, #000 44%, rgba(0, 0, 0, 0.62) 66%, transparent 88%);
+    -webkit-mask-image:
+      linear-gradient(to right, transparent 0%, transparent 30%, rgba(0, 0, 0, 0.22) 52%, rgba(0, 0, 0, 0.76) 74%, #000 100%),
+      linear-gradient(to bottom, #000 0%, #000 44%, rgba(0, 0, 0, 0.62) 66%, transparent 88%);
   }
 
   .chaos-field-layer::before {
     background:
-      radial-gradient(ellipse at 28% 52%, rgba(18, 39, 50, 0.9) 0%, rgba(18, 39, 50, 0.72) 34%, rgba(18, 39, 50, 0.18) 58%, transparent 74%),
-      linear-gradient(180deg, rgba(8, 20, 28, 0.02), rgba(8, 20, 28, 0.48));
+      radial-gradient(ellipse at 28% 52%, rgba(18, 39, 50, 0.78) 0%, rgba(18, 39, 50, 0.58) 34%, rgba(18, 39, 50, 0.12) 58%, transparent 74%),
+      linear-gradient(90deg, rgba(18, 39, 50, 0.88) 0%, rgba(18, 39, 50, 0.7) 48%, rgba(18, 39, 50, 0.18) 76%, transparent 100%),
+      linear-gradient(180deg, transparent, rgba(18, 39, 50, 0.44));
   }
 
   .chaos-field-layer::after {
@@ -1447,7 +1441,6 @@ main :is(.border-t, .border-b, .border-y, .divide-y > :not([hidden]) ~ :not([hid
   .hero-signal,
   .flow-active,
   .chaos-field-layer,
-  .chaos-field-layer::before,
   .chaos-field-layer::after,
   .reveal-section {
     animation: none !important;
