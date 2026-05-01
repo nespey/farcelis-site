@@ -96,7 +96,7 @@ a {
 .site-canvas-background {
   position: fixed;
   inset: 0;
-  z-index: 5;
+  z-index: 1;
   width: 100vw;
   height: 100vh;
   pointer-events: none;
@@ -105,176 +105,34 @@ a {
   will-change: transform;
 }
 
-.chaos-funnel-layer {
+.funnel-shimmer {
   position: fixed;
   inset: 0;
-  z-index: 4;
-  height: min(190vh, 1800px);
+  z-index: 2;
   pointer-events: none;
   overflow: hidden;
   mix-blend-mode: screen;
-  will-change: transform;
+  opacity: 0.28;
 }
 
-.chaos-funnel-veil {
-  position: absolute;
-  top: -6vh;
-  right: -5vw;
-  width: min(78vw, 1320px);
-  height: min(58vw, 760px);
-  border-radius: 999px 0 0 999px;
-  background:
-    radial-gradient(ellipse at 62% 58%, rgba(242, 139, 91, 0.18), transparent 18%),
-    radial-gradient(ellipse at 70% 34%, rgba(97, 192, 215, 0.28), transparent 34%),
-    linear-gradient(108deg, rgba(97, 192, 215, 0.02), rgba(97, 192, 215, 0.17) 38%, rgba(232, 238, 242, 0.2) 54%, rgba(242, 139, 91, 0.13) 72%, transparent 84%);
-  filter: blur(18px);
-  opacity: 0.82;
-  transform: rotate(6deg);
+.hero,
+.system-hook-section {
+  position: relative;
+  z-index: 10;
 }
 
-.chaos-funnel-mouth {
+.funnel-shimmer::before {
+  content: "";
   position: absolute;
-  top: clamp(72px, 8vh, 120px);
-  right: 7vw;
-  width: min(92vw, 1540px);
-  height: clamp(220px, 25vw, 420px);
-  transform: rotate(6deg);
-  transform-origin: right center;
-  opacity: 0.92;
-}
-
-.chaos-mouth-band {
-  position: absolute;
-  right: 0;
-  height: clamp(18px, 2.1vw, 38px);
+  top: 8vh;
+  right: 8vw;
+  width: min(46vw, 780px);
+  height: min(24vw, 360px);
   border-radius: 999px;
-  transform-origin: right center;
-  filter: blur(0.4px) drop-shadow(0 0 22px rgba(97, 192, 215, 0.25));
-  animation: chaosDrift 12s ease-in-out infinite;
-}
-
-.chaos-mouth-band-a {
-  top: 0;
-  width: 100%;
-  background: linear-gradient(90deg, rgba(97, 192, 215, 0), rgba(97, 192, 215, 0.42) 20%, rgba(214, 230, 236, 0.56) 72%, rgba(242, 139, 91, 0.22));
-  transform: rotate(-5deg);
-}
-
-.chaos-mouth-band-b {
-  top: 18%;
-  width: 94%;
-  background: linear-gradient(90deg, rgba(141, 119, 255, 0), rgba(141, 119, 255, 0.32) 20%, rgba(97, 192, 215, 0.5) 70%, rgba(214, 230, 236, 0.32));
-  transform: rotate(-1deg);
-  animation-delay: -2.5s;
-}
-
-.chaos-mouth-band-c {
-  top: 36%;
-  width: 86%;
-  background: linear-gradient(90deg, rgba(242, 139, 91, 0), rgba(242, 139, 91, 0.32) 22%, rgba(214, 230, 236, 0.48) 66%, rgba(97, 192, 215, 0.3));
-  transform: rotate(3deg);
-  animation-delay: -5s;
-}
-
-.chaos-mouth-band-d {
-  top: 55%;
-  width: 76%;
-  background: linear-gradient(90deg, rgba(161, 229, 204, 0), rgba(161, 229, 204, 0.25) 20%, rgba(97, 192, 215, 0.46) 68%, rgba(214, 230, 236, 0.26));
-  transform: rotate(7deg);
-  animation-delay: -7.5s;
-}
-
-.chaos-mouth-band-e {
-  top: 73%;
-  width: 65%;
-  background: linear-gradient(90deg, rgba(97, 192, 215, 0), rgba(97, 192, 215, 0.24) 24%, rgba(214, 230, 236, 0.42) 70%, rgba(242, 139, 91, 0.18));
-  transform: rotate(12deg);
-  animation-delay: -10s;
-}
-
-.chaos-funnel-stream {
-  position: absolute;
-  height: clamp(10px, 1.2vw, 22px);
-  border-radius: 999px;
-  transform-origin: right center;
-  opacity: 0.72;
-  filter: blur(0.2px) drop-shadow(0 0 14px rgba(97, 192, 215, 0.22));
-  animation: chaosDrift 11s ease-in-out infinite;
-}
-
-.chaos-funnel-stream-a {
-  top: clamp(76px, 10vh, 132px);
-  right: 17vw;
-  width: min(82vw, 1380px);
-  background: linear-gradient(90deg, rgba(97, 192, 215, 0), rgba(97, 192, 215, 0.28) 18%, rgba(232, 238, 242, 0.34) 58%, rgba(242, 139, 91, 0.18));
-  transform: rotate(5deg);
-}
-
-.chaos-funnel-stream-b {
-  top: clamp(130px, 16vh, 210px);
-  right: 12vw;
-  width: min(70vw, 1160px);
-  background: linear-gradient(90deg, rgba(141, 119, 255, 0), rgba(141, 119, 255, 0.18) 18%, rgba(97, 192, 215, 0.36) 62%, rgba(232, 238, 242, 0.24));
-  transform: rotate(10deg);
-  animation-delay: -3.2s;
-}
-
-.chaos-funnel-stream-c {
-  top: clamp(186px, 23vh, 310px);
-  right: 6vw;
-  width: min(58vw, 960px);
-  background: linear-gradient(90deg, rgba(242, 139, 91, 0), rgba(242, 139, 91, 0.2) 20%, rgba(97, 192, 215, 0.28) 58%, rgba(232, 238, 242, 0.28));
-  transform: rotate(16deg);
-  animation-delay: -6.4s;
-}
-
-.chaos-signal {
-  position: absolute;
-  width: clamp(72px, 7vw, 128px);
-  height: auto;
-  opacity: 0.26;
-  filter: grayscale(0.15) saturate(0.75) hue-rotate(152deg) blur(0.2px) drop-shadow(0 0 22px rgba(97, 192, 215, 0.2));
-  transform-origin: center;
-  animation: chaosSignalFloat 14s ease-in-out infinite;
-}
-
-.chaos-signal-a {
-  top: 6vh;
-  right: 53vw;
-  width: clamp(110px, 11vw, 210px);
-  opacity: 0.18;
-}
-
-.chaos-signal-b {
-  top: 12vh;
-  right: 39vw;
-  animation-delay: -2.4s;
-}
-
-.chaos-signal-c {
-  top: 23vh;
-  right: 28vw;
-  animation-delay: -4.8s;
-}
-
-.chaos-signal-d {
-  top: 6vh;
-  right: 25vw;
-  opacity: 0.2;
-  animation-delay: -7.2s;
-}
-
-.chaos-signal-e {
-  top: 29vh;
-  right: 15vw;
-  animation-delay: -9.6s;
-}
-
-.chaos-signal-f {
-  top: 17vh;
-  right: 9vw;
-  opacity: 0.22;
-  animation-delay: -11.2s;
+  background: linear-gradient(105deg, transparent 18%, rgba(232, 248, 255, 0.22) 48%, transparent 74%);
+  filter: blur(24px);
+  transform: rotate(12deg) translateX(-14%);
+  animation: funnelShimmer 9s ease-in-out infinite;
 }
 
 ::selection {
@@ -621,7 +479,7 @@ a {
 .timeline-row-b .timeline-text,
 .timeline-row-c .timeline-text,
 .timeline-row-d .timeline-text {
-  opacity: 0.63;
+  color: rgba(234, 241, 245, 0.72);
 }
 
 .timeline-row-a::after,
@@ -1422,27 +1280,14 @@ main :is(.border-t, .border-b, .border-y, .divide-y > :not([hidden]) ~ :not([hid
   }
 }
 
-@keyframes chaosDrift {
+@keyframes funnelShimmer {
   0%, 100% {
-    opacity: 0.58;
-    translate: 0 0;
+    opacity: 0.16;
+    transform: rotate(12deg) translateX(-18%) scaleX(0.96);
   }
   50% {
-    opacity: 0.78;
-    translate: 18px -6px;
-  }
-}
-
-@keyframes chaosSignalFloat {
-  0%, 100% {
-    translate: 0 0;
-    rotate: -2deg;
-    scale: 1;
-  }
-  50% {
-    translate: 12px -10px;
-    rotate: 2deg;
-    scale: 1.04;
+    opacity: 0.34;
+    transform: rotate(12deg) translateX(-3%) scaleX(1.04);
   }
 }
 
@@ -1525,66 +1370,19 @@ main :is(.border-t, .border-b, .border-y, .divide-y > :not([hidden]) ~ :not([hid
 }
 
 @media (max-width: 700px) {
-  .chaos-funnel-layer {
-    height: 170vh;
-  }
-
-  .chaos-funnel-veil {
-    top: 4vh;
-    right: -40vw;
-    width: 118vw;
-    height: 72vh;
-    opacity: 0.5;
-  }
-
-  .chaos-funnel-mouth {
-    top: 8vh;
-    right: -14vw;
-    width: 112vw;
-    height: 34vh;
-    opacity: 0.42;
-  }
-
-  .chaos-funnel-stream-a,
-  .chaos-funnel-stream-b,
-  .chaos-funnel-stream-c {
-    right: -4vw;
-    width: 84vw;
-    opacity: 0.42;
-  }
-
-  .chaos-signal {
-    display: none;
-  }
-
-  .chaos-signal-a,
-  .chaos-signal-c,
-  .chaos-signal-d {
-    display: block;
-    opacity: 0.12;
-  }
-
-  .chaos-signal-a {
+  .funnel-shimmer::before {
     top: 7vh;
-    right: 20vw;
-  }
-
-  .chaos-signal-c {
-    top: 18vh;
-    right: 2vw;
-  }
-
-  .chaos-signal-d {
-    top: 30vh;
-    right: -8vw;
+    right: -28vw;
+    width: 82vw;
+    height: 38vh;
+    opacity: 0.18;
   }
 }
 
 @media (prefers-reduced-motion: reduce) {
   .hero-signal,
   .flow-active,
-  .chaos-funnel-stream,
-  .chaos-signal,
+  .funnel-shimmer::before,
   .reveal-section {
     animation: none !important;
     transition: none !important;
