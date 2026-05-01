@@ -72,20 +72,20 @@ const drawConvergingCable = (
   const targetVisible = target.y > -height * 0.22 && target.y < height * 1.22;
   const fade = targetVisible ? 1 : 0.86;
   const mobile = width < 768;
-  const strandCount = mobile ? 5 : 9;
+  const strandCount = mobile ? 4 : 7;
   const throat: Point = {
-    x: width * (mobile ? 0.96 : 0.83),
-    y: height * (mobile ? 0.54 : 0.76),
+    x: width * (mobile ? 0.88 : 0.72),
+    y: height * (mobile ? 0.42 : 0.58),
   };
 
   context.save();
   context.globalCompositeOperation = "screen";
   const guide = context.createLinearGradient(throat.x, throat.y, target.x, target.y);
   guide.addColorStop(0, "rgba(97, 192, 215, 0)");
-  guide.addColorStop(0.52, "rgba(214, 230, 236, 0.03)");
-  guide.addColorStop(1, "rgba(242, 139, 91, 0.055)");
+  guide.addColorStop(0.45, "rgba(214, 230, 236, 0.024)");
+  guide.addColorStop(1, "rgba(242, 139, 91, 0.05)");
   context.strokeStyle = guide;
-  context.lineWidth = mobile ? 14 : 32;
+  context.lineWidth = mobile ? 10 : 24;
   context.lineCap = "round";
   context.lineJoin = "round";
   context.shadowColor = "rgba(97, 192, 215, 0.08)";
@@ -108,22 +108,22 @@ const drawConvergingCable = (
     const wave = Math.sin(index * 1.71);
     const twist = Math.cos(index * 0.93);
     const side = ratio - 0.5;
-    const throatOffset = side * (mobile ? 34 : 62) + wave * (mobile ? 6 : 12);
-    const neckOffset = side * (mobile ? 12 : 28) + twist * (mobile ? 5 : 10);
-    const endOffset = side * (mobile ? 4 : 8);
+    const throatOffset = side * (mobile ? 20 : 44) + wave * (mobile ? 4 : 8);
+    const neckOffset = side * (mobile ? 8 : 18) + twist * (mobile ? 3 : 7);
+    const endOffset = side * (mobile ? 3 : 6);
 
     const points = [
       {
         x: throat.x + throatOffset,
-        y: throat.y + side * (mobile ? 26 : 54),
+        y: throat.y + side * (mobile ? 18 : 38),
       },
       {
-        x: target.x + width * (mobile ? 0.32 : 0.24) + twist * (mobile ? 12 : 20),
-        y: lerp(throat.y, target.y, 0.44) + wave * (mobile ? 18 : 28),
+        x: target.x + width * (mobile ? 0.22 : 0.18) + twist * (mobile ? 8 : 15),
+        y: lerp(throat.y, target.y, 0.5) + wave * (mobile ? 12 : 20),
       },
       {
-        x: target.x + width * (mobile ? 0.2 : 0.16) + neckOffset,
-        y: lerp(throat.y, target.y, 0.84) - side * 24,
+        x: target.x + width * (mobile ? 0.12 : 0.1) + neckOffset,
+        y: lerp(throat.y, target.y, 0.84) - side * 18,
       },
       { x: target.x + endOffset, y: target.y + endOffset * 0.44 },
     ];
@@ -132,8 +132,8 @@ const drawConvergingCable = (
       context,
       points,
       strandColors[index % strandColors.length]!,
-      lerp(mobile ? 1.2 : 1.8, mobile ? 2.8 : 4.2, 1 - Math.abs(side) * 1.15),
-      fade * lerp(mobile ? 0.12 : 0.14, mobile ? 0.26 : 0.32, 1 - Math.abs(side)),
+      lerp(mobile ? 1 : 1.5, mobile ? 2.2 : 3.4, 1 - Math.abs(side) * 1.15),
+      fade * lerp(mobile ? 0.1 : 0.12, mobile ? 0.22 : 0.28, 1 - Math.abs(side)),
     );
   }
 };
