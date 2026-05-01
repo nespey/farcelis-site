@@ -130,11 +130,11 @@ a {
   position: absolute;
   top: 0;
   right: 0;
-  width: min(112vw, 2080px);
+  width: min(122vw, 2240px);
   height: auto;
   aspect-ratio: 1366 / 768;
   background: url("/images/home/chaos-field-clean.png") top right / contain no-repeat;
-  opacity: 0.9;
+  opacity: 0.92;
   filter: saturate(0.98) brightness(0.96) contrast(1.02);
   mask-image:
     linear-gradient(to right, transparent 0%, rgba(0, 0, 0, 0.52) 12%, #000 30%, #000 100%),
@@ -1407,15 +1407,15 @@ main :is(.border-t, .border-b, .border-y, .divide-y > :not([hidden]) ~ :not([hid
   }
 
   .chaos-field-layer::before {
-    right: -86vw;
-    width: 214vw;
-    opacity: 0.78;
+    right: -72vw;
+    width: 202vw;
+    opacity: 0.84;
     mask-image:
-      linear-gradient(to right, transparent 0%, transparent 32%, rgba(0, 0, 0, 0.42) 55%, rgba(0, 0, 0, 0.86) 76%, #000 100%),
-      linear-gradient(to bottom, #000 0%, #000 46%, rgba(0, 0, 0, 0.52) 64%, transparent 84%);
+      linear-gradient(to right, transparent 0%, transparent 24%, rgba(0, 0, 0, 0.5) 48%, rgba(0, 0, 0, 0.9) 70%, #000 100%),
+      linear-gradient(to bottom, #000 0%, #000 50%, rgba(0, 0, 0, 0.56) 70%, transparent 92%);
     -webkit-mask-image:
-      linear-gradient(to right, transparent 0%, transparent 32%, rgba(0, 0, 0, 0.42) 55%, rgba(0, 0, 0, 0.86) 76%, #000 100%),
-      linear-gradient(to bottom, #000 0%, #000 46%, rgba(0, 0, 0, 0.52) 64%, transparent 84%);
+      linear-gradient(to right, transparent 0%, transparent 24%, rgba(0, 0, 0, 0.5) 48%, rgba(0, 0, 0, 0.9) 70%, #000 100%),
+      linear-gradient(to bottom, #000 0%, #000 50%, rgba(0, 0, 0, 0.56) 70%, transparent 92%);
   }
 
   .chaos-field-layer::after {
