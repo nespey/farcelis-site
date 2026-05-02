@@ -5,12 +5,15 @@ import { certifications, site } from "@/lib/site-data";
 
 const exploreLeft = [
   { href: "/services", label: "Capabilities" },
+  { href: "/products", label: "Products" },
   { href: "/platforms", label: "Platforms" },
   { href: "/industries", label: "Industries" },
   { href: "/results", label: "Results" },
 ];
 
 const exploreRight = [
+  { href: "/resources", label: "Resources" },
+  { href: "/events", label: "Events" },
   { href: "/insights", label: "Insights" },
   { href: "/team", label: "Leadership" },
   { href: "/contact", label: "Contact" },
@@ -68,7 +71,7 @@ export function Footer() {
 
         <div className="mx-auto w-full max-w-[260px]">
           <p className="eyebrow footer-column-heading text-[color:var(--color-accent)]">Explore</p>
-          <div className="mx-auto mt-5 grid w-[220px] grid-cols-2 gap-x-4 gap-y-2 text-center text-sm leading-6 text-slate-300">
+          <div className="mx-auto mt-5 grid w-[240px] grid-cols-2 gap-x-4 gap-y-2 text-center text-sm leading-6 text-slate-300">
             <div className="grid gap-2">
               {exploreLeft.map((item) => (
                 <Link key={item.href} href={item.href} className="transition hover:text-white">

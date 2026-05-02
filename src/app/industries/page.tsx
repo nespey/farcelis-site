@@ -1,3 +1,5 @@
+import Link from "next/link";
+
 import { PageIntro } from "@/components/PageIntro";
 import { Reveal } from "@/components/Reveal";
 import { buildMetadata } from "@/lib/metadata";
@@ -72,15 +74,17 @@ export default function IndustriesPage() {
 
             <div className="mt-12 grid gap-4 md:grid-cols-2 lg:grid-cols-3">
               {industryFocus.map((item) => (
-                <div
+                <Link
                   key={item.title}
+                  href={`/industries/${item.slug}`}
                   className="enterprise-card rounded-[24px] border border-slate-200 bg-white px-6 py-6 shadow-[0_18px_38px_rgba(15,23,42,0.06)]"
                 >
                   <h3 className="text-xl font-semibold tracking-[-0.04em] text-slate-950">
                     {item.title}
                   </h3>
                   <p className="mt-4 text-base leading-8 text-slate-600">{item.description}</p>
-                </div>
+                  <div className="mt-6 text-sm font-semibold text-[#9f412c]">Explore vertical</div>
+                </Link>
               ))}
             </div>
           </div>

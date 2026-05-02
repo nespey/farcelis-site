@@ -43,6 +43,38 @@ export type InfoCard = {
   description: string;
 };
 
+export type Product = {
+  slug: string;
+  title: string;
+  eyebrow: string;
+  description: string;
+  outcomes: string[];
+  modules: string[];
+  useCases: string[];
+};
+
+export type Industry = {
+  slug: string;
+  title: string;
+  description: string;
+  signals: string[];
+  offers: string[];
+};
+
+export type ResourceOffer = {
+  title: string;
+  type: string;
+  description: string;
+  audience: string;
+};
+
+export type EventOffer = {
+  title: string;
+  format: string;
+  description: string;
+  audience: string;
+};
+
 export const site = {
   name: "Farcelis AI Consulting LLC",
   shortName: "Farcelis",
@@ -83,8 +115,11 @@ export const site = {
     { href: "/", label: "Home" },
     { href: "/control-layer", label: "Control Layer" },
     { href: "/services", label: "Services" },
+    { href: "/products", label: "Products" },
     { href: "/platforms", label: "Platforms" },
     { href: "/industries", label: "Industries" },
+    { href: "/resources", label: "Resources" },
+    { href: "/events", label: "Events" },
     { href: "/insights", label: "Insights" },
     { href: "/team", label: "Our Team" },
     { href: "/results", label: "Results" },
@@ -117,6 +152,12 @@ export const seo = {
     description:
       "Farcelis connects AI agents, CRM systems, workflow platforms, marketing tools, and reporting environments into cleaner operating systems.",
   },
+  products: {
+    path: "/products",
+    title: "Farcelis Product Suite | AI Operating Systems",
+    description:
+      "Explore Farcelis proprietary product surfaces, including the Control Layer, Pulse Thread Coaching Assistant, INTENT+ Adaptive Learning Engine, RapidRamp Generator, and AI Marketing Blueprint Generator.",
+  },
   industries: {
     path: "/industries",
     title: "Industries & Operating Environments | Farcelis AI Consulting",
@@ -128,6 +169,18 @@ export const seo = {
     title: "AI Operations Insights | Farcelis",
     description:
       "Farcelis insights on AI adoption, workflow architecture, governance, automation, CRM operations, SEO systems, and execution control.",
+  },
+  resources: {
+    path: "/resources",
+    title: "AI Operations Resources & Whitepapers | Farcelis",
+    description:
+      "Request Farcelis executive briefings, AI readiness guides, workflow architecture reports, CRM operations blueprints, and growth system playbooks.",
+  },
+  events: {
+    path: "/events",
+    title: "Farcelis Webinars & Executive Briefings",
+    description:
+      "Explore Farcelis webinars, executive briefings, workshops, and live sessions on AI adoption, workflow architecture, Control Layer design, and growth operations.",
   },
   team: {
     path: "/team",
@@ -328,36 +381,214 @@ export const platformCapabilities: InfoCard[] = [
   },
 ];
 
-export const industryFocus: InfoCard[] = [
+export const products: Product[] = [
   {
+    slug: "control-layer",
+    title: "Farcelis Control Layer",
+    eyebrow: "Flagship Operating System",
+    description:
+      "The Control Layer is the structured operating environment Farcelis builds above existing tools so intake, routing, ownership, visibility, and intervention live in one controlled frame.",
+    outcomes: [
+      "One intake path for scattered requests",
+      "Clear ownership and escalation logic",
+      "Leadership visibility into movement and blockage",
+      "Execution controls that hold under pressure",
+    ],
+    modules: [
+      "Intake layer",
+      "Workflow engine",
+      "Priority system",
+      "Execution board",
+      "Visibility layer",
+      "Intervention path",
+    ],
+    useCases: [
+      "Executive operations",
+      "Client delivery",
+      "Revenue operations",
+      "Cross-functional coordination",
+    ],
+  },
+  {
+    slug: "pulse-thread-coaching-assistant",
+    title: "Pulse Thread Coaching Assistant",
+    eyebrow: "AI Enablement Product",
+    description:
+      "A guided AI assistant concept for coaching teams through structured follow-up, decision clarity, meeting action items, and adoption support inside live operating workflows.",
+    outcomes: [
+      "Better follow-through after meetings",
+      "Cleaner action ownership",
+      "Structured coaching for AI adoption",
+      "Reduced leadership follow-up drag",
+    ],
+    modules: [
+      "Action extraction",
+      "Follow-up prompts",
+      "Decision recap",
+      "Adoption coaching",
+      "Status pulse",
+    ],
+    useCases: [
+      "Leadership meetings",
+      "Client success",
+      "Internal enablement",
+      "Training programs",
+    ],
+  },
+  {
+    slug: "intent-adaptive-learning-engine",
+    title: "INTENT+ Adaptive Learning Engine",
+    eyebrow: "Learning and Enablement System",
+    description:
+      "An adaptive learning framework for structuring training, knowledge reinforcement, adoption paths, and practical capability development around what teams actually need to do.",
+    outcomes: [
+      "Role-based learning paths",
+      "AI adoption support",
+      "Knowledge retention loops",
+      "Training tied to operating behavior",
+    ],
+    modules: [
+      "Readiness profile",
+      "Learning path builder",
+      "Practice prompts",
+      "Progress signals",
+      "Enablement dashboard",
+    ],
+    useCases: [
+      "AI training",
+      "Internal onboarding",
+      "Operations enablement",
+      "Process rollout",
+    ],
+  },
+  {
+    slug: "rapidramp-generator",
+    title: "RapidRamp Generator",
+    eyebrow: "Implementation Accelerator",
+    description:
+      "A structured deployment accelerator for turning messy operational requirements into phased rollout plans, system maps, tool configurations, and execution checklists.",
+    outcomes: [
+      "Faster implementation planning",
+      "Cleaner rollout sequencing",
+      "Reduced ambiguity before build",
+      "Reusable system documentation",
+    ],
+    modules: [
+      "Readiness intake",
+      "System map",
+      "Phase plan",
+      "Tooling checklist",
+      "Launch controls",
+    ],
+    useCases: [
+      "Control Layer deployment",
+      "CRM rebuilds",
+      "Workflow automation",
+      "Marketing operations setup",
+    ],
+  },
+  {
+    slug: "blueprint-readiness-snapshot",
+    title: "Blueprint Readiness Snapshot",
+    eyebrow: "Assessment Product",
+    description:
+      "A concise diagnostic product that scores the current operating environment across workflows, ownership, tools, data visibility, automation readiness, and governance gaps.",
+    outcomes: [
+      "Clear view of system gaps",
+      "Prioritized implementation path",
+      "AI and automation readiness signal",
+      "Leadership-ready recommendation set",
+    ],
+    modules: [
+      "Workflow scan",
+      "Tooling review",
+      "Data visibility check",
+      "Governance review",
+      "Priority roadmap",
+    ],
+    useCases: [
+      "Pre-engagement discovery",
+      "Executive planning",
+      "Automation readiness",
+      "Operational reset",
+    ],
+  },
+  {
+    slug: "ai-marketing-blueprint-generator",
+    title: "AI Marketing Blueprint Generator",
+    eyebrow: "Growth Systems Product",
+    description:
+      "A growth architecture product for turning audience, offer, content, SEO, campaign, CRM, and social signals into a practical marketing operating system.",
+    outcomes: [
+      "Content and SEO strategy tied to execution",
+      "Cleaner campaign and social cadence",
+      "Lead flow connected to CRM operations",
+      "Performance visibility for growth work",
+    ],
+    modules: [
+      "Audience map",
+      "SEO opportunity scan",
+      "Content calendar",
+      "Campaign workflow",
+      "CRM handoff model",
+    ],
+    useCases: [
+      "Blog systems",
+      "Social media management",
+      "SEO optimization",
+      "Revenue campaign planning",
+    ],
+  },
+];
+
+export const industryFocus: Industry[] = [
+  {
+    slug: "professional-services-consulting",
     title: "Professional services and consulting",
     description:
       "Client delivery, project visibility, knowledge work, internal coordination, and leadership reporting across fast-moving service teams.",
+    signals: ["Client work lives in too many systems", "Delivery status depends on manual follow-up", "Project knowledge is hard to reuse"],
+    offers: ["Control Layer deployment", "Client delivery dashboards", "Knowledge workflow design", "AI assistants for documentation"],
   },
   {
+    slug: "government-contractors",
     title: "Government contractors and public-sector adjacent teams",
     description:
       "Compliance-aware workflows, documentation, deadline control, stakeholder coordination, and operating visibility for high-accountability environments.",
+    signals: ["Documentation pressure is high", "Deadlines create coordination risk", "Approvals move through unclear channels"],
+    offers: ["Compliance-aware workflow mapping", "Deadline control systems", "Stakeholder visibility", "Reporting cadence design"],
   },
   {
+    slug: "small-mid-market-businesses",
     title: "Small and mid-market businesses",
     description:
       "Practical AI, workflow, CRM, marketing, and operating systems for companies that need enterprise discipline without enterprise overhead.",
+    signals: ["Growth is outrunning process", "The owner still holds too many answers", "Tools exist but do not behave like a system"],
+    offers: ["AI readiness snapshot", "CRM and workflow rebuild", "Managed operations support", "Growth systems setup"],
   },
   {
+    slug: "growth-marketing-revenue",
     title: "Growth, marketing, and revenue organizations",
     description:
       "Lead flow, campaign operations, SEO, content systems, customer handoffs, and reporting tied back to execution and revenue movement.",
+    signals: ["Campaigns are disconnected from CRM", "Content lacks operating cadence", "Lead handoffs are inconsistent"],
+    offers: ["AI Marketing Blueprint", "SEO and blog systems", "Social media operations", "Revenue workflow design"],
   },
   {
+    slug: "operations-heavy-teams",
     title: "Operations-heavy teams",
     description:
       "Intake, assignment, escalation, reporting, automation, and decision cadence for teams where complexity shows up as daily friction.",
+    signals: ["Requests arrive from everywhere", "Escalations happen too late", "Ownership is visible only after something slips"],
+    offers: ["Intake and routing design", "Escalation logic", "Operational dashboards", "Workflow automation"],
   },
   {
+    slug: "education-training-enablement",
     title: "Education, training, and enablement environments",
     description:
       "Structured learning systems, AI enablement, internal adoption paths, and repeatable knowledge workflows for teams that need change to stick.",
+    signals: ["Training does not translate into behavior", "AI adoption is uneven", "Knowledge transfer depends on individuals"],
+    offers: ["INTENT+ learning paths", "AI enablement programs", "Knowledge workflows", "Adoption coaching systems"],
   },
 ];
 
@@ -426,6 +657,97 @@ export const resourceTypes: InfoCard[] = [
       "Sanitized breakdowns of what changed in visibility, workflow control, routing, and execution reliability.",
   },
 ];
+
+export const resourceOffers: ResourceOffer[] = [
+  {
+    title: "AI Readiness and Governance Brief",
+    type: "Executive briefing",
+    description:
+      "A leadership-ready guide for evaluating AI use cases, governance rules, adoption risk, and rollout sequencing before tool selection starts.",
+    audience: "CEOs, founders, operators, and department leaders",
+  },
+  {
+    title: "Workflow Architecture Field Guide",
+    type: "Whitepaper",
+    description:
+      "A practical breakdown of intake, routing, ownership, escalation, reporting, and operating cadence for teams that need work to move cleanly.",
+    audience: "Operations leaders and delivery teams",
+  },
+  {
+    title: "Control Layer Operating Model",
+    type: "Framework report",
+    description:
+      "A structured explanation of how the Farcelis Control Layer sits above existing tools and turns fragmented execution into a visible operating system.",
+    audience: "Executive teams evaluating operational redesign",
+  },
+  {
+    title: "CRM and Revenue Operations Blueprint",
+    type: "Implementation guide",
+    description:
+      "A guide to lead routing, pipeline ownership, customer handoffs, campaign attribution, and sales-service visibility across CRM environments.",
+    audience: "Sales, marketing, and customer operations teams",
+  },
+  {
+    title: "AI Marketing Systems Playbook",
+    type: "Growth playbook",
+    description:
+      "A blueprint for connecting social media, blogs, SEO, content operations, CRM, campaign cadence, and performance reporting.",
+    audience: "Growth leaders, marketers, and business owners",
+  },
+  {
+    title: "Automation Failure Pattern Report",
+    type: "Diagnostic report",
+    description:
+      "A decision guide for spotting when automation will fail because workflow logic, ownership, governance, or data visibility is not ready.",
+    audience: "Leaders considering AI agents or workflow automation",
+  },
+];
+
+export const eventOffers: EventOffer[] = [
+  {
+    title: "AI Adoption Without Operational Drift",
+    format: "Executive webinar",
+    description:
+      "A leadership session on selecting AI use cases, setting guardrails, and building adoption systems that do not collapse into tool sprawl.",
+    audience: "Executives, founders, and operators",
+  },
+  {
+    title: "Building the Control Layer",
+    format: "Live briefing",
+    description:
+      "A walkthrough of intake, routing, visibility, ownership, and intervention design for companies trying to regain execution control.",
+    audience: "Leadership teams and operations owners",
+  },
+  {
+    title: "CRM, Content, and Revenue Flow",
+    format: "Growth systems workshop",
+    description:
+      "A working session on connecting blogs, SEO, social media, lead capture, CRM handoff, and campaign reporting into one revenue operating system.",
+    audience: "Marketing, sales, and revenue operations teams",
+  },
+  {
+    title: "Workflow Automation That Actually Holds",
+    format: "Technical workshop",
+    description:
+      "A practical session on mapping workflow logic before automation, defining escalation rules, and avoiding brittle AI-agent deployments.",
+    audience: "Operators, technologists, and implementation leads",
+  },
+  {
+    title: "AI Enablement for Real Teams",
+    format: "Enablement session",
+    description:
+      "A session on using adaptive learning, coaching assistants, and workflow-specific AI training to make adoption stick after launch.",
+    audience: "Training, enablement, and department leaders",
+  },
+];
+
+export function getProductBySlug(slug: string) {
+  return products.find((product) => product.slug === slug);
+}
+
+export function getIndustryBySlug(slug: string) {
+  return industryFocus.find((industry) => industry.slug === slug);
+}
 
 export const proofCards: ProofCard[] = [
   {

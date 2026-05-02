@@ -44,6 +44,11 @@ const solutionLinks = [
     detail: "The operating spine for intake, visibility, ownership, and action.",
   },
   {
+    href: "/products",
+    label: "Product Suite",
+    detail: "Named Farcelis systems for diagnostics, learning, growth, and deployment.",
+  },
+  {
     href: "/platforms",
     label: "AI Agents & Assistants",
     detail: "Role-specific AI support connected to real workflow responsibilities.",
@@ -57,6 +62,16 @@ const solutionLinks = [
     href: "/insights",
     label: "Insights & Playbooks",
     detail: "Practical thinking on AI adoption, governance, workflow, and growth.",
+  },
+  {
+    href: "/resources",
+    label: "Reports & Whitepapers",
+    detail: "Gated executive briefings, playbooks, diagnostics, and frameworks.",
+  },
+  {
+    href: "/events",
+    label: "Webinars & Events",
+    detail: "Executive sessions and workshops for AI-enabled operating systems.",
   },
 ];
 
@@ -183,10 +198,10 @@ export function Header() {
             </Link>
 
             <Link
-              href="/insights"
+              href="/resources"
               className="text-sm font-medium tracking-[0.01em] text-slate-300 transition hover:text-white"
             >
-              Insights
+              Resources
             </Link>
 
             <Link
@@ -275,8 +290,10 @@ export function Header() {
 
             <div className="grid grid-cols-2 gap-2">
               {[
+                { href: "/products", label: "Products" },
                 { href: "/industries", label: "Industries" },
-                { href: "/insights", label: "Insights" },
+                { href: "/resources", label: "Resources" },
+                { href: "/events", label: "Events" },
                 { href: "/results", label: "Results" },
                 { href: "/team", label: "Leadership" },
               ].map((item) => (
