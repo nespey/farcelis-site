@@ -5,6 +5,7 @@ import localFont from "next/font/local";
 import { CanvasBackground } from "@/components/CanvasBackground";
 import { Footer } from "@/components/Footer";
 import { Header } from "@/components/Header";
+import { SiteExperienceLayer } from "@/components/SiteExperienceLayer";
 import { site } from "@/lib/site-data";
 import "./globals.css";
 
@@ -56,6 +57,7 @@ export default function RootLayout({
             <Header />
             <main>{children}</main>
             <Footer />
+            <SiteExperienceLayer />
           </div>
         </div>
       </body>

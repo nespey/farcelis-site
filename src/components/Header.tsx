@@ -132,7 +132,7 @@ export function Header() {
               <button type="button" className="text-sm font-medium tracking-[0.01em] text-slate-300 transition group-hover:text-white">
                 Capabilities
               </button>
-              <div className="pointer-events-none absolute left-0 top-full z-40 pt-4 opacity-0 transition duration-200 group-hover:pointer-events-auto group-hover:opacity-100">
+              <div className="pointer-events-none absolute left-0 top-full z-40 pt-4 opacity-0 transition duration-200 group-hover:pointer-events-auto group-hover:opacity-100 group-focus-within:pointer-events-auto group-focus-within:opacity-100">
                 <div className="surface-dark min-w-[560px] rounded-[24px] border border-cyan-100/14 bg-[#173343] p-4 shadow-[0_28px_80px_rgba(3,8,16,0.46)]">
                   <div className="rounded-[18px] border border-cyan-100/10 bg-[#1c3c4d] px-4 py-3">
                     <div className="text-xs font-semibold uppercase tracking-[0.2em] text-[color:var(--color-accent)]">
@@ -163,7 +163,7 @@ export function Header() {
               <button type="button" className="text-sm font-medium tracking-[0.01em] text-slate-300 transition group-hover:text-white">
                 Solutions
               </button>
-              <div className="pointer-events-none absolute left-1/2 top-full z-40 -translate-x-1/2 pt-4 opacity-0 transition duration-200 group-hover:pointer-events-auto group-hover:opacity-100">
+              <div className="pointer-events-none absolute left-1/2 top-full z-40 -translate-x-1/2 pt-4 opacity-0 transition duration-200 group-hover:pointer-events-auto group-hover:opacity-100 group-focus-within:pointer-events-auto group-focus-within:opacity-100">
                 <div className="surface-dark min-w-[500px] rounded-[24px] border border-cyan-100/14 bg-[#173343] p-4 shadow-[0_28px_80px_rgba(3,8,16,0.46)]">
                   <div className="rounded-[18px] border border-cyan-100/10 bg-[#1c3c4d] px-4 py-3">
                     <div className="text-xs font-semibold uppercase tracking-[0.2em] text-[color:var(--color-accent)]">

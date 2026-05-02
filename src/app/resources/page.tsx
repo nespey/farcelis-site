@@ -1,5 +1,6 @@
 import { PageIntro } from "@/components/PageIntro";
 import { Reveal } from "@/components/Reveal";
+import { ResourceAccessForm } from "@/components/ResourceAccessForm";
 import { buildMetadata } from "@/lib/metadata";
 import { resourceOffers, resourceTypes, seo } from "@/lib/site-data";
 
@@ -68,32 +69,7 @@ export default function ResourcesPage() {
               </p>
             </div>
 
-            <form className="surface-dark grid gap-4 rounded-[28px] p-6">
-              {[
-                { label: "Name", type: "text" },
-                { label: "Work email", type: "email" },
-                { label: "Company", type: "text" },
-                { label: "Resource requested", type: "text" },
-              ].map((field) => (
-                <label key={field.label} className="grid gap-2 text-sm font-semibold text-slate-200">
-                  {field.label}
-                  <input
-                    type={field.type}
-                    className="min-h-12 rounded-[14px] border border-cyan-100/14 bg-white/[0.045] px-4 text-base font-normal text-white outline-none transition focus:border-cyan-100/34"
-                  />
-                </label>
-              ))}
-              <label className="grid gap-2 text-sm font-semibold text-slate-200">
-                What are you trying to improve?
-                <textarea className="min-h-28 rounded-[14px] border border-cyan-100/14 bg-white/[0.045] px-4 py-3 text-base font-normal text-white outline-none transition focus:border-cyan-100/34" />
-              </label>
-              <button
-                type="button"
-                className="site-cta mt-2 inline-flex min-h-12 items-center justify-center rounded-full bg-[linear-gradient(135deg,#ff8e5b,#f05cff)] px-6 py-3 text-sm font-semibold text-white"
-              >
-                Request Access
-              </button>
-            </form>
+            <ResourceAccessForm />
           </div>
         </section>
       </Reveal>
