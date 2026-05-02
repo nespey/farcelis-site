@@ -22,26 +22,26 @@ export default function TeamPage() {
       <Reveal delayMs={50}>
         <section className="section-shell section-shell-light">
           <div className="section-inner">
-            <div className="grid gap-8 md:grid-cols-2">
+            <div className="mx-auto grid max-w-[1180px] gap-5 md:grid-cols-2">
               {teamMembers.map((member) => (
                 <Link
                   key={member.slug}
                   href={`/team/${member.slug}`}
-                  className="group overflow-hidden rounded-[28px] border border-slate-200 bg-white shadow-[0_22px_50px_rgba(15,23,42,0.08)] transition hover:-translate-y-1 hover:shadow-[0_28px_56px_rgba(15,23,42,0.14)]"
+                  className="group grid overflow-hidden rounded-[24px] border border-slate-200 bg-white shadow-[0_18px_40px_rgba(15,23,42,0.07)] transition hover:-translate-y-1 hover:shadow-[0_24px_48px_rgba(15,23,42,0.12)] sm:grid-cols-[132px_minmax(0,1fr)]"
                 >
-                  <div className="relative aspect-square overflow-hidden">
+                  <div className="relative aspect-[4/5] overflow-hidden sm:h-full sm:min-h-[190px]">
                     <Image
                       src={member.image}
                       alt={member.name}
                       fill
-                      sizes="(max-width: 1280px) 50vw, 25vw"
+                      sizes="(max-width: 640px) 100vw, 132px"
                       className="object-cover transition duration-500 group-hover:scale-[1.03]"
                     />
                   </div>
 
-                  <div className="px-6 py-6">
+                  <div className="flex flex-col justify-center px-6 py-6">
                     <p className="eyebrow text-[#9f412c]">{member.role}</p>
-                    <h2 className="mt-3 text-[1.8rem] font-semibold tracking-[-0.05em] text-slate-950">
+                    <h2 className="mt-3 text-[1.55rem] font-semibold tracking-[-0.05em] text-slate-950">
                       {member.name}
                     </h2>
                     <div className="mt-5 inline-flex items-center text-sm font-semibold text-slate-950">
