@@ -752,23 +752,8 @@ a {
   align-items: center;
   overflow: hidden;
   isolation: isolate;
-  background: #061722;
+  background: transparent;
   padding: 4rem 0;
-}
-
-.hero::after {
-  content: "";
-  position: absolute;
-  inset: 0;
-  z-index: 1;
-  pointer-events: none;
-  background: linear-gradient(
-    90deg,
-    rgba(4, 16, 26, 0.62) 0%,
-    rgba(4, 16, 26, 0.48) 31%,
-    rgba(4, 16, 26, 0.17) 56%,
-    rgba(4, 16, 26, 0.16) 100%
-  );
 }
 
 .hero-inner {
