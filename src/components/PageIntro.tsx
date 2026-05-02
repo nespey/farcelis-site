@@ -57,7 +57,7 @@ export function PageIntro({
         </div>
 
         {asideTitle || asideItems.length > 0 ? (
-          <aside className="surface-dark relative rounded-[28px] bg-[linear-gradient(180deg,rgba(97,192,215,0.08),rgba(255,255,255,0.03)),linear-gradient(135deg,rgba(141,119,255,0.08),transparent_45%)] px-6 py-7 text-center">
+          <aside className="surface-dark relative rounded-[28px] border border-cyan-100/14 bg-[linear-gradient(180deg,rgba(12,30,40,0.93),rgba(10,25,35,0.86)),linear-gradient(135deg,rgba(97,192,215,0.11),rgba(242,139,91,0.06))] px-6 py-7 text-center shadow-[0_24px_60px_rgba(3,8,16,0.28)] backdrop-blur-xl">
             {asideTitle ? (
               <p className="eyebrow text-[color:var(--color-accent)]">{asideTitle}</p>
             ) : null}
@@ -65,7 +65,7 @@ export function PageIntro({
               {asideItems.map((item) => (
                 <div
                   key={item}
-                  className="text-sm leading-7 text-slate-300"
+                  className="rounded-[14px] border border-cyan-100/10 bg-white/[0.045] px-4 py-3 text-sm leading-6 text-slate-100"
                 >
                   {item}
                 </div>

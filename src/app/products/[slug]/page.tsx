@@ -65,11 +65,8 @@ export default async function ProductDetailPage({ params }: ProductPageProps) {
               {product.outcomes.map((outcome, index) => (
                 <div
                   key={outcome}
-                  className={`grid gap-4 py-6 lg:grid-cols-[78px_minmax(0,1fr)] ${index === 1 ? "lg:translate-x-8" : ""}`}
+                  className={`border-l border-[color:var(--color-accent)]/24 py-6 pl-6 ${index === 1 ? "lg:translate-x-8" : ""}`}
                 >
-                  <div className="text-sm font-semibold uppercase tracking-[0.18em] text-[color:var(--color-accent)]">
-                    0{index + 1}
-                  </div>
                   <div className="text-2xl font-medium tracking-[-0.04em] text-slate-200">
                     {outcome}
                   </div>

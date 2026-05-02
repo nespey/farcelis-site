@@ -72,9 +72,7 @@ export default function PlatformsPage() {
                     index % 2 === 1 ? "lg:translate-y-5" : ""
                   }`}
                 >
-                  <div className="text-sm font-semibold uppercase tracking-[0.18em] text-[#9f412c]">
-                    0{index + 1}
-                  </div>
+                  <div className="h-1 w-12 rounded-full bg-[#9f412c]/80" aria-hidden="true" />
                   <h3 className="mt-4 text-2xl font-semibold tracking-[-0.04em] text-slate-950">
                     {capability.title}
                   </h3>

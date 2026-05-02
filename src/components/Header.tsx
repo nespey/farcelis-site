@@ -2,7 +2,7 @@
 
 import Image from "next/image";
 import Link from "next/link";
-import { useEffect, useRef, useState } from "react";
+import { useCallback, useEffect, useRef, useState } from "react";
 
 const capabilityLinks = [
   {
@@ -75,11 +75,19 @@ const solutionLinks = [
   },
 ];
 
+type MenuKey = "capabilities" | "solutions";
+
 export function Header() {
   const [elevated, setElevated] = useState(false);
   const [hidden, setHidden] = useState(false);
   const [mobileOpen, setMobileOpen] = useState(false);
+  const [activeMenu, setActiveMenu] = useState<MenuKey | null>(null);
   const lastScrollY = useRef(0);
+
+  const closeMenus = useCallback(() => {
+    setActiveMenu(null);
+    setMobileOpen(false);
+  }, []);
 
   useEffect(() => {
     const onScroll = () => {
@@ -104,6 +112,17 @@ export function Header() {
     return () => window.removeEventListener("scroll", onScroll);
   }, []);
 
+  useEffect(() => {
+    const onKeyDown = (event: KeyboardEvent) => {
+      if (event.key === "Escape") {
+        closeMenus();
+      }
+    };
+
+    window.addEventListener("keydown", onKeyDown);
+    return () => window.removeEventListener("keydown", onKeyDown);
+  }, [closeMenus]);
+
   return (
     <>
       <header
@@ -116,7 +135,7 @@ export function Header() {
         }`}
       >
         <div className="section-inner flex min-h-20 items-center justify-between gap-6">
-          <Link href="/" className="flex items-center gap-3">
+          <Link href="/" onClick={closeMenus} className="flex items-center gap-3">
             <Image
               src="/logos/farcelis-ai-logo.png"
               alt="Farcelis AI Consulting"
@@ -128,11 +147,27 @@ export function Header() {
           </Link>
 
           <nav className="hidden items-center gap-5 lg:flex xl:gap-7">
-            <div className="group relative">
-              <button type="button" className="text-sm font-medium tracking-[0.01em] text-slate-300 transition group-hover:text-white">
+            <div
+              className="relative"
+              onMouseEnter={() => setActiveMenu("capabilities")}
+              onMouseLeave={() => setActiveMenu(null)}
+            >
+              <button
+                type="button"
+                onClick={() => setActiveMenu(activeMenu === "capabilities" ? null : "capabilities")}
+                className={`text-sm font-medium tracking-[0.01em] transition ${
+                  activeMenu === "capabilities" ? "text-white" : "text-slate-300 hover:text-white"
+                }`}
+              >
                 Capabilities
               </button>
-              <div className="pointer-events-none absolute left-0 top-full z-40 pt-4 opacity-0 transition duration-200 group-hover:pointer-events-auto group-hover:opacity-100 group-focus-within:pointer-events-auto group-focus-within:opacity-100">
+              <div
+                className={`absolute left-0 top-full z-40 pt-4 transition duration-200 ${
+                  activeMenu === "capabilities"
+                    ? "pointer-events-auto opacity-100"
+                    : "pointer-events-none opacity-0"
+                }`}
+              >
                 <div className="surface-dark min-w-[560px] rounded-[24px] border border-cyan-100/14 bg-[#173343] p-4 shadow-[0_28px_80px_rgba(3,8,16,0.46)]">
                   <div className="rounded-[18px] border border-cyan-100/10 bg-[#1c3c4d] px-4 py-3">
                     <div className="text-xs font-semibold uppercase tracking-[0.2em] text-[color:var(--color-accent)]">
@@ -148,6 +183,7 @@ export function Header() {
                       <Link
                         key={item.label}
                         href={item.href}
+                        onClick={closeMenus}
                         className="block rounded-[16px] border border-cyan-100/12 bg-[#1c3c4d] px-4 py-3 transition hover:border-cyan-100/22 hover:bg-[#24495c] hover:text-white"
                       >
                         <div className="text-sm font-semibold text-white">{item.label}</div>
@@ -159,11 +195,27 @@ export function Header() {
               </div>
             </div>
 
-            <div className="group relative">
-              <button type="button" className="text-sm font-medium tracking-[0.01em] text-slate-300 transition group-hover:text-white">
+            <div
+              className="relative"
+              onMouseEnter={() => setActiveMenu("solutions")}
+              onMouseLeave={() => setActiveMenu(null)}
+            >
+              <button
+                type="button"
+                onClick={() => setActiveMenu(activeMenu === "solutions" ? null : "solutions")}
+                className={`text-sm font-medium tracking-[0.01em] transition ${
+                  activeMenu === "solutions" ? "text-white" : "text-slate-300 hover:text-white"
+                }`}
+              >
                 Solutions
               </button>
-              <div className="pointer-events-none absolute left-1/2 top-full z-40 -translate-x-1/2 pt-4 opacity-0 transition duration-200 group-hover:pointer-events-auto group-hover:opacity-100 group-focus-within:pointer-events-auto group-focus-within:opacity-100">
+              <div
+                className={`absolute left-1/2 top-full z-40 -translate-x-1/2 pt-4 transition duration-200 ${
+                  activeMenu === "solutions"
+                    ? "pointer-events-auto opacity-100"
+                    : "pointer-events-none opacity-0"
+                }`}
+              >
                 <div className="surface-dark min-w-[500px] rounded-[24px] border border-cyan-100/14 bg-[#173343] p-4 shadow-[0_28px_80px_rgba(3,8,16,0.46)]">
                   <div className="rounded-[18px] border border-cyan-100/10 bg-[#1c3c4d] px-4 py-3">
                     <div className="text-xs font-semibold uppercase tracking-[0.2em] text-[color:var(--color-accent)]">
@@ -179,6 +231,7 @@ export function Header() {
                       <Link
                         key={item.label}
                         href={item.href}
+                        onClick={closeMenus}
                         className="block rounded-[16px] border border-cyan-100/12 bg-[#1c3c4d] px-4 py-3 transition hover:border-cyan-100/22 hover:bg-[#24495c] hover:text-white"
                       >
                         <div className="text-sm font-semibold text-white">{item.label}</div>
@@ -192,6 +245,7 @@ export function Header() {
 
             <Link
               href="/industries"
+              onClick={closeMenus}
               className="text-sm font-medium tracking-[0.01em] text-slate-300 transition hover:text-white"
             >
               Industries
@@ -199,6 +253,7 @@ export function Header() {
 
             <Link
               href="/resources"
+              onClick={closeMenus}
               className="text-sm font-medium tracking-[0.01em] text-slate-300 transition hover:text-white"
             >
               Resources
@@ -206,6 +261,7 @@ export function Header() {
 
             <Link
               href="/results"
+              onClick={closeMenus}
               className="text-sm font-medium tracking-[0.01em] text-slate-300 transition hover:text-white"
             >
               Results
@@ -213,6 +269,7 @@ export function Header() {
 
             <Link
               href="/team"
+              onClick={closeMenus}
               className="text-sm font-medium tracking-[0.01em] text-slate-300 transition hover:text-white"
             >
               Leadership
@@ -220,6 +277,7 @@ export function Header() {
 
             <Link
               href="/contact"
+              onClick={closeMenus}
               className="text-sm font-medium tracking-[0.01em] text-slate-300 transition hover:text-white"
             >
               Contact
@@ -228,6 +286,7 @@ export function Header() {
 
           <Link
             href="/contact"
+            onClick={closeMenus}
             className="site-cta hidden min-h-11 items-center justify-center rounded-full bg-[linear-gradient(135deg,#ff8e5b,#f05cff)] px-5 py-2.5 text-sm font-semibold text-white hover:shadow-[0_18px_38px_rgba(240,92,255,0.24)] sm:inline-flex"
           >
             Start Building Structure
@@ -237,7 +296,10 @@ export function Header() {
             type="button"
             aria-expanded={mobileOpen}
             aria-controls="mobile-navigation"
-            onClick={() => setMobileOpen((open) => !open)}
+            onClick={() => {
+              setActiveMenu(null);
+              setMobileOpen((open) => !open);
+            }}
             className="inline-flex h-11 w-11 items-center justify-center rounded-full border border-cyan-100/18 bg-white/[0.04] text-white transition hover:border-cyan-100/32 hover:bg-white/[0.08] lg:hidden"
           >
             <span className="sr-only">Open navigation</span>
@@ -263,7 +325,7 @@ export function Header() {
                   <Link
                     key={item.label}
                     href={item.href}
-                    onClick={() => setMobileOpen(false)}
+                    onClick={closeMenus}
                     className="rounded-[16px] border border-cyan-100/12 bg-white/[0.035] px-4 py-3 text-sm font-semibold text-white"
                   >
                     {item.label}
@@ -279,7 +341,7 @@ export function Header() {
                   <Link
                     key={item.label}
                     href={item.href}
-                    onClick={() => setMobileOpen(false)}
+                    onClick={closeMenus}
                     className="rounded-[16px] border border-cyan-100/12 bg-white/[0.035] px-4 py-3 text-sm font-semibold text-white"
                   >
                     {item.label}
@@ -300,7 +362,7 @@ export function Header() {
                 <Link
                   key={item.href}
                   href={item.href}
-                  onClick={() => setMobileOpen(false)}
+                  onClick={closeMenus}
                   className="rounded-full border border-cyan-100/14 bg-white/[0.035] px-4 py-3 text-center text-sm font-semibold text-slate-100"
                 >
                   {item.label}
@@ -310,7 +372,7 @@ export function Header() {
 
             <Link
               href="/contact"
-              onClick={() => setMobileOpen(false)}
+              onClick={closeMenus}
               className="site-cta inline-flex min-h-12 items-center justify-center rounded-full bg-[linear-gradient(135deg,#ff8e5b,#f05cff)] px-6 py-3 text-sm font-semibold text-white"
             >
               Start Building Structure

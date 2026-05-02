@@ -57,14 +57,14 @@ export default async function TeamMemberPage({
 
       <Reveal delayMs={60}>
         <section className="section-shell section-shell-light">
-          <div className="section-inner grid gap-10 lg:grid-cols-[260px_minmax(0,1fr)]">
+          <div className="section-inner grid gap-10 lg:grid-cols-[310px_minmax(0,1fr)]">
             <div className="overflow-hidden rounded-[26px] border border-slate-200 bg-white p-2 shadow-[0_20px_48px_rgba(15,23,42,0.1)]">
               <div className="relative aspect-[4/5] overflow-hidden rounded-[20px]">
                 <Image
                   src={member.image}
                   alt={member.name}
                   fill
-                  sizes="(max-width: 1024px) 260px, 260px"
+                  sizes="(max-width: 1024px) 310px, 310px"
                   className="object-cover"
                 />
               </div>

@@ -229,12 +229,6 @@ export const partners: Partner[] = [
     logo: "/logos/partners/fourthrows.png",
     href: "https://4throws.com/pages/contact",
   },
-  {
-    name: "CityGov",
-    logo: "/logos/partners/citygov-light.png",
-    href: "https://www.citygov.com/",
-    dark: true,
-  },
 ];
 
 export const approvedLogos: Partner[] = [
@@ -242,7 +236,6 @@ export const approvedLogos: Partner[] = [
   { name: "K2 Renew", logo: "/logos/approved/k2-renew-color.png", href: "https://k2renew.com/home" },
   { name: "Paragon Cyber Solutions", logo: "/logos/approved/paragon-color.png", href: "https://paragoncybersolutions.com/" },
   { name: "NexAlign", logo: "/logos/approved/nexalign-color.png", href: "https://nexalign.app/login?from_url=https%3A%2F%2Fnexalign.app%2F" },
-  { name: "CityGov", logo: "/logos/approved/citygov-white-color.png", href: "https://www.citygov.com/" },
   { name: "Eagle", logo: "/logos/approved/eagle-color.png", href: "https://www.eagleeng.com/" },
 ];
 

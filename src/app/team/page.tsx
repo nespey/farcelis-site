@@ -27,14 +27,14 @@ export default function TeamPage() {
                 <Link
                   key={member.slug}
                   href={`/team/${member.slug}`}
-                  className="group grid overflow-hidden rounded-[24px] border border-slate-200 bg-white shadow-[0_18px_40px_rgba(15,23,42,0.07)] transition hover:-translate-y-1 hover:shadow-[0_24px_48px_rgba(15,23,42,0.12)] sm:grid-cols-[132px_minmax(0,1fr)]"
+                  className="group grid overflow-hidden rounded-[24px] border border-slate-200 bg-white shadow-[0_18px_40px_rgba(15,23,42,0.07)] transition hover:-translate-y-1 hover:shadow-[0_24px_48px_rgba(15,23,42,0.12)] sm:grid-cols-[176px_minmax(0,1fr)]"
                 >
-                  <div className="relative aspect-[4/5] overflow-hidden sm:h-full sm:min-h-[190px]">
+                  <div className="relative aspect-[4/5] overflow-hidden sm:h-full sm:min-h-[228px]">
                     <Image
                       src={member.image}
                       alt={member.name}
                       fill
-                      sizes="(max-width: 640px) 100vw, 132px"
+                      sizes="(max-width: 640px) 100vw, 176px"
                       className="object-cover transition duration-500 group-hover:scale-[1.03]"
                     />
                   </div>

@@ -125,11 +125,13 @@ const emergingChannels = [
     title: "AI learning lab",
     body:
       "A classroom-style environment is being developed to translate Farcelis thinking into practical lessons, prompts, operating models, and guided AI adoption paths.",
+    href: "https://www.skool.com/@nathan-espey-4146?g=executive-ai-operations-lab-5451",
   },
   {
     title: "Article library",
     body:
       "Published AI articles can become a searchable thought-leadership library covering literacy, governance, public trust, workflow, and responsible implementation.",
+    href: "https://docs.google.com/spreadsheets/d/17GkkDmzwdtneWK-maMeHtjGUY84_VmnuzUXSTPIYTAw/edit",
   },
   {
     title: "Podcast and field notes",
@@ -347,15 +349,38 @@ export default function ResultsPage() {
               </h2>
             </div>
             <div className="grid gap-4">
-              {emergingChannels.map((item) => (
-                <div
+              {emergingChannels.map((item) => {
+                const content = (
+                  <>
+                    <h3 className="text-xl font-semibold tracking-[-0.04em] text-white">{item.title}</h3>
+                    <p className="mt-4 text-base leading-8 text-slate-300">{item.body}</p>
+                    {item.href ? (
+                      <div className="mt-6 text-sm font-semibold text-[color:var(--color-accent)]">
+                        Open in new tab
+                      </div>
+                    ) : null}
+                  </>
+                );
+
+                return item.href ? (
+                  <a
+                    key={item.title}
+                    href={item.href}
+                    target="_blank"
+                    rel="noreferrer"
+                    className="rounded-[24px] border border-white/8 bg-white/[0.04] px-6 py-6 transition hover:-translate-y-1 hover:border-cyan-100/22 hover:bg-white/[0.06]"
+                  >
+                    {content}
+                  </a>
+                ) : (
+                  <div
                   key={item.title}
                   className="rounded-[24px] border border-white/8 bg-white/[0.04] px-6 py-6"
                 >
-                  <h3 className="text-xl font-semibold tracking-[-0.04em] text-white">{item.title}</h3>
-                  <p className="mt-4 text-base leading-8 text-slate-300">{item.body}</p>
-                </div>
-              ))}
+                    {content}
+                  </div>
+                );
+              })}
             </div>
           </div>
         </section>

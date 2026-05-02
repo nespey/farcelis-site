@@ -79,7 +79,7 @@ export function LogoMarquee({ logos, dark = true, bare = false }: LogoMarqueePro
             );
 
             return logo.href ? (
-              <Link key={key} href={logo.href} className="shrink-0" target="_blank">
+              <Link key={key} href={logo.href} className="shrink-0" target="_blank" rel="noreferrer">
                 {tile}
               </Link>
             ) : (

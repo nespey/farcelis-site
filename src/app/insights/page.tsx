@@ -46,8 +46,9 @@ export default function InsightsPage() {
                     index === 1 || index === 4 ? "lg:translate-y-5" : ""
                   }`}
                 >
+                  <div className="h-1 w-12 rounded-full bg-[#9f412c]/80" aria-hidden="true" />
                   <div className="text-sm font-semibold uppercase tracking-[0.18em] text-[#9f412c]">
-                    Insight 0{index + 1}
+                    Field Insight
                   </div>
                   <h3 className="mt-4 text-xl font-semibold tracking-[-0.04em] text-slate-950">
                     {item.title}
@@ -104,11 +105,8 @@ export default function InsightsPage() {
               ].map((item, index) => (
                 <div
                   key={item}
-                  className={`grid gap-4 py-6 lg:grid-cols-[78px_minmax(0,1fr)] ${index === 1 ? "lg:translate-x-8" : ""}`}
+                  className={`border-l border-[color:var(--color-accent)]/24 py-6 pl-6 ${index === 1 ? "lg:translate-x-8" : ""}`}
                 >
-                  <div className="text-sm font-semibold uppercase tracking-[0.18em] text-[color:var(--color-accent)]">
-                    0{index + 1}
-                  </div>
                   <div className="text-2xl font-medium tracking-[-0.04em] text-slate-200">
                     {item}
                   </div>
