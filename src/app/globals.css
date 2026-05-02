@@ -752,8 +752,56 @@ a {
   align-items: center;
   overflow: hidden;
   isolation: isolate;
-  background: transparent;
+  background: #071c28;
+  border-bottom: none !important;
+  margin-bottom: 0;
   padding: 4rem 0;
+}
+
+.hero::before {
+  content: "";
+  position: absolute;
+  left: 0;
+  right: 0;
+  bottom: -1px;
+  height: 320px;
+  z-index: 1;
+  pointer-events: none;
+  background: linear-gradient(
+    180deg,
+    rgba(4, 16, 26, 0) 0%,
+    rgba(6, 23, 34, 0.42) 42%,
+    rgba(7, 28, 40, 0.86) 75%,
+    #071c28 100%
+  );
+}
+
+.hero::after {
+  content: "";
+  position: absolute;
+  inset: 0;
+  z-index: 1;
+  pointer-events: none;
+  background: linear-gradient(
+    90deg,
+    rgba(4, 16, 26, 0.7) 0%,
+    rgba(4, 16, 26, 0.58) 23%,
+    rgba(4, 16, 26, 0.38) 39%,
+    rgba(4, 16, 26, 0.11) 61%,
+    rgba(4, 16, 26, 0.12) 100%
+  );
+}
+
+.hero-bg-video {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  object-position: 50% 50%;
+  z-index: 0;
+  opacity: 0.94;
+  pointer-events: none;
 }
 
 .hero-inner {
