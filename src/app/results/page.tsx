@@ -1,5 +1,3 @@
-import Image from "next/image";
-
 import { PageIntro } from "@/components/PageIntro";
 import { Reveal } from "@/components/Reveal";
 import { buildMetadata } from "@/lib/metadata";
@@ -8,15 +6,15 @@ import { seo } from "@/lib/site-data";
 export const metadata = buildMetadata(seo.results);
 
 const proofFrames = [
-  "Third-party recognition makes the signal visible.",
-  "Recommendations show how the work feels to real operators.",
-  "Proof stays client-safe, specific, and grounded in execution.",
+  "Public recognition confirms the signal.",
+  "Recommendations show how the work lands with operators.",
+  "Published thinking shows depth beyond the engagement.",
 ];
 
 const recommendationCards = [
   {
     source: "Operating leader recommendation",
-    context: "CityGov roundtable on AI literacy for educational and organizational leaders",
+    context: "AI literacy roundtable for educational and organizational leaders",
     quote:
       "The work translated complex AI concepts into actionable guidance, with a clear command of ethical implementation, strategic adoption, and responsible AI leadership.",
     tags: ["Ethical AI", "Strategic adoption", "Thought leadership"],
@@ -60,7 +58,7 @@ const publicProof = [
     href: "https://www.fox13news.com/news/career-coach-ai-consultants-tips-relevant-age/",
   },
   {
-    title: "CityGov thought leadership",
+    title: "Public-sector AI publishing",
     label: "AI literacy in public-service workflows",
     body:
       "Published AI literacy work connects artificial intelligence to civic decision-making, public trust, ethical discernment, governance, and practical local-government workflows.",
@@ -70,18 +68,18 @@ const publicProof = [
 
 const proofSignals = [
   {
-    value: "5.0",
-    label: "Rated project feedback",
-    body: "Proof can show quality without inventing performance metrics or overstating claims.",
+    value: "Rated",
+    label: "Project feedback",
+    body: "Quality signals come from recommendation patterns, not invented performance claims.",
   },
   {
-    value: "4",
+    value: "Clear",
     label: "Recommendation patterns",
     body: "Recurring themes include clarity, quality, detail, urgency, and operational judgment.",
   },
   {
-    value: "0",
-    label: "Client details exposed",
+    value: "Clean",
+    label: "Client-safe proof",
     body: "Specific names, organizations, and sensitive project details stay out of the public proof layer.",
   },
 ];
@@ -95,11 +93,49 @@ const engagementProof = [
   "Implementation discipline under pressure",
 ];
 
-const proofPrinciples = [
-  "Use anonymized testimonials when public names are not necessary.",
-  "Lead with recognized credibility, then support it with specific proof themes.",
-  "Separate proof from product mockups so the page does not feel like another feature demo.",
-  "Avoid inflated percentages unless they are verified and safe to publish.",
+const publishingLibrary = [
+  {
+    title: "AI literacy for everyday civic decisions",
+    body:
+      "A public-facing article on AI literacy as a shared language for communities, classrooms, public service, and daily decision-making.",
+    href: "https://www.citygov.com/article/ai-literacy-for-all-from-city-halls-to-classrooms-to-kitchen-tables",
+  },
+  {
+    title: "AI should advise, not decide",
+    body:
+      "A public-safety article on emergency dispatch, human judgment, accountability, privacy, and responsible AI guardrails.",
+    href: "https://www.citygov.com/article/flags-not-final-calls-why-ai-should-advise-not-decide-in-emergency-dispatch",
+  },
+  {
+    title: "Transparent AI dashboards",
+    body:
+      "A governance article on public dashboards, urban decision-making, transparency, and trust in algorithmic systems.",
+    href: "https://www.citygov.com/article/ai-you-can-see-public-dashboards-and-urban-decision-making",
+  },
+  {
+    title: "AI-ready workforce development",
+    body:
+      "A workforce article on continuous learning, AI adoption, staff enablement, and practical public-service capability building.",
+    href: "https://www.citygov.com/article/the-ai-ready-workforce-rewiring-public-service-for-continuous-growth",
+  },
+];
+
+const emergingChannels = [
+  {
+    title: "AI learning lab",
+    body:
+      "A classroom-style environment is being developed to translate Farcelis thinking into practical lessons, prompts, operating models, and guided AI adoption paths.",
+  },
+  {
+    title: "Article library",
+    body:
+      "Published AI articles can become a searchable thought-leadership library covering literacy, governance, public trust, workflow, and responsible implementation.",
+  },
+  {
+    title: "Podcast and field notes",
+    body:
+      "A future audio channel can turn consulting lessons, AI adoption patterns, and operational breakdowns into recurring executive commentary.",
+  },
 ];
 
 export default function ResultsPage() {
@@ -107,28 +143,25 @@ export default function ResultsPage() {
     <>
       <PageIntro
         eyebrow="Results and Proof"
-        title="Proof should make Farcelis feel credible before the first conversation."
+        title="Proof that Farcelis can bring structure to complex work."
         description="This page frames recognition, recommendations, operating evidence, and client-safe trust signals without exposing private names, sensitive work, or inflated claims."
         asideTitle="Proof Posture"
         asideItems={[
           "Recognition first",
-          "Anonymized testimonials",
-          "Specific proof themes",
-          "No repeated dashboard mockups",
+          "Client-safe testimonials",
+          "Public-source links",
+          "Published AI thinking",
         ]}
       />
 
       <Reveal delayMs={60}>
         <section className="section-shell section-shell-dark">
           <div className="section-inner grid gap-3">
-            {proofFrames.map((item, index) => (
+            {proofFrames.map((item) => (
               <div
                 key={item}
-                className={`grid gap-4 py-7 lg:grid-cols-[88px_minmax(0,1fr)] ${index === 1 ? "lg:translate-x-8" : ""}`}
+                className="grid gap-4 border-l border-[color:var(--color-accent)]/24 py-7 pl-6 lg:grid-cols-[minmax(0,1fr)]"
               >
-                <div className="text-sm font-semibold uppercase tracking-[0.18em] text-[color:var(--color-accent)]">
-                  0{index + 1}
-                </div>
                 <div className="text-[2rem] font-semibold tracking-[-0.05em] text-white lg:text-[2.6rem]">
                   {item}
                 </div>
@@ -140,14 +173,14 @@ export default function ResultsPage() {
 
       <Reveal delayMs={100}>
         <section className="section-shell section-shell-light">
-          <div className="section-inner grid gap-12 lg:grid-cols-[minmax(0,0.9fr)_minmax(0,1.1fr)] lg:items-center">
+          <div className="section-inner">
             <div>
               <p className="eyebrow text-[#9f412c]">Public Recognition</p>
               <h2 className="section-title mt-5 text-slate-950">
                 External proof belongs at the top of the story.
               </h2>
               <p className="mt-6 max-w-[680px] text-lg leading-8 text-slate-600">
-                Digital Reference, FOX 13 Tampa Bay, and CityGov provide public credibility signals around AI consulting, workforce relevance, AI literacy, and ethical implementation. Those signals should lead the page before private recommendations appear.
+                Independent recognition, local media coverage, and public-sector AI publishing give Farcelis a credible proof base before private recommendations appear.
               </p>
               <div className="mt-8 grid gap-4 sm:grid-cols-3">
                 {proofSignals.map((signal) => (
@@ -164,34 +197,6 @@ export default function ResultsPage() {
                 ))}
               </div>
             </div>
-
-            <div className="rounded-[32px] border border-slate-200 bg-[linear-gradient(180deg,#fff7ee,#ffffff)] p-5 shadow-[0_28px_64px_rgba(15,23,42,0.1)]">
-              <div className="relative aspect-[16/11] overflow-hidden rounded-[24px] border border-slate-200 bg-white">
-                <Image
-                  src="/images/proof/digital-reference-tampa-2025.png"
-                  alt="Digital Reference AI and ML Consultants recognition"
-                  fill
-                  sizes="(max-width: 1024px) 100vw, 560px"
-                  className="object-cover object-top"
-                  priority
-                />
-              </div>
-              <div className="mt-5">
-                <p className="eyebrow text-[#9f412c]">Featured Recognition</p>
-                <h3 className="mt-3 text-[1.65rem] font-semibold tracking-[-0.05em] text-slate-950">
-                  Featured by Digital Reference in AI &amp; ML Consultants Making Things Happen in Tampa.
-                </h3>
-                <p className="mt-4 text-base leading-7 text-slate-600">
-                  Digital Reference highlighted practical AI adoption, customized AI systems, operational precision, process optimization, automation frameworks, and ethical deployment as part of the Farcelis signal.
-                </p>
-                <a
-                  href="https://www.digitalreference.co/insights/engineering-professionals/best-ai-ml-consultants-in-tampa"
-                  className="mt-5 inline-flex text-sm font-semibold text-[#9f412c]"
-                >
-                  View recognition
-                </a>
-              </div>
-            </div>
           </div>
         </section>
       </Reveal>
@@ -204,6 +209,8 @@ export default function ResultsPage() {
                 <a
                   key={item.title}
                   href={item.href}
+                  target="_blank"
+                  rel="noreferrer"
                   className="enterprise-card rounded-[24px] border border-slate-200 bg-white px-6 py-6 shadow-[0_18px_38px_rgba(15,23,42,0.06)]"
                 >
                   <div className="text-sm font-semibold uppercase tracking-[0.18em] text-[#9f412c]">
@@ -213,7 +220,7 @@ export default function ResultsPage() {
                     {item.label}
                   </h3>
                   <p className="mt-4 text-base leading-8 text-slate-600">{item.body}</p>
-                  <div className="mt-6 text-sm font-semibold text-[#9f412c]">Open source</div>
+                  <div className="mt-6 text-sm font-semibold text-[#9f412c]">Open source in new tab</div>
                 </a>
               ))}
             </div>
@@ -227,7 +234,7 @@ export default function ResultsPage() {
             <div className="max-w-[880px]">
               <p className="eyebrow text-[color:var(--color-accent)]">Recommendation Themes</p>
               <h2 className="section-title mt-5 text-white">
-                Testimonials belong here when they are anonymized, specific, and tied to operating behavior.
+                Recommendations belong here because they reveal how the work feels in practice.
               </h2>
             </div>
 
@@ -279,7 +286,7 @@ export default function ResultsPage() {
                 Show the kinds of work that have produced trust without exposing client details.
               </h2>
               <p className="mt-6 max-w-[560px] text-base leading-8 text-slate-600">
-                This section replaces the dashboard with a cleaner proof ledger: what Farcelis has been trusted to support, and what patterns clients repeatedly point back to.
+                Proof is strongest when it shows what Farcelis has been trusted to support and what clients repeatedly point back to.
               </p>
             </div>
             <div className="grid gap-4 sm:grid-cols-2">
@@ -298,25 +305,55 @@ export default function ResultsPage() {
 
       <Reveal delayMs={240}>
         <section className="section-shell section-shell-dark">
+          <div className="section-inner">
+            <div className="max-w-[880px]">
+              <p className="eyebrow text-[color:var(--color-accent)]">Publishing Library</p>
+              <h2 className="section-title mt-5 text-white">
+                Published AI work shows the thinking behind the consulting.
+              </h2>
+              <p className="mt-6 max-w-[720px] text-base leading-8 text-slate-300">
+                The public-sector article archive can become a more formal Farcelis library over time, with selected pieces organized around AI literacy, public trust, governance, operations, and workforce readiness.
+              </p>
+            </div>
+
+            <div className="mt-12 grid gap-4 md:grid-cols-2">
+              {publishingLibrary.map((item) => (
+                <a
+                  key={item.title}
+                  href={item.href}
+                  target="_blank"
+                  rel="noreferrer"
+                  className="rounded-[24px] border border-white/8 bg-white/[0.04] px-6 py-6 transition hover:-translate-y-1 hover:border-cyan-100/22 hover:bg-white/[0.06]"
+                >
+                  <h3 className="text-xl font-semibold tracking-[-0.04em] text-white">{item.title}</h3>
+                  <p className="mt-4 text-base leading-8 text-slate-300">{item.body}</p>
+                  <div className="mt-6 text-sm font-semibold text-[color:var(--color-accent)]">
+                    Open article in new tab
+                  </div>
+                </a>
+              ))}
+            </div>
+          </div>
+        </section>
+      </Reveal>
+
+      <Reveal delayMs={280}>
+        <section className="section-shell section-shell-dark">
           <div className="section-inner grid gap-10 lg:grid-cols-[minmax(0,0.75fr)_minmax(0,1.25fr)]">
             <div>
-              <p className="eyebrow text-[color:var(--color-accent)]">Proof Standards</p>
+              <p className="eyebrow text-[color:var(--color-accent)]">Next Proof Surfaces</p>
               <h2 className="section-title mt-5 text-white">
-                The results page should feel trustworthy because it is disciplined.
+                The proof layer can grow into a living Farcelis media and learning ecosystem.
               </h2>
             </div>
-            <div className="grid gap-3">
-              {proofPrinciples.map((item, index) => (
+            <div className="grid gap-4">
+              {emergingChannels.map((item) => (
                 <div
-                  key={item}
-                  className={`grid gap-4 py-6 lg:grid-cols-[78px_minmax(0,1fr)] ${index === 1 ? "lg:translate-x-8" : ""}`}
+                  key={item.title}
+                  className="rounded-[24px] border border-white/8 bg-white/[0.04] px-6 py-6"
                 >
-                  <div className="text-sm font-semibold uppercase tracking-[0.18em] text-[color:var(--color-accent)]">
-                    0{index + 1}
-                  </div>
-                  <div className="text-2xl font-medium tracking-[-0.04em] text-slate-200">
-                    {item}
-                  </div>
+                  <h3 className="text-xl font-semibold tracking-[-0.04em] text-white">{item.title}</h3>
+                  <p className="mt-4 text-base leading-8 text-slate-300">{item.body}</p>
                 </div>
               ))}
             </div>
