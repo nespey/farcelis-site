@@ -13,21 +13,6 @@ export function HomeExperience() {
   return (
     <div className="relative overflow-hidden">
       <section className="hero">
-        <video
-          className="hero-bg-video"
-          autoPlay
-          muted
-          loop
-          playsInline
-          preload="auto"
-          aria-hidden="true"
-        >
-          <source
-            src="/videos/farcelis_ai_systems_that_hold_site_pulse_loop_v4.mp4"
-            type="video/mp4"
-          />
-        </video>
-
         <div className="hero-inner">
           <div className="eyebrow">Farcelis AI Consulting LLC</div>
 

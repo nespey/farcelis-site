@@ -756,18 +756,6 @@ a {
   padding: 4rem 0;
 }
 
-.hero-bg-video {
-  position: absolute;
-  inset: 0;
-  z-index: 0;
-  width: 108%;
-  height: 108%;
-  object-fit: cover;
-  object-position: 49% 68%;
-  opacity: 0.9;
-  pointer-events: none;
-}
-
 .hero::after {
   content: "";
   position: absolute;
