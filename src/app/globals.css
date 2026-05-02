@@ -355,12 +355,19 @@ a {
 .system-hook-section {
   position: relative;
   display: flex;
+  margin-top: -220px;
   min-height: clamp(760px, 65vw, 900px);
   width: 100%;
   align-items: center;
   gap: clamp(3rem, 7vw, 8rem);
-  padding: clamp(5.5rem, 8vw, 8rem) clamp(24px, 5vw, 72px);
-  background: transparent;
+  padding: calc(clamp(5.5rem, 8vw, 8rem) + 220px) clamp(24px, 5vw, 72px) clamp(5.5rem, 8vw, 8rem);
+  background: linear-gradient(
+    180deg,
+    #071c28 0%,
+    rgba(7, 28, 40, 0.92) 22%,
+    rgba(7, 28, 40, 0.54) 48%,
+    rgba(7, 28, 40, 0) 74%
+  );
 }
 
 .system-anchor {
@@ -891,7 +898,8 @@ a {
 
   .system-hook-section {
     display: block;
-    padding-top: 4.5rem;
+    margin-top: -150px;
+    padding-top: calc(4.5rem + 150px);
     padding-bottom: 4.5rem;
   }
 
