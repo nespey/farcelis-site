@@ -18,6 +18,25 @@ const operatingBands = [
   "Flagship Control Layer deployment",
 ];
 
+const serviceAnchors = [
+  { href: "#control-layer-design-deployment", label: "Control Layer" },
+  { href: "#custom-ai-consulting-agents", label: "AI Agents" },
+  { href: "#ai-strategy-governance-readiness", label: "AI Governance" },
+  { href: "#data-reporting-visibility-systems", label: "Data and Visibility" },
+  { href: "#crm-revenue-customer-operations", label: "CRM and Revenue" },
+  { href: "#ai-driven-marketing-seo-content-systems", label: "Growth Systems" },
+  { href: "#managed-operations-fractional-execution-support", label: "Managed Ops" },
+  { href: "#workflow-automation", label: "Automation" },
+  { href: "#ai-enablement", label: "Enablement" },
+];
+
+const slugify = (value: string) =>
+  value
+    .toLowerCase()
+    .replace(/&/g, "")
+    .replace(/[^a-z0-9]+/g, "-")
+    .replace(/(^-|-$)/g, "");
+
 export default function ServicesPage() {
   return (
     <>
@@ -32,6 +51,20 @@ export default function ServicesPage() {
         asideTitle="Operating Posture"
         asideItems={pathways}
       />
+
+      <Reveal delayMs={30}>
+        <section className="section-shell section-shell-dark py-10">
+          <div className="section-inner">
+            <nav className="anchor-tabs" aria-label="Service categories">
+              {serviceAnchors.map((item) => (
+                <a key={item.href} href={item.href} className="anchor-tab">
+                  {item.label}
+                </a>
+              ))}
+            </nav>
+          </div>
+        </section>
+      </Reveal>
 
       <Reveal delayMs={60}>
         <section className="section-shell section-shell-dark">
@@ -83,12 +116,13 @@ export default function ServicesPage() {
               {services.map((service, index) => (
                 <div
                   key={service.title}
+                  id={slugify(service.title)}
                   className={`feature-rail surface-light grid gap-6 overflow-hidden px-6 py-8 lg:grid-cols-[88px_300px_minmax(0,1fr)] lg:px-8 ${
                     index % 2 === 1 ? "lg:translate-x-5" : ""
                   }`}
                 >
                   <div className="text-sm font-semibold uppercase tracking-[0.18em] text-[#9f412c]">
-                    0{index + 1}
+                    {String(index + 1).padStart(2, "0")}
                   </div>
                   <div>
                     <div className="text-xs font-semibold uppercase tracking-[0.18em] text-slate-500">

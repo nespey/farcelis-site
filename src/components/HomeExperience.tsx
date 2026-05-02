@@ -134,7 +134,7 @@ export function HomeExperience() {
           </div>
 
           <div className="showcase-container mt-16 lg:mt-20">
-              <div className="dashboard-preview-glow">
+              <div className="dashboard-preview-glow scroll-zoom">
                 <WorkspacePreview />
               </div>
 

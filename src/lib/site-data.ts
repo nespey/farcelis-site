@@ -83,6 +83,9 @@ export const site = {
     { href: "/", label: "Home" },
     { href: "/control-layer", label: "Control Layer" },
     { href: "/services", label: "Services" },
+    { href: "/platforms", label: "Platforms" },
+    { href: "/industries", label: "Industries" },
+    { href: "/insights", label: "Insights" },
     { href: "/team", label: "Our Team" },
     { href: "/results", label: "Results" },
     { href: "/contact", label: "Contact" },
@@ -107,6 +110,24 @@ export const seo = {
     title: "AI Consulting Services | Farcelis Operational Systems",
     description:
       "Farcelis builds AI consulting and operational system design engagements that structure workflows, automate operations, and improve execution across teams and organizations.",
+  },
+  platforms: {
+    path: "/platforms",
+    title: "AI Platforms & Integrations | Farcelis Consulting",
+    description:
+      "Farcelis connects AI agents, CRM systems, workflow platforms, marketing tools, and reporting environments into cleaner operating systems.",
+  },
+  industries: {
+    path: "/industries",
+    title: "Industries & Operating Environments | Farcelis AI Consulting",
+    description:
+      "Farcelis supports companies, government contractors, professional services teams, growth organizations, and complex operating environments with AI-enabled workflow structure.",
+  },
+  insights: {
+    path: "/insights",
+    title: "AI Operations Insights | Farcelis",
+    description:
+      "Farcelis insights on AI adoption, workflow architecture, governance, automation, CRM operations, SEO systems, and execution control.",
   },
   team: {
     path: "/team",
@@ -196,6 +217,61 @@ export const services: Service[] = [
     ],
   },
   {
+    title: "AI Strategy, Governance & Readiness",
+    description:
+      "Structure AI adoption before tools multiply. Farcelis helps leaders define practical AI roadmaps, governance rules, usage boundaries, rollout priorities, and operating controls.",
+    points: [
+      "AI readiness assessment",
+      "Governance and usage policy",
+      "Adoption roadmap",
+      "Leadership decision structure",
+    ],
+  },
+  {
+    title: "Data, Reporting & Visibility Systems",
+    description:
+      "Bring fragmented data, dashboards, and reporting paths into a clearer visibility layer so leaders can understand movement, pressure, and performance before issues compound.",
+    points: [
+      "Executive reporting design",
+      "Data flow mapping",
+      "Operational dashboards",
+      "Decision intelligence",
+    ],
+  },
+  {
+    title: "CRM, Revenue & Customer Operations",
+    description:
+      "Align sales, service, marketing, and customer follow-through inside one operating model so pipeline movement, ownership, and client communication stop drifting across tools.",
+    points: [
+      "CRM architecture",
+      "Revenue workflow design",
+      "Customer handoff structure",
+      "Pipeline visibility",
+    ],
+  },
+  {
+    title: "AI-Driven Marketing, SEO & Content Systems",
+    description:
+      "Build growth systems that connect social media, blogs, SEO optimization, content planning, lead capture, and campaign reporting into a measurable operating environment.",
+    points: [
+      "SEO intelligence",
+      "Blog and content systems",
+      "Social media management",
+      "Campaign automation",
+    ],
+  },
+  {
+    title: "Managed Operations & Fractional Execution Support",
+    description:
+      "Support operators and leadership teams with structured execution, director-of-operations style oversight, workflow intervention, and practical operating cadence.",
+    points: [
+      "Fractional operations support",
+      "Execution cadence",
+      "Workflow intervention",
+      "Operating rhythm design",
+    ],
+  },
+  {
     title: "Workflow Automation",
     description:
       "Farcelis aligns automation with real business logic so work routes correctly, handoffs tighten, and execution drag gets reduced instead of hidden behind more tooling.",
@@ -216,6 +292,138 @@ export const services: Service[] = [
       "Operational training support",
       "Practical rollout guidance",
     ],
+  },
+];
+
+export const platformCapabilities: InfoCard[] = [
+  {
+    title: "AI agents and assistants",
+    description:
+      "Role-specific assistants for intake, follow-up, documentation, research, customer support, marketing, and operational execution.",
+  },
+  {
+    title: "CRM and revenue platforms",
+    description:
+      "HubSpot, Salesforce, pipeline workflows, lead routing, customer handoffs, and revenue visibility structured around how the business actually sells and serves.",
+  },
+  {
+    title: "Workflow and project systems",
+    description:
+      "ClickUp, Monday, Asana, Jira, Smartsheet, and related work systems configured around ownership, priority, routing, and reporting.",
+  },
+  {
+    title: "Microsoft and Google workspaces",
+    description:
+      "Teams, SharePoint, Outlook, Gmail, Drive, Docs, Sheets, and collaboration environments connected into cleaner execution paths.",
+  },
+  {
+    title: "Content, SEO, and social platforms",
+    description:
+      "Publishing, social media management, blog systems, search optimization, content calendars, and campaign reporting connected to measurable outcomes.",
+  },
+  {
+    title: "Dashboards and decision systems",
+    description:
+      "Reporting layers that turn operational signals into leadership-ready views for decisions, intervention, and accountability.",
+  },
+];
+
+export const industryFocus: InfoCard[] = [
+  {
+    title: "Professional services and consulting",
+    description:
+      "Client delivery, project visibility, knowledge work, internal coordination, and leadership reporting across fast-moving service teams.",
+  },
+  {
+    title: "Government contractors and public-sector adjacent teams",
+    description:
+      "Compliance-aware workflows, documentation, deadline control, stakeholder coordination, and operating visibility for high-accountability environments.",
+  },
+  {
+    title: "Small and mid-market businesses",
+    description:
+      "Practical AI, workflow, CRM, marketing, and operating systems for companies that need enterprise discipline without enterprise overhead.",
+  },
+  {
+    title: "Growth, marketing, and revenue organizations",
+    description:
+      "Lead flow, campaign operations, SEO, content systems, customer handoffs, and reporting tied back to execution and revenue movement.",
+  },
+  {
+    title: "Operations-heavy teams",
+    description:
+      "Intake, assignment, escalation, reporting, automation, and decision cadence for teams where complexity shows up as daily friction.",
+  },
+  {
+    title: "Education, training, and enablement environments",
+    description:
+      "Structured learning systems, AI enablement, internal adoption paths, and repeatable knowledge workflows for teams that need change to stick.",
+  },
+];
+
+export const insightCards: InfoCard[] = [
+  {
+    title: "AI readiness before AI rollout",
+    description:
+      "The serious work starts with governance, use cases, risk, operating ownership, and adoption design before a tool ever reaches the team.",
+  },
+  {
+    title: "Why workflow automation fails",
+    description:
+      "Automation breaks when the underlying routing, decision rights, handoffs, and reporting logic were never clean enough to automate.",
+  },
+  {
+    title: "The Control Layer operating model",
+    description:
+      "A practical view of how intake, execution, visibility, and intervention can sit above existing tools without forcing a full platform replacement.",
+  },
+  {
+    title: "Marketing systems are operating systems",
+    description:
+      "SEO, social media, blogs, campaigns, CRM, and content all perform better when they are connected to ownership, cadence, and measurable flow.",
+  },
+  {
+    title: "AI agents need governance",
+    description:
+      "Assistants and agents become useful when they are scoped, monitored, documented, and tied to specific operational responsibilities.",
+  },
+  {
+    title: "Executive visibility is a design problem",
+    description:
+      "Leaders do not need more dashboards. They need the right operating signals arranged around action, priority, risk, and accountability.",
+  },
+];
+
+export const resourceTypes: InfoCard[] = [
+  {
+    title: "AI adoption briefings",
+    description:
+      "Short executive notes on readiness, governance, use-case selection, policy, and rollout sequencing.",
+  },
+  {
+    title: "Workflow architecture playbooks",
+    description:
+      "Practical guides for intake, assignment, escalation, reporting, and operating cadence design.",
+  },
+  {
+    title: "Platform and integration notes",
+    description:
+      "Field-level guidance on CRM, Microsoft, Google, project systems, marketing tools, and AI agent implementation.",
+  },
+  {
+    title: "Growth system teardown",
+    description:
+      "Analysis of how content, SEO, social media, CRM, and campaign operations connect to measurable execution.",
+  },
+  {
+    title: "Control Layer perspectives",
+    description:
+      "Essays and diagrams explaining how the Farcelis operating model sits above existing tools.",
+  },
+  {
+    title: "Client-safe proof stories",
+    description:
+      "Sanitized breakdowns of what changed in visibility, workflow control, routing, and execution reliability.",
   },
 ];
 

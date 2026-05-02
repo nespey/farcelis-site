@@ -1126,6 +1126,45 @@ main :is(.border-t, .border-b, .border-y, .divide-y > :not([hidden]) ~ :not([hid
   gap: 0.9rem;
 }
 
+.anchor-tabs {
+  display: flex;
+  gap: 0.65rem;
+  overflow-x: auto;
+  padding: 0.35rem 0 0.6rem;
+  scrollbar-width: none;
+}
+
+.anchor-tabs::-webkit-scrollbar {
+  display: none;
+}
+
+.anchor-tab {
+  display: inline-flex;
+  min-height: 42px;
+  flex: 0 0 auto;
+  align-items: center;
+  justify-content: center;
+  border-radius: 999px;
+  border: 1px solid rgba(186, 230, 253, 0.16);
+  background: rgba(255, 255, 255, 0.04);
+  padding: 0.65rem 1rem;
+  color: #dce8f1;
+  font-size: 0.82rem;
+  font-weight: 700;
+  transition:
+    transform 180ms ease,
+    border-color 180ms ease,
+    background 180ms ease,
+    color 180ms ease;
+}
+
+.anchor-tab:hover {
+  transform: translateY(-2px);
+  border-color: rgba(186, 230, 253, 0.32);
+  background: rgba(97, 192, 215, 0.1);
+  color: #fff;
+}
+
 .accent-tab {
   border-radius: 999px;
   border: 1px solid rgba(255, 255, 255, 0.1);
@@ -1163,6 +1202,11 @@ main :is(.border-t, .border-b, .border-y, .divide-y > :not([hidden]) ~ :not([hid
   position: relative;
   overflow: hidden;
   border-radius: 32px;
+  scroll-margin-top: 7rem;
+  transition:
+    transform 220ms ease,
+    border-color 220ms ease,
+    box-shadow 220ms ease;
 }
 
 .feature-rail::before {
@@ -1174,6 +1218,31 @@ main :is(.border-t, .border-b, .border-y, .divide-y > :not([hidden]) ~ :not([hid
   background:
     linear-gradient(135deg, rgba(97, 192, 215, 0.12), transparent 36%),
     radial-gradient(circle at 92% 16%, rgba(242, 139, 91, 0.14), transparent 24%);
+}
+
+.feature-rail:hover,
+.enterprise-card:hover {
+  transform: translateY(-3px);
+  box-shadow: 0 24px 52px rgba(15, 23, 42, 0.1);
+}
+
+.enterprise-card {
+  transition:
+    transform 220ms ease,
+    border-color 220ms ease,
+    box-shadow 220ms ease;
+}
+
+.scroll-zoom {
+  transform-origin: center;
+}
+
+@supports (animation-timeline: view()) {
+  .scroll-zoom {
+    animation: scrollZoom both ease-out;
+    animation-timeline: view();
+    animation-range: entry 0% cover 54%;
+  }
 }
 
 .light-orbit {
@@ -1318,6 +1387,16 @@ main :is(.border-t, .border-b, .border-y, .divide-y > :not([hidden]) ~ :not([hid
   100% {
     opacity: 0.94;
     transform: translate3d(0.02vw, 1.45vh, 0) scale(1.008);
+  }
+}
+
+@keyframes scrollZoom {
+  from {
+    transform: scale(0.97);
+  }
+
+  to {
+    transform: scale(1.02);
   }
 }
 
