@@ -146,6 +146,18 @@ export const seo = {
     description:
       "Farcelis builds AI consulting and operational system design engagements that structure workflows, automate operations, and improve execution across teams and organizations.",
   },
+  aiStrategyGovernance: {
+    path: "/services/ai-strategy-governance",
+    title: "AI Strategy & Governance | Farcelis AI Consulting",
+    description:
+      "Farcelis helps leaders structure AI readiness, governance, adoption roadmaps, usage boundaries, and decision controls before tools multiply.",
+  },
+  workflowOperations: {
+    path: "/services/workflow-operations",
+    title: "Workflow & Operations | Farcelis AI Consulting",
+    description:
+      "Farcelis designs workflow routing, handoffs, ownership, reporting, and operating cadence so work moves cleanly across teams and tools.",
+  },
   platforms: {
     path: "/platforms",
     title: "AI Platforms & Integrations | Farcelis Consulting",

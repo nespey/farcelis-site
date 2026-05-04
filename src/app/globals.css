@@ -26,23 +26,9 @@
 html {
   scroll-behavior: smooth;
   background:
-    radial-gradient(
-      ellipse at 35% 38%,
-      #6f828b 0%,
-      #5d737d 22%,
-      #465d68 44%,
-      #304550 68%,
-      #1c2d38 88%,
-      #12202a 100%
-    ),
-    linear-gradient(
-      to bottom,
-      #516671 0%,
-      #3b535e 34%,
-      #273c48 68%,
-      #172832 100%
-    );
-  background-blend-mode: overlay;
+    radial-gradient(circle at 74% 18%, rgba(20, 92, 112, 0.28), transparent 34rem),
+    radial-gradient(circle at 32% 72%, rgba(10, 55, 68, 0.32), transparent 38rem),
+    linear-gradient(145deg, #04141d 0%, #071c28 46%, #061824 100%);
   background-attachment: fixed;
 }
 
@@ -50,25 +36,15 @@ body {
   font-family: var(--font-manrope), Arial, Helvetica, sans-serif;
   min-height: 100vh;
   background:
-    radial-gradient(
-      ellipse at 35% 38%,
-      #6f828b 0%,
-      #5d737d 22%,
-      #465d68 44%,
-      #304550 68%,
-      #1c2d38 88%,
-      #12202a 100%
-    ),
-    linear-gradient(
-      to bottom,
-      #516671 0%,
-      #3b535e 34%,
-      #273c48 68%,
-      #172832 100%
-    );
-  background-blend-mode: overlay;
+    radial-gradient(circle at 74% 18%, rgba(20, 92, 112, 0.28), transparent 34rem),
+    radial-gradient(circle at 32% 72%, rgba(10, 55, 68, 0.32), transparent 38rem),
+    linear-gradient(145deg, #04141d 0%, #071c28 46%, #061824 100%);
   background-attachment: fixed;
   color: #e6edf3;
+}
+
+main {
+  background: transparent;
 }
 
 h1,
@@ -197,61 +173,10 @@ a {
   transform: translateX(0);
 }
 
-.chaos-field-layer {
-  position: fixed;
-  top: 0;
-  right: 0;
-  left: 0;
-  z-index: 2;
-  height: max(360vh, 3200px);
-  pointer-events: none;
-  overflow: hidden;
-  opacity: 1;
-  transform-origin: top center;
-  will-change: transform;
-}
-
 .hero,
 .system-hook-section {
   position: relative;
   z-index: 10;
-}
-
-.chaos-field-layer::before {
-  content: "";
-  position: absolute;
-  top: 0;
-  right: 0;
-  width: min(122vw, 2240px);
-  height: auto;
-  aspect-ratio: 1366 / 768;
-  background: url("/images/home/chaos-field-clean.png") top right / contain no-repeat;
-  opacity: 0.94;
-  filter:
-    saturate(1.12)
-    brightness(1.04)
-    contrast(1.08)
-    drop-shadow(0 0 22px rgba(99, 202, 224, 0.12))
-    drop-shadow(0 0 32px rgba(255, 129, 82, 0.055));
-  mask-image:
-    linear-gradient(to right, transparent 0%, rgba(0, 0, 0, 0.52) 12%, #000 30%, #000 100%),
-    linear-gradient(to bottom, #000 0%, #000 54%, rgba(0, 0, 0, 0.64) 68%, rgba(0, 0, 0, 0.18) 82%, transparent 96%);
-  -webkit-mask-image:
-    linear-gradient(to right, transparent 0%, rgba(0, 0, 0, 0.52) 12%, #000 30%, #000 100%),
-    linear-gradient(to bottom, #000 0%, #000 54%, rgba(0, 0, 0, 0.64) 68%, rgba(0, 0, 0, 0.18) 82%, transparent 96%);
-  mask-composite: intersect;
-  -webkit-mask-composite: source-in;
-  transform-origin: 78% 28%;
-  will-change: opacity, transform;
-  animation: chaosFieldFloat 36s cubic-bezier(0.45, 0, 0.2, 1) infinite alternate;
-}
-
-.chaos-field-layer::after {
-  content: "";
-  position: absolute;
-  inset: 0;
-  background: radial-gradient(ellipse at 28% 48%, rgba(18, 39, 50, 0.5) 0%, rgba(18, 39, 50, 0.28) 24%, rgba(18, 39, 50, 0.08) 42%, transparent 62%);
-  opacity: 0.88;
 }
 
 ::selection {
@@ -752,28 +677,10 @@ a {
   align-items: center;
   overflow: hidden;
   isolation: isolate;
-  background: #071c28;
+  background: transparent;
   border-bottom: none !important;
   margin-bottom: 0;
   padding: 4rem 0;
-}
-
-.hero::before {
-  content: "";
-  position: absolute;
-  left: 0;
-  right: 0;
-  bottom: -1px;
-  height: 320px;
-  z-index: 1;
-  pointer-events: none;
-  background: linear-gradient(
-    180deg,
-    rgba(4, 16, 26, 0) 0%,
-    rgba(6, 23, 34, 0.42) 42%,
-    rgba(7, 28, 40, 0.86) 75%,
-    #071c28 100%
-  );
 }
 
 .hero::after {
@@ -784,24 +691,26 @@ a {
   pointer-events: none;
   background: linear-gradient(
     90deg,
-    rgba(4, 16, 26, 0.7) 0%,
-    rgba(4, 16, 26, 0.58) 23%,
-    rgba(4, 16, 26, 0.38) 39%,
-    rgba(4, 16, 26, 0.11) 61%,
-    rgba(4, 16, 26, 0.12) 100%
+    rgba(4, 20, 29, 0.58) 0%,
+    rgba(4, 20, 29, 0.34) 34%,
+    rgba(4, 20, 29, 0.08) 58%,
+    rgba(4, 20, 29, 0) 100%
   );
 }
 
-.hero-bg-video {
+.hero-architecture-video {
   position: absolute;
   inset: 0;
+  z-index: 0;
   width: 100%;
   height: 100%;
   object-fit: cover;
-  object-position: 50% 50%;
-  z-index: 0;
-  opacity: 0.94;
+  object-position: center center;
   pointer-events: none;
+  opacity: 1;
+  image-rendering: auto;
+  transform: translateZ(0);
+  backface-visibility: hidden;
 }
 
 .hero-inner {
@@ -958,6 +867,20 @@ a {
   .hero {
     min-height: calc(100svh - 5rem);
     padding: 3.5rem 0;
+  }
+
+  .hero::after {
+    background: linear-gradient(
+      90deg,
+      rgba(4, 20, 29, 0.86) 0%,
+      rgba(4, 20, 29, 0.72) 58%,
+      rgba(4, 20, 29, 0.32) 100%
+    );
+  }
+
+  .hero-architecture-video {
+    opacity: 0.72;
+    object-position: 62% center;
   }
 
   .hero-inner {
@@ -1530,23 +1453,6 @@ main :is(.border-t, .border-b, .border-y, .divide-y > :not([hidden]) ~ :not([hid
   }
 }
 
-@keyframes chaosFieldFloat {
-  0% {
-    opacity: 0.91;
-    transform: translate3d(0, -0.35vh, 0) scale(1);
-  }
-
-  50% {
-    opacity: 0.97;
-    transform: translate3d(0.08vw, 0.65vh, 0) scale(1.004);
-  }
-
-  100% {
-    opacity: 0.94;
-    transform: translate3d(0.02vw, 1.45vh, 0) scale(1.008);
-  }
-}
-
 @keyframes scrollZoom {
   from {
     transform: scale(0.97);
@@ -1649,34 +1555,9 @@ main :is(.border-t, .border-b, .border-y, .divide-y > :not([hidden]) ~ :not([hid
   }
 }
 
-@media (max-width: 700px) {
-  .chaos-field-layer {
-    height: 380vh;
-  }
-
-  .chaos-field-layer::before {
-    right: -72vw;
-    width: 202vw;
-    opacity: 0.84;
-    mask-image:
-      linear-gradient(to right, transparent 0%, transparent 24%, rgba(0, 0, 0, 0.5) 48%, rgba(0, 0, 0, 0.9) 70%, #000 100%),
-      linear-gradient(to bottom, #000 0%, #000 50%, rgba(0, 0, 0, 0.56) 70%, transparent 92%);
-    -webkit-mask-image:
-      linear-gradient(to right, transparent 0%, transparent 24%, rgba(0, 0, 0, 0.5) 48%, rgba(0, 0, 0, 0.9) 70%, #000 100%),
-      linear-gradient(to bottom, #000 0%, #000 50%, rgba(0, 0, 0, 0.56) 70%, transparent 92%);
-  }
-
-  .chaos-field-layer::after {
-    background: radial-gradient(ellipse at 28% 52%, rgba(18, 39, 50, 0.78) 0%, rgba(18, 39, 50, 0.56) 34%, rgba(18, 39, 50, 0.12) 58%, transparent 74%);
-  }
-}
-
 @media (prefers-reduced-motion: reduce) {
   .hero-signal,
   .flow-active,
-  .chaos-field-layer,
-  .chaos-field-layer::before,
-  .chaos-field-layer::after,
   .system-scan-pulse,
   .reveal-section {
     animation: none !important;

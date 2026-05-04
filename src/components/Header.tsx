@@ -6,12 +6,12 @@ import { useCallback, useEffect, useRef, useState } from "react";
 
 const capabilityLinks = [
   {
-    href: "/services",
+    href: "/services/ai-strategy-governance",
     label: "AI Strategy & Governance",
     detail: "Readiness, policy, adoption, and executive decision structure.",
   },
   {
-    href: "/services",
+    href: "/services/workflow-operations",
     label: "Workflow & Operations",
     detail: "Routing, handoffs, ownership, reporting, and operating cadence.",
   },
@@ -26,12 +26,12 @@ const capabilityLinks = [
     detail: "CRM, work management, collaboration, reporting, and AI agents.",
   },
   {
-    href: "/services",
+    href: "/services#growth-systems",
     label: "Growth Systems",
     detail: "Social, SEO, blogs, campaigns, content, and revenue operations.",
   },
   {
-    href: "/services",
+    href: "/services#managed-operations",
     label: "Managed Operations",
     detail: "Fractional operations support, execution cadence, and intervention.",
   },

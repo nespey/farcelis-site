@@ -14,7 +14,7 @@ export function HomeExperience() {
     <div className="relative overflow-hidden">
       <section className="hero">
         <video
-          className="hero-bg-video"
+          className="hero-architecture-video"
           autoPlay
           muted
           loop
@@ -22,10 +22,7 @@ export function HomeExperience() {
           preload="auto"
           aria-hidden="true"
         >
-          <source
-            src="/videos/farcelis_ai_systems_that_hold_precise_marked_loop_v8.mp4"
-            type="video/mp4"
-          />
+          <source src="/videos/farcelis_architectural_hold_hero_loop.mp4" type="video/mp4" />
         </video>
 
         <div className="hero-inner">
