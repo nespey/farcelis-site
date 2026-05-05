@@ -33,7 +33,7 @@ export default function ProductsPage() {
             <div className="max-w-[840px]">
               <p className="eyebrow text-[#9f412c]">Named Systems</p>
               <h2 className="section-title mt-5 text-slate-950">
-                Product pages make the Farcelis model feel concrete without shrinking it into a generic software pitch.
+                Farcelis product pages make the model concrete without shrinking it into a generic software pitch.
               </h2>
             </div>
 

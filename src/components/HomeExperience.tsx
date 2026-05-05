@@ -199,10 +199,10 @@ export function HomeExperience() {
                   Work With Farcelis
                 </Link>
                 <Link
-                  href="/contact"
+                  href="/resources"
                   className="site-cta inline-flex min-h-12 items-center justify-center rounded-full border border-cyan-200/18 bg-cyan-100/6 px-6 py-3 text-sm font-semibold text-cyan-50 hover:border-cyan-100/28 hover:bg-cyan-100/9"
                 >
-                  Schedule a Strategy Call
+                  Review Executive Resources
                 </Link>
               </div>
             </div>

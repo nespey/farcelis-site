@@ -2,6 +2,8 @@
 
 import { FormEvent, useState } from "react";
 
+import { site } from "@/lib/site-data";
+
 const fields = [
   { label: "Name", name: "name", type: "text" },
   { label: "Work email", name: "email", type: "email" },
@@ -14,6 +16,24 @@ export function ResourceAccessForm() {
 
   const handleSubmit = (event: FormEvent<HTMLFormElement>) => {
     event.preventDefault();
+    const form = new FormData(event.currentTarget);
+    const name = String(form.get("name") ?? "");
+    const email = String(form.get("email") ?? "");
+    const company = String(form.get("company") ?? "");
+    const resource = String(form.get("resource") ?? "");
+    const improvement = String(form.get("improvement") ?? "");
+    const subject = `Farcelis resource access request: ${resource || "Executive resource"}`;
+    const body = [
+      `Name: ${name}`,
+      `Work email: ${email}`,
+      `Company: ${company}`,
+      `Resource requested: ${resource}`,
+      "",
+      "What they are trying to improve:",
+      improvement,
+    ].join("\n");
+
+    window.location.href = `mailto:${site.contact.founderEmail}?subject=${encodeURIComponent(subject)}&body=${encodeURIComponent(body)}`;
     setSubmitted(true);
   };
 
@@ -42,11 +62,11 @@ export function ResourceAccessForm() {
         type="submit"
         className="site-cta mt-2 inline-flex min-h-12 items-center justify-center rounded-full bg-[linear-gradient(135deg,#ff8e5b,#f05cff)] px-6 py-3 text-sm font-semibold text-white"
       >
-        Request Access
+        Prepare Access Request
       </button>
       {submitted ? (
         <div className="rounded-[18px] border border-[color:var(--color-accent)]/20 bg-[rgba(242,139,91,0.11)] px-4 py-3 text-sm leading-6 text-slate-100">
-          Request captured. The production version can route this into HubSpot, Salesforce, email, or the Farcelis Control Layer.
+          Your email client is opening with the access request prepared for Farcelis.
         </div>
       ) : null}
     </form>

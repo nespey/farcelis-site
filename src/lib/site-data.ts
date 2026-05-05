@@ -51,6 +51,9 @@ export type Product = {
   outcomes: string[];
   modules: string[];
   useCases: string[];
+  proof: string[];
+  delivery: string[];
+  researchNotes: string[];
 };
 
 export type Industry = {
@@ -73,6 +76,23 @@ export type EventOffer = {
   format: string;
   description: string;
   audience: string;
+};
+
+export type InsightArticle = {
+  slug: string;
+  title: string;
+  author: string;
+  date: string;
+  category: string;
+  dek: string;
+  sourceLabel: string;
+  readTime: string;
+  body: {
+    heading: string;
+    paragraphs: string[];
+    bullets?: string[];
+  }[];
+  takeaways: string[];
 };
 
 export const site = {
@@ -413,6 +433,20 @@ export const products: Product[] = [
       "Revenue operations",
       "Cross-functional coordination",
     ],
+    proof: [
+      "Modeled from live operating work across inbox control, project execution, document flow, executive reporting, and client-safe closeout coordination.",
+      "Supported by internal Farcelis data surfaces for pipeline, CRM, projects, invoices, priorities, owners, statuses, and action records.",
+      "Visualized in the site with a live workspace preview instead of a static product claim.",
+    ],
+    delivery: [
+      "Map intake sources and decision paths.",
+      "Define owners, escalation states, and close-loop rules.",
+      "Build the board, views, automations, reporting cadence, and handoff rituals.",
+    ],
+    researchNotes: [
+      "The workspace preview reflects actual Farcelis operating categories: inbox control, project operations, documents, action center, and executive view.",
+      "The strongest product evidence is not a feature list. It is the discipline of routing work from signal to owned action without losing visibility.",
+    ],
   },
   {
     slug: "pulse-thread-coaching-assistant",
@@ -438,6 +472,20 @@ export const products: Product[] = [
       "Client success",
       "Internal enablement",
       "Training programs",
+    ],
+    proof: [
+      "Built from Farcelis patterns around meeting follow-through, action extraction, decision recaps, and adoption coaching.",
+      "Connects directly to the Control Layer because coaching only matters when the next action has an owner and a place to land.",
+      "Useful where leaders repeatedly translate conversations into reminders, updates, and accountability notes.",
+    ],
+    delivery: [
+      "Define the coaching moments that create drag.",
+      "Create prompt flows for decisions, next actions, owners, risks, and follow-up cadence.",
+      "Route outputs into email, task boards, meeting notes, or the Control Layer.",
+    ],
+    researchNotes: [
+      "This is an operating assistant, not a chatbot. Its job is to help teams keep context alive after the meeting ends.",
+      "Best evidence comes from recommendation themes around clarity, communication, urgency, and practical follow-through.",
     ],
   },
   {
@@ -465,6 +513,20 @@ export const products: Product[] = [
       "Operations enablement",
       "Process rollout",
     ],
+    proof: [
+      "Grounded in Farcelis AI literacy, enablement, and public-sector publishing themes around adoption, judgment, trust, and practical use.",
+      "Designed to support role-based AI adoption instead of one-size-fits-all training content.",
+      "Maps learning back to operating behavior so enablement produces better decisions, not just completed modules.",
+    ],
+    delivery: [
+      "Profile roles, readiness, and real workflow responsibilities.",
+      "Build adaptive learning paths with practice prompts and reinforcement loops.",
+      "Track adoption signals and connect them to operating outcomes.",
+    ],
+    researchNotes: [
+      "CityGov publishing around AI literacy, workforce readiness, and responsible AI gives this product a credible thought-leadership base.",
+      "The product needs to show how people learn inside a system, not just how they consume training.",
+    ],
   },
   {
     slug: "rapidramp-generator",
@@ -490,6 +552,20 @@ export const products: Product[] = [
       "CRM rebuilds",
       "Workflow automation",
       "Marketing operations setup",
+    ],
+    proof: [
+      "Matches internal closeout, tracker, checklist, and deployment-document work where messy requirements become ordered execution packages.",
+      "Turns discovery into phased plans, system maps, launch controls, and implementation checklists.",
+      "Best suited when the client already feels urgency but needs sequencing before buildout.",
+    ],
+    delivery: [
+      "Capture requirements, constraints, owners, and timing pressure.",
+      "Generate a staged rollout map with checkpoints, dependencies, and launch controls.",
+      "Convert the plan into implementation checklists and operating documentation.",
+    ],
+    researchNotes: [
+      "Farcelis has multiple internal package builders and closeout artifacts in the workspace; the product story is deployment discipline.",
+      "RapidRamp is strongest as a planning accelerator for real implementation, not a generic project template.",
     ],
   },
   {
@@ -517,6 +593,20 @@ export const products: Product[] = [
       "Automation readiness",
       "Operational reset",
     ],
+    proof: [
+      "Reflects the same assessment logic used across CRM, projects, finance, pipeline, ownership, priority, and status data surfaces.",
+      "Helps leaders see workflow, tooling, visibility, automation, and governance gaps before selecting a solution.",
+      "Creates the bridge between a strategy conversation and a scoped implementation path.",
+    ],
+    delivery: [
+      "Review workflows, tools, data visibility, handoffs, and governance posture.",
+      "Score the environment across operating risk and implementation readiness.",
+      "Deliver a prioritized roadmap with recommended next moves.",
+    ],
+    researchNotes: [
+      "This is the cleanest front-door product for buyers who are not ready to commit to a full Control Layer.",
+      "The assessment reads as executive-grade and specific, not like a generic quiz.",
+    ],
   },
   {
     slug: "ai-marketing-blueprint-generator",
@@ -542,6 +632,20 @@ export const products: Product[] = [
       "Social media management",
       "SEO optimization",
       "Revenue campaign planning",
+    ],
+    proof: [
+      "Connected to Farcelis legacy blog content, SEO positioning, HubSpot certification assets, and growth-system service lanes.",
+      "Turns audience, offer, content, SEO, CRM, and campaign work into one execution model.",
+      "Designed for teams whose marketing activity is visible but not operationally controlled.",
+    ],
+    delivery: [
+      "Map audience, offers, channels, content inventory, and CRM handoffs.",
+      "Build the SEO, blog, social, campaign, and reporting cadence.",
+      "Connect growth actions to owners, deadlines, lead stages, and measurement loops.",
+    ],
+    researchNotes: [
+      "The old Farcelis articles around funnels, digital foundations, and AI-driven content give this product a native content base.",
+      "The product shows that marketing is an operating system: the lead has to move from signal to follow-through without friction.",
     ],
   },
 ];
@@ -629,6 +733,234 @@ export const insightCards: InfoCard[] = [
       "Leaders do not need more dashboards. They need the right operating signals arranged around action, priority, risk, and accountability.",
   },
 ];
+
+export const insightArticles: InsightArticle[] = [
+  {
+    slug: "funnel-broken-foundation",
+    title: "Your Funnel Is Broken Because Your Foundation Is",
+    author: "Nathan Espey",
+    date: "April 14, 2025",
+    category: "Growth Systems",
+    dek:
+      "Traffic is easy to blame. Farcelis treats weak conversion as an operating-system problem: load speed, forms, CRM tags, follow-up logic, and handoffs have to work before promotion can scale.",
+    sourceLabel: "Migrated from the original Farcelis article library",
+    readTime: "5 min read",
+    takeaways: [
+      "A funnel cannot outperform the system underneath it.",
+      "Promotion should wait until forms, email logic, CRM triggers, and retargeting are actually connected.",
+      "Marketing performance is an operations question, not just a creative one.",
+    ],
+    body: [
+      {
+        heading: "The Real Failure Point",
+        paragraphs: [
+          "When ads are getting clicks but the pipeline still feels dead, the answer is rarely another headline. The sharper question is whether the lead can move from awareness to action without friction.",
+          "A slow mobile page, a buried CTA, a broken hidden field, a disconnected CRM tag, or a follow-up email landing in spam can make a good campaign look like a bad market. That is not a traffic problem. It is a foundation problem.",
+        ],
+      },
+      {
+        heading: "What Farcelis Audits First",
+        paragraphs: [
+          "Before scale, Farcelis looks for the small breaks that compound into lost revenue. The audit starts with the site experience, then follows the lead through form submission, confirmation, CRM routing, email delivery, retargeting, and owner follow-through.",
+          "The point is to see the full system. If the handoff fails after the click, the ad budget only accelerates waste.",
+        ],
+        bullets: [
+          "Mobile speed and page clarity",
+          "CTA visibility and form reliability",
+          "CRM tags, lifecycle stages, and ownership",
+          "Email confirmation, deliverability, and follow-up sequence",
+          "Retargeting and reporting logic",
+        ],
+      },
+      {
+        heading: "The Farcelis Fix",
+        paragraphs: [
+          "The repair sequence is simple: audit the system, rebuild the conversion layer, reconnect the follow-up path, then scale promotion only when the operating path holds.",
+          "That is why the AI Marketing Blueprint Generator lives beside workflow architecture. Growth work is not separate from operations. It is one of the places where weak operations gets expensive fastest.",
+        ],
+      },
+    ],
+  },
+  {
+    slug: "benchmark-mirage-ai-accuracy",
+    title: "The Benchmark Mirage: AI Accuracy Myths and Real-World Risk",
+    author: "Nathan Espey",
+    date: "April 9, 2025",
+    category: "AI Governance",
+    dek:
+      "AI benchmark scores can be useful signals, but they are not operating proof. Leaders need evaluation standards tied to real workflows, failure modes, oversight, and measurable business use.",
+    sourceLabel: "Migrated from the original Farcelis article library",
+    readTime: "4 min read",
+    takeaways: [
+      "High benchmark scores do not guarantee real-world performance.",
+      "AI evaluation should include robustness, governance, fairness, and workflow fit.",
+      "Leaders need transparent testing before they build operations around model claims.",
+    ],
+    body: [
+      {
+        heading: "Benchmarks Are Not the Finish Line",
+        paragraphs: [
+          "Benchmarks give teams a way to compare models, but they are controlled tests. They do not automatically reveal how a model behaves inside a client workflow, a compliance-heavy handoff, a messy inbox, or an executive decision loop.",
+          "That gap is where risk enters. A model can look impressive in a leaderboard and still fail when the work depends on context, judgment, escalation, and consistency.",
+        ],
+      },
+      {
+        heading: "What Leaders Should Demand",
+        paragraphs: [
+          "Farcelis treats model evaluation as an operating question. The right test is not only whether the model can answer. The right test is whether the workflow can absorb the answer safely.",
+          "That means leaders should ask how the model was evaluated, what conditions it fails under, what data it can touch, how outputs are reviewed, and what human decision rights remain intact.",
+        ],
+        bullets: [
+          "Workflow-specific test cases",
+          "Clear escalation and review rules",
+          "Known failure modes and bias checks",
+          "Data boundaries and privacy controls",
+          "Human accountability for final decisions",
+        ],
+      },
+      {
+        heading: "The Control Layer View",
+        paragraphs: [
+          "In a Farcelis Control Layer, AI is not trusted because it is impressive. It is trusted when it has a defined responsibility, a visible output path, and a review structure.",
+          "The lesson is plain: do not buy a benchmark. Build an operating environment where AI has a job, a boundary, and a manager.",
+        ],
+      },
+    ],
+  },
+  {
+    slug: "digital-marketing-hidden-issues-ai-fixes",
+    title: "Why Digital Marketing Is Not Working: Hidden Issues and AI Fixes",
+    author: "Nathan Espey",
+    date: "April 2, 2025",
+    category: "Marketing Operations",
+    dek:
+      "AI can improve content, targeting, personalization, and analytics, but only when the strategy has clear goals, a real audience model, and a workflow that connects marketing activity to revenue movement.",
+    sourceLabel: "Migrated from the original Farcelis article library",
+    readTime: "4 min read",
+    takeaways: [
+      "Marketing fails when goals, message, data, and workflow are disconnected.",
+      "AI is useful when it sharpens decisions and reduces execution drag.",
+      "Audience understanding still determines whether automation helps or just adds noise.",
+    ],
+    body: [
+      {
+        heading: "The Hidden Drift",
+        paragraphs: [
+          "Digital marketing often looks busy long after it stops being effective. Posts go out. Campaigns run. Reports get reviewed. But the operating logic underneath is vague: unclear goals, inconsistent message, weak audience definition, and poor handoffs.",
+          "AI does not fix that automatically. It amplifies whatever system it enters.",
+        ],
+      },
+      {
+        heading: "Where AI Helps",
+        paragraphs: [
+          "Used correctly, AI can help teams identify patterns in customer behavior, generate content variants, personalize journeys, and surface campaign opportunities faster than manual review.",
+          "The useful version is not AI replacing strategy. It is AI giving operators better signal while the Control Layer keeps owners, deadlines, and follow-through visible.",
+        ],
+        bullets: [
+          "Audience and persona refinement",
+          "Content planning and keyword clustering",
+          "Campaign testing and performance analysis",
+          "CRM handoff and follow-up support",
+          "Reporting tied to actual next actions",
+        ],
+      },
+      {
+        heading: "The Operating Move",
+        paragraphs: [
+          "Farcelis starts by tying every marketing activity to a workflow: who owns the next action, where the lead goes, what qualifies movement, and what gets reported.",
+          "That is how marketing becomes an operating system instead of a pile of tactics.",
+        ],
+      },
+    ],
+  },
+  {
+    slug: "ceo-guide-ai-strategic-disruption",
+    title: "Navigating the AI Storm: A CEO's Guide to Strategic Disruption",
+    author: "Nathan Espey",
+    date: "March 31, 2025",
+    category: "Executive AI",
+    dek:
+      "CEOs do not need to chase every AI trend. They need a practical adoption frame: where AI creates value, what risks must be governed, and how the organization changes without losing control.",
+    sourceLabel: "Migrated from the original Farcelis article library",
+    readTime: "4 min read",
+    takeaways: [
+      "AI strategy has to connect market change to operating action.",
+      "Culture, skills, and leadership habits determine whether adoption holds.",
+      "Ethics and risk management belong inside the rollout plan, not after it.",
+    ],
+    body: [
+      {
+        heading: "Strategy Before Motion",
+        paragraphs: [
+          "The AI market moves fast enough to make every executive feel late. That pressure creates bad strategy: more pilots, more subscriptions, more noise, and no operating spine.",
+          "A CEO needs to know where AI creates leverage, where it creates exposure, and which workflows are mature enough to support it.",
+        ],
+      },
+      {
+        heading: "The Leadership Work",
+        paragraphs: [
+          "AI readiness is partly technical, but it is also cultural. Teams need permission to learn, rules for responsible use, a shared language for risk, and leaders who can explain why the change matters.",
+          "The best deployments pair opportunity with guardrails. They create room for innovation without abandoning decision rights, privacy, or accountability.",
+        ],
+      },
+      {
+        heading: "What Farcelis Builds",
+        paragraphs: [
+          "Farcelis turns AI strategy into an adoption architecture: use cases, governance, training, workflows, ownership, and reporting. The goal is not to look advanced. The goal is to make better decisions faster without weakening control.",
+        ],
+      },
+    ],
+  },
+  {
+    slug: "understanding-ai-driven-content",
+    title: "Understanding AI-Driven Content",
+    author: "Nathan Espey",
+    date: "March 27, 2025",
+    category: "Content Systems",
+    dek:
+      "AI-driven content works when human direction, audience insight, workflow structure, and ethical review stay intact. The system makes the voice sharper, not generic.",
+    sourceLabel: "Migrated from the original Farcelis article library",
+    readTime: "4 min read",
+    takeaways: [
+      "AI can accelerate ideation, drafting, analysis, and adaptation.",
+      "Human voice and editorial judgment remain the differentiator.",
+      "Content systems need governance, cadence, and performance feedback.",
+    ],
+    body: [
+      {
+        heading: "Content Is a System",
+        paragraphs: [
+          "AI has changed how quickly teams can produce words, images, outlines, and variants. Speed is useful, but it is not the win by itself.",
+          "The stronger question is whether the content reflects a real point of view, reaches a defined audience, and moves into a measurable operating path after publishing.",
+        ],
+      },
+      {
+        heading: "Where AI Belongs",
+        paragraphs: [
+          "AI can help identify topics, cluster keywords, draft variations, summarize research, repurpose long-form ideas, and read performance data. It should support the content engine without flattening the brand voice.",
+          "Farcelis keeps the human layer visible: strategy, taste, judgment, ethics, and final editorial accountability.",
+        ],
+        bullets: [
+          "Topic and keyword intelligence",
+          "Draft acceleration and repurposing",
+          "Audience and engagement analysis",
+          "Editorial guardrails and review",
+          "Publishing cadence tied to CRM and campaign movement",
+        ],
+      },
+      {
+        heading: "The Practical Standard",
+        paragraphs: [
+          "If the content sounds like anyone could have written it, the system is failing. AI should help a company sound more clearly like itself, with stronger rhythm, sharper structure, and a cleaner path from idea to action.",
+        ],
+      },
+    ],
+  },
+];
+
+export function getInsightArticleBySlug(slug: string) {
+  return insightArticles.find((article) => article.slug === slug);
+}
 
 export const resourceTypes: InfoCard[] = [
   {

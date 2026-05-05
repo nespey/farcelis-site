@@ -471,7 +471,7 @@ export default function ControlLayerPage() {
               <div className="infinite-copy">
                 <p className="eyebrow endless-kicker text-[#9f412c]">Endless System Shapes</p>
                 <h2 className="section-title mt-5 text-white">
-                  These are two examples. The real product is a Control Layer shaped around whatever needs to be commanded.
+                  The real product is a Control Layer shaped around whatever needs to be commanded.
                 </h2>
                 <p className="mt-6 max-w-[760px] text-lg leading-8 text-slate-300">
                   A founder can command revenue, delivery, cash, and content. A contractor can command compliance, obligations,

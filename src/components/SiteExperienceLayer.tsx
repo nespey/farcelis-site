@@ -120,7 +120,7 @@ export function SiteExperienceLayer() {
         className="system-scan-button"
       >
         <span className="system-scan-pulse" aria-hidden="true" />
-        System Scan
+        Pathfinder
       </button>
 
       <div className={`system-scan-shell ${open ? "system-scan-shell-open" : ""}`} aria-hidden={!open}>
@@ -138,10 +138,14 @@ export function SiteExperienceLayer() {
         >
           <div className="flex items-start justify-between gap-6">
             <div>
-              <p className="eyebrow text-[color:var(--color-accent)]">Farcelis System Scan</p>
+              <p className="eyebrow text-[color:var(--color-accent)]">Farcelis Pathfinder</p>
               <h2 id="system-scan-title" className="mt-3 text-3xl font-semibold tracking-[-0.05em] text-white">
-                Find the right operating path.
+                Find the right next page.
               </h2>
+              <p className="mt-3 max-w-[520px] text-sm leading-7 text-slate-300">
+                Answer four signals and this routes you to the most useful Farcelis surface:
+                Control Layer, readiness, services, or a strategy conversation.
+              </p>
             </div>
             <button
               type="button"

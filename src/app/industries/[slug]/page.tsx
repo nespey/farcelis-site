@@ -56,7 +56,7 @@ export default async function IndustryDetailPage({ params }: IndustryPageProps) 
             <div>
               <p className="eyebrow text-[#9f412c]">Farcelis Offer</p>
               <h2 className="section-title mt-5 text-slate-950">
-                The vertical page should show what Farcelis would actually bring into this operating environment.
+                This vertical view shows what Farcelis brings into the operating environment.
               </h2>
             </div>
             <div className="grid gap-4 sm:grid-cols-2">

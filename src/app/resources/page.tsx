@@ -27,7 +27,7 @@ export default function ResourcesPage() {
             <div className="max-w-[820px]">
               <p className="eyebrow text-[#9f412c]">Gated Library</p>
               <h2 className="section-title mt-5 text-slate-950">
-                These offers give Farcelis a serious enterprise resource surface without pretending every asset is public.
+                Farcelis resources give buyers a serious enterprise library without pretending every asset belongs in public view.
               </h2>
             </div>
 
@@ -65,7 +65,7 @@ export default function ResourcesPage() {
                 Turn gated resources into a clean conversion path.
               </h2>
               <p className="mt-6 max-w-[560px] text-base leading-8 text-slate-300">
-                The form surface is structured for qualification. It can later be wired into HubSpot, Salesforce, email automation, or the Farcelis Control Layer.
+                The access path is structured for qualification and built to connect into HubSpot, Salesforce, email automation, or the Farcelis Control Layer.
               </p>
             </div>
 

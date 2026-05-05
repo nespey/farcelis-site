@@ -1,7 +1,9 @@
+import Link from "next/link";
+
 import { PageIntro } from "@/components/PageIntro";
 import { Reveal } from "@/components/Reveal";
 import { buildMetadata } from "@/lib/metadata";
-import { seo } from "@/lib/site-data";
+import { insightArticles, seo } from "@/lib/site-data";
 
 export const metadata = buildMetadata(seo.results);
 
@@ -93,32 +95,7 @@ const engagementProof = [
   "Implementation discipline under pressure",
 ];
 
-const publishingLibrary = [
-  {
-    title: "AI literacy for everyday civic decisions",
-    body:
-      "A public-facing article on AI literacy as a shared language for communities, classrooms, public service, and daily decision-making.",
-    href: "https://www.citygov.com/article/ai-literacy-for-all-from-city-halls-to-classrooms-to-kitchen-tables",
-  },
-  {
-    title: "AI should advise, not decide",
-    body:
-      "A public-safety article on emergency dispatch, human judgment, accountability, privacy, and responsible AI guardrails.",
-    href: "https://www.citygov.com/article/flags-not-final-calls-why-ai-should-advise-not-decide-in-emergency-dispatch",
-  },
-  {
-    title: "Transparent AI dashboards",
-    body:
-      "A governance article on public dashboards, urban decision-making, transparency, and trust in algorithmic systems.",
-    href: "https://www.citygov.com/article/ai-you-can-see-public-dashboards-and-urban-decision-making",
-  },
-  {
-    title: "AI-ready workforce development",
-    body:
-      "A workforce article on continuous learning, AI adoption, staff enablement, and practical public-service capability building.",
-    href: "https://www.citygov.com/article/the-ai-ready-workforce-rewiring-public-service-for-continuous-growth",
-  },
-];
+const publishingLibrary = insightArticles.slice(0, 4);
 
 const emergingChannels = [
   {
@@ -130,13 +107,13 @@ const emergingChannels = [
   {
     title: "Article library",
     body:
-      "Published AI articles can become a searchable thought-leadership library covering literacy, governance, public trust, workflow, and responsible implementation.",
-    href: "https://docs.google.com/spreadsheets/d/17GkkDmzwdtneWK-maMeHtjGUY84_VmnuzUXSTPIYTAw/edit",
+      "The Farcelis insight library now opens articles directly on this site, with executive takeaways and internal reading pages instead of a spreadsheet or third-party handoff.",
+    href: "/insights",
   },
   {
     title: "Podcast and field notes",
     body:
-      "A future audio channel can turn consulting lessons, AI adoption patterns, and operational breakdowns into recurring executive commentary.",
+      "The field-notes lane turns consulting lessons, AI adoption patterns, and operational breakdowns into recurring executive commentary.",
   },
 ];
 
@@ -314,25 +291,23 @@ export default function ResultsPage() {
                 Published AI work shows the thinking behind the consulting.
               </h2>
               <p className="mt-6 max-w-[720px] text-base leading-8 text-slate-300">
-                The public-sector article archive can become a more formal Farcelis library over time, with selected pieces organized around AI literacy, public trust, governance, operations, and workforce readiness.
+                The Farcelis library now organizes selected pieces around AI literacy, public trust, governance, operations, and workforce readiness.
               </p>
             </div>
 
             <div className="mt-12 grid gap-4 md:grid-cols-2">
               {publishingLibrary.map((item) => (
-                <a
-                  key={item.title}
-                  href={item.href}
-                  target="_blank"
-                  rel="noreferrer"
+                <Link
+                  key={item.slug}
+                  href={`/insights/${item.slug}`}
                   className="rounded-[24px] border border-white/8 bg-white/[0.04] px-6 py-6 transition hover:-translate-y-1 hover:border-cyan-100/22 hover:bg-white/[0.06]"
                 >
                   <h3 className="text-xl font-semibold tracking-[-0.04em] text-white">{item.title}</h3>
-                  <p className="mt-4 text-base leading-8 text-slate-300">{item.body}</p>
+                  <p className="mt-4 text-base leading-8 text-slate-300">{item.dek}</p>
                   <div className="mt-6 text-sm font-semibold text-[color:var(--color-accent)]">
-                    Open article in new tab
+                    Read on Farcelis
                   </div>
-                </a>
+                </Link>
               ))}
             </div>
           </div>
@@ -356,22 +331,20 @@ export default function ResultsPage() {
                     <p className="mt-4 text-base leading-8 text-slate-300">{item.body}</p>
                     {item.href ? (
                       <div className="mt-6 text-sm font-semibold text-[color:var(--color-accent)]">
-                        Open in new tab
+                        Open path
                       </div>
                     ) : null}
                   </>
                 );
 
                 return item.href ? (
-                  <a
+                  <Link
                     key={item.title}
                     href={item.href}
-                    target="_blank"
-                    rel="noreferrer"
                     className="rounded-[24px] border border-white/8 bg-white/[0.04] px-6 py-6 transition hover:-translate-y-1 hover:border-cyan-100/22 hover:bg-white/[0.06]"
                   >
                     {content}
-                  </a>
+                  </Link>
                 ) : (
                   <div
                   key={item.title}

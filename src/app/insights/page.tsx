@@ -1,7 +1,9 @@
+import Link from "next/link";
+
 import { PageIntro } from "@/components/PageIntro";
 import { Reveal } from "@/components/Reveal";
 import { buildMetadata } from "@/lib/metadata";
-import { insightCards, resourceTypes, seo } from "@/lib/site-data";
+import { insightArticles, resourceTypes, seo } from "@/lib/site-data";
 
 export const metadata = buildMetadata(seo.insights);
 
@@ -34,27 +36,29 @@ export default function InsightsPage() {
             <div className="max-w-[820px]">
               <p className="eyebrow text-[#9f412c]">Field Notes</p>
               <h2 className="section-title mt-5 text-slate-950">
-                The ideas Farcelis publishes should make the buying conversation smarter before the first call.
+                Farcelis publishes ideas that make the buying conversation smarter before the first call.
               </h2>
             </div>
 
             <div className="mt-12 grid gap-4 md:grid-cols-2 lg:grid-cols-3">
-              {insightCards.map((item, index) => (
-                <article
-                  key={item.title}
+              {insightArticles.map((item, index) => (
+                <Link
+                  key={item.slug}
+                  href={`/insights/${item.slug}`}
                   className={`enterprise-card rounded-[24px] border border-slate-200 bg-white px-6 py-6 shadow-[0_18px_38px_rgba(15,23,42,0.06)] ${
                     index === 1 || index === 4 ? "lg:translate-y-5" : ""
                   }`}
                 >
                   <div className="h-1 w-12 rounded-full bg-[#9f412c]/80" aria-hidden="true" />
                   <div className="text-sm font-semibold uppercase tracking-[0.18em] text-[#9f412c]">
-                    Field Insight
+                    {item.category} · {item.readTime}
                   </div>
                   <h3 className="mt-4 text-xl font-semibold tracking-[-0.04em] text-slate-950">
                     {item.title}
                   </h3>
-                  <p className="mt-4 text-base leading-8 text-slate-600">{item.description}</p>
-                </article>
+                  <p className="mt-4 text-base leading-8 text-slate-600">{item.dek}</p>
+                  <div className="mt-6 text-sm font-semibold text-[#9f412c]">Read on Farcelis</div>
+                </Link>
               ))}
             </div>
           </div>
@@ -67,7 +71,7 @@ export default function InsightsPage() {
             <div className="max-w-[820px]">
               <p className="eyebrow text-[#9f412c]">Resource Library</p>
               <h2 className="section-title mt-5 text-slate-950">
-                Build the resource surface around decisions buyers are already trying to make.
+                Resource paths are organized around decisions buyers are already trying to make.
               </h2>
             </div>
 
