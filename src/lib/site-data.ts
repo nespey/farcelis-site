@@ -514,18 +514,18 @@ export const products: Product[] = [
       "Training programs",
     ],
     proof: [
-      "Built from Farcelis patterns around meeting follow-through, action extraction, decision recaps, and adoption coaching.",
+      "Supported by the Farcelis Certified AI Agent material: role-specific assistants can draft communications, summarize notes, surface KPIs, automate scheduling, and support meeting prioritization.",
       "Connects directly to the Control Layer because coaching only matters when the next action has an owner and a place to land.",
-      "Useful where leaders repeatedly translate conversations into reminders, updates, and accountability notes.",
+      "The Farcelis agent guide frames implementation around alignment to human roles, not replacement: the assistant is trained on the team's language, data context, and workflow responsibilities.",
     ],
     delivery: [
-      "Define the coaching moments that create drag.",
-      "Create prompt flows for decisions, next actions, owners, risks, and follow-up cadence.",
+      "Identify the roles and recurring conversations that create follow-up drag.",
+      "Create prompt flows for decisions, next actions, owners, risks, meeting notes, and follow-up cadence.",
       "Route outputs into email, task boards, meeting notes, or the Control Layer.",
     ],
     researchNotes: [
       "This is an operating assistant, not a chatbot. Its job is to help teams keep context alive after the meeting ends.",
-      "Best evidence comes from recommendation themes around clarity, communication, urgency, and practical follow-through.",
+      "Farcelis agent material cites use cases around customer inquiries, tailored reports, KPI analysis, lead qualification, onboarding, scheduling, notes, and task prioritization.",
     ],
   },
   {
@@ -554,17 +554,17 @@ export const products: Product[] = [
       "Process rollout",
     ],
     proof: [
-      "Grounded in Farcelis AI literacy, enablement, and public-sector publishing themes around adoption, judgment, trust, and practical use.",
-      "Designed to support role-based AI adoption instead of one-size-fits-all training content.",
-      "Maps learning back to operating behavior so enablement produces better decisions, not just completed modules.",
+      "Grounded in Farcelis training assets covering prompt engineering, data wrangling, annotation, chatbot implementation, AI bias, and business use cases.",
+      "Designed to support role-based AI adoption instead of one-size-fits-all training content, using readiness profiles and practical exercises.",
+      "Connects learning to operating behavior through practice prompts, reinforcement loops, and workflow-specific adoption signals.",
     ],
     delivery: [
-      "Profile roles, readiness, and real workflow responsibilities.",
-      "Build adaptive learning paths with practice prompts and reinforcement loops.",
+      "Profile roles, readiness, data context, and real workflow responsibilities.",
+      "Build adaptive learning paths with prompt practice, data exercises, knowledge checks, and reinforcement loops.",
       "Track adoption signals and connect them to operating outcomes.",
     ],
     researchNotes: [
-      "CityGov publishing around AI literacy, workforce readiness, and responsible AI gives this product a credible thought-leadership base.",
+      "The Training folder gives this product a real base: prompt engineering, NLP task definitions, data labeling, chatbot testing, and bias awareness.",
       "The product needs to show how people learn inside a system, not just how they consume training.",
     ],
   },
@@ -573,18 +573,19 @@ export const products: Product[] = [
     title: "RapidRamp Generator",
     eyebrow: "Implementation Accelerator",
     description:
-      "A structured deployment accelerator for turning messy operational requirements into phased rollout plans, system maps, tool configurations, and execution checklists.",
+      "A GPT-powered implementation accelerator that turns client SOPs, process documents, and operating requirements into onboarding modules, rollout plans, system maps, and reusable launch documentation.",
     outcomes: [
-      "Faster implementation planning",
-      "Cleaner rollout sequencing",
-      "Reduced ambiguity before build",
-      "Reusable system documentation",
+      "Onboarding modules generated from real SOPs",
+      "Faster first-draft learning assets",
+      "Cleaner rollout sequencing before build",
+      "Reusable client-ready documentation",
     ],
     modules: [
-      "Readiness intake",
-      "System map",
-      "Phase plan",
-      "Tooling checklist",
+      "Structured input intake",
+      "Microlearning module builder",
+      "Knowledge check generator",
+      "Manual refinement pass",
+      "Workflow library storage",
       "Launch controls",
     ],
     useCases: [
@@ -594,18 +595,19 @@ export const products: Product[] = [
       "Marketing operations setup",
     ],
     proof: [
-      "Matches internal closeout, tracker, checklist, and deployment-document work where messy requirements become ordered execution packages.",
-      "Turns discovery into phased plans, system maps, launch controls, and implementation checklists.",
-      "Best suited when the client already feels urgency but needs sequencing before buildout.",
+      "Based on the RapidRamp Module Generator workflow: provide a client SOP or process document, audience context, two to three learning objectives, and tone guidance.",
+      "The output structure is defined: title, module overview, three microlearning sections, one knowledge check with suggested answers, and a practical next-step summary.",
+      "The documented workflow estimates roughly 70% drafting-time reduction by letting Farcelis focus on strategic refinement instead of starting from a blank page.",
     ],
     delivery: [
-      "Capture requirements, constraints, owners, and timing pressure.",
-      "Generate a staged rollout map with checkpoints, dependencies, and launch controls.",
-      "Convert the plan into implementation checklists and operating documentation.",
+      "Capture the source SOP, role context, learning objectives, and desired instructional tone.",
+      "Generate a mobile-first onboarding module with clear headers, bullets, plain explanations, and a knowledge check.",
+      "Refine the draft for client nuance, brand voice, real-world references, internal language, and actual next steps.",
+      "Save the reusable prompt and template into the AI workflows library, tagged by asset type, industry, and function.",
     ],
     researchNotes: [
-      "Farcelis has multiple internal package builders and closeout artifacts in the workspace; the product story is deployment discipline.",
-      "RapidRamp is strongest as a planning accelerator for real implementation, not a generic project template.",
+      "RapidRamp is not a generic project template. It is a repeatable way to turn process knowledge into usable learning and implementation assets.",
+      "The product works best when the client has real documentation but lacks the time, structure, or instructional design path to make it usable for onboarding or rollout.",
     ],
   },
   {
@@ -613,19 +615,20 @@ export const products: Product[] = [
     title: "Blueprint Readiness Snapshot",
     eyebrow: "Assessment Product",
     description:
-      "A concise diagnostic product that scores the current operating environment across workflows, ownership, tools, data visibility, automation readiness, and governance gaps.",
+      "A structured R.A.P.I.D. diagnostic that evaluates workflow rhythm, data overlap, automation readiness, integration health, and the scope for managed AI oversight.",
     outcomes: [
-      "Clear view of system gaps",
-      "Prioritized implementation path",
-      "AI and automation readiness signal",
-      "Leadership-ready recommendation set",
+      "Workflow cohesion surfaced clearly",
+      "Redundancies and risk points identified",
+      "Three priority actions for stabilization",
+      "Retainer scope for ongoing AI oversight",
     ],
     modules: [
-      "Workflow scan",
-      "Tooling review",
-      "Data visibility check",
-      "Governance review",
-      "Priority roadmap",
+      "Rhythm",
+      "Assessment",
+      "Prototype",
+      "Integration",
+      "Delivery",
+      "Workflow Harmony Report",
     ],
     useCases: [
       "Pre-engagement discovery",
@@ -634,18 +637,18 @@ export const products: Product[] = [
       "Operational reset",
     ],
     proof: [
-      "Reflects the same assessment logic used across CRM, projects, finance, pipeline, ownership, priority, and status data surfaces.",
-      "Helps leaders see workflow, tooling, visibility, automation, and governance gaps before selecting a solution.",
-      "Creates the bridge between a strategy conversation and a scoped implementation path.",
+      "Based on the Revive HRG Blueprint Readiness Snapshot: a 15-question diagnostic across Leap CRM, i360 CRM, Salesforce, Vendo, Five9, field marketing, reporting, integrations, and governance.",
+      "The documented next step is a Workflow Harmony Report highlighting redundancies, risk points, and integration opportunities.",
+      "The snapshot produces three priority actions for stabilization or automation expansion and outlines retainer options for ongoing oversight.",
     ],
     delivery: [
-      "Review workflows, tools, data visibility, handoffs, and governance posture.",
-      "Score the environment across operating risk and implementation readiness.",
-      "Deliver a prioritized roadmap with recommended next moves.",
+      "Interview the team across rhythm, assessment, prototype, integration, and delivery questions.",
+      "Map single source of truth, data delays, reporting confidence, automation ownership, and governance gaps.",
+      "Deliver a Workflow Harmony Report with priority actions and a recommended oversight or implementation path.",
     ],
     researchNotes: [
-      "This is the cleanest front-door product for buyers who are not ready to commit to a full Control Layer.",
-      "The assessment reads as executive-grade and specific, not like a generic quiz.",
+      "The Revive HRG version proves this is a real client-facing diagnostic, not a generic readiness quiz.",
+      "The product is the cleanest front door when a buyer knows the stack is messy but is not ready to approve a full Control Layer build.",
     ],
   },
   {
@@ -674,17 +677,17 @@ export const products: Product[] = [
       "Revenue campaign planning",
     ],
     proof: [
-      "Connected to Farcelis legacy blog content, SEO positioning, HubSpot certification assets, and growth-system service lanes.",
-      "Turns audience, offer, content, SEO, CRM, and campaign work into one execution model.",
-      "Designed for teams whose marketing activity is visible but not operationally controlled.",
+      "Supported by Farcelis HubSpot certification assets covering website optimization, SEO strategy, buyer personas, email performance, content frameworks, and digital marketing fundamentals.",
+      "Connected to Farcelis growth articles on funnel foundations, website performance, AI-driven content, and marketing-system breakdowns.",
+      "Turns audience, offer, content, SEO, CRM, campaign, and reporting work into one execution model instead of a loose set of channels.",
     ],
     delivery: [
-      "Map audience, offers, channels, content inventory, and CRM handoffs.",
-      "Build the SEO, blog, social, campaign, and reporting cadence.",
-      "Connect growth actions to owners, deadlines, lead stages, and measurement loops.",
+      "Map audience, offers, buyer-persona assumptions, channels, content inventory, and CRM handoffs.",
+      "Audit website performance, SEO, blog structure, email paths, social cadence, campaign logic, and reporting visibility.",
+      "Connect growth actions to owners, deadlines, lead stages, measurement loops, and follow-up rules.",
     ],
     researchNotes: [
-      "The old Farcelis articles around funnels, digital foundations, and AI-driven content give this product a native content base.",
+      "The Website Optimization Checklist gives this product practical inspection points: speed, redirects, responsive images, mobile tap targets, indexing, meta descriptions, and descriptive link text.",
       "The product shows that marketing is an operating system: the lead has to move from signal to follow-through without friction.",
     ],
   },
@@ -829,6 +832,48 @@ export const rawIntelBriefs: PodcastBrief[] = [
 ];
 
 export const blogPosts: BlogPost[] = [
+  {
+    slug: "funnel-broken-foundation",
+    title: "Your Funnel Is Broken Because Your Foundation Is",
+    label: "From Julian",
+    author: "Julian Mercer",
+    date: "April 14, 2025",
+    description:
+      "A growth-systems field note on why traffic, ads, and copy cannot repair a weak digital foundation underneath the funnel.",
+    image: "/images/blog/julian-bigger.png",
+    imageAlt: "Julian Mercer content systems artwork from the Farcelis blog library",
+    cta: "Read the field note",
+    body: [
+      {
+        heading: "The Funnel Is Not the First Problem",
+        paragraphs: [
+          "You do not have a lead generation problem if the system underneath the lead path cannot hold. You have a systems problem wearing a marketing costume.",
+          "Most teams drive traffic, hope visitors convert, blame bad leads when they do not, and repeat the cycle with a new headline or a slightly louder campaign. That loop feels like marketing work, but it often hides a weaker foundation: slow pages, buried calls to action, disconnected forms, stale lifecycle content, missing retargeting logic, and follow-up that does not reach the right place.",
+        ],
+      },
+      {
+        heading: "Conversion Is an Operating Question",
+        paragraphs: [
+          "A funnel is only as good as the environment it sits on. You cannot optimize conversion when mobile load time is dragging, opt-in logic is brittle, CRM tags do not fire, or email follow-up lands after the moment has passed.",
+          "The question that matters is simple: can a lead move from awareness to action without friction? If the answer is unclear, the next move is not more promotion. The next move is diagnosis.",
+        ],
+      },
+      {
+        heading: "The Email Nobody Clicked",
+        paragraphs: [
+          "One engagement made the point clearly. The paid ads were getting strong click-through rates, but the landing experience converted at less than one percent. The copy was serviceable, the audience was not wildly off, and the offer made sense.",
+          "The actual failures were underneath the campaign: the page loaded slowly on mobile, the opt-in form carried a hidden field error, the confirmation email was getting pushed into spam, and the CRM sequence did not trigger because the tag logic was disconnected. The ad did its job. The system did not.",
+        ],
+      },
+      {
+        heading: "Fix the Foundation Before You Scale",
+        paragraphs: [
+          "Performance comes before promotion. Before another dollar goes into traffic, the website, content map, email logic, CRM handoff, retargeting path, and owner follow-through need to behave like a connected system.",
+          "That is where Farcelis ties growth work back into operating architecture. Marketing is not just creative output. It is a route from signal to action, and that route needs ownership, visibility, and clean handoffs before scale makes sense.",
+        ],
+      },
+    ],
+  },
   {
     slug: "understanding-ai-driven-content-julian-mercer",
     title: "AI Content Field Notes: Julian Mercer on Human-Led Automation",

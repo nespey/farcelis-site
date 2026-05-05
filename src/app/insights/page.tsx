@@ -10,6 +10,8 @@ import { blogPosts, insightArticles, mediaLanes, rawIntelBriefs, seo } from "@/l
 export const metadata = buildMetadata(seo.insights);
 
 export default function InsightsPage() {
+  const articleLibrary = insightArticles.filter((item) => item.slug !== "funnel-broken-foundation");
+
   return (
     <>
       <PageIntro
@@ -73,7 +75,7 @@ export default function InsightsPage() {
             </div>
 
             <div className="mt-12 grid gap-6 md:grid-cols-2">
-              {insightArticles.map((item, index) => (
+              {articleLibrary.map((item, index) => (
                 <Link
                   key={item.slug}
                   href={`/insights/${item.slug}`}

@@ -48,8 +48,6 @@ export default async function ProductDetailPage({ params }: ProductPageProps) {
           { href: "/contact", label: "Request Product Review" },
           { href: "/products", label: "View Product Suite", variant: "secondary" },
         ]}
-        asideTitle="Best Fit"
-        asideItems={product.useCases}
       />
 
       <Reveal delayMs={60}>
@@ -102,6 +100,29 @@ export default async function ProductDetailPage({ params }: ProductPageProps) {
 
       <Reveal delayMs={160}>
         <section className="section-shell section-shell-light pt-0">
+          <div className="section-inner grid gap-12 lg:grid-cols-[minmax(0,0.65fr)_minmax(0,1.35fr)]">
+            <div>
+              <p className="eyebrow text-[#9f412c]">Best Fit</p>
+              <h2 className="section-title mt-5 text-slate-950">
+                Where this product earns its place in the suite.
+              </h2>
+            </div>
+            <div className="grid gap-4 md:grid-cols-2">
+              {product.useCases.map((useCase) => (
+                <div
+                  key={useCase}
+                  className="enterprise-card rounded-[22px] border border-slate-200 bg-white px-6 py-5 text-lg font-semibold tracking-[-0.03em] text-slate-950 shadow-[0_18px_38px_rgba(15,23,42,0.06)]"
+                >
+                  {useCase}
+                </div>
+              ))}
+            </div>
+          </div>
+        </section>
+      </Reveal>
+
+      <Reveal delayMs={180}>
+        <section className="section-shell section-shell-light pt-0">
           <div className="section-inner grid gap-12 lg:grid-cols-[minmax(0,0.72fr)_minmax(0,1.28fr)]">
             <div>
               <p className="eyebrow text-[#9f412c]">Research Base</p>
@@ -127,7 +148,7 @@ export default async function ProductDetailPage({ params }: ProductPageProps) {
         </section>
       </Reveal>
 
-      <Reveal delayMs={200}>
+      <Reveal delayMs={220}>
         <section className="section-shell section-shell-dark">
           <div className="section-inner grid gap-12 lg:grid-cols-[minmax(0,0.7fr)_minmax(0,1.3fr)]">
             <div>
@@ -152,7 +173,7 @@ export default async function ProductDetailPage({ params }: ProductPageProps) {
         </section>
       </Reveal>
 
-      <Reveal delayMs={240}>
+      <Reveal delayMs={260}>
         <section className="section-shell section-shell-light">
           <div className="section-inner">
             <div className="max-w-[820px]">

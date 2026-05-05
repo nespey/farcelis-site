@@ -1,7 +1,6 @@
 import { IntegrationLogoLane } from "@/components/IntegrationLogoLane";
 import { PageIntro } from "@/components/PageIntro";
 import { Reveal } from "@/components/Reveal";
-import { WorkspacePreview } from "@/components/WorkspacePreview";
 import { buildMetadata } from "@/lib/metadata";
 import { platformCapabilities, seo } from "@/lib/site-data";
 
@@ -15,6 +14,25 @@ const platformBands = [
   "Reporting environments",
 ];
 
+const assistantPatterns = [
+  {
+    title: "Meeting and follow-through assistants",
+    body: "Capture decisions, extract next actions, assign owners, and push follow-up into the system where the work actually lives.",
+  },
+  {
+    title: "CRM and revenue assistants",
+    body: "Support account research, lead routing, lifecycle notes, sales preparation, and handoff quality without separating AI output from CRM reality.",
+  },
+  {
+    title: "Document and knowledge assistants",
+    body: "Turn SOPs, policies, project notes, and recurring documentation into searchable, reusable support for teams that need consistent execution.",
+  },
+  {
+    title: "Operations pulse assistants",
+    body: "Watch status, blockers, priority movement, and stale work so leaders can intervene before execution becomes invisible.",
+  },
+];
+
 export default function PlatformsPage() {
   return (
     <>
@@ -26,8 +44,6 @@ export default function PlatformsPage() {
           { href: "/contact", label: "Map Your Stack" },
           { href: "/control-layer", label: "Explore the Control Layer", variant: "secondary" },
         ]}
-        asideTitle="Platform Logic"
-        asideItems={platformBands}
       />
 
       <Reveal delayMs={60}>
@@ -43,10 +59,17 @@ export default function PlatformsPage() {
               </p>
             </div>
 
-            <div className="space-y-4">
+            <div className="rounded-[30px] border border-white/10 bg-white/[0.035] px-5 py-6 shadow-[0_24px_70px_rgba(3,8,16,0.22)]">
               <IntegrationLogoLane />
-              <div className="rounded-[26px] border border-white/8 bg-white/[0.03] p-4">
-                <WorkspacePreview compact />
+              <div className="my-5 grid gap-3 sm:grid-cols-2">
+                {platformBands.map((band) => (
+                  <div
+                    key={band}
+                    className="rounded-[18px] border border-white/10 bg-white/[0.04] px-4 py-4 text-sm font-semibold text-slate-200"
+                  >
+                    {band}
+                  </div>
+                ))}
               </div>
               <IntegrationLogoLane reverse />
             </div>
@@ -54,7 +77,37 @@ export default function PlatformsPage() {
         </section>
       </Reveal>
 
-      <Reveal delayMs={120}>
+      <Reveal delayMs={90}>
+        <section className="section-shell section-shell-light">
+          <div className="section-inner">
+            <div className="max-w-[860px]">
+              <p className="eyebrow text-[#9f412c]">AI Agents and Assistants</p>
+              <h2 className="section-title mt-5 text-slate-950">
+                Assistants belong inside the connected stack, not on a duplicate page.
+              </h2>
+              <p className="mt-6 max-w-[720px] text-base leading-8 text-slate-600">
+                Farcelis treats agents as role-specific workflow support. They need a job, a bounded data context, a review path, and a destination for the output.
+              </p>
+            </div>
+
+            <div className="mt-10 grid gap-4 md:grid-cols-2">
+              {assistantPatterns.map((pattern) => (
+                <article
+                  key={pattern.title}
+                  className="enterprise-card rounded-[24px] border border-slate-200 bg-white px-6 py-6 shadow-[0_18px_38px_rgba(15,23,42,0.06)]"
+                >
+                  <h3 className="text-2xl font-semibold tracking-[-0.04em] text-slate-950">
+                    {pattern.title}
+                  </h3>
+                  <p className="mt-4 text-base leading-8 text-slate-600">{pattern.body}</p>
+                </article>
+              ))}
+            </div>
+          </div>
+        </section>
+      </Reveal>
+
+      <Reveal delayMs={130}>
         <section className="section-shell section-shell-light">
           <div className="section-inner">
             <div className="max-w-[820px]">

@@ -1,5 +1,5 @@
 import Link from "next/link";
-import { notFound } from "next/navigation";
+import { notFound, redirect } from "next/navigation";
 
 import { ArticleCover } from "@/components/ArticleCover";
 import { InsightVisual } from "@/components/InsightVisual";
@@ -12,7 +12,9 @@ type InsightPageProps = {
 };
 
 export function generateStaticParams() {
-  return insightArticles.map((article) => ({ slug: article.slug }));
+  return insightArticles
+    .filter((article) => article.slug !== "funnel-broken-foundation")
+    .map((article) => ({ slug: article.slug }));
 }
 
 export async function generateMetadata({ params }: InsightPageProps) {
@@ -32,6 +34,11 @@ export async function generateMetadata({ params }: InsightPageProps) {
 
 export default async function InsightArticlePage({ params }: InsightPageProps) {
   const { slug } = await params;
+
+  if (slug === "funnel-broken-foundation") {
+    redirect("/insights/blog/funnel-broken-foundation");
+  }
+
   const article = getInsightArticleBySlug(slug);
 
   if (!article) {

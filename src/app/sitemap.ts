@@ -1,6 +1,6 @@
 import type { MetadataRoute } from "next";
 
-import { industryFocus, insightArticles, products, seo, site, teamMembers } from "@/lib/site-data";
+import { blogPosts, industryFocus, insightArticles, products, seo, site, teamMembers } from "@/lib/site-data";
 
 export default function sitemap(): MetadataRoute.Sitemap {
   const staticRoutes = Object.values(seo).map((entry) => ({
@@ -16,7 +16,10 @@ export default function sitemap(): MetadataRoute.Sitemap {
       .map((product) => `/products/${product.slug}`),
     ...industryFocus.map((industry) => `/industries/${industry.slug}`),
     ...teamMembers.map((member) => `/team/${member.slug}`),
-    ...insightArticles.map((article) => `/insights/${article.slug}`),
+    ...insightArticles
+      .filter((article) => article.slug !== "funnel-broken-foundation")
+      .map((article) => `/insights/${article.slug}`),
+    ...blogPosts.map((post) => `/insights/blog/${post.slug}`),
   ].map((path) => ({
     url: `${site.domain}${path}`,
     lastModified: new Date(),

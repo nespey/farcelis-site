@@ -18,13 +18,6 @@ export default function ProductsPage() {
           { href: "/contact", label: "Request Product Fit Review" },
           { href: "/services", label: "See Services", variant: "secondary" },
         ]}
-        asideTitle="Suite Logic"
-        asideItems={[
-          "Assess the operating environment",
-          "Design the control system",
-          "Deploy workflow and AI support",
-          "Measure execution movement",
-        ]}
       />
 
       <Reveal delayMs={60}>
@@ -53,6 +46,16 @@ export default function ProductsPage() {
                     {product.title}
                   </h3>
                   <p className="mt-4 text-base leading-8 text-slate-600">{product.description}</p>
+                  <div className="mt-5 grid gap-2">
+                    {product.outcomes.slice(0, 2).map((outcome) => (
+                      <div
+                        key={outcome}
+                        className="rounded-full border border-slate-200 bg-slate-50 px-4 py-2 text-sm font-semibold text-slate-700"
+                      >
+                        {outcome}
+                      </div>
+                    ))}
+                  </div>
                   <div className="mt-6 text-sm font-semibold text-[#9f412c]">Explore product</div>
                 </Link>
               ))}

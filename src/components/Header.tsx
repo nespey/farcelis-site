@@ -49,11 +49,6 @@ const solutionLinks = [
     detail: "Named Farcelis systems for diagnostics, learning, growth, and deployment.",
   },
   {
-    href: "/platforms",
-    label: "AI Agents & Assistants",
-    detail: "Role-specific AI support connected to real workflow responsibilities.",
-  },
-  {
     href: "/insights",
     label: "Insights & Playbooks",
     detail: "Practical thinking on AI adoption, governance, workflow, and growth.",
