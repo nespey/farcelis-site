@@ -103,15 +103,15 @@ const capabilityLanes = [
     eyebrow: "Execution Support",
     title: "Managed Operations & Enablement",
     description:
-      "For leaders who need director-of-operations style support, workflow intervention, AI enablement, and practical execution cadence while the system matures.",
+      "For leaders who need operating support while the system matures: triage, follow-through, meeting cadence, workflow cleanup, AI enablement, and executive visibility.",
     builds: [
-      "Fractional operations support",
-      "Workflow intervention",
-      "Team AI enablement",
-      "Operating rhythm design",
+      "Weekly operating cadence",
+      "Workflow triage and cleanup",
+      "Executive follow-through",
+      "AI enablement in live work",
     ],
-    href: "/contact",
-    cta: "Discuss managed support",
+    href: "/services/managed-operations",
+    cta: "Explore managed operations",
   },
 ];
 
@@ -188,16 +188,16 @@ export default function ServicesPage() {
                     {lane.title}
                   </h3>
                   <p className="mt-4 text-base leading-8 text-slate-600">{lane.description}</p>
-                  <div className="mt-6 grid gap-2 sm:grid-cols-2">
+                  <ul className="mt-6 grid gap-2 sm:grid-cols-2">
                     {lane.builds.map((item) => (
-                      <div
+                      <li
                         key={item}
-                        className="rounded-[14px] border border-slate-200 bg-slate-50 px-4 py-3 text-sm font-medium leading-6 text-slate-700"
+                        className="border-l border-[#9f412c]/24 pl-4 text-sm font-semibold leading-6 text-slate-700"
                       >
                         {item}
-                      </div>
+                      </li>
                     ))}
-                  </div>
+                  </ul>
                   <Link
                     href={lane.href}
                     className="mt-7 inline-flex min-h-11 items-center justify-center rounded-full border border-[#9f412c]/20 px-5 py-2.5 text-sm font-semibold text-[#9f412c] transition hover:border-[#9f412c]/40 hover:bg-[#9f412c]/5"

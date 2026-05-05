@@ -218,6 +218,12 @@ export const seo = {
     description:
       "Farcelis designs workflow routing, handoffs, ownership, reporting, and operating cadence so work moves cleanly across teams and tools.",
   },
+  managedOperations: {
+    path: "/services/managed-operations",
+    title: "Managed Operations | Farcelis AI Consulting",
+    description:
+      "Farcelis provides managed operations support for leaders who need operating cadence, workflow triage, executive follow-through, AI enablement, and clearer execution.",
+  },
   platforms: {
     path: "/platforms",
     title: "AI Platforms & Integrations | Farcelis Consulting",

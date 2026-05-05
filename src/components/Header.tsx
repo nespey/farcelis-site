@@ -31,9 +31,9 @@ const capabilityLinks = [
     detail: "Social, SEO, blogs, campaigns, content, and revenue operations.",
   },
   {
-    href: "/services#managed-operations",
+    href: "/services/managed-operations",
     label: "Managed Operations",
-    detail: "Fractional operations support, execution cadence, and intervention.",
+    detail: "Hands-on operating cadence, triage, follow-through, and enablement.",
   },
 ];
 
