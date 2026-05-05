@@ -54,11 +54,6 @@ const solutionLinks = [
     detail: "Role-specific AI support connected to real workflow responsibilities.",
   },
   {
-    href: "/industries",
-    label: "Industry Operating Models",
-    detail: "Service, government-adjacent, growth, operations, and enablement teams.",
-  },
-  {
     href: "/insights",
     label: "Insights & Playbooks",
     detail: "Practical thinking on AI adoption, governance, workflow, and growth.",
