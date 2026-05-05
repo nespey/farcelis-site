@@ -153,12 +153,22 @@ export const site = {
     {
       label: "LinkedIn",
       href: "https://www.linkedin.com/company/106402904/admin/dashboard/",
+      icon: "/icons/social/linkedin.png",
     },
-    { label: "Facebook", href: "https://www.facebook.com/profile.php?id=61574461822944" },
-    { label: "X", href: "https://x.com/FarcelisAI" },
+    {
+      label: "X",
+      href: "https://x.com/FarcelisAI?s=20",
+      icon: "/icons/social/x.png",
+    },
+    {
+      label: "Facebook",
+      href: "https://www.facebook.com/profile.php?id=61574461822944",
+      icon: "/icons/social/facebook.png",
+    },
     {
       label: "Instagram",
-      href: "https://www.instagram.com/farcelisai?igsh=MWI1OW1rbGlzeWliMA%3D%3D&utm_source=qr",
+      href: "https://www.instagram.com/farcelisai?utm_source=ig_web_button_share_sheet&igsh=ZDNlZDc0MzIxNw==",
+      icon: "/icons/social/instagram.png",
     },
   ],
   legalLinks: [

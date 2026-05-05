@@ -60,12 +60,35 @@ export function Footer() {
             architecture, cleaner execution, and more reliable visibility before complexity
             compounds into drag.
           </p>
-          <div className="mt-5 space-y-0.5 text-sm leading-6 text-slate-400">
-            <div>{site.contact.email}</div>
-            <div>{site.contact.phone}</div>
-            {site.contact.addressLines.map((line) => (
-              <div key={line}>{line}</div>
-            ))}
+          <div className="mt-5 flex flex-col gap-5 sm:flex-row sm:items-end">
+            <div className="space-y-0.5 text-sm leading-6 text-slate-400">
+              <div>{site.contact.email}</div>
+              <div>{site.contact.phone}</div>
+              {site.contact.addressLines.map((line) => (
+                <div key={line}>{line}</div>
+              ))}
+            </div>
+
+            <div className="flex items-center gap-3.5 sm:pb-0.5">
+              {site.social.map((item) => (
+                <a
+                  key={item.label}
+                  href={item.href}
+                  target="_blank"
+                  rel="noreferrer"
+                  aria-label={item.label}
+                  className="group flex h-8 w-8 shrink-0 items-center justify-center transition duration-200 hover:-translate-y-0.5 focus:outline-none focus-visible:ring-2 focus-visible:ring-slate-300/70"
+                >
+                  <Image
+                    src={item.icon}
+                    alt=""
+                    width={32}
+                    height={32}
+                    className="h-8 w-8 object-contain drop-shadow-[0_3px_5px_rgba(0,0,0,0.32)] transition duration-200 group-hover:drop-shadow-[0_5px_8px_rgba(0,0,0,0.38)]"
+                  />
+                </a>
+              ))}
+            </div>
           </div>
         </div>
 
