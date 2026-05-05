@@ -64,11 +64,6 @@ const solutionLinks = [
     detail: "Practical thinking on AI adoption, governance, workflow, and growth.",
   },
   {
-    href: "/resources",
-    label: "Reports & Whitepapers",
-    detail: "Gated executive briefings, playbooks, diagnostics, and frameworks.",
-  },
-  {
     href: "/events",
     label: "Webinars & Events",
     detail: "Executive sessions and workshops for AI-enabled operating systems.",
