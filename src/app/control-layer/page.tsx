@@ -401,14 +401,25 @@ export default function ControlLayerPage() {
       <Reveal delayMs={120}>
         <section className="section-shell control-bridge-section">
           <div className="section-inner">
-            <p className="eyebrow text-[#9f412c]">Same Architecture, Different Life</p>
-            <h2 className="section-title mt-5 max-w-[980px] text-white">
-              The Control Layer is not limited to business operations. It is a way to make invisible load visible, routable, and calm.
-            </h2>
-            <p className="mt-6 max-w-[860px] text-lg leading-8 text-slate-300">
-              The same structure that stabilizes a government contract environment can stabilize a household: inboxes, bills,
-              appointments, schedules, job search activity, reminders, and shared responsibilities all become one living operating picture.
-            </p>
+            <figure className="founder-quote-card">
+              <div className="founder-quote-image">
+                <img
+                  src="/images/nathan-headshot-library-2026.png"
+                  alt="Nathan Espey"
+                />
+              </div>
+              <figcaption className="founder-quote-copy">
+                <p className="eyebrow text-[#ff7f4f]">Same Architecture, Different Life</p>
+                <blockquote>
+                  After years of working with senior professionals inside high-pressure environments, one thing became impossible
+                  to ignore: every organization eventually needs a command system built around how it actually moves. The Control
+                  Layer has to adapt to the company, learn from its signals, and sharpen itself around the work. The people should
+                  not have to bend themselves around the system.
+                </blockquote>
+                <p className="founder-quote-name">Nathan Espey</p>
+                <p className="founder-quote-role">Founder, Farcelis AI Consulting LLC</p>
+              </figcaption>
+            </figure>
           </div>
         </section>
       </Reveal>

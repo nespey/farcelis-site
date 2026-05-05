@@ -2684,6 +2684,108 @@ main :is(.border-t, .border-b, .border-y, .divide-y > :not([hidden]) ~ :not([hid
   background: transparent !important;
 }
 
+.founder-quote-card {
+  position: relative;
+  isolation: isolate;
+  display: grid;
+  grid-template-columns: minmax(160px, 0.34fr) minmax(0, 1fr);
+  gap: clamp(1.1rem, 2.6vw, 2.8rem);
+  align-items: center;
+  overflow: hidden;
+  border-radius: 30px;
+  border: 1px solid rgba(186, 230, 253, 0.22);
+  background:
+    radial-gradient(circle at 18% 24%, rgba(255, 127, 79, 0.22), transparent 34%),
+    radial-gradient(circle at 86% 0%, rgba(97, 192, 215, 0.2), transparent 38%),
+    linear-gradient(135deg, rgba(255, 255, 255, 0.105), rgba(255, 255, 255, 0.035)),
+    rgba(6, 24, 36, 0.72);
+  padding: clamp(1rem, 2vw, 1.7rem);
+  box-shadow:
+    0 28px 90px rgba(0, 0, 0, 0.36),
+    0 0 86px rgba(97, 192, 215, 0.18),
+    0 0 62px rgba(255, 127, 79, 0.11),
+    inset 0 1px 0 rgba(255, 255, 255, 0.16);
+}
+
+.founder-quote-card::before {
+  content: "";
+  position: absolute;
+  inset: 12% 8% auto 30%;
+  z-index: -1;
+  height: 46%;
+  border-radius: 999px;
+  background: linear-gradient(90deg, rgba(255, 127, 79, 0.28), rgba(97, 192, 215, 0.24));
+  filter: blur(42px);
+  opacity: 0.8;
+}
+
+.founder-quote-card::after {
+  content: "";
+  position: absolute;
+  inset: 0;
+  z-index: -1;
+  background:
+    linear-gradient(90deg, rgba(255, 255, 255, 0.08), transparent 28%, rgba(255, 255, 255, 0.045)),
+    repeating-linear-gradient(90deg, rgba(255, 255, 255, 0.035) 0 1px, transparent 1px 95px);
+  mask-image: linear-gradient(90deg, transparent, #000 18%, #000 84%, transparent);
+  opacity: 0.42;
+}
+
+.founder-quote-image {
+  position: relative;
+  overflow: hidden;
+  width: min(100%, 220px);
+  aspect-ratio: 0.78;
+  justify-self: center;
+  border-radius: 24px;
+  border: 1px solid rgba(255, 255, 255, 0.18);
+  background: rgba(255, 255, 255, 0.08);
+  box-shadow:
+    0 20px 50px rgba(0, 0, 0, 0.28),
+    0 0 42px rgba(255, 127, 79, 0.2);
+}
+
+.founder-quote-image::after {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(180deg, transparent 58%, rgba(6, 24, 36, 0.34));
+  pointer-events: none;
+}
+
+.founder-quote-image img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+.founder-quote-copy {
+  max-width: 940px;
+}
+
+.founder-quote-copy blockquote {
+  margin-top: clamp(0.8rem, 1.4vw, 1.2rem);
+  color: #f8fbff;
+  font-size: clamp(1.55rem, 2.4vw, 2.65rem);
+  line-height: 1.16;
+  letter-spacing: -0.04em;
+  font-weight: 650;
+}
+
+.founder-quote-name {
+  margin-top: clamp(1rem, 1.7vw, 1.5rem);
+  color: #ffffff;
+  font-size: 0.95rem;
+  font-weight: 850;
+}
+
+.founder-quote-role {
+  margin-top: 0.22rem;
+  color: #b8c8d3;
+  font-size: 0.82rem;
+  font-weight: 650;
+}
+
 .control-showcase-section--home {
   padding-top: clamp(1rem, 1.8vw, 1.9rem);
 }
@@ -3185,6 +3287,14 @@ main :is(.border-t, .border-b, .border-y, .divide-y > :not([hidden]) ~ :not([hid
 
   .possibility-stack {
     grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
+
+  .founder-quote-card {
+    grid-template-columns: 1fr;
+  }
+
+  .founder-quote-copy {
+    text-align: center;
   }
 
   .display-hero {
