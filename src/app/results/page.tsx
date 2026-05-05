@@ -14,31 +14,39 @@ const proofFrames = [
 const recommendationCards = [
   {
     source: "Operating leader recommendation",
-    context: "AI literacy roundtable for educational and organizational leaders",
+    context: "AI literacy roundtable for education and organizational leadership teams",
     quote:
-      "The work translated complex AI concepts into actionable guidance, with a clear command of ethical implementation, strategic adoption, and responsible AI leadership.",
-    tags: ["Ethical AI", "Strategic adoption", "Thought leadership"],
+      "The session turned AI from an abstract risk into a practical leadership conversation: what teams can use, where judgment belongs, and how adoption can stay ethical.",
+    result:
+      "Leaders left with a clearer shared vocabulary for AI use, implementation risk, and responsible adoption inside their organizations.",
+    tags: ["AI literacy", "Ethical rollout", "Leadership alignment"],
   },
   {
     source: "Startup operations engagement",
     context: "CRM organization, research, enrichment, and outreach preparation",
     quote:
-      "The engagement brought structure to a significant amount of CRM and research work, with clear communication, accuracy, and quality throughout the process.",
-    tags: ["CRM operations", "Detail oriented", "Clear communicator"],
+      "The engagement cleaned up a high-volume CRM and research workload so outreach could move from scattered records into usable, segmented action.",
+    result:
+      "The team gained cleaner account intelligence, better list quality, and a more dependable path from research to outreach execution.",
+    tags: ["CRM cleanup", "Research enrichment", "Outbound readiness"],
   },
   {
     source: "Executive support engagement",
-    context: "Vendor sourcing, urgency, and operational follow-through",
+    context: "Vendor sourcing, urgent coordination, and executive follow-through",
     quote:
-      "The support was dependable, urgent, and mission-focused, with strong attention to detail and a clear commitment to the work.",
-    tags: ["Operational support", "Sense of urgency", "Mission focus"],
+      "The support took time-sensitive vendor and coordination work off the executive desk without losing urgency, detail, or accountability.",
+    result:
+      "The organization had faster options, cleaner follow-up, and fewer loose ends during a compressed decision window.",
+    tags: ["Vendor sourcing", "Executive support", "Follow-through"],
   },
   {
     source: "Senior operations recommendation",
     context: "Organizational assessment and implementation",
     quote:
-      "The work showed strong problem-solving, organizational assessment, implementation discipline, and team-building ability under pressure.",
-    tags: ["Problem solving", "Assessment", "Implementation"],
+      "The work moved beyond observation into implementation: diagnosing operating gaps, shaping the team response, and helping the organization act under pressure.",
+    result:
+      "Leadership had a clearer view of where coordination was breaking down and a more practical path for rebuilding execution discipline.",
+    tags: ["Operating assessment", "Team response", "Implementation discipline"],
   },
 ];
 
@@ -215,6 +223,9 @@ export default function ResultsPage() {
                     “{card.quote}”
                   </p>
                   <p className="mt-5 text-sm leading-6 text-slate-400">{card.context}</p>
+                  <p className="mt-4 rounded-[18px] border border-cyan-100/10 bg-cyan-100/6 px-4 py-4 text-sm leading-7 text-slate-200">
+                    {card.result}
+                  </p>
                   <div className="mt-6 flex flex-wrap gap-2">
                     {card.tags.map((tag) => (
                       <span

@@ -54,7 +54,7 @@ export default async function InsightArticlePage({ params }: InsightPageProps) {
                 </span>
               ))}
             </div>
-            <h1 className="mt-7 text-[clamp(3rem,6vw,6.4rem)] font-semibold leading-[0.92] tracking-[-0.08em] text-slate-950">
+            <h1 className="mt-7 max-w-[920px] text-[clamp(2.4rem,4.2vw,4rem)] font-semibold leading-[1.02] tracking-[-0.055em] text-slate-950">
               {article.title}
             </h1>
             <p className="mt-7 max-w-[820px] text-xl leading-9 text-slate-600">{article.dek}</p>

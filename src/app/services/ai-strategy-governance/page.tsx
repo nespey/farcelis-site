@@ -11,18 +11,26 @@ const strategyBlocks = [
   {
     title: "AI readiness",
     body: "Identify where AI can create value, where the organization is not ready, and which workflows need structure before adoption expands.",
+    href: "/resources",
+    cta: "Review readiness resources",
   },
   {
     title: "Governance and usage rules",
     body: "Define what teams can use AI for, what requires review, what must be documented, and where human judgment remains required.",
+    href: "/contact",
+    cta: "Discuss governance rules",
   },
   {
     title: "Adoption roadmap",
     body: "Sequence AI use cases by value, risk, operational fit, and leadership capacity so rollout is deliberate instead of scattered.",
+    href: "/services/workflow-operations",
+    cta: "Connect the workflow plan",
   },
   {
     title: "Decision structure",
     body: "Clarify ownership, escalation, approval, review, and accountability around AI-supported work.",
+    href: "/control-layer",
+    cta: "See the Control Layer",
   },
 ];
 
@@ -56,23 +64,28 @@ export default function AiStrategyGovernancePage() {
         <section className="section-shell section-shell-light">
           <div className="section-inner">
             <div className="max-w-[840px]">
-              <p className="eyebrow text-[#9f412c]">What This Covers</p>
+              <p className="eyebrow text-[#9f412c]">What Leaders Get</p>
               <h2 className="section-title mt-5 text-slate-950">
-                Strategy and governance turn AI interest into controlled operating capability.
+                Strategy and governance turn AI interest into a working adoption system.
               </h2>
+              <p className="mt-6 max-w-[760px] text-base leading-8 text-slate-600">
+                The point is to leave with decisions leaders can use: which AI use cases move first, what rules govern them, who owns review, and how the work connects to the operating system.
+              </p>
             </div>
 
             <div className="mt-12 grid gap-4 md:grid-cols-2">
               {strategyBlocks.map((block) => (
-                <article
+                <Link
                   key={block.title}
-                  className="enterprise-card rounded-[24px] border border-slate-200 bg-white px-6 py-6 shadow-[0_18px_38px_rgba(15,23,42,0.06)]"
+                  href={block.href}
+                  className="enterprise-card rounded-[24px] border border-slate-200 bg-white px-6 py-6 shadow-[0_18px_38px_rgba(15,23,42,0.06)] transition hover:-translate-y-1 hover:border-[#9f412c]/28"
                 >
                   <h3 className="text-2xl font-semibold tracking-[-0.04em] text-slate-950">
                     {block.title}
                   </h3>
                   <p className="mt-4 text-base leading-8 text-slate-600">{block.body}</p>
-                </article>
+                  <div className="mt-6 text-sm font-semibold text-[#9f412c]">{block.cta}</div>
+                </Link>
               ))}
             </div>
           </div>

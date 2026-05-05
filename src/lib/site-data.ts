@@ -831,15 +831,15 @@ export const rawIntelBriefs: PodcastBrief[] = [
 export const blogPosts: BlogPost[] = [
   {
     slug: "understanding-ai-driven-content-julian-mercer",
-    title: "Understanding AI-Driven Content: Insights from Julian Mercer",
+    title: "AI Content Field Notes: Julian Mercer on Human-Led Automation",
     label: "From Julian",
     author: "Julian Mercer",
     date: "March 27, 2025",
     description:
-      "Julian's blog on AI-assisted content creation, audience intelligence, human voice, and the practical balance between automation and strategy.",
+      "A sharper field note on AI-assisted content creation, audience intelligence, human voice, and the practical balance between automation and strategy.",
     image: "/images/blog/ai-driven-blog.png",
     imageAlt: "AI Driven Blog artwork from the original Farcelis blog library",
-    cta: "Open Julian's blog",
+    cta: "Read the field note",
     body: [
       {
         heading: "The Evolution of Content Creation: How AI is Reshaping the Landscape",

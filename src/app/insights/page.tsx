@@ -9,14 +9,6 @@ import { blogPosts, insightArticles, mediaLanes, rawIntelBriefs, seo } from "@/l
 
 export const metadata = buildMetadata(seo.insights);
 
-const insightTracks = [
-  "AI adoption",
-  "Workflow architecture",
-  "Governance",
-  "Growth systems",
-  "Executive visibility",
-];
-
 export default function InsightsPage() {
   return (
     <>
@@ -28,8 +20,6 @@ export default function InsightsPage() {
           { href: "/contact", label: "Talk Through a Use Case" },
           { href: "/services", label: "Explore Capabilities", variant: "secondary" },
         ]}
-        asideTitle="Insight Tracks"
-        asideItems={insightTracks}
       />
 
       <Reveal delayMs={60}>
@@ -37,12 +27,12 @@ export default function InsightsPage() {
           <div className="section-inner">
             <div className="grid gap-10 lg:grid-cols-[minmax(0,0.72fr)_minmax(0,1.28fr)]">
               <div>
-                <p className="eyebrow text-[#9f412c]">Content Home</p>
+                <p className="eyebrow text-[#9f412c]">Insights Library</p>
                 <h2 className="section-title mt-5 text-slate-950">
-                  The library has lanes now. Articles, Raw Intel, and the blog do different jobs.
+                  Read the essays, hear Raw Intel, or follow Julian&apos;s content systems notes.
                 </h2>
                 <p className="mt-6 max-w-[620px] text-base leading-8 text-slate-600">
-                  Insights is the home for public thinking. Results proves credibility. Resources holds gated briefings and whitepapers. That keeps the site lean and keeps each content type from blurring into the next.
+                  This hub is built for public thinking: long-form articles with reader pages, Raw Intel audio, and Julian&apos;s focused blog on AI content systems.
                 </p>
               </div>
               <div className="grid gap-4 md:grid-cols-3">
@@ -183,12 +173,12 @@ export default function InsightsPage() {
           <div className="section-inner">
             <div className="grid gap-10 lg:grid-cols-[minmax(0,0.55fr)_minmax(0,1.45fr)]">
               <div>
-                <p className="eyebrow text-[#9f412c]">Blog</p>
+                <p className="eyebrow text-[#9f412c]">From Julian</p>
                 <h2 className="section-title mt-5 text-slate-950">
-                  Julian&apos;s blog is its own lane, separate from the article library.
+                  AI Content Field Notes from Julian Mercer.
                 </h2>
                 <p className="mt-6 max-w-[560px] text-base leading-8 text-slate-600">
-                  Articles are long-form essays. Raw Intel is audio. Julian&apos;s blog is the shorter content-strategy lane, with its own reader treatment and its own imagery.
+                  Julian covers the content engine: AI-assisted creation, human voice, audience insight, publishing cadence, and the judgment required before automation touches the brand.
                 </p>
               </div>
               <div className="grid gap-5">
@@ -220,36 +210,6 @@ export default function InsightsPage() {
                   </Link>
                 ))}
               </div>
-            </div>
-          </div>
-        </section>
-      </Reveal>
-
-      <Reveal delayMs={220}>
-        <section className="section-shell section-shell-dark">
-          <div className="section-inner grid gap-10 lg:grid-cols-[minmax(0,0.7fr)_minmax(0,1.3fr)]">
-            <div>
-              <p className="eyebrow text-[color:var(--color-accent)]">Publishing Direction</p>
-              <h2 className="section-title mt-5 text-white">
-                Every content type has a role. No more scattered proof, media, and resources.
-              </h2>
-            </div>
-            <div className="grid gap-3">
-              {[
-                "Articles live in Insights and open into complete reader pages.",
-                "Raw Intel lives in Insights as the podcast and voice brief lane.",
-                "Resources stay focused on requestable guides, reports, and whitepapers.",
-                "Results stays focused on proof, recognition, recommendations, and credibility signals.",
-              ].map((item, index) => (
-                <div
-                  key={item}
-                  className={`border-l border-[color:var(--color-accent)]/24 py-6 pl-6 ${index === 1 ? "lg:translate-x-8" : ""}`}
-                >
-                  <div className="text-2xl font-medium tracking-[-0.04em] text-slate-200">
-                    {item}
-                  </div>
-                </div>
-              ))}
             </div>
           </div>
         </section>

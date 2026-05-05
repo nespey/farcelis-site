@@ -53,7 +53,7 @@ export default async function BlogPostPage({ params }: BlogPageProps) {
                 </span>
               ))}
             </div>
-            <h1 className="mt-7 text-[clamp(3rem,6vw,6.4rem)] font-semibold leading-[0.92] tracking-[-0.08em] text-slate-950">
+            <h1 className="mt-7 max-w-[920px] text-[clamp(2.4rem,4.2vw,4rem)] font-semibold leading-[1.02] tracking-[-0.055em] text-slate-950">
               {post.title}
             </h1>
             <p className="mt-7 max-w-[760px] text-xl leading-9 text-slate-600">{post.description}</p>
@@ -89,10 +89,10 @@ export default async function BlogPostPage({ params }: BlogPageProps) {
             <aside>
               <div className="sticky top-28 rounded-[26px] border border-slate-200 bg-white p-5 shadow-[0_18px_38px_rgba(15,23,42,0.06)]">
                 <p className="text-xs font-semibold uppercase tracking-[0.18em] text-[#9f412c]">
-                  Blog Lane
+                  From Julian
                 </p>
                 <p className="mt-4 text-base leading-7 text-slate-600">
-                  Julian&apos;s posts sit apart from the article library so his content-strategy voice has its own space.
+                  These notes focus on the content engine: audience signal, voice, cadence, review, and where AI should support the work without flattening it.
                 </p>
               </div>
             </aside>

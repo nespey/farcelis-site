@@ -24,12 +24,9 @@ export function PageIntro({
   title,
   description,
   actions = [],
-  asideTitle,
-  asideItems = [],
   compact = false,
   className = "",
 }: PageIntroProps) {
-  const hasAside = Boolean(asideTitle || asideItems.length > 0);
   const hasPanelField = className.includes("control-hero");
 
   return (
@@ -46,13 +43,13 @@ export function PageIntro({
           <span className="signal-line" />
         </div>
       ) : null}
-      <div className={`section-inner relative grid gap-12 lg:items-end ${hasAside ? "lg:grid-cols-[minmax(0,0.78fr)_minmax(280px,0.22fr)]" : "lg:grid-cols-1"}`}>
-        <div className="text-center">
+      <div className="section-inner relative">
+        <div>
           <p className="eyebrow text-[color:var(--color-accent)]">{eyebrow}</p>
           <h1 className="display-page mt-5 text-white">{title}</h1>
-          <p className="lede mt-6 max-w-[720px]">{description}</p>
+          <p className="lede mt-6 max-w-[820px]">{description}</p>
           {actions.length > 0 ? (
-            <div className="mt-8 flex flex-col gap-3 sm:flex-row sm:justify-center">
+            <div className="mt-8 flex flex-col gap-3 sm:flex-row">
               {actions.map((action) => (
                 <Link
                   key={action.href + action.label}
@@ -69,24 +66,6 @@ export function PageIntro({
             </div>
           ) : null}
         </div>
-
-        {hasAside ? (
-          <aside className="surface-dark relative rounded-[28px] border border-cyan-100/14 bg-[linear-gradient(180deg,rgba(12,30,40,0.93),rgba(10,25,35,0.86)),linear-gradient(135deg,rgba(97,192,215,0.11),rgba(242,139,91,0.06))] px-6 py-7 text-center shadow-[0_24px_60px_rgba(3,8,16,0.28)] backdrop-blur-xl">
-            {asideTitle ? (
-              <p className="eyebrow text-[color:var(--color-accent)]">{asideTitle}</p>
-            ) : null}
-            <div className="mt-5 space-y-4">
-              {asideItems.map((item) => (
-                <div
-                  key={item}
-                  className="rounded-[14px] border border-cyan-100/10 bg-white/[0.045] px-4 py-3 text-sm leading-6 text-slate-100"
-                >
-                  {item}
-                </div>
-              ))}
-            </div>
-          </aside>
-        ) : null}
       </div>
     </section>
   );
