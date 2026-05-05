@@ -78,6 +78,27 @@ export type EventOffer = {
   audience: string;
 };
 
+export type MediaLane = {
+  title: string;
+  label: string;
+  description: string;
+  home: string;
+};
+
+export type PodcastBrief = {
+  title: string;
+  signal: string;
+  description: string;
+  runtime: string;
+  image: string;
+};
+
+export type BlogDispatch = {
+  title: string;
+  label: string;
+  description: string;
+};
+
 export type InsightArticle = {
   slug: string;
   title: string;
@@ -737,6 +758,78 @@ export const insightCards: InfoCard[] = [
     title: "Executive visibility is a design problem",
     description:
       "Leaders do not need more dashboards. They need the right operating signals arranged around action, priority, risk, and accountability.",
+  },
+];
+
+export const mediaLanes: MediaLane[] = [
+  {
+    title: "Articles",
+    label: "Long-form reader library",
+    description:
+      "Complete essays with executive takeaways, custom visual briefs, and a Farcelis connection at the end.",
+    home: "/insights#articles",
+  },
+  {
+    title: "Raw Intel",
+    label: "Podcast and voice brief lane",
+    description:
+      "A sharper audio identity for live conversations, founder readouts, operating pressure, and AI adoption judgment.",
+    home: "/insights#raw-intel",
+  },
+  {
+    title: "Blog Notes",
+    label: "Short tactical dispatches",
+    description:
+      "Concise field notes for patterns that do not need the full article treatment: workflow friction, buyer questions, platform decisions, and growth-system fixes.",
+    home: "/insights#blog-notes",
+  },
+];
+
+export const rawIntelBriefs: PodcastBrief[] = [
+  {
+    title: "The AI Lie Detector",
+    signal: "Raw Intel launch highlight",
+    description:
+      "A podcast brief that pulls back the curtain on AI demo deception, benchmark manipulation, and the judgment leaders need before trusting performance claims.",
+    runtime: "Podcast episode",
+    image: "/images/media/raw-intel-podcast-artwork.png",
+  },
+  {
+    title: "Benchmarks, Hype, and Executive Risk",
+    signal: "AI governance",
+    description:
+      "A Raw Intel frame for how leaders should hear benchmark claims before they put AI outputs into real workflows.",
+    runtime: "Discussion format",
+    image: "/images/media/raw-intel-mark.png",
+  },
+  {
+    title: "The AI Tool Is Not the Strategy",
+    signal: "Operating judgment",
+    description:
+      "A practical conversation lane for adoption, ownership, escalation, and what happens after a team starts using AI in the wild.",
+    runtime: "Operator debrief",
+    image: "/images/media/raw-intel-podcast-button.png",
+  },
+];
+
+export const blogDispatches: BlogDispatch[] = [
+  {
+    title: "AI Performance Myths",
+    label: "Substack field note",
+    description:
+      "A direct companion to the Raw Intel launch: strip the shine off AI marketing claims and ask what the system can actually prove.",
+  },
+  {
+    title: "Funnel Foundation Audit",
+    label: "Growth systems",
+    description:
+      "A quick operating check for slow pages, broken forms, CRM trigger gaps, follow-up failures, and campaign handoffs that quietly flatten conversion.",
+  },
+  {
+    title: "Platform Sprawl Triage",
+    label: "Workflow control",
+    description:
+      "A short diagnostic for deciding whether a team needs a new platform, a cleaner integration, or a control layer above the tools it already uses.",
   },
 ];
 

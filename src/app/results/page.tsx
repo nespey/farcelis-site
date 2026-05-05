@@ -1,10 +1,9 @@
 import Link from "next/link";
 
-import { InsightVisual } from "@/components/InsightVisual";
 import { PageIntro } from "@/components/PageIntro";
 import { Reveal } from "@/components/Reveal";
 import { buildMetadata } from "@/lib/metadata";
-import { insightArticles, seo } from "@/lib/site-data";
+import { seo } from "@/lib/site-data";
 
 export const metadata = buildMetadata(seo.results);
 
@@ -96,25 +95,23 @@ const engagementProof = [
   "Implementation discipline under pressure",
 ];
 
-const publishingLibrary = insightArticles.slice(0, 4);
-
 const emergingChannels = [
   {
-    title: "AI learning lab",
+    title: "Insights holds the public thinking",
     body:
-      "A classroom-style environment is being developed to translate Farcelis thinking into practical lessons, prompts, operating models, and guided AI adoption paths.",
-    href: "https://www.skool.com/@nathan-espey-4146?g=executive-ai-operations-lab-5451",
-  },
-  {
-    title: "Article library",
-    body:
-      "The Farcelis insight library now opens articles directly on this site, with executive takeaways and internal reading pages instead of a spreadsheet or third-party handoff.",
+      "Full articles, Raw Intel, and blog notes now live together inside the Insights hub with separate visual systems and clearer publishing roles.",
     href: "/insights",
   },
   {
-    title: "Podcast and field notes",
+    title: "Resources stays buyer enablement",
     body:
-      "The field-notes lane turns consulting lessons, AI adoption patterns, and operational breakdowns into recurring executive commentary.",
+      "Whitepapers, executive briefings, playbooks, and reports stay in Resources because they support buying decisions and should not look like media.",
+    href: "/resources",
+  },
+  {
+    title: "Results stays proof",
+    body:
+      "Recognition, recommendation patterns, public-source proof, and client-safe trust signals stay here so the page does not become another content library.",
   },
 ];
 
@@ -285,61 +282,15 @@ export default function ResultsPage() {
 
       <Reveal delayMs={240}>
         <section className="section-shell section-shell-dark">
-          <div className="section-inner">
-            <div className="max-w-[880px]">
-              <p className="eyebrow text-[color:var(--color-accent)]">Publishing Library</p>
-              <h2 className="section-title mt-5 text-white">
-                Published AI work shows the thinking behind the consulting.
-              </h2>
-              <p className="mt-6 max-w-[720px] text-base leading-8 text-slate-300">
-                The Farcelis library now organizes selected pieces around AI literacy, public trust, governance, operations, and workforce readiness.
-              </p>
-            </div>
-
-            <div className="mt-12 grid gap-5 md:grid-cols-2">
-              {publishingLibrary.map((item) => (
-                <Link
-                  key={item.slug}
-                  href={`/insights/${item.slug}`}
-                  className="group overflow-hidden rounded-[28px] border border-white/10 bg-white/[0.045] transition hover:-translate-y-1 hover:border-cyan-100/24 hover:bg-white/[0.065]"
-                >
-                  <div className="grid gap-0 sm:grid-cols-[180px_minmax(0,1fr)]">
-                    <div className="overflow-hidden bg-white">
-                      <InsightVisual
-                        kind={item.visualKind}
-                        label={item.visualLabel}
-                        metrics={item.visualMetrics}
-                        compact
-                      />
-                    </div>
-                    <div className="px-6 py-6">
-                      <div className="text-xs font-semibold uppercase tracking-[0.18em] text-[color:var(--color-accent)]">
-                        {item.category} · {item.readTime}
-                      </div>
-                      <h3 className="mt-4 text-2xl font-semibold leading-tight tracking-[-0.05em] text-white">
-                        {item.title}
-                      </h3>
-                      <p className="mt-4 text-base leading-8 text-slate-300">{item.dek}</p>
-                      <div className="mt-6 text-sm font-semibold text-[color:var(--color-accent)]">
-                        Open full reader
-                      </div>
-                    </div>
-                  </div>
-                </Link>
-              ))}
-            </div>
-          </div>
-        </section>
-      </Reveal>
-
-      <Reveal delayMs={280}>
-        <section className="section-shell section-shell-dark">
           <div className="section-inner grid gap-10 lg:grid-cols-[minmax(0,0.75fr)_minmax(0,1.25fr)]">
             <div>
-              <p className="eyebrow text-[color:var(--color-accent)]">Next Proof Surfaces</p>
+              <p className="eyebrow text-[color:var(--color-accent)]">Content Routing</p>
               <h2 className="section-title mt-5 text-white">
-                The proof layer can grow into a living Farcelis media and learning ecosystem.
+                Results now points to the right shelves instead of repeating the library.
               </h2>
+              <p className="mt-6 max-w-[620px] text-base leading-8 text-slate-300">
+                This keeps the page authoritative: proof here, public thinking in Insights, and buyer resources in Resources.
+              </p>
             </div>
             <div className="grid gap-4">
               {emergingChannels.map((item) => {
