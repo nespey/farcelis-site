@@ -1,3 +1,5 @@
+import Image from "next/image";
+
 import { PageIntro } from "@/components/PageIntro";
 import { Reveal } from "@/components/Reveal";
 import { buildMetadata } from "@/lib/metadata";
@@ -5,90 +7,66 @@ import { seo } from "@/lib/site-data";
 
 export const metadata = buildMetadata(seo.results);
 
-const proofFrames = [
-  "Public recognition confirms the signal.",
-  "Recommendations show how the work lands with operators.",
-  "Published thinking shows depth beyond the engagement.",
-];
-
 const recommendationCards = [
   {
-    source: "Operating leader recommendation",
-    context: "AI literacy roundtable for education and organizational leadership teams",
+    source: "CityGov AI literacy roundtable",
+    context: "AI Literacy for the Next Generation roundtable with public-sector and education leaders",
     quote:
-      "The session turned AI from an abstract risk into a practical leadership conversation: what teams can use, where judgment belongs, and how adoption can stay ethical.",
+      "Nathan brought AI down from the cloud and into the room: what leaders can say yes to, where judgment has to stay human, and how teams can adopt AI without losing trust.",
     result:
-      "Leaders left with a clearer shared vocabulary for AI use, implementation risk, and responsible adoption inside their organizations.",
-    tags: ["AI literacy", "Ethical rollout", "Leadership alignment"],
+      "The roundtable gave leaders practical language for AI literacy, ethical use, classroom and workplace readiness, and responsible adoption.",
+    tags: ["CityGov roundtable", "AI literacy", "Responsible adoption"],
   },
   {
     source: "Startup operations engagement",
     context: "CRM organization, research, enrichment, and outreach preparation",
     quote:
-      "The engagement cleaned up a high-volume CRM and research workload so outreach could move from scattered records into usable, segmented action.",
+      "The engagement turned a messy CRM and research backlog into a cleaner operating base for outreach, segmentation, and account follow-through.",
     result:
-      "The team gained cleaner account intelligence, better list quality, and a more dependable path from research to outreach execution.",
+      "The team moved from scattered records to usable account intelligence, stronger list quality, and a more dependable research-to-outreach path.",
     tags: ["CRM cleanup", "Research enrichment", "Outbound readiness"],
   },
   {
     source: "Executive support engagement",
     context: "Vendor sourcing, urgent coordination, and executive follow-through",
     quote:
-      "The support took time-sensitive vendor and coordination work off the executive desk without losing urgency, detail, or accountability.",
+      "The support removed time-sensitive vendor and coordination pressure from the executive desk while keeping urgency, detail, and accountability intact.",
     result:
-      "The organization had faster options, cleaner follow-up, and fewer loose ends during a compressed decision window.",
+      "Leadership had faster options, cleaner follow-up, and fewer loose ends during a compressed decision window.",
     tags: ["Vendor sourcing", "Executive support", "Follow-through"],
   },
   {
     source: "Senior operations recommendation",
     context: "Organizational assessment and implementation",
     quote:
-      "The work moved beyond observation into implementation: diagnosing operating gaps, shaping the team response, and helping the organization act under pressure.",
+      "The work did not stop at observation. It diagnosed the operating gaps, shaped the team response, and helped the organization move under pressure.",
     result:
-      "Leadership had a clearer view of where coordination was breaking down and a more practical path for rebuilding execution discipline.",
+      "Leadership got a clearer view of where coordination was breaking down and a practical route back to execution discipline.",
     tags: ["Operating assessment", "Team response", "Implementation discipline"],
   },
 ];
 
 const publicProof = [
   {
-    title: "Digital Reference recognition",
-    label: "Best AI & ML Consultants in Tampa",
+    title: "Ranked Signal",
+    label: "Named among Tampa AI and ML consultants",
     body:
-      "Farcelis leadership was featured in a Tampa-area AI and machine learning consultant roundup focused on practical AI adoption, customized AI systems, operational precision, and ethical scaling.",
+      "A third-party Tampa roundup recognized Farcelis leadership for practical AI adoption, customized systems, operational precision, and ethical scaling.",
     href: "https://www.digitalreference.co/insights/engineering-professionals/best-ai-ml-consultants-in-tampa",
   },
   {
-    title: "FOX 13 Tampa Bay interview",
-    label: "AI and workforce relevance",
+    title: "Media Proof",
+    label: "FOX 13 Tampa Bay AI workforce interview",
     body:
-      "Local news coverage positioned Farcelis in the public AI conversation around workforce change, better questions, responsible tool use, judgment, ethics, and context.",
+      "Local news coverage brought Farcelis into the public conversation on AI, workforce relevance, better questions, responsible tool use, ethics, and judgment.",
     href: "https://www.fox13news.com/news/career-coach-ai-consultants-tips-relevant-age/",
   },
   {
-    title: "Public-sector AI publishing",
-    label: "AI literacy in public-service workflows",
+    title: "Roundtable Proof",
+    label: "CityGov AI Literacy for the Next Generation",
     body:
-      "Published AI literacy work connects artificial intelligence to civic decision-making, public trust, ethical discernment, governance, and practical local-government workflows.",
-    href: "https://www.citygov.com/article/ai-literacy-for-all-from-city-halls-to-classrooms-to-kitchen-tables",
-  },
-];
-
-const proofSignals = [
-  {
-    value: "Rated",
-    label: "Project feedback",
-    body: "Quality signals come from recommendation patterns, not invented performance claims.",
-  },
-  {
-    value: "Clear",
-    label: "Recommendation patterns",
-    body: "Recurring themes include clarity, quality, detail, urgency, and operational judgment.",
-  },
-  {
-    value: "Clean",
-    label: "Client-safe proof",
-    body: "Specific names, organizations, and sensitive project details stay out of the public proof layer.",
+      "Nathan contributed to a CityGov roundtable on AI literacy for public-sector, education, and organizational leaders, translating AI risk into practical adoption guidance.",
+    href: "https://www.linkedin.com/in/nathan-espey-350310192/details/recommendations/",
   },
 ];
 
@@ -106,65 +84,29 @@ export default function ResultsPage() {
     <>
       <PageIntro
         eyebrow="Results and Proof"
-        title="Proof that Farcelis can bring structure to complex work."
-        description="This page frames recognition, recommendations, operating evidence, and client-safe trust signals without exposing private names, sensitive work, or inflated claims."
-        asideTitle="Proof Posture"
-        asideItems={[
-          "Recognition first",
-          "Client-safe testimonials",
-          "Public-source links",
-          "Published AI thinking",
-        ]}
+        title="Proof that Farcelis brings order, judgment, and traction to complex work."
+        description="External recognition, public media, roundtable participation, and client-safe recommendations show where the work has already earned trust."
       />
 
       <Reveal delayMs={60}>
-        <section className="section-shell section-shell-dark">
-          <div className="section-inner grid gap-3">
-            {proofFrames.map((item) => (
-              <div
-                key={item}
-                className="grid gap-4 border-l border-[color:var(--color-accent)]/24 py-7 pl-6 lg:grid-cols-[minmax(0,1fr)]"
-              >
-                <div className="text-[2rem] font-semibold tracking-[-0.05em] text-white lg:text-[2.6rem]">
-                  {item}
-                </div>
-              </div>
-            ))}
-          </div>
-        </section>
-      </Reveal>
-
-      <Reveal delayMs={100}>
         <section className="section-shell section-shell-light">
           <div className="section-inner">
-            <div>
+            <div className="flex flex-col justify-between gap-8 lg:flex-row lg:items-end">
+              <div className="max-w-[760px]">
               <p className="eyebrow text-[#9f412c]">Public Recognition</p>
               <h2 className="section-title mt-5 text-slate-950">
-                External proof belongs at the top of the story.
+                  External proof comes first because it is visible, verifiable, and harder to fake.
               </h2>
-              <p className="mt-6 max-w-[680px] text-lg leading-8 text-slate-600">
-                Independent recognition, local media coverage, and public-sector AI publishing give Farcelis a credible proof base before private recommendations appear.
-              </p>
-              <div className="mt-8 grid gap-4 sm:grid-cols-3">
-                {proofSignals.map((signal) => (
-                  <div
-                    key={signal.label}
-                    className="enterprise-card rounded-[24px] border border-slate-200 bg-white px-5 py-5 shadow-[0_18px_38px_rgba(15,23,42,0.06)]"
-                  >
-                    <div className="text-3xl font-semibold tracking-[-0.06em] text-slate-950">
-                      {signal.value}
-                    </div>
-                    <div className="mt-2 text-sm font-semibold text-[#9f412c]">{signal.label}</div>
-                    <p className="mt-3 text-sm leading-6 text-slate-600">{signal.body}</p>
-                  </div>
-                ))}
               </div>
+              <p className="max-w-[420px] text-base leading-8 text-slate-600">
+                Recognition is not the work. It is the signal that the work is showing up in public places with real stakes.
+              </p>
             </div>
           </div>
         </section>
       </Reveal>
 
-      <Reveal delayMs={120}>
+      <Reveal delayMs={90}>
         <section className="section-shell section-shell-light pt-0">
           <div className="section-inner">
             <div className="grid gap-4 lg:grid-cols-3">
@@ -174,16 +116,16 @@ export default function ResultsPage() {
                   href={item.href}
                   target="_blank"
                   rel="noreferrer"
-                  className="enterprise-card rounded-[24px] border border-slate-200 bg-white px-6 py-6 shadow-[0_18px_38px_rgba(15,23,42,0.06)]"
+                  className="enterprise-card flex min-h-[300px] flex-col rounded-[24px] border border-white/10 bg-white/[0.055] px-6 py-6 shadow-[0_18px_38px_rgba(15,23,42,0.06)]"
                 >
                   <div className="text-sm font-semibold uppercase tracking-[0.18em] text-[#9f412c]">
                     {item.title}
                   </div>
-                  <h3 className="mt-4 text-xl font-semibold tracking-[-0.04em] text-slate-950">
+                  <h3 className="mt-4 text-2xl font-semibold leading-tight tracking-[-0.04em] text-slate-950">
                     {item.label}
                   </h3>
                   <p className="mt-4 text-base leading-8 text-slate-600">{item.body}</p>
-                  <div className="mt-6 text-sm font-semibold text-[#9f412c]">Open source in new tab</div>
+                  <div className="mt-auto pt-6 text-sm font-semibold text-[#f19a6b]">Open source in new tab</div>
                 </a>
               ))}
             </div>
@@ -197,7 +139,7 @@ export default function ResultsPage() {
             <div className="max-w-[880px]">
               <p className="eyebrow text-[color:var(--color-accent)]">Recommendation Themes</p>
               <h2 className="section-title mt-5 text-white">
-                Recommendations belong here because they reveal how the work feels in practice.
+                Recommendations matter when they show the before, the work, and what changed after.
               </h2>
             </div>
 
@@ -205,7 +147,7 @@ export default function ResultsPage() {
               {recommendationCards.map((card, index) => (
                 <article
                   key={card.source}
-                  className={`rounded-[28px] border px-6 py-6 ${
+                  className={`flex min-h-[420px] flex-col rounded-[28px] border px-6 py-6 ${
                     index === 0
                       ? "border-[color:var(--color-accent)]/22 bg-[linear-gradient(180deg,rgba(242,139,91,0.15),rgba(255,255,255,0.035))]"
                       : "border-white/8 bg-white/[0.04]"
@@ -222,11 +164,21 @@ export default function ResultsPage() {
                   <p className="mt-5 text-2xl font-medium italic leading-[1.55] tracking-[-0.035em] text-slate-100">
                     “{card.quote}”
                   </p>
-                  <p className="mt-5 text-sm leading-6 text-slate-400">{card.context}</p>
-                  <p className="mt-4 rounded-[18px] border border-cyan-100/10 bg-cyan-100/6 px-4 py-4 text-sm leading-7 text-slate-200">
-                    {card.result}
-                  </p>
-                  <div className="mt-6 flex flex-wrap gap-2">
+                  <div className="mt-6 grid gap-3 rounded-[22px] border border-white/10 bg-white/[0.045] px-5 py-5">
+                    <div>
+                      <p className="text-xs font-semibold uppercase tracking-[0.16em] text-[color:var(--color-accent)]">
+                        Engagement
+                      </p>
+                      <p className="mt-2 text-sm leading-6 text-slate-300">{card.context}</p>
+                    </div>
+                    <div className="border-t border-white/10 pt-4">
+                      <p className="text-xs font-semibold uppercase tracking-[0.16em] text-[color:var(--color-accent)]">
+                        What changed
+                      </p>
+                      <p className="mt-2 text-base leading-7 text-slate-100">{card.result}</p>
+                    </div>
+                  </div>
+                  <div className="mt-auto flex flex-wrap gap-2 pt-6">
                     {card.tags.map((tag) => (
                       <span
                         key={tag}
@@ -245,17 +197,30 @@ export default function ResultsPage() {
 
       <Reveal delayMs={200}>
         <section className="section-shell section-shell-light">
-          <div className="section-inner grid gap-12 lg:grid-cols-[minmax(0,0.75fr)_minmax(0,1.25fr)]">
+          <div className="section-inner grid gap-12 lg:grid-cols-[minmax(320px,0.45fr)_minmax(0,0.55fr)] lg:items-center">
+            <div className="relative overflow-hidden rounded-[30px] border border-white/10 bg-white/[0.05] shadow-[0_28px_80px_rgba(3,8,16,0.35)]">
+              <div className="relative aspect-[4/3]">
+                <Image
+                  src="/images/proof/seated-closer.jpg"
+                  alt="Nathan Espey seated in a suit"
+                  fill
+                  sizes="(min-width: 1024px) 520px, 100vw"
+                  className="object-cover"
+                />
+              </div>
+            </div>
             <div>
               <p className="eyebrow text-[#9f412c]">Proof Ledger</p>
               <h2 className="section-title mt-5 text-slate-950">
-                Show the kinds of work that have produced trust without exposing client details.
+                Results are not decorations. They are the evidence that the system held.
               </h2>
-              <p className="mt-6 max-w-[560px] text-base leading-8 text-slate-600">
-                Proof is strongest when it shows what Farcelis has been trusted to support and what clients repeatedly point back to.
+              <p className="mt-6 max-w-[620px] text-xl italic leading-9 text-slate-200">
+                “The point of proof is not to sound impressive. It is to show that pressure entered the system, the work got organized, and leaders had something clearer to act on.”
               </p>
-            </div>
-            <div className="grid gap-4 sm:grid-cols-2">
+              <p className="mt-4 text-sm font-semibold uppercase tracking-[0.18em] text-slate-500">
+                Nathan Espey, Founder & CEO
+              </p>
+              <div className="mt-8 grid gap-4 sm:grid-cols-2">
               {engagementProof.map((item) => (
                 <div
                   key={item}
@@ -264,6 +229,7 @@ export default function ResultsPage() {
                   {item}
                 </div>
               ))}
+              </div>
             </div>
           </div>
         </section>
