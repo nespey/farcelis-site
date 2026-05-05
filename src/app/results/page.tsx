@@ -1,5 +1,6 @@
 import Link from "next/link";
 
+import { InsightVisual } from "@/components/InsightVisual";
 import { PageIntro } from "@/components/PageIntro";
 import { Reveal } from "@/components/Reveal";
 import { buildMetadata } from "@/lib/metadata";
@@ -295,17 +296,34 @@ export default function ResultsPage() {
               </p>
             </div>
 
-            <div className="mt-12 grid gap-4 md:grid-cols-2">
+            <div className="mt-12 grid gap-5 md:grid-cols-2">
               {publishingLibrary.map((item) => (
                 <Link
                   key={item.slug}
                   href={`/insights/${item.slug}`}
-                  className="rounded-[24px] border border-white/8 bg-white/[0.04] px-6 py-6 transition hover:-translate-y-1 hover:border-cyan-100/22 hover:bg-white/[0.06]"
+                  className="group overflow-hidden rounded-[28px] border border-white/10 bg-white/[0.045] transition hover:-translate-y-1 hover:border-cyan-100/24 hover:bg-white/[0.065]"
                 >
-                  <h3 className="text-xl font-semibold tracking-[-0.04em] text-white">{item.title}</h3>
-                  <p className="mt-4 text-base leading-8 text-slate-300">{item.dek}</p>
-                  <div className="mt-6 text-sm font-semibold text-[color:var(--color-accent)]">
-                    Read on Farcelis
+                  <div className="grid gap-0 sm:grid-cols-[180px_minmax(0,1fr)]">
+                    <div className="overflow-hidden bg-white">
+                      <InsightVisual
+                        kind={item.visualKind}
+                        label={item.visualLabel}
+                        metrics={item.visualMetrics}
+                        compact
+                      />
+                    </div>
+                    <div className="px-6 py-6">
+                      <div className="text-xs font-semibold uppercase tracking-[0.18em] text-[color:var(--color-accent)]">
+                        {item.category} · {item.readTime}
+                      </div>
+                      <h3 className="mt-4 text-2xl font-semibold leading-tight tracking-[-0.05em] text-white">
+                        {item.title}
+                      </h3>
+                      <p className="mt-4 text-base leading-8 text-slate-300">{item.dek}</p>
+                      <div className="mt-6 text-sm font-semibold text-[color:var(--color-accent)]">
+                        Open full reader
+                      </div>
+                    </div>
                   </div>
                 </Link>
               ))}

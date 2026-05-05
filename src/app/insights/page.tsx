@@ -1,5 +1,6 @@
 import Link from "next/link";
 
+import { InsightVisual } from "@/components/InsightVisual";
 import { PageIntro } from "@/components/PageIntro";
 import { Reveal } from "@/components/Reveal";
 import { buildMetadata } from "@/lib/metadata";
@@ -40,24 +41,32 @@ export default function InsightsPage() {
               </h2>
             </div>
 
-            <div className="mt-12 grid gap-4 md:grid-cols-2 lg:grid-cols-3">
+            <div className="mt-12 grid gap-5 md:grid-cols-2 lg:grid-cols-3">
               {insightArticles.map((item, index) => (
                 <Link
                   key={item.slug}
                   href={`/insights/${item.slug}`}
-                  className={`enterprise-card rounded-[24px] border border-slate-200 bg-white px-6 py-6 shadow-[0_18px_38px_rgba(15,23,42,0.06)] ${
+                  className={`enterprise-card group overflow-hidden rounded-[24px] border border-slate-200 bg-white shadow-[0_18px_38px_rgba(15,23,42,0.06)] ${
                     index === 1 || index === 4 ? "lg:translate-y-5" : ""
                   }`}
                 >
-                  <div className="h-1 w-12 rounded-full bg-[#9f412c]/80" aria-hidden="true" />
-                  <div className="text-sm font-semibold uppercase tracking-[0.18em] text-[#9f412c]">
-                    {item.category} · {item.readTime}
+                  <InsightVisual
+                    kind={item.visualKind}
+                    label={item.visualLabel}
+                    metrics={item.visualMetrics}
+                    compact
+                  />
+                  <div className="px-6 py-6">
+                    <div className="h-1 w-12 rounded-full bg-[#9f412c]/80" aria-hidden="true" />
+                    <div className="mt-4 text-sm font-semibold uppercase tracking-[0.18em] text-[#9f412c]">
+                      {item.category} · {item.readTime}
+                    </div>
+                    <h3 className="mt-4 text-xl font-semibold tracking-[-0.04em] text-slate-950">
+                      {item.title}
+                    </h3>
+                    <p className="mt-4 text-base leading-8 text-slate-600">{item.dek}</p>
+                    <div className="mt-6 text-sm font-semibold text-[#9f412c]">Open full reader</div>
                   </div>
-                  <h3 className="mt-4 text-xl font-semibold tracking-[-0.04em] text-slate-950">
-                    {item.title}
-                  </h3>
-                  <p className="mt-4 text-base leading-8 text-slate-600">{item.dek}</p>
-                  <div className="mt-6 text-sm font-semibold text-[#9f412c]">Read on Farcelis</div>
                 </Link>
               ))}
             </div>
