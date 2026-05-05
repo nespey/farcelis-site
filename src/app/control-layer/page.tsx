@@ -334,6 +334,25 @@ function HouseholdMockDashboard() {
 }
 
 export default function ControlLayerPage() {
+  const possibilityCards = [
+    {
+      title: "Any operating surface",
+      body: "If the work is scattered, the Control Layer gives it a command surface. Revenue, delivery, cash, compliance, hiring, household logistics, and executive pressure all become visible enough to move.",
+    },
+    {
+      title: "Any signal source",
+      body: "The system does not wait for perfect data. It pulls signal from email, calendars, spreadsheets, CRMs, forms, documents, finance tools, task systems, and human check-ins, then turns noise into routed work.",
+    },
+    {
+      title: "Any decision rhythm",
+      body: "Daily triage, weekly reviews, contract calls, cash planning, family planning, pursuit tracking, and escalation loops stop floating. Each rhythm gets a place, an owner, and a next move.",
+    },
+    {
+      title: "Any visual language",
+      body: "The board can feel like a secure command post, a bright household cockpit, a founder's cockpit, a sales war room, or a mission board built for one exact team. The environment bends to the client.",
+    },
+  ];
+
   return (
     <>
       <DashboardActivityDriver />
@@ -427,47 +446,37 @@ export default function ControlLayerPage() {
 
       <Reveal delayMs={210}>
         <section className="section-shell section-shell-dark infinite-control-section">
-          <div className="section-inner grid gap-12 lg:grid-cols-[minmax(0,0.72fr)_minmax(0,1.28fr)]">
-            <div className="infinite-copy">
-              <p className="eyebrow text-[#9f412c]">Endless System Shapes</p>
-              <h2 className="section-title mt-5 text-white">
-                These are two examples. The real product is a Control Layer shaped around whatever needs to be commanded.
-              </h2>
-              <p className="mt-6 max-w-[760px] text-lg leading-8 text-slate-300">
-                A founder can command revenue, delivery, cash, and content. A contractor can command compliance, obligations,
-                evidence, and risk. A household can command calendars, bills, email, appointments, and career movement. The
-                architecture adapts to the environment instead of forcing the environment into a template.
-              </p>
-            </div>
+          <div className="section-inner">
+            <div className="endless-anchor-layout">
+              <div className="possibility-stack">
+                {possibilityCards.slice(0, 2).map((point) => (
+                  <div key={point.title} className="possibility-card">
+                    <strong>{point.title}</strong>
+                    <p>{point.body}</p>
+                  </div>
+                ))}
+              </div>
 
-            <div className="possibility-grid">
-              {[
-                {
-                  title: "Any operating surface",
-                  body: "If the work is scattered, the Control Layer gives it a command surface. Revenue, delivery, cash, compliance, hiring, household logistics, and executive pressure all become visible enough to move.",
-                },
-                {
-                  title: "Any signal source",
-                  body: "The system does not wait for perfect data. It pulls signal from email, calendars, spreadsheets, CRMs, forms, documents, finance tools, task systems, and human check-ins, then turns noise into routed work.",
-                },
-                {
-                  title: "Any decision rhythm",
-                  body: "Daily triage, weekly reviews, contract calls, cash planning, family planning, pursuit tracking, and escalation loops stop floating. Each rhythm gets a place, an owner, and a next move.",
-                },
-                {
-                  title: "Any visual language",
-                  body: "The board can feel like a secure command post, a bright household cockpit, a founder's cockpit, a sales war room, or a mission board built for one exact team. The environment bends to the client.",
-                },
-              ].map((point, index) => (
-                <div
-                  key={point.title}
-                  className="possibility-card"
-                  style={{ animationDelay: `${index * 0.18}s` }}
-                >
-                  <strong>{point.title}</strong>
-                  <p>{point.body}</p>
-                </div>
-              ))}
+              <div className="infinite-copy">
+                <p className="eyebrow endless-kicker text-[#9f412c]">Endless System Shapes</p>
+                <h2 className="section-title mt-5 text-white">
+                  These are two examples. The real product is a Control Layer shaped around whatever needs to be commanded.
+                </h2>
+                <p className="mt-6 max-w-[760px] text-lg leading-8 text-slate-300">
+                  A founder can command revenue, delivery, cash, and content. A contractor can command compliance, obligations,
+                  evidence, and risk. A household can command calendars, bills, email, appointments, and career movement. The
+                  architecture adapts to the environment instead of forcing the environment into a template.
+                </p>
+              </div>
+
+              <div className="possibility-stack">
+                {possibilityCards.slice(2).map((point) => (
+                  <div key={point.title} className="possibility-card">
+                    <strong>{point.title}</strong>
+                    <p>{point.body}</p>
+                  </div>
+                ))}
+              </div>
             </div>
           </div>
         </section>

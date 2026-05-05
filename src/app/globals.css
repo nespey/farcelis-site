@@ -224,6 +224,9 @@ a {
 
 .control-intro-section .display-page {
   max-width: 720px !important;
+  font-size: clamp(2.25rem, 3.35vw, 3.25rem);
+  line-height: 1.12;
+  letter-spacing: -0.04em;
 }
 
 .control-intro-section .sm\:justify-center {
@@ -1367,7 +1370,7 @@ main :is(.border-t, .border-b, .border-y, .divide-y > :not([hidden]) ~ :not([hid
 
 .control-showcase-section {
   overflow: hidden;
-  padding-top: clamp(1.15rem, 2vw, 2rem);
+  padding-top: clamp(1rem, 1.8vw, 1.9rem);
   padding-bottom: clamp(1rem, 1.8vw, 1.9rem);
   background: transparent !important;
 }
@@ -1464,9 +1467,9 @@ main :is(.border-t, .border-b, .border-y, .divide-y > :not([hidden]) ~ :not([hid
   display: grid;
   grid-template-columns: minmax(500px, 42vw) minmax(0, 1fr);
   gap: clamp(1.8rem, 3vw, 3.6rem);
-  align-items: start;
+  align-items: center;
   min-height: 0;
-  padding: clamp(0.45rem, 1vw, 0.9rem) 0;
+  padding: clamp(1rem, 1.8vw, 1.9rem) 0;
 }
 
 .dashboard-mini-frame {
@@ -2642,6 +2645,7 @@ main :is(.border-t, .border-b, .border-y, .divide-y > :not([hidden]) ~ :not([hid
 
 .control-case-copy {
   max-width: 920px;
+  align-self: center;
 }
 
 .control-case-copy .section-title {
@@ -2653,7 +2657,7 @@ main :is(.border-t, .border-b, .border-y, .divide-y > :not([hidden]) ~ :not([hid
 }
 
 .infinite-copy .section-title {
-  max-width: 760px !important;
+  max-width: 620px !important;
 }
 
 .case-proof-grid {
@@ -2675,36 +2679,65 @@ main :is(.border-t, .border-b, .border-y, .divide-y > :not([hidden]) ~ :not([hid
 }
 
 .control-bridge-section {
-  padding-top: clamp(0.6rem, 1.1vw, 1rem);
-  padding-bottom: clamp(0.45rem, 0.85vw, 0.8rem);
+  padding-top: clamp(1.15rem, 2vw, 2rem);
+  padding-bottom: clamp(1.15rem, 2vw, 2rem);
   background: transparent !important;
 }
 
 .control-showcase-section--home {
-  padding-top: clamp(0.55rem, 1vw, 1rem);
+  padding-top: clamp(1rem, 1.8vw, 1.9rem);
 }
 
 .infinite-control-section {
   overflow: hidden;
+  padding-top: clamp(1.4rem, 2.2vw, 2.4rem);
+  padding-bottom: clamp(1.4rem, 2.2vw, 2.4rem);
   background: transparent !important;
 }
 
+.endless-anchor-layout {
+  display: grid;
+  grid-template-columns: minmax(230px, 0.9fr) minmax(340px, 1.08fr) minmax(230px, 0.9fr);
+  gap: clamp(1rem, 2vw, 2rem);
+  align-items: center;
+}
+
 .infinite-copy {
-  position: sticky;
-  top: 7rem;
-  align-self: start;
+  position: relative;
+  top: auto;
+  display: grid;
+  justify-items: center;
+  align-self: center;
+  text-align: center;
+}
+
+.infinite-copy .eyebrow,
+.infinite-copy .section-title,
+.infinite-copy p {
+  margin-left: auto;
+  margin-right: auto;
+  text-align: center;
+}
+
+.endless-kicker {
+  font-size: clamp(0.82rem, 0.95vw, 1rem);
+  letter-spacing: 0.18em;
+}
+
+.possibility-stack,
+.possibility-grid {
+  display: grid;
+  gap: clamp(0.65rem, 1vw, 0.9rem);
 }
 
 .possibility-grid {
-  display: grid;
   grid-template-columns: repeat(2, minmax(0, 1fr));
-  gap: clamp(0.65rem, 1vw, 0.9rem);
 }
 
 .possibility-card {
   position: relative;
   overflow: hidden;
-  min-height: 150px;
+  min-height: 142px;
   border-radius: 18px;
   border: 1px solid rgba(186, 230, 253, 0.18);
   background:
@@ -3143,6 +3176,14 @@ main :is(.border-t, .border-b, .border-y, .divide-y > :not([hidden]) ~ :not([hid
   }
 
   .case-proof-grid {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
+
+  .endless-anchor-layout {
+    grid-template-columns: 1fr;
+  }
+
+  .possibility-stack {
     grid-template-columns: repeat(2, minmax(0, 1fr));
   }
 
