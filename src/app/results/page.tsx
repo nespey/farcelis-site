@@ -48,25 +48,28 @@ const recommendationCards = [
 
 const publicProof = [
   {
-    title: "Ranked Signal",
-    label: "Named among Tampa AI and ML consultants",
+    title: "Independent ranking",
+    label: "Farcelis was named among Tampa AI and ML consultants.",
     body:
-      "A third-party Tampa roundup recognized Farcelis leadership for practical AI adoption, customized systems, operational precision, and ethical scaling.",
+      "Click this if you want third-party proof that Farcelis is not just making claims on its own site. The roundup points to practical AI adoption, custom systems, operational precision, and ethical scaling.",
+    cta: "See the outside ranking",
     href: "https://www.digitalreference.co/insights/engineering-professionals/best-ai-ml-consultants-in-tampa",
   },
   {
-    title: "Media Proof",
-    label: "FOX 13 Tampa Bay AI workforce interview",
+    title: "Local media",
+    label: "FOX 13 put Farcelis in the AI workforce conversation.",
     body:
-      "Local news coverage brought Farcelis into the public conversation on AI, workforce relevance, better questions, responsible tool use, ethics, and judgment.",
+      "Click this for the public-facing proof that the Farcelis point of view travels outside a sales page: AI, work, better questions, responsible tool use, ethics, and judgment.",
+    cta: "Watch the media proof",
     href: "https://www.fox13news.com/news/career-coach-ai-consultants-tips-relevant-age/",
   },
   {
-    title: "Roundtable Proof",
-    label: "CityGov AI Literacy for the Next Generation",
+    title: "Roundtable proof",
+    label: "Nathan joined the AI literacy roundtable leaders actually needed.",
     body:
-      "Nathan contributed to a CityGov roundtable on AI literacy for public-sector, education, and organizational leaders, translating AI risk into practical adoption guidance.",
-    href: "https://www.linkedin.com/in/nathan-espey-350310192/details/recommendations/",
+      "Click this for the AI Literacy for the Next Generation roundtable: public-sector, education, and organizational leaders talking about responsible AI in real terms.",
+    cta: "Open the roundtable post",
+    href: "https://www.linkedin.com/posts/nathanespey_ailiteracy-aiandeducation-responsibleai-activity-7389462062462074880-mgqo?utm_source=share&utm_medium=member_desktop&rcm=ACoAAAjtHQQBChV3m4U4Hv3fUUQ1fsKeZML4fxw",
   },
 ];
 
@@ -102,16 +105,19 @@ export default function ResultsPage() {
                   href={item.href}
                   target="_blank"
                   rel="noreferrer"
-                  className="enterprise-card flex min-h-[300px] flex-col rounded-[24px] border border-white/10 bg-white/[0.055] px-6 py-6 shadow-[0_18px_38px_rgba(15,23,42,0.06)]"
+                  className="enterprise-card group flex min-h-[330px] flex-col rounded-[24px] border border-white/12 bg-[linear-gradient(180deg,rgba(255,255,255,0.085),rgba(255,255,255,0.045))] px-6 py-6 shadow-[0_22px_54px_rgba(3,8,16,0.22)] transition hover:border-[#f19a6b]/50 hover:bg-[linear-gradient(180deg,rgba(241,154,107,0.14),rgba(255,255,255,0.05))]"
                 >
-                  <div className="text-sm font-semibold uppercase tracking-[0.18em] text-[#9f412c]">
+                  <div className="text-xs font-semibold uppercase tracking-[0.18em] text-[#ff9f73]">
                     {item.title}
                   </div>
-                  <h3 className="mt-4 text-2xl font-semibold leading-tight tracking-[-0.04em] text-slate-950">
+                  <h3 className="mt-4 text-[clamp(1.6rem,2.05vw,2rem)] font-semibold leading-tight tracking-[-0.04em] text-white">
                     {item.label}
                   </h3>
-                  <p className="mt-4 text-base leading-8 text-slate-600">{item.body}</p>
-                  <div className="mt-auto pt-6 text-sm font-semibold text-[#f19a6b]">Open source in new tab</div>
+                  <p className="mt-4 text-base leading-8 text-slate-300">{item.body}</p>
+                  <div className="mt-auto inline-flex items-center gap-2 pt-6 text-sm font-semibold text-[#ffb38f]">
+                    <span>{item.cta}</span>
+                    <span className="transition group-hover:translate-x-1" aria-hidden="true">→</span>
+                  </div>
                 </a>
               ))}
             </div>
