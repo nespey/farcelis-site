@@ -357,7 +357,7 @@ export default function ControlLayerPage() {
     <>
       <DashboardActivityDriver />
       <PageIntro
-        className="control-intro-section"
+        className="control-intro-section control-hero"
         eyebrow="Custom Execution Systems"
         title="A Control Layer can become whatever operating surface your work, household, or organization needs."
         description="The two builds below are not the limits of the product. They are proof that the same architecture can be tailored into radically different command environments, each with its own data, rhythm, integrations, visual language, and decision logic."

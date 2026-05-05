@@ -205,7 +205,163 @@ a {
 .control-intro-section {
   padding-top: clamp(7rem, 10vw, 9rem);
   padding-bottom: clamp(2.25rem, 4vw, 3.5rem);
-  background: transparent !important;
+  background:
+    radial-gradient(1200px 700px at 84% 16%, rgba(38, 137, 160, 0.11), transparent 60%),
+    radial-gradient(900px 640px at 70% 58%, rgba(36, 91, 122, 0.1), transparent 62%),
+    linear-gradient(90deg, #02131d 0%, #031c28 38%, #062433 62%, #041a27 100%) !important;
+}
+
+.control-hero {
+  isolation: isolate;
+}
+
+.control-hero .vibrant-orbit {
+  display: none;
+}
+
+.control-hero::before,
+.control-hero::after {
+  content: "";
+  position: absolute;
+  pointer-events: none;
+}
+
+.control-hero::before {
+  right: 18%;
+  top: 8%;
+  z-index: 0;
+  width: 22%;
+  height: 88%;
+  border-radius: 40px;
+  background:
+    linear-gradient(180deg, rgba(110, 214, 231, 0.052), rgba(110, 214, 231, 0.014)),
+    linear-gradient(180deg, rgba(255, 255, 255, 0.045), rgba(255, 255, 255, 0.012));
+  filter: blur(18px);
+  opacity: 0.68;
+  box-shadow:
+    inset 1px 0 0 rgba(255, 255, 255, 0.08),
+    inset -1px 0 0 rgba(80, 180, 210, 0.055),
+    0 0 120px rgba(37, 140, 167, 0.1);
+}
+
+.control-hero::after {
+  right: 4%;
+  top: 2%;
+  z-index: 0;
+  width: 30%;
+  height: 96%;
+  border-radius: 56px;
+  background: linear-gradient(180deg, rgba(67, 167, 187, 0.042), rgba(67, 167, 187, 0.01));
+  filter: blur(26px);
+  opacity: 0.55;
+  box-shadow:
+    inset 1px 0 0 rgba(255, 255, 255, 0.05),
+    0 0 180px rgba(33, 119, 145, 0.09);
+}
+
+.control-hero .section-inner {
+  z-index: 2;
+}
+
+.control-hero .panel-field {
+  position: absolute;
+  inset: 0;
+  z-index: 1;
+  pointer-events: none;
+  mask-image: linear-gradient(90deg, transparent 0%, transparent 34%, rgba(0, 0, 0, 0.78) 48%, #000 100%);
+  -webkit-mask-image: linear-gradient(90deg, transparent 0%, transparent 34%, rgba(0, 0, 0, 0.78) 48%, #000 100%);
+}
+
+.control-hero .panel-field::before {
+  content: "";
+  position: absolute;
+  right: 0;
+  top: 0;
+  width: 72%;
+  height: 72%;
+  background: linear-gradient(135deg, rgba(146, 229, 238, 0.12), rgba(255, 255, 255, 0.025) 32%, transparent 72%);
+  opacity: 0.56;
+}
+
+.control-hero .panel-field span {
+  position: absolute;
+  display: block;
+  border-radius: 40px;
+}
+
+.control-hero .panel-field .panel-a {
+  right: 31%;
+  top: 13%;
+  width: 13.5%;
+  height: 72%;
+  background:
+    linear-gradient(180deg, rgba(111, 214, 231, 0.07), rgba(255, 255, 255, 0.01)),
+    linear-gradient(90deg, rgba(255, 255, 255, 0.035), transparent 55%);
+  box-shadow:
+    inset 1px 0 0 rgba(255, 255, 255, 0.1),
+    0 0 110px rgba(50, 149, 173, 0.1);
+  filter: blur(8px);
+  opacity: 0.72;
+}
+
+.control-hero .panel-field .panel-b {
+  right: 16%;
+  top: 5%;
+  width: 18%;
+  height: 88%;
+  border-radius: 52px;
+  background:
+    linear-gradient(180deg, rgba(58, 151, 173, 0.06), rgba(58, 151, 173, 0.014)),
+    linear-gradient(100deg, rgba(255, 255, 255, 0.03), transparent 58%);
+  box-shadow:
+    inset 1px 0 0 rgba(255, 255, 255, 0.06),
+    0 0 140px rgba(29, 115, 140, 0.1);
+  filter: blur(14px);
+  opacity: 0.6;
+}
+
+.control-hero .panel-field .panel-c {
+  right: 4%;
+  top: 16%;
+  width: 21%;
+  height: 70%;
+  border-radius: 46px;
+  background:
+    linear-gradient(180deg, rgba(98, 183, 200, 0.042), rgba(255, 255, 255, 0.006)),
+    linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.028));
+  box-shadow:
+    inset 1px 0 0 rgba(255, 255, 255, 0.045),
+    0 0 150px rgba(23, 102, 129, 0.08);
+  filter: blur(20px);
+  opacity: 0.54;
+}
+
+.control-hero .panel-field .panel-d {
+  right: 43%;
+  top: 24%;
+  width: 9.5%;
+  height: 48%;
+  border-radius: 32px;
+  background:
+    linear-gradient(180deg, rgba(132, 225, 237, 0.048), rgba(132, 225, 237, 0.006)),
+    linear-gradient(90deg, rgba(255, 255, 255, 0.05), transparent);
+  box-shadow:
+    inset 1px 0 0 rgba(255, 255, 255, 0.08),
+    0 0 90px rgba(70, 169, 190, 0.07);
+  filter: blur(10px);
+  opacity: 0.5;
+}
+
+.control-hero .panel-field .signal-line {
+  right: 14%;
+  top: 71%;
+  width: 36%;
+  height: 1px;
+  border-radius: 999px;
+  background: linear-gradient(90deg, transparent, rgba(255, 142, 91, 0.52), rgba(240, 92, 255, 0.22), transparent);
+  box-shadow: 0 0 34px rgba(255, 142, 91, 0.18);
+  filter: blur(0.2px);
+  opacity: 0.48;
 }
 
 .control-intro-section .section-inner {
@@ -223,10 +379,10 @@ a {
 }
 
 .control-intro-section .display-page {
-  max-width: 720px !important;
-  font-size: clamp(2.25rem, 3.35vw, 3.25rem);
-  line-height: 1.12;
-  letter-spacing: -0.04em;
+  max-width: 660px !important;
+  font-size: clamp(2rem, 2.75vw, 2.75rem);
+  line-height: 1.14;
+  letter-spacing: -0.035em;
 }
 
 .control-intro-section .sm\:justify-center {
@@ -2650,6 +2806,9 @@ main :is(.border-t, .border-b, .border-y, .divide-y > :not([hidden]) ~ :not([hid
 
 .control-case-copy .section-title {
   max-width: 780px !important;
+  font-size: clamp(1.6rem, 2.25vw, 2.22rem);
+  line-height: 1.16;
+  letter-spacing: -0.035em;
 }
 
 .control-bridge-section .section-title {

@@ -30,12 +30,22 @@ export function PageIntro({
   className = "",
 }: PageIntroProps) {
   const hasAside = Boolean(asideTitle || asideItems.length > 0);
+  const hasPanelField = className.includes("control-hero");
 
   return (
     <section className={`section-shell section-shell-dark overflow-hidden ${compact ? "pt-16 lg:pt-20" : "pt-20 lg:pt-24"} ${className}`}>
       <div className="vibrant-orbit absolute left-[10%] top-[12%] h-56 w-56 bg-[radial-gradient(circle,rgba(242,139,91,0.2),transparent_68%)]" />
       <div className="vibrant-orbit absolute right-[14%] top-[16%] h-64 w-64 bg-[radial-gradient(circle,rgba(97,192,215,0.18),transparent_70%)]" />
       <div className="vibrant-orbit absolute right-[32%] top-[32%] h-48 w-48 bg-[radial-gradient(circle,rgba(141,119,255,0.12),transparent_70%)]" />
+      {hasPanelField ? (
+        <div className="panel-field" aria-hidden="true">
+          <span className="panel-a" />
+          <span className="panel-b" />
+          <span className="panel-c" />
+          <span className="panel-d" />
+          <span className="signal-line" />
+        </div>
+      ) : null}
       <div className={`section-inner relative grid gap-12 lg:items-end ${hasAside ? "lg:grid-cols-[minmax(0,0.78fr)_minmax(280px,0.22fr)]" : "lg:grid-cols-1"}`}>
         <div className="text-center">
           <p className="eyebrow text-[color:var(--color-accent)]">{eyebrow}</p>
