@@ -77,9 +77,9 @@ export default function ResultsPage() {
   return (
     <>
       <PageIntro
-        eyebrow="Results and Proof"
+        eyebrow=""
         title="Proof that Farcelis brings order, judgment, and traction."
-        description="External recognition, public media, roundtable participation, and client-safe recommendations show where the work has already earned trust."
+        description="Public receipts and client-safe proof show the work in motion: recognized expertise, media coverage, AI literacy leadership, and operations support that made decisions clearer."
       />
 
       <Reveal delayMs={60}>
@@ -113,19 +113,19 @@ export default function ResultsPage() {
       </Reveal>
 
       <Reveal delayMs={160}>
-        <section className="section-shell section-shell-dark">
+        <section className="section-shell section-shell-dark pt-10">
           <div className="section-inner">
-            <div className="max-w-[880px]">
-              <p className="eyebrow text-[color:var(--color-accent)]">What People Point Back To</p>
+            <div className="max-w-[760px]">
+              <p className="eyebrow text-[color:var(--color-accent)]">Client-Safe Recommendations</p>
               <h2 className="section-title mt-5 text-white">
-                The strongest recommendations do not flatter. They describe the moment the work became useful.
+                The pattern is simple: less confusion, cleaner handoffs, faster decisions.
               </h2>
-              <p className="mt-6 max-w-[680px] text-base leading-8 text-slate-300">
-                These are client-safe summaries of the patterns people named after the work: clearer language, cleaner data, faster decisions, and stronger execution discipline.
+              <p className="mt-6 max-w-[760px] text-base leading-8 text-slate-300">
+                These notes stay anonymous, but the work is specific: AI literacy, CRM cleanup, vendor coordination, and operating assessment.
               </p>
             </div>
 
-            <div className="mt-12 grid gap-5 lg:grid-cols-2">
+            <div className="mt-8 grid gap-5 lg:grid-cols-2">
               {recommendationCards.map((card, index) => (
                 <article
                   key={card.source}

@@ -45,9 +45,9 @@ export function PageIntro({
       ) : null}
       <div className="section-inner relative">
         <div>
-          <p className="eyebrow text-[color:var(--color-accent)]">{eyebrow}</p>
+          {eyebrow ? <p className="eyebrow text-[color:var(--color-accent)]">{eyebrow}</p> : null}
           <h1 className="display-page mt-5 text-white">{title}</h1>
-          <p className="lede mt-6 max-w-[820px]">{description}</p>
+          <p className="lede mt-6">{description}</p>
           {actions.length > 0 ? (
             <div className="mt-8 flex flex-col gap-3 sm:flex-row">
               {actions.map((action) => (
