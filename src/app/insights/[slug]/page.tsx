@@ -1,6 +1,7 @@
 import Link from "next/link";
 import { notFound } from "next/navigation";
 
+import { ArticleCover } from "@/components/ArticleCover";
 import { InsightVisual } from "@/components/InsightVisual";
 import { Reveal } from "@/components/Reveal";
 import { buildMetadata } from "@/lib/metadata";
@@ -65,11 +66,15 @@ export default async function InsightArticlePage({ params }: InsightPageProps) {
           <div className="relative">
             <div className="absolute -inset-5 rounded-[42px] bg-[linear-gradient(135deg,rgba(97,192,215,0.24),rgba(242,139,91,0.2))] blur-2xl" />
             <div className="relative overflow-hidden rounded-[34px] border border-white bg-white shadow-[0_30px_90px_rgba(15,23,42,0.14)]">
-              <InsightVisual
-                kind={article.visualKind}
-                label={article.visualLabel}
-                metrics={article.visualMetrics}
-              />
+              {article.coverImage ? (
+                <ArticleCover article={article} />
+              ) : (
+                <InsightVisual
+                  kind={article.visualKind}
+                  label={article.visualLabel}
+                  metrics={article.visualMetrics}
+                />
+              )}
               <div className="border-t border-slate-200 bg-white px-6 py-5">
                 <p className="text-2xl font-semibold leading-tight tracking-[-0.045em] text-slate-950">
                   “{article.pullQuote}”

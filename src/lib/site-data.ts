@@ -93,10 +93,13 @@ export type PodcastBrief = {
   image: string;
 };
 
-export type BlogDispatch = {
+export type BlogPost = {
   title: string;
   label: string;
   description: string;
+  image: string;
+  href: string;
+  cta: string;
 };
 
 export type InsightArticle = {
@@ -109,6 +112,8 @@ export type InsightArticle = {
   visualKind: "funnel" | "benchmark" | "marketing" | "executive" | "content";
   visualLabel: string;
   visualMetrics: string[];
+  coverImage?: string;
+  coverAlt?: string;
   pullQuote: string;
   bridgeTitle: string;
   bridgeBody: string;
@@ -777,11 +782,11 @@ export const mediaLanes: MediaLane[] = [
     home: "/insights#raw-intel",
   },
   {
-    title: "Blog Notes",
-    label: "Short tactical dispatches",
+    title: "Blog",
+    label: "One public blog lane",
     description:
-      "Concise field notes for patterns that do not need the full article treatment: workflow friction, buyer questions, platform decisions, and growth-system fixes.",
-    home: "/insights#blog-notes",
+      "A separate Substack-style lane for shorter public commentary. It should not sit inside the article grid.",
+    home: "/insights#blog",
   },
 ];
 
@@ -812,24 +817,15 @@ export const rawIntelBriefs: PodcastBrief[] = [
   },
 ];
 
-export const blogDispatches: BlogDispatch[] = [
+export const blogPosts: BlogPost[] = [
   {
-    title: "AI Performance Myths",
-    label: "Substack field note",
+    title: "You're Not Too Late. You're Just Not Ready.",
+    label: "Substack blog",
     description:
-      "A direct companion to the Raw Intel launch: strip the shine off AI marketing claims and ask what the system can actually prove.",
-  },
-  {
-    title: "Funnel Foundation Audit",
-    label: "Growth systems",
-    description:
-      "A quick operating check for slow pages, broken forms, CRM trigger gaps, follow-up failures, and campaign handoffs that quietly flatten conversion.",
-  },
-  {
-    title: "Platform Sprawl Triage",
-    label: "Workflow control",
-    description:
-      "A short diagnostic for deciding whether a team needs a new platform, a cleaner integration, or a control layer above the tools it already uses.",
+      "A standalone blog post about AI readiness, timing, and the practical truth that the opportunity is open only for leaders willing to build the operating capacity to use it.",
+    image: "/images/media/substack-ai-performance-myths.jpg",
+    href: "https://nathanespey.substack.com/",
+    cta: "Open blog",
   },
 ];
 
@@ -845,6 +841,8 @@ export const insightArticles: InsightArticle[] = [
     visualKind: "funnel",
     visualLabel: "Conversion foundation diagnostic",
     visualMetrics: ["Traffic", "Load", "Opt-in", "CRM", "Follow-up"],
+    coverImage: "/images/media/nathan-julian-foundation.png",
+    coverAlt: "Nathan Espey and Julian Mercer reviewing funnel foundations at a desk",
     pullQuote: "No amount of traffic will fix a broken system.",
     bridgeTitle: "How Farcelis Applies This",
     bridgeBody:

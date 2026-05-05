@@ -1,11 +1,11 @@
 import Image from "next/image";
 import Link from "next/link";
 
-import { InsightVisual } from "@/components/InsightVisual";
+import { ArticleCover } from "@/components/ArticleCover";
 import { PageIntro } from "@/components/PageIntro";
 import { Reveal } from "@/components/Reveal";
 import { buildMetadata } from "@/lib/metadata";
-import { blogDispatches, insightArticles, mediaLanes, rawIntelBriefs, seo } from "@/lib/site-data";
+import { blogPosts, insightArticles, mediaLanes, rawIntelBriefs, seo } from "@/lib/site-data";
 
 export const metadata = buildMetadata(seo.insights);
 
@@ -39,7 +39,7 @@ export default function InsightsPage() {
               <div>
                 <p className="eyebrow text-[#9f412c]">Content Home</p>
                 <h2 className="section-title mt-5 text-slate-950">
-                  The library has lanes now. Articles, Raw Intel, and blog notes do different jobs.
+                  The library has lanes now. Articles, Raw Intel, and the blog do different jobs.
                 </h2>
                 <p className="mt-6 max-w-[620px] text-base leading-8 text-slate-600">
                   Insights is the home for public thinking. Results proves credibility. Resources holds gated briefings and whitepapers. That keeps the site lean and keeps each content type from blurring into the next.
@@ -78,7 +78,7 @@ export default function InsightsPage() {
                 </h2>
               </div>
               <p className="max-w-[360px] text-sm font-semibold leading-7 text-slate-500">
-                These are the long-form pieces. They should feel editorial, complete, and materially different from podcasts or short blog notes.
+                These are the long-form pieces. They should feel editorial, complete, and materially different from podcasts or the standalone blog.
               </p>
             </div>
 
@@ -91,12 +91,7 @@ export default function InsightsPage() {
                     index === 0 ? "md:col-span-2" : ""
                   }`}
                 >
-                  <InsightVisual
-                    kind={item.visualKind}
-                    label={item.visualLabel}
-                    metrics={item.visualMetrics}
-                    compact
-                  />
+                  <ArticleCover article={item} compact />
                   <div className="px-6 py-6">
                     <div className="text-sm font-semibold uppercase tracking-[0.18em] text-[#9f412c]">
                       Article · {item.category} · {item.readTime}
@@ -175,32 +170,47 @@ export default function InsightsPage() {
       </Reveal>
 
       <Reveal delayMs={180}>
-        <section id="blog-notes" className="section-shell section-shell-light">
+        <section id="blog" className="section-shell section-shell-light">
           <div className="section-inner">
-            <div className="grid gap-8 lg:grid-cols-[minmax(0,0.62fr)_minmax(0,1.38fr)]">
+            <div className="grid gap-10 lg:grid-cols-[minmax(0,0.55fr)_minmax(0,1.45fr)]">
               <div>
-                <p className="eyebrow text-[#9f412c]">Blog Notes</p>
+                <p className="eyebrow text-[#9f412c]">Blog</p>
                 <h2 className="section-title mt-5 text-slate-950">
-                  Blog notes are short dispatches, not mini articles.
+                  The blog is its own lane. One post, one format, no article-grid confusion.
                 </h2>
                 <p className="mt-6 max-w-[560px] text-base leading-8 text-slate-600">
-                  This lane gives the site a place for tactical commentary without weakening the full article library. It is faster, narrower, and visibly different.
+                  This is the shorter public commentary path. It can point to Substack or future Farcelis posts, but it should not be mixed into the article library.
                 </p>
               </div>
-              <div className="grid gap-3">
-                {blogDispatches.map((note) => (
-                  <article
-                    key={note.title}
-                    className="border-l-4 border-[#9f412c] bg-white px-6 py-5 shadow-[0_18px_38px_rgba(15,23,42,0.06)]"
+              <div className="grid gap-5">
+                {blogPosts.map((post) => (
+                  <a
+                    key={post.title}
+                    href={post.href}
+                    target="_blank"
+                    rel="noreferrer"
+                    className="group grid overflow-hidden border border-slate-200 bg-white shadow-[0_24px_70px_rgba(15,23,42,0.08)] transition hover:-translate-y-1 hover:border-[#9f412c]/28 md:grid-cols-[260px_minmax(0,1fr)]"
                   >
-                    <div className="text-xs font-semibold uppercase tracking-[0.18em] text-[#9f412c]">
-                      {note.label}
+                    <div className="relative min-h-[260px] overflow-hidden bg-slate-950">
+                      <Image
+                        src={post.image}
+                        alt={`${post.title} blog artwork`}
+                        fill
+                        sizes="(min-width: 768px) 260px, 100vw"
+                        className="object-cover transition duration-500 group-hover:scale-105"
+                      />
                     </div>
-                    <h3 className="mt-3 text-2xl font-semibold tracking-[-0.055em] text-slate-950">
-                      {note.title}
-                    </h3>
-                    <p className="mt-3 text-base leading-8 text-slate-600">{note.description}</p>
-                  </article>
+                    <div className="px-7 py-7">
+                      <div className="text-xs font-semibold uppercase tracking-[0.18em] text-[#9f412c]">
+                        {post.label}
+                      </div>
+                      <h3 className="mt-4 text-3xl font-semibold leading-tight tracking-[-0.06em] text-slate-950">
+                        {post.title}
+                      </h3>
+                      <p className="mt-4 text-base leading-8 text-slate-600">{post.description}</p>
+                      <div className="mt-6 text-sm font-semibold text-[#9f412c]">{post.cta}</div>
+                    </div>
+                  </a>
                 ))}
               </div>
             </div>

@@ -99,7 +99,7 @@ const emergingChannels = [
   {
     title: "Insights holds the public thinking",
     body:
-      "Full articles, Raw Intel, and blog notes now live together inside the Insights hub with separate visual systems and clearer publishing roles.",
+      "Full articles, Raw Intel, and the standalone blog now live inside the Insights hub with separate visual systems and clearer publishing roles.",
     href: "/insights",
   },
   {
