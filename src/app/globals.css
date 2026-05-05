@@ -202,6 +202,15 @@ a {
   background: transparent;
 }
 
+.results-public-proof-section {
+  padding-bottom: clamp(2rem, 4vw, 3.5rem);
+}
+
+.results-recommendation-section {
+  padding-top: clamp(1.5rem, 3vw, 2.75rem);
+  padding-bottom: clamp(3rem, 5vw, 4.5rem);
+}
+
 .control-intro-section {
   padding-top: clamp(7rem, 10vw, 9rem);
   padding-bottom: clamp(2.25rem, 4vw, 3.5rem);

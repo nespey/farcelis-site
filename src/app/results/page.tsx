@@ -79,11 +79,11 @@ export default function ResultsPage() {
       <PageIntro
         eyebrow=""
         title="Proof that Farcelis brings order, judgment, and traction."
-        description="Public receipts and client-safe proof show the work in motion: recognized expertise, media coverage, AI literacy leadership, and operations support that made decisions clearer."
+        description="Recognition, media, roundtable work, and client-safe recommendations show where the work held."
       />
 
       <Reveal delayMs={60}>
-        <section className="section-shell section-shell-light">
+        <section className="section-shell section-shell-light results-public-proof-section">
           <div className="section-inner">
             <div className="grid gap-4 lg:grid-cols-3">
               {publicProof.map((item) => (
@@ -113,16 +113,29 @@ export default function ResultsPage() {
       </Reveal>
 
       <Reveal delayMs={160}>
-        <section className="section-shell section-shell-dark pt-10">
+        <section className="section-shell section-shell-dark results-recommendation-section">
           <div className="section-inner">
-            <div className="max-w-[760px]">
-              <p className="eyebrow text-[color:var(--color-accent)]">Client-Safe Recommendations</p>
-              <h2 className="section-title mt-5 text-white">
-                The pattern is simple: less confusion, cleaner handoffs, faster decisions.
-              </h2>
-              <p className="mt-6 max-w-[760px] text-base leading-8 text-slate-300">
-                These notes stay anonymous, but the work is specific: AI literacy, CRM cleanup, vendor coordination, and operating assessment.
-              </p>
+            <div className="grid w-full max-w-[860px] gap-6 rounded-[26px] border border-white/10 bg-white/[0.04] p-6 shadow-[0_20px_56px_rgba(3,8,16,0.22)] sm:grid-cols-[132px_minmax(0,1fr)] sm:items-center lg:p-7">
+              <div className="relative mx-auto aspect-square w-full max-w-[132px] overflow-hidden rounded-[20px] border border-white/10 bg-white/[0.05] shadow-[0_14px_34px_rgba(3,8,16,0.22)] sm:mx-0">
+                <Image
+                  src="/images/proof/seated-closer.jpg"
+                  alt="Nathan Espey seated in a suit"
+                  fill
+                  sizes="132px"
+                  className="object-cover object-top"
+                />
+              </div>
+              <div>
+                <h2 className="max-w-[620px] text-[clamp(1.35rem,1.8vw,1.8rem)] font-semibold leading-tight tracking-[-0.025em] text-slate-100">
+                  Results are not decorations. They are the evidence that the system held.
+                </h2>
+                <p className="mt-4 max-w-[620px] text-base italic leading-8 text-slate-300">
+                  “The point of proof is not to sound impressive. It is to show that pressure entered the system, the work got organized, and leaders had something clearer to act on.”
+                </p>
+                <p className="mt-4 text-xs font-semibold uppercase tracking-[0.18em] text-slate-500">
+                  Nathan Espey, Founder & CEO
+                </p>
+              </div>
             </div>
 
             <div className="mt-8 grid gap-5 lg:grid-cols-2">
@@ -152,35 +165,6 @@ export default function ResultsPage() {
                   </div>
                 </article>
               ))}
-            </div>
-          </div>
-        </section>
-      </Reveal>
-
-      <Reveal delayMs={200}>
-        <section className="section-shell section-shell-light py-0">
-          <div className="section-inner flex justify-end">
-            <div className="grid w-full max-w-[860px] gap-6 rounded-[26px] border border-white/10 bg-white/[0.04] p-6 shadow-[0_20px_56px_rgba(3,8,16,0.22)] sm:grid-cols-[132px_minmax(0,1fr)] sm:items-center lg:p-7">
-              <div className="relative mx-auto aspect-square w-full max-w-[132px] overflow-hidden rounded-[20px] border border-white/10 bg-white/[0.05] shadow-[0_14px_34px_rgba(3,8,16,0.22)] sm:mx-0">
-                <Image
-                  src="/images/proof/seated-closer.jpg"
-                  alt="Nathan Espey seated in a suit"
-                  fill
-                  sizes="132px"
-                  className="object-cover object-top"
-                />
-              </div>
-              <div>
-                <h2 className="max-w-[620px] text-[clamp(1.35rem,1.8vw,1.8rem)] font-semibold leading-tight tracking-[-0.025em] text-slate-950">
-                  Results are not decorations. They are the evidence that the system held.
-                </h2>
-                <p className="mt-4 max-w-[620px] text-base italic leading-8 text-slate-200">
-                  “The point of proof is not to sound impressive. It is to show that pressure entered the system, the work got organized, and leaders had something clearer to act on.”
-                </p>
-                <p className="mt-4 text-xs font-semibold uppercase tracking-[0.18em] text-slate-500">
-                  Nathan Espey, Founder & CEO
-                </p>
-              </div>
             </div>
           </div>
         </section>
