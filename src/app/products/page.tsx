@@ -30,14 +30,12 @@ export default function ProductsPage() {
               </h2>
             </div>
 
-            <div className="mt-12 grid gap-4 md:grid-cols-2 lg:grid-cols-3">
-              {products.map((product, index) => (
+            <div className="mt-12 grid items-stretch gap-4 md:grid-cols-2 lg:grid-cols-3">
+              {products.map((product) => (
                 <Link
                   key={product.slug}
                   href={product.slug === "control-layer" ? "/control-layer" : `/products/${product.slug}`}
-                  className={`enterprise-card rounded-[24px] border border-slate-200 bg-white px-6 py-6 shadow-[0_18px_38px_rgba(15,23,42,0.06)] ${
-                    index === 1 || index === 4 ? "lg:translate-y-5" : ""
-                  }`}
+                  className="enterprise-card flex h-full min-h-[380px] flex-col rounded-[24px] border border-white/10 bg-white/[0.055] px-6 py-6 shadow-[0_18px_38px_rgba(15,23,42,0.06)]"
                 >
                   <div className="text-sm font-semibold uppercase tracking-[0.18em] text-[#9f412c]">
                     {product.eyebrow}
@@ -50,13 +48,13 @@ export default function ProductsPage() {
                     {product.outcomes.slice(0, 2).map((outcome) => (
                       <div
                         key={outcome}
-                        className="rounded-full border border-slate-200 bg-slate-50 px-4 py-2 text-sm font-semibold text-slate-700"
+                        className="min-h-10 rounded-full border border-white/10 bg-white/[0.06] px-4 py-2 text-sm font-semibold leading-6 text-slate-200"
                       >
                         {outcome}
                       </div>
                     ))}
                   </div>
-                  <div className="mt-6 text-sm font-semibold text-[#9f412c]">Explore product</div>
+                  <div className="mt-auto pt-6 text-sm font-semibold text-[#f19a6b]">Explore product</div>
                 </Link>
               ))}
             </div>
