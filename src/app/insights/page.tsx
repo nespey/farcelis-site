@@ -160,6 +160,15 @@ export default function InsightsPage() {
                         {brief.title}
                       </h3>
                       <p className="mt-4 text-base leading-8 text-slate-300">{brief.description}</p>
+                      <audio controls className="mt-5 w-full" preload="none">
+                        <source src={brief.audioSrc} type="audio/mp4" />
+                      </audio>
+                      <a
+                        href={brief.audioSrc}
+                        className="mt-4 inline-flex text-sm font-semibold text-[color:var(--color-accent)]"
+                      >
+                        Open audio file
+                      </a>
                     </div>
                   </div>
                 </div>
@@ -176,25 +185,23 @@ export default function InsightsPage() {
               <div>
                 <p className="eyebrow text-[#9f412c]">Blog</p>
                 <h2 className="section-title mt-5 text-slate-950">
-                  The blog is its own lane. One post, one format, no article-grid confusion.
+                  Julian&apos;s blog is its own lane, separate from the article library.
                 </h2>
                 <p className="mt-6 max-w-[560px] text-base leading-8 text-slate-600">
-                  This is the shorter public commentary path. It can point to Substack or future Farcelis posts, but it should not be mixed into the article library.
+                  Articles are long-form essays. Raw Intel is audio. Julian&apos;s blog is the shorter content-strategy lane, with its own reader treatment and its own imagery.
                 </p>
               </div>
               <div className="grid gap-5">
                 {blogPosts.map((post) => (
-                  <a
+                  <Link
                     key={post.title}
-                    href={post.href}
-                    target="_blank"
-                    rel="noreferrer"
+                    href={`/insights/blog/${post.slug}`}
                     className="group grid overflow-hidden border border-slate-200 bg-white shadow-[0_24px_70px_rgba(15,23,42,0.08)] transition hover:-translate-y-1 hover:border-[#9f412c]/28 md:grid-cols-[260px_minmax(0,1fr)]"
                   >
                     <div className="relative min-h-[260px] overflow-hidden bg-slate-950">
                       <Image
                         src={post.image}
-                        alt={`${post.title} blog artwork`}
+                        alt={post.imageAlt}
                         fill
                         sizes="(min-width: 768px) 260px, 100vw"
                         className="object-cover transition duration-500 group-hover:scale-105"
@@ -210,7 +217,7 @@ export default function InsightsPage() {
                       <p className="mt-4 text-base leading-8 text-slate-600">{post.description}</p>
                       <div className="mt-6 text-sm font-semibold text-[#9f412c]">{post.cta}</div>
                     </div>
-                  </a>
+                  </Link>
                 ))}
               </div>
             </div>

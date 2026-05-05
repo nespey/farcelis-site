@@ -1,5 +1,3 @@
-import Link from "next/link";
-
 import { PageIntro } from "@/components/PageIntro";
 import { Reveal } from "@/components/Reveal";
 import { buildMetadata } from "@/lib/metadata";
@@ -93,26 +91,6 @@ const engagementProof = [
   "Vendor sourcing and executive support",
   "Organizational assessment",
   "Implementation discipline under pressure",
-];
-
-const emergingChannels = [
-  {
-    title: "Insights holds the public thinking",
-    body:
-      "Full articles, Raw Intel, and the standalone blog now live inside the Insights hub with separate visual systems and clearer publishing roles.",
-    href: "/insights",
-  },
-  {
-    title: "Resources stays buyer enablement",
-    body:
-      "Whitepapers, executive briefings, playbooks, and reports stay in Resources because they support buying decisions and should not look like media.",
-    href: "/resources",
-  },
-  {
-    title: "Results stays proof",
-    body:
-      "Recognition, recommendation patterns, public-source proof, and client-safe trust signals stay here so the page does not become another content library.",
-  },
 ];
 
 export default function ResultsPage() {
@@ -275,54 +253,6 @@ export default function ResultsPage() {
                   {item}
                 </div>
               ))}
-            </div>
-          </div>
-        </section>
-      </Reveal>
-
-      <Reveal delayMs={240}>
-        <section className="section-shell section-shell-dark">
-          <div className="section-inner grid gap-10 lg:grid-cols-[minmax(0,0.75fr)_minmax(0,1.25fr)]">
-            <div>
-              <p className="eyebrow text-[color:var(--color-accent)]">Content Routing</p>
-              <h2 className="section-title mt-5 text-white">
-                Results now points to the right shelves instead of repeating the library.
-              </h2>
-              <p className="mt-6 max-w-[620px] text-base leading-8 text-slate-300">
-                This keeps the page authoritative: proof here, public thinking in Insights, and buyer resources in Resources.
-              </p>
-            </div>
-            <div className="grid gap-4">
-              {emergingChannels.map((item) => {
-                const content = (
-                  <>
-                    <h3 className="text-xl font-semibold tracking-[-0.04em] text-white">{item.title}</h3>
-                    <p className="mt-4 text-base leading-8 text-slate-300">{item.body}</p>
-                    {item.href ? (
-                      <div className="mt-6 text-sm font-semibold text-[color:var(--color-accent)]">
-                        Open path
-                      </div>
-                    ) : null}
-                  </>
-                );
-
-                return item.href ? (
-                  <Link
-                    key={item.title}
-                    href={item.href}
-                    className="rounded-[24px] border border-white/8 bg-white/[0.04] px-6 py-6 transition hover:-translate-y-1 hover:border-cyan-100/22 hover:bg-white/[0.06]"
-                  >
-                    {content}
-                  </Link>
-                ) : (
-                  <div
-                  key={item.title}
-                  className="rounded-[24px] border border-white/8 bg-white/[0.04] px-6 py-6"
-                >
-                    {content}
-                  </div>
-                );
-              })}
             </div>
           </div>
         </section>
