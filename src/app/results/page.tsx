@@ -11,37 +11,37 @@ const recommendationCards = [
   {
     source: "CityGov AI literacy roundtable",
     context: "AI Literacy for the Next Generation roundtable with public-sector and education leaders",
-    quote:
-      "Nathan brought AI down from the cloud and into the room: what leaders can say yes to, where judgment has to stay human, and how teams can adopt AI without losing trust.",
-    result:
-      "The roundtable gave leaders practical language for AI literacy, ethical use, classroom and workplace readiness, and responsible adoption.",
+    quote: "Nathan brought AI down from the cloud and into the room.",
+    story:
+      "The CityGov roundtable needed more than AI excitement. It needed language leaders could actually use: where teams can say yes, where judgment stays human, and how adoption can stay ethical across classrooms, workplaces, and public-service settings.",
+    proofLine: "AI literacy, responsible adoption, and leadership alignment",
     tags: ["CityGov roundtable", "AI literacy", "Responsible adoption"],
   },
   {
     source: "Startup operations engagement",
     context: "CRM organization, research, enrichment, and outreach preparation",
-    quote:
-      "The engagement turned a messy CRM and research backlog into a cleaner operating base for outreach, segmentation, and account follow-through.",
-    result:
-      "The team moved from scattered records to usable account intelligence, stronger list quality, and a more dependable research-to-outreach path.",
+    quote: "The CRM work stopped feeling like cleanup and started behaving like an outreach engine.",
+    story:
+      "A high-volume research backlog and scattered account records were reorganized into cleaner intelligence, better list quality, and usable segmentation so outreach could move with more confidence and less rework.",
+    proofLine: "CRM cleanup, research enrichment, and outbound readiness",
     tags: ["CRM cleanup", "Research enrichment", "Outbound readiness"],
   },
   {
     source: "Executive support engagement",
     context: "Vendor sourcing, urgent coordination, and executive follow-through",
-    quote:
-      "The support removed time-sensitive vendor and coordination pressure from the executive desk while keeping urgency, detail, and accountability intact.",
-    result:
-      "Leadership had faster options, cleaner follow-up, and fewer loose ends during a compressed decision window.",
+    quote: "The pressure came off the executive desk without losing urgency.",
+    story:
+      "Time-sensitive vendor sourcing and coordination work was handled with enough structure that leadership had faster options, cleaner follow-up, and fewer loose ends during a compressed decision window.",
+    proofLine: "Vendor sourcing, executive support, and follow-through",
     tags: ["Vendor sourcing", "Executive support", "Follow-through"],
   },
   {
     source: "Senior operations recommendation",
     context: "Organizational assessment and implementation",
-    quote:
-      "The work did not stop at observation. It diagnosed the operating gaps, shaped the team response, and helped the organization move under pressure.",
-    result:
-      "Leadership got a clearer view of where coordination was breaking down and a practical route back to execution discipline.",
+    quote: "The work moved from diagnosis into disciplined action.",
+    story:
+      "The engagement surfaced where coordination was breaking down, shaped the team response, and gave leadership a more practical route back to execution discipline under pressure.",
+    proofLine: "Operating assessment, team response, and implementation discipline",
     tags: ["Operating assessment", "Team response", "Implementation discipline"],
   },
 ];
@@ -70,37 +70,23 @@ const publicProof = [
   },
 ];
 
-const engagementProof = [
-  "AI literacy and adoption guidance",
-  "CRM organization and enrichment",
-  "Operational documentation systems",
-  "Vendor sourcing and executive support",
-  "Organizational assessment",
-  "Implementation discipline under pressure",
-];
-
 export default function ResultsPage() {
   return (
     <>
       <PageIntro
         eyebrow="Results and Proof"
-        title="Proof that Farcelis brings order, judgment, and traction to complex work."
+        title="Proof that Farcelis brings order, judgment, and traction."
         description="External recognition, public media, roundtable participation, and client-safe recommendations show where the work has already earned trust."
       />
 
       <Reveal delayMs={60}>
         <section className="section-shell section-shell-light">
           <div className="section-inner">
-            <div className="flex flex-col justify-between gap-8 lg:flex-row lg:items-end">
-              <div className="max-w-[760px]">
+            <div className="max-w-[760px]">
               <p className="eyebrow text-[#9f412c]">Public Recognition</p>
               <h2 className="section-title mt-5 text-slate-950">
-                  External proof comes first because it is visible, verifiable, and harder to fake.
+                External proof, public receipts, and visible trust signals.
               </h2>
-              </div>
-              <p className="max-w-[420px] text-base leading-8 text-slate-600">
-                Recognition is not the work. It is the signal that the work is showing up in public places with real stakes.
-              </p>
             </div>
           </div>
         </section>
@@ -137,56 +123,39 @@ export default function ResultsPage() {
         <section className="section-shell section-shell-dark">
           <div className="section-inner">
             <div className="max-w-[880px]">
-              <p className="eyebrow text-[color:var(--color-accent)]">Recommendation Themes</p>
+              <p className="eyebrow text-[color:var(--color-accent)]">What People Point Back To</p>
               <h2 className="section-title mt-5 text-white">
-                Recommendations matter when they show the before, the work, and what changed after.
+                The strongest recommendations do not flatter. They describe the moment the work became useful.
               </h2>
+              <p className="mt-6 max-w-[680px] text-base leading-8 text-slate-300">
+                These are client-safe summaries of the patterns people named after the work: clearer language, cleaner data, faster decisions, and stronger execution discipline.
+              </p>
             </div>
 
             <div className="mt-12 grid gap-5 lg:grid-cols-2">
               {recommendationCards.map((card, index) => (
                 <article
                   key={card.source}
-                  className={`flex min-h-[420px] flex-col rounded-[28px] border px-6 py-6 ${
+                  className={`flex min-h-[360px] flex-col rounded-[28px] border px-7 py-7 ${
                     index === 0
                       ? "border-[color:var(--color-accent)]/22 bg-[linear-gradient(180deg,rgba(242,139,91,0.15),rgba(255,255,255,0.035))]"
                       : "border-white/8 bg-white/[0.04]"
                   }`}
                 >
-                  <div className="flex flex-wrap items-center gap-3">
-                    <div className="text-sm font-semibold uppercase tracking-[0.18em] text-[color:var(--color-accent)]">
-                      {card.source}
-                    </div>
-                    <div className="rounded-full border border-white/10 bg-white/[0.04] px-3 py-1 text-sm font-semibold text-slate-200">
-                      5.0 signal
-                    </div>
+                  <div className="text-sm font-semibold uppercase tracking-[0.18em] text-[color:var(--color-accent)]">
+                    {card.source}
                   </div>
-                  <p className="mt-5 text-2xl font-medium italic leading-[1.55] tracking-[-0.035em] text-slate-100">
+                  <p className="mt-5 text-[clamp(1.65rem,2.2vw,2.25rem)] font-medium italic leading-[1.28] tracking-[-0.04em] text-slate-100">
                     “{card.quote}”
                   </p>
-                  <div className="mt-6 grid gap-3 rounded-[22px] border border-white/10 bg-white/[0.045] px-5 py-5">
-                    <div>
-                      <p className="text-xs font-semibold uppercase tracking-[0.16em] text-[color:var(--color-accent)]">
-                        Engagement
-                      </p>
-                      <p className="mt-2 text-sm leading-6 text-slate-300">{card.context}</p>
-                    </div>
-                    <div className="border-t border-white/10 pt-4">
-                      <p className="text-xs font-semibold uppercase tracking-[0.16em] text-[color:var(--color-accent)]">
-                        What changed
-                      </p>
-                      <p className="mt-2 text-base leading-7 text-slate-100">{card.result}</p>
-                    </div>
-                  </div>
-                  <div className="mt-auto flex flex-wrap gap-2 pt-6">
-                    {card.tags.map((tag) => (
-                      <span
-                        key={tag}
-                        className="rounded-full border border-cyan-100/12 bg-cyan-100/6 px-3 py-1.5 text-sm font-semibold text-cyan-50"
-                      >
-                        {tag}
-                      </span>
-                    ))}
+                  <p className="mt-5 text-base leading-8 text-slate-300">{card.story}</p>
+                  <div className="mt-auto border-t border-white/10 pt-5">
+                    <p className="text-xs font-semibold uppercase tracking-[0.16em] text-slate-500">
+                      {card.context}
+                    </p>
+                    <p className="mt-3 text-sm font-semibold text-[color:var(--color-accent)]">
+                      {card.proofLine}
+                    </p>
                   </div>
                 </article>
               ))}
@@ -197,38 +166,27 @@ export default function ResultsPage() {
 
       <Reveal delayMs={200}>
         <section className="section-shell section-shell-light">
-          <div className="section-inner grid gap-12 lg:grid-cols-[minmax(320px,0.45fr)_minmax(0,0.55fr)] lg:items-center">
-            <div className="relative overflow-hidden rounded-[30px] border border-white/10 bg-white/[0.05] shadow-[0_28px_80px_rgba(3,8,16,0.35)]">
-              <div className="relative aspect-[4/3]">
+          <div className="section-inner">
+            <div className="grid gap-8 rounded-[30px] border border-white/10 bg-white/[0.04] p-6 shadow-[0_24px_70px_rgba(3,8,16,0.24)] md:grid-cols-[180px_minmax(0,1fr)] md:items-center lg:p-8">
+              <div className="relative mx-auto aspect-square w-full max-w-[180px] overflow-hidden rounded-[24px] border border-white/10 bg-white/[0.05] shadow-[0_18px_42px_rgba(3,8,16,0.26)] md:mx-0">
                 <Image
                   src="/images/proof/seated-closer.jpg"
                   alt="Nathan Espey seated in a suit"
                   fill
-                  sizes="(min-width: 1024px) 520px, 100vw"
-                  className="object-cover"
+                  sizes="180px"
+                  className="object-cover object-top"
                 />
               </div>
-            </div>
-            <div>
-              <p className="eyebrow text-[#9f412c]">Proof Ledger</p>
-              <h2 className="section-title mt-5 text-slate-950">
-                Results are not decorations. They are the evidence that the system held.
-              </h2>
-              <p className="mt-6 max-w-[620px] text-xl italic leading-9 text-slate-200">
-                “The point of proof is not to sound impressive. It is to show that pressure entered the system, the work got organized, and leaders had something clearer to act on.”
-              </p>
-              <p className="mt-4 text-sm font-semibold uppercase tracking-[0.18em] text-slate-500">
-                Nathan Espey, Founder & CEO
-              </p>
-              <div className="mt-8 grid gap-4 sm:grid-cols-2">
-              {engagementProof.map((item) => (
-                <div
-                  key={item}
-                  className="enterprise-card rounded-[24px] border border-slate-200 bg-white px-5 py-5 text-lg font-semibold tracking-[-0.035em] text-slate-950 shadow-[0_18px_38px_rgba(15,23,42,0.06)]"
-                >
-                  {item}
-                </div>
-              ))}
+              <div>
+                <h2 className="max-w-[760px] text-[clamp(1.75rem,2.5vw,2.55rem)] font-semibold leading-tight tracking-[-0.045em] text-slate-950">
+                  Results are not decorations. They are the evidence that the system held.
+                </h2>
+                <p className="mt-6 max-w-[620px] text-xl italic leading-9 text-slate-200">
+                  “The point of proof is not to sound impressive. It is to show that pressure entered the system, the work got organized, and leaders had something clearer to act on.”
+                </p>
+                <p className="mt-4 text-sm font-semibold uppercase tracking-[0.18em] text-slate-500">
+                  Nathan Espey, Founder & CEO
+                </p>
               </div>
             </div>
           </div>

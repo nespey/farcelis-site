@@ -1117,10 +1117,10 @@ a {
 }
 
 .display-page {
-  max-width: 820px;
-  font-size: clamp(2.15rem, 3.45vw, 3.35rem);
-  line-height: 1.1;
-  letter-spacing: -0.035em;
+  max-width: 920px;
+  font-size: clamp(1.95rem, 2.75vw, 2.65rem);
+  line-height: 1.12;
+  letter-spacing: -0.025em;
   font-weight: 500;
   text-align: left;
   margin-inline: 0;
