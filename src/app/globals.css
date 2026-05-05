@@ -211,6 +211,10 @@ a {
   padding-bottom: clamp(3rem, 5vw, 4.5rem);
 }
 
+.managed-detail-section {
+  padding-top: 0;
+}
+
 .control-intro-section {
   padding-top: clamp(7rem, 10vw, 9rem);
   padding-bottom: clamp(2.25rem, 4vw, 3.5rem);

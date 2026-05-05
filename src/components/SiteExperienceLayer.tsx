@@ -97,6 +97,18 @@ export function SiteExperienceLayer() {
     return () => document.removeEventListener("keydown", closeOnEscape);
   }, [open]);
 
+  useEffect(() => {
+    const openFromHash = () => {
+      if (window.location.hash === "#pathfinder") {
+        setOpen(true);
+      }
+    };
+
+    openFromHash();
+    window.addEventListener("hashchange", openFromHash);
+    return () => window.removeEventListener("hashchange", openFromHash);
+  }, []);
+
   const score = useMemo(
     () => Object.entries(answers).reduce((total, [questionIndex, optionIndex]) => {
       const option = scanQuestions[Number(questionIndex)]?.options[optionIndex];
