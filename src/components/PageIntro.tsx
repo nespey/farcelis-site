@@ -16,6 +16,7 @@ type PageIntroProps = {
   asideTitle?: string;
   asideItems?: string[];
   compact?: boolean;
+  className?: string;
 };
 
 export function PageIntro({
@@ -26,13 +27,16 @@ export function PageIntro({
   asideTitle,
   asideItems = [],
   compact = false,
+  className = "",
 }: PageIntroProps) {
+  const hasAside = Boolean(asideTitle || asideItems.length > 0);
+
   return (
-    <section className={`section-shell section-shell-dark overflow-hidden ${compact ? "pt-16 lg:pt-20" : "pt-20 lg:pt-24"}`}>
+    <section className={`section-shell section-shell-dark overflow-hidden ${compact ? "pt-16 lg:pt-20" : "pt-20 lg:pt-24"} ${className}`}>
       <div className="vibrant-orbit absolute left-[10%] top-[12%] h-56 w-56 bg-[radial-gradient(circle,rgba(242,139,91,0.2),transparent_68%)]" />
       <div className="vibrant-orbit absolute right-[14%] top-[16%] h-64 w-64 bg-[radial-gradient(circle,rgba(97,192,215,0.18),transparent_70%)]" />
       <div className="vibrant-orbit absolute right-[32%] top-[32%] h-48 w-48 bg-[radial-gradient(circle,rgba(141,119,255,0.12),transparent_70%)]" />
-      <div className="section-inner relative grid gap-12 lg:grid-cols-[minmax(0,0.78fr)_minmax(280px,0.22fr)] lg:items-end">
+      <div className={`section-inner relative grid gap-12 lg:items-end ${hasAside ? "lg:grid-cols-[minmax(0,0.78fr)_minmax(280px,0.22fr)]" : "lg:grid-cols-1"}`}>
         <div className="text-center">
           <p className="eyebrow text-[color:var(--color-accent)]">{eyebrow}</p>
           <h1 className="display-page mt-5 text-white">{title}</h1>
@@ -56,7 +60,7 @@ export function PageIntro({
           ) : null}
         </div>
 
-        {asideTitle || asideItems.length > 0 ? (
+        {hasAside ? (
           <aside className="surface-dark relative rounded-[28px] border border-cyan-100/14 bg-[linear-gradient(180deg,rgba(12,30,40,0.93),rgba(10,25,35,0.86)),linear-gradient(135deg,rgba(97,192,215,0.11),rgba(242,139,91,0.06))] px-6 py-7 text-center shadow-[0_24px_60px_rgba(3,8,16,0.28)] backdrop-blur-xl">
             {asideTitle ? (
               <p className="eyebrow text-[color:var(--color-accent)]">{asideTitle}</p>
