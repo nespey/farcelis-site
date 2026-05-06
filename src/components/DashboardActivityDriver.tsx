@@ -51,6 +51,7 @@ function rotateChildren(selector: string) {
 export function DashboardActivityDriver() {
   useEffect(() => {
     const isMobile = window.matchMedia("(max-width: 700px)").matches;
+    if (isMobile) return;
 
     let step = 0;
 
@@ -135,11 +136,9 @@ export function DashboardActivityDriver() {
         toast.classList.add("is-updating");
       });
 
-      if (!isMobile) {
-        if (step % 3 === 0) rotateChildren(".home-action-list");
-        if (step % 4 === 0) rotateChildren(".gov-record-scroll");
-        if (step % 5 === 0) rotateChildren(".home-upcoming-scroll");
-      }
+      if (step % 3 === 0) rotateChildren(".home-action-list");
+      if (step % 4 === 0) rotateChildren(".gov-record-scroll");
+      if (step % 5 === 0) rotateChildren(".home-upcoming-scroll");
     }, 1150);
 
     return () => window.clearInterval(interval);

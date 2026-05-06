@@ -4118,3 +4118,36 @@ main :is(.border-t, .border-b, .border-y, .divide-y > :not([hidden]) ~ :not([hid
     animation: none !important;
   }
 }
+
+@media (max-width: 700px) {
+  .case-logo-track {
+    animation-name: caseLogoScroll !important;
+    animation-duration: 24s !important;
+    animation-timing-function: linear !important;
+    animation-iteration-count: infinite !important;
+    animation-play-state: running !important;
+    will-change: transform;
+  }
+
+  .case-logo-lane--reverse .case-logo-track {
+    animation-direction: reverse !important;
+  }
+
+  .control-showcase-section .case-dashboard::after {
+    display: block !important;
+    opacity: 0.32;
+    animation: dashboardSweep 8s linear infinite !important;
+  }
+
+  .gov-metric-card,
+  .gov-record,
+  .gov-button,
+  .gov-spotlight-card,
+  .home-nav-card,
+  .home-control-pill,
+  .home-inbox-card,
+  .home-action-row,
+  .home-upcoming-row {
+    transition: none !important;
+  }
+}
