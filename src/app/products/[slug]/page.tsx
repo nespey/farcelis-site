@@ -3,6 +3,7 @@ import { notFound } from "next/navigation";
 import { IntentAdaptiveLearningEngine } from "@/components/IntentAdaptiveLearningEngine";
 import { PageIntro } from "@/components/PageIntro";
 import { PulseThreadPreview } from "@/components/PulseThreadPreview";
+import { RapidRampGenerator } from "@/components/RapidRampGenerator";
 import { Reveal } from "@/components/Reveal";
 import { buildMetadata } from "@/lib/metadata";
 import { getProductBySlug, products, site } from "@/lib/site-data";
@@ -42,9 +43,14 @@ export default async function ProductDetailPage({ params }: ProductPageProps) {
 
   const isPulseThread = product.slug === "pulse-thread-coaching-assistant";
   const isIntentEngine = product.slug === "intent-adaptive-learning-engine";
+  const isRapidRamp = product.slug === "rapidramp-generator";
 
   if (isIntentEngine) {
     return <IntentAdaptiveLearningEngine />;
+  }
+
+  if (isRapidRamp) {
+    return <RapidRampGenerator />;
   }
 
   return (
