@@ -161,12 +161,12 @@ export default function ManagedOperationsPage() {
                       </h2>
                       <p className="mt-5 text-base leading-8 text-slate-600">{item.body}</p>
                       <div className="mt-6 flex flex-col gap-3 sm:flex-row">
-                        <Link href="/contact" className="btn-primary">
+                        <Link href="/contact" className="managed-action-primary">
                           {item.request}
                         </Link>
                         <Link
                           href="#pathfinder"
-                          className="inline-flex min-h-11 items-center justify-center rounded-full border border-slate-300 px-5 py-2.5 text-sm font-semibold text-slate-800 transition hover:border-slate-400 hover:bg-slate-50"
+                          className="managed-action-secondary"
                         >
                           Use Pathfinder
                         </Link>
@@ -174,15 +174,15 @@ export default function ManagedOperationsPage() {
                     </div>
 
                     <div className="grid gap-4 lg:grid-cols-2">
-                      <div className="rounded-[24px] border border-slate-200 bg-slate-50 px-5 py-5">
-                        <h3 className="text-sm font-semibold uppercase tracking-[0.16em] text-[#9f412c]">
+                      <div className="managed-info-panel">
+                        <h3 className="managed-info-heading">
                           What Farcelis Builds
                         </h3>
                         <ul className="mt-5 grid gap-3">
                           {item.deliverables.map((deliverable) => (
                             <li
                               key={deliverable}
-                              className="border-l border-[#9f412c]/28 pl-4 text-sm font-semibold leading-6 text-slate-800"
+                              className="managed-info-line"
                             >
                               {deliverable}
                             </li>
@@ -190,17 +190,17 @@ export default function ManagedOperationsPage() {
                         </ul>
                       </div>
 
-                      <div className="rounded-[24px] border border-slate-200 bg-slate-50 px-5 py-5">
-                        <h3 className="text-sm font-semibold uppercase tracking-[0.16em] text-[#9f412c]">
+                      <div className="managed-info-panel">
+                        <h3 className="managed-info-heading">
                           How It Works
                         </h3>
                         <ol className="mt-5 grid gap-3">
                           {item.layout.map((step, index) => (
                             <li key={step} className="grid grid-cols-[2rem_minmax(0,1fr)] gap-3">
-                              <span className="flex h-8 w-8 items-center justify-center rounded-full bg-white text-sm font-bold text-[#9f412c] shadow-sm">
+                              <span className="managed-step-badge">
                                 {index + 1}
                               </span>
-                              <span className="pt-1 text-sm font-medium leading-6 text-slate-700">{step}</span>
+                              <span className="pt-1 text-sm font-semibold leading-6 text-slate-100">{step}</span>
                             </li>
                           ))}
                         </ol>
@@ -287,7 +287,7 @@ export default function ManagedOperationsPage() {
                   ].map((item) => (
                     <div
                       key={item}
-                      className="rounded-[18px] border border-slate-200 bg-slate-50 px-5 py-4 text-base font-semibold leading-7 text-slate-800"
+                      className="managed-fit-item"
                     >
                       {item}
                     </div>
@@ -295,12 +295,12 @@ export default function ManagedOperationsPage() {
                 </div>
               </div>
               <div className="mt-7 flex flex-col gap-3 sm:flex-row">
-                <Link href="#pathfinder" className="btn-primary">
+                <Link href="#pathfinder" className="managed-action-primary">
                   Use Pathfinder
                 </Link>
                 <Link
                   href="/contact"
-                  className="inline-flex min-h-11 items-center justify-center rounded-full border border-slate-300 px-5 py-2.5 text-sm font-semibold text-slate-800 transition hover:border-slate-400 hover:bg-slate-50"
+                  className="managed-action-secondary"
                 >
                   Request Managed Operations
                 </Link>
@@ -308,12 +308,12 @@ export default function ManagedOperationsPage() {
             </div>
 
             <div className="mt-8 flex flex-col gap-3 sm:flex-row">
-              <Link href="/contact" className="btn-primary">
+              <Link href="/contact" className="managed-action-primary">
                 Talk Through Managed Support
               </Link>
               <Link
                 href="/control-layer"
-                className="inline-flex min-h-11 items-center justify-center rounded-full border border-slate-300 px-5 py-2.5 text-sm font-semibold text-slate-800 transition hover:border-slate-400 hover:bg-slate-50"
+                className="managed-action-secondary"
               >
                 Explore the Control Layer
               </Link>

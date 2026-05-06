@@ -200,7 +200,7 @@ export default function ServicesPage() {
                   </ul>
                   <Link
                     href={lane.href}
-                    className="mt-7 inline-flex min-h-11 items-center justify-center rounded-full border border-[#9f412c]/20 px-5 py-2.5 text-sm font-semibold text-[#9f412c] transition hover:border-[#9f412c]/40 hover:bg-[#9f412c]/5"
+                    className="capability-lane-action mt-7"
                   >
                     {lane.cta}
                   </Link>
