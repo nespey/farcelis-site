@@ -411,10 +411,8 @@ export default function ControlLayerPage() {
               <figcaption className="founder-quote-copy">
                 <p className="eyebrow text-[#ff7f4f]">Same Architecture, Different Life</p>
                 <blockquote>
-                  After years of working with senior professionals inside high-pressure environments, one thing became impossible
-                  to ignore: every organization eventually needs a command system built around how it actually moves. The Control
-                  Layer has to adapt to the company, learn from its signals, and sharpen itself around the work. The people should
-                  not have to bend themselves around the system.
+                  Every organization eventually needs a command system built around how it actually moves. The Control Layer should
+                  adapt to the work, learn from its signals, and reduce pressure instead of forcing people to bend around another tool.
                 </blockquote>
                 <p className="founder-quote-name">Nathan Espey</p>
                 <p className="founder-quote-role">Founder, Farcelis AI Consulting LLC</p>

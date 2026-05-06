@@ -182,6 +182,8 @@ export function WorkspacePreview({ compact = false }: WorkspacePreviewProps) {
   const [activeRow, setActiveRow] = useState(0);
 
   useEffect(() => {
+    if (window.matchMedia("(max-width: 700px)").matches) return;
+
     const viewInterval = window.setInterval(() => {
       setViewIndex((current) => (current + 1) % views.length);
     }, 3600);
@@ -190,6 +192,8 @@ export function WorkspacePreview({ compact = false }: WorkspacePreviewProps) {
   }, []);
 
   useEffect(() => {
+    if (window.matchMedia("(max-width: 700px)").matches) return;
+
     const rowInterval = window.setInterval(() => {
       setActiveRow((current) => (current + 1) % 6);
     }, 1300);
@@ -267,11 +271,11 @@ export function WorkspacePreview({ compact = false }: WorkspacePreviewProps) {
               </div>
             </div>
 
-            <div className="grid gap-3 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-6">
+            <div className="workspace-counter-grid grid gap-3 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-6">
               {current.counters.map((counter, index) => (
                 <div
                   key={counter.label}
-                  className={`hero-signal min-h-[88px] rounded-[16px] border px-3 py-3 text-left ${
+                  className={`workspace-counter hero-signal min-h-[88px] rounded-[16px] border px-3 py-3 text-left ${
                     index === activeRow ? accentClasses.panel : "border-white/7 bg-white/[0.04]"
                   }`}
                 >
@@ -286,8 +290,8 @@ export function WorkspacePreview({ compact = false }: WorkspacePreviewProps) {
             </div>
           </div>
 
-          <div className="grid gap-4 xl:grid-cols-[240px_minmax(0,1fr)]">
-            <div className="space-y-4">
+          <div className="workspace-preview-main-grid grid gap-4 xl:grid-cols-[240px_minmax(0,1fr)]">
+            <div className="workspace-channel-column space-y-4">
               <div className="rounded-[20px] border border-white/7 bg-white/[0.04] p-3">
                 <div className="text-[11px] font-semibold uppercase tracking-[0.18em] text-slate-500">
                   Workspace channels
@@ -337,10 +341,10 @@ export function WorkspacePreview({ compact = false }: WorkspacePreviewProps) {
               </div>
             </div>
 
-            <div className="rounded-[24px] border border-white/8 bg-[#0d1724]/92 p-3 md:p-4">
+            <div className="workspace-content-panel rounded-[24px] border border-white/8 bg-[#0d1724]/92 p-3 md:p-4">
               <div className="grid gap-4 lg:grid-cols-[minmax(0,1.1fr)_minmax(0,0.9fr)]">
                 <div className="space-y-4">
-                  <div className="rounded-[18px] border border-white/7 bg-white/[0.03] p-3">
+                  <div className="workspace-live-inboxes rounded-[18px] border border-white/7 bg-white/[0.03] p-3">
                     <div className="flex items-center justify-between gap-3">
                       <div className="text-[11px] font-semibold uppercase tracking-[0.16em] text-slate-500">
                         {current.panels.leftTitle}
@@ -371,7 +375,7 @@ export function WorkspacePreview({ compact = false }: WorkspacePreviewProps) {
                     </div>
                   </div>
 
-                  <div className="rounded-[18px] border border-white/7 bg-white/[0.03] p-3">
+                  <div className="workspace-action-center rounded-[18px] border border-white/7 bg-white/[0.03] p-3">
                     <div className="text-[11px] font-semibold uppercase tracking-[0.16em] text-slate-500">
                       {current.panels.centerTitle}
                     </div>
@@ -391,7 +395,7 @@ export function WorkspacePreview({ compact = false }: WorkspacePreviewProps) {
                     </div>
                   </div>
 
-                  <div className="grid gap-4 md:grid-cols-2">
+                  <div className="workspace-lower-groups grid gap-4 md:grid-cols-2">
                     {current.panels.lowerGroups.map((group, groupIndex) => (
                       <div
                         key={group.title}
@@ -426,7 +430,7 @@ export function WorkspacePreview({ compact = false }: WorkspacePreviewProps) {
                   </div>
                 </div>
 
-                <div className="space-y-4">
+                <div className="workspace-right-column space-y-4">
                   <div className="rounded-[18px] border border-white/7 bg-[linear-gradient(180deg,rgba(97,192,215,0.12),rgba(97,192,215,0.04))] p-3">
                     <div className="text-[11px] font-semibold uppercase tracking-[0.16em] text-cyan-100">
                       Executive view

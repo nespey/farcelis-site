@@ -3880,6 +3880,120 @@ main :is(.border-t, .border-b, .border-y, .divide-y > :not([hidden]) ~ :not([hid
     min-height: 32px;
     font-size: 0.58rem;
   }
+
+  .scroll-zoom {
+    animation: none !important;
+    transform: none !important;
+  }
+
+  .dashboard-showcase {
+    padding-bottom: 3rem;
+  }
+
+  .dashboard-preview-glow {
+    border-radius: 28px;
+    padding: 8px;
+  }
+
+  .dashboard-preview-glow::before {
+    inset: -14px -10px;
+    border-radius: 34px;
+    filter: blur(10px);
+  }
+
+  .dashboard-preview-glow .workspace-preview {
+    min-height: 0 !important;
+    border-radius: 24px;
+    padding: 1rem !important;
+    box-shadow:
+      0 28px 72px rgba(3, 8, 16, 0.56),
+      0 0 42px rgba(97, 192, 215, 0.14),
+      inset 0 1px 0 rgba(255, 255, 255, 0.14);
+  }
+
+  .workspace-preview .hero-signal {
+    min-height: 64px;
+  }
+
+  .workspace-counter-grid {
+    grid-template-columns: repeat(2, minmax(0, 1fr)) !important;
+    gap: 0.55rem !important;
+  }
+
+  .workspace-counter:nth-child(n + 5),
+  .workspace-channel-column,
+  .workspace-live-inboxes,
+  .workspace-lower-groups,
+  .workspace-right-column {
+    display: none !important;
+  }
+
+  .workspace-preview-main-grid,
+  .workspace-content-panel > .grid {
+    grid-template-columns: 1fr !important;
+  }
+
+  .workspace-content-panel {
+    border-radius: 20px;
+    padding: 0.75rem !important;
+  }
+
+  .workspace-action-center .mt-3 > div:nth-child(n + 4) {
+    display: none !important;
+  }
+
+  .case-logo-lane {
+    transform: translateZ(0);
+  }
+
+  .case-logo-track {
+    min-width: max-content;
+    animation: caseLogoScroll 28s linear infinite !important;
+    will-change: transform;
+  }
+
+  .case-logo-lane--reverse .case-logo-track {
+    animation-direction: reverse !important;
+  }
+
+  .control-showcase-section .case-dashboard::after {
+    display: none;
+  }
+
+  .gov-live-toast,
+  .home-live-toast {
+    display: none !important;
+  }
+
+  .founder-quote-card {
+    gap: 0.9rem;
+    border-radius: 22px;
+    padding: 0.9rem;
+  }
+
+  .founder-quote-image {
+    width: min(100%, 96px);
+    border-radius: 18px;
+  }
+
+  .founder-quote-copy blockquote {
+    margin-top: 0.65rem;
+    font-size: clamp(0.98rem, 4.35vw, 1.14rem);
+    line-height: 1.32;
+    letter-spacing: -0.015em;
+    text-align: left;
+  }
+
+  .founder-quote-name {
+    margin-top: 0.7rem;
+    font-size: 0.86rem;
+    text-align: left;
+  }
+
+  .founder-quote-role {
+    font-size: 0.76rem;
+    text-align: left;
+  }
 }
 
 @media (prefers-reduced-motion: reduce) {

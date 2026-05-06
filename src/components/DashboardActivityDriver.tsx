@@ -50,6 +50,8 @@ function rotateChildren(selector: string) {
 
 export function DashboardActivityDriver() {
   useEffect(() => {
+    if (window.matchMedia("(max-width: 700px)").matches) return;
+
     let step = 0;
 
     const interval = window.setInterval(() => {
