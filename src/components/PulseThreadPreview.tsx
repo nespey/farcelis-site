@@ -1,5 +1,6 @@
 "use client";
 
+import Image from "next/image";
 import { useMemo, useState } from "react";
 import Link from "next/link";
 
@@ -162,14 +163,34 @@ export function PulseThreadPreview() {
               captures what matters and gives it a place to move.
             </p>
           </div>
-          <div className="pulse-preview-status">
+          <aside className="pulse-service-quote">
+            <div className="pulse-service-quote-image">
+              <Image
+                src="/images/team/katalin-pulse-thread-quote.jpeg"
+                alt="Katalin Espey, Chief Services Officer"
+                width={896}
+                height={1088}
+              />
+            </div>
+            <div>
+              <span>Service Perspective</span>
+              <blockquote>
+                “Pulse Thread is not more meeting software. It is the service layer that keeps
+                decisions, owners, and follow-up from going cold after the call ends.”
+              </blockquote>
+              <p>Katalin Espey</p>
+              <small>Chief Services Officer</small>
+            </div>
+          </aside>
+        </div>
+
+        <div className="pulse-preview-console">
+          <div className="pulse-console-status">
             <span>Assistant state</span>
             <strong>{status}</strong>
             <small>Not a generic chatbot. An operating assistant for after the meeting ends.</small>
           </div>
-        </div>
 
-        <div className="pulse-preview-console">
           <div className="pulse-preview-panels">
             <article className="pulse-panel pulse-panel-conversation">
               <div className="pulse-panel-header">

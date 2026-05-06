@@ -2313,19 +2313,40 @@ main :is(.border-t, .border-b, .border-y, .divide-y > :not([hidden]) ~ :not([hid
   line-height: 1.75;
 }
 
-.pulse-preview-status {
+.pulse-service-quote {
   display: grid;
-  gap: 0.45rem;
+  grid-template-columns: 4.6rem minmax(0, 1fr);
+  gap: 0.85rem;
+  align-items: center;
   border-radius: 22px;
   border: 1px solid rgba(186, 230, 253, 0.16);
   background:
     linear-gradient(135deg, rgba(255, 255, 255, 0.09), rgba(255, 255, 255, 0.035)),
     rgba(4, 18, 27, 0.48);
-  padding: 1rem;
-  box-shadow: inset 0 1px 0 rgba(255, 255, 255, 0.1);
+  padding: 0.92rem;
+  box-shadow:
+    0 18px 44px rgba(0, 0, 0, 0.18),
+    inset 0 1px 0 rgba(255, 255, 255, 0.1);
 }
 
-.pulse-preview-status span,
+.pulse-service-quote-image {
+  position: relative;
+  overflow: hidden;
+  aspect-ratio: 1;
+  border-radius: 18px;
+  border: 1px solid rgba(186, 230, 253, 0.18);
+  background: rgba(255, 255, 255, 0.07);
+}
+
+.pulse-service-quote-image img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  object-position: 50% 22%;
+}
+
+.pulse-service-quote span,
+.pulse-console-status span,
 .pulse-panel-header span,
 .pulse-output-card > span,
 .pulse-escalation-flag span,
@@ -2337,16 +2358,53 @@ main :is(.border-t, .border-b, .border-y, .divide-y > :not([hidden]) ~ :not([hid
   text-transform: uppercase;
 }
 
-.pulse-preview-status strong {
+.pulse-service-quote blockquote {
+  margin-top: 0.32rem;
+  color: #f2f8fb;
+  font-size: clamp(0.9rem, 1.05vw, 1.02rem);
+  font-weight: 650;
+  letter-spacing: -0.02em;
+  line-height: 1.45;
+}
+
+.pulse-service-quote p {
+  margin-top: 0.7rem;
   color: #ffffff;
-  font-size: 1.2rem;
+  font-size: 0.86rem;
+  font-weight: 850;
+  line-height: 1.2;
+}
+
+.pulse-service-quote small {
+  display: block;
+  margin-top: 0.18rem;
+  color: #9eb2bd;
+  font-size: 0.74rem;
+  line-height: 1.35;
+}
+
+.pulse-console-status {
+  display: grid;
+  grid-template-columns: max-content max-content minmax(0, 1fr);
+  gap: 0.55rem 0.8rem;
+  align-items: center;
+  margin-bottom: 0.85rem;
+  border-radius: 18px;
+  border: 1px solid rgba(186, 230, 253, 0.12);
+  background: rgba(255, 255, 255, 0.045);
+  padding: 0.78rem 0.95rem;
+}
+
+.pulse-console-status strong {
+  color: #ffffff;
+  font-size: 0.96rem;
   font-weight: 750;
   letter-spacing: -0.02em;
 }
 
-.pulse-preview-status small {
+.pulse-console-status small {
   color: #aebfca;
-  font-size: 0.82rem;
+  font-size: 0.8rem;
   line-height: 1.45;
 }
 
@@ -5022,6 +5080,14 @@ main :is(.border-t, .border-b, .border-y, .divide-y > :not([hidden]) ~ :not([hid
     grid-template-columns: 1fr;
   }
 
+  .pulse-service-quote {
+    max-width: 46rem;
+  }
+
+  .pulse-console-status {
+    grid-template-columns: 1fr;
+  }
+
   .pulse-action-row,
   .pulse-zone-grid {
     grid-template-columns: repeat(3, minmax(0, 1fr));
@@ -5073,6 +5139,26 @@ main :is(.border-t, .border-b, .border-y, .divide-y > :not([hidden]) ~ :not([hid
 
   .pulse-preview-console {
     border-radius: 22px;
+    padding: 0.72rem;
+  }
+
+  .pulse-service-quote {
+    grid-template-columns: 4.2rem minmax(0, 1fr);
+    border-radius: 18px;
+    padding: 0.78rem;
+  }
+
+  .pulse-service-quote-image {
+    border-radius: 14px;
+  }
+
+  .pulse-service-quote blockquote {
+    font-size: 0.88rem;
+    line-height: 1.42;
+  }
+
+  .pulse-console-status {
+    border-radius: 16px;
     padding: 0.72rem;
   }
 
