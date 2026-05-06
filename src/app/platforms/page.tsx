@@ -1,8 +1,10 @@
+import Image from "next/image";
+
 import { IntegrationLogoLane } from "@/components/IntegrationLogoLane";
 import { PageIntro } from "@/components/PageIntro";
 import { Reveal } from "@/components/Reveal";
 import { buildMetadata } from "@/lib/metadata";
-import { platformCapabilities, seo } from "@/lib/site-data";
+import { seo } from "@/lib/site-data";
 
 export const metadata = buildMetadata(seo.platforms);
 
@@ -14,22 +16,36 @@ const platformBands = [
   "Reporting environments",
 ];
 
-const assistantPatterns = [
+const stackCapabilities = [
   {
-    title: "Meeting and follow-through assistants",
-    body: "Capture decisions, extract next actions, assign owners, and push follow-up into the system where the work actually lives.",
+    title: "AI agents and assistants",
+    platform: "Role-specific assistants for intake, follow-up, documentation, research, customer support, marketing, and operational execution.",
+    assistant: "Meeting, document, revenue, and operations pulse assistants work inside the stack with a defined job, bounded data context, review path, and destination for the output.",
   },
   {
-    title: "CRM and revenue assistants",
-    body: "Support account research, lead routing, lifecycle notes, sales preparation, and handoff quality without separating AI output from CRM reality.",
+    title: "CRM and revenue platforms",
+    platform: "HubSpot, Salesforce, pipeline workflows, lead routing, customer handoffs, and revenue visibility structured around how the business actually sells and serves.",
+    assistant: "Revenue assistants support account research, lifecycle notes, sales preparation, and handoff quality without separating AI output from CRM reality.",
   },
   {
-    title: "Document and knowledge assistants",
-    body: "Turn SOPs, policies, project notes, and recurring documentation into searchable, reusable support for teams that need consistent execution.",
+    title: "Workflow and project systems",
+    platform: "ClickUp, Monday, Asana, Jira, Smartsheet, and related work systems configured around ownership, priority, routing, and reporting.",
+    assistant: "Follow-through assistants capture decisions, extract next actions, assign owners, and push updates into the system where the work actually lives.",
   },
   {
-    title: "Operations pulse assistants",
-    body: "Watch status, blockers, priority movement, and stale work so leaders can intervene before execution becomes invisible.",
+    title: "Microsoft and Google workspaces",
+    platform: "Teams, SharePoint, Outlook, Gmail, Drive, Docs, Sheets, and collaboration environments connected into cleaner execution paths.",
+    assistant: "Knowledge assistants turn SOPs, policies, project notes, and recurring documentation into reusable support for teams that need consistent execution.",
+  },
+  {
+    title: "Content, SEO, and social platforms",
+    platform: "Publishing, social media management, blog systems, search optimization, content calendars, and campaign reporting connected to measurable outcomes.",
+    assistant: "Content assistants help with briefs, repurposing, campaign coordination, and review-ready drafts while the calendar, approvals, and reporting stay connected.",
+  },
+  {
+    title: "Dashboards and decision systems",
+    platform: "Reporting layers turn operational signals into leadership-ready views for decisions, intervention, and accountability.",
+    assistant: "Operations pulse assistants watch status, blockers, priority movement, and stale work so leaders can intervene before execution becomes invisible.",
   },
 ];
 
@@ -80,48 +96,42 @@ export default function PlatformsPage() {
       <Reveal delayMs={90}>
         <section className="section-shell section-shell-light">
           <div className="section-inner">
-            <div className="max-w-[860px]">
-              <p className="eyebrow text-[#9f412c]">AI Agents and Assistants</p>
-              <h2 className="section-title mt-5 text-slate-950">
-                Assistants belong inside the connected stack, not on a duplicate page.
-              </h2>
-              <p className="mt-6 max-w-[720px] text-base leading-8 text-slate-600">
-                Farcelis treats agents as role-specific workflow support. They need a job, a bounded data context, a review path, and a destination for the output.
-              </p>
-            </div>
+            <div className="platform-stack-header">
+              <div className="max-w-[820px]">
+                <p className="eyebrow text-[#9f412c]">Platform Capabilities</p>
+                <h2 className="section-title mt-5 text-slate-950">
+                  Platforms, assistants, and reporting should behave like one operating system.
+                </h2>
+                <p className="mt-6 max-w-[760px] text-base leading-8 text-slate-600">
+                  Farcelis connects the stack around the actual path of work: where requests enter, who owns the next move, what an assistant can safely support, and how leaders see progress before pressure compounds.
+                </p>
+              </div>
 
-            <div className="mt-10 grid gap-4 md:grid-cols-2">
-              {assistantPatterns.map((pattern) => (
-                <article
-                  key={pattern.title}
-                  className="enterprise-card rounded-[24px] border border-slate-200 bg-white px-6 py-6 shadow-[0_18px_38px_rgba(15,23,42,0.06)]"
-                >
-                  <h3 className="text-2xl font-semibold tracking-[-0.04em] text-slate-950">
-                    {pattern.title}
-                  </h3>
-                  <p className="mt-4 text-base leading-8 text-slate-600">{pattern.body}</p>
-                </article>
-              ))}
-            </div>
-          </div>
-        </section>
-      </Reveal>
-
-      <Reveal delayMs={130}>
-        <section className="section-shell section-shell-light">
-          <div className="section-inner">
-            <div className="max-w-[820px]">
-              <p className="eyebrow text-[#9f412c]">Platform Capabilities</p>
-              <h2 className="section-title mt-5 text-slate-950">
-                Every platform decision ties back to workflow control, decision clarity, and measurable execution.
-              </h2>
+              <aside className="platform-quote-card">
+                <div className="platform-quote-image">
+                  <Image
+                    src="/images/team/katalin-platforms-quote.jpeg"
+                    alt="Katalin Espey"
+                    width={420}
+                    height={420}
+                    sizes="(max-width: 768px) 35vw, 180px"
+                  />
+                </div>
+                <div>
+                  <blockquote>
+                    “Our services are not more software. The point is a stack that behaves like a system.”
+                  </blockquote>
+                  <p>Katalin Espey</p>
+                  <span>Chief Services Officer</span>
+                </div>
+              </aside>
             </div>
 
             <div className="mt-12 grid gap-4 md:grid-cols-2">
-              {platformCapabilities.map((capability, index) => (
+              {stackCapabilities.map((capability, index) => (
                 <div
                   key={capability.title}
-                  className={`enterprise-card rounded-[24px] border border-slate-200 bg-white px-6 py-6 shadow-[0_18px_38px_rgba(15,23,42,0.06)] ${
+                  className={`platform-stack-card enterprise-card ${
                     index % 2 === 1 ? "lg:translate-y-5" : ""
                   }`}
                 >
@@ -129,7 +139,11 @@ export default function PlatformsPage() {
                   <h3 className="mt-4 text-2xl font-semibold tracking-[-0.04em] text-slate-950">
                     {capability.title}
                   </h3>
-                  <p className="mt-4 text-base leading-8 text-slate-600">{capability.description}</p>
+                  <p className="mt-4 text-base leading-8 text-slate-600">{capability.platform}</p>
+                  <div className="platform-assistant-note">
+                    <span>Assistant layer</span>
+                    <p>{capability.assistant}</p>
+                  </div>
                 </div>
               ))}
             </div>
