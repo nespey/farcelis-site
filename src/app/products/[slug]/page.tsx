@@ -1,6 +1,7 @@
 import { notFound } from "next/navigation";
 
 import { PageIntro } from "@/components/PageIntro";
+import { PulseThreadPreview } from "@/components/PulseThreadPreview";
 import { Reveal } from "@/components/Reveal";
 import { buildMetadata } from "@/lib/metadata";
 import { getProductBySlug, products, site } from "@/lib/site-data";
@@ -49,6 +50,12 @@ export default async function ProductDetailPage({ params }: ProductPageProps) {
           { href: "/products", label: "View Product Suite", variant: "secondary" },
         ]}
       />
+
+      {product.slug === "pulse-thread-coaching-assistant" ? (
+        <Reveal delayMs={40}>
+          <PulseThreadPreview />
+        </Reveal>
+      ) : null}
 
       <Reveal delayMs={60}>
         <section className="section-shell section-shell-dark">
