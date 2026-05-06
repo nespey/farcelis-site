@@ -1,5 +1,6 @@
 import { notFound } from "next/navigation";
 
+import { IntentAdaptiveLearningEngine } from "@/components/IntentAdaptiveLearningEngine";
 import { PageIntro } from "@/components/PageIntro";
 import { PulseThreadPreview } from "@/components/PulseThreadPreview";
 import { Reveal } from "@/components/Reveal";
@@ -40,6 +41,11 @@ export default async function ProductDetailPage({ params }: ProductPageProps) {
   }
 
   const isPulseThread = product.slug === "pulse-thread-coaching-assistant";
+  const isIntentEngine = product.slug === "intent-adaptive-learning-engine";
+
+  if (isIntentEngine) {
+    return <IntentAdaptiveLearningEngine />;
+  }
 
   return (
     <>

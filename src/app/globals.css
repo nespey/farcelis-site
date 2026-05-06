@@ -2279,6 +2279,451 @@ main :is(.border-t, .border-b, .border-y, .divide-y > :not([hidden]) ~ :not([hid
   color: #dce8ed;
 }
 
+.intent-page {
+  background: #061722;
+  color: #eef6f8;
+}
+
+.intent-hero,
+.intent-architecture-section,
+.intent-problem-section,
+.intent-use-section,
+.intent-final-section {
+  position: relative;
+  overflow: hidden;
+  border-top: 1px solid rgba(182, 211, 222, 0.08);
+  background:
+    linear-gradient(rgba(255, 255, 255, 0.035) 1px, transparent 1px),
+    linear-gradient(90deg, rgba(255, 255, 255, 0.03) 1px, transparent 1px),
+    linear-gradient(135deg, #061722 0%, #092737 58%, #061823 100%);
+  background-size: 58px 58px, 58px 58px, auto;
+}
+
+.intent-hero {
+  min-height: calc(100vh - 74px);
+  padding: clamp(4.6rem, 7vw, 7.2rem) 0 clamp(3rem, 5vw, 5.4rem);
+}
+
+.intent-hero-grid {
+  display: grid;
+  grid-template-columns: minmax(0, 0.82fr) minmax(520px, 1.18fr);
+  gap: clamp(2rem, 4vw, 4.2rem);
+  align-items: center;
+}
+
+.intent-hero-copy h1 {
+  max-width: 720px;
+  margin-top: 1.1rem;
+  color: #f7fbfc;
+  font-size: clamp(3.1rem, 6.2vw, 6.8rem);
+  font-weight: 560;
+  letter-spacing: -0.06em;
+  line-height: 0.92;
+}
+
+.intent-hero-copy > p {
+  max-width: 640px;
+  margin-top: 1.35rem;
+  color: #b8c9d2;
+  font-size: clamp(1rem, 1.35vw, 1.25rem);
+  line-height: 1.7;
+}
+
+.intent-hero-actions {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.75rem;
+  margin-top: 2rem;
+}
+
+.intent-hero-actions a,
+.intent-preview-link {
+  display: inline-flex;
+  min-height: 3rem;
+  align-items: center;
+  justify-content: center;
+  border-radius: 999px;
+  padding: 0.78rem 1.1rem;
+  font-size: 0.86rem;
+  font-weight: 850;
+  line-height: 1.15;
+  text-decoration: none;
+}
+
+.intent-hero-actions a:first-child {
+  background: #ff8c5a;
+  color: #ffffff;
+}
+
+.intent-hero-actions a:last-child {
+  border: 1px solid rgba(186, 230, 253, 0.2);
+  color: #dce8ed;
+}
+
+.intent-comparison {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 0.9rem;
+}
+
+.intent-compare-panel,
+.intent-stage,
+.intent-use-console,
+.intent-final-diagram {
+  border: 1px solid rgba(186, 230, 253, 0.16);
+  background:
+    linear-gradient(135deg, rgba(255, 255, 255, 0.07), rgba(255, 255, 255, 0.025)),
+    rgba(5, 22, 32, 0.74);
+  box-shadow:
+    0 28px 80px rgba(0, 0, 0, 0.24),
+    inset 0 1px 0 rgba(255, 255, 255, 0.08);
+}
+
+.intent-compare-panel {
+  min-height: 34rem;
+  border-radius: 26px;
+  padding: clamp(1rem, 1.8vw, 1.35rem);
+}
+
+.intent-panel-topline {
+  display: flex;
+  min-height: 3.4rem;
+  align-items: center;
+  justify-content: space-between;
+  gap: 1rem;
+  border-bottom: 1px solid rgba(186, 230, 253, 0.12);
+  padding-bottom: 0.9rem;
+}
+
+.intent-panel-topline span,
+.intent-stage-index,
+.intent-output-header span,
+.intent-before-after span,
+.intent-signal-row span {
+  color: #ffb391;
+  font-size: 0.68rem;
+  font-weight: 900;
+  letter-spacing: 0.16em;
+  text-transform: uppercase;
+}
+
+.intent-panel-topline strong {
+  color: #f3f8fa;
+  font-size: 0.92rem;
+  font-weight: 800;
+}
+
+.intent-decay-visual,
+.intent-structure-visual {
+  position: relative;
+  display: grid;
+  gap: 0.72rem;
+  margin-top: 1.2rem;
+}
+
+.intent-decay-visual div {
+  position: relative;
+  min-height: 4.1rem;
+  transform: translateX(var(--offset)) rotate(-0.6deg);
+  border-radius: 16px;
+  border: 1px solid rgba(255, 140, 90, 0.22);
+  background: rgba(255, 140, 90, 0.065);
+  padding: 1rem;
+  color: #d9e5ea;
+  font-size: 0.9rem;
+  font-weight: 760;
+}
+
+.intent-decay-visual div:nth-child(even) {
+  transform: translateX(calc(var(--offset) * -0.7)) rotate(0.8deg);
+  border-color: rgba(186, 230, 253, 0.12);
+}
+
+.intent-decay-visual div::after {
+  content: "";
+  position: absolute;
+  right: 1rem;
+  bottom: 0.9rem;
+  width: 42%;
+  height: 1px;
+  background: linear-gradient(90deg, rgba(255, 140, 90, 0.6), transparent);
+}
+
+.intent-structure-visual::before {
+  content: "";
+  position: absolute;
+  top: 1.8rem;
+  bottom: 1.8rem;
+  left: 1.43rem;
+  width: 2px;
+  background: linear-gradient(#ff8c5a, rgba(112, 194, 212, 0.75));
+}
+
+.intent-structure-visual div {
+  position: relative;
+  display: grid;
+  grid-template-columns: 2.85rem minmax(0, 1fr);
+  gap: 0.85rem;
+  align-items: center;
+  min-height: 4.1rem;
+  border-radius: 16px;
+  border: 1px solid rgba(112, 194, 212, 0.24);
+  background: rgba(112, 194, 212, 0.07);
+  padding: 0.82rem;
+  color: #ecf7fa;
+  font-size: 0.9rem;
+  font-weight: 790;
+}
+
+.intent-structure-visual i {
+  display: grid;
+  width: 2.15rem;
+  height: 2.15rem;
+  place-items: center;
+  border-radius: 999px;
+  background: #102f3e;
+  color: #ffb391;
+  font-size: 0.76rem;
+  font-style: normal;
+  font-weight: 900;
+  box-shadow: 0 0 0 5px rgba(112, 194, 212, 0.1);
+}
+
+.intent-architecture-section,
+.intent-problem-section,
+.intent-use-section,
+.intent-final-section {
+  padding: clamp(3.6rem, 6vw, 6.4rem) 0;
+}
+
+.intent-section-heading {
+  max-width: 860px;
+}
+
+.intent-section-heading h2,
+.intent-problem-grid h2,
+.intent-final-grid h2 {
+  margin-top: 1rem;
+  color: #f4f8fa;
+  font-size: clamp(2rem, 3.7vw, 4rem);
+  font-weight: 560;
+  letter-spacing: -0.055em;
+  line-height: 1;
+}
+
+.intent-architecture-flow {
+  display: grid;
+  grid-template-columns: repeat(6, minmax(0, 1fr));
+  gap: 0.72rem;
+  margin-top: clamp(1.4rem, 3vw, 2.4rem);
+}
+
+.intent-stage {
+  position: relative;
+  min-height: 15rem;
+  border-radius: 22px;
+  padding: 1rem;
+}
+
+.intent-stage:not(:last-child)::after {
+  content: "";
+  position: absolute;
+  top: 2.5rem;
+  right: -0.75rem;
+  z-index: 2;
+  width: 0.78rem;
+  height: 2px;
+  background: rgba(255, 140, 90, 0.68);
+}
+
+.intent-stage h3 {
+  margin-top: 2.2rem;
+  color: #ffffff;
+  font-size: 1.05rem;
+  font-weight: 820;
+  letter-spacing: -0.035em;
+}
+
+.intent-stage p {
+  margin-top: 0.75rem;
+  color: #aebfca;
+  font-size: 0.86rem;
+  line-height: 1.62;
+}
+
+.intent-problem-grid,
+.intent-final-grid {
+  display: grid;
+  grid-template-columns: minmax(0, 0.9fr) minmax(0, 1.1fr);
+  gap: clamp(1.5rem, 4vw, 4rem);
+  align-items: start;
+}
+
+.intent-problem-copy {
+  display: grid;
+  gap: 1rem;
+  border-left: 1px solid rgba(255, 140, 90, 0.42);
+  padding-left: clamp(1rem, 2vw, 1.6rem);
+}
+
+.intent-problem-copy p {
+  color: #b8c9d2;
+  font-size: clamp(1rem, 1.2vw, 1.12rem);
+  line-height: 1.78;
+}
+
+.intent-use-console {
+  display: grid;
+  grid-template-columns: minmax(250px, 0.34fr) minmax(0, 1fr);
+  gap: 1rem;
+  margin-top: clamp(1.4rem, 3vw, 2.4rem);
+  border-radius: 28px;
+  padding: clamp(0.82rem, 1.4vw, 1.1rem);
+}
+
+.intent-use-selector {
+  display: grid;
+  gap: 0.55rem;
+}
+
+.intent-use-selector button {
+  display: grid;
+  gap: 0.24rem;
+  min-height: 4.7rem;
+  border-radius: 18px;
+  border: 1px solid rgba(186, 230, 253, 0.14);
+  background: rgba(255, 255, 255, 0.045);
+  padding: 0.9rem;
+  color: #dfe9ee;
+  font: inherit;
+  text-align: left;
+  cursor: pointer;
+  transition: border-color 180ms ease, background 180ms ease, transform 180ms ease;
+}
+
+.intent-use-selector button:hover,
+.intent-use-selector button.is-active {
+  border-color: rgba(255, 140, 90, 0.55);
+  background: rgba(255, 140, 90, 0.095);
+  transform: translateX(2px);
+}
+
+.intent-use-selector span {
+  font-size: 0.95rem;
+  font-weight: 850;
+}
+
+.intent-use-selector small {
+  color: #9eb2bd;
+  font-size: 0.76rem;
+  line-height: 1.35;
+}
+
+.intent-use-output {
+  display: grid;
+  gap: 1rem;
+  border-radius: 22px;
+  border: 1px solid rgba(186, 230, 253, 0.13);
+  background:
+    linear-gradient(rgba(255, 255, 255, 0.035) 1px, transparent 1px),
+    linear-gradient(90deg, rgba(255, 255, 255, 0.03) 1px, transparent 1px),
+    rgba(3, 16, 24, 0.42);
+  background-size: 42px 42px;
+  padding: clamp(1rem, 1.8vw, 1.35rem);
+}
+
+.intent-output-header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 1rem;
+  border-bottom: 1px solid rgba(186, 230, 253, 0.12);
+  padding-bottom: 0.85rem;
+}
+
+.intent-output-header strong {
+  color: #ffffff;
+  font-size: clamp(1.35rem, 2vw, 2rem);
+  font-weight: 700;
+  letter-spacing: -0.05em;
+}
+
+.intent-before-after {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 0.85rem;
+}
+
+.intent-before-after article {
+  min-height: 13rem;
+  border-radius: 20px;
+  border: 1px solid rgba(186, 230, 253, 0.14);
+  background: rgba(255, 255, 255, 0.045);
+  padding: 1rem;
+}
+
+.intent-before-after article:first-child {
+  border-color: rgba(255, 140, 90, 0.25);
+}
+
+.intent-before-after p {
+  margin-top: 0.9rem;
+  color: #d7e4ea;
+  font-size: 1rem;
+  line-height: 1.68;
+}
+
+.intent-signal-row {
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  gap: 0.55rem;
+}
+
+.intent-signal-row span {
+  display: flex;
+  min-height: 3.2rem;
+  align-items: center;
+  justify-content: center;
+  border-radius: 999px;
+  border: 1px solid rgba(112, 194, 212, 0.24);
+  background: rgba(112, 194, 212, 0.075);
+  padding: 0.55rem 0.72rem;
+  color: #e8f8fb;
+  text-align: center;
+}
+
+.intent-final-section {
+  padding-bottom: clamp(4.6rem, 8vw, 8rem);
+}
+
+.intent-final-diagram {
+  display: grid;
+  gap: 0.62rem;
+  border-radius: 28px;
+  padding: 1rem;
+}
+
+.intent-final-diagram div {
+  position: relative;
+  border-radius: 16px;
+  border: 1px solid rgba(112, 194, 212, 0.2);
+  background: rgba(112, 194, 212, 0.07);
+  padding: 1rem;
+  color: #ffffff;
+  font-size: 0.96rem;
+  font-weight: 820;
+}
+
+.intent-final-diagram div:not(:last-child)::after {
+  content: "";
+  position: absolute;
+  left: 1.25rem;
+  bottom: -0.66rem;
+  width: 2px;
+  height: 0.66rem;
+  background: rgba(255, 140, 90, 0.68);
+}
+
 .pulse-preview-section {
   overflow: hidden;
   padding: clamp(3.8rem, 6vw, 6.8rem) 0;
@@ -5074,6 +5519,30 @@ main :is(.border-t, .border-b, .border-y, .divide-y > :not([hidden]) ~ :not([hid
     grid-template-columns: repeat(2, minmax(0, 1fr));
   }
 
+  .intent-hero-grid,
+  .intent-problem-grid,
+  .intent-final-grid,
+  .intent-use-console {
+    grid-template-columns: 1fr;
+  }
+
+  .intent-comparison,
+  .intent-before-after {
+    grid-template-columns: 1fr;
+  }
+
+  .intent-architecture-flow {
+    grid-template-columns: repeat(3, minmax(0, 1fr));
+  }
+
+  .intent-stage:not(:last-child)::after {
+    display: none;
+  }
+
+  .intent-use-selector {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
+
   .pulse-preview-intro,
   .pulse-preview-panels,
   .pulse-landing-zone {
@@ -5121,6 +5590,93 @@ main :is(.border-t, .border-b, .border-y, .divide-y > :not([hidden]) ~ :not([hid
   .integration-lane-track,
   .case-logo-track {
     animation-duration: 52s;
+  }
+
+  .intent-hero {
+    min-height: 0;
+    padding: 3.6rem 0 3rem;
+  }
+
+  .intent-hero-copy h1 {
+    font-size: clamp(2.85rem, 14vw, 4.35rem);
+    line-height: 0.94;
+  }
+
+  .intent-hero-copy > p {
+    font-size: 0.98rem;
+    line-height: 1.62;
+  }
+
+  .intent-hero-actions a {
+    width: 100%;
+  }
+
+  .intent-comparison {
+    gap: 0.72rem;
+  }
+
+  .intent-compare-panel {
+    min-height: 0;
+    border-radius: 20px;
+    padding: 0.82rem;
+  }
+
+  .intent-panel-topline,
+  .intent-output-header {
+    display: grid;
+    justify-content: stretch;
+  }
+
+  .intent-decay-visual div,
+  .intent-structure-visual div {
+    min-height: 3.35rem;
+    font-size: 0.82rem;
+  }
+
+  .intent-architecture-section,
+  .intent-problem-section,
+  .intent-use-section,
+  .intent-final-section {
+    padding: 3.1rem 0;
+  }
+
+  .intent-section-heading h2,
+  .intent-problem-grid h2,
+  .intent-final-grid h2 {
+    font-size: clamp(1.85rem, 9vw, 2.6rem);
+  }
+
+  .intent-architecture-flow,
+  .intent-use-selector,
+  .intent-signal-row {
+    grid-template-columns: 1fr;
+  }
+
+  .intent-stage {
+    min-height: 0;
+    border-radius: 18px;
+  }
+
+  .intent-stage h3 {
+    margin-top: 1.3rem;
+  }
+
+  .intent-problem-copy {
+    border-left-width: 0;
+    border-top: 1px solid rgba(255, 140, 90, 0.42);
+    padding-top: 1rem;
+    padding-left: 0;
+  }
+
+  .intent-use-console,
+  .intent-use-output,
+  .intent-before-after article,
+  .intent-final-diagram {
+    border-radius: 18px;
+  }
+
+  .intent-use-selector button {
+    min-height: 4rem;
   }
 
   .pulse-preview-section {
