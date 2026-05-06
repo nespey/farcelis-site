@@ -33,53 +33,47 @@ export default function WorkflowOperationsPage() {
       />
 
       <Reveal delayMs={50}>
-        <section className="section-shell section-shell-dark workflow-quote-section">
-          <div className="section-inner">
-            <figure className="workflow-operator-quote">
-              <div className="workflow-operator-image">
-                <Image
-                  src="/images/team/dominic-workflow-quote.jpeg"
-                  alt="Dominic Chase, Chief Operating Officer"
-                  width={896}
-                  height={1088}
-                  priority={false}
-                />
-              </div>
-              <figcaption className="workflow-operator-copy">
-                <p className="eyebrow text-[color:var(--color-accent)]">
-                  Operating Path
-                </p>
-                <blockquote>
-                  “Workflow is where strategy becomes movement. If routing,
-                  ownership, escalation, and reporting are not designed
-                  together, work does not fail loudly. It drifts until leaders
-                  are forced to react.”
-                </blockquote>
-                <p className="workflow-operator-name">Dominic Chase</p>
-                <p className="workflow-operator-role">
-                  Chief Operating Officer, Farcelis AI Consulting LLC
-                </p>
-              </figcaption>
-            </figure>
-          </div>
-        </section>
-      </Reveal>
-
-      <Reveal delayMs={90}>
         <section className="section-shell section-shell-dark">
           <div className="section-inner">
-            <div>
-              <p className="eyebrow text-[color:var(--color-accent)]">
-                What Farcelis Builds
-              </p>
-              <h2 className="section-title mt-5 max-w-[900px] text-white">
-                The work becomes clearer before automation or AI gets added.
-              </h2>
-              <p className="mt-6 max-w-[560px] text-base leading-8 text-slate-300">
-                A workflow engagement should leave the organization with
-                practical operating assets, not just observations about what is
-                broken.
-              </p>
+            <div className="workflow-showcase-header">
+              <div>
+                <p className="eyebrow text-[color:var(--color-accent)]">
+                  What Farcelis Builds
+                </p>
+                <h2 className="section-title mt-5 max-w-[900px] text-white">
+                  The work becomes clearer before automation or AI gets added.
+                </h2>
+                <p className="mt-6 max-w-[620px] text-base leading-8 text-slate-300">
+                  Each preview below shows a different operating asset, the
+                  failure it exposes, and the end state Farcelis designs toward.
+                </p>
+              </div>
+
+              <figure className="workflow-operator-quote">
+                <div className="workflow-operator-image">
+                  <Image
+                    src="/images/team/dominic-workflow-quote.jpeg"
+                    alt="Dominic Chase, Chief Operating Officer"
+                    width={896}
+                    height={1088}
+                    priority={false}
+                  />
+                </div>
+                <figcaption className="workflow-operator-copy">
+                  <p className="eyebrow text-[color:var(--color-accent)]">
+                    COO Perspective
+                  </p>
+                  <blockquote>
+                    “Workflow is where strategy becomes movement. If routing,
+                    ownership, escalation, and reporting are not designed
+                    together, work drifts until leaders are forced to react.”
+                  </blockquote>
+                  <p className="workflow-operator-name">Dominic Chase</p>
+                  <p className="workflow-operator-role">
+                    Chief Operating Officer
+                  </p>
+                </figcaption>
+              </figure>
             </div>
 
             <div className="mt-10">

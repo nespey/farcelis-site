@@ -10,6 +10,8 @@ type WorkflowPreview = {
   button: string;
   title: string;
   goal: string;
+  endState: string;
+  outcome: string;
   tension: string;
   primaryCta: string;
   secondaryCta: string;
@@ -26,6 +28,8 @@ const previews: WorkflowPreview[] = [
     button: "Open Workflow Map",
     title: "Workflow and Handoff Map",
     goal: "Expose where work disappears between teams, tools, approvals, and platforms.",
+    endState: "A visible operating path with every handoff, owner, approval, and exception route mapped before automation is added.",
+    outcome: "The visitor should see where work leaves visibility and what needs to be redesigned so requests stop disappearing between teams.",
     tension:
       "Most organizations are not slow because people are failing. They are slow because work movement is invisible.",
     primaryCta: "Map Our Workflow Failures",
@@ -64,6 +68,8 @@ const previews: WorkflowPreview[] = [
     button: "View Escalation Structure",
     title: "Ownership and Escalation Model",
     goal: "Show who owns the next move when pressure hits, and what happens when ownership is absent.",
+    endState: "A clear escalation model showing who owns the next move, when intervention triggers, and where unresolved work routes next.",
+    outcome: "The visitor should recognize whether pressure has a real owner or whether leadership is carrying invisible accountability debt.",
     tension:
       "When ownership is unclear, pressure compounds silently until leadership feels it all at once.",
     primaryCta: "See Where Ownership Breaks",
@@ -102,6 +108,8 @@ const previews: WorkflowPreview[] = [
     button: "Explore Operating Cadence",
     title: "Operating Cadence Design",
     goal: "Separate meetings from true operating rhythm so leadership can stop reacting constantly.",
+    endState: "A structured operating rhythm with review cycles, intervention windows, leadership checkpoints, and escalation timing.",
+    outcome: "The visitor should see the difference between having meetings and having a cadence that keeps execution from drifting.",
     tension:
       "Without cadence, organizations default to reacting instead of operating.",
     primaryCta: "Design Our Operating Rhythm",
@@ -144,6 +152,8 @@ const previews: WorkflowPreview[] = [
     button: "Open Visibility Layer",
     title: "Visibility and Reporting Requirements",
     goal: "Reveal operational pressure before it becomes expensive.",
+    endState: "A leadership visibility layer that connects workflow health, bottlenecks, SLA risk, ownership gaps, and reporting latency.",
+    outcome: "The visitor should understand what leadership cannot currently see and why activity reports are not the same as operational visibility.",
     tension:
       "The most dangerous operational failures are usually visible somewhere, but never connected.",
     primaryCta: "See What Leadership Cannot Currently See",
@@ -182,6 +192,8 @@ const previews: WorkflowPreview[] = [
     button: "Test Workflow Automation Logic",
     title: "Automation-Ready Workflow Logic",
     goal: "Demonstrate why automation needs structure before it can safely scale.",
+    endState: "A governed automation path with triggers, conditions, exception handling, fallback routing, and human review points.",
+    outcome: "The visitor should see why automation is not the first step. It only works when the operating logic can survive real exceptions.",
     tension:
       "Automation scales structure. If the structure is broken, automation scales the damage.",
     primaryCta: "See If Our Workflow Is Automation-Ready",
@@ -220,6 +232,8 @@ const previews: WorkflowPreview[] = [
     button: "Preview the Control Layer",
     title: "Control Layer Deployment Path",
     goal: "Enter a centralized operating command system above the existing stack.",
+    endState: "A centralized command layer that coordinates intake, routing, escalation, telemetry, executive visibility, and intervention.",
+    outcome: "The visitor should see the difference between a software stack and an operating system for controlling work across the stack.",
     tension:
       "Most organizations have software stacks. Very few have operational command systems.",
     primaryCta: "See the Control Layer in Our Environment",
@@ -259,6 +273,66 @@ const previews: WorkflowPreview[] = [
   },
 ];
 
+const nodeNotes: Record<string, string[]> = {
+  "workflow-map": [
+    "Normalize request",
+    "Decision waits",
+    "Owner changes",
+    "System record",
+    "Team signal",
+    "Exception route",
+  ],
+  "escalation-structure": [
+    "Issue enters",
+    "Owner assigned",
+    "Authority check",
+    "Timer starts",
+    "Leader sees risk",
+    "Resolution owned",
+  ],
+  "operating-cadence": [
+    "Weekly pulse",
+    "Metric review",
+    "Decision slot",
+    "Escalation window",
+    "Leader sync",
+    "Strategic reset",
+  ],
+  "visibility-layer": [
+    "Health signal",
+    "Backlog heat",
+    "SLA exposure",
+    "Open escalations",
+    "Source merge",
+    "Executive view",
+  ],
+  "automation-logic": [
+    "Event fires",
+    "Condition tested",
+    "Assist proposed",
+    "Human validates",
+    "Retry governed",
+    "Fallback path",
+  ],
+  "control-layer": [
+    "Single intake",
+    "Route command",
+    "Pressure sensed",
+    "Assist intervenes",
+    "Exec oversight",
+    "Command surface",
+  ],
+};
+
+const visualModels: Record<string, string> = {
+  "workflow-map": "Handoff Blueprint",
+  "escalation-structure": "Accountability Chain",
+  "operating-cadence": "Cadence Timeline",
+  "visibility-layer": "Visibility Radar",
+  "automation-logic": "Logic Test Path",
+  "control-layer": "Command Layer",
+};
+
 export function WorkflowOperationsPreview() {
   const [activeId, setActiveId] = useState(previews[0].id);
   const [mode, setMode] = useState<PreviewMode>("current");
@@ -295,6 +369,8 @@ export function WorkflowOperationsPreview() {
     ["Response window", `${responseWindow}h`],
     ["Unresolved risk", `${visibleRisk}`],
   ];
+  const activeNodeNotes = nodeNotes[active.id] ?? active.nodes;
+  const visualModel = visualModels[active.id] ?? "Operating Model";
 
   return (
     <div className="workflow-preview-shell">
@@ -351,8 +427,17 @@ export function WorkflowOperationsPreview() {
           </span>
         </div>
 
+        <div className="workflow-end-state-panel">
+          <span>End state</span>
+          <strong>{active.endState}</strong>
+          <p>{active.outcome}</p>
+        </div>
+
         <div className="workflow-system-surface">
-          <div className={`workflow-map workflow-map--${mode}`}>
+          <div
+            className={`workflow-map workflow-map--${mode} workflow-map--${active.id}`}
+          >
+            <div className="workflow-map-label">{visualModel}</div>
             {active.nodes.map((node, index) => {
               const isSelected = index === selectedNode;
               const isDelayed =
@@ -368,6 +453,7 @@ export function WorkflowOperationsPreview() {
                 >
                   <span>{index + 1}</span>
                   <strong>{node}</strong>
+                  <em>{activeNodeNotes[index]}</em>
                   <small>
                     {isDelayed
                       ? "Pressure visible"

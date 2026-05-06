@@ -1682,6 +1682,13 @@ main :is(.border-t, .border-b, .border-y, .divide-y > :not([hidden]) ~ :not([hid
     inset 0 1px 0 rgba(255, 255, 255, 0.07);
 }
 
+.workflow-showcase-header {
+  display: grid;
+  grid-template-columns: minmax(0, 1fr) minmax(320px, 0.46fr);
+  gap: clamp(1.2rem, 3vw, 3rem);
+  align-items: end;
+}
+
 .workflow-console-header {
   display: flex;
   gap: 1rem;
@@ -1774,10 +1781,45 @@ main :is(.border-t, .border-b, .border-y, .divide-y > :not([hidden]) ~ :not([hid
   text-transform: uppercase;
 }
 
+.workflow-end-state-panel {
+  display: grid;
+  gap: 0.45rem;
+  margin: 0 0.35rem 1rem;
+  border-radius: 1rem;
+  border: 1px solid rgba(255, 140, 90, 0.2);
+  background:
+    linear-gradient(135deg, rgba(255, 140, 90, 0.1), rgba(97, 192, 215, 0.055)),
+    rgba(255, 255, 255, 0.035);
+  padding: 0.9rem 1rem;
+}
+
+.workflow-end-state-panel span,
+.workflow-map-label {
+  color: #ffb391;
+  font-size: 0.68rem;
+  font-weight: 850;
+  letter-spacing: 0.16em;
+  text-transform: uppercase;
+}
+
+.workflow-end-state-panel strong {
+  color: #ffffff;
+  font-size: 1rem;
+  font-weight: 750;
+  line-height: 1.45;
+}
+
+.workflow-end-state-panel p {
+  color: #aebfca;
+  font-size: 0.84rem;
+  line-height: 1.55;
+}
+
 .workflow-system-surface {
   display: grid;
   grid-template-columns: minmax(0, 1.15fr) minmax(17rem, 0.85fr);
   gap: 0.9rem;
+  align-items: start;
 }
 
 .workflow-map {
@@ -1785,7 +1827,8 @@ main :is(.border-t, .border-b, .border-y, .divide-y > :not([hidden]) ~ :not([hid
   display: grid;
   grid-template-columns: repeat(3, minmax(0, 1fr));
   gap: 0.75rem;
-  min-height: 23rem;
+  align-content: start;
+  min-height: 0;
   overflow: hidden;
   border-radius: 1.25rem;
   border: 1px solid rgba(180, 204, 214, 0.13);
@@ -1795,6 +1838,19 @@ main :is(.border-t, .border-b, .border-y, .divide-y > :not([hidden]) ~ :not([hid
     rgba(3, 17, 26, 0.58);
   background-size: 46px 46px;
   padding: 1rem;
+}
+
+.workflow-map-label {
+  position: relative;
+  z-index: 1;
+  grid-column: 1 / -1;
+  display: flex;
+  min-height: 2rem;
+  align-items: center;
+  border-radius: 0.75rem;
+  border: 1px solid rgba(180, 204, 214, 0.12);
+  background: rgba(4, 18, 27, 0.44);
+  padding: 0.45rem 0.7rem;
 }
 
 .workflow-map::before {
@@ -1827,7 +1883,7 @@ main :is(.border-t, .border-b, .border-y, .divide-y > :not([hidden]) ~ :not([hid
   position: relative;
   z-index: 1;
   display: flex;
-  min-height: 9.4rem;
+  min-height: 6.85rem;
   flex-direction: column;
   justify-content: space-between;
   border-radius: 1.1rem;
@@ -1871,7 +1927,7 @@ main :is(.border-t, .border-b, .border-y, .divide-y > :not([hidden]) ~ :not([hid
 }
 
 .workflow-map strong {
-  margin-top: 1.15rem;
+  margin-top: 0.65rem;
   color: #f4f8fa;
   font-size: 0.98rem;
   font-weight: 650;
@@ -1879,8 +1935,17 @@ main :is(.border-t, .border-b, .border-y, .divide-y > :not([hidden]) ~ :not([hid
   line-height: 1.18;
 }
 
+.workflow-map em {
+  margin-top: 0.32rem;
+  color: #a9bac6;
+  font-size: 0.72rem;
+  font-style: normal;
+  font-weight: 650;
+  line-height: 1.25;
+}
+
 .workflow-map small {
-  margin-top: 0.75rem;
+  margin-top: 0.5rem;
   color: #9fb2be;
   font-size: 0.72rem;
   font-weight: 650;
@@ -1892,8 +1957,55 @@ main :is(.border-t, .border-b, .border-y, .divide-y > :not([hidden]) ~ :not([hid
   border-color: rgba(116, 180, 197, 0.28);
 }
 
+.workflow-map--workflow-map {
+  background:
+    linear-gradient(90deg, rgba(255, 255, 255, 0.045) 1px, transparent 1px),
+    linear-gradient(rgba(255, 255, 255, 0.035) 1px, transparent 1px),
+    radial-gradient(circle at 12% 20%, rgba(255, 140, 90, 0.12), transparent 26%),
+    rgba(3, 17, 26, 0.58);
+  background-size: 54px 54px, 54px 54px, auto, auto;
+}
+
+.workflow-map--escalation-structure {
+  background:
+    linear-gradient(135deg, rgba(255, 140, 90, 0.12), transparent 35%),
+    repeating-linear-gradient(90deg, rgba(255, 255, 255, 0.055) 0 1px, transparent 1px 112px),
+    rgba(3, 17, 26, 0.58);
+}
+
+.workflow-map--operating-cadence {
+  background:
+    repeating-linear-gradient(0deg, rgba(255, 255, 255, 0.06) 0 1px, transparent 1px 58px),
+    linear-gradient(90deg, rgba(97, 192, 215, 0.1), transparent 48%, rgba(255, 140, 90, 0.08)),
+    rgba(3, 17, 26, 0.58);
+}
+
+.workflow-map--visibility-layer {
+  background:
+    radial-gradient(circle at 50% 48%, rgba(97, 192, 215, 0.17), transparent 23%),
+    radial-gradient(circle at 50% 48%, transparent 0 32%, rgba(255, 255, 255, 0.06) 32.5% 33%, transparent 33.5% 100%),
+    rgba(3, 17, 26, 0.58);
+}
+
+.workflow-map--automation-logic {
+  background:
+    linear-gradient(135deg, transparent 0 42%, rgba(255, 140, 90, 0.1) 42.2% 42.8%, transparent 43%),
+    linear-gradient(45deg, transparent 0 58%, rgba(97, 192, 215, 0.12) 58.2% 58.8%, transparent 59%),
+    rgba(3, 17, 26, 0.58);
+}
+
+.workflow-map--control-layer {
+  background:
+    radial-gradient(circle at 50% 50%, rgba(255, 140, 90, 0.13), transparent 18%),
+    radial-gradient(circle at 50% 50%, transparent 0 31%, rgba(97, 192, 215, 0.14) 31.5% 32%, transparent 32.5%),
+    linear-gradient(rgba(255, 255, 255, 0.035) 1px, transparent 1px),
+    rgba(3, 17, 26, 0.58);
+  background-size: auto, auto, 42px 42px, auto;
+}
+
 .workflow-diagnostic-panel {
   display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
   gap: 0.75rem;
   align-content: start;
   border-radius: 1.25rem;
@@ -1950,6 +2062,11 @@ main :is(.border-t, .border-b, .border-y, .divide-y > :not([hidden]) ~ :not([hid
   border-radius: 1rem;
   background: rgba(255, 255, 255, 0.055);
   padding: 0.95rem;
+}
+
+.workflow-metric-grid,
+.workflow-failure-list {
+  grid-column: 1 / -1;
 }
 
 .workflow-diagnostic-status span,
@@ -2171,21 +2288,21 @@ main :is(.border-t, .border-b, .border-y, .divide-y > :not([hidden]) ~ :not([hid
   position: relative;
   isolation: isolate;
   display: grid;
-  grid-template-columns: minmax(170px, 0.34fr) minmax(0, 1fr);
-  gap: clamp(1.15rem, 3vw, 3.25rem);
+  grid-template-columns: 76px minmax(0, 1fr);
+  gap: 0.9rem;
   align-items: center;
   overflow: hidden;
-  border-radius: 30px;
+  border-radius: 22px;
   border: 1px solid rgba(186, 230, 253, 0.2);
   background:
     radial-gradient(circle at 18% 18%, rgba(255, 127, 79, 0.18), transparent 32%),
     radial-gradient(circle at 86% 0%, rgba(97, 192, 215, 0.18), transparent 38%),
     linear-gradient(135deg, rgba(255, 255, 255, 0.1), rgba(255, 255, 255, 0.035)),
     rgba(6, 24, 36, 0.72);
-  padding: clamp(1rem, 2vw, 1.7rem);
+  padding: 0.95rem;
   box-shadow:
-    0 28px 90px rgba(0, 0, 0, 0.34),
-    0 0 74px rgba(97, 192, 215, 0.14),
+    0 18px 48px rgba(0, 0, 0, 0.28),
+    0 0 48px rgba(97, 192, 215, 0.1),
     inset 0 1px 0 rgba(255, 255, 255, 0.14);
 }
 
@@ -2204,10 +2321,10 @@ main :is(.border-t, .border-b, .border-y, .divide-y > :not([hidden]) ~ :not([hid
 .workflow-operator-image {
   position: relative;
   overflow: hidden;
-  width: min(100%, 230px);
-  aspect-ratio: 0.82;
+  width: 76px;
+  aspect-ratio: 1;
   justify-self: center;
-  border-radius: 24px;
+  border-radius: 18px;
   border: 1px solid rgba(255, 255, 255, 0.18);
   background: rgba(255, 255, 255, 0.08);
   box-shadow:
@@ -2222,29 +2339,29 @@ main :is(.border-t, .border-b, .border-y, .divide-y > :not([hidden]) ~ :not([hid
 }
 
 .workflow-operator-copy {
-  max-width: 980px;
+  max-width: 100%;
 }
 
 .workflow-operator-copy blockquote {
-  margin-top: clamp(0.8rem, 1.4vw, 1.2rem);
+  margin-top: 0.5rem;
   color: #f8fbff;
-  font-size: clamp(1.45rem, 2.2vw, 2.45rem);
-  line-height: 1.18;
-  letter-spacing: -0.04em;
+  font-size: clamp(0.92rem, 1vw, 1.05rem);
+  line-height: 1.42;
+  letter-spacing: -0.015em;
   font-weight: 650;
 }
 
 .workflow-operator-name {
-  margin-top: clamp(1rem, 1.7vw, 1.45rem);
+  margin-top: 0.65rem;
   color: #ffffff;
-  font-size: 0.95rem;
+  font-size: 0.82rem;
   font-weight: 850;
 }
 
 .workflow-operator-role {
-  margin-top: 0.22rem;
+  margin-top: 0.14rem;
   color: #b8c8d3;
-  font-size: 0.82rem;
+  font-size: 0.72rem;
   font-weight: 650;
 }
 
@@ -4546,8 +4663,12 @@ main :is(.border-t, .border-b, .border-y, .divide-y > :not([hidden]) ~ :not([hid
     grid-template-columns: 1fr;
   }
 
-  .workflow-operator-quote {
+  .workflow-showcase-header {
     grid-template-columns: 1fr;
+  }
+
+  .workflow-operator-quote {
+    max-width: 560px;
   }
 
   .workflow-operator-copy {
@@ -4569,7 +4690,7 @@ main :is(.border-t, .border-b, .border-y, .divide-y > :not([hidden]) ~ :not([hid
   }
 
   .workflow-map {
-    min-height: 20rem;
+    min-height: 0;
   }
 
   .display-hero {
@@ -4653,6 +4774,15 @@ main :is(.border-t, .border-b, .border-y, .divide-y > :not([hidden]) ~ :not([hid
     line-height: 1.45;
   }
 
+  .workflow-end-state-panel {
+    margin: 0 0.2rem 0.85rem;
+    padding: 0.78rem;
+  }
+
+  .workflow-end-state-panel strong {
+    font-size: 0.9rem;
+  }
+
   .workflow-map {
     grid-template-columns: repeat(2, minmax(0, 1fr));
     gap: 0.52rem;
@@ -4666,14 +4796,18 @@ main :is(.border-t, .border-b, .border-y, .divide-y > :not([hidden]) ~ :not([hid
   }
 
   .workflow-map button {
-    min-height: 7.35rem;
+    min-height: 6.15rem;
     border-radius: 0.9rem;
     padding: 0.72rem;
   }
 
   .workflow-map strong {
-    margin-top: 0.8rem;
+    margin-top: 0.48rem;
     font-size: 0.82rem;
+  }
+
+  .workflow-map em {
+    font-size: 0.64rem;
   }
 
   .workflow-map small {
@@ -4681,6 +4815,7 @@ main :is(.border-t, .border-b, .border-y, .divide-y > :not([hidden]) ~ :not([hid
   }
 
   .workflow-diagnostic-panel {
+    grid-template-columns: 1fr;
     border-radius: 1rem;
     padding: 0.72rem;
   }
@@ -4939,7 +5074,7 @@ main :is(.border-t, .border-b, .border-y, .divide-y > :not([hidden]) ~ :not([hid
 
   .workflow-operator-role {
     font-size: 0.76rem;
-    max-width: 13rem;
+    max-width: 9.5rem;
     line-height: 1.35;
   }
 }
