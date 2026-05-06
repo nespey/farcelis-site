@@ -2,6 +2,7 @@ import Link from "next/link";
 
 import { PageIntro } from "@/components/PageIntro";
 import { Reveal } from "@/components/Reveal";
+import { WorkflowOperationsPreview } from "@/components/WorkflowOperationsPreview";
 import { buildMetadata } from "@/lib/metadata";
 import { seo } from "@/lib/site-data";
 
@@ -30,15 +31,6 @@ const operatingAreas = [
   },
 ];
 
-const deliverables = [
-  "Workflow and handoff map",
-  "Ownership and escalation model",
-  "Operating cadence design",
-  "Visibility and reporting requirements",
-  "Automation-ready workflow logic",
-  "Control Layer deployment path",
-];
-
 export default function WorkflowOperationsPage() {
   return (
     <>
@@ -48,7 +40,11 @@ export default function WorkflowOperationsPage() {
         description="Farcelis designs the routing, handoffs, ownership, reporting, and cadence that keep execution from drifting across people, tools, and teams."
         actions={[
           { href: "/contact", label: "Map Your Workflow" },
-          { href: "/control-layer", label: "Explore the Control Layer", variant: "secondary" },
+          {
+            href: "/control-layer",
+            label: "Explore the Control Layer",
+            variant: "secondary",
+          },
         ]}
         asideTitle="Best fit"
         asideItems={[
@@ -64,7 +60,8 @@ export default function WorkflowOperationsPage() {
             <div className="max-w-[860px]">
               <p className="eyebrow text-[#9f412c]">Operating Path</p>
               <h2 className="section-title mt-5 text-slate-950">
-                Workflow and operations work is about movement: how work enters, changes hands, gets owned, and gets reported.
+                Workflow and operations work is about movement: how work enters,
+                changes hands, gets owned, and gets reported.
               </h2>
             </div>
 
@@ -77,7 +74,9 @@ export default function WorkflowOperationsPage() {
                   <h3 className="text-2xl font-semibold tracking-[-0.04em] text-slate-950">
                     {area.title}
                   </h3>
-                  <p className="mt-4 text-base leading-8 text-slate-600">{area.body}</p>
+                  <p className="mt-4 text-base leading-8 text-slate-600">
+                    {area.body}
+                  </p>
                 </article>
               ))}
             </div>
@@ -87,26 +86,23 @@ export default function WorkflowOperationsPage() {
 
       <Reveal delayMs={90}>
         <section className="section-shell section-shell-dark">
-          <div className="section-inner grid gap-12 lg:grid-cols-[minmax(0,0.72fr)_minmax(0,1.28fr)]">
+          <div className="section-inner">
             <div>
-              <p className="eyebrow text-[color:var(--color-accent)]">What Farcelis Builds</p>
-              <h2 className="section-title mt-5 text-white">
+              <p className="eyebrow text-[color:var(--color-accent)]">
+                What Farcelis Builds
+              </p>
+              <h2 className="section-title mt-5 max-w-[900px] text-white">
                 The work becomes clearer before automation or AI gets added.
               </h2>
               <p className="mt-6 max-w-[560px] text-base leading-8 text-slate-300">
-                A workflow engagement should leave the organization with practical operating assets, not just observations about what is broken.
+                A workflow engagement should leave the organization with
+                practical operating assets, not just observations about what is
+                broken.
               </p>
             </div>
 
-            <div className="grid gap-3 sm:grid-cols-2">
-              {deliverables.map((item) => (
-                <div
-                  key={item}
-                  className="rounded-[20px] border border-cyan-100/12 bg-white/[0.045] px-5 py-5 text-base font-semibold leading-7 text-slate-100"
-                >
-                  {item}
-                </div>
-              ))}
+            <div className="mt-10">
+              <WorkflowOperationsPreview />
             </div>
           </div>
         </section>
@@ -118,7 +114,9 @@ export default function WorkflowOperationsPage() {
             <div className="rounded-[28px] border border-slate-200 bg-white px-6 py-8 shadow-[0_18px_38px_rgba(15,23,42,0.06)] md:px-8">
               <p className="eyebrow text-[#9f412c]">Where This Leads</p>
               <h2 className="mt-4 max-w-[760px] text-3xl font-semibold tracking-[-0.04em] text-slate-950">
-                Once the workflow is clear, Farcelis can connect platforms, AI agents, dashboards, and the Control Layer around the operating path.
+                Once the workflow is clear, Farcelis can connect platforms, AI
+                agents, dashboards, and the Control Layer around the operating
+                path.
               </h2>
               <div className="mt-7 flex flex-col gap-3 sm:flex-row">
                 <Link href="/platforms" className="btn-primary">
