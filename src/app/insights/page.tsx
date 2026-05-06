@@ -157,7 +157,7 @@ export default function InsightsPage() {
                       </audio>
                       <a
                         href={brief.audioSrc}
-                        className="mt-4 inline-flex text-sm font-semibold text-[color:var(--color-accent)]"
+                        className="mt-4 inline-flex min-h-9 items-center text-sm font-semibold text-[color:var(--color-accent)]"
                       >
                         Open audio file
                       </a>

@@ -135,12 +135,14 @@ a {
   z-index: 90;
   pointer-events: none;
   opacity: 0;
+  visibility: hidden;
   transition: opacity 220ms ease;
 }
 
 .system-scan-shell-open {
   pointer-events: auto;
   opacity: 1;
+  visibility: visible;
 }
 
 .system-scan-backdrop {
@@ -480,6 +482,12 @@ a {
   margin-right: 0;
   padding-left: clamp(24px, 5vw, 72px);
   padding-right: clamp(24px, 5vw, 72px);
+}
+
+.layout-container > *,
+.showcase-container > *,
+.section-inner > * {
+  min-width: 0;
 }
 
 .system-hook-section {
@@ -972,6 +980,48 @@ a {
 }
 
 @media (max-width: 700px) {
+  html,
+  body {
+    overflow-x: clip;
+    background-attachment: scroll;
+  }
+
+  body {
+    background:
+      radial-gradient(circle at 72% 6%, rgba(20, 92, 112, 0.2), transparent 24rem),
+      linear-gradient(145deg, #04141d 0%, #071c28 48%, #061824 100%);
+  }
+
+  .section-inner,
+  .showcase-container,
+  .layout-container {
+    padding-left: 22px;
+    padding-right: 22px;
+  }
+
+  .section-shell {
+    padding: 4.5rem 0;
+  }
+
+  .reveal-section {
+    opacity: 1;
+    transform: none;
+    transition: none;
+  }
+
+  .system-scan-button {
+    right: 18px;
+    bottom: max(16px, env(safe-area-inset-bottom));
+    min-height: 44px;
+    padding: 0.65rem 0.86rem;
+    font-size: 0.82rem;
+  }
+
+  .system-scan-panel {
+    width: 100vw;
+    padding: 1.25rem 1.15rem 2rem;
+  }
+
   .structured-section {
     padding: 4.75rem 0;
   }
@@ -990,8 +1040,12 @@ a {
 
   .system-hook-section {
     display: block;
+    min-height: auto;
     padding-top: 4.5rem;
     padding-bottom: 4.5rem;
+    background:
+      radial-gradient(circle at 24% 40%, rgba(97, 192, 215, 0.13), transparent 20rem),
+      linear-gradient(180deg, #061824 0%, #071c28 100%);
   }
 
   .system-anchor {
@@ -1004,13 +1058,13 @@ a {
   }
 
   .system-anchor .system-payoff {
-    margin-top: 4rem;
+    margin-top: 3.2rem;
     font-size: clamp(1.6rem, 7vw, 2.35rem);
   }
 
   .system-timeline {
-    min-height: 720px;
-    margin-top: 4.5rem;
+    min-height: 560px;
+    margin-top: 3rem;
   }
 
   .timeline-line,
@@ -1032,6 +1086,7 @@ a {
     max-width: calc(100vw - 5.5rem);
     white-space: normal;
     font-size: clamp(1rem, 4.3vw, 1.08rem);
+    color: rgba(234, 241, 245, 0.9);
   }
 
   .timeline-pivot-rule {
@@ -1048,6 +1103,10 @@ a {
   .timeline-node-pivot {
     width: 52px;
     height: 52px;
+    box-shadow:
+      0 0 0 18px rgba(255, 103, 52, 0.12),
+      0 0 0 52px rgba(255, 103, 52, 0.045),
+      0 0 88px rgba(255, 103, 52, 0.52);
   }
 
   .timeline-node-pivot::after {
@@ -1099,6 +1158,37 @@ a {
   .btn-secondary {
     width: 100%;
     min-height: 54px;
+  }
+
+  .integration-lane-track,
+  .case-logo-track {
+    animation-duration: 52s;
+  }
+
+  .case-logo-pill {
+    min-height: 38px;
+    padding: 0.46rem 0.72rem;
+    font-size: 0.72rem;
+  }
+
+  .case-logo-mark {
+    width: 26px;
+    height: 26px;
+  }
+
+  .case-logo-mark img {
+    width: 21px;
+    height: 21px;
+  }
+
+  .gov-button {
+    min-height: 32px !important;
+    font-size: 0.58rem !important;
+  }
+
+  .gov-toolbar button {
+    min-height: 32px !important;
+    font-size: 0.56rem !important;
   }
 }
 
@@ -1525,6 +1615,7 @@ main :is(.border-t, .border-b, .border-y, .divide-y > :not([hidden]) ~ :not([hid
 
 
 .integration-lane {
+  max-width: 100%;
   overflow: hidden;
   border-radius: 999px;
   border: 1px solid rgba(255, 255, 255, 0.08);
@@ -2025,7 +2116,7 @@ main :is(.border-t, .border-b, .border-y, .divide-y > :not([hidden]) ~ :not([hid
 }
 
 .gov-button.is-pressed,
-.home-control-card button.is-pressed {
+.home-control-pill.is-pressed {
   transform: translateY(1px) scale(0.98);
   box-shadow: inset 0 0 0 2px rgba(240, 91, 36, 0.2), 0 0 20px rgba(240, 91, 36, 0.24);
 }
@@ -2260,7 +2351,10 @@ main :is(.border-t, .border-b, .border-y, .divide-y > :not([hidden]) ~ :not([hid
   text-transform: uppercase;
 }
 
-.home-control-card button {
+.home-control-pill {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
   border-radius: 9px;
   border: 1px solid rgba(79, 111, 138, 0.24);
   background: rgba(255, 255, 255, 0.7);
@@ -3481,6 +3575,34 @@ main :is(.border-t, .border-b, .border-y, .divide-y > :not([hidden]) ~ :not([hid
 
   .section-title {
     max-width: 100%;
+  }
+}
+
+@media (max-width: 700px) {
+  .integration-lane-track,
+  .case-logo-track {
+    animation-duration: 52s;
+  }
+
+  .case-logo-pill {
+    min-height: 38px;
+    padding: 0.46rem 0.72rem;
+    font-size: 0.72rem;
+  }
+
+  .case-logo-mark {
+    width: 26px;
+    height: 26px;
+  }
+
+  .case-logo-mark img {
+    width: 21px;
+    height: 21px;
+  }
+
+  .gov-button {
+    min-height: 32px;
+    font-size: 0.58rem;
   }
 }
 

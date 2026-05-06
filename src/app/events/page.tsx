@@ -46,7 +46,10 @@ export default function EventsPage() {
                   </h3>
                   <p className="mt-4 text-base leading-8 text-slate-600">{event.description}</p>
                   <p className="mt-5 text-sm font-semibold text-slate-500">{event.audience}</p>
-                  <a href="/contact" className="mt-6 inline-flex text-sm font-semibold text-[#9f412c]">
+                  <a
+                    href="/contact"
+                    className="mt-6 inline-flex min-h-9 items-center text-sm font-semibold text-[#9f412c]"
+                  >
                     Request this session
                   </a>
                 </div>

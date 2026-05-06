@@ -6,7 +6,9 @@
     "dev": "next dev",
     "build": "next build",
     "start": "next start",
-    "lint": "eslint"
+    "lint": "eslint",
+    "qa:mobile": "playwright test qa/mobile-audit.spec.mjs --reporter=line",
+    "qa:mobile:sheet": "node qa/make-contact-sheet.mjs"
   },
   "dependencies": {
     "next": "16.2.4",
@@ -14,6 +16,7 @@
     "react-dom": "19.2.4"
   },
   "devDependencies": {
+    "@playwright/test": "^1.59.1",
     "@tailwindcss/postcss": "^4",
     "@types/node": "^20",
     "@types/react": "^19",

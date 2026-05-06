@@ -76,7 +76,7 @@ export function DashboardActivityDriver() {
         ".gov-record",
         ".gov-button",
         ".home-nav-card",
-        ".home-control-card button",
+        ".home-control-pill",
         ".home-inbox-card",
         ".home-action-row",
         ".home-upcoming-row",
@@ -87,7 +87,7 @@ export function DashboardActivityDriver() {
         const items = Array.from(document.querySelectorAll<HTMLElement>(selector));
         items.forEach((item) => item.classList.remove("is-active", "is-pressed", "is-updating"));
         const active = items[step % Math.max(items.length, 1)];
-        active?.classList.add(selector.includes("button") ? "is-pressed" : "is-active");
+        active?.classList.add(selector.includes("button") || selector.includes("pill") ? "is-pressed" : "is-active");
       });
 
       document.querySelectorAll<HTMLElement>(".gov-record i").forEach((node, index) => {

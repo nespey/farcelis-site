@@ -78,10 +78,11 @@ export function Header() {
     const onScroll = () => {
       const currentScrollY = window.scrollY;
       const delta = currentScrollY - lastScrollY.current;
+      const canAutoHide = window.innerWidth >= 1024;
 
       setElevated(currentScrollY > 10);
 
-      if (currentScrollY <= 24) {
+      if (!canAutoHide || currentScrollY <= 24) {
         setHidden(false);
       } else if (delta > 8) {
         setHidden(true);

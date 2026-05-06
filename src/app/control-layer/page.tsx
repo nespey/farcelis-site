@@ -168,9 +168,9 @@ function ParagonMockDashboard() {
         <div className="gov-panel gov-doc-panel">
           <div className="gov-panel-title">Decision queue</div>
           {["Approve", "Escalate", "Assign", "Archive", "Package docs"].map((item, index) => (
-            <button className="gov-button" style={{ animationDelay: `${index * 0.28}s` }} key={item}>
+            <span className="gov-button" style={{ animationDelay: `${index * 0.28}s` }} key={item}>
               {item}
-            </button>
+            </span>
           ))}
         </div>
       </div>
@@ -251,15 +251,15 @@ function HouseholdMockDashboard() {
             <b>View</b>
             <div>
               {["All", "A", "B"].map((item, index) => (
-                <button style={{ animationDelay: `${index * 0.24}s` }} key={item}>{item}</button>
+                <span className="home-control-pill" style={{ animationDelay: `${index * 0.24}s` }} key={item}>{item}</span>
               ))}
             </div>
             <span>User scope</span>
           </div>
           <div className="home-control-card">
             <b>Search</b>
-            <button>Search board</button>
-            <button>Quick add</button>
+            <span className="home-control-pill">Search board</span>
+            <span className="home-control-pill">Quick add</span>
           </div>
         </div>
         <section className="home-inboxes">

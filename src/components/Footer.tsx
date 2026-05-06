@@ -42,7 +42,7 @@ const certificationToneClass = (name: string) => {
 
 export function Footer() {
   return (
-    <footer className="relative bg-transparent py-12 text-slate-300">
+    <footer className="relative overflow-hidden border-t border-cyan-100/10 bg-[#061824] py-12 text-slate-300 shadow-[0_-28px_90px_rgba(2,8,14,0.22)]">
       <div className="pointer-events-none absolute inset-0 bg-[radial-gradient(circle_at_12%_12%,rgba(242,139,91,0.08),transparent_24%),radial-gradient(circle_at_84%_18%,rgba(97,192,215,0.08),transparent_20%),linear-gradient(180deg,rgba(255,255,255,0.01),rgba(255,255,255,0))]" />
       <div className="section-inner relative grid items-start gap-8 lg:grid-cols-[minmax(0,1fr)_minmax(220px,260px)_minmax(0,1fr)]">
         <div className="max-w-[760px]">
@@ -77,7 +77,7 @@ export function Footer() {
                   target="_blank"
                   rel="noreferrer"
                   aria-label={item.label}
-                  className="group flex h-8 w-8 shrink-0 items-center justify-center transition duration-200 hover:-translate-y-0.5 focus:outline-none focus-visible:ring-2 focus-visible:ring-slate-300/70"
+                  className="group flex h-10 w-10 shrink-0 items-center justify-center transition duration-200 hover:-translate-y-0.5 focus:outline-none focus-visible:ring-2 focus-visible:ring-slate-300/70"
                 >
                   <Image
                     src={item.icon}
@@ -97,14 +97,22 @@ export function Footer() {
           <div className="mx-auto mt-5 grid w-[240px] grid-cols-2 gap-x-4 gap-y-2 text-center text-sm leading-6 text-slate-300">
             <div className="grid gap-2">
               {exploreLeft.map((item) => (
-                <Link key={item.href} href={item.href} className="transition hover:text-white">
+                <Link
+                  key={item.href}
+                  href={item.href}
+                  className="inline-flex min-h-9 items-center justify-center transition hover:text-white"
+                >
                   {item.label}
                 </Link>
               ))}
             </div>
             <div className="grid gap-2">
               {exploreRight.map((item) => (
-                <Link key={item.href} href={item.href} className="transition hover:text-white">
+                <Link
+                  key={item.href}
+                  href={item.href}
+                  className="inline-flex min-h-9 items-center justify-center transition hover:text-white"
+                >
                   {item.label}
                 </Link>
               ))}
@@ -161,7 +169,11 @@ export function Footer() {
         <div>© 2026 Farcelis AI Consulting. All rights reserved.</div>
         <div className="flex flex-wrap gap-x-4 gap-y-2">
           {site.legalLinks.map((item) => (
-            <Link key={item.href} href={item.href} className="transition hover:text-white">
+            <Link
+              key={item.href}
+              href={item.href}
+              className="inline-flex min-h-9 items-center transition hover:text-white"
+            >
               {item.label}
             </Link>
           ))}
