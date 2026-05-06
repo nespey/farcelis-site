@@ -1747,6 +1747,33 @@ main :is(.border-t, .border-b, .border-y, .divide-y > :not([hidden]) ~ :not([hid
   line-height: 1.65;
 }
 
+.workflow-preview-builder-note {
+  display: grid;
+  gap: 0.45rem;
+  max-width: 860px;
+  margin: 1rem 0.35rem 1.15rem;
+}
+
+.workflow-preview-builder-note p {
+  color: #b4c3cc;
+  font-size: 0.98rem;
+  line-height: 1.65;
+}
+
+.workflow-preview-builder-note span {
+  display: inline-flex;
+  width: fit-content;
+  border-radius: 999px;
+  border: 1px solid rgba(255, 140, 90, 0.22);
+  background: rgba(255, 140, 90, 0.08);
+  padding: 0.5rem 0.72rem;
+  color: #ffd1bd;
+  font-size: 0.74rem;
+  font-weight: 750;
+  letter-spacing: 0.04em;
+  text-transform: uppercase;
+}
+
 .workflow-system-surface {
   display: grid;
   grid-template-columns: minmax(0, 1.15fr) minmax(17rem, 0.85fr);
@@ -1875,6 +1902,48 @@ main :is(.border-t, .border-b, .border-y, .divide-y > :not([hidden]) ~ :not([hid
   padding: 1rem;
 }
 
+.workflow-builder-score {
+  display: grid;
+  gap: 0.55rem;
+  border-radius: 1rem;
+  border: 1px solid rgba(255, 140, 90, 0.2);
+  background:
+    linear-gradient(135deg, rgba(255, 140, 90, 0.12), rgba(97, 192, 215, 0.06)),
+    rgba(255, 255, 255, 0.04);
+  padding: 0.95rem;
+}
+
+.workflow-builder-score span {
+  color: #9fb2be;
+  font-size: 0.72rem;
+  font-weight: 750;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+}
+
+.workflow-builder-score strong {
+  color: #ffffff;
+  font-size: 2.05rem;
+  font-weight: 700;
+  line-height: 1;
+  letter-spacing: -0.04em;
+}
+
+.workflow-builder-score div {
+  height: 0.42rem;
+  overflow: hidden;
+  border-radius: 999px;
+  background: rgba(255, 255, 255, 0.18);
+}
+
+.workflow-builder-score i {
+  display: block;
+  height: 100%;
+  border-radius: inherit;
+  background: linear-gradient(90deg, #ff8c5a, #71c2d4);
+  transition: width 240ms ease;
+}
+
 .workflow-diagnostic-status {
   display: grid;
   gap: 0.55rem;
@@ -1905,7 +1974,7 @@ main :is(.border-t, .border-b, .border-y, .divide-y > :not([hidden]) ~ :not([hid
 
 .workflow-metric-grid {
   display: grid;
-  grid-template-columns: repeat(3, minmax(0, 1fr));
+  grid-template-columns: repeat(4, minmax(0, 1fr));
   gap: 0.55rem;
 }
 
@@ -1979,6 +2048,49 @@ main :is(.border-t, .border-b, .border-y, .divide-y > :not([hidden]) ~ :not([hid
   text-align: center;
 }
 
+.workflow-builder-readout {
+  display: grid;
+  grid-template-columns: minmax(170px, 0.32fr) minmax(0, 1fr);
+  gap: 0.85rem;
+  align-items: stretch;
+  margin-top: 0.8rem;
+  border-radius: 1rem;
+  border: 1px solid rgba(180, 204, 214, 0.14);
+  background: rgba(255, 255, 255, 0.045);
+  padding: 0.85rem;
+}
+
+.workflow-builder-readout div {
+  border-radius: 0.78rem;
+  background: rgba(4, 18, 27, 0.42);
+  padding: 0.85rem;
+}
+
+.workflow-builder-readout span {
+  display: block;
+  color: #ffb391;
+  font-size: 0.68rem;
+  font-weight: 850;
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+}
+
+.workflow-builder-readout strong {
+  display: block;
+  margin-top: 0.38rem;
+  color: #ffffff;
+  font-size: 0.98rem;
+  font-weight: 750;
+  line-height: 1.28;
+}
+
+.workflow-builder-readout p {
+  align-self: center;
+  color: #c7d5dc;
+  font-size: 0.9rem;
+  line-height: 1.65;
+}
+
 .workflow-intelligence-row {
   display: grid;
   grid-template-columns: minmax(0, 0.92fr) minmax(0, 1.08fr);
@@ -2048,6 +2160,92 @@ main :is(.border-t, .border-b, .border-y, .divide-y > :not([hidden]) ~ :not([hid
 .workflow-preview-cta a:last-child {
   border: 1px solid rgba(180, 204, 214, 0.2);
   color: #dce8ed;
+}
+
+.workflow-quote-section {
+  padding-top: clamp(3.6rem, 6vw, 6.2rem);
+  padding-bottom: clamp(3.6rem, 6vw, 6.2rem);
+}
+
+.workflow-operator-quote {
+  position: relative;
+  isolation: isolate;
+  display: grid;
+  grid-template-columns: minmax(170px, 0.34fr) minmax(0, 1fr);
+  gap: clamp(1.15rem, 3vw, 3.25rem);
+  align-items: center;
+  overflow: hidden;
+  border-radius: 30px;
+  border: 1px solid rgba(186, 230, 253, 0.2);
+  background:
+    radial-gradient(circle at 18% 18%, rgba(255, 127, 79, 0.18), transparent 32%),
+    radial-gradient(circle at 86% 0%, rgba(97, 192, 215, 0.18), transparent 38%),
+    linear-gradient(135deg, rgba(255, 255, 255, 0.1), rgba(255, 255, 255, 0.035)),
+    rgba(6, 24, 36, 0.72);
+  padding: clamp(1rem, 2vw, 1.7rem);
+  box-shadow:
+    0 28px 90px rgba(0, 0, 0, 0.34),
+    0 0 74px rgba(97, 192, 215, 0.14),
+    inset 0 1px 0 rgba(255, 255, 255, 0.14);
+}
+
+.workflow-operator-quote::after {
+  content: "";
+  position: absolute;
+  inset: 0;
+  z-index: -1;
+  background:
+    linear-gradient(90deg, rgba(255, 255, 255, 0.08), transparent 30%, rgba(255, 255, 255, 0.045)),
+    repeating-linear-gradient(90deg, rgba(255, 255, 255, 0.035) 0 1px, transparent 1px 95px);
+  mask-image: linear-gradient(90deg, transparent, #000 18%, #000 84%, transparent);
+  opacity: 0.38;
+}
+
+.workflow-operator-image {
+  position: relative;
+  overflow: hidden;
+  width: min(100%, 230px);
+  aspect-ratio: 0.82;
+  justify-self: center;
+  border-radius: 24px;
+  border: 1px solid rgba(255, 255, 255, 0.18);
+  background: rgba(255, 255, 255, 0.08);
+  box-shadow:
+    0 20px 50px rgba(0, 0, 0, 0.28),
+    0 0 34px rgba(255, 127, 79, 0.14);
+}
+
+.workflow-operator-image img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+.workflow-operator-copy {
+  max-width: 980px;
+}
+
+.workflow-operator-copy blockquote {
+  margin-top: clamp(0.8rem, 1.4vw, 1.2rem);
+  color: #f8fbff;
+  font-size: clamp(1.45rem, 2.2vw, 2.45rem);
+  line-height: 1.18;
+  letter-spacing: -0.04em;
+  font-weight: 650;
+}
+
+.workflow-operator-name {
+  margin-top: clamp(1rem, 1.7vw, 1.45rem);
+  color: #ffffff;
+  font-size: 0.95rem;
+  font-weight: 850;
+}
+
+.workflow-operator-role {
+  margin-top: 0.22rem;
+  color: #b8c8d3;
+  font-size: 0.82rem;
+  font-weight: 650;
 }
 
 .capability-lane-action,
@@ -4348,6 +4546,14 @@ main :is(.border-t, .border-b, .border-y, .divide-y > :not([hidden]) ~ :not([hid
     grid-template-columns: 1fr;
   }
 
+  .workflow-operator-quote {
+    grid-template-columns: 1fr;
+  }
+
+  .workflow-operator-copy {
+    text-align: left;
+  }
+
   .founder-quote-copy {
     text-align: center;
   }
@@ -4431,6 +4637,22 @@ main :is(.border-t, .border-b, .border-y, .divide-y > :not([hidden]) ~ :not([hid
     line-height: 1.55;
   }
 
+  .workflow-preview-builder-note {
+    margin: 0.85rem 0.2rem;
+  }
+
+  .workflow-preview-builder-note p {
+    font-size: 0.9rem;
+    line-height: 1.55;
+  }
+
+  .workflow-preview-builder-note span {
+    width: 100%;
+    border-radius: 0.85rem;
+    font-size: 0.62rem;
+    line-height: 1.45;
+  }
+
   .workflow-map {
     grid-template-columns: repeat(2, minmax(0, 1fr));
     gap: 0.52rem;
@@ -4473,6 +4695,15 @@ main :is(.border-t, .border-b, .border-y, .divide-y > :not([hidden]) ~ :not([hid
 
   .workflow-action-row {
     grid-template-columns: 1fr;
+  }
+
+  .workflow-builder-readout {
+    grid-template-columns: 1fr;
+    padding: 0.72rem;
+  }
+
+  .workflow-builder-readout p {
+    font-size: 0.86rem;
   }
 
   .workflow-intelligence-row blockquote {
@@ -4658,9 +4889,21 @@ main :is(.border-t, .border-b, .border-y, .divide-y > :not([hidden]) ~ :not([hid
     padding: 0.9rem;
   }
 
+  .workflow-operator-quote {
+    gap: 0.9rem;
+    border-radius: 22px;
+    padding: 0.85rem 0.85rem 1.45rem;
+  }
+
   .founder-quote-image {
     width: min(100%, 96px);
     border-radius: 18px;
+  }
+
+  .workflow-operator-image {
+    width: min(100%, 92px);
+    border-radius: 18px;
+    justify-self: start;
   }
 
   .founder-quote-copy blockquote {
@@ -4671,15 +4914,33 @@ main :is(.border-t, .border-b, .border-y, .divide-y > :not([hidden]) ~ :not([hid
     text-align: left;
   }
 
+  .workflow-operator-copy blockquote {
+    margin-top: 0.65rem;
+    font-size: clamp(0.98rem, 4.1vw, 1.12rem);
+    line-height: 1.35;
+    letter-spacing: -0.015em;
+  }
+
   .founder-quote-name {
     margin-top: 0.7rem;
     font-size: 0.86rem;
     text-align: left;
   }
 
+  .workflow-operator-name {
+    margin-top: 0.7rem;
+    font-size: 0.86rem;
+  }
+
   .founder-quote-role {
     font-size: 0.76rem;
     text-align: left;
+  }
+
+  .workflow-operator-role {
+    font-size: 0.76rem;
+    max-width: 13rem;
+    line-height: 1.35;
   }
 }
 

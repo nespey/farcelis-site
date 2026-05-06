@@ -271,6 +271,30 @@ export function WorkflowOperationsPreview() {
   );
 
   const pressureLabel = ["Normal", "Elevated", "Stressed", "Critical"][load];
+  const selectedFailure = active.failures[selectedNode % active.failures.length];
+  const selectedWorkflowNode = active.nodes[selectedNode];
+  const operatingScore =
+    mode === "optimized"
+      ? Math.min(94, 70 + load * 4)
+      : Math.max(22, 74 - load * 11 - selectedNode * 2);
+  const leakageRate =
+    mode === "optimized" ? Math.max(4, 13 - load * 2) : 18 + load * 7;
+  const responseWindow =
+    mode === "optimized" ? Math.max(2, 8 - load) : 10 + load * 6 + selectedNode;
+  const visibleRisk =
+    mode === "optimized"
+      ? Math.max(2, 8 - selectedNode)
+      : 9 + load * 4 + selectedNode;
+  const outcome =
+    mode === "optimized"
+      ? "The system normalizes intake, assigns ownership, routes exceptions, and gives leadership a cleaner intervention path before work disappears."
+      : "The system shows pressure building around the selected handoff, with unclear ownership, slower response timing, and risk that leadership sees too late.";
+  const comparisonRows = [
+    ["Operating score", `${operatingScore}/100`],
+    ["Work leakage", `${leakageRate}%`],
+    ["Response window", `${responseWindow}h`],
+    ["Unresolved risk", `${visibleRisk}`],
+  ];
 
   return (
     <div className="workflow-preview-shell">
@@ -319,7 +343,13 @@ export function WorkflowOperationsPreview() {
           </div>
         </div>
 
-        <p className="workflow-preview-goal">{active.goal}</p>
+        <div className="workflow-preview-builder-note">
+          <p>{active.goal}</p>
+          <span>
+            Scenario input: {pressureLabel.toLowerCase()} load,{" "}
+            {selectedFailure.toLowerCase()}, {mode.replace("-", " ")} model.
+          </span>
+        </div>
 
         <div className="workflow-system-surface">
           <div className={`workflow-map workflow-map--${mode}`}>
@@ -351,6 +381,14 @@ export function WorkflowOperationsPreview() {
           </div>
 
           <aside className="workflow-diagnostic-panel">
+            <div className="workflow-builder-score">
+              <span>Operating Score</span>
+              <strong>{operatingScore}</strong>
+              <div>
+                <i style={{ width: `${operatingScore}%` }} />
+              </div>
+            </div>
+
             <div className="workflow-diagnostic-status">
               <span>Operational load</span>
               <strong>{pressureLabel}</strong>
@@ -365,13 +403,9 @@ export function WorkflowOperationsPreview() {
             </div>
 
             <div className="workflow-metric-grid">
-              {active.metrics.map(([value, label]) => (
+              {comparisonRows.map(([label, value]) => (
                 <div key={label}>
-                  <strong>
-                    {mode === "optimized" && label !== "command surface"
-                      ? "Reduced"
-                      : value}
-                  </strong>
+                  <strong>{value}</strong>
                   <span>{label}</span>
                 </div>
               ))}
@@ -394,12 +428,41 @@ export function WorkflowOperationsPreview() {
           </aside>
         </div>
 
+        <div className="workflow-builder-readout">
+          <div>
+            <span>{mode === "optimized" ? "Optimized path" : "Current path"}</span>
+            <strong>{selectedWorkflowNode}</strong>
+          </div>
+          <p>{outcome}</p>
+        </div>
+
         <div className="workflow-action-row">
           {active.actions.map((action, index) => (
             <button
               type="button"
               key={action}
               onClick={() => {
+                const normalizedAction = action.toLowerCase();
+
+                if (
+                  normalizedAction.includes("compare") ||
+                  normalizedAction.includes("reroute") ||
+                  normalizedAction.includes("watch") ||
+                  normalizedAction.includes("structured")
+                ) {
+                  setMode("optimized");
+                }
+
+                if (
+                  normalizedAction.includes("break") ||
+                  normalizedAction.includes("miss") ||
+                  normalizedAction.includes("overload") ||
+                  normalizedAction.includes("heavier") ||
+                  normalizedAction.includes("trigger")
+                ) {
+                  setMode("current");
+                }
+
                 setSelectedNode(
                   (selectedNode + index + 1) % active.nodes.length,
                 );

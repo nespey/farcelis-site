@@ -1,3 +1,4 @@
+import Image from "next/image";
 import Link from "next/link";
 
 import { PageIntro } from "@/components/PageIntro";
@@ -7,29 +8,6 @@ import { buildMetadata } from "@/lib/metadata";
 import { seo } from "@/lib/site-data";
 
 export const metadata = buildMetadata(seo.workflowOperations);
-
-const operatingAreas = [
-  {
-    title: "Routing",
-    body: "Define how work enters, where it should go, what information must travel with it, and what should happen when it does not fit the standard path.",
-  },
-  {
-    title: "Handoffs",
-    body: "Design the moment work changes hands so context, deadlines, owners, and next actions do not disappear between teams or platforms.",
-  },
-  {
-    title: "Ownership",
-    body: "Clarify who owns the next move, who approves it, who is informed, and who intervenes when the workflow stalls.",
-  },
-  {
-    title: "Reporting",
-    body: "Create visibility into status, pressure, risk, and movement so leaders do not discover operating problems after the cost is already real.",
-  },
-  {
-    title: "Operating cadence",
-    body: "Build the review rhythm, escalation habits, and leadership checkpoints that keep the system moving after the first redesign is complete.",
-  },
-];
 
 export default function WorkflowOperationsPage() {
   return (
@@ -55,31 +33,34 @@ export default function WorkflowOperationsPage() {
       />
 
       <Reveal delayMs={50}>
-        <section className="section-shell section-shell-light">
+        <section className="section-shell section-shell-dark workflow-quote-section">
           <div className="section-inner">
-            <div className="max-w-[860px]">
-              <p className="eyebrow text-[#9f412c]">Operating Path</p>
-              <h2 className="section-title mt-5 text-slate-950">
-                Workflow and operations work is about movement: how work enters,
-                changes hands, gets owned, and gets reported.
-              </h2>
-            </div>
-
-            <div className="mt-12 grid gap-4 md:grid-cols-2 lg:grid-cols-3">
-              {operatingAreas.map((area) => (
-                <article
-                  key={area.title}
-                  className="enterprise-card rounded-[24px] border border-slate-200 bg-white px-6 py-6 shadow-[0_18px_38px_rgba(15,23,42,0.06)]"
-                >
-                  <h3 className="text-2xl font-semibold tracking-[-0.04em] text-slate-950">
-                    {area.title}
-                  </h3>
-                  <p className="mt-4 text-base leading-8 text-slate-600">
-                    {area.body}
-                  </p>
-                </article>
-              ))}
-            </div>
+            <figure className="workflow-operator-quote">
+              <div className="workflow-operator-image">
+                <Image
+                  src="/images/team/dominic-workflow-quote.jpeg"
+                  alt="Dominic Chase, Chief Operating Officer"
+                  width={896}
+                  height={1088}
+                  priority={false}
+                />
+              </div>
+              <figcaption className="workflow-operator-copy">
+                <p className="eyebrow text-[color:var(--color-accent)]">
+                  Operating Path
+                </p>
+                <blockquote>
+                  “Workflow is where strategy becomes movement. If routing,
+                  ownership, escalation, and reporting are not designed
+                  together, work does not fail loudly. It drifts until leaders
+                  are forced to react.”
+                </blockquote>
+                <p className="workflow-operator-name">Dominic Chase</p>
+                <p className="workflow-operator-role">
+                  Chief Operating Officer, Farcelis AI Consulting LLC
+                </p>
+              </figcaption>
+            </figure>
           </div>
         </section>
       </Reveal>
