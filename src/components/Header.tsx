@@ -120,14 +120,14 @@ export function Header() {
             : "bg-transparent"
         }`}
       >
-        <div className="section-inner flex min-h-20 items-center justify-between gap-6">
-          <Link href="/" onClick={closeMenus} className="flex items-center gap-3">
+        <div className="section-inner flex min-h-16 items-center justify-between gap-6 sm:min-h-20">
+          <Link href="/" onClick={closeMenus} className="flex min-h-10 items-center gap-3">
             <Image
               src="/logos/farcelis-ai-logo.png"
               alt="Farcelis AI Consulting"
               width={152}
               height={44}
-              className="h-10 w-auto brightness-[1.58]"
+              className="h-8 w-auto brightness-[1.58] sm:h-10"
               priority
             />
           </Link>
@@ -286,7 +286,7 @@ export function Header() {
               setActiveMenu(null);
               setMobileOpen((open) => !open);
             }}
-            className="inline-flex h-11 w-11 items-center justify-center rounded-full border border-cyan-100/18 bg-white/[0.04] text-white transition hover:border-cyan-100/32 hover:bg-white/[0.08] lg:hidden"
+            className="inline-flex h-10 w-10 items-center justify-center rounded-full border border-cyan-100/18 bg-white/[0.04] text-white transition hover:border-cyan-100/32 hover:bg-white/[0.08] sm:h-11 sm:w-11 lg:hidden"
           >
             <span className="sr-only">Open navigation</span>
             <span className="grid gap-1.5" aria-hidden="true">
@@ -366,7 +366,7 @@ export function Header() {
           </div>
         </div>
       </header>
-      <div className="h-20" aria-hidden="true" />
+      <div className="h-16 sm:h-20" aria-hidden="true" />
     </>
   );
 }

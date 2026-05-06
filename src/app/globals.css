@@ -29,6 +29,7 @@ html {
     radial-gradient(circle at 74% 18%, rgba(20, 92, 112, 0.28), transparent 34rem),
     radial-gradient(circle at 32% 72%, rgba(10, 55, 68, 0.32), transparent 38rem),
     linear-gradient(145deg, #04141d 0%, #071c28 46%, #061824 100%);
+  background-color: #061824;
   background-attachment: fixed;
 }
 
@@ -39,6 +40,7 @@ body {
     radial-gradient(circle at 74% 18%, rgba(20, 92, 112, 0.28), transparent 34rem),
     radial-gradient(circle at 32% 72%, rgba(10, 55, 68, 0.32), transparent 38rem),
     linear-gradient(145deg, #04141d 0%, #071c28 46%, #061824 100%);
+  background-color: #061824;
   background-attachment: fixed;
   color: #e6edf3;
 }
@@ -130,6 +132,7 @@ a {
 }
 
 .system-scan-shell {
+  display: none;
   position: fixed;
   inset: 0;
   z-index: 90;
@@ -140,6 +143,7 @@ a {
 }
 
 .system-scan-shell-open {
+  display: block;
   pointer-events: auto;
   opacity: 1;
   visibility: visible;
@@ -983,6 +987,8 @@ a {
   html,
   body {
     overflow-x: clip;
+    min-height: 100dvh;
+    background-color: #061824;
     background-attachment: scroll;
   }
 
@@ -990,6 +996,7 @@ a {
     background:
       radial-gradient(circle at 72% 6%, rgba(20, 92, 112, 0.2), transparent 24rem),
       linear-gradient(145deg, #04141d 0%, #071c28 48%, #061824 100%);
+    background-color: #061824;
   }
 
   .section-inner,
@@ -3579,6 +3586,13 @@ main :is(.border-t, .border-b, .border-y, .divide-y > :not([hidden]) ~ :not([hid
 }
 
 @media (max-width: 700px) {
+  .reveal-section,
+  .reveal-section.is-visible {
+    opacity: 1 !important;
+    transform: none !important;
+    transition: none !important;
+  }
+
   .integration-lane-track,
   .case-logo-track {
     animation-duration: 52s;
