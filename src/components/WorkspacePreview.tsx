@@ -257,16 +257,22 @@ export function WorkspacePreview({ compact = false }: WorkspacePreviewProps) {
 
               <div className="flex flex-wrap items-center justify-center gap-2">
                 {views.map((view, index) => (
-                  <div
+                  <button
+                    type="button"
                     key={view.id}
-                    className={`min-h-8 rounded-full border px-2.5 py-1.5 text-[11px] font-semibold uppercase tracking-[0.15em] transition ${
+                    onClick={() => {
+                      setViewIndex(index);
+                      setActiveRow(0);
+                    }}
+                    className={`workspace-view-tab min-h-8 rounded-full border px-2.5 py-1.5 text-[11px] font-semibold uppercase tracking-[0.15em] transition ${
                       index === viewIndex
                         ? accentClasses.badge
                         : "border-white/8 bg-white/[0.03] text-slate-500"
                     }`}
+                    aria-pressed={index === viewIndex}
                   >
                     {view.label}
-                  </div>
+                  </button>
                 ))}
               </div>
             </div>
@@ -275,6 +281,15 @@ export function WorkspacePreview({ compact = false }: WorkspacePreviewProps) {
               {current.counters.map((counter, index) => (
                 <div
                   key={counter.label}
+                  role="button"
+                  tabIndex={0}
+                  onClick={() => setActiveRow(index)}
+                  onKeyDown={(event) => {
+                    if (event.key === "Enter" || event.key === " ") {
+                      event.preventDefault();
+                      setActiveRow(index);
+                    }
+                  }}
                   className={`workspace-counter hero-signal min-h-[88px] rounded-[16px] border px-3 py-3 text-left ${
                     index === activeRow ? accentClasses.panel : "border-white/7 bg-white/[0.04]"
                   }`}
@@ -383,6 +398,15 @@ export function WorkspacePreview({ compact = false }: WorkspacePreviewProps) {
                       {current.panels.centerRows.map((item, index) => (
                         <div
                           key={item}
+                          role="button"
+                          tabIndex={0}
+                          onClick={() => setActiveRow(index)}
+                          onKeyDown={(event) => {
+                            if (event.key === "Enter" || event.key === " ") {
+                              event.preventDefault();
+                              setActiveRow(index);
+                            }
+                          }}
                           className={`min-h-[44px] rounded-[13px] border px-3 py-2 text-xs leading-5 transition ${
                             index === activeRow
                               ? accentClasses.active

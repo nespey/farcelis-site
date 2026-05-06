@@ -29,9 +29,9 @@ export function HomeExperience() {
           <div className="eyebrow">Farcelis AI Consulting LLC</div>
 
           <h1 className="hero-title">
-            If your systems can&apos;t hold,
+            <span className="hero-title-line">If your systems can&apos;t hold,</span>
             <br />
-            nothing else matters.
+            <span className="hero-title-line">nothing else matters.</span>
           </h1>
 
           <p className="hero-subtext">

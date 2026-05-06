@@ -1110,6 +1110,7 @@ a {
   .timeline-node-pivot {
     width: 52px;
     height: 52px;
+    animation: pivotBreath 4.8s ease-in-out infinite !important;
     box-shadow:
       0 0 0 18px rgba(255, 103, 52, 0.12),
       0 0 0 52px rgba(255, 103, 52, 0.045),
@@ -1118,6 +1119,7 @@ a {
 
   .timeline-node-pivot::after {
     inset: 18px;
+    animation: pivotCore 2.8s ease-in-out infinite !important;
   }
 
   .hero {
@@ -1144,9 +1146,15 @@ a {
 
   .hero-title {
     margin-bottom: 22px;
-    font-size: clamp(2.25rem, 7.35vw, 2.75rem);
-    line-height: 1.12;
-    letter-spacing: -0.05em;
+    max-width: none;
+    font-size: clamp(1.55rem, 7.2vw, 2.05rem);
+    line-height: 1.02;
+    letter-spacing: -0.035em;
+  }
+
+  .hero-title-line {
+    display: inline-block;
+    white-space: nowrap;
   }
 
   .hero-subtext {
@@ -3802,6 +3810,18 @@ main :is(.border-t, .border-b, .border-y, .divide-y > :not([hidden]) ~ :not([hid
   }
 }
 
+@keyframes pivotCore {
+  0%, 100% {
+    opacity: 0.74;
+    transform: scale(0.84);
+  }
+
+  50% {
+    opacity: 1;
+    transform: scale(1.12);
+  }
+}
+
 @media (max-width: 1024px) {
   .section-shell {
     padding: 5.75rem 0;
@@ -3881,6 +3901,24 @@ main :is(.border-t, .border-b, .border-y, .divide-y > :not([hidden]) ~ :not([hid
     font-size: 0.58rem;
   }
 
+  .control-showcase-section,
+  .control-bridge-section,
+  .control-showcase-section--home,
+  .infinite-control-section {
+    padding-top: 2.55rem !important;
+    padding-bottom: 2.55rem !important;
+  }
+
+  .control-case-grid {
+    padding: 1.35rem 0 !important;
+    gap: 1.35rem;
+  }
+
+  .control-showcase-section .section-inner,
+  .control-bridge-section .section-inner {
+    gap: 0.55rem;
+  }
+
   .scroll-zoom {
     animation: none !important;
     transform: none !important;
@@ -3915,6 +3953,19 @@ main :is(.border-t, .border-b, .border-y, .divide-y > :not([hidden]) ~ :not([hid
     min-height: 64px;
   }
 
+  .workspace-view-tab,
+  .workspace-counter,
+  .workspace-action-center [role="button"] {
+    cursor: pointer;
+    touch-action: manipulation;
+    -webkit-tap-highlight-color: transparent;
+  }
+
+  .workspace-view-tab {
+    appearance: none;
+    font-family: inherit;
+  }
+
   .workspace-counter-grid {
     grid-template-columns: repeat(2, minmax(0, 1fr)) !important;
     gap: 0.55rem !important;
@@ -3938,8 +3989,35 @@ main :is(.border-t, .border-b, .border-y, .divide-y > :not([hidden]) ~ :not([hid
     padding: 0.75rem !important;
   }
 
-  .workspace-action-center .mt-3 > div:nth-child(n + 4) {
-    display: none !important;
+  .workspace-action-center .mt-3 {
+    max-height: 11rem;
+    overflow-y: auto;
+    padding-right: 0.1rem;
+    scrollbar-width: thin;
+  }
+
+  .system-flow-rail {
+    overflow: visible !important;
+  }
+
+  .system-flow-rail > .absolute,
+  .system-flow-rail > .relative.grid {
+    min-width: 0 !important;
+  }
+
+  .system-flow-rail > .relative.grid {
+    gap: 0.08rem !important;
+  }
+
+  .system-flow-rail > .relative.grid > div {
+    min-height: 2rem;
+  }
+
+  .system-flow-rail > .relative.grid > div > div {
+    padding-left: 0.05rem;
+    padding-right: 0.05rem;
+    font-size: clamp(0.56rem, 2.7vw, 0.72rem);
+    letter-spacing: -0.04em;
   }
 
   .case-logo-lane {
@@ -3948,7 +4026,11 @@ main :is(.border-t, .border-b, .border-y, .divide-y > :not([hidden]) ~ :not([hid
 
   .case-logo-track {
     min-width: max-content;
-    animation: caseLogoScroll 28s linear infinite !important;
+    animation-name: caseLogoScroll !important;
+    animation-duration: 28s !important;
+    animation-timing-function: linear !important;
+    animation-iteration-count: infinite !important;
+    animation-play-state: running !important;
     will-change: transform;
   }
 
@@ -3957,7 +4039,9 @@ main :is(.border-t, .border-b, .border-y, .divide-y > :not([hidden]) ~ :not([hid
   }
 
   .control-showcase-section .case-dashboard::after {
-    display: none;
+    display: block;
+    opacity: 0.42;
+    animation: dashboardSweep 7s linear infinite;
   }
 
   .gov-live-toast,
