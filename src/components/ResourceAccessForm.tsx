@@ -5,10 +5,10 @@ import { FormEvent, useState } from "react";
 import { site } from "@/lib/site-data";
 
 const fields = [
-  { label: "Name", name: "name", type: "text" },
-  { label: "Work email", name: "email", type: "email" },
-  { label: "Company", name: "company", type: "text" },
-  { label: "Resource requested", name: "resource", type: "text" },
+  { label: "Name", name: "name", type: "text", autoComplete: "name" },
+  { label: "Work email", name: "email", type: "email", autoComplete: "email" },
+  { label: "Company", name: "company", type: "text", autoComplete: "organization" },
+  { label: "Resource requested", name: "resource", type: "text", autoComplete: "off" },
 ];
 
 export function ResourceAccessForm() {
@@ -45,6 +45,7 @@ export function ResourceAccessForm() {
           <input
             name={field.name}
             type={field.type}
+            autoComplete={field.autoComplete}
             required
             className="min-h-12 rounded-[14px] border border-cyan-100/14 bg-white/[0.045] px-4 text-base font-normal text-white outline-none transition focus:border-cyan-100/34"
           />

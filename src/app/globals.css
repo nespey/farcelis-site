@@ -71,6 +71,31 @@ a {
   text-decoration: none;
 }
 
+.skip-link {
+  position: fixed;
+  left: 1rem;
+  top: 1rem;
+  z-index: 100;
+  transform: translateY(-150%);
+  border-radius: 999px;
+  background: #ffffff;
+  padding: 0.75rem 1rem;
+  color: #061824;
+  font-size: 0.9rem;
+  font-weight: 800;
+  min-height: 44px;
+  display: inline-flex;
+  align-items: center;
+  box-shadow: 0 18px 46px rgba(3, 8, 16, 0.24);
+  transition: transform 160ms ease;
+}
+
+.skip-link:focus-visible {
+  transform: translateY(0);
+  outline: 3px solid #f28b5b;
+  outline-offset: 3px;
+}
+
 .site-progress {
   position: fixed;
   top: 0;
@@ -5646,6 +5671,7 @@ main :is(.border-t, .border-b, .border-y, .divide-y > :not([hidden]) ~ :not([hid
 }
 
 .gov-toolbar button {
+  min-height: 34px;
   border-color: rgba(32, 32, 32, 0.18);
   background: linear-gradient(180deg, #3e3f43, #28292c);
   color: #fff;

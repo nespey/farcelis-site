@@ -75,7 +75,7 @@ export function Footer() {
                   key={item.label}
                   href={item.href}
                   target="_blank"
-                  rel="noreferrer"
+                  rel="noopener noreferrer"
                   aria-label={item.label}
                   className="group flex h-10 w-10 shrink-0 items-center justify-center transition duration-200 hover:-translate-y-0.5 focus:outline-none focus-visible:ring-2 focus-visible:ring-slate-300/70"
                 >

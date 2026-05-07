@@ -1,10 +1,17 @@
 import type { Metadata } from "next";
 
-import { seo, site } from "@/lib/site-data";
+import type { SeoEntry } from "@/lib/site-data";
+import { site } from "@/lib/site-data";
 
 const defaultOgImage = `${site.domain}/images/hero-control-layer-preview.png`;
 
-export function buildMetadata(entry: (typeof seo)[keyof typeof seo]): Metadata {
+export function buildMetadata(entry: SeoEntry): Metadata {
+  const image = entry.image?.startsWith("http")
+    ? entry.image
+    : entry.image
+      ? `${site.domain}${entry.image}`
+      : defaultOgImage;
+
   return {
     metadataBase: new URL(site.domain),
     title: entry.title,
@@ -30,7 +37,7 @@ export function buildMetadata(entry: (typeof seo)[keyof typeof seo]): Metadata {
       siteName: site.shortName,
       images: [
         {
-          url: defaultOgImage,
+          url: image,
           width: 1400,
           height: 900,
           alt: `${site.shortName} AI operational systems preview`,
@@ -41,7 +48,7 @@ export function buildMetadata(entry: (typeof seo)[keyof typeof seo]): Metadata {
       card: "summary_large_image",
       title: entry.title,
       description: entry.description,
-      images: [defaultOgImage],
+      images: [image],
     },
   };
 }

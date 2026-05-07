@@ -133,7 +133,7 @@ export function AIMarketingBlueprintGenerator() {
   );
 
   return (
-    <main className="growth-page">
+    <div className="growth-page">
       <section className="growth-hero">
         <div className="section-inner growth-hero-grid">
           <div className="growth-hero-copy">
@@ -396,6 +396,6 @@ export function AIMarketingBlueprintGenerator() {
           </aside>
         </div>
       </section>
-    </main>
+    </div>
   );
 }

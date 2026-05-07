@@ -3,6 +3,7 @@ import { notFound } from "next/navigation";
 import { AIMarketingBlueprintGenerator } from "@/components/AIMarketingBlueprintGenerator";
 import { BlueprintReadinessSnapshot } from "@/components/BlueprintReadinessSnapshot";
 import { IntentAdaptiveLearningEngine } from "@/components/IntentAdaptiveLearningEngine";
+import { JsonLd } from "@/components/JsonLd";
 import { PageIntro } from "@/components/PageIntro";
 import { PulseThreadPreview } from "@/components/PulseThreadPreview";
 import { RapidRampGenerator } from "@/components/RapidRampGenerator";
@@ -48,25 +49,87 @@ export default async function ProductDetailPage({ params }: ProductPageProps) {
   const isRapidRamp = product.slug === "rapidramp-generator";
   const isBlueprintSnapshot = product.slug === "blueprint-readiness-snapshot";
   const isMarketingBlueprint = product.slug === "ai-marketing-blueprint-generator";
+  const productSchema = {
+    "@context": "https://schema.org",
+    "@type": "Service",
+    "@id": `${site.domain}/products/${product.slug}#service`,
+    name: product.title,
+    serviceType: product.eyebrow,
+    description: product.description,
+    url: `${site.domain}/products/${product.slug}`,
+    provider: {
+      "@type": "Organization",
+      "@id": `${site.domain}/#organization`,
+      name: site.name,
+      url: site.domain,
+    },
+    areaServed: "United States",
+    audience: {
+      "@type": "BusinessAudience",
+      audienceType: "Executives, founders, operators, and operational teams",
+    },
+    offers: {
+      "@type": "Offer",
+      availability: "https://schema.org/InStock",
+      url: `${site.domain}/contact`,
+      priceSpecification: {
+        "@type": "PriceSpecification",
+        priceCurrency: "USD",
+      },
+    },
+    hasOfferCatalog: {
+      "@type": "OfferCatalog",
+      name: `${product.title} operating components`,
+      itemListElement: product.modules.map((module, index) => ({
+        "@type": "Offer",
+        position: index + 1,
+        itemOffered: {
+          "@type": "Service",
+          name: module,
+        },
+      })),
+    },
+  };
 
   if (isMarketingBlueprint) {
-    return <AIMarketingBlueprintGenerator />;
+    return (
+      <>
+        <JsonLd data={productSchema} />
+        <AIMarketingBlueprintGenerator />
+      </>
+    );
   }
 
   if (isBlueprintSnapshot) {
-    return <BlueprintReadinessSnapshot />;
+    return (
+      <>
+        <JsonLd data={productSchema} />
+        <BlueprintReadinessSnapshot />
+      </>
+    );
   }
 
   if (isIntentEngine) {
-    return <IntentAdaptiveLearningEngine />;
+    return (
+      <>
+        <JsonLd data={productSchema} />
+        <IntentAdaptiveLearningEngine />
+      </>
+    );
   }
 
   if (isRapidRamp) {
-    return <RapidRampGenerator />;
+    return (
+      <>
+        <JsonLd data={productSchema} />
+        <RapidRampGenerator />
+      </>
+    );
   }
 
   return (
     <>
+      <JsonLd data={productSchema} />
       <PageIntro
         eyebrow={product.eyebrow}
         title={product.title}

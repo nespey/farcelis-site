@@ -132,7 +132,7 @@ export function BlueprintReadinessSnapshot() {
   );
 
   return (
-    <main className="blueprint-page">
+    <div className="blueprint-page">
       <section className="blueprint-hero">
         <div className="section-inner blueprint-hero-grid">
           <div className="blueprint-hero-copy">
@@ -315,6 +315,6 @@ export function BlueprintReadinessSnapshot() {
           </aside>
         </div>
       </section>
-    </main>
+    </div>
   );
 }

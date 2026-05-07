@@ -23,7 +23,7 @@ export default function TeamPage() {
         <section className="section-shell section-shell-light">
           <div className="section-inner">
             <div className="mx-auto grid max-w-[1180px] gap-5 md:grid-cols-2">
-              {teamMembers.map((member) => (
+              {teamMembers.map((member, index) => (
                 <Link
                   key={member.slug}
                   href={`/team/${member.slug}`}
@@ -36,6 +36,7 @@ export default function TeamPage() {
                       fill
                       sizes="(max-width: 640px) 100vw, 220px"
                       className="object-cover transition duration-500 group-hover:scale-[1.03]"
+                      priority={index === 0}
                     />
                   </div>
 

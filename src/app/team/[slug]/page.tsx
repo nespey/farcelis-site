@@ -66,15 +66,16 @@ export default async function TeamMemberPage({
                   fill
                   sizes="(max-width: 1024px) 380px, 380px"
                   className="object-cover"
+                  priority
                 />
               </div>
             </div>
 
             <div>
               <p className="eyebrow text-[#9f412c]">{member.role}</p>
-              <h1 className="mt-4 text-[clamp(2.5rem,4vw,4rem)] font-semibold tracking-[-0.06em] text-slate-950">
+              <h2 className="mt-4 text-[clamp(2.5rem,4vw,4rem)] font-semibold tracking-[-0.06em] text-slate-950">
                 {member.name}
-              </h1>
+              </h2>
 
               <div className="mt-8 space-y-5 text-base leading-8 text-slate-600">
                 {member.bio.map((paragraph) => (

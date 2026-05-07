@@ -128,7 +128,7 @@ function ParagonMockDashboard() {
         <span>Priority</span>
         <span>Status</span>
         <b>Search clients, controls, decisions, deliverables</b>
-        <button>Reset cleared items</button>
+        <button type="button">Reset cleared items</button>
       </div>
       <div className="gov-workspace">
         <div className="gov-panel gov-panel-wide gov-execution-panel">

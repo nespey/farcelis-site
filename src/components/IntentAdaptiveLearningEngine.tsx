@@ -115,7 +115,7 @@ export function IntentAdaptiveLearningEngine() {
   );
 
   return (
-    <main className="intent-page">
+    <div className="intent-page">
       <section className="intent-hero">
         <div className="section-inner">
           <div className="intent-hero-grid">
@@ -268,6 +268,6 @@ export function IntentAdaptiveLearningEngine() {
           </div>
         </div>
       </section>
-    </main>
+    </div>
   );
 }

@@ -159,7 +159,7 @@ export function RapidRampGenerator() {
   );
 
   return (
-    <main className="rapid-page">
+    <div className="rapid-page">
       <section className="rapid-hero">
         <div className="section-inner">
           <div className="rapid-hero-copy">
@@ -343,6 +343,6 @@ export function RapidRampGenerator() {
           </div>
         </div>
       </section>
-    </main>
+    </div>
   );
 }

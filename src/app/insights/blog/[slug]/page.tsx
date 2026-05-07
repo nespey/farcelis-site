@@ -2,6 +2,7 @@ import Image from "next/image";
 import Link from "next/link";
 import { notFound } from "next/navigation";
 
+import { JsonLd } from "@/components/JsonLd";
 import { Reveal } from "@/components/Reveal";
 import { buildMetadata } from "@/lib/metadata";
 import { blogPosts, getBlogPostBySlug, site } from "@/lib/site-data";
@@ -26,6 +27,7 @@ export async function generateMetadata({ params }: BlogPageProps) {
     path: `/insights/blog/${post.slug}`,
     title: `${post.title} | ${site.shortName} Blog`,
     description: post.description,
+    image: post.image,
   });
 }
 
@@ -36,9 +38,34 @@ export default async function BlogPostPage({ params }: BlogPageProps) {
   if (!post) {
     notFound();
   }
+  const blogSchema = {
+    "@context": "https://schema.org",
+    "@type": "BlogPosting",
+    "@id": `${site.domain}/insights/blog/${post.slug}#blog-posting`,
+    headline: post.title,
+    description: post.description,
+    image: `${site.domain}${post.image}`,
+    author: {
+      "@type": "Person",
+      name: post.author,
+    },
+    publisher: {
+      "@type": "Organization",
+      "@id": `${site.domain}/#organization`,
+      name: site.name,
+      logo: {
+        "@type": "ImageObject",
+        url: `${site.domain}/logos/farcelis-ai-logo.png`,
+      },
+    },
+    datePublished: post.date,
+    dateModified: post.date,
+    mainEntityOfPage: `${site.domain}/insights/blog/${post.slug}`,
+  };
 
   return (
     <>
+      <JsonLd data={blogSchema} />
       <section className="relative overflow-hidden bg-[#f8fbff] px-5 pb-16 pt-32 sm:px-6 lg:px-10">
         <div className="pointer-events-none absolute inset-0 bg-[linear-gradient(135deg,rgba(255,255,255,0.92),rgba(234,247,250,0.88)),radial-gradient(circle_at_16%_22%,rgba(242,139,91,0.2),transparent_30%),radial-gradient(circle_at_84%_18%,rgba(97,192,215,0.18),transparent_28%)]" />
         <div className="section-inner relative grid items-center gap-12 lg:grid-cols-[minmax(0,0.6fr)_minmax(340px,0.4fr)]">

@@ -7,6 +7,7 @@ export type SeoEntry = {
   title: string;
   description: string;
   path: string;
+  image?: string;
 };
 
 export type Partner = {
@@ -152,7 +153,7 @@ export const site = {
   social: [
     {
       label: "LinkedIn",
-      href: "https://www.linkedin.com/company/106402904/admin/dashboard/",
+      href: "https://www.linkedin.com/company/106402904/",
       icon: "/icons/social/linkedin.png",
     },
     {

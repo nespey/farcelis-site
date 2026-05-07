@@ -140,14 +140,18 @@ export function Header() {
             >
               <button
                 type="button"
+                aria-haspopup="true"
+                aria-expanded={activeMenu === "capabilities"}
+                aria-controls="capabilities-menu"
                 onClick={() => setActiveMenu(activeMenu === "capabilities" ? null : "capabilities")}
-                className={`text-sm font-medium tracking-[0.01em] transition ${
+                className={`inline-flex min-h-11 items-center rounded-full px-1 text-sm font-medium tracking-[0.01em] transition focus:outline-none focus-visible:ring-2 focus-visible:ring-cyan-100/70 ${
                   activeMenu === "capabilities" ? "text-white" : "text-slate-300 hover:text-white"
                 }`}
               >
                 Capabilities
               </button>
               <div
+                id="capabilities-menu"
                 className={`absolute left-0 top-full z-40 pt-4 transition duration-200 ${
                   activeMenu === "capabilities"
                     ? "pointer-events-auto opacity-100"
@@ -188,14 +192,18 @@ export function Header() {
             >
               <button
                 type="button"
+                aria-haspopup="true"
+                aria-expanded={activeMenu === "solutions"}
+                aria-controls="solutions-menu"
                 onClick={() => setActiveMenu(activeMenu === "solutions" ? null : "solutions")}
-                className={`text-sm font-medium tracking-[0.01em] transition ${
+                className={`inline-flex min-h-11 items-center rounded-full px-1 text-sm font-medium tracking-[0.01em] transition focus:outline-none focus-visible:ring-2 focus-visible:ring-cyan-100/70 ${
                   activeMenu === "solutions" ? "text-white" : "text-slate-300 hover:text-white"
                 }`}
               >
                 Solutions
               </button>
               <div
+                id="solutions-menu"
                 className={`absolute left-1/2 top-full z-40 -translate-x-1/2 pt-4 transition duration-200 ${
                   activeMenu === "solutions"
                     ? "pointer-events-auto opacity-100"
@@ -232,7 +240,7 @@ export function Header() {
             <Link
               href="/industries"
               onClick={closeMenus}
-              className="text-sm font-medium tracking-[0.01em] text-slate-300 transition hover:text-white"
+              className="inline-flex min-h-11 items-center rounded-full px-1 text-sm font-medium tracking-[0.01em] text-slate-300 transition hover:text-white focus:outline-none focus-visible:ring-2 focus-visible:ring-cyan-100/70"
             >
               Industries
             </Link>
@@ -240,7 +248,7 @@ export function Header() {
             <Link
               href="/resources"
               onClick={closeMenus}
-              className="text-sm font-medium tracking-[0.01em] text-slate-300 transition hover:text-white"
+              className="inline-flex min-h-11 items-center rounded-full px-1 text-sm font-medium tracking-[0.01em] text-slate-300 transition hover:text-white focus:outline-none focus-visible:ring-2 focus-visible:ring-cyan-100/70"
             >
               Resources
             </Link>
@@ -248,7 +256,7 @@ export function Header() {
             <Link
               href="/results"
               onClick={closeMenus}
-              className="text-sm font-medium tracking-[0.01em] text-slate-300 transition hover:text-white"
+              className="inline-flex min-h-11 items-center rounded-full px-1 text-sm font-medium tracking-[0.01em] text-slate-300 transition hover:text-white focus:outline-none focus-visible:ring-2 focus-visible:ring-cyan-100/70"
             >
               Results
             </Link>
@@ -256,7 +264,7 @@ export function Header() {
             <Link
               href="/team"
               onClick={closeMenus}
-              className="text-sm font-medium tracking-[0.01em] text-slate-300 transition hover:text-white"
+              className="inline-flex min-h-11 items-center rounded-full px-1 text-sm font-medium tracking-[0.01em] text-slate-300 transition hover:text-white focus:outline-none focus-visible:ring-2 focus-visible:ring-cyan-100/70"
             >
               Leadership
             </Link>
@@ -264,7 +272,7 @@ export function Header() {
             <Link
               href="/contact"
               onClick={closeMenus}
-              className="text-sm font-medium tracking-[0.01em] text-slate-300 transition hover:text-white"
+              className="inline-flex min-h-11 items-center rounded-full px-1 text-sm font-medium tracking-[0.01em] text-slate-300 transition hover:text-white focus:outline-none focus-visible:ring-2 focus-visible:ring-cyan-100/70"
             >
               Contact
             </Link>
@@ -297,12 +305,12 @@ export function Header() {
           </button>
         </div>
 
-        <div
-          id="mobile-navigation"
-          className={`border-t border-white/8 bg-[#122633]/96 px-6 pb-6 pt-2 shadow-[0_26px_70px_rgba(3,8,16,0.46)] backdrop-blur-2xl transition lg:hidden ${
-            mobileOpen ? "block" : "hidden"
-          }`}
-        >
+      <div
+        id="mobile-navigation"
+        className={`max-h-[calc(100vh-4rem)] overflow-y-auto border-t border-white/8 bg-[#122633]/96 px-6 pb-6 pt-2 shadow-[0_26px_70px_rgba(3,8,16,0.46)] backdrop-blur-2xl transition sm:max-h-[calc(100vh-5rem)] lg:hidden ${
+          mobileOpen ? "block" : "hidden"
+        }`}
+      >
           <div className="grid gap-5">
             <div>
               <p className="eyebrow text-[color:var(--color-accent)]">Capabilities</p>

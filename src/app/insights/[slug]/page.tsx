@@ -3,6 +3,7 @@ import { notFound, redirect } from "next/navigation";
 
 import { ArticleCover } from "@/components/ArticleCover";
 import { InsightVisual } from "@/components/InsightVisual";
+import { JsonLd } from "@/components/JsonLd";
 import { Reveal } from "@/components/Reveal";
 import { buildMetadata } from "@/lib/metadata";
 import { getInsightArticleBySlug, insightArticles, site } from "@/lib/site-data";
@@ -29,6 +30,7 @@ export async function generateMetadata({ params }: InsightPageProps) {
     path: `/insights/${article.slug}`,
     title: `${article.title} | ${site.shortName} Insights`,
     description: article.dek,
+    image: article.coverImage,
   });
 }
 
@@ -44,9 +46,34 @@ export default async function InsightArticlePage({ params }: InsightPageProps) {
   if (!article) {
     notFound();
   }
+  const articleSchema = {
+    "@context": "https://schema.org",
+    "@type": "Article",
+    "@id": `${site.domain}/insights/${article.slug}#article`,
+    headline: article.title,
+    description: article.dek,
+    image: article.coverImage ? `${site.domain}${article.coverImage}` : `${site.domain}/images/hero-control-layer-preview.png`,
+    author: {
+      "@type": "Person",
+      name: article.author,
+    },
+    publisher: {
+      "@type": "Organization",
+      "@id": `${site.domain}/#organization`,
+      name: site.name,
+      logo: {
+        "@type": "ImageObject",
+        url: `${site.domain}/logos/farcelis-ai-logo.png`,
+      },
+    },
+    datePublished: article.date,
+    dateModified: article.date,
+    mainEntityOfPage: `${site.domain}/insights/${article.slug}`,
+  };
 
   return (
     <>
+      <JsonLd data={articleSchema} />
       <section className="relative overflow-hidden bg-[#f7fbff] px-5 pb-14 pt-32 sm:px-6 lg:px-10">
         <div className="pointer-events-none absolute inset-0 bg-[radial-gradient(circle_at_12%_18%,rgba(97,192,215,0.2),transparent_28%),radial-gradient(circle_at_82%_8%,rgba(242,139,91,0.16),transparent_24%),linear-gradient(180deg,#ffffff,#eef7fb)]" />
         <div className="section-inner relative grid items-center gap-10 lg:grid-cols-[minmax(0,0.58fr)_minmax(360px,0.42fr)]">

@@ -5,6 +5,7 @@ import localFont from "next/font/local";
 import { Footer } from "@/components/Footer";
 import { Header } from "@/components/Header";
 import { SiteExperienceLayer } from "@/components/SiteExperienceLayer";
+import { StructuredData } from "@/components/StructuredData";
 import { site } from "@/lib/site-data";
 import "./globals.css";
 
@@ -50,10 +51,14 @@ export default function RootLayout({
   return (
     <html lang="en" className={`${manrope.variable} ${ferwalter.variable} h-full antialiased`}>
       <body className="min-h-full">
+        <a href="#main-content" className="skip-link">
+          Skip to main content
+        </a>
+        <StructuredData />
         <div className="relative min-h-full overflow-x-hidden">
           <div className="relative z-10">
             <Header />
-            <main>{children}</main>
+            <main id="main-content">{children}</main>
             <Footer />
             <SiteExperienceLayer />
           </div>

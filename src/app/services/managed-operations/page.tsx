@@ -269,7 +269,7 @@ export default function ManagedOperationsPage() {
             </div>
 
             <div
-              id="managed-fit-builder"
+              id="pathfinder"
               className="mt-8 rounded-[28px] border border-slate-200 bg-white px-6 py-7 shadow-[0_18px_38px_rgba(15,23,42,0.06)] md:px-8"
             >
               <div className="grid gap-8 lg:grid-cols-[minmax(0,0.85fr)_minmax(0,1.15fr)]">

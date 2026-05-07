@@ -91,7 +91,7 @@ export default function ResultsPage() {
                   key={item.title}
                   href={item.href}
                   target="_blank"
-                  rel="noreferrer"
+                  rel="noopener noreferrer"
                   className="enterprise-card group flex min-h-[330px] flex-col rounded-[24px] border border-white/12 bg-[linear-gradient(180deg,rgba(255,255,255,0.085),rgba(255,255,255,0.045))] px-6 py-6 shadow-[0_22px_54px_rgba(3,8,16,0.22)] transition hover:border-[#f19a6b]/50 hover:bg-[linear-gradient(180deg,rgba(241,154,107,0.14),rgba(255,255,255,0.05))]"
                 >
                   <div className="text-xs font-semibold uppercase tracking-[0.18em] text-[#ff9f73]">
