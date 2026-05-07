@@ -1,8 +1,10 @@
 import type { Metadata, Viewport } from "next";
+import { Analytics } from "@vercel/analytics/next";
 import { Manrope } from "next/font/google";
 import localFont from "next/font/local";
 
 import { Footer } from "@/components/Footer";
+import { GoogleAnalytics } from "@/components/GoogleAnalytics";
 import { Header } from "@/components/Header";
 import { SiteExperienceLayer } from "@/components/SiteExperienceLayer";
 import { StructuredData } from "@/components/StructuredData";
@@ -37,6 +39,11 @@ export const metadata: Metadata = {
     apple: [{ url: "/icons/apple-touch-icon.png", sizes: "180x180", type: "image/png" }],
   },
   manifest: "/manifest.webmanifest",
+  verification: process.env.NEXT_PUBLIC_GOOGLE_SITE_VERIFICATION
+    ? {
+        google: process.env.NEXT_PUBLIC_GOOGLE_SITE_VERIFICATION,
+      }
+    : undefined,
 };
 
 export const viewport: Viewport = {
@@ -55,6 +62,7 @@ export default function RootLayout({
           Skip to main content
         </a>
         <StructuredData />
+        <GoogleAnalytics />
         <div className="relative min-h-full overflow-x-hidden">
           <div className="relative z-10">
             <Header />
@@ -63,6 +71,7 @@ export default function RootLayout({
             <SiteExperienceLayer />
           </div>
         </div>
+        <Analytics />
       </body>
     </html>
   );
