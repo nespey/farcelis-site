@@ -3754,6 +3754,200 @@ main :is(.border-t, .border-b, .border-y, .divide-y > :not([hidden]) ~ :not([hid
   box-shadow: 0 34px 100px rgba(0, 0, 0, 0.3), inset 0 1px 0 rgba(255,255,255,0.08);
 }
 
+.growth-command {
+  position: relative;
+  overflow: hidden;
+  border-radius: 34px;
+  border: 1px solid rgba(186, 230, 253, 0.16);
+  background:
+    radial-gradient(circle at 58% 48%, rgba(255, 140, 90, 0.16), transparent 15rem),
+    radial-gradient(circle at 65% 62%, rgba(65, 214, 183, 0.12), transparent 20rem),
+    linear-gradient(rgba(255, 255, 255, 0.035) 1px, transparent 1px),
+    linear-gradient(90deg, rgba(255, 255, 255, 0.03) 1px, transparent 1px),
+    rgba(4, 18, 27, 0.86);
+  background-size: auto, auto, 42px 42px, 42px 42px, auto;
+  padding: clamp(0.9rem, 1.6vw, 1.2rem);
+  box-shadow: 0 34px 100px rgba(0, 0, 0, 0.32), inset 0 1px 0 rgba(255,255,255,0.08);
+}
+
+.growth-command-top {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 1rem;
+  border-bottom: 1px solid rgba(186, 230, 253, 0.12);
+  padding-bottom: 0.85rem;
+}
+
+.growth-command-top span,
+.growth-stream-panel > span,
+.growth-momentum-head span,
+.growth-routing-panel > span,
+.growth-attention-map .attention-row span,
+.growth-system-core span {
+  color: #ffb391;
+  font-size: 0.68rem;
+  font-weight: 900;
+  letter-spacing: 0.16em;
+  text-transform: uppercase;
+}
+
+.growth-command-top strong {
+  color: #ffffff;
+  font-size: 0.96rem;
+  font-weight: 850;
+}
+
+.growth-command-grid {
+  display: grid;
+  grid-template-columns: minmax(160px, 0.9fr) minmax(0, 1.25fr) minmax(190px, 0.95fr);
+  gap: 0.8rem;
+  margin-top: 0.9rem;
+}
+
+.growth-stream-panel,
+.growth-momentum-panel,
+.growth-routing-panel {
+  border-radius: 22px;
+  border: 1px solid rgba(186, 230, 253, 0.13);
+  background: rgba(255, 255, 255, 0.045);
+  padding: 0.9rem;
+}
+
+.growth-stream-panel {
+  display: grid;
+  gap: 0.46rem;
+}
+
+.growth-stream-panel button {
+  display: grid;
+  gap: 0.16rem;
+  min-height: 3.25rem;
+  border-radius: 15px;
+  border: 1px solid rgba(186, 230, 253, 0.12);
+  background: rgba(255, 255, 255, 0.04);
+  padding: 0.62rem 0.7rem;
+  color: #eaf3f6;
+  font: inherit;
+  text-align: left;
+  cursor: pointer;
+}
+
+.growth-stream-panel button.is-active,
+.growth-stream-panel button:hover {
+  border-color: rgba(255, 140, 90, 0.58);
+  background: rgba(255, 140, 90, 0.1);
+}
+
+.growth-stream-panel b {
+  font-size: 0.78rem;
+  font-weight: 900;
+}
+
+.growth-stream-panel i {
+  color: #9eb2bd;
+  font-size: 0.68rem;
+  font-style: normal;
+  line-height: 1.25;
+}
+
+.growth-momentum-panel {
+  display: grid;
+  align-content: space-between;
+  min-height: 26rem;
+}
+
+.growth-momentum-head strong {
+  display: block;
+  margin-top: 0.4rem;
+  color: #ffffff;
+  font-size: clamp(1.2rem, 1.7vw, 1.7rem);
+  font-weight: 720;
+  letter-spacing: -0.045em;
+}
+
+.growth-waveform {
+  display: grid;
+  grid-template-columns: repeat(7, 1fr);
+  gap: 0.38rem;
+  align-items: end;
+  min-height: 12rem;
+  padding: 0.5rem 0;
+}
+
+.growth-waveform i {
+  display: block;
+  border-radius: 999px 999px 4px 4px;
+  background: linear-gradient(180deg, rgba(65, 214, 183, 0.9), rgba(255, 140, 90, 0.76));
+  box-shadow: 0 0 28px rgba(65, 214, 183, 0.12);
+  animation: growthBars 3.6s ease-in-out infinite;
+}
+
+.growth-waveform i:nth-child(1) { height: 38%; }
+.growth-waveform i:nth-child(2) { height: 62%; animation-delay: 0.2s; }
+.growth-waveform i:nth-child(3) { height: 48%; animation-delay: 0.4s; }
+.growth-waveform i:nth-child(4) { height: 84%; animation-delay: 0.6s; }
+.growth-waveform i:nth-child(5) { height: 58%; animation-delay: 0.8s; }
+.growth-waveform i:nth-child(6) { height: 72%; animation-delay: 1s; }
+.growth-waveform i:nth-child(7) { height: 44%; animation-delay: 1.2s; }
+
+@keyframes growthBars {
+  0%, 100% { transform: scaleY(0.88); opacity: 0.72; }
+  50% { transform: scaleY(1.04); opacity: 1; }
+}
+
+.growth-momentum-metrics {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 0.46rem;
+}
+
+.growth-momentum-metrics div,
+.growth-routing-panel div {
+  border-radius: 14px;
+  background: rgba(4, 18, 27, 0.44);
+  padding: 0.62rem;
+}
+
+.growth-momentum-metrics span {
+  display: block;
+  color: #9eb2bd;
+  font-size: 0.62rem;
+  font-weight: 850;
+  text-transform: uppercase;
+}
+
+.growth-momentum-metrics strong {
+  display: block;
+  margin-top: 0.2rem;
+  color: #ffffff;
+  font-size: 0.92rem;
+  font-weight: 900;
+}
+
+.growth-routing-panel {
+  display: grid;
+  gap: 0.58rem;
+  align-content: start;
+}
+
+.growth-routing-panel div {
+  color: #e7f2f5;
+  font-size: 0.82rem;
+  font-weight: 820;
+}
+
+.growth-routing-panel strong {
+  display: block;
+  margin-top: 0.3rem;
+  border-top: 1px solid rgba(186, 230, 253, 0.12);
+  padding-top: 0.85rem;
+  color: #ffffff;
+  font-size: 0.92rem;
+  font-weight: 680;
+  line-height: 1.45;
+}
+
 .growth-hero-traces {
   position: absolute;
   inset: 0;
@@ -3947,8 +4141,8 @@ main :is(.border-t, .border-b, .border-y, .divide-y > :not([hidden]) ~ :not([hid
 
 .growth-signal-console {
   display: grid;
-  grid-template-columns: minmax(220px, 0.28fr) minmax(0, 1fr);
-  gap: 1rem;
+  grid-template-columns: 1fr;
+  gap: 0.75rem;
   margin-top: 1.6rem;
   border-radius: 30px;
   padding: 1rem;
@@ -3956,12 +4150,13 @@ main :is(.border-t, .border-b, .border-y, .divide-y > :not([hidden]) ~ :not([hid
 
 .growth-signal-tabs {
   display: grid;
+  grid-template-columns: repeat(8, minmax(0, 1fr));
   gap: 0.5rem;
 }
 
 .growth-signal-tabs button,
 .growth-symptom-list button {
-  min-height: 3.2rem;
+  min-height: 2.75rem;
   border-radius: 999px;
   border: 1px solid rgba(186, 230, 253, 0.13);
   background: rgba(255, 255, 255, 0.045);
@@ -3970,7 +4165,7 @@ main :is(.border-t, .border-b, .border-y, .divide-y > :not([hidden]) ~ :not([hid
   font: inherit;
   font-size: 0.82rem;
   font-weight: 850;
-  text-align: left;
+  text-align: center;
   cursor: pointer;
 }
 
@@ -3982,19 +4177,24 @@ main :is(.border-t, .border-b, .border-y, .divide-y > :not([hidden]) ~ :not([hid
   background: rgba(255, 140, 90, 0.11);
 }
 
+.growth-symptom-list button {
+  text-align: left;
+}
+
 .growth-signal-output {
   display: grid;
-  grid-template-columns: 0.8fr repeat(3, 1fr);
+  grid-template-columns: 0.78fr 1.05fr 1.05fr 1.12fr;
   gap: 0.75rem;
 }
 
 .growth-output-core,
 .growth-signal-output article,
 .growth-hidden-cause {
+  min-height: 8rem;
   border-radius: 22px;
   border: 1px solid rgba(186, 230, 253, 0.13);
   background: rgba(255, 255, 255, 0.045);
-  padding: 1rem;
+  padding: 0.9rem;
 }
 
 .growth-output-core strong {
@@ -4006,17 +4206,25 @@ main :is(.border-t, .border-b, .border-y, .divide-y > :not([hidden]) ~ :not([hid
 }
 
 .growth-signal-output article p {
-  margin-top: 0.62rem;
+  display: inline-flex;
+  margin: 0.5rem 0.35rem 0 0;
+  border-radius: 999px;
+  background: rgba(4, 18, 27, 0.42);
+  padding: 0.45rem 0.58rem;
   color: #d8e5eb;
-  font-size: 0.88rem;
-  line-height: 1.48;
+  font-size: 0.76rem;
+  font-weight: 760;
+  line-height: 1.2;
 }
 
 .growth-attention-map {
   position: relative;
-  min-height: 28rem;
+  display: grid;
+  gap: 0.55rem;
+  min-height: 0;
   overflow: hidden;
   border-radius: 32px;
+  padding: 1rem;
 }
 
 .attention-wave {
@@ -4036,16 +4244,40 @@ main :is(.border-t, .border-b, .border-y, .divide-y > :not([hidden]) ~ :not([hid
 }
 
 .growth-attention-map span {
+  display: block;
+}
+
+.attention-row {
   position: relative;
   z-index: 2;
-  display: inline-flex;
-  margin: 0.7rem;
-  border-radius: 999px;
-  background: rgba(255,255,255,0.06);
-  padding: 0.68rem 0.85rem;
-  color: #e9f4f7;
+  display: grid;
+  grid-template-columns: minmax(0, 1fr) 5.2rem;
+  gap: 0.4rem 0.8rem;
+  align-items: center;
+  border-radius: 16px;
+  border: 1px solid rgba(186, 230, 253, 0.12);
+  background: rgba(255, 255, 255, 0.045);
+  padding: 0.72rem 0.82rem;
+}
+
+.attention-row strong {
+  color: #ffffff;
   font-size: 0.8rem;
-  font-weight: 850;
+  font-weight: 900;
+  text-align: right;
+}
+
+.attention-row p {
+  grid-column: 1 / -1;
+  margin: 0;
+  color: #aebfca;
+  font-size: 0.76rem;
+  line-height: 1.35;
+}
+
+.growth-quote-inset {
+  max-width: 760px;
+  margin-left: auto;
 }
 
 .growth-quote-card {
@@ -4104,6 +4336,83 @@ main :is(.border-t, .border-b, .border-y, .divide-y > :not([hidden]) ~ :not([hid
     radial-gradient(circle at 50% 50%, rgba(255, 140, 90, 0.18), transparent 9rem),
     radial-gradient(circle at 50% 50%, rgba(65, 214, 183, 0.12), transparent 18rem),
     rgba(5, 22, 32, 0.74);
+}
+
+.growth-system-board {
+  position: relative;
+  margin-top: 1.6rem;
+  overflow: hidden;
+  border-radius: 36px;
+  border: 1px solid rgba(186, 230, 253, 0.16);
+  background:
+    linear-gradient(rgba(255, 255, 255, 0.035) 1px, transparent 1px),
+    linear-gradient(90deg, rgba(255, 255, 255, 0.03) 1px, transparent 1px),
+    radial-gradient(circle at 50% 0%, rgba(255, 140, 90, 0.12), transparent 26rem),
+    rgba(5, 22, 32, 0.74);
+  background-size: 42px 42px, 42px 42px, auto, auto;
+  padding: clamp(1rem, 1.7vw, 1.4rem);
+  box-shadow: 0 28px 80px rgba(0, 0, 0, 0.24), inset 0 1px 0 rgba(255,255,255,0.08);
+}
+
+.growth-system-core {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 1rem;
+  border-radius: 22px;
+  border: 1px solid rgba(255, 140, 90, 0.24);
+  background: rgba(255, 140, 90, 0.08);
+  padding: 1rem;
+}
+
+.growth-system-core strong {
+  color: #ffffff;
+  font-size: clamp(1.1rem, 1.7vw, 1.65rem);
+  font-weight: 720;
+  letter-spacing: -0.045em;
+}
+
+.growth-lane-grid {
+  display: grid;
+  grid-template-columns: repeat(4, minmax(0, 1fr));
+  gap: 0.75rem;
+  margin-top: 0.85rem;
+}
+
+.growth-lane-grid article {
+  position: relative;
+  overflow: hidden;
+  border-radius: 22px;
+  border: 1px solid rgba(186, 230, 253, 0.13);
+  background: rgba(255, 255, 255, 0.045);
+  padding: 0.9rem;
+}
+
+.growth-lane-grid article::before {
+  content: "";
+  display: block;
+  width: 3.2rem;
+  height: 0.18rem;
+  margin-bottom: 0.8rem;
+  border-radius: 999px;
+  background: linear-gradient(90deg, #ff8c5a, #41d6b7);
+}
+
+.growth-lane-grid h3 {
+  color: #ffffff;
+  font-size: 1rem;
+  font-weight: 850;
+  letter-spacing: -0.035em;
+}
+
+.growth-lane-grid div {
+  margin-top: 0.52rem;
+  border-radius: 13px;
+  background: rgba(4, 18, 27, 0.42);
+  padding: 0.6rem;
+  color: #dce8ed;
+  font-size: 0.78rem;
+  font-weight: 760;
 }
 
 .growth-orbit-core {
@@ -7041,7 +7350,8 @@ main :is(.border-t, .border-b, .border-y, .divide-y > :not([hidden]) ~ :not([hid
   .growth-psychology-grid,
   .growth-recognition-grid,
   .growth-final-grid,
-  .growth-signal-console {
+  .growth-signal-console,
+  .growth-command-grid {
     grid-template-columns: 1fr;
   }
 
@@ -7381,6 +7691,34 @@ main :is(.border-t, .border-b, .border-y, .divide-y > :not([hidden]) ~ :not([hid
     border-radius: 22px;
   }
 
+  .growth-command {
+    border-radius: 22px;
+    padding: 0.75rem;
+  }
+
+  .growth-command-top {
+    display: grid;
+  }
+
+  .growth-stream-panel,
+  .growth-momentum-panel,
+  .growth-routing-panel {
+    border-radius: 16px;
+    padding: 0.75rem;
+  }
+
+  .growth-momentum-panel {
+    min-height: 16rem;
+  }
+
+  .growth-waveform {
+    min-height: 7rem;
+  }
+
+  .growth-momentum-metrics {
+    grid-template-columns: 1fr;
+  }
+
   .growth-node {
     width: 4.9rem;
     height: 4.9rem;
@@ -7430,6 +7768,14 @@ main :is(.border-t, .border-b, .border-y, .divide-y > :not([hidden]) ~ :not([hid
     min-height: 21rem;
   }
 
+  .attention-row {
+    grid-template-columns: 1fr;
+  }
+
+  .attention-row strong {
+    text-align: left;
+  }
+
   .growth-quote-card,
   .growth-quote-card.is-compact {
     grid-template-columns: 4.7rem minmax(0, 1fr);
@@ -7447,6 +7793,20 @@ main :is(.border-t, .border-b, .border-y, .divide-y > :not([hidden]) ~ :not([hid
   .growth-orbit-system {
     min-height: 32rem;
     border-radius: 20px;
+  }
+
+  .growth-system-board {
+    border-radius: 20px;
+    padding: 0.75rem;
+  }
+
+  .growth-system-core {
+    display: grid;
+    border-radius: 16px;
+  }
+
+  .growth-lane-grid {
+    grid-template-columns: 1fr;
   }
 
   .growth-orbit-core {

@@ -105,6 +105,25 @@ const symptoms: Symptom[] = [
 
 const fragments = ["SEO", "Blogs", "Email", "CRM", "Campaigns", "Social", "Reporting", "Lead Gen", "Analytics", "Automation"];
 
+const growthLanes = [
+  {
+    title: "Visibility Loop",
+    items: ["Search intent", "Indexable content", "Topic authority", "Inbound demand"],
+  },
+  {
+    title: "Trust Loop",
+    items: ["Audience proof", "Message consistency", "Social resonance", "Email reinforcement"],
+  },
+  {
+    title: "Conversion Loop",
+    items: ["Offer path", "CRM stage", "Sales handoff", "Follow-up rule"],
+  },
+  {
+    title: "Optimization Loop",
+    items: ["Attribution signal", "Content priority", "Campaign adjustment", "Revenue feedback"],
+  },
+];
+
 export function AIMarketingBlueprintGenerator() {
   const [activeSignalId, setActiveSignalId] = useState(growthSignals[0].id);
   const [activeSymptomIndex, setActiveSymptomIndex] = useState(0);
@@ -127,28 +146,55 @@ export function AIMarketingBlueprintGenerator() {
             <Link href="/contact">Architect Our Growth System</Link>
           </div>
 
-          <div className="growth-ecosystem" aria-label="Living growth signal ecosystem">
-            <svg className="growth-hero-traces" viewBox="0 0 720 560" aria-hidden="true">
-              <path d="M80 260 C190 80 310 120 380 220 S530 370 650 185" />
-              <path d="M90 365 C210 270 310 330 420 285 S555 160 655 330" />
-              <path d="M150 145 C260 250 360 235 480 205 S590 245 640 415" />
-              <path d="M170 430 C270 405 330 315 420 350 S565 465 645 390" />
-            </svg>
-            {["SEO", "Content", "Social", "CRM", "Campaigns", "Reporting", "Email", "Automation"].map((node, index) => (
-              <button
-                key={node}
-                type="button"
-                className={`growth-node node-${index + 1} ${node.toLowerCase() === activeSignal.id ? "is-active" : ""}`}
-                onMouseEnter={() => setActiveSignalId(node.toLowerCase() === "content" ? "content" : node.toLowerCase())}
-                onFocus={() => setActiveSignalId(node.toLowerCase() === "content" ? "content" : node.toLowerCase())}
-              >
-                {node}
-              </button>
-            ))}
-            <div className="growth-hero-readout">
-              <span>Live Signal</span>
-              <strong>{activeSignal.label}</strong>
-              <small>{activeSignal.effect}</small>
+          <div className="growth-command" aria-label="Living growth command system">
+            <div className="growth-command-top">
+              <span>Market Signal Engine</span>
+              <strong>{activeSignal.label} active</strong>
+            </div>
+            <div className="growth-command-grid">
+              <div className="growth-stream-panel">
+                <span>Signal Intake</span>
+                {growthSignals.slice(0, 6).map((signal) => (
+                  <button
+                    key={signal.id}
+                    type="button"
+                    className={signal.id === activeSignal.id ? "is-active" : ""}
+                    onMouseEnter={() => setActiveSignalId(signal.id)}
+                    onFocus={() => setActiveSignalId(signal.id)}
+                    onClick={() => setActiveSignalId(signal.id)}
+                  >
+                    <b>{signal.label}</b>
+                    <i>{signal.creates[0]}</i>
+                  </button>
+                ))}
+              </div>
+              <div className="growth-momentum-panel">
+                <div className="growth-momentum-head">
+                  <span>Momentum Field</span>
+                  <strong>Attention → Trust → Pipeline</strong>
+                </div>
+                <div className="growth-waveform" aria-hidden="true">
+                  <i />
+                  <i />
+                  <i />
+                  <i />
+                  <i />
+                  <i />
+                  <i />
+                </div>
+                <div className="growth-momentum-metrics">
+                  <div><span>Search lift</span><strong>+38%</strong></div>
+                  <div><span>CRM signal</span><strong>Live</strong></div>
+                  <div><span>Lead route</span><strong>Intent</strong></div>
+                </div>
+              </div>
+              <div className="growth-routing-panel">
+                <span>Downstream Route</span>
+                {activeSignal.feeds.map((feed) => (
+                  <div key={feed}>{feed}</div>
+                ))}
+                <strong>{activeSignal.effect}</strong>
+              </div>
             </div>
           </div>
         </div>
@@ -200,11 +246,11 @@ export function AIMarketingBlueprintGenerator() {
               </div>
               <article>
                 <span>Creates</span>
-                {activeSignal.creates.map((item) => <p key={item}>{item}</p>)}
+                <div>{activeSignal.creates.map((item) => <p key={item}>{item}</p>)}</div>
               </article>
               <article>
                 <span>Feeds</span>
-                {activeSignal.feeds.map((item) => <p key={item}>{item}</p>)}
+                <div>{activeSignal.feeds.map((item) => <p key={item}>{item}</p>)}</div>
               </article>
               <article>
                 <span>Business effect</span>
@@ -218,11 +264,19 @@ export function AIMarketingBlueprintGenerator() {
       <section className="growth-psychology-section">
         <div className="section-inner growth-psychology-grid">
           <div className="growth-attention-map">
-            <div className="attention-wave wave-a" />
-            <div className="attention-wave wave-b" />
-            <div className="attention-wave wave-c" />
-            {["Attention spike", "Engagement decay", "Trust reinforcement", "Content resonance", "Signal saturation", "Conversion timing"].map((label) => (
-              <span key={label}>{label}</span>
+            {[
+              ["Attention spike", "0:08", "Emotional pattern match"],
+              ["Engagement decay", "0:21", "Message loses relevance"],
+              ["Trust reinforcement", "2nd touch", "Consistency recognized"],
+              ["Content resonance", "Search + social", "Need becomes explicit"],
+              ["Signal saturation", "High frequency", "Noise risk detected"],
+              ["Conversion timing", "CRM stage", "Next action is ready"],
+            ].map(([label, timing, detail]) => (
+              <div key={label} className="attention-row">
+                <span>{label}</span>
+                <strong>{timing}</strong>
+                <p>{detail}</p>
+              </div>
             ))}
           </div>
           <div>
@@ -238,8 +292,9 @@ export function AIMarketingBlueprintGenerator() {
       </section>
 
       <section className="growth-quote-section">
-        <div className="section-inner growth-quote-card">
-          <div className="growth-quote-image">
+        <div className="section-inner">
+          <aside className="growth-quote-card growth-quote-inset">
+            <div className="growth-quote-image">
               <Image
                 src="/images/team/celeste-growth-signal-quote.jpeg"
                 alt="Celeste Hartley, Chief Marketing Officer"
@@ -247,15 +302,16 @@ export function AIMarketingBlueprintGenerator() {
                 height={1088}
                 priority
               />
-          </div>
-          <div>
-            <span>Growth Architecture Perspective</span>
-            <blockquote>
-              “A blueprint becomes real when audience, offer, channel behavior, content inventory, and CRM handoffs are mapped into one delivery path.”
-            </blockquote>
-            <p>Celeste Hartley</p>
-            <small>Chief Marketing Officer</small>
-          </div>
+            </div>
+            <div>
+              <span>Growth Architecture Perspective</span>
+              <blockquote>
+                “Growth becomes controllable when audience, offer, channel behavior, content inventory, and CRM handoffs are mapped into one delivery path.”
+              </blockquote>
+              <p>Celeste Hartley</p>
+              <small>Chief Marketing Officer</small>
+            </div>
+          </aside>
         </div>
       </section>
 
@@ -265,11 +321,21 @@ export function AIMarketingBlueprintGenerator() {
             <p className="eyebrow text-[color:var(--color-accent)]">Visualize The Operating System</p>
             <h2>The Farcelis Growth Architecture reinforces itself.</h2>
           </div>
-          <div className="growth-orbit-system">
-            <div className="growth-orbit-core">Audience Intelligence</div>
-            {["SEO", "Content", "Social", "Campaigns", "CRM", "Reporting", "Automation", "Optimization", "Follow-through"].map((item, index) => (
-              <span key={item} className={`orbit-${index + 1}`}>{item}</span>
-            ))}
+          <div className="growth-system-board">
+            <div className="growth-system-core">
+              <span>Audience Intelligence</span>
+              <strong>Signal → decision → movement</strong>
+            </div>
+            <div className="growth-lane-grid">
+              {growthLanes.map((lane) => (
+                <article key={lane.title}>
+                  <h3>{lane.title}</h3>
+                  {lane.items.map((item) => (
+                    <div key={item}>{item}</div>
+                  ))}
+                </article>
+              ))}
+            </div>
           </div>
         </div>
       </section>
