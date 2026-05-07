@@ -3673,6 +3673,507 @@ main :is(.border-t, .border-b, .border-y, .divide-y > :not([hidden]) ~ :not([hid
   line-height: 1.35;
 }
 
+.growth-page {
+  background: #06131b;
+  color: #f4f8fa;
+}
+
+.growth-hero,
+.growth-fragment-section,
+.growth-engine-section,
+.growth-psychology-section,
+.growth-quote-section,
+.growth-architecture-section,
+.growth-recognition-section,
+.growth-final-quote-section {
+  overflow: hidden;
+  border-top: 1px solid rgba(255, 255, 255, 0.08);
+  background:
+    radial-gradient(circle at 75% 18%, rgba(255, 140, 90, 0.16), transparent 28rem),
+    radial-gradient(circle at 18% 74%, rgba(65, 214, 183, 0.13), transparent 30rem),
+    linear-gradient(120deg, rgba(255, 255, 255, 0.032) 1px, transparent 1px),
+    linear-gradient(145deg, #06131b 0%, #092737 48%, #071721 100%);
+  background-size: auto, auto, 64px 64px, auto;
+}
+
+.growth-hero {
+  min-height: calc(100vh - 74px);
+  padding: clamp(4.2rem, 6.4vw, 6.8rem) 0 clamp(3rem, 5vw, 5rem);
+}
+
+.growth-hero-grid {
+  display: grid;
+  grid-template-columns: minmax(0, 0.82fr) minmax(520px, 1.18fr);
+  gap: clamp(2rem, 5vw, 5rem);
+  align-items: center;
+}
+
+.growth-hero-copy h1 {
+  max-width: 820px;
+  margin-top: 1rem;
+  color: #ffffff;
+  font-size: clamp(3.05rem, 5.9vw, 6.3rem);
+  font-weight: 540;
+  letter-spacing: -0.064em;
+  line-height: 0.93;
+}
+
+.growth-hero-copy > p {
+  max-width: 720px;
+  margin-top: 1.25rem;
+  color: #b8c9d2;
+  font-size: clamp(1rem, 1.25vw, 1.2rem);
+  line-height: 1.72;
+}
+
+.growth-hero-copy a {
+  display: inline-flex;
+  min-height: 3rem;
+  align-items: center;
+  justify-content: center;
+  margin-top: 2rem;
+  border-radius: 999px;
+  background: linear-gradient(90deg, #ff8c5a, #f1539f);
+  padding: 0.78rem 1.1rem;
+  color: #ffffff;
+  font-size: 0.86rem;
+  font-weight: 850;
+  text-decoration: none;
+}
+
+.growth-ecosystem {
+  position: relative;
+  min-height: 38rem;
+  overflow: hidden;
+  border-radius: 34px;
+  border: 1px solid rgba(186, 230, 253, 0.16);
+  background:
+    radial-gradient(circle at 50% 45%, rgba(255, 140, 90, 0.13), transparent 18rem),
+    radial-gradient(circle at 58% 45%, rgba(65, 214, 183, 0.12), transparent 22rem),
+    rgba(4, 18, 27, 0.78);
+  box-shadow: 0 34px 100px rgba(0, 0, 0, 0.3), inset 0 1px 0 rgba(255,255,255,0.08);
+}
+
+.growth-hero-traces {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+}
+
+.growth-hero-traces path {
+  fill: none;
+  stroke: rgba(255, 140, 90, 0.62);
+  stroke-width: 2;
+  stroke-dasharray: 10 16;
+  animation: growthTrace 8s linear infinite;
+}
+
+.growth-hero-traces path:nth-child(even) {
+  stroke: rgba(65, 214, 183, 0.62);
+  animation-duration: 10s;
+}
+
+@keyframes growthTrace {
+  to { stroke-dashoffset: -180; }
+}
+
+.growth-node {
+  position: absolute;
+  z-index: 2;
+  display: grid;
+  width: 6.6rem;
+  height: 6.6rem;
+  place-items: center;
+  border-radius: 999px;
+  border: 1px solid rgba(186, 230, 253, 0.18);
+  background: rgba(7, 30, 43, 0.86);
+  color: #f7fbfc;
+  font: inherit;
+  font-size: 0.72rem;
+  font-weight: 900;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  cursor: pointer;
+  box-shadow: 0 0 0 10px rgba(255, 140, 90, 0.045);
+  transition: transform 180ms ease, border-color 180ms ease, background 180ms ease;
+}
+
+.growth-node:hover,
+.growth-node.is-active {
+  transform: scale(1.05);
+  border-color: rgba(255, 140, 90, 0.72);
+  background: rgba(255, 140, 90, 0.14);
+}
+
+.growth-node.node-1 { left: 12%; top: 14%; }
+.growth-node.node-2 { left: 43%; top: 9%; }
+.growth-node.node-3 { right: 12%; top: 20%; }
+.growth-node.node-4 { left: 15%; bottom: 18%; }
+.growth-node.node-5 { left: 42%; bottom: 12%; }
+.growth-node.node-6 { right: 12%; bottom: 19%; }
+.growth-node.node-7 { left: 34%; top: 43%; }
+.growth-node.node-8 { right: 31%; top: 45%; }
+
+.growth-hero-readout {
+  position: absolute;
+  left: 1rem;
+  right: 1rem;
+  bottom: 1rem;
+  z-index: 3;
+  border-radius: 22px;
+  border: 1px solid rgba(186, 230, 253, 0.15);
+  background: rgba(4, 18, 27, 0.86);
+  padding: 1rem;
+  backdrop-filter: blur(18px);
+}
+
+.growth-hero-readout span,
+.growth-output-core span,
+.growth-signal-output article span,
+.growth-quote-card span,
+.growth-hidden-cause span {
+  color: #ffb391;
+  font-size: 0.68rem;
+  font-weight: 900;
+  letter-spacing: 0.16em;
+  text-transform: uppercase;
+}
+
+.growth-hero-readout strong {
+  display: block;
+  margin-top: 0.35rem;
+  color: #ffffff;
+  font-size: 1.4rem;
+  font-weight: 820;
+}
+
+.growth-hero-readout small {
+  display: block;
+  margin-top: 0.35rem;
+  color: #b8c9d2;
+  font-size: 0.84rem;
+  line-height: 1.45;
+}
+
+.growth-fragment-section,
+.growth-engine-section,
+.growth-psychology-section,
+.growth-quote-section,
+.growth-architecture-section,
+.growth-recognition-section,
+.growth-final-quote-section {
+  padding: clamp(3.6rem, 6vw, 6.4rem) 0;
+}
+
+.growth-fragment-grid,
+.growth-psychology-grid,
+.growth-recognition-grid,
+.growth-final-grid {
+  display: grid;
+  grid-template-columns: minmax(0, 0.9fr) minmax(0, 1.1fr);
+  gap: clamp(1.5rem, 4vw, 4rem);
+  align-items: center;
+}
+
+.growth-fragment-grid h2,
+.growth-section-heading h2,
+.growth-psychology-grid h2,
+.growth-recognition-grid h2,
+.growth-final-grid h2 {
+  margin-top: 1rem;
+  color: #ffffff;
+  font-size: clamp(2rem, 3.8vw, 4rem);
+  font-weight: 560;
+  letter-spacing: -0.055em;
+  line-height: 1;
+}
+
+.growth-fragment-console,
+.growth-signal-console,
+.growth-attention-map,
+.growth-orbit-system,
+.growth-symptom-console,
+.growth-quote-card {
+  border: 1px solid rgba(186, 230, 253, 0.16);
+  background: rgba(5, 22, 32, 0.74);
+  box-shadow: 0 28px 80px rgba(0, 0, 0, 0.24), inset 0 1px 0 rgba(255,255,255,0.08);
+}
+
+.growth-fragment-console {
+  border-radius: 30px;
+  padding: 1rem;
+}
+
+.growth-fragments {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.55rem;
+}
+
+.growth-fragments span {
+  border-radius: 999px;
+  border: 1px solid rgba(255, 140, 90, 0.2);
+  background: rgba(255, 140, 90, 0.06);
+  padding: 0.68rem 0.9rem;
+  color: #e9f2f5;
+  font-size: 0.82rem;
+  font-weight: 850;
+}
+
+.growth-system-line {
+  margin-top: 1rem;
+  border-radius: 22px;
+  background: linear-gradient(90deg, rgba(255, 140, 90, 0.15), rgba(65, 214, 183, 0.11));
+  padding: 1rem;
+}
+
+.growth-system-line strong {
+  color: #ffffff;
+  font-size: 1.1rem;
+}
+
+.growth-system-line p,
+.growth-psychology-grid p {
+  margin-top: 0.55rem;
+  color: #b8c9d2;
+  font-size: 1rem;
+  line-height: 1.68;
+}
+
+.growth-section-heading {
+  max-width: 880px;
+}
+
+.growth-signal-console {
+  display: grid;
+  grid-template-columns: minmax(220px, 0.28fr) minmax(0, 1fr);
+  gap: 1rem;
+  margin-top: 1.6rem;
+  border-radius: 30px;
+  padding: 1rem;
+}
+
+.growth-signal-tabs {
+  display: grid;
+  gap: 0.5rem;
+}
+
+.growth-signal-tabs button,
+.growth-symptom-list button {
+  min-height: 3.2rem;
+  border-radius: 999px;
+  border: 1px solid rgba(186, 230, 253, 0.13);
+  background: rgba(255, 255, 255, 0.045);
+  padding: 0.68rem 0.9rem;
+  color: #dfe9ee;
+  font: inherit;
+  font-size: 0.82rem;
+  font-weight: 850;
+  text-align: left;
+  cursor: pointer;
+}
+
+.growth-signal-tabs button.is-active,
+.growth-signal-tabs button:hover,
+.growth-symptom-list button.is-active,
+.growth-symptom-list button:hover {
+  border-color: rgba(255, 140, 90, 0.58);
+  background: rgba(255, 140, 90, 0.11);
+}
+
+.growth-signal-output {
+  display: grid;
+  grid-template-columns: 0.8fr repeat(3, 1fr);
+  gap: 0.75rem;
+}
+
+.growth-output-core,
+.growth-signal-output article,
+.growth-hidden-cause {
+  border-radius: 22px;
+  border: 1px solid rgba(186, 230, 253, 0.13);
+  background: rgba(255, 255, 255, 0.045);
+  padding: 1rem;
+}
+
+.growth-output-core strong {
+  display: block;
+  margin-top: 0.6rem;
+  color: #ffffff;
+  font-size: clamp(1.5rem, 2.5vw, 2.6rem);
+  letter-spacing: -0.055em;
+}
+
+.growth-signal-output article p {
+  margin-top: 0.62rem;
+  color: #d8e5eb;
+  font-size: 0.88rem;
+  line-height: 1.48;
+}
+
+.growth-attention-map {
+  position: relative;
+  min-height: 28rem;
+  overflow: hidden;
+  border-radius: 32px;
+}
+
+.attention-wave {
+  position: absolute;
+  border-radius: 999px;
+  border: 1px solid rgba(65, 214, 183, 0.3);
+  animation: attentionPulse 5s ease-in-out infinite;
+}
+
+.wave-a { inset: 18% 22% 28% 14%; }
+.wave-b { inset: 30% 12% 14% 32%; animation-delay: 0.8s; border-color: rgba(255, 140, 90, 0.34); }
+.wave-c { inset: 10% 36% 48% 36%; animation-delay: 1.4s; }
+
+@keyframes attentionPulse {
+  0%, 100% { transform: scale(0.94); opacity: 0.45; }
+  50% { transform: scale(1.05); opacity: 0.95; }
+}
+
+.growth-attention-map span {
+  position: relative;
+  z-index: 2;
+  display: inline-flex;
+  margin: 0.7rem;
+  border-radius: 999px;
+  background: rgba(255,255,255,0.06);
+  padding: 0.68rem 0.85rem;
+  color: #e9f4f7;
+  font-size: 0.8rem;
+  font-weight: 850;
+}
+
+.growth-quote-card {
+  display: grid;
+  grid-template-columns: 5.8rem minmax(0, 1fr);
+  gap: 1rem;
+  align-items: center;
+  border-radius: 30px;
+  padding: 1rem;
+}
+
+.growth-quote-image {
+  overflow: hidden;
+  aspect-ratio: 1;
+  border-radius: 22px;
+  border: 1px solid rgba(186, 230, 253, 0.18);
+}
+
+.growth-quote-image img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  object-position: 50% 20%;
+}
+
+.growth-quote-card blockquote {
+  margin-top: 0.55rem;
+  color: #f2f8fb;
+  font-size: clamp(1rem, 1.35vw, 1.25rem);
+  font-weight: 650;
+  letter-spacing: -0.025em;
+  line-height: 1.42;
+}
+
+.growth-quote-card p {
+  margin-top: 0.75rem;
+  color: #ffffff;
+  font-size: 0.9rem;
+  font-weight: 850;
+}
+
+.growth-quote-card small {
+  display: block;
+  margin-top: 0.2rem;
+  color: #9eb2bd;
+  font-size: 0.76rem;
+}
+
+.growth-orbit-system {
+  position: relative;
+  min-height: 42rem;
+  margin-top: 1.6rem;
+  overflow: hidden;
+  border-radius: 36px;
+  background:
+    radial-gradient(circle at 50% 50%, rgba(255, 140, 90, 0.18), transparent 9rem),
+    radial-gradient(circle at 50% 50%, rgba(65, 214, 183, 0.12), transparent 18rem),
+    rgba(5, 22, 32, 0.74);
+}
+
+.growth-orbit-core {
+  position: absolute;
+  left: 50%;
+  top: 50%;
+  display: grid;
+  width: 13rem;
+  height: 13rem;
+  transform: translate(-50%, -50%);
+  place-items: center;
+  border-radius: 999px;
+  border: 1px solid rgba(255, 140, 90, 0.46);
+  background: rgba(255, 140, 90, 0.1);
+  color: #ffffff;
+  font-size: 1.05rem;
+  font-weight: 900;
+  text-align: center;
+}
+
+.growth-orbit-system span {
+  position: absolute;
+  border-radius: 999px;
+  border: 1px solid rgba(186, 230, 253, 0.18);
+  background: rgba(255,255,255,0.055);
+  padding: 0.74rem 0.95rem;
+  color: #e9f4f7;
+  font-size: 0.82rem;
+  font-weight: 850;
+}
+
+.orbit-1 { left: 12%; top: 17%; }
+.orbit-2 { left: 43%; top: 10%; }
+.orbit-3 { right: 14%; top: 20%; }
+.orbit-4 { left: 9%; top: 48%; }
+.orbit-5 { right: 9%; top: 48%; }
+.orbit-6 { left: 16%; bottom: 16%; }
+.orbit-7 { left: 43%; bottom: 10%; }
+.orbit-8 { right: 16%; bottom: 16%; }
+.orbit-9 { left: 50%; top: 78%; transform: translateX(-50%); }
+
+.growth-symptom-console {
+  display: grid;
+  gap: 0.85rem;
+  border-radius: 30px;
+  padding: 1rem;
+}
+
+.growth-symptom-list {
+  display: grid;
+  gap: 0.55rem;
+}
+
+.growth-hidden-cause p {
+  margin-top: 0.75rem;
+  color: #ffffff;
+  font-size: clamp(1.15rem, 1.8vw, 1.7rem);
+  font-weight: 650;
+  letter-spacing: -0.045em;
+  line-height: 1.2;
+}
+
+.growth-final-grid {
+  align-items: center;
+}
+
+.growth-quote-card.is-compact {
+  max-width: 720px;
+}
+
 .pulse-preview-section {
   overflow: hidden;
   padding: clamp(3.8rem, 6vw, 6.8rem) 0;
@@ -6535,6 +7036,19 @@ main :is(.border-t, .border-b, .border-y, .divide-y > :not([hidden]) ~ :not([hid
     grid-template-columns: repeat(2, minmax(0, 1fr));
   }
 
+  .growth-hero-grid,
+  .growth-fragment-grid,
+  .growth-psychology-grid,
+  .growth-recognition-grid,
+  .growth-final-grid,
+  .growth-signal-console {
+    grid-template-columns: 1fr;
+  }
+
+  .growth-signal-output {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
+
   .pulse-preview-intro,
   .pulse-preview-panels,
   .pulse-landing-zone {
@@ -6840,6 +7354,110 @@ main :is(.border-t, .border-b, .border-y, .divide-y > :not([hidden]) ~ :not([hid
   .blueprint-founder-quote blockquote {
     font-size: 0.92rem;
     line-height: 1.42;
+  }
+
+  .growth-hero {
+    min-height: 0;
+    padding: 3.6rem 0 3rem;
+  }
+
+  .growth-hero-copy h1 {
+    font-size: clamp(2.7rem, 12.5vw, 4.1rem);
+    line-height: 0.96;
+  }
+
+  .growth-hero-copy > p,
+  .growth-psychology-grid p {
+    font-size: 0.98rem;
+    line-height: 1.62;
+  }
+
+  .growth-hero-copy a {
+    width: 100%;
+  }
+
+  .growth-ecosystem {
+    min-height: 31rem;
+    border-radius: 22px;
+  }
+
+  .growth-node {
+    width: 4.9rem;
+    height: 4.9rem;
+    font-size: 0.56rem;
+  }
+
+  .growth-hero-readout {
+    border-radius: 16px;
+  }
+
+  .growth-fragment-section,
+  .growth-engine-section,
+  .growth-psychology-section,
+  .growth-quote-section,
+  .growth-architecture-section,
+  .growth-recognition-section,
+  .growth-final-quote-section {
+    padding: 3.1rem 0;
+  }
+
+  .growth-fragment-grid h2,
+  .growth-section-heading h2,
+  .growth-psychology-grid h2,
+  .growth-recognition-grid h2,
+  .growth-final-grid h2 {
+    font-size: clamp(1.85rem, 9vw, 2.6rem);
+  }
+
+  .growth-signal-tabs {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
+
+  .growth-signal-output {
+    grid-template-columns: 1fr;
+  }
+
+  .growth-fragment-console,
+  .growth-signal-console,
+  .growth-attention-map,
+  .growth-orbit-system,
+  .growth-symptom-console,
+  .growth-quote-card {
+    border-radius: 18px;
+  }
+
+  .growth-attention-map {
+    min-height: 21rem;
+  }
+
+  .growth-quote-card,
+  .growth-quote-card.is-compact {
+    grid-template-columns: 4.7rem minmax(0, 1fr);
+  }
+
+  .growth-quote-image {
+    border-radius: 16px;
+  }
+
+  .growth-quote-card blockquote {
+    font-size: 0.92rem;
+    line-height: 1.42;
+  }
+
+  .growth-orbit-system {
+    min-height: 32rem;
+    border-radius: 20px;
+  }
+
+  .growth-orbit-core {
+    width: 9.2rem;
+    height: 9.2rem;
+    font-size: 0.84rem;
+  }
+
+  .growth-orbit-system span {
+    padding: 0.58rem 0.7rem;
+    font-size: 0.68rem;
   }
 
   .pulse-preview-section {

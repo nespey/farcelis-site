@@ -1,5 +1,6 @@
 import { notFound } from "next/navigation";
 
+import { AIMarketingBlueprintGenerator } from "@/components/AIMarketingBlueprintGenerator";
 import { BlueprintReadinessSnapshot } from "@/components/BlueprintReadinessSnapshot";
 import { IntentAdaptiveLearningEngine } from "@/components/IntentAdaptiveLearningEngine";
 import { PageIntro } from "@/components/PageIntro";
@@ -46,6 +47,11 @@ export default async function ProductDetailPage({ params }: ProductPageProps) {
   const isIntentEngine = product.slug === "intent-adaptive-learning-engine";
   const isRapidRamp = product.slug === "rapidramp-generator";
   const isBlueprintSnapshot = product.slug === "blueprint-readiness-snapshot";
+  const isMarketingBlueprint = product.slug === "ai-marketing-blueprint-generator";
+
+  if (isMarketingBlueprint) {
+    return <AIMarketingBlueprintGenerator />;
+  }
 
   if (isBlueprintSnapshot) {
     return <BlueprintReadinessSnapshot />;
