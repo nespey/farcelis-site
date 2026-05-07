@@ -70,15 +70,6 @@ export default async function BlogPostPage({ params }: BlogPageProps) {
                 priority
               />
             </div>
-            <div className="relative aspect-[4/3] overflow-hidden rounded-[30px] border border-white bg-slate-950 shadow-[0_24px_70px_rgba(15,23,42,0.12)]">
-              <Image
-                src="/images/blog/julian-candid-photo.jpeg"
-                alt="Julian Mercer candid portrait from the Farcelis blog files"
-                fill
-                sizes="(min-width: 1024px) 420px, 100vw"
-                className="object-cover"
-              />
-            </div>
           </div>
         </div>
       </section>

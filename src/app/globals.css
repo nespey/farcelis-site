@@ -221,6 +221,14 @@ a {
   padding-top: 0;
 }
 
+.product-suite-intro {
+  padding-bottom: clamp(1.5rem, 2.6vw, 2.5rem);
+}
+
+.product-suite-list-section {
+  padding-top: clamp(1.4rem, 2.4vw, 2.25rem);
+}
+
 .control-intro-section {
   padding-top: clamp(7rem, 10vw, 9rem);
   padding-bottom: clamp(2.25rem, 4vw, 3.5rem);
@@ -1008,6 +1016,14 @@ a {
 
   .section-shell {
     padding: 4.5rem 0;
+  }
+
+  .product-suite-intro {
+    padding-bottom: 1.35rem;
+  }
+
+  .product-suite-list-section {
+    padding-top: 1.3rem;
   }
 
   .reveal-section {
@@ -4060,6 +4076,14 @@ main :is(.border-t, .border-b, .border-y, .divide-y > :not([hidden]) ~ :not([hid
   padding: clamp(3.6rem, 6vw, 6.4rem) 0;
 }
 
+.growth-quote-section {
+  padding: clamp(1.8rem, 3vw, 2.8rem) 0 1.1rem;
+}
+
+.growth-architecture-section {
+  padding-top: clamp(2rem, 3.6vw, 3.3rem);
+}
+
 .growth-fragment-grid,
 .growth-psychology-grid,
 .growth-recognition-grid,
@@ -4276,17 +4300,18 @@ main :is(.border-t, .border-b, .border-y, .divide-y > :not([hidden]) ~ :not([hid
 }
 
 .growth-quote-inset {
-  max-width: 760px;
+  max-width: 660px;
   margin-left: auto;
+  transform: translateY(0.75rem);
 }
 
 .growth-quote-card {
   display: grid;
-  grid-template-columns: 5.8rem minmax(0, 1fr);
-  gap: 1rem;
+  grid-template-columns: 5rem minmax(0, 1fr);
+  gap: 0.88rem;
   align-items: center;
   border-radius: 30px;
-  padding: 1rem;
+  padding: 0.9rem;
 }
 
 .growth-quote-image {
@@ -4306,7 +4331,7 @@ main :is(.border-t, .border-b, .border-y, .divide-y > :not([hidden]) ~ :not([hid
 .growth-quote-card blockquote {
   margin-top: 0.55rem;
   color: #f2f8fb;
-  font-size: clamp(1rem, 1.35vw, 1.25rem);
+  font-size: clamp(0.9rem, 1.05vw, 1.05rem);
   font-weight: 650;
   letter-spacing: -0.025em;
   line-height: 1.42;
@@ -7739,6 +7764,14 @@ main :is(.border-t, .border-b, .border-y, .divide-y > :not([hidden]) ~ :not([hid
     padding: 3.1rem 0;
   }
 
+  .growth-quote-section {
+    padding: 1.55rem 0 0.75rem;
+  }
+
+  .growth-architecture-section {
+    padding-top: 2rem;
+  }
+
   .growth-fragment-grid h2,
   .growth-section-heading h2,
   .growth-psychology-grid h2,
@@ -7778,7 +7811,12 @@ main :is(.border-t, .border-b, .border-y, .divide-y > :not([hidden]) ~ :not([hid
 
   .growth-quote-card,
   .growth-quote-card.is-compact {
-    grid-template-columns: 4.7rem minmax(0, 1fr);
+    grid-template-columns: 4.2rem minmax(0, 1fr);
+  }
+
+  .growth-quote-inset {
+    max-width: none;
+    transform: translateY(0.45rem);
   }
 
   .growth-quote-image {
