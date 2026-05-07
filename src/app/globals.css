@@ -3137,6 +3137,542 @@ main :is(.border-t, .border-b, .border-y, .divide-y > :not([hidden]) ~ :not([hid
   text-decoration: none;
 }
 
+.blueprint-page {
+  background: #04141d;
+  color: #eef6f8;
+}
+
+.blueprint-hero,
+.blueprint-diagnostic-section,
+.blueprint-problem-section,
+.blueprint-scan-section,
+.blueprint-recognition-section,
+.blueprint-package-section {
+  overflow: hidden;
+  border-top: 1px solid rgba(186, 230, 253, 0.075);
+  background:
+    radial-gradient(circle at 16% 12%, rgba(112, 194, 212, 0.1), transparent 28rem),
+    linear-gradient(135deg, rgba(255, 255, 255, 0.035) 1px, transparent 1px),
+    linear-gradient(45deg, rgba(255, 255, 255, 0.025) 1px, transparent 1px),
+    linear-gradient(145deg, #04141d 0%, #082432 54%, #051822 100%);
+  background-size: auto, 72px 72px, 72px 72px, auto;
+}
+
+.blueprint-hero {
+  min-height: calc(100vh - 74px);
+  padding: clamp(4.2rem, 6.4vw, 6.8rem) 0 clamp(3rem, 5vw, 5rem);
+}
+
+.blueprint-hero-grid {
+  display: grid;
+  grid-template-columns: minmax(0, 0.78fr) minmax(520px, 1.22fr);
+  gap: clamp(2rem, 5vw, 5rem);
+  align-items: center;
+}
+
+.blueprint-hero-copy h1 {
+  max-width: 870px;
+  margin-top: 1rem;
+  color: #f7fbfc;
+  font-size: clamp(3rem, 5.8vw, 6.1rem);
+  font-weight: 540;
+  letter-spacing: -0.062em;
+  line-height: 0.94;
+}
+
+.blueprint-hero-copy > p {
+  max-width: 700px;
+  margin-top: 1.25rem;
+  color: #b8c9d2;
+  font-size: clamp(1rem, 1.25vw, 1.2rem);
+  line-height: 1.72;
+}
+
+.blueprint-hero-copy a {
+  display: inline-flex;
+  min-height: 3rem;
+  align-items: center;
+  justify-content: center;
+  margin-top: 2rem;
+  border-radius: 999px;
+  background: #ff8c5a;
+  padding: 0.78rem 1.1rem;
+  color: #ffffff;
+  font-size: 0.86rem;
+  font-weight: 850;
+  line-height: 1.15;
+  text-decoration: none;
+}
+
+.blueprint-xray {
+  position: relative;
+  min-height: 38rem;
+  overflow: hidden;
+  border-radius: 34px;
+  border: 1px solid rgba(186, 230, 253, 0.16);
+  background:
+    radial-gradient(circle at 50% 42%, rgba(112, 194, 212, 0.12), transparent 21rem),
+    linear-gradient(rgba(255, 255, 255, 0.04) 1px, transparent 1px),
+    linear-gradient(90deg, rgba(255, 255, 255, 0.035) 1px, transparent 1px),
+    rgba(4, 18, 27, 0.78);
+  background-size: auto, 44px 44px, 44px 44px, auto;
+  box-shadow:
+    0 34px 100px rgba(0, 0, 0, 0.3),
+    inset 0 1px 0 rgba(255, 255, 255, 0.08);
+}
+
+.blueprint-scan-line {
+  position: absolute;
+  inset: 0 auto 0 0;
+  z-index: 3;
+  width: 22%;
+  background: linear-gradient(90deg, transparent, rgba(112, 194, 212, 0.11), transparent);
+  animation: blueprintScan 6.5s ease-in-out infinite;
+}
+
+@keyframes blueprintScan {
+  0%,
+  100% {
+    transform: translateX(-40%);
+    opacity: 0.18;
+  }
+  50% {
+    transform: translateX(440%);
+    opacity: 0.7;
+  }
+}
+
+.blueprint-traces {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+}
+
+.blueprint-traces path {
+  fill: none;
+  stroke: rgba(112, 194, 212, 0.62);
+  stroke-width: 2;
+  stroke-dasharray: 8 12;
+  animation: blueprintTrace 9s linear infinite;
+}
+
+.blueprint-traces path.is-weak {
+  stroke: rgba(255, 179, 145, 0.72);
+}
+
+.blueprint-traces path.is-broken {
+  stroke: rgba(255, 140, 90, 0.9);
+  stroke-dasharray: 2 12;
+}
+
+@keyframes blueprintTrace {
+  to {
+    stroke-dashoffset: -160;
+  }
+}
+
+.blueprint-node {
+  position: absolute;
+  z-index: 2;
+  display: grid;
+  width: 7.1rem;
+  height: 7.1rem;
+  place-items: center;
+  border-radius: 999px;
+  border: 1px solid rgba(186, 230, 253, 0.18);
+  background: rgba(7, 30, 43, 0.82);
+  color: #ecf7fa;
+  font-size: 0.78rem;
+  font-weight: 880;
+  letter-spacing: 0.04em;
+  text-align: center;
+  text-transform: uppercase;
+  box-shadow: 0 0 0 12px rgba(112, 194, 212, 0.045);
+}
+
+.blueprint-node.is-stable {
+  border-color: rgba(112, 194, 212, 0.5);
+}
+
+.blueprint-node.is-warning {
+  border-color: rgba(255, 179, 145, 0.58);
+  box-shadow: 0 0 0 12px rgba(255, 179, 145, 0.055);
+}
+
+.blueprint-node.is-fractured {
+  border-color: rgba(255, 140, 90, 0.72);
+  box-shadow: 0 0 0 12px rgba(255, 140, 90, 0.06);
+}
+
+.node-a {
+  left: 11%;
+  top: 16%;
+}
+
+.node-b {
+  right: 9%;
+  top: 12%;
+}
+
+.node-c {
+  left: 35%;
+  top: 39%;
+}
+
+.node-d {
+  left: 10%;
+  bottom: 16%;
+}
+
+.node-e {
+  right: 8%;
+  bottom: 19%;
+}
+
+.node-f {
+  right: 31%;
+  top: 51%;
+}
+
+.blueprint-xray-readout {
+  position: absolute;
+  right: 1rem;
+  bottom: 1rem;
+  z-index: 4;
+  max-width: 20rem;
+  border-radius: 20px;
+  border: 1px solid rgba(186, 230, 253, 0.16);
+  background: rgba(4, 18, 27, 0.84);
+  padding: 1rem;
+  backdrop-filter: blur(18px);
+}
+
+.blueprint-xray-readout span,
+.blueprint-output-top span,
+.blueprint-output-grid span,
+.blueprint-scan-flow span,
+.blueprint-hidden-issue span,
+.blueprint-package-core span,
+.blueprint-package > div:not(.blueprint-package-core),
+.blueprint-founder-quote span {
+  color: #ffb391;
+  font-size: 0.68rem;
+  font-weight: 900;
+  letter-spacing: 0.16em;
+  text-transform: uppercase;
+}
+
+.blueprint-xray-readout strong {
+  display: block;
+  margin-top: 0.35rem;
+  color: #ffffff;
+  font-size: 1.1rem;
+  font-weight: 820;
+}
+
+.blueprint-xray-readout small {
+  display: block;
+  margin-top: 0.35rem;
+  color: #aebfca;
+  font-size: 0.78rem;
+  line-height: 1.45;
+}
+
+.blueprint-diagnostic-section,
+.blueprint-problem-section,
+.blueprint-scan-section,
+.blueprint-recognition-section,
+.blueprint-package-section {
+  padding: clamp(3.6rem, 6vw, 6.4rem) 0;
+}
+
+.blueprint-section-heading {
+  max-width: 920px;
+}
+
+.blueprint-section-heading h2,
+.blueprint-problem-grid h2,
+.blueprint-recognition-grid h2 {
+  margin-top: 1rem;
+  color: #f4f8fa;
+  font-size: clamp(2rem, 3.7vw, 4rem);
+  font-weight: 560;
+  letter-spacing: -0.055em;
+  line-height: 1;
+}
+
+.blueprint-diagnostic-console {
+  display: grid;
+  grid-template-columns: minmax(250px, 0.33fr) minmax(0, 1fr);
+  gap: 1rem;
+  margin-top: clamp(1.4rem, 3vw, 2.4rem);
+  border-radius: 30px;
+  border: 1px solid rgba(186, 230, 253, 0.16);
+  background: rgba(5, 22, 32, 0.74);
+  padding: clamp(0.85rem, 1.5vw, 1.1rem);
+  box-shadow:
+    0 28px 80px rgba(0, 0, 0, 0.24),
+    inset 0 1px 0 rgba(255, 255, 255, 0.08);
+}
+
+.blueprint-diagnostic-list {
+  display: grid;
+  gap: 0.48rem;
+}
+
+.blueprint-diagnostic-list button,
+.blueprint-symptom-list button {
+  min-height: 3.45rem;
+  border-radius: 16px;
+  border: 1px solid rgba(186, 230, 253, 0.13);
+  background: rgba(255, 255, 255, 0.04);
+  padding: 0.72rem 0.82rem;
+  color: #dfe9ee;
+  font: inherit;
+  font-size: 0.82rem;
+  font-weight: 820;
+  line-height: 1.15;
+  text-align: left;
+  cursor: pointer;
+  transition: border-color 180ms ease, background 180ms ease, transform 180ms ease;
+}
+
+.blueprint-diagnostic-list button:hover,
+.blueprint-diagnostic-list button.is-active,
+.blueprint-symptom-list button:hover,
+.blueprint-symptom-list button.is-active {
+  border-color: rgba(112, 194, 212, 0.54);
+  background: rgba(112, 194, 212, 0.09);
+  transform: translateX(2px);
+}
+
+.blueprint-diagnostic-output {
+  border-radius: 24px;
+  border: 1px solid rgba(186, 230, 253, 0.13);
+  background:
+    linear-gradient(rgba(255, 255, 255, 0.035) 1px, transparent 1px),
+    linear-gradient(90deg, rgba(255, 255, 255, 0.03) 1px, transparent 1px),
+    rgba(3, 16, 24, 0.42);
+  background-size: 42px 42px;
+  padding: clamp(1rem, 1.8vw, 1.35rem);
+}
+
+.blueprint-output-top {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 1rem;
+  border-bottom: 1px solid rgba(186, 230, 253, 0.12);
+  padding-bottom: 0.85rem;
+}
+
+.blueprint-output-top strong {
+  color: #ffffff;
+  font-size: clamp(1.35rem, 2vw, 2rem);
+  font-weight: 700;
+  letter-spacing: -0.05em;
+}
+
+.blueprint-output-grid {
+  display: grid;
+  grid-template-columns: 0.95fr 1.05fr 1fr;
+  gap: 0.75rem;
+  margin-top: 1rem;
+}
+
+.blueprint-output-grid article,
+.blueprint-hidden-issue,
+.blueprint-package,
+.blueprint-founder-quote {
+  border: 1px solid rgba(186, 230, 253, 0.13);
+  background: rgba(255, 255, 255, 0.045);
+}
+
+.blueprint-output-grid article {
+  min-height: 13rem;
+  border-radius: 18px;
+  padding: 1rem;
+}
+
+.blueprint-output-grid p {
+  margin-top: 0.7rem;
+  color: #d7e4ea;
+  font-size: 0.92rem;
+  line-height: 1.6;
+}
+
+.blueprint-problem-grid,
+.blueprint-recognition-grid,
+.blueprint-package-grid {
+  display: grid;
+  grid-template-columns: minmax(0, 0.9fr) minmax(0, 1.1fr);
+  gap: clamp(1.5rem, 4vw, 4rem);
+  align-items: start;
+}
+
+.blueprint-problem-copy {
+  display: grid;
+  gap: 1rem;
+  border-left: 1px solid rgba(112, 194, 212, 0.42);
+  padding-left: clamp(1rem, 2vw, 1.6rem);
+}
+
+.blueprint-problem-copy p {
+  color: #b8c9d2;
+  font-size: clamp(1rem, 1.18vw, 1.12rem);
+  line-height: 1.78;
+}
+
+.blueprint-scan-flow {
+  display: grid;
+  grid-template-columns: repeat(6, minmax(0, 1fr));
+  gap: 0.7rem;
+  margin-top: clamp(1.4rem, 3vw, 2.4rem);
+}
+
+.blueprint-scan-flow article {
+  position: relative;
+  min-height: 15rem;
+  border-radius: 999px 999px 22px 22px;
+  border: 1px solid rgba(186, 230, 253, 0.14);
+  background:
+    linear-gradient(180deg, rgba(112, 194, 212, 0.11), rgba(255, 255, 255, 0.035)),
+    rgba(5, 22, 32, 0.74);
+  padding: 1.15rem 0.9rem 1rem;
+}
+
+.blueprint-scan-flow article:not(:last-child)::after {
+  content: "";
+  position: absolute;
+  top: 2.3rem;
+  right: -0.72rem;
+  width: 0.76rem;
+  height: 1px;
+  background: rgba(112, 194, 212, 0.68);
+}
+
+.blueprint-scan-flow h3 {
+  margin-top: 2rem;
+  color: #ffffff;
+  font-size: 0.98rem;
+  font-weight: 850;
+  letter-spacing: -0.035em;
+}
+
+.blueprint-scan-flow p {
+  margin-top: 0.7rem;
+  color: #aebfca;
+  font-size: 0.82rem;
+  line-height: 1.55;
+}
+
+.blueprint-symptom-console {
+  display: grid;
+  gap: 0.85rem;
+}
+
+.blueprint-symptom-list {
+  display: grid;
+  gap: 0.55rem;
+}
+
+.blueprint-hidden-issue {
+  border-radius: 24px;
+  padding: 1.1rem;
+}
+
+.blueprint-hidden-issue p {
+  margin-top: 0.8rem;
+  color: #ffffff;
+  font-size: clamp(1.2rem, 1.8vw, 1.7rem);
+  font-weight: 650;
+  letter-spacing: -0.045em;
+  line-height: 1.18;
+}
+
+.blueprint-package {
+  display: grid;
+  gap: 0.6rem;
+  border-radius: 30px;
+  padding: clamp(1rem, 1.5vw, 1.25rem);
+  background:
+    radial-gradient(circle at 65% 25%, rgba(112, 194, 212, 0.12), transparent 18rem),
+    rgba(5, 22, 32, 0.74);
+}
+
+.blueprint-package-core {
+  min-height: 7rem;
+  border-radius: 22px;
+  border: 1px solid rgba(112, 194, 212, 0.26);
+  background: rgba(112, 194, 212, 0.08);
+  padding: 1rem;
+}
+
+.blueprint-package-core strong {
+  display: block;
+  margin-top: 0.65rem;
+  color: #ffffff;
+  font-size: clamp(1.4rem, 2.3vw, 2.4rem);
+  font-weight: 650;
+  letter-spacing: -0.05em;
+  line-height: 1;
+}
+
+.blueprint-package > div:not(.blueprint-package-core) {
+  border-radius: 16px;
+  border: 1px solid rgba(186, 230, 253, 0.13);
+  background: rgba(255, 255, 255, 0.045);
+  padding: 0.82rem;
+  color: #e8f8fb;
+}
+
+.blueprint-founder-quote {
+  display: grid;
+  grid-template-columns: 5.8rem minmax(0, 1fr);
+  gap: 1rem;
+  align-items: center;
+  border-radius: 30px;
+  padding: clamp(1rem, 1.6vw, 1.2rem);
+}
+
+.blueprint-founder-image {
+  overflow: hidden;
+  aspect-ratio: 1;
+  border-radius: 22px;
+  border: 1px solid rgba(186, 230, 253, 0.18);
+}
+
+.blueprint-founder-image img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+.blueprint-founder-quote blockquote {
+  margin-top: 0.55rem;
+  color: #f2f8fb;
+  font-size: clamp(1rem, 1.25vw, 1.18rem);
+  font-weight: 650;
+  letter-spacing: -0.025em;
+  line-height: 1.42;
+}
+
+.blueprint-founder-quote p {
+  margin-top: 0.8rem;
+  color: #ffffff;
+  font-size: 0.9rem;
+  font-weight: 850;
+}
+
+.blueprint-founder-quote small {
+  display: block;
+  margin-top: 0.2rem;
+  color: #9eb2bd;
+  font-size: 0.76rem;
+  line-height: 1.35;
+}
+
 .pulse-preview-section {
   overflow: hidden;
   padding: clamp(3.8rem, 6vw, 6.8rem) 0;
@@ -5975,6 +6511,30 @@ main :is(.border-t, .border-b, .border-y, .divide-y > :not([hidden]) ~ :not([hid
     grid-template-columns: repeat(2, minmax(0, 1fr));
   }
 
+  .blueprint-hero-grid,
+  .blueprint-diagnostic-console,
+  .blueprint-problem-grid,
+  .blueprint-recognition-grid,
+  .blueprint-package-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .blueprint-output-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .blueprint-scan-flow {
+    grid-template-columns: repeat(3, minmax(0, 1fr));
+  }
+
+  .blueprint-scan-flow article:not(:last-child)::after {
+    display: none;
+  }
+
+  .blueprint-diagnostic-list {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
+
   .pulse-preview-intro,
   .pulse-preview-panels,
   .pulse-landing-zone {
@@ -6181,6 +6741,105 @@ main :is(.border-t, .border-b, .border-y, .divide-y > :not([hidden]) ~ :not([hid
 
   .rapid-refinement-card a {
     width: 100%;
+  }
+
+  .blueprint-hero {
+    min-height: 0;
+    padding: 3.6rem 0 3rem;
+  }
+
+  .blueprint-hero-copy h1 {
+    font-size: clamp(2.65rem, 12vw, 4.1rem);
+    line-height: 0.96;
+  }
+
+  .blueprint-hero-copy > p {
+    font-size: 0.98rem;
+    line-height: 1.62;
+  }
+
+  .blueprint-hero-copy a {
+    width: 100%;
+  }
+
+  .blueprint-xray {
+    min-height: 30rem;
+    border-radius: 22px;
+  }
+
+  .blueprint-node {
+    width: 5.4rem;
+    height: 5.4rem;
+    font-size: 0.62rem;
+  }
+
+  .blueprint-xray-readout {
+    left: 0.75rem;
+    right: 0.75rem;
+    bottom: 0.75rem;
+    max-width: none;
+    border-radius: 16px;
+  }
+
+  .blueprint-diagnostic-section,
+  .blueprint-problem-section,
+  .blueprint-scan-section,
+  .blueprint-recognition-section,
+  .blueprint-package-section {
+    padding: 3.1rem 0;
+  }
+
+  .blueprint-section-heading h2,
+  .blueprint-problem-grid h2,
+  .blueprint-recognition-grid h2 {
+    font-size: clamp(1.85rem, 9vw, 2.6rem);
+  }
+
+  .blueprint-diagnostic-list,
+  .blueprint-scan-flow {
+    grid-template-columns: 1fr;
+  }
+
+  .blueprint-diagnostic-console,
+  .blueprint-diagnostic-output,
+  .blueprint-output-grid article,
+  .blueprint-hidden-issue,
+  .blueprint-package,
+  .blueprint-founder-quote {
+    border-radius: 18px;
+  }
+
+  .blueprint-output-top {
+    display: grid;
+  }
+
+  .blueprint-problem-copy {
+    border-left-width: 0;
+    border-top: 1px solid rgba(112, 194, 212, 0.42);
+    padding-top: 1rem;
+    padding-left: 0;
+  }
+
+  .blueprint-scan-flow article {
+    min-height: 0;
+    border-radius: 18px;
+  }
+
+  .blueprint-scan-flow h3 {
+    margin-top: 1.3rem;
+  }
+
+  .blueprint-founder-quote {
+    grid-template-columns: 4.8rem minmax(0, 1fr);
+  }
+
+  .blueprint-founder-image {
+    border-radius: 16px;
+  }
+
+  .blueprint-founder-quote blockquote {
+    font-size: 0.92rem;
+    line-height: 1.42;
   }
 
   .pulse-preview-section {

@@ -1,5 +1,6 @@
 import { notFound } from "next/navigation";
 
+import { BlueprintReadinessSnapshot } from "@/components/BlueprintReadinessSnapshot";
 import { IntentAdaptiveLearningEngine } from "@/components/IntentAdaptiveLearningEngine";
 import { PageIntro } from "@/components/PageIntro";
 import { PulseThreadPreview } from "@/components/PulseThreadPreview";
@@ -44,6 +45,11 @@ export default async function ProductDetailPage({ params }: ProductPageProps) {
   const isPulseThread = product.slug === "pulse-thread-coaching-assistant";
   const isIntentEngine = product.slug === "intent-adaptive-learning-engine";
   const isRapidRamp = product.slug === "rapidramp-generator";
+  const isBlueprintSnapshot = product.slug === "blueprint-readiness-snapshot";
+
+  if (isBlueprintSnapshot) {
+    return <BlueprintReadinessSnapshot />;
+  }
 
   if (isIntentEngine) {
     return <IntentAdaptiveLearningEngine />;
