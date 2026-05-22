@@ -323,6 +323,7 @@ export const partners: Partner[] = [
 export const approvedLogos: Partner[] = [
   { name: "4Throws", logo: "/logos/approved/4throws-color.png", href: "https://4throws.com/pages/contact" },
   { name: "K2 Renew", logo: "/logos/approved/k2-renew-color.png", href: "https://k2renew.com/home" },
+  { name: "Soltaic", logo: "/logos/approved/soltaic-color.png", href: "https://www.soltaic-solutions.com/" },
   { name: "Paragon Cyber Solutions", logo: "/logos/approved/paragon-color.png", href: "https://paragoncybersolutions.com/" },
   { name: "NexAlign", logo: "/logos/approved/nexalign-color.png", href: "https://nexalign.app/login?from_url=https%3A%2F%2Fnexalign.app%2F" },
   { name: "Eagle", logo: "/logos/approved/eagle-color.png", href: "https://www.eagleeng.com/" },
