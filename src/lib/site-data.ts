@@ -321,12 +321,14 @@ export const partners: Partner[] = [
 ];
 
 export const approvedLogos: Partner[] = [
-  { name: "4Throws", logo: "/logos/approved/4throws-color.png", href: "https://4throws.com/pages/contact" },
-  { name: "K2 Renew", logo: "/logos/approved/k2-renew-color.png", href: "https://k2renew.com/home" },
-  { name: "Soltaic", logo: "/logos/approved/soltaic-color.png", href: "https://www.soltaic-solutions.com/" },
-  { name: "Paragon Cyber Solutions", logo: "/logos/approved/paragon-color.png", href: "https://paragoncybersolutions.com/" },
-  { name: "NexAlign", logo: "/logos/approved/nexalign-color.png", href: "https://nexalign.app/login?from_url=https%3A%2F%2Fnexalign.app%2F" },
-  { name: "Eagle", logo: "/logos/approved/eagle-color.png", href: "https://www.eagleeng.com/" },
+  { name: "4Throws", logo: "/logos/approved/rail/4throws-rail.png", href: "https://4throws.com/pages/contact" },
+  { name: "K2 Renew", logo: "/logos/approved/rail/k2-renew-rail.png", href: "https://k2renew.com/home" },
+  { name: "Upwork", logo: "/logos/approved/rail/upwork-rail.png", href: "https://www.upwork.com/" },
+  { name: "GenX Alliance", logo: "/logos/approved/rail/genx-alliance-rail.png" },
+  { name: "Soltaic", logo: "/logos/approved/rail/soltaic-rail.png", href: "https://www.soltaic-solutions.com/" },
+  { name: "Paragon Cyber Solutions", logo: "/logos/approved/rail/paragon-rail.png", href: "https://paragoncybersolutions.com/" },
+  { name: "NexAlign", logo: "/logos/approved/rail/nexalign-rail.png", href: "https://nexalign.app/login?from_url=https%3A%2F%2Fnexalign.app%2F" },
+  { name: "Eagle", logo: "/logos/approved/rail/eagle-rail.png", href: "https://www.eagleeng.com/" },
 ];
 
 export const services: Service[] = [

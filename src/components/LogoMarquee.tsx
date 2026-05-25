@@ -11,10 +11,18 @@ type LogoMarqueeProps = {
   bare?: boolean;
 };
 
-const bareLogoScale: Record<string, string> = {
-  "4Throws": "scale-[1.55]",
-  "Paragon Cyber Solutions": "scale-[1.45]",
+const bareLogoFrame: Record<string, string> = {
+  "4Throws": "h-[54px] w-[128px]",
+  "Eagle": "h-[78px] w-[66px]",
+  "GenX Alliance": "h-[82px] w-[72px]",
+  "K2 Renew": "h-[68px] w-[96px]",
+  "NexAlign": "h-[84px] w-[56px]",
+  "Paragon Cyber Solutions": "h-[44px] w-[150px]",
+  "Soltaic": "h-[40px] w-[138px]",
+  "Upwork": "h-[42px] w-[138px]",
 };
+
+const defaultBareLogoFrame = "h-[72px] w-[132px]";
 
 export function LogoMarquee({ logos, dark = true, bare = false }: LogoMarqueeProps) {
   const renderLogos = bare
@@ -45,7 +53,7 @@ export function LogoMarquee({ logos, dark = true, bare = false }: LogoMarqueePro
       ) : null}
 
       <div className="logo-marquee-viewport relative overflow-hidden">
-        <div className={`logo-marquee-track flex w-max ${bare ? "gap-4 pr-4" : "gap-10 pr-10"}`}>
+        <div className={`logo-marquee-track flex w-max ${bare ? "gap-7 pr-7" : "gap-10 pr-10"}`}>
           {renderLogos.map((logo, index) => {
             const key = `${logo.name}-${index}`;
             const base = dark
@@ -58,19 +66,19 @@ export function LogoMarquee({ logos, dark = true, bare = false }: LogoMarqueePro
               <div
                 className={`logo-rail-tile hover-lift flex items-center justify-center ${
                   bare
-                    ? "min-h-[112px] min-w-[170px] px-2 py-3"
+                    ? "min-h-[112px] min-w-[188px] px-0 py-3"
                     : `min-h-[122px] min-w-[248px] rounded-[24px] border px-8 py-7 ${base}`
                 }`}
               >
-                <div className={`relative w-full ${bare ? "h-[92px]" : "h-[52px]"}`}>
+                <div className={`relative ${bare ? (bareLogoFrame[logo.name] ?? defaultBareLogoFrame) : "h-[52px] w-full"}`}>
                   {logo.logo ? (
                     <Image
                       src={logo.logo}
-                    alt={logo.name}
-                    fill
-                    sizes={bare ? "190px" : "220px"}
+                      alt={logo.name}
+                      fill
+                      sizes={bare ? "190px" : "220px"}
                       className={`object-contain transition duration-200 ${
-                        bare ? `drop-shadow-[0_14px_22px_rgba(3,8,16,0.2)] ${bareLogoScale[logo.name] ?? ""}` : ""
+                        bare ? "drop-shadow-[0_14px_22px_rgba(3,8,16,0.2)]" : ""
                       }`}
                     />
                   ) : null}
