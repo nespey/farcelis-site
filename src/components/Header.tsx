@@ -60,7 +60,7 @@ function CapabilityPillarHeader({ label }: { label: string }) {
       ) : null}
 
       {pillar === "Grow" ? (
-        <div className="absolute inset-0 opacity-42" aria-hidden="true">
+        <div className="absolute inset-0 opacity-45" aria-hidden="true">
           <span className="absolute left-4 right-4 top-1/2 h-[1px] -translate-y-1/2 bg-[#9bd8bd]/30" />
           <span className="absolute left-[14%] top-[53%] h-4 w-7 -translate-y-1/2 rotate-[-18deg] rounded-[100%_0] border border-[#9bd8bd]/42 border-r-0 border-b-0" />
           <span className="absolute left-[28%] top-[43%] h-4 w-7 -translate-y-1/2 rotate-[24deg] rounded-[100%_0] border border-[#9bd8bd]/45 border-r-0 border-b-0" />
@@ -72,7 +72,7 @@ function CapabilityPillarHeader({ label }: { label: string }) {
       ) : null}
 
       {pillar === "Operate" ? (
-        <div className="absolute inset-0 opacity-42" aria-hidden="true">
+        <div className="absolute inset-0 opacity-45" aria-hidden="true">
           <span className="absolute left-4 right-4 top-[38%] h-[1px] bg-[#aebcf2]/34" />
           <span className="absolute left-8 right-8 top-[62%] h-[1px] bg-[#aebcf2]/24" />
           <span className="absolute left-[17%] top-[38%] h-2.5 w-2.5 -translate-y-1/2 rounded-full border border-[#aebcf2]/48 bg-[#3e506c]" />
