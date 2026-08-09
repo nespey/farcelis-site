@@ -122,7 +122,7 @@ export default function PlatformsPage() {
                     “Our services are not more software. The point is a stack that behaves like a system.”
                   </blockquote>
                   <p>Katalin Espey</p>
-                  <span>Chief Services Officer</span>
+                  <span>Chief Growth Officer</span>
                 </div>
               </aside>
             </div>
