@@ -32,6 +32,12 @@ const solutionLinks = [
 type MenuKey = "capabilities" | "solutions";
 type CapabilityPillar = "Build" | "Grow" | "Operate";
 
+const capabilityPillarImages: Record<CapabilityPillar, string> = {
+  Build: "/images/navigation/capability-build-pill.png",
+  Grow: "/images/navigation/capability-grow-pill.png",
+  Operate: "/images/navigation/capability-operate-pill.png",
+};
+
 function CapabilityPillarHeader({ label }: { label: string }) {
   const pillar = label as CapabilityPillar;
 
@@ -45,62 +51,15 @@ function CapabilityPillarHeader({ label }: { label: string }) {
             : "border-indigo-100/16 bg-[#3e506c]"
       }`}
     >
-      {pillar === "Build" ? (
-        <svg
-          className="absolute inset-0 h-full w-full opacity-36"
-          viewBox="0 0 320 48"
-          aria-hidden="true"
-          focusable="false"
-        >
-          <g fill="none" stroke="#8fd3df" strokeLinecap="round" strokeLinejoin="round">
-            <rect x="18" y="11" width="86" height="26" rx="2" strokeOpacity="0.5" />
-            <path d="M30 18h62M30 25h42M30 32h56" strokeOpacity="0.28" />
-            <path d="M116 14h28M116 24h36M116 34h22" strokeOpacity="0.3" />
-            <rect x="216" y="12" width="78" height="24" rx="2" strokeOpacity="0.42" />
-            <path d="M226 18h56M226 25h36M226 32h48" strokeOpacity="0.24" />
-            <path d="M158 12v24M162 12v24" strokeOpacity="0.28" />
-          </g>
-        </svg>
-      ) : null}
-
-      {pillar === "Grow" ? (
-        <svg
-          className="absolute inset-0 h-full w-full opacity-38"
-          viewBox="0 0 320 48"
-          aria-hidden="true"
-          focusable="false"
-        >
-          <g fill="none" stroke="#9bd8bd" strokeLinecap="round" strokeLinejoin="round">
-            <path d="M24 30C58 13 88 13 120 28" strokeOpacity="0.42" />
-            <path d="M200 28c28-18 62-18 96 2" strokeOpacity="0.42" />
-            <path d="M72 22c-9-11-21-10-28 0 11 3 20 2 28 0Z" fill="#9bd8bd" fillOpacity="0.16" strokeOpacity="0.45" />
-            <path d="M106 25c11-10 23-7 28 4-12 1-20-1-28-4Z" fill="#9bd8bd" fillOpacity="0.16" strokeOpacity="0.45" />
-            <path d="M234 24c-10-10-22-8-28 2 11 2 19 1 28-2Z" fill="#9bd8bd" fillOpacity="0.16" strokeOpacity="0.45" />
-            <path d="M270 27c11-9 23-5 27 6-12 0-20-2-27-6Z" fill="#9bd8bd" fillOpacity="0.16" strokeOpacity="0.45" />
-          </g>
-        </svg>
-      ) : null}
-
-      {pillar === "Operate" ? (
-        <svg
-          className="absolute inset-0 h-full w-full opacity-38"
-          viewBox="0 0 320 48"
-          aria-hidden="true"
-          focusable="false"
-        >
-          <g fill="none" stroke="#aebcf2" strokeLinecap="round">
-            <path d="M24 16h108M188 16h108" strokeOpacity="0.32" />
-            <path d="M24 24h74M132 24h164" strokeOpacity="0.26" />
-            <path d="M24 32h130M206 32h90" strokeOpacity="0.22" />
-            <circle cx="86" cy="16" r="5" fill="#3e506c" strokeOpacity="0.48" />
-            <circle cx="126" cy="24" r="5" fill="#aebcf2" fillOpacity="0.16" strokeOpacity="0.48" />
-            <circle cx="202" cy="32" r="5" fill="#3e506c" strokeOpacity="0.48" />
-            <circle cx="246" cy="16" r="5" fill="#aebcf2" fillOpacity="0.14" strokeOpacity="0.42" />
-          </g>
-        </svg>
-      ) : null}
-
-      <span className="relative z-10 text-[color:var(--color-accent)]">{label}</span>
+      <Image
+        src={capabilityPillarImages[pillar]}
+        alt=""
+        fill
+        sizes="360px"
+        className="object-cover opacity-95"
+        aria-hidden="true"
+      />
+      <span className="relative z-10 text-[color:var(--color-accent)] [text-shadow:0_1px_8px_rgba(3,8,16,0.95)]">{label}</span>
     </div>
   );
 }
