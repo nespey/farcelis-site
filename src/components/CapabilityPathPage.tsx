@@ -105,7 +105,6 @@ function AdjacentPathCard({
 function FlowRail({
   activeLabel,
   groups,
-  position,
 }: {
   activeLabel: string;
   groups: typeof capabilityGroups;
@@ -113,17 +112,7 @@ function FlowRail({
 }) {
   return (
     <aside className="flex h-full min-h-[620px] flex-col rounded-[24px] border border-cyan-100/10 bg-[#102c39] p-3 shadow-[inset_0_1px_0_rgba(255,255,255,0.04)]">
-      <div className="rounded-[16px] border border-cyan-100/10 bg-[#173343] px-4 py-3">
-        <p className="text-xs font-semibold uppercase tracking-[0.2em] text-[color:var(--color-accent)]">
-          {position === "left" ? "Comes Before" : "Comes Next"}
-        </p>
-        <p className="mt-2 text-xs leading-5 text-slate-200">
-          {position === "left"
-            ? "This path feeds the step you are viewing now."
-            : "This is where the work moves after the step you are viewing now."}
-        </p>
-      </div>
-      <div className="relative mt-3 flex flex-1 flex-col gap-3 overflow-hidden rounded-[18px]">
+      <div className="relative flex flex-1 flex-col gap-3 overflow-hidden rounded-[18px]">
         <span className="absolute bottom-8 left-1/2 top-8 w-px -translate-x-1/2 bg-cyan-100/12" aria-hidden="true" />
         {groups.map((item, index) => (
           <div key={item.label} className="relative flex flex-1 flex-col">
