@@ -148,19 +148,19 @@ export function Header() {
 
                   <div className="mt-3 grid gap-3 lg:grid-cols-3">
                     {capabilityGroups.map((group) => (
-                      <div key={group.label} className="rounded-[16px] border border-cyan-100/10 bg-[#1c3c4d] p-3">
-                        <div className="text-xs font-semibold uppercase tracking-[0.2em] text-[color:var(--color-accent)]">
+                      <div key={group.label} className="flex flex-col rounded-[16px] border border-cyan-100/10 bg-[#1c3c4d] p-3 text-center">
+                        <div className="rounded-[12px] border border-cyan-100/10 bg-[#24495c] px-4 py-3 text-base font-bold uppercase tracking-[0.24em] text-[color:var(--color-accent)] shadow-[inset_0_1px_0_rgba(255,255,255,0.06)]">
                           {group.label}
                         </div>
-                        <p className="mt-2 min-h-10 text-xs leading-5 text-slate-100">{group.detail}</p>
-                        <div className="mt-3 grid gap-1.5">
+                        <p className="mx-auto mt-3 min-h-10 max-w-[280px] text-center text-xs leading-5 text-slate-100">{group.detail}</p>
+                        <div className="mt-3 grid flex-1 grid-rows-6 gap-1.5">
                           {group.links.map((item) => (
                             <Link
                               key={`${group.label}-${item.label}`}
                               href={item.href}
                               title={item.detail}
                               onClick={closeMenus}
-                              className="block rounded-[12px] border border-cyan-100/10 bg-[#173343] px-3.5 py-2.5 transition hover:border-cyan-100/22 hover:bg-[#24495c] hover:text-white"
+                              className="flex min-h-11 items-center justify-center rounded-[12px] border border-cyan-100/10 bg-[#173343] px-3.5 py-2.5 text-center transition hover:border-cyan-100/22 hover:bg-[#24495c] hover:text-white"
                             >
                               <div className="text-sm font-semibold leading-5 text-white">{item.label}</div>
                             </Link>
@@ -300,8 +300,8 @@ export function Header() {
               <p className="eyebrow text-[color:var(--color-accent)]">Capabilities</p>
               <div className="mt-3 grid gap-3">
                 {capabilityGroups.map((group) => (
-                  <div key={group.label} className="rounded-[18px] border border-cyan-100/12 bg-white/[0.035] p-3">
-                    <div className="text-xs font-semibold uppercase tracking-[0.18em] text-[color:var(--color-accent)]">
+                  <div key={group.label} className="rounded-[18px] border border-cyan-100/12 bg-white/[0.035] p-3 text-center">
+                    <div className="rounded-[12px] border border-cyan-100/10 bg-[#24495c] px-4 py-3 text-base font-bold uppercase tracking-[0.22em] text-[color:var(--color-accent)]">
                       {group.label}
                     </div>
                     <div className="mt-3 grid gap-2">
@@ -310,7 +310,7 @@ export function Header() {
                           key={`${group.label}-${item.label}`}
                           href={item.href}
                           onClick={closeMenus}
-                          className="rounded-[14px] border border-cyan-100/10 bg-[#173343]/70 px-4 py-3 text-sm font-semibold text-white"
+                          className="rounded-[14px] border border-cyan-100/10 bg-[#173343]/70 px-4 py-3 text-center text-sm font-semibold text-white"
                         >
                           {item.label}
                         </Link>

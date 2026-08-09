@@ -49,6 +49,11 @@ export const capabilityGroups: CapabilityGroup[] = [
         detail: "Assistants, CRM, workflow tools, workspaces, and reporting connected into one stack.",
       },
       {
+        href: "/platforms",
+        label: "Platforms & Integrations",
+        detail: "CRM, work management, collaboration, reporting, and AI agents connected into one stack.",
+      },
+      {
         href: "/services/deployment-operations",
         label: "Deployment Operations",
         detail: "Idea-to-launch, GitHub, Vercel, domains, releases, documentation, and live support rhythm.",
