@@ -200,24 +200,24 @@ export function CapabilityPathPage({ slug }: { slug: string }) {
               <article className="rounded-[24px] border border-cyan-100/12 bg-[#1c3c4d] p-4 lg:p-6">
                 <PillarRibbon label={group.label} />
                 <div className="mt-6 grid min-h-[560px] gap-6 lg:grid-cols-[0.86fr_1.14fr]">
-                  <div className="flex min-h-full flex-col justify-center gap-8 text-center">
-                    <div>
+                  <div className="flex min-h-full flex-col justify-between gap-7 text-center">
+                    <div className="pt-0">
                       <p className={pathEyebrowClass} style={{ textAlign: "center", marginInline: "auto" }}>
                         Why You Are Here
                       </p>
                       <h2
-                        className="mx-auto mt-4 max-w-[36rem] text-center text-3xl font-semibold tracking-[-0.05em] text-white"
+                        className="mx-auto mt-5 max-w-[36rem] text-center text-3xl font-semibold leading-[1.18] tracking-[-0.05em] text-white"
                         style={{ textAlign: "center" }}
                       >
                         {group.headline}
                       </h2>
                       <p
-                        className="mx-auto mt-4 max-w-[35rem] text-center text-base leading-7 text-slate-200"
+                        className="mx-auto mt-5 max-w-[35rem] text-center text-base leading-8 text-slate-200"
                         style={{ textAlign: "center" }}
                       >
                         {group.buyerPrompt}
                       </p>
-                      <div className="mx-auto mt-6 grid max-w-[36rem] overflow-hidden rounded-[16px] border border-cyan-100/10 bg-[#173343] text-center">
+                      <div className="mx-auto mt-7 grid max-w-[36rem] overflow-hidden rounded-[16px] border border-cyan-100/10 bg-[#173343] text-center">
                         {group.outcomes.map((outcome) => (
                           <div key={outcome} className="border-b border-cyan-100/10 px-6 py-4 text-center last:border-b-0">
                             <span className="mx-auto block max-w-[30rem] text-center text-sm font-semibold leading-6 text-white">
@@ -235,7 +235,7 @@ export function CapabilityPathPage({ slug }: { slug: string }) {
                     </Link>
                   </div>
 
-                  <div className="flex min-h-full flex-col justify-center">
+                  <div className="flex min-h-full flex-col justify-start">
                     <p className={pathEyebrowClass} style={{ textAlign: "center", marginInline: "auto" }}>
                       Choose What You Need
                     </p>
