@@ -1,5 +1,4 @@
 import Link from "next/link";
-import Image from "next/image";
 
 import { PageIntro } from "@/components/PageIntro";
 import { Reveal } from "@/components/Reveal";
@@ -97,6 +96,12 @@ export default function ServicesPage() {
                   className="rounded-[24px] border border-cyan-100/12 bg-[#1c3c4d] p-3 text-center shadow-[0_24px_70px_rgba(3,8,16,0.22)]"
                 >
                   <div
+                    style={{
+                      backgroundImage: `url(${capabilityPillarImages[group.label]})`,
+                      backgroundRepeat: "repeat-x",
+                      backgroundSize: "auto 100%",
+                      backgroundPosition: "center",
+                    }}
                     className={`relative isolate flex min-h-12 items-center justify-center overflow-hidden rounded-[12px] border px-4 py-2.5 text-lg font-black uppercase tracking-[0.3em] shadow-[inset_0_1px_0_rgba(255,255,255,0.08)] ${
                       group.label === "Build"
                         ? "border-cyan-100/16 bg-[#285869]"
@@ -105,14 +110,6 @@ export default function ServicesPage() {
                           : "border-indigo-100/16 bg-[#3e506c]"
                     }`}
                   >
-                    <Image
-                      src={capabilityPillarImages[group.label]}
-                      alt=""
-                      fill
-                      sizes="360px"
-                      className="h-full w-full rounded-[inherit] object-fill opacity-95"
-                      aria-hidden="true"
-                    />
                     <span className="relative z-10 text-[color:var(--color-accent)] [text-shadow:0_1px_10px_rgba(3,8,16,1),0_0_18px_rgba(3,8,16,0.9)]">
                       {group.label}
                     </span>
@@ -124,13 +121,14 @@ export default function ServicesPage() {
                   <p className="mx-auto mt-4 max-w-[340px] text-sm leading-6 text-slate-200">
                     {group.buyerPrompt}
                   </p>
-                  <div className="mt-6 grid gap-2.5">
+                  <div className="mt-6 grid gap-2.5 rounded-[16px] border border-cyan-100/10 bg-[#173343] p-3 text-left">
                     {group.outcomes.map((outcome) => (
                       <div
                         key={outcome}
-                        className="rounded-[14px] border border-cyan-100/10 bg-[#173343] px-4 py-3 text-sm font-semibold leading-6 text-white"
+                        className="flex gap-3 px-2 py-2 text-sm font-semibold leading-6 text-white"
                       >
-                        {outcome}
+                        <span className="mt-2 h-1.5 w-1.5 shrink-0 rounded-full bg-[color:var(--color-accent)]" />
+                        <span>{outcome}</span>
                       </div>
                     ))}
                   </div>

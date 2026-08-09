@@ -43,6 +43,12 @@ function CapabilityPillarHeader({ label }: { label: string }) {
 
   return (
     <div
+      style={{
+        backgroundImage: `url(${capabilityPillarImages[pillar]})`,
+        backgroundRepeat: "repeat-x",
+        backgroundSize: "auto 100%",
+        backgroundPosition: "center",
+      }}
       className={`relative isolate flex min-h-12 items-center justify-center overflow-hidden rounded-[12px] border px-4 py-2.5 text-lg font-black uppercase tracking-[0.3em] shadow-[inset_0_1px_0_rgba(255,255,255,0.08)] ${
         pillar === "Build"
           ? "border-cyan-100/16 bg-[#285869]"
@@ -51,14 +57,6 @@ function CapabilityPillarHeader({ label }: { label: string }) {
             : "border-indigo-100/16 bg-[#3e506c]"
       }`}
     >
-      <Image
-        src={capabilityPillarImages[pillar]}
-        alt=""
-        fill
-        sizes="360px"
-        className="h-full w-full rounded-[inherit] object-fill opacity-95"
-        aria-hidden="true"
-      />
       <span className="relative z-10 text-[color:var(--color-accent)] [text-shadow:0_1px_10px_rgba(3,8,16,1),0_0_18px_rgba(3,8,16,0.9)]">{label}</span>
     </div>
   );
@@ -81,7 +79,7 @@ function CapabilityPillarButton({
       <p className="mx-auto mt-4 max-w-[270px] text-sm font-semibold leading-6 text-white">
         {group.headline}
       </p>
-      <p className="mx-auto mt-2 max-w-[280px] text-xs leading-5 text-slate-200">
+      <p className="mx-auto mt-2 max-w-[292px] text-xs leading-5 text-slate-200">
         {group.detail}
       </p>
     </button>
@@ -112,13 +110,14 @@ function CapabilityFocusPanel({
           <p className="mt-3 text-sm leading-6 text-slate-100">{group.buyerPrompt}</p>
         </div>
 
-        <div className="grid gap-2.5">
+        <div className="grid gap-2.5 rounded-[16px] border border-cyan-100/10 bg-[#173343] p-3">
           {group.outcomes.map((outcome) => (
             <div
               key={outcome}
-              className="rounded-[14px] border border-cyan-100/10 bg-[#173343] px-4 py-3 text-sm font-semibold leading-6 text-white"
+              className="flex gap-3 px-2 py-2 text-sm font-semibold leading-6 text-white"
             >
-              {outcome}
+              <span className="mt-2 h-1.5 w-1.5 shrink-0 rounded-full bg-[color:var(--color-accent)]" />
+              <span>{outcome}</span>
             </div>
           ))}
         </div>
