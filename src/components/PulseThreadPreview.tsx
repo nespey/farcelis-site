@@ -167,7 +167,7 @@ export function PulseThreadPreview() {
             <div className="pulse-service-quote-image">
               <Image
                 src="/images/team/katalin-pulse-thread-quote.jpeg"
-                alt="Katalin Espey, Chief Services Officer"
+                alt="Katalin Espey, Chief Growth Officer"
                 width={896}
                 height={1088}
               />
@@ -179,7 +179,7 @@ export function PulseThreadPreview() {
                 decisions, owners, and follow-up from going cold after the call ends.”
               </blockquote>
               <p>Katalin Espey</p>
-              <small>Chief Services Officer</small>
+              <small>Chief Growth Officer</small>
             </div>
           </aside>
         </div>
