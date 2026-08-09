@@ -130,6 +130,36 @@ function FlowRail({
   );
 }
 
+function HorizontalFlowArrow({ left, top }: { left: string; top: string }) {
+  return (
+    <div
+      className="pointer-events-none absolute z-20 hidden h-8 w-20 -translate-x-1/2 items-center justify-center lg:flex"
+      style={{ left, top }}
+      aria-hidden="true"
+    >
+      <span className="h-px flex-1 bg-cyan-100/30 shadow-[0_0_16px_rgba(125,211,252,0.22)]" />
+      <span className="h-0 w-0 border-y-[6px] border-l-[9px] border-y-transparent border-l-cyan-100/42" />
+    </div>
+  );
+}
+
+function HorizontalFlowConnectors({ label }: { label: string }) {
+  if (label === "Build") {
+    return <HorizontalFlowArrow left="67%" top="4.5rem" />;
+  }
+
+  if (label === "Grow") {
+    return (
+      <>
+        <HorizontalFlowArrow left="25.5%" top="4.5rem" />
+        <HorizontalFlowArrow left="74.5%" top="4.5rem" />
+      </>
+    );
+  }
+
+  return <HorizontalFlowArrow left="34%" top="55%" />;
+}
+
 export function CapabilityPathPage({ slug }: { slug: string }) {
   const group = getCapabilityGroup(slug);
 
@@ -147,7 +177,7 @@ export function CapabilityPathPage({ slug }: { slug: string }) {
         <section className="section-shell section-shell-dark pt-10 lg:pt-12">
           <div className="section-inner">
             <div
-              className={`grid items-stretch gap-4 ${
+              className={`relative grid items-stretch gap-4 ${
                 group.label === "Grow"
                   ? "lg:grid-cols-[minmax(250px,0.44fr)_minmax(0,1fr)_minmax(250px,0.44fr)]"
                   : group.label === "Operate"
@@ -155,6 +185,8 @@ export function CapabilityPathPage({ slug }: { slug: string }) {
                     : "lg:grid-cols-[minmax(0,1fr)_minmax(340px,0.5fr)]"
               }`}
             >
+              <HorizontalFlowConnectors label={group.label} />
+
               {group.label === "Grow" ? (
                 <FlowRail activeLabel={group.label} groups={[adjacentGroups[0]]} position="left" />
               ) : null}
