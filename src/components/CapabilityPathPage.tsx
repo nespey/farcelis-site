@@ -144,19 +144,19 @@ function HorizontalFlowArrow({ left, top }: { left: string; top: string }) {
 
 function HorizontalFlowConnectors({ label }: { label: string }) {
   if (label === "Build") {
-    return <HorizontalFlowArrow left="67%" top="2.8rem" />;
+    return <HorizontalFlowArrow left="66.1%" top="13.25rem" />;
   }
 
   if (label === "Grow") {
     return (
       <>
-        <HorizontalFlowArrow left="25.5%" top="2.8rem" />
-        <HorizontalFlowArrow left="74.5%" top="2.8rem" />
+        <HorizontalFlowArrow left="25.4%" top="50%" />
+        <HorizontalFlowArrow left="74.6%" top="50%" />
       </>
     );
   }
 
-  return <HorizontalFlowArrow left="34%" top="66%" />;
+  return <HorizontalFlowArrow left="33.2%" top="75%" />;
 }
 
 export function CapabilityPathPage({ slug }: { slug: string }) {
