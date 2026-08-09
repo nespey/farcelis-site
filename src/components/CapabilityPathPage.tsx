@@ -46,6 +46,9 @@ const flowLabels: Record<string, Record<string, string>> = {
   },
 };
 
+const pathEyebrowClass =
+  "block w-full text-center text-xs font-bold uppercase tracking-[0.28em] text-[color:var(--color-accent)]";
+
 function PillarRibbon({ label, compact = false }: { label: string; compact?: boolean }) {
   return (
     <div
@@ -82,22 +85,22 @@ function AdjacentPathCard({
   return (
     <Link
       href={group.pathHref}
-      className="group relative z-10 flex min-h-[210px] flex-1 flex-col rounded-[18px] border border-cyan-100/12 bg-[#1c3c4d] p-3 text-center transition hover:-translate-y-0.5 hover:border-cyan-100/24 hover:bg-[#24495c]"
+      className="group relative z-10 flex min-h-[210px] flex-1 flex-col justify-center gap-4 rounded-[18px] border border-cyan-100/12 bg-[#1c3c4d] p-3 text-center transition hover:-translate-y-0.5 hover:border-cyan-100/24 hover:bg-[#24495c]"
     >
       <PillarRibbon label={group.label} compact />
-      <p className="mt-3 text-xs font-semibold uppercase tracking-[0.18em] text-[color:var(--color-accent)]">
-        {flowLabels[activeLabel][group.label]}
-      </p>
-      <p className="mx-auto mt-3 max-w-[34rem] text-sm font-semibold leading-6 text-white">{group.headline}</p>
-      <p className="mx-auto mt-2 max-w-[34rem] text-xs leading-5 text-slate-200">{group.detail}</p>
-      <div className="mt-4 rounded-[14px] border border-cyan-100/10 bg-[#173343] px-3 py-3 text-xs font-semibold leading-5 text-white">
-        {flowCopy[activeLabel][group.label]}
+      <div className="mx-auto flex w-full max-w-[34rem] flex-col items-center gap-3">
+        <p className="block w-full text-center text-xs font-semibold uppercase tracking-[0.18em] text-[color:var(--color-accent)]">
+          {flowLabels[activeLabel][group.label]}
+        </p>
+        <p className="text-center text-sm font-semibold leading-6 text-white">{group.headline}</p>
+        <p className="text-center text-xs leading-5 text-slate-200">{group.detail}</p>
+        <div className="w-full rounded-[14px] border border-cyan-100/10 bg-[#173343] px-3 py-3 text-center text-xs font-semibold leading-5 text-white">
+          {flowCopy[activeLabel][group.label]}
+        </div>
       </div>
-      <div className="mt-auto pt-4">
-        <span className="inline-flex w-full items-center justify-center rounded-full border border-cyan-100/14 bg-cyan-100/6 px-4 py-2 text-sm font-semibold text-white transition group-hover:border-cyan-100/26 group-hover:bg-cyan-100/10">
-          Go to {group.label} Path
-        </span>
-      </div>
+      <span className="inline-flex w-full items-center justify-center rounded-full border border-cyan-100/14 bg-cyan-100/6 px-4 py-2 text-sm font-semibold text-white transition group-hover:border-cyan-100/26 group-hover:bg-cyan-100/10">
+        Go to {group.label} Path
+      </span>
     </Link>
   );
 }
@@ -197,30 +200,32 @@ export function CapabilityPathPage({ slug }: { slug: string }) {
               <article className="rounded-[24px] border border-cyan-100/12 bg-[#1c3c4d] p-4 lg:p-6">
                 <PillarRibbon label={group.label} />
                 <div className="mt-6 grid min-h-[560px] gap-6 lg:grid-cols-[0.86fr_1.14fr]">
-                  <div className="flex flex-col text-center">
-                    <p className="eyebrow text-center text-[color:var(--color-accent)]">Why You Are Here</p>
-                    <h2 className="mx-auto mt-4 max-w-[36rem] text-3xl font-semibold tracking-[-0.05em] text-white">
-                      {group.headline}
-                    </h2>
-                    <p className="mx-auto mt-4 max-w-[35rem] text-base leading-7 text-slate-200">{group.buyerPrompt}</p>
-                    <div className="mt-5 grid gap-2.5 rounded-[16px] border border-cyan-100/10 bg-[#173343] p-3 text-center">
-                      {group.outcomes.map((outcome) => (
-                        <div key={outcome} className="grid grid-cols-[1.5rem_minmax(0,1fr)] gap-2 px-2 py-2 text-sm font-semibold leading-6 text-white">
-                          <span className="mt-2 h-1.5 w-1.5 shrink-0 rounded-full bg-[color:var(--color-accent)]" />
-                          <span className="text-center">{outcome}</span>
-                        </div>
-                      ))}
+                  <div className="flex min-h-full flex-col justify-between text-center">
+                    <div className="pt-4 lg:pt-7">
+                      <p className={pathEyebrowClass}>Why You Are Here</p>
+                      <h2 className="mx-auto mt-4 max-w-[36rem] text-center text-3xl font-semibold tracking-[-0.05em] text-white">
+                        {group.headline}
+                      </h2>
+                      <p className="mx-auto mt-4 max-w-[35rem] text-center text-base leading-7 text-slate-200">{group.buyerPrompt}</p>
+                      <div className="mx-auto mt-6 grid max-w-[36rem] gap-3 rounded-[16px] border border-cyan-100/10 bg-[#173343] p-4 text-center">
+                        {group.outcomes.map((outcome) => (
+                          <div key={outcome} className="grid grid-cols-[1.5rem_minmax(0,1fr)] gap-2 px-2 py-2 text-sm font-semibold leading-6 text-white">
+                            <span className="mt-2 h-1.5 w-1.5 shrink-0 rounded-full bg-[color:var(--color-accent)]" />
+                            <span className="text-center">{outcome}</span>
+                          </div>
+                        ))}
+                      </div>
                     </div>
                     <Link
                       href={group.actionHref}
-                      className="mx-auto mt-auto inline-flex rounded-full bg-[color:var(--color-accent)] px-6 py-3 text-sm font-semibold text-white shadow-[0_14px_34px_rgba(255,124,82,0.25)] transition hover:brightness-110"
+                      className="mx-auto mt-8 inline-flex rounded-full bg-[color:var(--color-accent)] px-6 py-3 text-sm font-semibold text-white shadow-[0_14px_34px_rgba(255,124,82,0.25)] transition hover:brightness-110"
                     >
                       {group.primaryCta}
                     </Link>
                   </div>
 
-                  <div className="flex flex-col">
-                    <p className="eyebrow text-center text-[color:var(--color-accent)]">Choose What You Need</p>
+                  <div className="flex min-h-full flex-col justify-center">
+                    <p className={pathEyebrowClass}>Choose What You Need</p>
                     <div className="mt-4 grid gap-2.5">
                       {group.links.map((item) => (
                         <Link
