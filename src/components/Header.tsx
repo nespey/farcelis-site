@@ -56,7 +56,7 @@ function CapabilityPillarHeader({ label }: { label: string }) {
         alt=""
         fill
         sizes="360px"
-        className="rounded-[inherit] object-cover opacity-95"
+        className="h-full w-full rounded-[inherit] object-fill opacity-95"
         aria-hidden="true"
       />
       <span className="relative z-10 text-[color:var(--color-accent)] [text-shadow:0_1px_10px_rgba(3,8,16,1),0_0_18px_rgba(3,8,16,0.9)]">{label}</span>
@@ -134,14 +134,14 @@ function CapabilityFocusPanel({
         </button>
         <div className="flex flex-wrap gap-2">
           <Link
-            href={`/services#${group.label.toLowerCase()}`}
+            href={group.pathHref}
             onClick={onClose}
             className="rounded-full border border-cyan-100/18 px-4 py-2 text-sm font-semibold text-slate-100 transition hover:border-cyan-100/32 hover:text-white"
           >
             See the {group.label} Path
           </Link>
           <Link
-            href="/contact"
+            href={group.actionHref}
             onClick={onClose}
             className="rounded-full bg-[color:var(--color-accent)] px-4 py-2 text-sm font-semibold text-white shadow-[0_14px_34px_rgba(255,124,82,0.25)] transition hover:brightness-110"
           >
@@ -436,7 +436,7 @@ export function Header() {
                       {group.detail}
                     </p>
                     <Link
-                      href={`/services#${group.label.toLowerCase()}`}
+                      href={group.pathHref}
                       onClick={closeMenus}
                       className="mt-3 inline-flex min-h-10 items-center justify-center rounded-full border border-cyan-100/18 px-4 text-sm font-semibold text-white"
                     >

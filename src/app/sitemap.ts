@@ -12,6 +12,12 @@ export default function sitemap(): MetadataRoute.Sitemap {
   }));
 
   const dynamicRoutes = [
+    "/services/build",
+    "/services/grow",
+    "/services/operate",
+    "/contact/build",
+    "/contact/grow",
+    "/contact/operate",
     ...directServices.map((service) => `/services/${service.slug}`),
     ...products
       .filter((product) => product.slug !== "control-layer")

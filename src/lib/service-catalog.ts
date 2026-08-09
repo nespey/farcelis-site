@@ -11,6 +11,12 @@ export type CapabilityGroup = {
   buyerPrompt: string;
   outcomes: string[];
   primaryCta: string;
+  pathHref: string;
+  actionHref: string;
+  handoff: {
+    title: string;
+    body: string;
+  };
   links: ServiceLink[];
 };
 
@@ -45,6 +51,12 @@ export const capabilityGroups: CapabilityGroup[] = [
       "Launch, deployment, documentation, and ownership path",
     ],
     primaryCta: "Talk Through a Build",
+    pathHref: "/services/build",
+    actionHref: "/contact/build",
+    handoff: {
+      title: "Build creates the asset. Grow makes it findable. Operate keeps it working.",
+      body: "A site, app, portal, dashboard, or automation is only useful when it connects to visibility, follow-up, ownership, and support. Farcelis builds with that next handoff in mind.",
+    },
     links: [
       {
         href: "/services/website-development",
@@ -90,6 +102,12 @@ export const capabilityGroups: CapabilityGroup[] = [
       "CRM routing, follow-up, reporting, and revenue handoff",
     ],
     primaryCta: "Map a Growth Path",
+    pathHref: "/services/grow",
+    actionHref: "/contact/grow",
+    handoff: {
+      title: "Grow creates movement. Operate keeps that movement from becoming chaos.",
+      body: "Visibility, campaigns, content, and CRM only matter when someone owns the follow-through. Farcelis connects growth activity into operating rhythm, reporting, and decision support.",
+    },
     links: [
       {
         href: "/services/seo-aeo-visibility",
@@ -135,6 +153,12 @@ export const capabilityGroups: CapabilityGroup[] = [
       "Managed operations, deployment continuity, and support rhythm",
     ],
     primaryCta: "Stabilize Operations",
+    pathHref: "/services/operate",
+    actionHref: "/contact/operate",
+    handoff: {
+      title: "Operate stabilizes the system, and it can point back to what needs to be built or grown.",
+      body: "When operations expose a missing portal, unclear reporting layer, weak campaign handoff, or fragile deployment path, Farcelis can move back into Build or Grow without losing the operating model.",
+    },
     links: [
       {
         href: "/services/ai-strategy-governance",
@@ -169,6 +193,10 @@ export const capabilityGroups: CapabilityGroup[] = [
     ],
   },
 ];
+
+export function getCapabilityGroup(slug: string) {
+  return capabilityGroups.find((group) => group.label.toLowerCase() === slug);
+}
 
 export const directServices: DirectService[] = [
   {
