@@ -1,5 +1,6 @@
 import type { MetadataRoute } from "next";
 
+import { directServices } from "@/lib/service-catalog";
 import { blogPosts, industryFocus, insightArticles, products, seo, site, teamMembers } from "@/lib/site-data";
 
 export default function sitemap(): MetadataRoute.Sitemap {
@@ -11,6 +12,7 @@ export default function sitemap(): MetadataRoute.Sitemap {
   }));
 
   const dynamicRoutes = [
+    ...directServices.map((service) => `/services/${service.slug}`),
     ...products
       .filter((product) => product.slug !== "control-layer")
       .map((product) => `/products/${product.slug}`),

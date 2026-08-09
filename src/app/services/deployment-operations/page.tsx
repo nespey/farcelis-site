@@ -9,6 +9,11 @@ export const metadata = buildMetadata(seo.deploymentOperations);
 
 const operatingStack = [
   {
+    title: "Idea-to-build path",
+    body: "For buyers who know what they want to build but do not know the technical path, Farcelis shapes the concept, creates the codebase, chooses the deployment route, and makes the system real.",
+    points: ["Concept intake", "Technical direction", "Clean codebase", "Launch path"],
+  },
+  {
     title: "GitHub release path",
     body: "Repository structure, branch discipline, deployment triggers, review checkpoints, and rollback notes for code that needs to stay understandable after launch.",
     points: ["Repository inventory", "Branch and preview flow", "Release checklist", "Rollback reference"],
@@ -26,13 +31,17 @@ const operatingStack = [
 ];
 
 const launchPath = [
-  "Confirm the application, owner, repository, hosting project, domains, secrets, and external services.",
+  "Clarify whether the client is starting from an idea, existing website, partial app, repository, or live tool.",
+  "For idea-stage clients, define the minimum viable build, codebase, owner, and deployment path.",
+  "For existing-code clients, confirm the application, owner, repository, hosting project, domains, secrets, and external services.",
   "Define what Farcelis manages, what the client owns, and which changes require approval.",
   "Stabilize the GitHub-to-Vercel release path with preview checks, launch steps, and rollback notes.",
   "Document the operating rhythm for updates, monitoring, support requests, and future improvements.",
 ];
 
 const bestFit = [
+  "A founder, operator, consultant, or business owner has an idea for a website, app, portal, dashboard, or automation but does not know where to start technically.",
+  "The company wants a custom system without being trapped in a generic site builder or a pile of disconnected subscription tools.",
   "A website, dashboard, portal, or AI-assisted tool already exists but the post-launch owner is unclear.",
   "GitHub, Vercel, DNS, domains, secrets, and deploy settings feel scattered or fragile.",
   "The business wants Farcelis to manage the deployment path without hiding ownership or trapping the client.",
@@ -44,8 +53,8 @@ export default function DeploymentOperationsPage() {
     <>
       <PageIntro
         eyebrow="Deployment Operations"
-        title="GitHub and Vercel support for tools that need to stay live after launch."
-        description="Farcelis helps keep websites, apps, portals, dashboards, and AI-assisted tools deployed, documented, monitored, and manageable after the first build ships."
+        title="Bring the idea, the rough build, or the messy deployment. Farcelis turns it into a working system."
+        description="Clients do not need to know GitHub, Vercel, Cloudflare, Fly.io, code, repositories, or deployment workflows to start. Farcelis can shape the build, create the technical foundation, launch it properly, and keep the resulting website, app, portal, dashboard, or AI-assisted tool manageable after launch."
         actions={[
           { href: "/contact", label: "Discuss Deployment Support" },
           { href: "/services/managed-operations", label: "See Managed Operations", variant: "secondary" },
@@ -60,14 +69,14 @@ export default function DeploymentOperationsPage() {
             <div className="max-w-[900px]">
               <p className="eyebrow text-[#9f412c]">Managed Deployment Layer</p>
               <h2 className="section-title mt-5 text-slate-950">
-                The service sits between the build and the business: release path, hosting setup, documentation, and operating support.
+                The service sits between the idea, the build, and the business: codebase, release path, hosting setup, documentation, and operating support.
               </h2>
               <p className="mt-6 max-w-[760px] text-base leading-8 text-slate-600">
-                Farcelis does not need to pretend to be the data center. The value is operational ownership: knowing what is deployed, how it updates, where it can fail, and how to keep the client in control.
+                Farcelis does not need to pretend to be the data center. The value is practical technical ownership: knowing what should be built, how it should be deployed, how it updates, where it can fail, and how to keep the client in control.
               </p>
             </div>
 
-            <div className="mt-12 grid gap-5 lg:grid-cols-3">
+            <div className="mt-12 grid gap-5 lg:grid-cols-4">
               {operatingStack.map((item) => (
                 <article
                   key={item.title}
@@ -100,10 +109,10 @@ export default function DeploymentOperationsPage() {
             <div>
               <p className="eyebrow text-[color:var(--color-accent)]">How It Works</p>
               <h2 className="section-title mt-5 text-white">
-                Start with a client-owned stack, then make the deployment path repeatable.
+                Start wherever the client actually is, then make the build and deployment path repeatable.
               </h2>
               <p className="mt-6 max-w-[560px] text-base leading-8 text-slate-300">
-                The clean initial model is simple: the client owns the repository, domain, hosting account, and data. Farcelis manages the operating process around it.
+                Some clients start with nothing but a clear idea. Others start with GitHub, domains, hosting, and deployment settings already in place. Farcelis meets the work at the real starting point and creates the structure around it.
               </p>
             </div>
 
@@ -128,10 +137,10 @@ export default function DeploymentOperationsPage() {
               <article className="rounded-[26px] border border-slate-200 bg-white px-6 py-7 shadow-[0_18px_38px_rgba(15,23,42,0.06)]">
                 <p className="eyebrow text-[#9f412c]">Service Boundary</p>
                 <h2 className="mt-4 text-3xl font-semibold tracking-[-0.04em] text-slate-950">
-                  Farcelis manages the release path without taking ownership away from the client.
+                  Farcelis handles the technical path without making the client become technical first.
                 </h2>
                 <p className="mt-5 text-base leading-8 text-slate-600">
-                  This creates a legitimate managed deployment offer around GitHub, Vercel, domains, documentation, support cadence, and application upkeep while keeping infrastructure charges, code ownership, and export paths clear.
+                  GitHub, Vercel, Cloudflare, Fly.io, domains, repositories, and environment variables are the tools Farcelis can use behind the scenes. The buyer-facing promise is simpler: build the thing cleanly, launch it properly, keep ownership clear, and maintain it with a visible support rhythm.
                 </p>
               </article>
 

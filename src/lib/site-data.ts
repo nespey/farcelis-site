@@ -237,9 +237,9 @@ export const seo = {
   },
   deploymentOperations: {
     path: "/services/deployment-operations",
-    title: "Deployment Operations | GitHub & Vercel Support | Farcelis",
+    title: "Deployment Operations | Idea-to-Launch Build Support | Farcelis",
     description:
-      "Farcelis helps keep GitHub-connected websites, apps, portals, and AI-assisted tools deployed, documented, monitored, and manageable on Vercel and related hosting stacks.",
+      "Farcelis helps clients move from idea, rough build, or GitHub-connected tool into a clean, deployed, documented, monitored, and manageable website, app, portal, dashboard, or AI-assisted system.",
   },
   platforms: {
     path: "/platforms",

@@ -4,38 +4,7 @@ import Image from "next/image";
 import Link from "next/link";
 import { useCallback, useEffect, useRef, useState } from "react";
 
-const capabilityLinks = [
-  {
-    href: "/services/ai-strategy-governance",
-    label: "AI Strategy & Governance",
-    detail: "Readiness, policy, adoption, and executive decision structure.",
-  },
-  {
-    href: "/services/workflow-operations",
-    label: "Workflow & Operations",
-    detail: "Routing, handoffs, ownership, reporting, and operating cadence.",
-  },
-  {
-    href: "/control-layer",
-    label: "Control Layer",
-    detail: "Flagship operating environment for intake, control, and intervention.",
-  },
-  {
-    href: "/platforms",
-    label: "Platforms & Integrations",
-    detail: "CRM, work management, collaboration, reporting, and AI agents.",
-  },
-  {
-    href: "/services#growth-systems",
-    label: "Growth Systems",
-    detail: "Social, SEO, blogs, campaigns, content, and revenue operations.",
-  },
-  {
-    href: "/services/managed-operations",
-    label: "Managed Operations",
-    detail: "Hands-on operating cadence, triage, follow-through, and enablement.",
-  },
-];
+import { capabilityGroups } from "@/lib/service-catalog";
 
 const solutionLinks = [
   {
@@ -152,13 +121,13 @@ export function Header() {
               </button>
               <div
                 id="capabilities-menu"
-                className={`absolute left-0 top-full z-40 pt-4 transition duration-200 ${
+                className={`fixed left-1/2 top-16 z-40 w-[min(900px,calc(100vw-3rem))] -translate-x-1/2 pt-4 transition duration-200 sm:top-20 ${
                   activeMenu === "capabilities"
                     ? "pointer-events-auto opacity-100"
                     : "pointer-events-none opacity-0"
                 }`}
               >
-                <div className="surface-dark min-w-[560px] rounded-[24px] border border-cyan-100/14 bg-[#173343] p-4 shadow-[0_28px_80px_rgba(3,8,16,0.46)]">
+                <div className="surface-dark rounded-[24px] border border-cyan-100/14 bg-[#173343] p-4 shadow-[0_28px_80px_rgba(3,8,16,0.46)]">
                   <div className="rounded-[18px] border border-cyan-100/10 bg-[#1c3c4d] px-4 py-3">
                     <div className="text-xs font-semibold uppercase tracking-[0.2em] text-[color:var(--color-accent)]">
                         Capabilities
@@ -168,17 +137,27 @@ export function Header() {
                     </p>
                   </div>
 
-                  <div className="mt-3 grid gap-2 sm:grid-cols-2">
-                    {capabilityLinks.map((item) => (
-                      <Link
-                        key={item.label}
-                        href={item.href}
-                        onClick={closeMenus}
-                        className="block rounded-[16px] border border-cyan-100/12 bg-[#1c3c4d] px-4 py-3 transition hover:border-cyan-100/22 hover:bg-[#24495c] hover:text-white"
-                      >
-                        <div className="text-sm font-semibold text-white">{item.label}</div>
-                        <div className="mt-1 text-xs leading-6 text-slate-100">{item.detail}</div>
-                      </Link>
+                  <div className="mt-3 grid gap-3 lg:grid-cols-3">
+                    {capabilityGroups.map((group) => (
+                      <div key={group.label} className="rounded-[18px] border border-cyan-100/10 bg-[#1c3c4d] p-3">
+                        <div className="text-xs font-semibold uppercase tracking-[0.2em] text-[color:var(--color-accent)]">
+                          {group.label}
+                        </div>
+                        <p className="mt-2 min-h-12 text-xs leading-6 text-slate-100">{group.detail}</p>
+                        <div className="mt-3 grid gap-2">
+                          {group.links.map((item) => (
+                            <Link
+                              key={`${group.label}-${item.label}`}
+                              href={item.href}
+                              onClick={closeMenus}
+                              className="block rounded-[14px] border border-cyan-100/10 bg-[#173343] px-3 py-3 transition hover:border-cyan-100/22 hover:bg-[#24495c] hover:text-white"
+                            >
+                              <div className="text-sm font-semibold text-white">{item.label}</div>
+                              <div className="mt-1 text-xs leading-5 text-slate-100">{item.detail}</div>
+                            </Link>
+                          ))}
+                        </div>
+                      </div>
                     ))}
                   </div>
                 </div>
@@ -314,16 +293,25 @@ export function Header() {
           <div className="grid gap-5">
             <div>
               <p className="eyebrow text-[color:var(--color-accent)]">Capabilities</p>
-              <div className="mt-3 grid gap-2">
-                {capabilityLinks.map((item) => (
-                  <Link
-                    key={item.label}
-                    href={item.href}
-                    onClick={closeMenus}
-                    className="rounded-[16px] border border-cyan-100/12 bg-white/[0.035] px-4 py-3 text-sm font-semibold text-white"
-                  >
-                    {item.label}
-                  </Link>
+              <div className="mt-3 grid gap-3">
+                {capabilityGroups.map((group) => (
+                  <div key={group.label} className="rounded-[18px] border border-cyan-100/12 bg-white/[0.035] p-3">
+                    <div className="text-xs font-semibold uppercase tracking-[0.18em] text-[color:var(--color-accent)]">
+                      {group.label}
+                    </div>
+                    <div className="mt-3 grid gap-2">
+                      {group.links.map((item) => (
+                        <Link
+                          key={`${group.label}-${item.label}`}
+                          href={item.href}
+                          onClick={closeMenus}
+                          className="rounded-[14px] border border-cyan-100/10 bg-[#173343]/70 px-4 py-3 text-sm font-semibold text-white"
+                        >
+                          {item.label}
+                        </Link>
+                      ))}
+                    </div>
+                  </div>
                 ))}
               </div>
             </div>

@@ -3,6 +3,7 @@ import Link from "next/link";
 import { PageIntro } from "@/components/PageIntro";
 import { Reveal } from "@/components/Reveal";
 import { buildMetadata } from "@/lib/metadata";
+import { capabilityGroups } from "@/lib/service-catalog";
 import { seo } from "@/lib/site-data";
 
 export const metadata = buildMetadata(seo.services);
@@ -22,115 +23,22 @@ const operatingPrinciples = [
   },
 ];
 
-const capabilityLanes = [
-  {
-    id: "ai-strategy-governance",
-    eyebrow: "Capability Lane",
-    title: "AI Strategy & Governance",
-    description:
-      "For leaders deciding where AI belongs, what should be governed, how teams should use it, and what adoption should look like before tools multiply.",
-    builds: [
-      "AI readiness assessment",
-      "Use-case and risk prioritization",
-      "Governance and usage policy",
-      "Leadership adoption roadmap",
-    ],
-    href: "/services/ai-strategy-governance",
-    cta: "Explore AI governance",
-  },
-  {
-    id: "workflow-operations",
-    eyebrow: "Capability Lane",
-    title: "Workflow & Operations",
-    description:
-      "For teams where routing, handoffs, ownership, reporting, cadence, or follow-through have become too informal to hold under pressure.",
-    builds: [
-      "Workflow and handoff mapping",
-      "Ownership and escalation structure",
-      "Operating cadence design",
-      "Execution visibility model",
-    ],
-    href: "/services/workflow-operations",
-    cta: "Explore workflow operations",
-  },
-  {
-    id: "control-layer",
-    eyebrow: "Flagship System",
-    title: "Control Layer Design & Deployment",
-    description:
-      "For organizations that need one operating environment above existing tools so intake, ownership, visibility, and intervention live in a controlled frame.",
-    builds: [
-      "Control Layer architecture",
-      "Reporting and visibility design",
-      "Priority and workflow mapping",
-      "Implementation support",
-    ],
-    href: "/control-layer",
-    cta: "Explore the Control Layer",
-  },
-  {
-    id: "platforms-integrations",
-    eyebrow: "Connected Stack",
-    title: "Platforms, Agents & Integrations",
-    description:
-      "For companies that need AI agents, CRM, work management, collaboration, and reporting tools connected around real responsibilities.",
-    builds: [
-      "AI assistants and agents",
-      "CRM and revenue workflows",
-      "Platform integration logic",
-      "Operational dashboards",
-    ],
-    href: "/platforms",
-    cta: "Explore platforms",
-  },
-  {
-    id: "growth-systems",
-    eyebrow: "Growth Operations",
-    title: "Marketing, SEO, Content & Revenue Systems",
-    description:
-      "For teams that need social, blogs, SEO, campaigns, lead capture, CRM follow-through, and reporting to behave like one operating system.",
-    builds: [
-      "SEO and content systems",
-      "Social media management",
-      "Campaign and lead workflows",
-      "Revenue operations visibility",
-    ],
-    href: "/contact",
-    cta: "Discuss growth systems",
-  },
-  {
-    id: "managed-operations",
-    eyebrow: "Execution Support",
-    title: "Managed Operations & Enablement",
-    description:
-      "For leaders who need operating support while the system matures: triage, follow-through, meeting cadence, workflow cleanup, AI enablement, and executive visibility.",
-    builds: [
-      "Weekly operating cadence",
-      "Workflow triage and cleanup",
-      "Executive follow-through",
-      "AI enablement in live work",
-    ],
-    href: "/services/managed-operations",
-    cta: "Explore managed operations",
-  },
-];
-
 export default function ServicesPage() {
   return (
     <>
       <PageIntro
         eyebrow="Capabilities"
-        title="Farcelis organizes AI, workflow, platforms, growth, and execution into clear service lanes."
-        description="This page is the map. Each lane below explains what problem it solves, what Farcelis builds, and where to go next."
+        title="Farcelis helps leaders build, grow, and operate systems that can actually be owned."
+        description="Some clients arrive with code, tools, and deployment problems. Others arrive with an idea and no technical map. Farcelis turns both starting points into clean websites, apps, portals, dashboards, automations, growth systems, and operating environments."
         actions={[
           { href: "/contact", label: "Work With Farcelis" },
           { href: "/control-layer", label: "Explore the Control Layer", variant: "secondary" },
         ]}
         asideTitle="How to read this page"
         asideItems={[
-          "Choose AI Strategy when the question is what AI should do, how it should be governed, and how adoption should happen.",
-          "Choose Workflow & Operations when work is already moving but routing, ownership, cadence, or visibility are breaking down.",
-          "Choose Control Layer when the business needs a single operating environment above the tools already in place.",
+          "Build when the business needs a website, app, portal, automation, Control Layer, or deployment path.",
+          "Grow when visibility, content, campaigns, CRM, and revenue follow-through need to operate together.",
+          "Operate when systems, workflows, reporting, AI use, and execution cadence need sustained control.",
         ]}
       />
 
@@ -140,7 +48,7 @@ export default function ServicesPage() {
             <div>
               <p className="eyebrow text-[color:var(--color-accent)]">Service Model</p>
               <h2 className="section-title mt-5 text-white">
-                The model is simple: stabilize the operating logic, then apply AI and automation where they can actually hold.
+                The model is simple: build the right thing, connect it to growth, then keep it operating.
               </h2>
             </div>
 
@@ -167,43 +75,43 @@ export default function ServicesPage() {
             <div className="max-w-[880px]">
               <p className="eyebrow text-[#9f412c]">Capability Lanes</p>
               <h2 className="section-title mt-5 text-slate-950">
-                Distinct paths, clear jobs, one operating system underneath.
+                Build, Grow, and Operate are the buyer-facing paths into Farcelis.
               </h2>
               <p className="mt-5 max-w-[760px] text-base leading-8 text-slate-600">
-                The lanes are not meant to be a long menu of disconnected services. They are the major ways Farcelis enters a business depending on the problem a leader is trying to solve.
+                The grouped model keeps Farcelis understandable without muting the Control Layer. It gives buyers a practical way to find the right entry point whether they need something created, demand stabilized, or an operating system managed.
               </p>
             </div>
 
-            <div className="mt-12 grid gap-5 lg:grid-cols-2">
-              {capabilityLanes.map((lane) => (
+            <div className="mt-12 grid gap-5 lg:grid-cols-3">
+              {capabilityGroups.map((group) => (
                 <article
-                  key={lane.id}
-                  id={lane.id}
+                  key={group.label}
+                  id={group.label.toLowerCase()}
                   className="enterprise-card rounded-[28px] border border-slate-200 bg-white px-6 py-7 shadow-[0_18px_38px_rgba(15,23,42,0.06)]"
                 >
                   <p className="text-xs font-semibold uppercase tracking-[0.18em] text-[#9f412c]">
-                    {lane.eyebrow}
+                    {group.label}
                   </p>
                   <h3 className="mt-4 text-2xl font-semibold tracking-[-0.04em] text-slate-950">
-                    {lane.title}
+                    {group.label === "Build"
+                      ? "Create the website, app, portal, automation, or deployment path."
+                      : group.label === "Grow"
+                        ? "Make visibility, campaigns, content, and CRM move together."
+                        : "Keep systems, workflows, reporting, and support under control."}
                   </h3>
-                  <p className="mt-4 text-base leading-8 text-slate-600">{lane.description}</p>
-                  <ul className="mt-6 grid gap-2 sm:grid-cols-2">
-                    {lane.builds.map((item) => (
-                      <li
-                        key={item}
-                        className="border-l border-[#9f412c]/24 pl-4 text-sm font-semibold leading-6 text-slate-700"
+                  <p className="mt-4 text-base leading-8 text-slate-600">{group.detail}</p>
+                  <div className="mt-6 grid gap-3">
+                    {group.links.map((item) => (
+                      <Link
+                        key={`${group.label}-${item.label}`}
+                        href={item.href}
+                        className="rounded-[18px] border border-slate-200 bg-slate-50 px-4 py-4 transition hover:border-[#9f412c]/28 hover:bg-white"
                       >
-                        {item}
-                      </li>
+                        <span className="block text-sm font-semibold leading-6 text-slate-950">{item.label}</span>
+                        <span className="mt-1 block text-sm leading-6 text-slate-600">{item.detail}</span>
+                      </Link>
                     ))}
-                  </ul>
-                  <Link
-                    href={lane.href}
-                    className="capability-lane-action mt-7"
-                  >
-                    {lane.cta}
-                  </Link>
+                  </div>
                 </article>
               ))}
             </div>
