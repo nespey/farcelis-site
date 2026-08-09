@@ -82,14 +82,14 @@ function AdjacentPathCard({
   return (
     <Link
       href={group.pathHref}
-      className="group relative z-10 flex min-h-[210px] flex-1 flex-col rounded-[18px] border border-cyan-100/12 bg-[#1c3c4d] p-3 transition hover:-translate-y-0.5 hover:border-cyan-100/24 hover:bg-[#24495c]"
+      className="group relative z-10 flex min-h-[210px] flex-1 flex-col rounded-[18px] border border-cyan-100/12 bg-[#1c3c4d] p-3 text-center transition hover:-translate-y-0.5 hover:border-cyan-100/24 hover:bg-[#24495c]"
     >
       <PillarRibbon label={group.label} compact />
       <p className="mt-3 text-xs font-semibold uppercase tracking-[0.18em] text-[color:var(--color-accent)]">
         {flowLabels[activeLabel][group.label]}
       </p>
-      <p className="mt-3 text-sm font-semibold leading-6 text-white">{group.headline}</p>
-      <p className="mt-2 text-xs leading-5 text-slate-200">{group.detail}</p>
+      <p className="mx-auto mt-3 max-w-[34rem] text-sm font-semibold leading-6 text-white">{group.headline}</p>
+      <p className="mx-auto mt-2 max-w-[34rem] text-xs leading-5 text-slate-200">{group.detail}</p>
       <div className="mt-4 rounded-[14px] border border-cyan-100/10 bg-[#173343] px-3 py-3 text-xs font-semibold leading-5 text-white">
         {flowCopy[activeLabel][group.label]}
       </div>
@@ -112,10 +112,10 @@ function FlowRail({
 }) {
   return (
     <aside className="flex h-full min-h-[620px] flex-col rounded-[24px] border border-cyan-100/10 bg-[#102c39] p-3 shadow-[inset_0_1px_0_rgba(255,255,255,0.04)]">
-      <div className="relative flex flex-1 flex-col gap-3 overflow-hidden rounded-[18px]">
+      <div className={`relative flex flex-1 flex-col gap-3 overflow-hidden rounded-[18px] ${groups.length === 1 ? "justify-center" : ""}`}>
         <span className="absolute bottom-8 left-1/2 top-8 w-px -translate-x-1/2 bg-cyan-100/12" aria-hidden="true" />
         {groups.map((item, index) => (
-          <div key={item.label} className="relative flex flex-1 flex-col">
+          <div key={item.label} className={`relative flex flex-col ${groups.length === 1 ? "min-h-[360px]" : "flex-1"}`}>
             {index > 0 ? (
               <div className="relative z-10 -my-1 flex h-7 items-center justify-center" aria-hidden="true">
                 <span className="h-full w-px bg-cyan-100/18" />
@@ -196,40 +196,40 @@ export function CapabilityPathPage({ slug }: { slug: string }) {
 
               <article className="rounded-[24px] border border-cyan-100/12 bg-[#1c3c4d] p-4 lg:p-6">
                 <PillarRibbon label={group.label} />
-                <div className="mt-6 grid gap-6 lg:grid-cols-[0.86fr_1.14fr]">
-                  <div>
-                    <p className="eyebrow text-[color:var(--color-accent)]">Why You Are Here</p>
-                    <h2 className="mt-4 text-3xl font-semibold tracking-[-0.05em] text-white">
+                <div className="mt-6 grid min-h-[560px] gap-6 lg:grid-cols-[0.86fr_1.14fr]">
+                  <div className="flex flex-col text-center">
+                    <p className="eyebrow text-center text-[color:var(--color-accent)]">Why You Are Here</p>
+                    <h2 className="mx-auto mt-4 max-w-[36rem] text-3xl font-semibold tracking-[-0.05em] text-white">
                       {group.headline}
                     </h2>
-                    <p className="mt-4 text-base leading-7 text-slate-200">{group.buyerPrompt}</p>
-                    <div className="mt-5 grid gap-2.5 rounded-[16px] border border-cyan-100/10 bg-[#173343] p-3">
+                    <p className="mx-auto mt-4 max-w-[35rem] text-base leading-7 text-slate-200">{group.buyerPrompt}</p>
+                    <div className="mt-5 grid gap-2.5 rounded-[16px] border border-cyan-100/10 bg-[#173343] p-3 text-center">
                       {group.outcomes.map((outcome) => (
-                        <div key={outcome} className="flex gap-3 px-2 py-2 text-sm font-semibold leading-6 text-white">
+                        <div key={outcome} className="grid grid-cols-[1.5rem_minmax(0,1fr)] gap-2 px-2 py-2 text-sm font-semibold leading-6 text-white">
                           <span className="mt-2 h-1.5 w-1.5 shrink-0 rounded-full bg-[color:var(--color-accent)]" />
-                          <span>{outcome}</span>
+                          <span className="text-center">{outcome}</span>
                         </div>
                       ))}
                     </div>
                     <Link
                       href={group.actionHref}
-                      className="mt-5 inline-flex rounded-full bg-[color:var(--color-accent)] px-6 py-3 text-sm font-semibold text-white shadow-[0_14px_34px_rgba(255,124,82,0.25)] transition hover:brightness-110"
+                      className="mx-auto mt-auto inline-flex rounded-full bg-[color:var(--color-accent)] px-6 py-3 text-sm font-semibold text-white shadow-[0_14px_34px_rgba(255,124,82,0.25)] transition hover:brightness-110"
                     >
                       {group.primaryCta}
                     </Link>
                   </div>
 
-                  <div>
-                    <p className="eyebrow text-[color:var(--color-accent)]">Choose What You Need</p>
+                  <div className="flex flex-col">
+                    <p className="eyebrow text-center text-[color:var(--color-accent)]">Choose What You Need</p>
                     <div className="mt-4 grid gap-2.5">
                       {group.links.map((item) => (
                         <Link
                           key={item.label}
                           href={item.href}
-                          className="rounded-[14px] border border-cyan-100/10 bg-[#173343] px-4 py-3 transition hover:border-cyan-100/24 hover:bg-[#24495c]"
+                          className="rounded-[14px] border border-cyan-100/10 bg-[#173343] px-4 py-3 text-center transition hover:border-cyan-100/24 hover:bg-[#24495c]"
                         >
                           <span className="block text-sm font-semibold text-white">{item.label}</span>
-                          <span className="mt-1 block text-xs leading-5 text-slate-200">{item.detail}</span>
+                          <span className="mx-auto mt-1 block max-w-[42rem] text-xs leading-5 text-slate-200">{item.detail}</span>
                         </Link>
                       ))}
                     </div>
