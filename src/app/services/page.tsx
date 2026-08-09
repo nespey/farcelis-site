@@ -1,4 +1,5 @@
 import Link from "next/link";
+import Image from "next/image";
 
 import { PageIntro } from "@/components/PageIntro";
 import { Reveal } from "@/components/Reveal";
@@ -22,6 +23,12 @@ const operatingPrinciples = [
     body: "AI adoption needs usage rules, decision rights, risk boundaries, and review habits before it expands across a team.",
   },
 ];
+
+const capabilityPillarImages: Record<string, string> = {
+  Build: "/images/navigation/capability-build-pill.png",
+  Grow: "/images/navigation/capability-grow-pill.png",
+  Operate: "/images/navigation/capability-operate-pill.png",
+};
 
 export default function ServicesPage() {
   return (
@@ -70,15 +77,15 @@ export default function ServicesPage() {
       </Reveal>
 
       <Reveal delayMs={90}>
-        <section className="section-shell section-shell-light">
+        <section className="section-shell section-shell-dark">
           <div className="section-inner">
             <div className="max-w-[880px]">
-              <p className="eyebrow text-[#9f412c]">Capability Lanes</p>
-              <h2 className="section-title mt-5 text-slate-950">
-                Build, Grow, and Operate are the buyer-facing paths into Farcelis.
+              <p className="eyebrow text-[color:var(--color-accent)]">Capability Lanes</p>
+              <h2 className="section-title mt-5 text-white">
+                Choose the path that matches what the buyer is trying to do.
               </h2>
-              <p className="mt-5 max-w-[760px] text-base leading-8 text-slate-600">
-                The grouped model keeps Farcelis understandable without muting the Control Layer. It gives buyers a practical way to find the right entry point whether they need something created, demand stabilized, or an operating system managed.
+              <p className="mt-5 max-w-[760px] text-base leading-8 text-slate-300">
+                Build, Grow, and Operate keep Farcelis simple in the first conversation. The details still exist underneath, but the buyer does not have to sort through every service before they understand where to start.
               </p>
             </div>
 
@@ -87,31 +94,52 @@ export default function ServicesPage() {
                 <article
                   key={group.label}
                   id={group.label.toLowerCase()}
-                  className="enterprise-card rounded-[28px] border border-slate-200 bg-white px-6 py-7 shadow-[0_18px_38px_rgba(15,23,42,0.06)]"
+                  className="rounded-[24px] border border-cyan-100/12 bg-[#1c3c4d] p-3 text-center shadow-[0_24px_70px_rgba(3,8,16,0.22)]"
                 >
-                  <p className="text-xs font-semibold uppercase tracking-[0.18em] text-[#9f412c]">
-                    {group.label}
-                  </p>
-                  <h3 className="mt-4 text-2xl font-semibold tracking-[-0.04em] text-slate-950">
-                    {group.label === "Build"
-                      ? "Create the website, app, portal, automation, or deployment path."
-                      : group.label === "Grow"
-                        ? "Make visibility, campaigns, content, and CRM move together."
-                        : "Keep systems, workflows, reporting, and support under control."}
+                  <div
+                    className={`relative isolate flex min-h-12 items-center justify-center overflow-hidden rounded-[12px] border px-4 py-2.5 text-lg font-black uppercase tracking-[0.3em] shadow-[inset_0_1px_0_rgba(255,255,255,0.08)] ${
+                      group.label === "Build"
+                        ? "border-cyan-100/16 bg-[#285869]"
+                        : group.label === "Grow"
+                          ? "border-emerald-100/16 bg-[#315f55]"
+                          : "border-indigo-100/16 bg-[#3e506c]"
+                    }`}
+                  >
+                    <Image
+                      src={capabilityPillarImages[group.label]}
+                      alt=""
+                      fill
+                      sizes="360px"
+                      className="rounded-[inherit] object-cover opacity-95"
+                      aria-hidden="true"
+                    />
+                    <span className="relative z-10 text-[color:var(--color-accent)] [text-shadow:0_1px_10px_rgba(3,8,16,1),0_0_18px_rgba(3,8,16,0.9)]">
+                      {group.label}
+                    </span>
+                  </div>
+
+                  <h3 className="mx-auto mt-5 max-w-[330px] text-2xl font-semibold tracking-[-0.04em] text-white">
+                    {group.headline}
                   </h3>
-                  <p className="mt-4 text-base leading-8 text-slate-600">{group.detail}</p>
-                  <div className="mt-6 grid gap-3">
-                    {group.links.map((item) => (
-                      <Link
-                        key={`${group.label}-${item.label}`}
-                        href={item.href}
-                        className="rounded-[18px] border border-slate-200 bg-slate-50 px-4 py-4 transition hover:border-[#9f412c]/28 hover:bg-white"
+                  <p className="mx-auto mt-4 max-w-[340px] text-sm leading-6 text-slate-200">
+                    {group.buyerPrompt}
+                  </p>
+                  <div className="mt-6 grid gap-2.5">
+                    {group.outcomes.map((outcome) => (
+                      <div
+                        key={outcome}
+                        className="rounded-[14px] border border-cyan-100/10 bg-[#173343] px-4 py-3 text-sm font-semibold leading-6 text-white"
                       >
-                        <span className="block text-sm font-semibold leading-6 text-slate-950">{item.label}</span>
-                        <span className="mt-1 block text-sm leading-6 text-slate-600">{item.detail}</span>
-                      </Link>
+                        {outcome}
+                      </div>
                     ))}
                   </div>
+                  <Link
+                    href="/contact"
+                    className="mt-6 inline-flex min-h-11 items-center justify-center rounded-full bg-[color:var(--color-accent)] px-5 text-sm font-semibold text-white shadow-[0_14px_34px_rgba(255,124,82,0.25)] transition hover:brightness-110"
+                  >
+                    {group.primaryCta}
+                  </Link>
                 </article>
               ))}
             </div>

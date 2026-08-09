@@ -7,6 +7,10 @@ export type ServiceLink = {
 export type CapabilityGroup = {
   label: string;
   detail: string;
+  headline: string;
+  buyerPrompt: string;
+  outcomes: string[];
+  primaryCta: string;
   links: ServiceLink[];
 };
 
@@ -32,6 +36,15 @@ export const capabilityGroups: CapabilityGroup[] = [
   {
     label: "Build",
     detail: "Create the public and internal systems buyers and teams can actually use.",
+    headline: "Create the thing your business needs to exist.",
+    buyerPrompt:
+      "For leaders who have an idea, outdated site, rough workflow, partial codebase, or operational mess and need Farcelis to turn it into a clean working system.",
+    outcomes: [
+      "Websites, portals, dashboards, and apps",
+      "AI agents, automations, and platform connections",
+      "Launch, deployment, documentation, and ownership path",
+    ],
+    primaryCta: "Talk Through a Build",
     links: [
       {
         href: "/services/website-development",
@@ -68,6 +81,15 @@ export const capabilityGroups: CapabilityGroup[] = [
   {
     label: "Grow",
     detail: "Turn visibility, content, campaigns, and CRM into measurable revenue movement.",
+    headline: "Make attention turn into qualified movement.",
+    buyerPrompt:
+      "For teams that need search, content, campaigns, CRM, and follow-up to stop acting like separate activities and start behaving like a revenue system.",
+    outcomes: [
+      "Search and answer-engine visibility",
+      "Campaigns, landing pages, content, and offers",
+      "CRM routing, follow-up, reporting, and revenue handoff",
+    ],
+    primaryCta: "Map a Growth Path",
     links: [
       {
         href: "/services/seo-aeo-visibility",
@@ -104,6 +126,15 @@ export const capabilityGroups: CapabilityGroup[] = [
   {
     label: "Operate",
     detail: "Stabilize the path of work so AI, people, and platforms move with control.",
+    headline: "Keep the system controlled after work starts moving.",
+    buyerPrompt:
+      "For organizations that need clearer ownership, workflow rhythm, AI rules, reporting, managed support, and a Control Layer that keeps execution visible.",
+    outcomes: [
+      "AI strategy, governance, and operating rules",
+      "Workflow, reporting, decision systems, and ownership",
+      "Managed operations, deployment continuity, and support rhythm",
+    ],
+    primaryCta: "Stabilize Operations",
     links: [
       {
         href: "/services/ai-strategy-governance",

@@ -64,18 +64,113 @@ function CapabilityPillarHeader({ label }: { label: string }) {
   );
 }
 
+function CapabilityPillarButton({
+  group,
+  onSelect,
+}: {
+  group: (typeof capabilityGroups)[number];
+  onSelect: (pillar: CapabilityPillar) => void;
+}) {
+  return (
+    <button
+      type="button"
+      onClick={() => onSelect(group.label as CapabilityPillar)}
+      className="group flex h-full flex-col rounded-[18px] border border-cyan-100/10 bg-[#1c3c4d] p-3 text-center transition hover:-translate-y-0.5 hover:border-cyan-100/24 hover:bg-[#214557] focus:outline-none focus-visible:ring-2 focus-visible:ring-cyan-100/70"
+    >
+      <CapabilityPillarHeader label={group.label} />
+      <p className="mx-auto mt-4 max-w-[270px] text-sm font-semibold leading-6 text-white">
+        {group.headline}
+      </p>
+      <p className="mx-auto mt-2 max-w-[280px] text-xs leading-5 text-slate-200">
+        {group.detail}
+      </p>
+    </button>
+  );
+}
+
+function CapabilityFocusPanel({
+  group,
+  onBack,
+  onClose,
+}: {
+  group: (typeof capabilityGroups)[number];
+  onBack: () => void;
+  onClose: () => void;
+}) {
+  return (
+    <div className="rounded-[20px] border border-cyan-100/12 bg-[#1c3c4d] p-3 shadow-[0_24px_70px_rgba(3,8,16,0.38)]">
+      <CapabilityPillarHeader label={group.label} />
+
+      <div className="grid gap-5 px-2 py-5 lg:grid-cols-[minmax(0,0.96fr)_minmax(0,1.04fr)] lg:px-4">
+        <div>
+          <p className="text-xs font-semibold uppercase tracking-[0.2em] text-[color:var(--color-accent)]">
+            {group.label} Path
+          </p>
+          <h3 className="mt-3 text-2xl font-semibold tracking-[-0.035em] text-white">
+            {group.headline}
+          </h3>
+          <p className="mt-3 text-sm leading-6 text-slate-100">{group.buyerPrompt}</p>
+        </div>
+
+        <div className="grid gap-2.5">
+          {group.outcomes.map((outcome) => (
+            <div
+              key={outcome}
+              className="rounded-[14px] border border-cyan-100/10 bg-[#173343] px-4 py-3 text-sm font-semibold leading-6 text-white"
+            >
+              {outcome}
+            </div>
+          ))}
+        </div>
+      </div>
+
+      <div className="flex flex-wrap items-center justify-between gap-3 border-t border-cyan-100/10 px-2 pt-4 lg:px-4">
+        <button
+          type="button"
+          onClick={onBack}
+          className="rounded-full border border-cyan-100/18 px-4 py-2 text-sm font-semibold text-slate-100 transition hover:border-cyan-100/32 hover:text-white focus:outline-none focus-visible:ring-2 focus-visible:ring-cyan-100/70"
+        >
+          Back to Build / Grow / Operate
+        </button>
+        <div className="flex flex-wrap gap-2">
+          <Link
+            href={`/services#${group.label.toLowerCase()}`}
+            onClick={onClose}
+            className="rounded-full border border-cyan-100/18 px-4 py-2 text-sm font-semibold text-slate-100 transition hover:border-cyan-100/32 hover:text-white"
+          >
+            See the {group.label} Path
+          </Link>
+          <Link
+            href="/contact"
+            onClick={onClose}
+            className="rounded-full bg-[color:var(--color-accent)] px-4 py-2 text-sm font-semibold text-white shadow-[0_14px_34px_rgba(255,124,82,0.25)] transition hover:brightness-110"
+          >
+            {group.primaryCta}
+          </Link>
+        </div>
+      </div>
+    </div>
+  );
+}
+
 export function Header() {
   const [elevated, setElevated] = useState(false);
   const [hidden, setHidden] = useState(false);
   const [mobileOpen, setMobileOpen] = useState(false);
   const [activeMenu, setActiveMenu] = useState<MenuKey | null>(null);
+  const [activeCapability, setActiveCapability] = useState<CapabilityPillar | null>(null);
   const headerRef = useRef<HTMLElement | null>(null);
   const lastScrollY = useRef(0);
 
   const closeMenus = useCallback(() => {
     setActiveMenu(null);
     setMobileOpen(false);
+    setActiveCapability(null);
   }, []);
+
+  const activeCapabilityGroup = activeCapability
+    ? capabilityGroups.find((group) => group.label === activeCapability)
+    : null;
 
   useEffect(() => {
     const onScroll = () => {
@@ -154,7 +249,10 @@ export function Header() {
                 aria-haspopup="true"
                 aria-expanded={activeMenu === "capabilities"}
                 aria-controls="capabilities-menu"
-                onClick={() => setActiveMenu(activeMenu === "capabilities" ? null : "capabilities")}
+                onClick={() => {
+                  setActiveMenu(activeMenu === "capabilities" ? null : "capabilities");
+                  setActiveCapability(null);
+                }}
                 className={`inline-flex min-h-11 items-center rounded-full px-1 text-sm font-medium tracking-[0.01em] transition focus:outline-none focus-visible:ring-2 focus-visible:ring-cyan-100/70 ${
                   activeMenu === "capabilities" ? "text-white" : "text-slate-300 hover:text-white"
                 }`}
@@ -179,27 +277,25 @@ export function Header() {
                     </p>
                   </div>
 
-                  <div className="mt-3 grid gap-3 lg:grid-cols-3">
-                    {capabilityGroups.map((group) => (
-                      <div key={group.label} className="flex flex-col rounded-[16px] border border-cyan-100/10 bg-[#1c3c4d] p-3 text-center">
-                        <CapabilityPillarHeader label={group.label} />
-                        <p className="mx-auto mt-3 min-h-10 max-w-[280px] text-center text-xs leading-5 text-slate-100">{group.detail}</p>
-                        <div className="mt-3 grid flex-1 grid-rows-6 gap-1.5">
-                          {group.links.map((item) => (
-                            <Link
-                              key={`${group.label}-${item.label}`}
-                              href={item.href}
-                              title={item.detail}
-                              onClick={closeMenus}
-                              className="flex min-h-11 items-center justify-center rounded-[12px] border border-cyan-100/10 bg-[#173343] px-3.5 py-2.5 text-center transition hover:border-cyan-100/22 hover:bg-[#24495c] hover:text-white"
-                            >
-                              <div className="text-sm font-semibold leading-5 text-white">{item.label}</div>
-                            </Link>
-                          ))}
-                        </div>
-                      </div>
-                    ))}
-                  </div>
+                  {activeCapabilityGroup ? (
+                    <div className="mt-3">
+                      <CapabilityFocusPanel
+                        group={activeCapabilityGroup}
+                        onBack={() => setActiveCapability(null)}
+                        onClose={closeMenus}
+                      />
+                    </div>
+                  ) : (
+                    <div className="mt-3 grid gap-3 lg:grid-cols-3">
+                      {capabilityGroups.map((group) => (
+                        <CapabilityPillarButton
+                          key={group.label}
+                          group={group}
+                          onSelect={setActiveCapability}
+                        />
+                      ))}
+                    </div>
+                  )}
                 </div>
               </div>
             </div>
@@ -333,18 +429,19 @@ export function Header() {
                 {capabilityGroups.map((group) => (
                   <div key={group.label} className="rounded-[18px] border border-cyan-100/12 bg-white/[0.035] p-3 text-center">
                     <CapabilityPillarHeader label={group.label} />
-                    <div className="mt-3 grid gap-2">
-                      {group.links.map((item) => (
-                        <Link
-                          key={`${group.label}-${item.label}`}
-                          href={item.href}
-                          onClick={closeMenus}
-                          className="rounded-[14px] border border-cyan-100/10 bg-[#173343]/70 px-4 py-3 text-center text-sm font-semibold text-white"
-                        >
-                          {item.label}
-                        </Link>
-                      ))}
-                    </div>
+                    <p className="mx-auto mt-3 max-w-[320px] text-sm font-semibold leading-6 text-white">
+                      {group.headline}
+                    </p>
+                    <p className="mx-auto mt-2 max-w-[340px] text-xs leading-5 text-slate-200">
+                      {group.detail}
+                    </p>
+                    <Link
+                      href={`/services#${group.label.toLowerCase()}`}
+                      onClick={closeMenus}
+                      className="mt-3 inline-flex min-h-10 items-center justify-center rounded-full border border-cyan-100/18 px-4 text-sm font-semibold text-white"
+                    >
+                      See the {group.label} Path
+                    </Link>
                   </div>
                 ))}
               </div>
