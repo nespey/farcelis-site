@@ -133,31 +133,31 @@ function FlowRail({
 function HorizontalFlowArrow({ left, top }: { left: string; top: string }) {
   return (
     <div
-      className="pointer-events-none absolute z-20 hidden h-8 w-20 -translate-x-1/2 items-center justify-center lg:flex"
+      className="pointer-events-none absolute z-20 hidden h-6 w-9 -translate-x-1/2 -translate-y-1/2 items-center justify-center lg:flex"
       style={{ left, top }}
       aria-hidden="true"
     >
-      <span className="h-px flex-1 bg-cyan-100/30 shadow-[0_0_16px_rgba(125,211,252,0.22)]" />
-      <span className="h-0 w-0 border-y-[6px] border-l-[9px] border-y-transparent border-l-cyan-100/42" />
+      <span className="h-px flex-1 bg-cyan-100/36 shadow-[0_0_12px_rgba(125,211,252,0.2)]" />
+      <span className="h-0 w-0 border-y-[5px] border-l-[8px] border-y-transparent border-l-cyan-100/50" />
     </div>
   );
 }
 
 function HorizontalFlowConnectors({ label }: { label: string }) {
   if (label === "Build") {
-    return <HorizontalFlowArrow left="67%" top="4.5rem" />;
+    return <HorizontalFlowArrow left="67%" top="2.8rem" />;
   }
 
   if (label === "Grow") {
     return (
       <>
-        <HorizontalFlowArrow left="25.5%" top="4.5rem" />
-        <HorizontalFlowArrow left="74.5%" top="4.5rem" />
+        <HorizontalFlowArrow left="25.5%" top="2.8rem" />
+        <HorizontalFlowArrow left="74.5%" top="2.8rem" />
       </>
     );
   }
 
-  return <HorizontalFlowArrow left="34%" top="55%" />;
+  return <HorizontalFlowArrow left="34%" top="52%" />;
 }
 
 export function CapabilityPathPage({ slug }: { slug: string }) {
