@@ -88,11 +88,9 @@ function CapabilityPillarButton({
 
 function CapabilityFocusPanel({
   group,
-  onBack,
   onClose,
 }: {
   group: (typeof capabilityGroups)[number];
-  onBack: () => void;
   onClose: () => void;
 }) {
   return (
@@ -108,6 +106,22 @@ function CapabilityFocusPanel({
             {group.headline}
           </h3>
           <p className="mt-3 text-sm leading-6 text-slate-100">{group.buyerPrompt}</p>
+          <div className="mt-5 flex flex-wrap gap-2">
+            <Link
+              href={group.pathHref}
+              onClick={onClose}
+              className="rounded-full border border-cyan-100/18 px-4 py-2 text-sm font-semibold text-slate-100 transition hover:border-cyan-100/32 hover:text-white"
+            >
+              See the {group.label} Path
+            </Link>
+            <Link
+              href={group.actionHref}
+              onClick={onClose}
+              className="rounded-full bg-[color:var(--color-accent)] px-4 py-2 text-sm font-semibold text-white shadow-[0_14px_34px_rgba(255,124,82,0.25)] transition hover:brightness-110"
+            >
+              {group.primaryCta}
+            </Link>
+          </div>
         </div>
 
         <div className="grid gap-2.5 rounded-[16px] border border-cyan-100/10 bg-[#173343] p-3">
@@ -120,32 +134,6 @@ function CapabilityFocusPanel({
               <span>{outcome}</span>
             </div>
           ))}
-        </div>
-      </div>
-
-      <div className="flex flex-wrap items-center justify-between gap-3 border-t border-cyan-100/10 px-2 pt-4 lg:px-4">
-        <button
-          type="button"
-          onClick={onBack}
-          className="rounded-full border border-cyan-100/18 px-4 py-2 text-sm font-semibold text-slate-100 transition hover:border-cyan-100/32 hover:text-white focus:outline-none focus-visible:ring-2 focus-visible:ring-cyan-100/70"
-        >
-          Back to Build / Grow / Operate
-        </button>
-        <div className="flex flex-wrap gap-2">
-          <Link
-            href={group.pathHref}
-            onClick={onClose}
-            className="rounded-full border border-cyan-100/18 px-4 py-2 text-sm font-semibold text-slate-100 transition hover:border-cyan-100/32 hover:text-white"
-          >
-            See the {group.label} Path
-          </Link>
-          <Link
-            href={group.actionHref}
-            onClick={onClose}
-            className="rounded-full bg-[color:var(--color-accent)] px-4 py-2 text-sm font-semibold text-white shadow-[0_14px_34px_rgba(255,124,82,0.25)] transition hover:brightness-110"
-          >
-            {group.primaryCta}
-          </Link>
         </div>
       </div>
     </div>
@@ -280,7 +268,6 @@ export function Header() {
                     <div className="mt-3">
                       <CapabilityFocusPanel
                         group={activeCapabilityGroup}
-                        onBack={() => setActiveCapability(null)}
                         onClose={closeMenus}
                       />
                     </div>
