@@ -17,6 +17,21 @@ const adjacentLabels: Record<string, string[]> = {
   Operate: ["Build", "Grow"],
 };
 
+const flowCopy: Record<string, Record<string, string>> = {
+  Build: {
+    Grow: "Next: get the thing found, clicked, trusted, and followed up.",
+    Operate: "Then: keep the thing managed, visible, supported, and improving.",
+  },
+  Grow: {
+    Build: "Need the asset first? Build the site, app, portal, dashboard, or automation.",
+    Operate: "Ready for control? Operate the follow-up, reporting, cadence, and support.",
+  },
+  Operate: {
+    Build: "Missing the right tool? Go back and build the system operations needs.",
+    Grow: "Need more movement? Go back and strengthen search, campaigns, content, and CRM.",
+  },
+};
+
 function PillarRibbon({ label, compact = false }: { label: string; compact?: boolean }) {
   return (
     <div
@@ -43,15 +58,40 @@ function PillarRibbon({ label, compact = false }: { label: string; compact?: boo
   );
 }
 
-function AdjacentPathCard({ group }: { group: (typeof capabilityGroups)[number] }) {
+function AdjacentPathCard({
+  activeLabel,
+  group,
+}: {
+  activeLabel: string;
+  group: (typeof capabilityGroups)[number];
+}) {
   return (
     <Link
       href={group.pathHref}
-      className="block rounded-[18px] border border-cyan-100/12 bg-[#1c3c4d] p-3 transition hover:border-cyan-100/24 hover:bg-[#24495c]"
+      className="group block rounded-[18px] border border-cyan-100/12 bg-[#1c3c4d] p-3 transition hover:-translate-y-0.5 hover:border-cyan-100/24 hover:bg-[#24495c]"
     >
       <PillarRibbon label={group.label} compact />
+      <p className="mt-3 text-xs font-semibold uppercase tracking-[0.18em] text-[color:var(--color-accent)]">
+        {activeLabel === "Build"
+          ? group.label === "Grow"
+            ? "Build feeds Grow"
+            : "Build feeds Operate"
+          : activeLabel === "Grow"
+            ? group.label === "Build"
+              ? "Back to Build"
+              : "Grow feeds Operate"
+            : group.label === "Build"
+              ? "Build can reinforce Operate"
+              : "Grow can reinforce Operate"}
+      </p>
       <p className="mt-3 text-sm font-semibold leading-6 text-white">{group.headline}</p>
       <p className="mt-2 text-xs leading-5 text-slate-200">{group.detail}</p>
+      <div className="mt-4 rounded-[14px] border border-cyan-100/10 bg-[#173343] px-3 py-3 text-xs font-semibold leading-5 text-white">
+        {flowCopy[activeLabel][group.label]}
+      </div>
+      <div className="mt-3 text-right text-sm font-semibold text-[color:var(--color-accent)] transition group-hover:translate-x-1">
+        Go to {group.label} →
+      </div>
     </Link>
   );
 }
@@ -95,14 +135,14 @@ export function CapabilityPathPage({ slug }: { slug: string }) {
             >
               {group.label === "Grow" ? (
                 <aside className="grid content-start gap-3">
-                  <AdjacentPathCard group={adjacentGroups[0]} />
+                  <AdjacentPathCard activeLabel={group.label} group={adjacentGroups[0]} />
                 </aside>
               ) : null}
 
               {group.label === "Operate" ? (
                 <aside className="grid content-start gap-3">
                   {adjacentGroups.map((item) => (
-                    <AdjacentPathCard key={item.label} group={item} />
+                    <AdjacentPathCard key={item.label} activeLabel={group.label} group={item} />
                   ))}
                 </aside>
               ) : null}
@@ -153,31 +193,16 @@ export function CapabilityPathPage({ slug }: { slug: string }) {
               {group.label === "Build" ? (
                 <aside className="grid content-start gap-3">
                   {adjacentGroups.map((item) => (
-                    <AdjacentPathCard key={item.label} group={item} />
+                    <AdjacentPathCard key={item.label} activeLabel={group.label} group={item} />
                   ))}
                 </aside>
               ) : null}
 
               {group.label === "Grow" ? (
                 <aside className="grid content-start gap-3">
-                  <AdjacentPathCard group={adjacentGroups[1]} />
+                  <AdjacentPathCard activeLabel={group.label} group={adjacentGroups[1]} />
                 </aside>
               ) : null}
-            </div>
-
-            <div className="mt-8 flex flex-wrap justify-center gap-3">
-              <Link
-                href={group.actionHref}
-                className="rounded-full bg-[color:var(--color-accent)] px-6 py-3 text-sm font-semibold text-white shadow-[0_14px_34px_rgba(255,124,82,0.25)] transition hover:brightness-110"
-              >
-                {group.primaryCta}
-              </Link>
-              <Link
-                href="/services"
-                className="rounded-full border border-cyan-100/18 px-6 py-3 text-sm font-semibold text-slate-100 transition hover:border-cyan-100/32 hover:text-white"
-              >
-                Back to Build / Grow / Operate
-              </Link>
             </div>
           </div>
         </section>
