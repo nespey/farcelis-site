@@ -151,7 +151,7 @@ function HorizontalFlowConnectors({ label }: { label: string }) {
     return (
       <>
         <HorizontalFlowArrow left="23.4%" top="50%" />
-        <HorizontalFlowArrow left="75.6%" top="50%" />
+        <HorizontalFlowArrow left="76.6%" top="50%" />
       </>
     );
   }
