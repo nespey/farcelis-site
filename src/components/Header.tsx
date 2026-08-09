@@ -43,7 +43,7 @@ function CapabilityPillarHeader({ label }: { label: string }) {
 
   return (
     <div
-      className={`relative isolate overflow-hidden rounded-[12px] border px-4 py-3 text-base font-bold uppercase tracking-[0.24em] shadow-[inset_0_1px_0_rgba(255,255,255,0.08)] ${
+      className={`relative isolate flex min-h-12 items-center justify-center overflow-hidden rounded-[12px] border px-4 py-2.5 text-lg font-black uppercase tracking-[0.3em] shadow-[inset_0_1px_0_rgba(255,255,255,0.08)] ${
         pillar === "Build"
           ? "border-cyan-100/16 bg-[#285869]"
           : pillar === "Grow"
@@ -56,10 +56,10 @@ function CapabilityPillarHeader({ label }: { label: string }) {
         alt=""
         fill
         sizes="360px"
-        className="object-cover opacity-95"
+        className="rounded-[inherit] object-cover opacity-95"
         aria-hidden="true"
       />
-      <span className="relative z-10 text-[color:var(--color-accent)] [text-shadow:0_1px_8px_rgba(3,8,16,0.95)]">{label}</span>
+      <span className="relative z-10 text-[color:var(--color-accent)] [text-shadow:0_1px_10px_rgba(3,8,16,1),0_0_18px_rgba(3,8,16,0.9)]">{label}</span>
     </div>
   );
 }
