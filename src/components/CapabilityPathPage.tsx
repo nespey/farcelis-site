@@ -201,7 +201,7 @@ export function CapabilityPathPage({ slug }: { slug: string }) {
                 <PillarRibbon label={group.label} />
                 <div className="mt-6 grid min-h-[560px] gap-6 lg:grid-cols-[0.86fr_1.14fr]">
                   <div className="flex min-h-full flex-col justify-between text-center">
-                    <div className="pt-4 lg:pt-7">
+                    <div>
                       <p className={pathEyebrowClass} style={{ textAlign: "center", marginInline: "auto" }}>
                         Why You Are Here
                       </p>
@@ -235,7 +235,9 @@ export function CapabilityPathPage({ slug }: { slug: string }) {
                   </div>
 
                   <div className="flex min-h-full flex-col justify-center">
-                    <p className={pathEyebrowClass}>Choose What You Need</p>
+                    <p className={pathEyebrowClass} style={{ textAlign: "center", marginInline: "auto" }}>
+                      Choose What You Need
+                    </p>
                     <div className="mt-4 grid gap-2.5">
                       {group.links.map((item) => (
                         <Link
