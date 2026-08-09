@@ -18,16 +18,31 @@ const adjacentLabels: Record<string, string[]> = {
 
 const flowCopy: Record<string, Record<string, string>> = {
   Build: {
-    Grow: "Next: get the thing found, clicked, trusted, and followed up.",
-    Operate: "Then: keep the thing managed, visible, supported, and improving.",
+    Grow: "After you build it, make sure people can find it, trust it, and take action.",
+    Operate: "After it exists, keep it owned, managed, supported, and improving.",
   },
   Grow: {
-    Build: "Need the asset first? Build the site, app, portal, dashboard, or automation.",
-    Operate: "Ready for control? Operate the follow-up, reporting, cadence, and support.",
+    Build: "If the asset is missing or messy, start with Build before you push it harder.",
+    Operate: "After attention starts moving, keep follow-up, reporting, and support controlled.",
   },
   Operate: {
-    Build: "Missing the right tool? Go back and build the system operations needs.",
-    Grow: "Need more movement? Go back and strengthen search, campaigns, content, and CRM.",
+    Build: "If operations expose a missing tool, dashboard, portal, or automation, Build creates it.",
+    Grow: "If operations need stronger demand, Grow improves search, content, ads, and CRM.",
+  },
+};
+
+const flowLabels: Record<string, Record<string, string>> = {
+  Build: {
+    Grow: "Build > Grow",
+    Operate: "Build > Operate",
+  },
+  Grow: {
+    Build: "Build > Grow",
+    Operate: "Grow > Operate",
+  },
+  Operate: {
+    Build: "Build > Operate",
+    Grow: "Grow > Operate",
   },
 };
 
@@ -71,17 +86,7 @@ function AdjacentPathCard({
     >
       <PillarRibbon label={group.label} compact />
       <p className="mt-3 text-xs font-semibold uppercase tracking-[0.18em] text-[color:var(--color-accent)]">
-        {activeLabel === "Build"
-          ? group.label === "Grow"
-            ? "Build feeds Grow"
-            : "Build feeds Operate"
-          : activeLabel === "Grow"
-            ? group.label === "Build"
-              ? "Back to Build"
-              : "Grow feeds Operate"
-            : group.label === "Build"
-              ? "Build can reinforce Operate"
-              : "Grow can reinforce Operate"}
+        {flowLabels[activeLabel][group.label]}
       </p>
       <p className="mt-3 text-sm font-semibold leading-6 text-white">{group.headline}</p>
       <p className="mt-2 text-xs leading-5 text-slate-200">{group.detail}</p>
@@ -110,10 +115,12 @@ function FlowRail({
     <aside className="flex h-full min-h-[620px] flex-col rounded-[24px] border border-cyan-100/10 bg-[#102c39] p-3 shadow-[inset_0_1px_0_rgba(255,255,255,0.04)]">
       <div className="rounded-[16px] border border-cyan-100/10 bg-[#173343] px-4 py-3">
         <p className="text-xs font-semibold uppercase tracking-[0.2em] text-[color:var(--color-accent)]">
-          {position === "left" ? "Feeds This Path" : "Next Path"}
+          {position === "left" ? "Comes Before" : "Comes Next"}
         </p>
         <p className="mt-2 text-xs leading-5 text-slate-200">
-          Click across when the buyer needs the step before this one, or the step that comes next.
+          {position === "left"
+            ? "This path feeds the step you are viewing now."
+            : "This is where the work moves after the step you are viewing now."}
         </p>
       </div>
       <div className="relative mt-3 flex flex-1 flex-col gap-3 overflow-hidden rounded-[18px]">
@@ -121,10 +128,9 @@ function FlowRail({
         {groups.map((item, index) => (
           <div key={item.label} className="relative flex flex-1 flex-col">
             {index > 0 ? (
-              <div className="relative z-10 -my-1 flex items-center justify-center">
-                <span className="rounded-full border border-cyan-100/12 bg-[#102c39] px-3 py-1 text-xs font-semibold uppercase tracking-[0.18em] text-slate-300">
-                  Then
-                </span>
+              <div className="relative z-10 -my-1 flex h-7 items-center justify-center" aria-hidden="true">
+                <span className="h-full w-px bg-cyan-100/18" />
+                <span className="absolute bottom-0 h-0 w-0 border-l-[5px] border-r-[5px] border-t-[7px] border-l-transparent border-r-transparent border-t-cyan-100/30" />
               </div>
             ) : null}
             <AdjacentPathCard activeLabel={activeLabel} group={item} />
