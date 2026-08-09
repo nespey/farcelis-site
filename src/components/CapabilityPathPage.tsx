@@ -68,7 +68,7 @@ function AdjacentPathCard({
   return (
     <Link
       href={group.pathHref}
-      className="group block rounded-[18px] border border-cyan-100/12 bg-[#1c3c4d] p-3 transition hover:-translate-y-0.5 hover:border-cyan-100/24 hover:bg-[#24495c]"
+      className="group flex min-h-0 flex-1 flex-col rounded-[18px] border border-cyan-100/12 bg-[#1c3c4d] p-3 transition hover:-translate-y-0.5 hover:border-cyan-100/24 hover:bg-[#24495c]"
     >
       <PillarRibbon label={group.label} compact />
       <p className="mt-3 text-xs font-semibold uppercase tracking-[0.18em] text-[color:var(--color-accent)]">
@@ -89,10 +89,39 @@ function AdjacentPathCard({
       <div className="mt-4 rounded-[14px] border border-cyan-100/10 bg-[#173343] px-3 py-3 text-xs font-semibold leading-5 text-white">
         {flowCopy[activeLabel][group.label]}
       </div>
-      <div className="mt-3 text-right text-sm font-semibold text-[color:var(--color-accent)] transition group-hover:translate-x-1">
+      <div className="mt-auto pt-3 text-right text-sm font-semibold text-[color:var(--color-accent)] transition group-hover:translate-x-1">
         Go to {group.label} →
       </div>
     </Link>
+  );
+}
+
+function FlowRail({
+  activeLabel,
+  groups,
+  position,
+}: {
+  activeLabel: string;
+  groups: typeof capabilityGroups;
+  position: "left" | "right";
+}) {
+  return (
+    <aside className="flex h-full min-h-[520px] flex-col rounded-[24px] border border-cyan-100/10 bg-[#102c39] p-3 shadow-[inset_0_1px_0_rgba(255,255,255,0.04)]">
+      <div className="rounded-[16px] border border-cyan-100/10 bg-[#173343] px-4 py-3">
+        <p className="text-xs font-semibold uppercase tracking-[0.2em] text-[color:var(--color-accent)]">
+          {position === "left" ? "Feeds This Path" : "Next Path"}
+        </p>
+        <p className="mt-2 text-xs leading-5 text-slate-200">
+          Use this side path when the buyer realizes they need the work before or after this step.
+        </p>
+      </div>
+      <div className="relative mt-3 flex flex-1 flex-col gap-3">
+        <span className="absolute bottom-4 left-1/2 top-4 w-px -translate-x-1/2 bg-cyan-100/10" aria-hidden="true" />
+        {groups.map((item) => (
+          <AdjacentPathCard key={item.label} activeLabel={activeLabel} group={item} />
+        ))}
+      </div>
+    </aside>
   );
 }
 
@@ -113,10 +142,6 @@ export function CapabilityPathPage({ slug }: { slug: string }) {
         eyebrow={`${group.label} Path`}
         title={group.headline}
         description={group.buyerPrompt}
-        actions={[
-          { href: group.actionHref, label: group.primaryCta },
-          { href: "/services", label: "Back to Capabilities", variant: "secondary" },
-        ]}
         asideTitle="What This Covers"
         asideItems={group.outcomes}
       />
@@ -134,17 +159,11 @@ export function CapabilityPathPage({ slug }: { slug: string }) {
               }`}
             >
               {group.label === "Grow" ? (
-                <aside className="grid content-start gap-3">
-                  <AdjacentPathCard activeLabel={group.label} group={adjacentGroups[0]} />
-                </aside>
+                <FlowRail activeLabel={group.label} groups={[adjacentGroups[0]]} position="left" />
               ) : null}
 
               {group.label === "Operate" ? (
-                <aside className="grid content-start gap-3">
-                  {adjacentGroups.map((item) => (
-                    <AdjacentPathCard key={item.label} activeLabel={group.label} group={item} />
-                  ))}
-                </aside>
+                <FlowRail activeLabel={group.label} groups={adjacentGroups} position="left" />
               ) : null}
 
               <article className="rounded-[24px] border border-cyan-100/12 bg-[#1c3c4d] p-4 lg:p-6">
@@ -191,17 +210,11 @@ export function CapabilityPathPage({ slug }: { slug: string }) {
               </article>
 
               {group.label === "Build" ? (
-                <aside className="grid content-start gap-3">
-                  {adjacentGroups.map((item) => (
-                    <AdjacentPathCard key={item.label} activeLabel={group.label} group={item} />
-                  ))}
-                </aside>
+                <FlowRail activeLabel={group.label} groups={adjacentGroups} position="right" />
               ) : null}
 
               {group.label === "Grow" ? (
-                <aside className="grid content-start gap-3">
-                  <AdjacentPathCard activeLabel={group.label} group={adjacentGroups[1]} />
-                </aside>
+                <FlowRail activeLabel={group.label} groups={[adjacentGroups[1]]} position="right" />
               ) : null}
             </div>
           </div>
