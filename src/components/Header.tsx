@@ -36,6 +36,7 @@ export function Header() {
   const [hidden, setHidden] = useState(false);
   const [mobileOpen, setMobileOpen] = useState(false);
   const [activeMenu, setActiveMenu] = useState<MenuKey | null>(null);
+  const headerRef = useRef<HTMLElement | null>(null);
   const lastScrollY = useRef(0);
 
   const closeMenus = useCallback(() => {
@@ -78,9 +79,21 @@ export function Header() {
     return () => window.removeEventListener("keydown", onKeyDown);
   }, [closeMenus]);
 
+  useEffect(() => {
+    const onPointerDown = (event: PointerEvent) => {
+      if (!headerRef.current?.contains(event.target as Node)) {
+        setActiveMenu(null);
+      }
+    };
+
+    window.addEventListener("pointerdown", onPointerDown);
+    return () => window.removeEventListener("pointerdown", onPointerDown);
+  }, []);
+
   return (
     <>
       <header
+        ref={headerRef}
         className={`fixed inset-x-0 top-0 z-50 backdrop-blur-xl transition-transform duration-300 ${
           hidden ? "-translate-y-full" : "translate-y-0"
         } ${
@@ -102,11 +115,7 @@ export function Header() {
           </Link>
 
           <nav className="hidden items-center gap-5 lg:flex xl:gap-7">
-            <div
-              className="relative"
-              onMouseEnter={() => setActiveMenu("capabilities")}
-              onMouseLeave={() => setActiveMenu(null)}
-            >
+            <div className="relative">
               <button
                 type="button"
                 aria-haspopup="true"
@@ -121,16 +130,16 @@ export function Header() {
               </button>
               <div
                 id="capabilities-menu"
-                className={`fixed left-1/2 top-16 z-40 w-[min(900px,calc(100vw-3rem))] -translate-x-1/2 pt-4 transition duration-200 sm:top-20 ${
+                className={`fixed left-1/2 top-16 z-40 w-[min(1120px,calc(100vw-3rem))] -translate-x-1/2 pt-3 transition duration-200 sm:top-20 ${
                   activeMenu === "capabilities"
                     ? "pointer-events-auto opacity-100"
                     : "pointer-events-none opacity-0"
                 }`}
               >
-                <div className="surface-dark rounded-[24px] border border-cyan-100/14 bg-[#173343] p-4 shadow-[0_28px_80px_rgba(3,8,16,0.46)]">
-                  <div className="rounded-[18px] border border-cyan-100/10 bg-[#1c3c4d] px-4 py-3">
+                <div className="surface-dark max-h-[calc(100vh-6rem)] overflow-y-auto rounded-[22px] border border-cyan-100/14 bg-[#173343] p-4 shadow-[0_28px_80px_rgba(3,8,16,0.46)]">
+                  <div className="rounded-[16px] border border-cyan-100/10 bg-[#1c3c4d] px-4 py-3">
                     <div className="text-xs font-semibold uppercase tracking-[0.2em] text-[color:var(--color-accent)]">
-                        Capabilities
+                      Capabilities
                     </div>
                     <p className="mt-2 text-sm leading-6 text-slate-100">
                       AI, operations, platforms, growth, and managed execution services designed to stabilize how work moves.
@@ -139,21 +148,21 @@ export function Header() {
 
                   <div className="mt-3 grid gap-3 lg:grid-cols-3">
                     {capabilityGroups.map((group) => (
-                      <div key={group.label} className="rounded-[18px] border border-cyan-100/10 bg-[#1c3c4d] p-3">
+                      <div key={group.label} className="rounded-[16px] border border-cyan-100/10 bg-[#1c3c4d] p-3">
                         <div className="text-xs font-semibold uppercase tracking-[0.2em] text-[color:var(--color-accent)]">
                           {group.label}
                         </div>
-                        <p className="mt-2 min-h-12 text-xs leading-6 text-slate-100">{group.detail}</p>
-                        <div className="mt-3 grid gap-2">
+                        <p className="mt-2 min-h-10 text-xs leading-5 text-slate-100">{group.detail}</p>
+                        <div className="mt-3 grid gap-1.5">
                           {group.links.map((item) => (
                             <Link
                               key={`${group.label}-${item.label}`}
                               href={item.href}
+                              title={item.detail}
                               onClick={closeMenus}
-                              className="block rounded-[14px] border border-cyan-100/10 bg-[#173343] px-3 py-3 transition hover:border-cyan-100/22 hover:bg-[#24495c] hover:text-white"
+                              className="block rounded-[12px] border border-cyan-100/10 bg-[#173343] px-3.5 py-2.5 transition hover:border-cyan-100/22 hover:bg-[#24495c] hover:text-white"
                             >
-                              <div className="text-sm font-semibold text-white">{item.label}</div>
-                              <div className="mt-1 text-xs leading-5 text-slate-100">{item.detail}</div>
+                              <div className="text-sm font-semibold leading-5 text-white">{item.label}</div>
                             </Link>
                           ))}
                         </div>
@@ -164,11 +173,7 @@ export function Header() {
               </div>
             </div>
 
-            <div
-              className="relative"
-              onMouseEnter={() => setActiveMenu("solutions")}
-              onMouseLeave={() => setActiveMenu(null)}
-            >
+            <div className="relative">
               <button
                 type="button"
                 aria-haspopup="true"
