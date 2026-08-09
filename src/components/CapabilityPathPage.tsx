@@ -133,12 +133,11 @@ function FlowRail({
 function HorizontalFlowArrow({ left, top }: { left: string; top: string }) {
   return (
     <div
-      className="pointer-events-none absolute z-20 hidden h-6 w-9 -translate-x-1/2 -translate-y-1/2 items-center justify-center lg:flex"
+      className="pointer-events-none absolute z-20 hidden h-7 w-7 -translate-x-1/2 -translate-y-1/2 items-center justify-center rounded-full border border-cyan-100/16 bg-[#102c39] shadow-[0_0_18px_rgba(125,211,252,0.12)] lg:flex"
       style={{ left, top }}
       aria-hidden="true"
     >
-      <span className="h-px flex-1 bg-cyan-100/36 shadow-[0_0_12px_rgba(125,211,252,0.2)]" />
-      <span className="h-0 w-0 border-y-[5px] border-l-[8px] border-y-transparent border-l-cyan-100/50" />
+      <span className="ml-0.5 h-0 w-0 border-y-[5px] border-l-[8px] border-y-transparent border-l-cyan-100/55" />
     </div>
   );
 }
@@ -157,7 +156,7 @@ function HorizontalFlowConnectors({ label }: { label: string }) {
     );
   }
 
-  return <HorizontalFlowArrow left="34%" top="52%" />;
+  return <HorizontalFlowArrow left="34%" top="66%" />;
 }
 
 export function CapabilityPathPage({ slug }: { slug: string }) {
