@@ -235,6 +235,12 @@ export const seo = {
     description:
       "Farcelis provides managed operations support for leaders who need operating cadence, workflow triage, executive follow-through, AI enablement, and clearer execution.",
   },
+  deploymentOperations: {
+    path: "/services/deployment-operations",
+    title: "Deployment Operations | GitHub & Vercel Support | Farcelis",
+    description:
+      "Farcelis helps keep GitHub-connected websites, apps, portals, and AI-assisted tools deployed, documented, monitored, and manageable on Vercel and related hosting stacks.",
+  },
   platforms: {
     path: "/platforms",
     title: "AI Platforms & Integrations | Farcelis Consulting",
