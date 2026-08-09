@@ -200,7 +200,7 @@ export function CapabilityPathPage({ slug }: { slug: string }) {
               <article className="rounded-[24px] border border-cyan-100/12 bg-[#1c3c4d] p-4 lg:p-6">
                 <PillarRibbon label={group.label} />
                 <div className="mt-6 grid min-h-[560px] gap-6 lg:grid-cols-[0.86fr_1.14fr]">
-                  <div className="flex min-h-full flex-col justify-between text-center">
+                  <div className="flex min-h-full flex-col justify-center gap-8 text-center">
                     <div>
                       <p className={pathEyebrowClass} style={{ textAlign: "center", marginInline: "auto" }}>
                         Why You Are Here
@@ -217,18 +217,19 @@ export function CapabilityPathPage({ slug }: { slug: string }) {
                       >
                         {group.buyerPrompt}
                       </p>
-                      <div className="mx-auto mt-6 grid max-w-[36rem] gap-3 rounded-[16px] border border-cyan-100/10 bg-[#173343] p-4 text-center">
+                      <div className="mx-auto mt-6 grid max-w-[36rem] overflow-hidden rounded-[16px] border border-cyan-100/10 bg-[#173343] text-center">
                         {group.outcomes.map((outcome) => (
-                          <div key={outcome} className="grid grid-cols-[1.5rem_minmax(0,1fr)] gap-2 px-2 py-2 text-sm font-semibold leading-6 text-white">
-                            <span className="mt-2 h-1.5 w-1.5 shrink-0 rounded-full bg-[color:var(--color-accent)]" />
-                            <span className="text-center">{outcome}</span>
+                          <div key={outcome} className="border-b border-cyan-100/10 px-6 py-4 text-center last:border-b-0">
+                            <span className="mx-auto block max-w-[30rem] text-center text-sm font-semibold leading-6 text-white">
+                              {outcome}
+                            </span>
                           </div>
                         ))}
                       </div>
                     </div>
                     <Link
                       href={group.actionHref}
-                      className="mx-auto mt-8 inline-flex rounded-full bg-[color:var(--color-accent)] px-6 py-3 text-sm font-semibold text-white shadow-[0_14px_34px_rgba(255,124,82,0.25)] transition hover:brightness-110"
+                      className="mx-auto inline-flex rounded-full bg-[color:var(--color-accent)] px-6 py-3 text-sm font-semibold text-white shadow-[0_14px_34px_rgba(255,124,82,0.25)] transition hover:brightness-110"
                     >
                       {group.primaryCta}
                     </Link>
