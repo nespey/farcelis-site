@@ -85,11 +85,11 @@ function AdjacentPathCard({
   return (
     <Link
       href={group.pathHref}
-      className="group relative z-10 flex min-h-[210px] flex-1 flex-col justify-center gap-4 rounded-[18px] border border-cyan-100/12 bg-[#1c3c4d] p-3 text-center transition hover:-translate-y-0.5 hover:border-cyan-100/24 hover:bg-[#24495c]"
+      className="group relative z-10 flex min-h-[210px] flex-1 flex-col justify-between gap-4 rounded-[18px] border border-cyan-100/12 bg-[#1c3c4d] p-3 text-center transition hover:-translate-y-0.5 hover:border-cyan-100/24 hover:bg-[#24495c]"
     >
       <PillarRibbon label={group.label} compact />
       <div className="mx-auto flex w-full max-w-[34rem] flex-col items-center gap-3">
-        <p className="block w-full text-center text-xs font-semibold uppercase tracking-[0.18em] text-[color:var(--color-accent)]">
+        <p className="mx-auto block w-full text-center text-xs font-semibold uppercase tracking-[0.18em] text-[color:var(--color-accent)]">
           {flowLabels[activeLabel][group.label]}
         </p>
         <p className="text-center text-sm font-semibold leading-6 text-white">{group.headline}</p>
