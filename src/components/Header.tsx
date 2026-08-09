@@ -30,6 +30,64 @@ const solutionLinks = [
 ];
 
 type MenuKey = "capabilities" | "solutions";
+type CapabilityPillar = "Build" | "Grow" | "Operate";
+
+function CapabilityPillarHeader({ label }: { label: string }) {
+  const pillar = label as CapabilityPillar;
+
+  return (
+    <div
+      className={`relative isolate overflow-hidden rounded-[12px] border px-4 py-3 text-base font-bold uppercase tracking-[0.24em] shadow-[inset_0_1px_0_rgba(255,255,255,0.08)] ${
+        pillar === "Build"
+          ? "border-cyan-100/16 bg-[#285869]"
+          : pillar === "Grow"
+            ? "border-emerald-100/16 bg-[#315f55]"
+            : "border-indigo-100/16 bg-[#3e506c]"
+      }`}
+    >
+      {pillar === "Build" ? (
+        <div className="absolute inset-0 opacity-45" aria-hidden="true">
+          <span className="absolute left-4 top-3 h-[1px] w-[34%] bg-[#8fd3df]/55" />
+          <span className="absolute right-5 top-3 h-[1px] w-[24%] bg-[#8fd3df]/42" />
+          <span className="absolute bottom-3 left-7 h-[1px] w-[78%] bg-[#8fd3df]/32" />
+          <span className="absolute left-4 top-3 h-5 w-[1px] bg-[#8fd3df]/45" />
+          <span className="absolute right-5 top-3 h-6 w-[1px] bg-[#8fd3df]/35" />
+          <span className="absolute left-[18%] top-1/2 h-5 w-16 -translate-y-1/2 rounded-[4px] border border-[#8fd3df]/34" />
+          <span className="absolute right-[16%] top-1/2 h-4 w-12 -translate-y-1/2 rounded-[4px] border border-[#8fd3df]/28" />
+          <span className="absolute left-[12%] bottom-2 h-2 w-2 border-b border-l border-[#8fd3df]/45" />
+          <span className="absolute right-[10%] bottom-2 h-2 w-2 border-b border-r border-[#8fd3df]/45" />
+        </div>
+      ) : null}
+
+      {pillar === "Grow" ? (
+        <div className="absolute inset-0 opacity-42" aria-hidden="true">
+          <span className="absolute left-4 right-4 top-1/2 h-[1px] -translate-y-1/2 bg-[#9bd8bd]/30" />
+          <span className="absolute left-[14%] top-[53%] h-4 w-7 -translate-y-1/2 rotate-[-18deg] rounded-[100%_0] border border-[#9bd8bd]/42 border-r-0 border-b-0" />
+          <span className="absolute left-[28%] top-[43%] h-4 w-7 -translate-y-1/2 rotate-[24deg] rounded-[100%_0] border border-[#9bd8bd]/45 border-r-0 border-b-0" />
+          <span className="absolute right-[28%] top-[55%] h-4 w-7 -translate-y-1/2 rotate-[-24deg] rounded-[100%_0] border border-[#9bd8bd]/45 border-r-0 border-b-0" />
+          <span className="absolute right-[12%] top-[44%] h-4 w-7 -translate-y-1/2 rotate-[20deg] rounded-[100%_0] border border-[#9bd8bd]/42 border-r-0 border-b-0" />
+          <span className="absolute left-[8%] top-[50%] h-1.5 w-1.5 -translate-y-1/2 rounded-full bg-[#9bd8bd]/45" />
+          <span className="absolute right-[8%] top-[50%] h-1.5 w-1.5 -translate-y-1/2 rounded-full bg-[#9bd8bd]/45" />
+        </div>
+      ) : null}
+
+      {pillar === "Operate" ? (
+        <div className="absolute inset-0 opacity-42" aria-hidden="true">
+          <span className="absolute left-4 right-4 top-[38%] h-[1px] bg-[#aebcf2]/34" />
+          <span className="absolute left-8 right-8 top-[62%] h-[1px] bg-[#aebcf2]/24" />
+          <span className="absolute left-[17%] top-[38%] h-2.5 w-2.5 -translate-y-1/2 rounded-full border border-[#aebcf2]/48 bg-[#3e506c]" />
+          <span className="absolute left-[33%] top-[62%] h-2 w-2 -translate-y-1/2 rounded-full bg-[#aebcf2]/40" />
+          <span className="absolute right-[31%] top-[38%] h-2 w-2 -translate-y-1/2 rounded-full bg-[#aebcf2]/42" />
+          <span className="absolute right-[14%] top-1/2 h-8 w-8 -translate-y-1/2 rounded-full border border-[#aebcf2]/34" />
+          <span className="absolute right-[14%] top-1/2 h-3 w-3 -translate-x-[10px] -translate-y-1/2 rounded-full bg-[#aebcf2]/32" />
+          <span className="absolute left-[11%] bottom-2 h-1 w-8 rounded-full bg-[#aebcf2]/24" />
+        </div>
+      ) : null}
+
+      <span className="relative z-10 text-[color:var(--color-accent)]">{label}</span>
+    </div>
+  );
+}
 
 export function Header() {
   const [elevated, setElevated] = useState(false);
@@ -149,9 +207,7 @@ export function Header() {
                   <div className="mt-3 grid gap-3 lg:grid-cols-3">
                     {capabilityGroups.map((group) => (
                       <div key={group.label} className="flex flex-col rounded-[16px] border border-cyan-100/10 bg-[#1c3c4d] p-3 text-center">
-                        <div className="rounded-[12px] border border-cyan-100/10 bg-[#24495c] px-4 py-3 text-base font-bold uppercase tracking-[0.24em] text-[color:var(--color-accent)] shadow-[inset_0_1px_0_rgba(255,255,255,0.06)]">
-                          {group.label}
-                        </div>
+                        <CapabilityPillarHeader label={group.label} />
                         <p className="mx-auto mt-3 min-h-10 max-w-[280px] text-center text-xs leading-5 text-slate-100">{group.detail}</p>
                         <div className="mt-3 grid flex-1 grid-rows-6 gap-1.5">
                           {group.links.map((item) => (
@@ -301,9 +357,7 @@ export function Header() {
               <div className="mt-3 grid gap-3">
                 {capabilityGroups.map((group) => (
                   <div key={group.label} className="rounded-[18px] border border-cyan-100/12 bg-white/[0.035] p-3 text-center">
-                    <div className="rounded-[12px] border border-cyan-100/10 bg-[#24495c] px-4 py-3 text-base font-bold uppercase tracking-[0.22em] text-[color:var(--color-accent)]">
-                      {group.label}
-                    </div>
+                    <CapabilityPillarHeader label={group.label} />
                     <div className="mt-3 grid gap-2">
                       {group.links.map((item) => (
                         <Link
