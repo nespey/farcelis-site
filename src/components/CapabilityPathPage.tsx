@@ -202,11 +202,21 @@ export function CapabilityPathPage({ slug }: { slug: string }) {
                 <div className="mt-6 grid min-h-[560px] gap-6 lg:grid-cols-[0.86fr_1.14fr]">
                   <div className="flex min-h-full flex-col justify-between text-center">
                     <div className="pt-4 lg:pt-7">
-                      <p className={pathEyebrowClass}>Why You Are Here</p>
-                      <h2 className="mx-auto mt-4 max-w-[36rem] text-center text-3xl font-semibold tracking-[-0.05em] text-white">
+                      <p className={pathEyebrowClass} style={{ textAlign: "center", marginInline: "auto" }}>
+                        Why You Are Here
+                      </p>
+                      <h2
+                        className="mx-auto mt-4 max-w-[36rem] text-center text-3xl font-semibold tracking-[-0.05em] text-white"
+                        style={{ textAlign: "center" }}
+                      >
                         {group.headline}
                       </h2>
-                      <p className="mx-auto mt-4 max-w-[35rem] text-center text-base leading-7 text-slate-200">{group.buyerPrompt}</p>
+                      <p
+                        className="mx-auto mt-4 max-w-[35rem] text-center text-base leading-7 text-slate-200"
+                        style={{ textAlign: "center" }}
+                      >
+                        {group.buyerPrompt}
+                      </p>
                       <div className="mx-auto mt-6 grid max-w-[36rem] gap-3 rounded-[16px] border border-cyan-100/10 bg-[#173343] p-4 text-center">
                         {group.outcomes.map((outcome) => (
                           <div key={outcome} className="grid grid-cols-[1.5rem_minmax(0,1fr)] gap-2 px-2 py-2 text-sm font-semibold leading-6 text-white">
