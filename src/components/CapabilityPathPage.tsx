@@ -1,7 +1,6 @@
 import Link from "next/link";
 import { notFound } from "next/navigation";
 
-import { PageIntro } from "@/components/PageIntro";
 import { Reveal } from "@/components/Reveal";
 import { capabilityGroups, getCapabilityGroup } from "@/lib/service-catalog";
 
@@ -68,7 +67,7 @@ function AdjacentPathCard({
   return (
     <Link
       href={group.pathHref}
-      className="group flex min-h-0 flex-1 flex-col rounded-[18px] border border-cyan-100/12 bg-[#1c3c4d] p-3 transition hover:-translate-y-0.5 hover:border-cyan-100/24 hover:bg-[#24495c]"
+      className="group relative z-10 flex min-h-[210px] flex-1 flex-col rounded-[18px] border border-cyan-100/12 bg-[#1c3c4d] p-3 transition hover:-translate-y-0.5 hover:border-cyan-100/24 hover:bg-[#24495c]"
     >
       <PillarRibbon label={group.label} compact />
       <p className="mt-3 text-xs font-semibold uppercase tracking-[0.18em] text-[color:var(--color-accent)]">
@@ -89,8 +88,10 @@ function AdjacentPathCard({
       <div className="mt-4 rounded-[14px] border border-cyan-100/10 bg-[#173343] px-3 py-3 text-xs font-semibold leading-5 text-white">
         {flowCopy[activeLabel][group.label]}
       </div>
-      <div className="mt-auto pt-3 text-right text-sm font-semibold text-[color:var(--color-accent)] transition group-hover:translate-x-1">
-        Go to {group.label} →
+      <div className="mt-auto pt-4">
+        <span className="inline-flex w-full items-center justify-center rounded-full border border-cyan-100/14 bg-cyan-100/6 px-4 py-2 text-sm font-semibold text-white transition group-hover:border-cyan-100/26 group-hover:bg-cyan-100/10">
+          Go to {group.label} Path
+        </span>
       </div>
     </Link>
   );
@@ -106,19 +107,28 @@ function FlowRail({
   position: "left" | "right";
 }) {
   return (
-    <aside className="flex h-full min-h-[520px] flex-col rounded-[24px] border border-cyan-100/10 bg-[#102c39] p-3 shadow-[inset_0_1px_0_rgba(255,255,255,0.04)]">
+    <aside className="flex h-full min-h-[620px] flex-col rounded-[24px] border border-cyan-100/10 bg-[#102c39] p-3 shadow-[inset_0_1px_0_rgba(255,255,255,0.04)]">
       <div className="rounded-[16px] border border-cyan-100/10 bg-[#173343] px-4 py-3">
         <p className="text-xs font-semibold uppercase tracking-[0.2em] text-[color:var(--color-accent)]">
           {position === "left" ? "Feeds This Path" : "Next Path"}
         </p>
         <p className="mt-2 text-xs leading-5 text-slate-200">
-          Use this side path when the buyer realizes they need the work before or after this step.
+          Click across when the buyer needs the step before this one, or the step that comes next.
         </p>
       </div>
-      <div className="relative mt-3 flex flex-1 flex-col gap-3">
-        <span className="absolute bottom-4 left-1/2 top-4 w-px -translate-x-1/2 bg-cyan-100/10" aria-hidden="true" />
-        {groups.map((item) => (
-          <AdjacentPathCard key={item.label} activeLabel={activeLabel} group={item} />
+      <div className="relative mt-3 flex flex-1 flex-col gap-3 overflow-hidden rounded-[18px]">
+        <span className="absolute bottom-8 left-1/2 top-8 w-px -translate-x-1/2 bg-cyan-100/12" aria-hidden="true" />
+        {groups.map((item, index) => (
+          <div key={item.label} className="relative flex flex-1 flex-col">
+            {index > 0 ? (
+              <div className="relative z-10 -my-1 flex items-center justify-center">
+                <span className="rounded-full border border-cyan-100/12 bg-[#102c39] px-3 py-1 text-xs font-semibold uppercase tracking-[0.18em] text-slate-300">
+                  Then
+                </span>
+              </div>
+            ) : null}
+            <AdjacentPathCard activeLabel={activeLabel} group={item} />
+          </div>
         ))}
       </div>
     </aside>
@@ -138,24 +148,16 @@ export function CapabilityPathPage({ slug }: { slug: string }) {
 
   return (
     <>
-      <PageIntro
-        eyebrow={`${group.label} Path`}
-        title={group.headline}
-        description={group.buyerPrompt}
-        asideTitle="What This Covers"
-        asideItems={group.outcomes}
-      />
-
       <Reveal delayMs={40}>
-        <section className="section-shell section-shell-dark">
+        <section className="section-shell section-shell-dark pt-10 lg:pt-12">
           <div className="section-inner">
             <div
-              className={`grid gap-4 ${
+              className={`grid items-stretch gap-4 ${
                 group.label === "Grow"
-                  ? "lg:grid-cols-[0.58fr_minmax(0,1.15fr)_0.58fr]"
+                  ? "lg:grid-cols-[minmax(250px,0.44fr)_minmax(0,1fr)_minmax(250px,0.44fr)]"
                   : group.label === "Operate"
-                    ? "lg:grid-cols-[0.6fr_minmax(0,1.35fr)]"
-                    : "lg:grid-cols-[minmax(0,1.35fr)_0.6fr]"
+                    ? "lg:grid-cols-[minmax(340px,0.5fr)_minmax(0,1fr)]"
+                    : "lg:grid-cols-[minmax(0,1fr)_minmax(340px,0.5fr)]"
               }`}
             >
               {group.label === "Grow" ? (
