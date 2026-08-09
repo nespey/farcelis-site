@@ -150,7 +150,7 @@ function HorizontalFlowConnectors({ label }: { label: string }) {
   if (label === "Grow") {
     return (
       <>
-        <HorizontalFlowArrow left="24.4%" top="50%" />
+        <HorizontalFlowArrow left="23.4%" top="50%" />
         <HorizontalFlowArrow left="75.6%" top="50%" />
       </>
     );
