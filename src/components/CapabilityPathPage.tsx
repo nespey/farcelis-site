@@ -88,7 +88,10 @@ function AdjacentPathCard({
       className="group relative z-10 flex min-h-[210px] flex-1 flex-col rounded-[18px] border border-cyan-100/12 bg-[#1c3c4d] p-3 text-center transition hover:-translate-y-0.5 hover:border-cyan-100/24 hover:bg-[#24495c]"
     >
       <PillarRibbon label={group.label} compact />
-      <p className="mx-auto mt-4 block w-full text-center text-xs font-semibold uppercase tracking-[0.18em] text-[color:var(--color-accent)]">
+      <p
+        className="mx-auto mt-4 block w-full text-center text-xs font-semibold uppercase tracking-[0.18em] text-[color:var(--color-accent)]"
+        style={{ textAlign: "center", marginInline: "auto" }}
+      >
         {flowLabels[activeLabel][group.label]}
       </p>
       <div className="mx-auto mt-3 flex w-full max-w-[34rem] flex-col items-center gap-3">
