@@ -46,42 +46,58 @@ function CapabilityPillarHeader({ label }: { label: string }) {
       }`}
     >
       {pillar === "Build" ? (
-        <div className="absolute inset-0 opacity-45" aria-hidden="true">
-          <span className="absolute left-4 top-3 h-[1px] w-[34%] bg-[#8fd3df]/55" />
-          <span className="absolute right-5 top-3 h-[1px] w-[24%] bg-[#8fd3df]/42" />
-          <span className="absolute bottom-3 left-7 h-[1px] w-[78%] bg-[#8fd3df]/32" />
-          <span className="absolute left-4 top-3 h-5 w-[1px] bg-[#8fd3df]/45" />
-          <span className="absolute right-5 top-3 h-6 w-[1px] bg-[#8fd3df]/35" />
-          <span className="absolute left-[18%] top-1/2 h-5 w-16 -translate-y-1/2 rounded-[4px] border border-[#8fd3df]/34" />
-          <span className="absolute right-[16%] top-1/2 h-4 w-12 -translate-y-1/2 rounded-[4px] border border-[#8fd3df]/28" />
-          <span className="absolute left-[12%] bottom-2 h-2 w-2 border-b border-l border-[#8fd3df]/45" />
-          <span className="absolute right-[10%] bottom-2 h-2 w-2 border-b border-r border-[#8fd3df]/45" />
-        </div>
+        <svg
+          className="absolute inset-0 h-full w-full opacity-36"
+          viewBox="0 0 320 48"
+          aria-hidden="true"
+          focusable="false"
+        >
+          <g fill="none" stroke="#8fd3df" strokeLinecap="round" strokeLinejoin="round">
+            <rect x="18" y="11" width="86" height="26" rx="2" strokeOpacity="0.5" />
+            <path d="M30 18h62M30 25h42M30 32h56" strokeOpacity="0.28" />
+            <path d="M116 14h28M116 24h36M116 34h22" strokeOpacity="0.3" />
+            <rect x="216" y="12" width="78" height="24" rx="2" strokeOpacity="0.42" />
+            <path d="M226 18h56M226 25h36M226 32h48" strokeOpacity="0.24" />
+            <path d="M158 12v24M162 12v24" strokeOpacity="0.28" />
+          </g>
+        </svg>
       ) : null}
 
       {pillar === "Grow" ? (
-        <div className="absolute inset-0 opacity-45" aria-hidden="true">
-          <span className="absolute left-4 right-4 top-1/2 h-[1px] -translate-y-1/2 bg-[#9bd8bd]/30" />
-          <span className="absolute left-[14%] top-[53%] h-4 w-7 -translate-y-1/2 rotate-[-18deg] rounded-[100%_0] border border-[#9bd8bd]/42 border-r-0 border-b-0" />
-          <span className="absolute left-[28%] top-[43%] h-4 w-7 -translate-y-1/2 rotate-[24deg] rounded-[100%_0] border border-[#9bd8bd]/45 border-r-0 border-b-0" />
-          <span className="absolute right-[28%] top-[55%] h-4 w-7 -translate-y-1/2 rotate-[-24deg] rounded-[100%_0] border border-[#9bd8bd]/45 border-r-0 border-b-0" />
-          <span className="absolute right-[12%] top-[44%] h-4 w-7 -translate-y-1/2 rotate-[20deg] rounded-[100%_0] border border-[#9bd8bd]/42 border-r-0 border-b-0" />
-          <span className="absolute left-[8%] top-[50%] h-1.5 w-1.5 -translate-y-1/2 rounded-full bg-[#9bd8bd]/45" />
-          <span className="absolute right-[8%] top-[50%] h-1.5 w-1.5 -translate-y-1/2 rounded-full bg-[#9bd8bd]/45" />
-        </div>
+        <svg
+          className="absolute inset-0 h-full w-full opacity-38"
+          viewBox="0 0 320 48"
+          aria-hidden="true"
+          focusable="false"
+        >
+          <g fill="none" stroke="#9bd8bd" strokeLinecap="round" strokeLinejoin="round">
+            <path d="M24 30C58 13 88 13 120 28" strokeOpacity="0.42" />
+            <path d="M200 28c28-18 62-18 96 2" strokeOpacity="0.42" />
+            <path d="M72 22c-9-11-21-10-28 0 11 3 20 2 28 0Z" fill="#9bd8bd" fillOpacity="0.16" strokeOpacity="0.45" />
+            <path d="M106 25c11-10 23-7 28 4-12 1-20-1-28-4Z" fill="#9bd8bd" fillOpacity="0.16" strokeOpacity="0.45" />
+            <path d="M234 24c-10-10-22-8-28 2 11 2 19 1 28-2Z" fill="#9bd8bd" fillOpacity="0.16" strokeOpacity="0.45" />
+            <path d="M270 27c11-9 23-5 27 6-12 0-20-2-27-6Z" fill="#9bd8bd" fillOpacity="0.16" strokeOpacity="0.45" />
+          </g>
+        </svg>
       ) : null}
 
       {pillar === "Operate" ? (
-        <div className="absolute inset-0 opacity-45" aria-hidden="true">
-          <span className="absolute left-4 right-4 top-[38%] h-[1px] bg-[#aebcf2]/34" />
-          <span className="absolute left-8 right-8 top-[62%] h-[1px] bg-[#aebcf2]/24" />
-          <span className="absolute left-[17%] top-[38%] h-2.5 w-2.5 -translate-y-1/2 rounded-full border border-[#aebcf2]/48 bg-[#3e506c]" />
-          <span className="absolute left-[33%] top-[62%] h-2 w-2 -translate-y-1/2 rounded-full bg-[#aebcf2]/40" />
-          <span className="absolute right-[31%] top-[38%] h-2 w-2 -translate-y-1/2 rounded-full bg-[#aebcf2]/42" />
-          <span className="absolute right-[14%] top-1/2 h-8 w-8 -translate-y-1/2 rounded-full border border-[#aebcf2]/34" />
-          <span className="absolute right-[14%] top-1/2 h-3 w-3 -translate-x-[10px] -translate-y-1/2 rounded-full bg-[#aebcf2]/32" />
-          <span className="absolute left-[11%] bottom-2 h-1 w-8 rounded-full bg-[#aebcf2]/24" />
-        </div>
+        <svg
+          className="absolute inset-0 h-full w-full opacity-38"
+          viewBox="0 0 320 48"
+          aria-hidden="true"
+          focusable="false"
+        >
+          <g fill="none" stroke="#aebcf2" strokeLinecap="round">
+            <path d="M24 16h108M188 16h108" strokeOpacity="0.32" />
+            <path d="M24 24h74M132 24h164" strokeOpacity="0.26" />
+            <path d="M24 32h130M206 32h90" strokeOpacity="0.22" />
+            <circle cx="86" cy="16" r="5" fill="#3e506c" strokeOpacity="0.48" />
+            <circle cx="126" cy="24" r="5" fill="#aebcf2" fillOpacity="0.16" strokeOpacity="0.48" />
+            <circle cx="202" cy="32" r="5" fill="#3e506c" strokeOpacity="0.48" />
+            <circle cx="246" cy="16" r="5" fill="#aebcf2" fillOpacity="0.14" strokeOpacity="0.42" />
+          </g>
+        </svg>
       ) : null}
 
       <span className="relative z-10 text-[color:var(--color-accent)]">{label}</span>
