@@ -85,20 +85,20 @@ function AdjacentPathCard({
   return (
     <Link
       href={group.pathHref}
-      className="group relative z-10 flex min-h-[210px] flex-1 flex-col justify-between gap-4 rounded-[18px] border border-cyan-100/12 bg-[#1c3c4d] p-3 text-center transition hover:-translate-y-0.5 hover:border-cyan-100/24 hover:bg-[#24495c]"
+      className="group relative z-10 flex min-h-[210px] flex-1 flex-col rounded-[18px] border border-cyan-100/12 bg-[#1c3c4d] p-3 text-center transition hover:-translate-y-0.5 hover:border-cyan-100/24 hover:bg-[#24495c]"
     >
       <PillarRibbon label={group.label} compact />
-      <div className="mx-auto flex w-full max-w-[34rem] flex-col items-center gap-3">
-        <p className="mx-auto block w-full text-center text-xs font-semibold uppercase tracking-[0.18em] text-[color:var(--color-accent)]">
-          {flowLabels[activeLabel][group.label]}
-        </p>
+      <p className="mx-auto mt-4 block w-full text-center text-xs font-semibold uppercase tracking-[0.18em] text-[color:var(--color-accent)]">
+        {flowLabels[activeLabel][group.label]}
+      </p>
+      <div className="mx-auto mt-3 flex w-full max-w-[34rem] flex-col items-center gap-3">
         <p className="text-center text-sm font-semibold leading-6 text-white">{group.headline}</p>
         <p className="text-center text-xs leading-5 text-slate-200">{group.detail}</p>
         <div className="w-full rounded-[14px] border border-cyan-100/10 bg-[#173343] px-3 py-3 text-center text-xs font-semibold leading-5 text-white">
           {flowCopy[activeLabel][group.label]}
         </div>
       </div>
-      <span className="inline-flex w-full items-center justify-center rounded-full border border-cyan-100/14 bg-cyan-100/6 px-4 py-2 text-sm font-semibold text-white transition group-hover:border-cyan-100/26 group-hover:bg-cyan-100/10">
+      <span className="mt-auto inline-flex w-full items-center justify-center rounded-full border border-cyan-100/14 bg-cyan-100/6 px-4 py-2 text-sm font-semibold text-white transition group-hover:border-cyan-100/26 group-hover:bg-cyan-100/10">
         Go to {group.label} Path
       </span>
     </Link>
