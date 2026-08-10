@@ -11,13 +11,13 @@ export default function ProductsPage() {
   return (
     <>
       <PageIntro
-        eyebrow="Product Suite"
-        title="Farcelis product surfaces turn consulting patterns into repeatable operating systems."
-        description="The Farcelis suite packages Control Layer design, readiness diagnostics, AI assistants, adaptive learning, implementation acceleration, and AI-driven growth architecture into named systems leaders can understand and buy."
+        eyebrow="Tools & Assessments"
+        title="Farcelis tools support the Build, Grow, and Operate service paths."
+        description="These diagnostics, generators, assistants, and enablement systems help clarify scope, speed up implementation, and make the Farcelis operating model easier to use without creating a separate service lane."
         compact
         className="product-suite-intro"
         actions={[
-          { href: "/contact", label: "Request Product Fit Review" },
+          { href: "/contact", label: "Ask where this fits" },
           { href: "/services", label: "See Services", variant: "secondary" },
         ]}
       />
@@ -26,9 +26,9 @@ export default function ProductsPage() {
         <section className="section-shell section-shell-light product-suite-list-section">
           <div className="section-inner">
             <div className="max-w-[840px]">
-              <p className="eyebrow text-[#9f412c]">Named Systems</p>
+              <p className="eyebrow text-[#9f412c]">Supporting Systems</p>
               <h2 className="mt-4 max-w-[780px] text-[clamp(1.45rem,2vw,2rem)] font-medium leading-[1.16] tracking-[-0.035em] text-slate-950">
-                Farcelis product pages make the model concrete without shrinking it into a generic software pitch.
+                These are not a separate offer path. They are the tools Farcelis uses to make services clearer, faster, and easier to operate.
               </h2>
             </div>
 

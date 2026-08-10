@@ -7,16 +7,11 @@ import { useCallback, useEffect, useRef, useState } from "react";
 
 import { capabilityGroups } from "@/lib/service-catalog";
 
-const solutionLinks = [
+const resourceLinks = [
   {
-    href: "/control-layer",
-    label: "Farcelis Control Layer",
-    detail: "The operating spine for intake, visibility, ownership, and action.",
-  },
-  {
-    href: "/products",
-    label: "Product Suite",
-    detail: "Named Farcelis systems for diagnostics, learning, growth, and deployment.",
+    href: "/resources",
+    label: "Resource Library",
+    detail: "Guides, briefings, and playbooks that support the Services path.",
   },
   {
     href: "/insights",
@@ -25,12 +20,17 @@ const solutionLinks = [
   },
   {
     href: "/events",
-    label: "Webinars & Events",
+    label: "Webinars & Briefings",
     detail: "Executive sessions and workshops for AI-enabled operating systems.",
+  },
+  {
+    href: "/products",
+    label: "Tools & Assessments",
+    detail: "Diagnostics, generators, and enablement systems that support Build, Grow, and Operate.",
   },
 ];
 
-type MenuKey = "services" | "solutions";
+type MenuKey = "services" | "resources";
 type CapabilityPillar = "Build" | "Grow" | "Operate";
 
 function CapabilityPillarHeader({ label }: { label: string }) {
@@ -229,54 +229,6 @@ export function Header() {
               </div>
             </div>
 
-            <div className="relative">
-              <button
-                type="button"
-                aria-haspopup="true"
-                aria-expanded={activeMenu === "solutions"}
-                aria-controls="solutions-menu"
-                onClick={() => setActiveMenu(activeMenu === "solutions" ? null : "solutions")}
-                className={`inline-flex min-h-11 items-center rounded-full px-1 text-sm font-medium tracking-[0.01em] transition focus:outline-none focus-visible:ring-2 focus-visible:ring-cyan-100/70 ${
-                  activeMenu === "solutions" ? "text-white" : "text-slate-300 hover:text-white"
-                }`}
-              >
-                Solutions
-              </button>
-              <div
-                id="solutions-menu"
-                className={`absolute left-1/2 top-full z-40 -translate-x-1/2 pt-4 transition duration-200 ${
-                  activeMenu === "solutions"
-                    ? "pointer-events-auto opacity-100"
-                    : "pointer-events-none opacity-0"
-                }`}
-              >
-                <div className="surface-dark min-w-[500px] rounded-[24px] border border-cyan-100/14 bg-[#173343] p-4 shadow-[0_28px_80px_rgba(3,8,16,0.46)]">
-                  <div className="rounded-[18px] border border-cyan-100/10 bg-[#1c3c4d] px-4 py-3">
-                    <div className="text-xs font-semibold uppercase tracking-[0.2em] text-[color:var(--color-accent)]">
-                      Solutions
-                    </div>
-                    <p className="mt-2 text-sm leading-6 text-slate-100">
-                      Structured paths for leaders who need a working system, not another isolated tool.
-                    </p>
-                  </div>
-
-                  <div className="mt-3 grid gap-2">
-                    {solutionLinks.map((item) => (
-                      <Link
-                        key={item.label}
-                        href={item.href}
-                        onClick={closeMenus}
-                        className="block rounded-[16px] border border-cyan-100/12 bg-[#1c3c4d] px-4 py-3 transition hover:border-cyan-100/22 hover:bg-[#24495c] hover:text-white"
-                      >
-                        <div className="text-sm font-semibold text-white">{item.label}</div>
-                        <div className="mt-1 text-xs leading-6 text-slate-100">{item.detail}</div>
-                      </Link>
-                    ))}
-                  </div>
-                </div>
-              </div>
-            </div>
-
             <Link
               href="/industries"
               onClick={closeMenus}
@@ -285,13 +237,53 @@ export function Header() {
               Industries
             </Link>
 
-            <Link
-              href="/resources"
-              onClick={closeMenus}
-              className="inline-flex min-h-11 items-center rounded-full px-1 text-sm font-medium tracking-[0.01em] text-slate-300 transition hover:text-white focus:outline-none focus-visible:ring-2 focus-visible:ring-cyan-100/70"
-            >
-              Resources
-            </Link>
+            <div className="relative">
+              <button
+                type="button"
+                aria-haspopup="true"
+                aria-expanded={activeMenu === "resources"}
+                aria-controls="resources-menu"
+                onClick={() => setActiveMenu(activeMenu === "resources" ? null : "resources")}
+                className={`inline-flex min-h-11 items-center rounded-full px-1 text-sm font-medium tracking-[0.01em] transition focus:outline-none focus-visible:ring-2 focus-visible:ring-cyan-100/70 ${
+                  activeMenu === "resources" ? "text-white" : "text-slate-300 hover:text-white"
+                }`}
+              >
+                Resources
+              </button>
+              <div
+                id="resources-menu"
+                className={`absolute left-1/2 top-full z-40 -translate-x-1/2 pt-4 transition duration-200 ${
+                  activeMenu === "resources"
+                    ? "pointer-events-auto opacity-100"
+                    : "pointer-events-none opacity-0"
+                }`}
+              >
+                <div className="surface-dark min-w-[500px] rounded-[24px] border border-cyan-100/14 bg-[#173343] p-4 shadow-[0_28px_80px_rgba(3,8,16,0.46)]">
+                  <div className="rounded-[18px] border border-cyan-100/10 bg-[#1c3c4d] px-4 py-3 text-center">
+                    <div className="text-xs font-semibold uppercase tracking-[0.2em] text-[color:var(--color-accent)]">
+                      Resources
+                    </div>
+                    <p className="mx-auto mt-2 max-w-[420px] text-sm leading-6 text-slate-100">
+                      Thinking, briefings, and tools that help buyers understand the Build, Grow, and Operate path.
+                    </p>
+                  </div>
+
+                  <div className="mt-3 grid gap-2">
+                    {resourceLinks.map((item) => (
+                      <Link
+                        key={item.label}
+                        href={item.href}
+                        onClick={closeMenus}
+                        className="block rounded-[16px] border border-cyan-100/12 bg-[#1c3c4d] px-4 py-3 text-center transition hover:border-cyan-100/22 hover:bg-[#24495c] hover:text-white"
+                      >
+                        <div className="text-sm font-semibold text-white">{item.label}</div>
+                        <div className="mx-auto mt-1 max-w-[420px] text-xs leading-6 text-slate-100">{item.detail}</div>
+                      </Link>
+                    ))}
+                  </div>
+                </div>
+              </div>
+            </div>
 
             <Link
               href="/results"
@@ -381,9 +373,9 @@ export function Header() {
             </div>
 
             <div>
-              <p className="eyebrow text-[color:var(--color-accent)]">Solutions</p>
+              <p className="eyebrow text-[color:var(--color-accent)]">Resources</p>
               <div className="mt-3 grid gap-2">
-                {solutionLinks.map((item) => (
+                {resourceLinks.map((item) => (
                   <Link
                     key={item.label}
                     href={item.href}
@@ -398,12 +390,10 @@ export function Header() {
 
             <div className="grid grid-cols-2 gap-2">
               {[
-                { href: "/products", label: "Products" },
                 { href: "/industries", label: "Industries" },
-                { href: "/resources", label: "Resources" },
-                { href: "/events", label: "Events" },
                 { href: "/results", label: "Results" },
                 { href: "/team", label: "Leadership" },
+                { href: "/contact", label: "Contact" },
               ].map((item) => (
                 <Link
                   key={item.href}

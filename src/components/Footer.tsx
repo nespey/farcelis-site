@@ -4,8 +4,7 @@ import Link from "next/link";
 import { certifications, site } from "@/lib/site-data";
 
 const exploreLeft = [
-  { href: "/services", label: "Capabilities" },
-  { href: "/products", label: "Products" },
+  { href: "/services", label: "Services" },
   { href: "/platforms", label: "Platforms" },
   { href: "/industries", label: "Industries" },
   { href: "/results", label: "Results" },
@@ -13,8 +12,9 @@ const exploreLeft = [
 
 const exploreRight = [
   { href: "/resources", label: "Resources" },
-  { href: "/events", label: "Events" },
   { href: "/insights", label: "Insights" },
+  { href: "/events", label: "Briefings" },
+  { href: "/products", label: "Tools" },
   { href: "/team", label: "Leadership" },
   { href: "/contact", label: "Contact" },
 ];

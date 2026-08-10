@@ -186,10 +186,10 @@ export const site = {
     { href: "/", label: "Home" },
     { href: "/control-layer", label: "Control Layer" },
     { href: "/services", label: "Services" },
-    { href: "/products", label: "Products" },
     { href: "/platforms", label: "Platforms" },
     { href: "/industries", label: "Industries" },
     { href: "/resources", label: "Resources" },
+    { href: "/products", label: "Tools & Assessments" },
     { href: "/events", label: "Events" },
     { href: "/insights", label: "Insights" },
     { href: "/team", label: "Our Team" },
@@ -249,9 +249,9 @@ export const seo = {
   },
   products: {
     path: "/products",
-    title: "Farcelis Product Suite | AI Operating Systems",
+    title: "Farcelis Tools & Assessments | AI Operating Systems",
     description:
-      "Explore Farcelis proprietary product surfaces, including the Control Layer, Pulse Thread Coaching Assistant, INTENT+ Adaptive Learning Engine, RapidRamp Generator, and AI Marketing Blueprint Generator.",
+      "Explore Farcelis diagnostics, generators, enablement systems, and assessment tools that support the Build, Grow, and Operate service paths.",
   },
   industries: {
     path: "/industries",
