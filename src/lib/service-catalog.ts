@@ -79,13 +79,8 @@ export const capabilityGroups: CapabilityGroup[] = [
         detail: "We connect the tools you already use so your website, CRM, forms, workspaces, dashboards, and automations stop living in separate places.",
       },
       {
-        href: "/services/deployment-operations",
-        label: "Deployment Operations",
-        detail: "We take the work from idea or code repository to a live, hosted, documented system with domains, releases, checks, and support rhythm.",
-      },
-      {
         href: "/services/reporting-decision-systems",
-        label: "Dashboards & Decision Views",
+        label: "Dashboards and Decision Views",
         detail: "We build the dashboards and views leaders need to see what is happening, what is stuck, and what needs action.",
       },
     ],
@@ -167,18 +162,13 @@ export const capabilityGroups: CapabilityGroup[] = [
       },
       {
         href: "/services/workflow-operations",
-        label: "Workflow & Operations",
-        detail: "We design how work enters, moves, gets assigned, gets escalated, and gets reported so handoffs stop breaking.",
+        label: "Workflow & Managed Operations",
+        detail: "We design the workflow, ownership, cadence, follow-up, reporting, and support rhythm that keeps work moving.",
       },
       {
         href: "/control-layer",
-        label: "Farcelis Control Layer",
+        label: "The Farcelis Control Layer",
         detail: "This is our operating environment for intake, visibility, ownership, reporting, intervention, and action.",
-      },
-      {
-        href: "/services/managed-operations",
-        label: "Managed Operations",
-        detail: "We help run the cadence: triage, follow-up, reminders, reporting, AI enablement, and operating relief.",
       },
       {
         href: "/services/reporting-decision-systems",

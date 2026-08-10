@@ -30,7 +30,7 @@ const solutionLinks = [
   },
 ];
 
-type MenuKey = "capabilities" | "solutions";
+type MenuKey = "services" | "solutions";
 type CapabilityPillar = "Build" | "Grow" | "Operate";
 
 function CapabilityPillarHeader({ label }: { label: string }) {
@@ -51,31 +51,28 @@ function CapabilityPillarHeader({ label }: { label: string }) {
   );
 }
 
-function CapabilityPillarButton({
-  group,
-  onSelect,
+function ServiceLinkButton({
+  item,
+  onClose,
 }: {
-  group: (typeof capabilityGroups)[number];
-  onSelect: (pillar: CapabilityPillar) => void;
+  item: (typeof capabilityGroups)[number]["links"][number];
+  onClose: () => void;
 }) {
   return (
-    <button
-      type="button"
-      onClick={() => onSelect(group.label as CapabilityPillar)}
-      className="group flex h-full flex-col rounded-[18px] border border-cyan-100/10 bg-[#1c3c4d] p-3 text-center transition hover:-translate-y-0.5 hover:border-cyan-100/24 hover:bg-[#214557] focus:outline-none focus-visible:ring-2 focus-visible:ring-cyan-100/70"
+    <Link
+      href={item.href}
+      onClick={onClose}
+      className="flex min-h-[58px] flex-col justify-center rounded-[12px] border border-cyan-100/10 bg-[#173343] px-3 py-2 text-center transition hover:-translate-y-0.5 hover:border-cyan-100/24 hover:bg-[#214557] focus:outline-none focus-visible:ring-2 focus-visible:ring-cyan-100/70"
     >
-      <CapabilityPillarHeader label={group.label} />
-      <p className="mx-auto mt-4 max-w-[270px] text-sm font-semibold leading-6 text-white">
-        {group.headline}
-      </p>
-      <p className="mx-auto mt-2 max-w-[292px] text-xs leading-5 text-slate-200">
-        {group.detail}
-      </p>
-    </button>
+      <span className="text-[0.78rem] font-semibold leading-4 text-white">{item.label}</span>
+      <span className="mx-auto mt-1 max-w-[18rem] text-[0.66rem] leading-4 text-slate-300">
+        {item.detail}
+      </span>
+    </Link>
   );
 }
 
-function CapabilityFocusPanel({
+function ServicePillarColumn({
   group,
   onClose,
 }: {
@@ -83,47 +80,18 @@ function CapabilityFocusPanel({
   onClose: () => void;
 }) {
   return (
-    <div className="rounded-[20px] border border-cyan-100/12 bg-[#1c3c4d] p-3 shadow-[0_24px_70px_rgba(3,8,16,0.38)]">
+    <div className="flex h-full flex-col rounded-[16px] border border-cyan-100/10 bg-[#1c3c4d] p-2.5 text-center">
       <CapabilityPillarHeader label={group.label} />
-
-      <div className="grid gap-5 px-2 py-5 lg:grid-cols-[minmax(0,0.96fr)_minmax(0,1.04fr)] lg:px-4">
-        <div>
-          <p className="text-xs font-semibold uppercase tracking-[0.2em] text-[color:var(--color-accent)]">
-            {group.label} Path
-          </p>
-          <h3 className="mt-3 text-2xl font-semibold tracking-[-0.035em] text-white">
-            {group.headline}
-          </h3>
-          <p className="mt-3 text-sm leading-6 text-slate-100">{group.buyerPrompt}</p>
-          <div className="mt-5 flex flex-wrap gap-2">
-            <Link
-              href={group.pathHref}
-              onClick={onClose}
-              className="rounded-full border border-cyan-100/18 px-4 py-2 text-sm font-semibold text-slate-100 transition hover:border-cyan-100/32 hover:text-white"
-            >
-              See the {group.label} Path
-            </Link>
-            <Link
-              href={group.actionHref}
-              onClick={onClose}
-              className="rounded-full bg-[color:var(--color-accent)] px-4 py-2 text-sm font-semibold text-white shadow-[0_14px_34px_rgba(255,124,82,0.25)] transition hover:brightness-110"
-            >
-              {group.primaryCta}
-            </Link>
-          </div>
-        </div>
-
-        <div className="grid gap-2.5 rounded-[16px] border border-cyan-100/10 bg-[#173343] p-3">
-          {group.outcomes.map((outcome) => (
-            <div
-              key={outcome}
-              className="flex gap-3 px-2 py-2 text-sm font-semibold leading-6 text-white"
-            >
-              <span className="mt-2 h-1.5 w-1.5 shrink-0 rounded-full bg-[color:var(--color-accent)]" />
-              <span>{outcome}</span>
-            </div>
-          ))}
-        </div>
+      <p className="mx-auto mt-2 max-w-[310px] text-xs font-semibold leading-5 text-white">
+        {group.headline}
+      </p>
+      <p className="mx-auto mt-1.5 max-w-[320px] text-[0.7rem] leading-4 text-slate-300">
+        {group.detail}
+      </p>
+      <div className="mt-2.5 grid gap-1.5">
+        {group.links.map((item) => (
+          <ServiceLinkButton key={`${group.label}-${item.label}`} item={item} onClose={onClose} />
+        ))}
       </div>
     </div>
   );
@@ -135,19 +103,13 @@ export function Header() {
   const [hidden, setHidden] = useState(false);
   const [mobileOpen, setMobileOpen] = useState(false);
   const [activeMenu, setActiveMenu] = useState<MenuKey | null>(null);
-  const [activeCapability, setActiveCapability] = useState<CapabilityPillar | null>(null);
   const headerRef = useRef<HTMLElement | null>(null);
   const lastScrollY = useRef(0);
 
   const closeMenus = useCallback(() => {
     setActiveMenu(null);
     setMobileOpen(false);
-    setActiveCapability(null);
   }, []);
-
-  const activeCapabilityGroup = activeCapability
-    ? capabilityGroups.find((group) => group.label === activeCapability)
-    : null;
   const isContactPage = pathname === "/contact";
 
   useEffect(() => {
@@ -225,54 +187,44 @@ export function Header() {
               <button
                 type="button"
                 aria-haspopup="true"
-                aria-expanded={activeMenu === "capabilities"}
-                aria-controls="capabilities-menu"
+                aria-expanded={activeMenu === "services"}
+                aria-controls="services-menu"
                 onClick={() => {
-                  setActiveMenu(activeMenu === "capabilities" ? null : "capabilities");
-                  setActiveCapability(null);
+                  setActiveMenu(activeMenu === "services" ? null : "services");
                 }}
                 className={`inline-flex min-h-11 items-center rounded-full px-1 text-sm font-medium tracking-[0.01em] transition focus:outline-none focus-visible:ring-2 focus-visible:ring-cyan-100/70 ${
-                  activeMenu === "capabilities" ? "text-white" : "text-slate-300 hover:text-white"
+                  activeMenu === "services" ? "text-white" : "text-slate-300 hover:text-white"
                 }`}
               >
-                Capabilities
+                Services
               </button>
               <div
-                id="capabilities-menu"
-                className={`fixed left-1/2 top-16 z-40 w-[min(1120px,calc(100vw-3rem))] -translate-x-1/2 pt-3 transition duration-200 sm:top-20 ${
-                  activeMenu === "capabilities"
+                id="services-menu"
+                className={`fixed left-1/2 top-16 z-40 w-[min(1160px,calc(100vw-2rem))] -translate-x-1/2 pt-3 transition duration-200 sm:top-20 ${
+                  activeMenu === "services"
                     ? "pointer-events-auto opacity-100"
                     : "pointer-events-none opacity-0"
                 }`}
               >
-                <div className="surface-dark max-h-[calc(100vh-6rem)] overflow-y-auto rounded-[22px] border border-cyan-100/14 bg-[#173343] p-4 shadow-[0_28px_80px_rgba(3,8,16,0.46)]">
-                  <div className="rounded-[16px] border border-cyan-100/10 bg-[#1c3c4d] px-4 py-3">
+                <div className="surface-dark max-h-[calc(100vh-5.75rem)] overflow-hidden rounded-[22px] border border-cyan-100/14 bg-[#173343] p-3 shadow-[0_28px_80px_rgba(3,8,16,0.46)]">
+                  <div className="rounded-[16px] border border-cyan-100/10 bg-[#1c3c4d] px-4 py-3 text-center">
                     <div className="text-xs font-semibold uppercase tracking-[0.2em] text-[color:var(--color-accent)]">
-                      Capabilities
+                      Services
                     </div>
-                    <p className="mt-2 text-sm leading-6 text-slate-100">
-                      AI, operations, platforms, growth, and managed execution services designed to stabilize how work moves.
+                    <p className="mx-auto mt-2 max-w-[820px] text-sm leading-6 text-slate-100">
+                      Build what is missing, grow what needs attention, and operate the systems that have to stay visible, owned, and controlled.
                     </p>
                   </div>
 
-                  {activeCapabilityGroup ? (
-                    <div className="mt-3">
-                      <CapabilityFocusPanel
-                        group={activeCapabilityGroup}
+                  <div className="mt-2.5 grid gap-2.5 lg:grid-cols-3">
+                    {capabilityGroups.map((group) => (
+                      <ServicePillarColumn
+                        key={group.label}
+                        group={group}
                         onClose={closeMenus}
                       />
-                    </div>
-                  ) : (
-                    <div className="mt-3 grid gap-3 lg:grid-cols-3">
-                      {capabilityGroups.map((group) => (
-                        <CapabilityPillarButton
-                          key={group.label}
-                          group={group}
-                          onSelect={setActiveCapability}
-                        />
-                      ))}
-                    </div>
-                  )}
+                    ))}
+                  </div>
                 </div>
               </div>
             </div>
@@ -403,7 +355,7 @@ export function Header() {
       >
           <div className="grid gap-5">
             <div>
-              <p className="eyebrow text-[color:var(--color-accent)]">Capabilities</p>
+              <p className="eyebrow text-[color:var(--color-accent)]">Services</p>
               <div className="mt-3 grid gap-3">
                 {capabilityGroups.map((group) => (
                   <div key={group.label} className="rounded-[18px] border border-cyan-100/12 bg-white/[0.035] p-3 text-center">
@@ -414,13 +366,15 @@ export function Header() {
                     <p className="mx-auto mt-2 max-w-[340px] text-xs leading-5 text-slate-200">
                       {group.detail}
                     </p>
-                    <Link
-                      href={group.pathHref}
-                      onClick={closeMenus}
-                      className="mt-3 inline-flex min-h-10 items-center justify-center rounded-full border border-cyan-100/18 px-4 text-sm font-semibold text-white"
-                    >
-                      See the {group.label} Path
-                    </Link>
+                    <div className="mt-3 grid gap-2">
+                      {group.links.map((item) => (
+                        <ServiceLinkButton
+                          key={`mobile-${group.label}-${item.label}`}
+                          item={item}
+                          onClose={closeMenus}
+                        />
+                      ))}
+                    </div>
                   </div>
                 ))}
               </div>
