@@ -3,64 +3,79 @@
 import Link from "next/link";
 import { useEffect, useMemo, useState } from "react";
 
+type Pillar = "Build" | "Grow" | "Operate";
+
 const scanQuestions = [
   {
-    label: "Where is the pressure showing up first?",
+    label: "What are you trying to do first?",
     options: [
-      { label: "Too many scattered requests", score: 3 },
-      { label: "Teams need clearer AI direction", score: 2 },
-      { label: "Growth work is hard to track", score: 2 },
+      { label: "Create or rebuild a website, app, portal, or automation", pillar: "Build" },
+      { label: "Get more people to find, trust, and act on what we offer", pillar: "Grow" },
+      { label: "Keep systems, work, reporting, and follow-up under control", pillar: "Operate" },
     ],
   },
   {
-    label: "What breaks most often?",
+    label: "What is missing or messy right now?",
     options: [
-      { label: "Ownership and follow-through", score: 3 },
-      { label: "Reporting and visibility", score: 3 },
-      { label: "Content, CRM, and lead handoffs", score: 2 },
+      { label: "The thing itself: site, app, portal, dashboard, code, or launch path", pillar: "Build" },
+      { label: "The market path: search, content, ads, CRM, or lead handoff", pillar: "Grow" },
+      { label: "The operating model: ownership, reporting, support, cadence, or rules", pillar: "Operate" },
     ],
   },
   {
-    label: "How urgent is the operating pain?",
+    label: "What would help most this month?",
     options: [
-      { label: "It is active now", score: 3 },
-      { label: "It is getting worse", score: 2 },
-      { label: "We are planning ahead", score: 1 },
+      { label: "Turn an idea or messy asset into something usable", pillar: "Build" },
+      { label: "Make an existing offer easier to find and act on", pillar: "Grow" },
+      { label: "Put control around work that already exists", pillar: "Operate" },
     ],
   },
   {
-    label: "What would help most?",
+    label: "Where should Farcelis route you?",
     options: [
-      { label: "A Control Layer", score: 3 },
-      { label: "A readiness snapshot", score: 2 },
-      { label: "A growth or platform rebuild", score: 2 },
+      { label: "Build: create, connect, clean up, launch, document", pillar: "Build" },
+      { label: "Grow: visibility, content, campaigns, CRM, follow-up", pillar: "Grow" },
+      { label: "Operate: Control Layer, workflow, reporting, managed support", pillar: "Operate" },
     ],
   },
-];
+] satisfies {
+  label: string;
+  options: { label: string; pillar: Pillar }[];
+}[];
 
-const recommendations = [
-  {
-    min: 10,
-    title: "Control Layer candidate",
-    body: "Your answers point to an operating-system problem: intake, ownership, visibility, and intervention should be structured before more tools are added.",
-    href: "/control-layer",
-    label: "Explore Control Layer",
+const recommendations: Record<Pillar, {
+  title: string;
+  body: string;
+  href: string;
+  label: string;
+  contactHref: string;
+  contactLabel: string;
+}> = {
+  Build: {
+    title: "Start with Build",
+    body: "Your answers point to creating or repairing the thing itself: a site, app, portal, dashboard, automation, codebase, or launch path people can actually use.",
+    href: "/services/build",
+    label: "See the Build Path",
+    contactHref: "/contact/build",
+    contactLabel: "Talk Through a Build",
   },
-  {
-    min: 7,
-    title: "Readiness and workflow assessment",
-    body: "The strongest next step is a structured diagnostic across workflows, tools, data visibility, and AI readiness.",
-    href: "/products/blueprint-readiness-snapshot",
-    label: "View Readiness Snapshot",
+  Grow: {
+    title: "Start with Grow",
+    body: "Your answers point to visibility and movement: search, AEO, content, campaigns, CRM, lead handling, and the follow-up path that turns attention into action.",
+    href: "/services/grow",
+    label: "See the Grow Path",
+    contactHref: "/contact/grow",
+    contactLabel: "Map a Growth Path",
   },
-  {
-    min: 0,
-    title: "Capability mapping",
-    body: "Start by mapping the highest-value service path across AI strategy, workflow automation, CRM operations, growth systems, and platform integration.",
-    href: "/services",
-    label: "Review Capabilities",
+  Operate: {
+    title: "Start with Operate",
+    body: "Your answers point to control: ownership, workflow, AI rules, reporting, deployment continuity, managed operations, and the Farcelis Control Layer.",
+    href: "/services/operate",
+    label: "See the Operate Path",
+    contactHref: "/contact/operate",
+    contactLabel: "Stabilize Operations",
   },
-];
+};
 
 export function SiteExperienceLayer() {
   const [progress, setProgress] = useState(0);
@@ -109,15 +124,23 @@ export function SiteExperienceLayer() {
     return () => window.removeEventListener("hashchange", openFromHash);
   }, []);
 
-  const score = useMemo(
-    () => Object.entries(answers).reduce((total, [questionIndex, optionIndex]) => {
-      const option = scanQuestions[Number(questionIndex)]?.options[optionIndex];
-      return total + (option?.score ?? 0);
-    }, 0),
+  const resultPillar = useMemo<Pillar>(
+    () => {
+      const scores: Record<Pillar, number> = { Build: 0, Grow: 0, Operate: 0 };
+
+      Object.entries(answers).forEach(([questionIndex, optionIndex]) => {
+        const option = scanQuestions[Number(questionIndex)]?.options[optionIndex];
+        if (option) {
+          scores[option.pillar] += 1;
+        }
+      });
+
+      return (Object.entries(scores).sort((a, b) => b[1] - a[1])[0]?.[0] as Pillar) ?? "Build";
+    },
     [answers],
   );
 
-  const recommendation = recommendations.find((item) => score >= item.min) ?? recommendations[2];
+  const recommendation = recommendations[resultPillar];
   const answeredCount = Object.keys(answers).length;
 
   return (
@@ -152,11 +175,11 @@ export function SiteExperienceLayer() {
             <div>
               <p className="eyebrow text-[color:var(--color-accent)]">Farcelis Pathfinder</p>
               <h2 id="system-scan-title" className="mt-3 text-3xl font-semibold tracking-[-0.05em] text-white">
-                Find the right next page.
+                Find your starting path.
               </h2>
               <p className="mt-3 max-w-[520px] text-sm leading-7 text-slate-300">
-                Answer four signals and this routes you to the most useful Farcelis surface:
-                Control Layer, readiness, services, or a strategy conversation.
+                Answer four quick signals and Pathfinder routes you toward Build, Grow,
+                or Operate so the next click matches what you actually need.
               </p>
             </div>
             <button
@@ -214,11 +237,11 @@ export function SiteExperienceLayer() {
                 {recommendation.label}
               </Link>
               <Link
-                href="/contact"
+                href={recommendation.contactHref}
                 onClick={() => setOpen(false)}
                 className="site-cta inline-flex min-h-11 items-center justify-center rounded-full border border-cyan-100/18 bg-cyan-100/6 px-5 py-2.5 text-sm font-semibold text-cyan-50"
               >
-                Schedule Strategy Call
+                {recommendation.contactLabel}
               </Link>
             </div>
           </div>
