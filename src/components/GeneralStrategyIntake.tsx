@@ -34,6 +34,7 @@ export function GeneralStrategyIntake() {
   const [selectedIds, setSelectedIds] = useState<string[]>([]);
   const [goalText, setGoalText] = useState("");
   const [contextText, setContextText] = useState("");
+  const [sourceContext, setSourceContext] = useState("");
 
   useEffect(() => {
     const params = new URLSearchParams(window.location.search);
@@ -53,7 +54,7 @@ export function GeneralStrategyIntake() {
       setSelectedIds((current) =>
         Array.from(new Set([...current, "ai-strategy-governance", "workflow-managed-operations"])),
       );
-      setContextText(
+      setSourceContext(
         topic
           ? `Resource selected: Webinars & Briefings - ${topic}.`
           : "Resource selected: Webinars & Briefings.",
@@ -61,7 +62,7 @@ export function GeneralStrategyIntake() {
     }
 
     if (request === "use-case") {
-      setContextText(
+      setSourceContext(
         topic
           ? `Resource selected: Insights & Playbooks - ${topic}.`
           : "Resource selected: Insights & Playbooks.",
@@ -69,7 +70,7 @@ export function GeneralStrategyIntake() {
     }
 
     if (request === "tool-assessment") {
-      setContextText(
+      setSourceContext(
         topic
           ? `Resource selected: Tools & Assessments - ${topic}.`
           : "Resource selected: Tools & Assessments.",
@@ -77,15 +78,15 @@ export function GeneralStrategyIntake() {
     }
 
     if (request === "build") {
-      setContextText("Starting point selected: Build.");
+      setSourceContext("Starting point selected: Build.");
     }
 
     if (request === "grow") {
-      setContextText("Starting point selected: Grow.");
+      setSourceContext("Starting point selected: Grow.");
     }
 
     if (request === "operate") {
-      setContextText("Starting point selected: Operate.");
+      setSourceContext("Starting point selected: Operate.");
     }
   }, []);
 
@@ -117,7 +118,7 @@ export function GeneralStrategyIntake() {
     const selectedWork = selectedItems.map((item) => item.emailLabel ?? item.label);
 
     const subject = "Farcelis General Strategy inquiry";
-    const body = [
+    const bodyLines = [
       "Path: General Strategy",
       `Name: ${name}`,
       `Email: ${email}`,
@@ -125,6 +126,14 @@ export function GeneralStrategyIntake() {
       "",
       "Selected work areas:",
       selectedWork.length > 0 ? selectedWork.map((item) => `- ${item}`).join("\n") : "None selected",
+    ];
+
+    if (sourceContext) {
+      bodyLines.push("", "Source context:", sourceContext);
+    }
+
+    const body = [
+      ...bodyLines,
       "",
       "What they want to build, grow, or stabilize:",
       goal,
