@@ -32,23 +32,11 @@ const solutionLinks = [
 type MenuKey = "capabilities" | "solutions";
 type CapabilityPillar = "Build" | "Grow" | "Operate";
 
-const capabilityPillarImages: Record<CapabilityPillar, string> = {
-  Build: "/images/navigation/capability-build-pill.png",
-  Grow: "/images/navigation/capability-grow-pill.png",
-  Operate: "/images/navigation/capability-operate-pill.png",
-};
-
 function CapabilityPillarHeader({ label }: { label: string }) {
   const pillar = label as CapabilityPillar;
 
   return (
     <div
-      style={{
-        backgroundImage: `url(${capabilityPillarImages[pillar]})`,
-        backgroundRepeat: "repeat-x",
-        backgroundSize: "auto 100%",
-        backgroundPosition: "center",
-      }}
       className={`relative isolate flex min-h-12 items-center justify-center overflow-hidden rounded-[12px] border px-4 py-2.5 text-lg font-black uppercase tracking-[0.3em] shadow-[inset_0_1px_0_rgba(255,255,255,0.08)] ${
         pillar === "Build"
           ? "border-cyan-100/16 bg-[#285869]"

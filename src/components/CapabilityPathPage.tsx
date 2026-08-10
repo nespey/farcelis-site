@@ -4,12 +4,6 @@ import { notFound } from "next/navigation";
 import { Reveal } from "@/components/Reveal";
 import { capabilityGroups, getCapabilityGroup } from "@/lib/service-catalog";
 
-const capabilityPillarImages: Record<string, string> = {
-  Build: "/images/navigation/capability-build-pill.png",
-  Grow: "/images/navigation/capability-grow-pill.png",
-  Operate: "/images/navigation/capability-operate-pill.png",
-};
-
 const adjacentLabels: Record<string, string[]> = {
   Build: ["Grow", "Operate"],
   Grow: ["Build", "Operate"],
@@ -52,12 +46,6 @@ const pathEyebrowClass =
 function PillarRibbon({ label, compact = false }: { label: string; compact?: boolean }) {
   return (
     <div
-      style={{
-        backgroundImage: `url(${capabilityPillarImages[label]})`,
-        backgroundRepeat: "repeat-x",
-        backgroundSize: "auto 100%",
-        backgroundPosition: "center",
-      }}
       className={`relative isolate flex items-center justify-center overflow-hidden rounded-[14px] border px-4 font-black uppercase tracking-[0.3em] shadow-[inset_0_1px_0_rgba(255,255,255,0.08)] ${
         compact ? "min-h-11 text-sm" : "min-h-14 text-xl"
       } ${
