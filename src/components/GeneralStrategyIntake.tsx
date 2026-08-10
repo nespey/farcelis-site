@@ -53,41 +53,39 @@ export function GeneralStrategyIntake() {
       setSelectedIds((current) =>
         Array.from(new Set([...current, "ai-strategy-governance", "workflow-managed-operations"])),
       );
-      setGoalText(
+      setContextText(
         topic
-          ? `I want to request a Farcelis briefing or session about ${topic}.`
-          : "I want to request or host a Farcelis briefing.",
+          ? `Resource selected: Webinars & Briefings - ${topic}.`
+          : "Resource selected: Webinars & Briefings.",
       );
-      setContextText("This came from the Webinars & Briefings resource path.");
     }
 
     if (request === "use-case") {
-      setGoalText("I want to talk through a specific use case and understand which service path fits.");
-      setContextText("This came from the Insights & Playbooks resource path.");
+      setContextText(
+        topic
+          ? `Resource selected: Insights & Playbooks - ${topic}.`
+          : "Resource selected: Insights & Playbooks.",
+      );
     }
 
     if (request === "tool-assessment") {
-      setGoalText(
+      setContextText(
         topic
-          ? `I want to understand whether ${topic} fits what I am trying to do.`
-          : "I want help choosing the right Farcelis tool or assessment for my Build, Grow, or Operate need.",
+          ? `Resource selected: Tools & Assessments - ${topic}.`
+          : "Resource selected: Tools & Assessments.",
       );
-      setContextText("This came from the Tools & Assessments resource path.");
     }
 
     if (request === "build") {
-      setGoalText("I want to talk through something Farcelis can build, rebuild, connect, clean up, or launch.");
-      setContextText("This came from the Build service path.");
+      setContextText("Starting point selected: Build.");
     }
 
     if (request === "grow") {
-      setGoalText("I want to talk through visibility, search, ads, content, CRM, or revenue movement.");
-      setContextText("This came from the Grow service path.");
+      setContextText("Starting point selected: Grow.");
     }
 
     if (request === "operate") {
-      setGoalText("I want to talk through systems, workflows, reporting, ownership, support, or operating control.");
-      setContextText("This came from the Operate service path.");
+      setContextText("Starting point selected: Operate.");
     }
   }, []);
 
