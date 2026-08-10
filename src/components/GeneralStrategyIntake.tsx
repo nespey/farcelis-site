@@ -46,6 +46,12 @@ export function GeneralStrategyIntake() {
     );
   };
 
+  const resizeTextarea = (event: FormEvent<HTMLTextAreaElement>) => {
+    const textarea = event.currentTarget;
+    textarea.style.height = "auto";
+    textarea.style.height = `${textarea.scrollHeight}px`;
+  };
+
   const handleSubmit = (event: FormEvent<HTMLFormElement>) => {
     event.preventDefault();
     const form = new FormData(event.currentTarget);
@@ -77,15 +83,15 @@ export function GeneralStrategyIntake() {
   };
 
   return (
-    <div className="grid gap-4">
-      <section className="rounded-[24px] border border-cyan-100/12 bg-[#1c3c4d] px-4 py-4 text-white lg:px-5">
+    <div className="grid gap-2.5">
+      <section className="rounded-[20px] border border-cyan-100/12 bg-[#1c3c4d] px-3 py-3 text-white lg:px-4">
         <div className="flex flex-col gap-2 text-center sm:text-left">
           <p className="eyebrow text-[color:var(--color-accent)]">Select Work Areas</p>
-          <p className="text-sm leading-6 text-slate-300">
+          <p className="text-xs leading-5 text-slate-300">
             Choose one or more areas you want Farcelis to help with. These selections are added to the intake message.
           </p>
         </div>
-        <div className="mt-4 grid gap-2 sm:grid-cols-2 xl:grid-cols-3">
+        <div className="mt-2.5 grid gap-2 sm:grid-cols-2 xl:grid-cols-4">
           {workInterests.map((item) => {
             const selected = selectedIds.includes(item.id);
 
@@ -95,14 +101,14 @@ export function GeneralStrategyIntake() {
                 type="button"
                 onClick={() => toggleInterest(item.id)}
                 aria-pressed={selected}
-                className={`min-h-[92px] rounded-[15px] border px-3 py-3 text-center transition ${
+                className={`min-h-[58px] rounded-[12px] border px-2.5 py-1.5 text-center transition ${
                   selected
                     ? "border-[color:var(--color-accent)] bg-[rgba(242,139,91,0.16)] shadow-[0_12px_30px_rgba(255,124,82,0.12)]"
                     : "border-cyan-100/10 bg-[#173343] hover:border-cyan-100/24 hover:bg-[#214557]"
                 }`}
               >
-                <span className="block text-sm font-semibold leading-5 text-white">{item.label}</span>
-                <span className="mx-auto mt-1.5 block max-w-[18rem] text-xs leading-5 text-slate-300">
+                <span className="block text-[0.76rem] font-semibold leading-4 text-white">{item.label}</span>
+                <span className="mx-auto mt-0.5 block max-w-[15rem] text-[0.66rem] leading-3 text-slate-300">
                   {item.description}
                 </span>
               </button>
@@ -111,60 +117,64 @@ export function GeneralStrategyIntake() {
         </div>
       </section>
 
-      <form id="strategy-form" onSubmit={handleSubmit} className="surface-dark grid gap-3 rounded-[24px] p-5">
-        <p className="eyebrow text-[color:var(--color-accent)]">General Strategy Intake</p>
-        <div className="grid gap-3 sm:grid-cols-2">
+      <form id="strategy-form" onSubmit={handleSubmit} className="surface-dark grid gap-2.5 rounded-[20px] p-3 lg:p-4">
+        <p className="eyebrow text-[color:var(--color-accent)]">More Information</p>
+        <div className="grid gap-2.5 sm:grid-cols-2 xl:grid-cols-3">
           <input
             name="name"
             required
             placeholder="Name"
-            className="rounded-[15px] border border-white/10 bg-white/6 px-4 py-3 text-sm text-white outline-none placeholder:text-slate-400 focus:border-cyan-100/40"
+            className="rounded-[13px] border border-white/10 bg-white/6 px-3.5 py-2 text-sm text-white outline-none placeholder:text-slate-400 focus:border-cyan-100/40"
           />
           <input
             name="email"
             type="email"
             required
             placeholder="Email"
-            className="rounded-[15px] border border-white/10 bg-white/6 px-4 py-3 text-sm text-white outline-none placeholder:text-slate-400 focus:border-cyan-100/40"
+            className="rounded-[13px] border border-white/10 bg-white/6 px-3.5 py-2 text-sm text-white outline-none placeholder:text-slate-400 focus:border-cyan-100/40"
+          />
+          <input
+            name="company"
+            placeholder="Company or organization"
+            className="rounded-[13px] border border-white/10 bg-white/6 px-3.5 py-2 text-sm text-white outline-none placeholder:text-slate-400 focus:border-cyan-100/40 sm:col-span-2 xl:col-span-1"
           />
         </div>
-        <input
-          name="company"
-          placeholder="Company or organization"
-          className="rounded-[15px] border border-white/10 bg-white/6 px-4 py-3 text-sm text-white outline-none placeholder:text-slate-400 focus:border-cyan-100/40"
-        />
         {selectedItems.length > 0 ? (
-          <div className="flex flex-wrap gap-2 rounded-[15px] border border-cyan-100/10 bg-white/[0.035] px-3 py-3">
+          <div className="flex flex-wrap gap-1.5 rounded-[13px] border border-cyan-100/10 bg-white/[0.035] px-2.5 py-1.5">
             {selectedItems.map((item) => (
               <button
                 key={item.id}
                 type="button"
                 onClick={() => toggleInterest(item.id)}
-                className="rounded-full border border-[color:var(--color-accent)]/40 bg-[rgba(242,139,91,0.14)] px-3 py-1.5 text-xs font-semibold text-white transition hover:bg-[rgba(242,139,91,0.22)]"
+                className="rounded-full border border-[color:var(--color-accent)]/40 bg-[rgba(242,139,91,0.14)] px-2.5 py-1 text-[0.68rem] font-semibold text-white transition hover:bg-[rgba(242,139,91,0.22)]"
               >
                 {item.label} ×
               </button>
             ))}
           </div>
         ) : null}
-        <textarea
-          name="goal"
-          required
-          rows={3}
-          placeholder="What are you trying to build, grow, or stabilize?"
-          className="rounded-[18px] border border-white/10 bg-white/6 px-4 py-3 text-sm leading-6 text-white outline-none placeholder:text-slate-400 focus:border-cyan-100/40"
-        />
-        <textarea
-          name="context"
-          rows={3}
-          placeholder="What already exists, and what is missing, messy, stuck, or hard to manage?"
-          className="rounded-[18px] border border-white/10 bg-white/6 px-4 py-3 text-sm leading-6 text-white outline-none placeholder:text-slate-400 focus:border-cyan-100/40"
-        />
+        <div className="grid gap-2.5 xl:grid-cols-2">
+          <textarea
+            name="goal"
+            required
+            rows={2}
+            onInput={resizeTextarea}
+            placeholder="What are you trying to build, grow, or stabilize?"
+            className="max-h-40 min-h-16 resize-none overflow-y-auto rounded-[14px] border border-white/10 bg-white/6 px-3.5 py-2.5 text-sm leading-5 text-white outline-none placeholder:text-slate-400 focus:border-cyan-100/40"
+          />
+          <textarea
+            name="context"
+            rows={2}
+            onInput={resizeTextarea}
+            placeholder="What already exists, and what is missing, messy, stuck, or hard to manage?"
+            className="max-h-40 min-h-16 resize-none overflow-y-auto rounded-[14px] border border-white/10 bg-white/6 px-3.5 py-2.5 text-sm leading-5 text-white outline-none placeholder:text-slate-400 focus:border-cyan-100/40"
+          />
+        </div>
         <button
           type="submit"
-          className="min-h-11 rounded-full bg-[color:var(--color-accent)] px-6 text-sm font-semibold text-white shadow-[0_14px_34px_rgba(255,124,82,0.25)] transition hover:brightness-110"
+          className="min-h-10 rounded-full bg-[color:var(--color-accent)] px-6 text-sm font-semibold text-white shadow-[0_14px_34px_rgba(255,124,82,0.25)] transition hover:brightness-110"
         >
-          Send General Strategy Context
+          Send Inquiry
         </button>
       </form>
     </div>
