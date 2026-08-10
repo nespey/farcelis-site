@@ -38,6 +38,9 @@ export default async function BlogPostPage({ params }: BlogPageProps) {
   if (!post) {
     notFound();
   }
+
+  const inquiryHref = `/contact?request=use-case&topic=${encodeURIComponent(post.title)}#strategy-form`;
+
   const blogSchema = {
     "@context": "https://schema.org",
     "@type": "BlogPosting",
@@ -154,10 +157,10 @@ export default async function BlogPostPage({ params }: BlogPageProps) {
                   Back to Blog
                 </Link>
                 <Link
-                  href="/services"
+                  href={inquiryHref}
                   className="site-cta inline-flex min-h-12 items-center justify-center rounded-full bg-[linear-gradient(135deg,#f19a6b,#c75d33)] px-6 py-3 text-sm font-semibold text-white"
                 >
-                  Review Services
+                  Add This Blog to Inquiry
                 </Link>
               </div>
             </div>

@@ -52,7 +52,7 @@ export const capabilityGroups: CapabilityGroup[] = [
     ],
     primaryCta: "Talk Through a Build",
     pathHref: "/services/build",
-    actionHref: "/contact/build",
+    actionHref: "/contact?request=build&work=website-development,app-portal-development,ai-agents-automations,platform-connections,dashboards-decision-views#strategy-form",
     handoff: {
       title: "Build creates the asset. Grow makes it findable. Operate keeps it working.",
       body: "A site, app, portal, dashboard, or automation is only useful when it connects to visibility, follow-up, ownership, and support. Farcelis builds with that next handoff in mind.",
@@ -98,7 +98,7 @@ export const capabilityGroups: CapabilityGroup[] = [
     ],
     primaryCta: "Map a Growth Path",
     pathHref: "/services/grow",
-    actionHref: "/contact/grow",
+    actionHref: "/contact?request=grow&work=seo-search-visibility,aeo-ai-search-visibility,google-ads-paid-search,meta-ads-paid-social,crm-revenue-operations,content-revenue-systems#strategy-form",
     handoff: {
       title: "Grow creates movement. Operate keeps that movement from becoming chaos.",
       body: "Visibility, campaigns, content, and CRM only matter when someone owns the follow-through. Farcelis connects growth activity into operating rhythm, reporting, and decision support.",
@@ -149,7 +149,7 @@ export const capabilityGroups: CapabilityGroup[] = [
     ],
     primaryCta: "Stabilize Operations",
     pathHref: "/services/operate",
-    actionHref: "/contact/operate",
+    actionHref: "/contact?request=operate&work=ai-strategy-governance,workflow-managed-operations,farcelis-control-layer,reporting-decision-systems,deployment-operations-operate#strategy-form",
     handoff: {
       title: "Operate stabilizes the system, and it can point back to what needs to be built or grown.",
       body: "When operations expose a missing portal, unclear reporting layer, weak campaign handoff, or fragile deployment path, Farcelis can move back into Build or Grow without losing the operating model.",

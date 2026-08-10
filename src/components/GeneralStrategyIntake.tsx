@@ -74,6 +74,21 @@ export function GeneralStrategyIntake() {
       );
       setContextText("This came from the Tools & Assessments resource path.");
     }
+
+    if (request === "build") {
+      setGoalText("I want to talk through something Farcelis can build, rebuild, connect, clean up, or launch.");
+      setContextText("This came from the Build service path.");
+    }
+
+    if (request === "grow") {
+      setGoalText("I want to talk through visibility, search, ads, content, CRM, or revenue movement.");
+      setContextText("This came from the Grow service path.");
+    }
+
+    if (request === "operate") {
+      setGoalText("I want to talk through systems, workflows, reporting, ownership, support, or operating control.");
+      setContextText("This came from the Operate service path.");
+    }
   }, []);
 
   const selectedItems = useMemo(

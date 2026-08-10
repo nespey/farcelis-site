@@ -27,7 +27,7 @@ export default function ServicesPage() {
   return (
     <>
       <PageIntro
-        eyebrow="Capabilities"
+        eyebrow="Services"
         title="Farcelis helps leaders build, grow, and operate systems that can actually be owned."
         description="Some clients arrive with code, tools, and deployment problems. Others arrive with an idea and no technical map. Farcelis turns both starting points into clean websites, apps, portals, dashboards, automations, growth systems, and operating environments."
         actions={[

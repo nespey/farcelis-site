@@ -56,7 +56,7 @@ const recommendations: Record<Pillar, {
     body: "Your answers point to creating or repairing the thing itself: a site, app, portal, dashboard, automation, codebase, or launch path people can actually use.",
     href: "/services/build",
     label: "See the Build Path",
-    contactHref: "/contact/build",
+    contactHref: "/contact?request=build&work=website-development,app-portal-development,ai-agents-automations,platform-connections,dashboards-decision-views#strategy-form",
     contactLabel: "Talk Through a Build",
   },
   Grow: {
@@ -64,7 +64,7 @@ const recommendations: Record<Pillar, {
     body: "Your answers point to visibility and movement: search, AEO, content, campaigns, CRM, lead handling, and the follow-up path that turns attention into action.",
     href: "/services/grow",
     label: "See the Grow Path",
-    contactHref: "/contact/grow",
+    contactHref: "/contact?request=grow&work=seo-search-visibility,aeo-ai-search-visibility,google-ads-paid-search,meta-ads-paid-social,crm-revenue-operations,content-revenue-systems#strategy-form",
     contactLabel: "Map a Growth Path",
   },
   Operate: {
@@ -72,7 +72,7 @@ const recommendations: Record<Pillar, {
     body: "Your answers point to control: ownership, workflow, AI rules, reporting, deployment continuity, managed operations, and the Farcelis Control Layer.",
     href: "/services/operate",
     label: "See the Operate Path",
-    contactHref: "/contact/operate",
+    contactHref: "/contact?request=operate&work=ai-strategy-governance,workflow-managed-operations,farcelis-control-layer,reporting-decision-systems,deployment-operations-operate#strategy-form",
     contactLabel: "Stabilize Operations",
   },
 };

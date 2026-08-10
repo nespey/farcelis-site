@@ -20,7 +20,7 @@ export default function InsightsPage() {
         description="Farcelis insights focus on AI adoption, workflow architecture, governance, CRM and revenue operations, marketing systems, and the Control Layer model behind reliable execution."
         actions={[
           { href: "/contact?request=use-case#strategy-form", label: "Send a Use Case" },
-          { href: "/services", label: "Review Services", variant: "secondary" },
+          { href: "/contact?request=use-case#strategy-form", label: "Add Insight Context", variant: "secondary" },
         ]}
       />
 

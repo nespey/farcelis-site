@@ -164,7 +164,7 @@ export default async function DirectServicePage({ params }: ServicePageProps) {
         <section className="section-shell section-shell-dark">
           <div className="section-inner">
             <div className="max-w-[900px]">
-              <p className="eyebrow text-[color:var(--color-accent)]">Related Capabilities</p>
+              <p className="eyebrow text-[color:var(--color-accent)]">Related Services</p>
               <h2 className="section-title mt-5 text-white">
                 This service connects back into the larger Build, Grow, and Operate model.
               </h2>
