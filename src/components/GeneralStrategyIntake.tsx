@@ -16,7 +16,6 @@ const workInterests: WorkInterest[] = [
   { id: "app-portal-development", label: "App & Portal Development", description: "Web apps, client portals, dashboards, and login-based tools." },
   { id: "ai-agents-automations", label: "AI Agents & Automations", description: "Assistants and repeatable workflows tied to real tasks." },
   { id: "platform-connections", label: "Platform Connections", description: "Connect websites, CRM, forms, workspaces, and dashboards." },
-  { id: "deployment-operations-build", label: "Deployment Operations", description: "Launch paths, hosting, domains, releases, and documentation.", emailLabel: "Deployment Operations - launch path" },
   { id: "dashboards-decision-views", label: "Dashboards and Decision Views", description: "Views that show what is happening, stuck, and ready for action." },
   { id: "seo-search-visibility", label: "SEO & Search Visibility", description: "Pages, structure, topics, and signals for traditional search." },
   { id: "aeo-ai-search-visibility", label: "AEO & AI Search Visibility", description: "Structure content so AI search can understand and cite the offer." },
@@ -25,11 +24,10 @@ const workInterests: WorkInterest[] = [
   { id: "crm-revenue-operations", label: "CRM & Revenue Operations", description: "Lead capture, routing, follow-up, reporting, and handoffs." },
   { id: "content-revenue-systems", label: "Content & Revenue Systems", description: "Content, offers, campaigns, and publishing rhythm in one system." },
   { id: "ai-strategy-governance", label: "AI Strategy & Governance", description: "Use rules, ownership, risk boundaries, and adoption structure." },
-  { id: "workflow-operations", label: "Workflow & Operations", description: "How work enters, moves, gets assigned, escalated, and reported." },
+  { id: "workflow-managed-operations", label: "Workflow & Managed Operations", description: "Work routing, ownership, cadence, reporting, and support." },
   { id: "farcelis-control-layer", label: "The Farcelis Control Layer", description: "A structured operating layer for intake, visibility, and action." },
-  { id: "managed-operations", label: "Managed Operations", description: "Cadence, triage, reminders, reporting, enablement, and support." },
   { id: "reporting-decision-systems", label: "Reporting & Decision Systems", description: "Leadership-ready reporting and decision rhythm." },
-  { id: "deployment-operations-operate", label: "Deployment Operations", description: "Ongoing deployment continuity, maintenance, checks, and support.", emailLabel: "Deployment Operations - ongoing continuity" },
+  { id: "deployment-operations-operate", label: "Deployment Operations", description: "Keep hosted websites, apps, releases, checks, and support stable.", emailLabel: "Deployment Operations - ongoing continuity" },
 ];
 
 export function GeneralStrategyIntake() {
@@ -83,15 +81,15 @@ export function GeneralStrategyIntake() {
   };
 
   return (
-    <div className="grid gap-2.5">
-      <section className="rounded-[20px] border border-cyan-100/12 bg-[#1c3c4d] px-3 py-3 text-white lg:px-4">
+    <div className="grid gap-2">
+      <section className="rounded-[18px] border border-cyan-100/12 bg-[#1c3c4d] px-3 py-2.5 text-white lg:px-4">
         <div className="flex flex-col gap-2 text-center sm:text-left">
           <p className="eyebrow text-[color:var(--color-accent)]">Select Work Areas</p>
           <p className="text-xs leading-5 text-slate-300">
             Choose one or more areas you want Farcelis to help with. These selections are added to the intake message.
           </p>
         </div>
-        <div className="mt-2.5 grid gap-2 sm:grid-cols-2 xl:grid-cols-4">
+        <div className="mt-2 grid gap-1.5 sm:grid-cols-2 xl:grid-cols-4">
           {workInterests.map((item) => {
             const selected = selectedIds.includes(item.id);
 
@@ -101,13 +99,13 @@ export function GeneralStrategyIntake() {
                 type="button"
                 onClick={() => toggleInterest(item.id)}
                 aria-pressed={selected}
-                className={`min-h-[58px] rounded-[12px] border px-2.5 py-1.5 text-center transition ${
+                className={`min-h-[54px] rounded-[12px] border px-2.5 py-1.5 text-center transition ${
                   selected
                     ? "border-[color:var(--color-accent)] bg-[rgba(242,139,91,0.16)] shadow-[0_12px_30px_rgba(255,124,82,0.12)]"
                     : "border-cyan-100/10 bg-[#173343] hover:border-cyan-100/24 hover:bg-[#214557]"
                 }`}
               >
-                <span className="block text-[0.76rem] font-semibold leading-4 text-white">{item.label}</span>
+                <span className="block text-[0.74rem] font-semibold leading-4 text-white">{item.label}</span>
                 <span className="mx-auto mt-0.5 block max-w-[15rem] text-[0.66rem] leading-3 text-slate-300">
                   {item.description}
                 </span>
@@ -117,9 +115,9 @@ export function GeneralStrategyIntake() {
         </div>
       </section>
 
-      <form id="strategy-form" onSubmit={handleSubmit} className="surface-dark grid gap-2.5 rounded-[20px] p-3 lg:p-4">
-        <p className="eyebrow text-[color:var(--color-accent)]">More Information</p>
-        <div className="grid gap-2.5 sm:grid-cols-2 xl:grid-cols-3">
+      <form id="strategy-form" onSubmit={handleSubmit} className="surface-dark grid gap-2 rounded-[18px] p-3">
+        <p className="eyebrow text-[color:var(--color-accent)]">Inquiry Details</p>
+        <div className="grid gap-2 sm:grid-cols-2 xl:grid-cols-3">
           <input
             name="name"
             required
@@ -153,7 +151,7 @@ export function GeneralStrategyIntake() {
             ))}
           </div>
         ) : null}
-        <div className="grid gap-2.5 xl:grid-cols-2">
+        <div className="grid gap-2 xl:grid-cols-2">
           <textarea
             name="goal"
             required
