@@ -79,7 +79,7 @@ export const capabilityGroups: CapabilityGroup[] = [
         detail: "We connect the tools you already use so your website, CRM, forms, workspaces, dashboards, and automations stop living in separate places.",
       },
       {
-        href: "/services/reporting-decision-systems",
+        href: "/services/dashboards-decision-views",
         label: "Dashboards and Decision Views",
         detail: "We build the dashboards and views leaders need to see what is happening, what is stuck, and what needs action.",
       },
@@ -105,22 +105,22 @@ export const capabilityGroups: CapabilityGroup[] = [
     },
     links: [
       {
-        href: "/services/seo-aeo-visibility",
+        href: "/services/seo-search-visibility",
         label: "SEO & Search Visibility",
         detail: "We improve the pages, structure, topics, and signals that help people find you in traditional search.",
       },
       {
-        href: "/services/seo-aeo-visibility",
+        href: "/services/aeo-ai-search-visibility",
         label: "AEO / AI Search Visibility",
         detail: "AEO means answer-engine optimization: we structure your site so AI search tools can understand, summarize, and cite what you offer.",
       },
       {
-        href: "/services/google-meta-ads",
+        href: "/services/google-ads-paid-search",
         label: "Google Ads / Paid Search",
         detail: "We build paid search paths tied to real landing pages, tracking, CRM follow-up, and measurable next steps.",
       },
       {
-        href: "/services/google-meta-ads",
+        href: "/services/meta-ads-paid-social",
         label: "Meta Ads / Paid Social",
         detail: "We build social ad paths with audience, creative, landing page, lead handling, and follow-up in one plan.",
       },
@@ -292,6 +292,57 @@ export const directServices: DirectService[] = [
     ],
   },
   {
+    slug: "dashboards-decision-views",
+    navLabel: "Dashboards and Decision Views",
+    eyebrow: "Build / Dashboards and Decision Views",
+    title: "Dashboards and decision views built so leaders can see what needs action.",
+    summary:
+      "Farcelis builds practical dashboards, status views, and decision surfaces that show what is happening, what is stuck, who owns the next move, and what needs attention now.",
+    primaryCta: "Discuss dashboards and decision views",
+    secondaryCta: { href: "/services/reporting-decision-systems", label: "See reporting systems" },
+    capabilities: [
+      "Leadership dashboards and status views",
+      "Operating metrics tied to action",
+      "Client, team, or executive visibility surfaces",
+      "Workflow, revenue, and delivery signal views",
+      "Decision-ready layouts that show ownership and next steps",
+    ],
+    process: [
+      "Clarify what decisions the dashboard needs to support.",
+      "Identify the signals, data sources, and owners behind those decisions.",
+      "Design the smallest useful view before expanding the system.",
+      "Build the dashboard or decision surface inside the working stack.",
+      "Connect the view to review cadence, handoff, and operating rhythm.",
+    ],
+    signals: [
+      "People ask for updates because the current view is not clear.",
+      "Dashboards exist but do not show what action should happen next.",
+      "Leadership needs one place to see status, risk, ownership, and movement.",
+    ],
+    exclusions: [
+      "Decorative reporting that looks polished but does not change decisions.",
+      "Metric expansion before the business knows what each signal means.",
+      "Dashboards with no owner, review rhythm, or follow-through path.",
+    ],
+    related: [
+      {
+        href: "/services/app-portal-development",
+        label: "App & Portal Development",
+        detail: "Build the working surface around the dashboard when people need to act inside it.",
+      },
+      {
+        href: "/services/reporting-decision-systems",
+        label: "Reporting & Decision Systems",
+        detail: "Move from a dashboard into a broader decision rhythm.",
+      },
+      {
+        href: "/control-layer",
+        label: "Farcelis Control Layer",
+        detail: "Place dashboards inside the operating layer for visibility and action.",
+      },
+    ],
+  },
+  {
     slug: "deployment-operations",
     navLabel: "Deployment Operations",
     eyebrow: "Build / Deployment Operations",
@@ -347,6 +398,108 @@ export const directServices: DirectService[] = [
     ],
   },
   {
+    slug: "seo-search-visibility",
+    navLabel: "SEO & Search Visibility",
+    eyebrow: "Grow / SEO & Search Visibility",
+    title: "Search visibility that helps people find, understand, and act on what you offer.",
+    summary:
+      "Farcelis improves the pages, structure, topics, metadata, internal paths, and authority signals that help people find the business through traditional search.",
+    primaryCta: "Discuss SEO search visibility",
+    secondaryCta: { href: "/services/aeo-ai-search-visibility", label: "See AEO visibility" },
+    capabilities: [
+      "Technical SEO and index readiness",
+      "Service-page structure and metadata",
+      "Topic and buyer-question mapping",
+      "Resource and internal-link planning",
+      "Search visibility reporting tied to qualified next actions",
+    ],
+    process: [
+      "Baseline how search engines currently read the site.",
+      "Clarify the services, audiences, and buyer questions that need pages.",
+      "Clean page structure, metadata, routes, links, and content gaps.",
+      "Build or revise the pages and resources that support search intent.",
+      "Track movement in plain business terms instead of vanity metrics.",
+    ],
+    signals: [
+      "People search for the kind of work you do but do not find you clearly.",
+      "The site has pages, but they are not organized around buyer intent.",
+      "Search activity is disconnected from landing pages, forms, and follow-up.",
+    ],
+    exclusions: [
+      "Keyword stuffing disconnected from the real offer.",
+      "Ranking promises without measurement, authority, or content quality.",
+      "Traffic growth that does not connect to a qualified next action.",
+    ],
+    related: [
+      {
+        href: "/services/website-development",
+        label: "Website Development",
+        detail: "Give search traffic a clearer public structure and conversion path.",
+      },
+      {
+        href: "/services/aeo-ai-search-visibility",
+        label: "AEO / AI Search Visibility",
+        detail: "Make the offer easier for AI search tools to understand and cite.",
+      },
+      {
+        href: "/services/content-revenue-systems",
+        label: "Content & Revenue Systems",
+        detail: "Turn SEO work into a repeatable publishing and campaign rhythm.",
+      },
+    ],
+  },
+  {
+    slug: "aeo-ai-search-visibility",
+    navLabel: "AEO / AI Search Visibility",
+    eyebrow: "Grow / AEO / AI Search Visibility",
+    title: "AI search visibility built so answer engines can understand and cite the offer.",
+    summary:
+      "Farcelis structures pages, resources, proof, schema, and question-answer content so AI search tools can understand what you do and summarize it accurately.",
+    primaryCta: "Discuss AEO and AI search visibility",
+    secondaryCta: { href: "/services/seo-search-visibility", label: "See SEO visibility" },
+    capabilities: [
+      "Answer-engine readiness review",
+      "Question and answer content architecture",
+      "Schema, evidence, and citation signal planning",
+      "Service pages structured for AI summaries",
+      "Resource paths that make expertise easier to reference",
+    ],
+    process: [
+      "Review how AI search tools currently describe the business.",
+      "Identify the questions buyers and AI systems need answered clearly.",
+      "Structure service pages, resources, proof, and schema around those answers.",
+      "Build content that is useful to people and understandable to answer engines.",
+      "Monitor whether the business is being summarized accurately over time.",
+    ],
+    signals: [
+      "AI tools describe the company vaguely, incorrectly, or incompletely.",
+      "The offer depends on expertise that is not clearly structured online.",
+      "Buyers need quick answers before they are ready to contact you.",
+    ],
+    exclusions: [
+      "AI visibility work with no real service clarity behind it.",
+      "Generic answer content that does not reflect the actual offer.",
+      "Citation chasing without proof, resources, or page structure.",
+    ],
+    related: [
+      {
+        href: "/services/seo-search-visibility",
+        label: "SEO & Search Visibility",
+        detail: "Strengthen the traditional search foundation around the same offer.",
+      },
+      {
+        href: "/resources",
+        label: "Resources",
+        detail: "Use playbooks and reports as answer-ready proof assets.",
+      },
+      {
+        href: "/services/content-revenue-systems",
+        label: "Content & Revenue Systems",
+        detail: "Keep answer-ready content moving with a publishing rhythm.",
+      },
+    ],
+  },
+  {
     slug: "seo-aeo-visibility",
     navLabel: "SEO & AEO Visibility",
     eyebrow: "Grow / SEO & AEO Visibility",
@@ -394,6 +547,108 @@ export const directServices: DirectService[] = [
         href: "/resources",
         label: "Resources",
         detail: "Use playbooks and reports as conversion-ready authority assets.",
+      },
+    ],
+  },
+  {
+    slug: "google-ads-paid-search",
+    navLabel: "Google Ads / Paid Search",
+    eyebrow: "Grow / Google Ads / Paid Search",
+    title: "Paid search campaigns connected to landing pages, tracking, and follow-up.",
+    summary:
+      "Farcelis builds Google Ads and paid search paths around the offer, the landing page, the conversion action, the tracking, and the follow-up that happens after a lead arrives.",
+    primaryCta: "Discuss Google Ads and paid search",
+    secondaryCta: { href: "/services/meta-ads-paid-social", label: "See paid social" },
+    capabilities: [
+      "Google Search campaign structure",
+      "Offer, keyword, and landing-page alignment",
+      "Conversion tracking and CRM handoff",
+      "Budget, query, and lead-quality review",
+      "Reporting tied to next-step decisions",
+    ],
+    process: [
+      "Clarify the offer, search intent, and conversion action before spend begins.",
+      "Audit landing pages, tracking, CRM handoff, and existing campaigns.",
+      "Build a search structure around high-intent terms and measurable actions.",
+      "Review early signal quality and adjust queries, pages, and budget.",
+      "Report what happened, what changed, and what decision comes next.",
+    ],
+    signals: [
+      "People are already searching for the problem, service, or offer.",
+      "Paid traffic exists but conversion evidence is unclear.",
+      "Leads arrive without a clean handoff into CRM or follow-up.",
+    ],
+    exclusions: [
+      "Paid search without a real landing page or tracking path.",
+      "Budget spend disconnected from lead quality and sales follow-up.",
+      "Set-and-forget campaigns with no review cadence.",
+    ],
+    related: [
+      {
+        href: "/services/website-development",
+        label: "Website Development",
+        detail: "Create landing pages that convert search intent into action.",
+      },
+      {
+        href: "/services/marketing-automation-crm",
+        label: "CRM & Revenue Operations",
+        detail: "Route paid-search leads into visible follow-up.",
+      },
+      {
+        href: "/services/meta-ads-paid-social",
+        label: "Meta Ads / Paid Social",
+        detail: "Build audience and creative paths alongside search demand.",
+      },
+    ],
+  },
+  {
+    slug: "meta-ads-paid-social",
+    navLabel: "Meta Ads / Paid Social",
+    eyebrow: "Grow / Meta Ads / Paid Social",
+    title: "Paid social campaigns built around audience, creative, offer, and lead handling.",
+    summary:
+      "Farcelis builds Meta Ads and paid social paths that connect audience, creative, landing page, lead capture, CRM handoff, and reporting into one growth system.",
+    primaryCta: "Discuss Meta Ads and paid social",
+    secondaryCta: { href: "/services/google-ads-paid-search", label: "See paid search" },
+    capabilities: [
+      "Audience and campaign structure",
+      "Creative and offer testing",
+      "Landing-page and lead-form alignment",
+      "CRM, follow-up, and reporting handoff",
+      "Performance review tied to the next decision",
+    ],
+    process: [
+      "Clarify the audience, offer, proof, and action the campaign should create.",
+      "Map creative, landing page, form, CRM, and follow-up before launch.",
+      "Build paid social campaigns with simple testing logic.",
+      "Review signal quality across clicks, leads, cost, and follow-up movement.",
+      "Use the learning to improve offers, pages, content, and revenue operations.",
+    ],
+    signals: [
+      "The business needs attention before buyers are actively searching.",
+      "Social campaigns create activity but not clean follow-up.",
+      "Creative, landing pages, and lead handling are not working as one path.",
+    ],
+    exclusions: [
+      "Paid social spend without an offer or follow-up path.",
+      "Creative testing with no landing-page or CRM discipline.",
+      "Reporting that celebrates clicks while leads stall.",
+    ],
+    related: [
+      {
+        href: "/services/google-ads-paid-search",
+        label: "Google Ads / Paid Search",
+        detail: "Capture high-intent demand alongside paid social attention.",
+      },
+      {
+        href: "/services/content-revenue-systems",
+        label: "Content & Revenue Systems",
+        detail: "Use campaign learning to strengthen content and offers.",
+      },
+      {
+        href: "/services/marketing-automation-crm",
+        label: "CRM & Revenue Operations",
+        detail: "Make paid social leads visible, routed, and followed up.",
       },
     ],
   },
