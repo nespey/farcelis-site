@@ -154,10 +154,10 @@ export default async function BlogPostPage({ params }: BlogPageProps) {
                   Back to Blog
                 </Link>
                 <Link
-                  href="/contact"
+                  href="/services"
                   className="site-cta inline-flex min-h-12 items-center justify-center rounded-full bg-[linear-gradient(135deg,#f19a6b,#c75d33)] px-6 py-3 text-sm font-semibold text-white"
                 >
-                  Discuss Content Systems
+                  Review Services
                 </Link>
               </div>
             </div>
