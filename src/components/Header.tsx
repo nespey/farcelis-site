@@ -26,7 +26,7 @@ const resourceLinks = [
   {
     href: "/products",
     label: "Tools & Assessments",
-    detail: "Diagnostics, generators, and enablement systems that support Build, Grow, and Operate.",
+    detail: "Support tools mapped back to the Build, Grow, and Operate service paths.",
   },
 ];
 

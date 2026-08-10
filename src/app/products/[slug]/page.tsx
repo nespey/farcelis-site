@@ -135,8 +135,8 @@ export default async function ProductDetailPage({ params }: ProductPageProps) {
         title={product.title}
         description={product.description}
         actions={[
-          { href: "/contact", label: "Request Product Review" },
-          { href: "/products", label: "View Product Suite", variant: "secondary" },
+          { href: `/contact?request=tool-assessment&topic=${encodeURIComponent(product.title)}#strategy-form`, label: "Add to Inquiry" },
+          { href: "/products", label: "View Tools & Assessments", variant: "secondary" },
         ]}
       />
 

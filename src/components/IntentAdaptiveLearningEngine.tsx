@@ -128,7 +128,7 @@ export function IntentAdaptiveLearningEngine() {
               </p>
               <div className="intent-hero-actions">
                 <Link href="/contact">Build Adoption Structure</Link>
-                <Link href="/products">View Product Suite</Link>
+                <Link href="/products">View Tools & Assessments</Link>
               </div>
             </div>
 

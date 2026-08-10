@@ -1,6 +1,6 @@
 "use client";
 
-import { FormEvent, useMemo, useState } from "react";
+import { FormEvent, useEffect, useMemo, useState } from "react";
 
 import { site } from "@/lib/site-data";
 
@@ -32,6 +32,49 @@ const workInterests: WorkInterest[] = [
 
 export function GeneralStrategyIntake() {
   const [selectedIds, setSelectedIds] = useState<string[]>([]);
+  const [goalText, setGoalText] = useState("");
+  const [contextText, setContextText] = useState("");
+
+  useEffect(() => {
+    const params = new URLSearchParams(window.location.search);
+    const work = params
+      .get("work")
+      ?.split(",")
+      .map((item) => item.trim())
+      .filter(Boolean);
+    const request = params.get("request");
+    const topic = params.get("topic");
+
+    if (work?.length) {
+      setSelectedIds((current) => Array.from(new Set([...current, ...work])));
+    }
+
+    if (request === "briefing") {
+      setSelectedIds((current) =>
+        Array.from(new Set([...current, "ai-strategy-governance", "workflow-managed-operations"])),
+      );
+      setGoalText(
+        topic
+          ? `I want to request a Farcelis briefing or session about ${topic}.`
+          : "I want to request or host a Farcelis briefing.",
+      );
+      setContextText("This came from the Webinars & Briefings resource path.");
+    }
+
+    if (request === "use-case") {
+      setGoalText("I want to talk through a specific use case and understand which service path fits.");
+      setContextText("This came from the Insights & Playbooks resource path.");
+    }
+
+    if (request === "tool-assessment") {
+      setGoalText(
+        topic
+          ? `I want to understand whether ${topic} fits what I am trying to do.`
+          : "I want help choosing the right Farcelis tool or assessment for my Build, Grow, or Operate need.",
+      );
+      setContextText("This came from the Tools & Assessments resource path.");
+    }
+  }, []);
 
   const selectedItems = useMemo(
     () => workInterests.filter((item) => selectedIds.includes(item.id)),
@@ -156,6 +199,8 @@ export function GeneralStrategyIntake() {
             name="goal"
             required
             rows={2}
+            value={goalText}
+            onChange={(event) => setGoalText(event.target.value)}
             onInput={resizeTextarea}
             placeholder="What are you trying to build, grow, or stabilize?"
             className="max-h-40 min-h-16 resize-none overflow-y-auto rounded-[14px] border border-white/10 bg-white/6 px-3.5 py-2.5 text-sm leading-5 text-white outline-none placeholder:text-slate-400 focus:border-cyan-100/40"
@@ -163,6 +208,8 @@ export function GeneralStrategyIntake() {
           <textarea
             name="context"
             rows={2}
+            value={contextText}
+            onChange={(event) => setContextText(event.target.value)}
             onInput={resizeTextarea}
             placeholder="What already exists, and what is missing, messy, stuck, or hard to manage?"
             className="max-h-40 min-h-16 resize-none overflow-y-auto rounded-[14px] border border-white/10 bg-white/6 px-3.5 py-2.5 text-sm leading-5 text-white outline-none placeholder:text-slate-400 focus:border-cyan-100/40"
