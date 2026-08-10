@@ -2,6 +2,7 @@
 
 import Image from "next/image";
 import Link from "next/link";
+import { usePathname } from "next/navigation";
 import { useCallback, useEffect, useRef, useState } from "react";
 
 import { capabilityGroups } from "@/lib/service-catalog";
@@ -129,6 +130,7 @@ function CapabilityFocusPanel({
 }
 
 export function Header() {
+  const pathname = usePathname();
   const [elevated, setElevated] = useState(false);
   const [hidden, setHidden] = useState(false);
   const [mobileOpen, setMobileOpen] = useState(false);
@@ -146,6 +148,7 @@ export function Header() {
   const activeCapabilityGroup = activeCapability
     ? capabilityGroups.find((group) => group.label === activeCapability)
     : null;
+  const isContactPage = pathname === "/contact";
 
   useEffect(() => {
     const onScroll = () => {
@@ -363,13 +366,15 @@ export function Header() {
             </Link>
           </nav>
 
-          <Link
-            href="/contact"
-            onClick={closeMenus}
-            className="site-cta hidden min-h-11 items-center justify-center rounded-full bg-[linear-gradient(135deg,#ff8e5b,#f05cff)] px-5 py-2.5 text-sm font-semibold text-white hover:shadow-[0_18px_38px_rgba(240,92,255,0.24)] sm:inline-flex"
-          >
-            Start Building Structure
-          </Link>
+          {!isContactPage ? (
+            <Link
+              href="/contact"
+              onClick={closeMenus}
+              className="site-cta hidden min-h-11 items-center justify-center rounded-full bg-[linear-gradient(135deg,#ff8e5b,#f05cff)] px-5 py-2.5 text-sm font-semibold text-white hover:shadow-[0_18px_38px_rgba(240,92,255,0.24)] sm:inline-flex"
+            >
+              Start Building Structure
+            </Link>
+          ) : null}
 
           <button
             type="button"
@@ -457,13 +462,15 @@ export function Header() {
               ))}
             </div>
 
-            <Link
-              href="/contact"
-              onClick={closeMenus}
-              className="site-cta inline-flex min-h-12 items-center justify-center rounded-full bg-[linear-gradient(135deg,#ff8e5b,#f05cff)] px-6 py-3 text-sm font-semibold text-white"
-            >
-              Start Building Structure
-            </Link>
+            {!isContactPage ? (
+              <Link
+                href="/contact"
+                onClick={closeMenus}
+                className="site-cta inline-flex min-h-12 items-center justify-center rounded-full bg-[linear-gradient(135deg,#ff8e5b,#f05cff)] px-6 py-3 text-sm font-semibold text-white"
+              >
+                Start Building Structure
+              </Link>
+            ) : null}
           </div>
         </div>
       </header>

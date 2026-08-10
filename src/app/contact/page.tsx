@@ -1,5 +1,3 @@
-import Link from "next/link";
-
 import { GeneralStrategyIntake } from "@/components/GeneralStrategyIntake";
 import { Reveal } from "@/components/Reveal";
 import { buildMetadata } from "@/lib/metadata";
@@ -10,7 +8,7 @@ export const metadata = buildMetadata(seo.contact);
 export default function ContactPage() {
   return (
     <>
-      <section className="section-shell section-shell-dark !pt-6 !pb-3 lg:!pt-8 lg:!pb-4">
+      <section className="section-shell section-shell-dark !pt-5 !pb-2 lg:!pt-6 lg:!pb-3">
         <div className="section-inner">
           <p className="eyebrow text-[color:var(--color-accent)]">Contact</p>
           <h1 className="mt-3 max-w-[980px] text-[clamp(1.7rem,2.3vw,2.2rem)] font-medium leading-[1.08] tracking-[-0.025em] text-white">
@@ -19,12 +17,6 @@ export default function ContactPage() {
           <p className="mt-3 max-w-[980px] text-sm leading-6 text-slate-300">
             Start with the outcome in plain language. Farcelis can route the conversation into Build, Grow, or Operate after the first signal is clear.
           </p>
-          <Link
-            href="#strategy-form"
-            className="site-cta mt-4 inline-flex min-h-10 items-center justify-center rounded-full bg-[linear-gradient(135deg,#ff8e5b,#f05cff)] px-6 py-2.5 text-sm font-semibold text-white hover:shadow-[0_20px_40px_rgba(240,92,255,0.24)]"
-          >
-            Start the Conversation
-          </Link>
         </div>
       </section>
 
@@ -64,12 +56,6 @@ export default function ContactPage() {
                   <div className="mt-1 text-[0.95rem] font-semibold">{site.contact.phone}</div>
                 </a>
               </div>
-              <Link
-                href="#strategy-form"
-                className="site-cta mt-3 inline-flex min-h-9 w-full items-center justify-center rounded-full bg-[linear-gradient(135deg,#ff8e5b,#f05cff)] px-4 py-2 text-sm font-semibold text-white hover:shadow-[0_20px_40px_rgba(240,92,255,0.24)]"
-              >
-                Schedule a Strategy Call
-              </Link>
             </aside>
           </div>
         </section>
