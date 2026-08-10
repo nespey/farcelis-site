@@ -1,3 +1,6 @@
+import Link from "next/link";
+
+import { CapabilityInquiryForm } from "@/components/CapabilityInquiryForm";
 import { PageIntro } from "@/components/PageIntro";
 import { Reveal } from "@/components/Reveal";
 import { buildMetadata } from "@/lib/metadata";
@@ -6,9 +9,30 @@ import { seo, site } from "@/lib/site-data";
 export const metadata = buildMetadata(seo.contact);
 
 const prompts = [
-  "Where is work currently scattered across tools, teams, or conversations?",
-  "Where do priorities, handoffs, or reporting break down most often?",
-  "What visibility does leadership still not have?",
+  "What are you trying to build, grow, or stabilize?",
+  "What already exists, and what is missing, messy, stuck, or hard to manage?",
+  "What would make the next conversation useful?",
+];
+
+const pathCards = [
+  {
+    label: "Build",
+    href: "/contact/build",
+    title: "I need something created, rebuilt, connected, or launched.",
+    body: "Use this when the work is a website, app, portal, dashboard, automation, code cleanup, or deployment path.",
+  },
+  {
+    label: "Grow",
+    href: "/contact/grow",
+    title: "I need more people to find, trust, click, ask, or buy.",
+    body: "Use this when the pressure is search, AEO, content, campaigns, CRM, offers, or lead handoff.",
+  },
+  {
+    label: "Operate",
+    href: "/contact/operate",
+    title: "I need the work managed, owned, reported, and kept moving.",
+    body: "Use this when the pressure is workflow, AI rules, reporting, support, maintenance, or Control Layer structure.",
+  },
 ];
 
 export default function ContactPage() {
@@ -16,43 +40,51 @@ export default function ContactPage() {
     <>
       <PageIntro
         eyebrow="Contact"
-        title="Start with the operating problem that keeps pulling execution apart."
-        description="If reporting, handoffs, priorities, or coordination are breaking under pressure, that is the right starting point for a Farcelis strategy conversation."
-        actions={[{ href: `mailto:${site.contact.founderEmail}`, label: "Schedule a Strategy Call" }]}
+        title="Tell Farcelis what you want to build, grow, or stabilize."
+        description="Start with the outcome in plain language. Farcelis can route the conversation into Build, Grow, or Operate after the first signal is clear."
+        actions={[{ href: "#strategy-form", label: "Start the Conversation" }]}
         asideTitle="Bring Into The Conversation"
         asideItems={[
-          "The pressure points",
-          "The visibility gaps",
-          "The system that needs to hold",
+          "What you want to create",
+          "What needs more visibility",
+          "What needs to stay controlled",
         ]}
       />
 
       <Reveal delayMs={70}>
-        <section className="section-shell section-shell-light">
+        <section id="strategy-form" className="section-shell section-shell-dark">
           <div className="section-inner grid gap-10 lg:grid-cols-[minmax(0,1.1fr)_380px]">
-            <div className="surface-light relative overflow-hidden rounded-[30px] px-6 py-7">
-              <div className="light-orbit left-[-4rem] top-[-2rem] h-36 w-36 bg-[radial-gradient(circle,rgba(97,192,215,0.2),transparent_70%)]" />
-              <div className="light-orbit right-[-3rem] bottom-[-3rem] h-40 w-40 bg-[radial-gradient(circle,rgba(242,139,91,0.18),transparent_72%)]" />
-              <p className="eyebrow text-[#9f412c]">Conversation Inputs</p>
-              <div className="mt-6 grid gap-3">
-                {prompts.map((prompt) => (
-                  <div key={prompt} className="py-5 text-lg leading-8 text-slate-700">
-                    {prompt}
-                  </div>
-                ))}
+            <div className="grid gap-6">
+              <div className="rounded-[30px] border border-cyan-100/12 bg-[#1c3c4d] px-6 py-7 text-white">
+                <p className="eyebrow text-[color:var(--color-accent)]">Choose A Starting Lane</p>
+                <div className="mt-6 grid gap-3">
+                  {pathCards.map((card) => (
+                    <Link
+                      key={card.label}
+                      href={card.href}
+                      className="block rounded-[18px] border border-cyan-100/12 bg-[#173343] px-5 py-4 text-center transition hover:border-cyan-100/24 hover:bg-[#24495c]"
+                    >
+                      <div className="text-xs font-bold uppercase tracking-[0.22em] text-[color:var(--color-accent)]">
+                        {card.label}
+                      </div>
+                      <div className="mt-2 text-base font-semibold text-white">{card.title}</div>
+                      <div className="mx-auto mt-2 max-w-[48rem] text-sm leading-6 text-slate-300">{card.body}</div>
+                    </Link>
+                  ))}
+                </div>
               </div>
-              <div className="accent-tabs mt-7">
-                <div className="accent-tab accent-tab-light">Executive visibility gaps</div>
-                <div className="accent-tab accent-tab-light">Workflow drag and handoffs</div>
-                <div className="accent-tab accent-tab-light">AI adoption under pressure</div>
-              </div>
+
+              <CapabilityInquiryForm label="General Strategy" prompts={prompts} />
             </div>
 
             <aside className="surface-dark rounded-[30px] px-6 py-7 text-white">
               <p className="eyebrow text-[color:var(--color-accent)]">Contact Details</p>
               <h2 className="mt-5 text-[2rem] font-semibold tracking-[-0.05em] text-white">
-                Start the strategy conversation where the operating pressure is highest.
+                Start wherever the need is clearest.
               </h2>
+              <p className="mt-4 text-sm leading-7 text-slate-300">
+                Use the form for a quick signal, choose a Build/Grow/Operate lane, or contact Farcelis directly.
+              </p>
               <div className="mt-6 space-y-4">
                 <a
                   href={`mailto:${site.contact.founderEmail}`}
@@ -76,12 +108,12 @@ export default function ContactPage() {
                   <div className="mt-2 text-lg font-semibold">{site.contact.phone}</div>
                 </a>
               </div>
-              <a
-                href={`mailto:${site.contact.founderEmail}`}
+              <Link
+                href="#strategy-form"
                 className="site-cta mt-6 inline-flex min-h-12 w-full items-center justify-center rounded-full bg-[linear-gradient(135deg,#ff8e5b,#f05cff)] px-6 py-3 text-sm font-semibold text-white hover:shadow-[0_20px_40px_rgba(240,92,255,0.24)]"
               >
                 Schedule a Strategy Call
-              </a>
+              </Link>
             </aside>
           </div>
         </section>
