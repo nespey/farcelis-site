@@ -70,7 +70,7 @@ export default function InsightsPage() {
                 </h2>
               </div>
               <p className="max-w-[360px] text-sm font-semibold leading-7 text-slate-500">
-                These are the long-form pieces. They should feel editorial, complete, and materially different from podcasts or the standalone blog.
+                Use these essays when you want deeper thinking on AI adoption, growth systems, operating rhythm, and the decisions behind cleaner execution.
               </p>
             </div>
 
