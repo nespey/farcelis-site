@@ -158,10 +158,10 @@ export function HomeExperience() {
           <div className="showcase-container">
             <div className="validation-inner">
               <h2 className="text-[clamp(1.45rem,2.15vw,1.95rem)] font-[550] leading-[1.18] tracking-[-0.04em] text-slate-950">
-                Validation comes from environments where structure has to hold.
+                Trusted in places where the work has to hold.
               </h2>
               <p className="text-base leading-8 text-slate-600">
-                Working inside real operations sharpens both sides. Systems get tested. Assumptions get broken. What holds becomes repeatable.
+                Farcelis works inside real operations, where tools, workflows, and handoffs have to perform.
               </p>
             </div>
             <div className="logo-row opacity-80">
@@ -181,20 +181,14 @@ export function HomeExperience() {
                 It is a stronger system.
               </h2>
               <p className="mx-auto mt-5 max-w-none text-center text-[clamp(1rem,1.08vw,1.08rem)] leading-7 text-slate-300">
-                Farcelis builds the operating structure that keeps ownership, routing, and execution intact when the pressure increases.
+                Farcelis connects the tools, workflows, and reporting that keep work owned, routed, and moving.
               </p>
               <div className="closing-cta-actions mt-6 flex flex-col items-center justify-center gap-3 sm:flex-row">
                 <Link
-                  href="/contact"
+                  href="/contact#contact-top"
                   className="site-cta inline-flex min-h-12 items-center justify-center rounded-full bg-[linear-gradient(135deg,#f19a6b,#c75d33)] px-6 py-3 text-sm font-semibold text-white hover:shadow-[0_20px_40px_rgba(199,93,51,0.3)]"
                 >
                   Work With Farcelis
-                </Link>
-                <Link
-                  href="/resources"
-                  className="site-cta inline-flex min-h-12 items-center justify-center rounded-full border border-cyan-200/18 bg-cyan-100/6 px-6 py-3 text-sm font-semibold text-cyan-50 hover:border-cyan-100/28 hover:bg-cyan-100/9"
-                >
-                  Review Executive Resources
                 </Link>
               </div>
             </div>

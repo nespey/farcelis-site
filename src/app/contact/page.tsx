@@ -23,7 +23,7 @@ export default async function ContactPage({
 
   return (
     <>
-      <section className="section-shell section-shell-dark !pt-5 !pb-2 lg:!pt-6 lg:!pb-3">
+      <section id="contact-top" className="section-shell section-shell-dark scroll-mt-24 !pt-5 !pb-2 lg:!pt-6 lg:!pb-3">
         <div className="section-inner">
           <p className="eyebrow text-[color:var(--color-accent)]">Contact</p>
           <h1 className="mt-3 max-w-[980px] text-[clamp(1.7rem,2.3vw,2.2rem)] font-medium leading-[1.08] tracking-[-0.025em] text-white">
