@@ -83,15 +83,15 @@ export default async function DirectServicePage({ params }: ServicePageProps) {
       />
 
       <Reveal delayMs={40}>
-        <section className="section-shell section-shell-light">
-          <div className="section-inner grid gap-12 lg:grid-cols-[minmax(0,0.8fr)_minmax(0,1.2fr)]">
+        <section className="section-shell section-shell-light !py-10 lg:!py-12">
+          <div className="section-inner grid gap-7 lg:grid-cols-[minmax(0,0.8fr)_minmax(0,1.2fr)]">
             <div>
               <p className="eyebrow text-[#9f412c]">What Farcelis Builds</p>
-              <h2 className="section-title mt-5 text-slate-950">
-                The work is defined around a business outcome first, then shaped into the right system.
+              <h2 className="section-title mt-4 text-slate-950">
+                Clear work you can point to and use.
               </h2>
-              <p className="mt-5 max-w-[620px] text-base leading-8 text-slate-600">
-                Farcelis keeps the technical path clear without forcing buyers to translate their idea into platform language before the work can start.
+              <p className="mt-4 max-w-[620px] text-base leading-7 text-slate-600">
+                Tell us what needs to work better. We help turn that into the right website, tool, workflow, or follow-up path.
               </p>
             </div>
 
@@ -99,7 +99,7 @@ export default async function DirectServicePage({ params }: ServicePageProps) {
               {service.capabilities.map((item) => (
                 <div
                   key={item}
-                  className="rounded-[22px] border border-slate-200 bg-white px-5 py-5 text-sm font-semibold leading-6 text-slate-800 shadow-[0_18px_38px_rgba(15,23,42,0.06)]"
+                  className="rounded-[16px] border border-slate-200 bg-white px-4 py-4 text-sm font-semibold leading-6 text-slate-800 shadow-[0_18px_30px_rgba(15,23,42,0.05)]"
                 >
                   {item}
                 </div>
@@ -110,18 +110,18 @@ export default async function DirectServicePage({ params }: ServicePageProps) {
       </Reveal>
 
       <Reveal delayMs={80}>
-        <section className="section-shell section-shell-dark">
-          <div className="section-inner grid gap-12 lg:grid-cols-[minmax(0,0.72fr)_minmax(0,1.28fr)]">
+        <section className="section-shell section-shell-dark !py-10 lg:!py-12">
+          <div className="section-inner grid gap-7 lg:grid-cols-[minmax(0,0.72fr)_minmax(0,1.28fr)]">
             <div>
               <p className="eyebrow text-[color:var(--color-accent)]">Engagement Path</p>
-              <h2 className="section-title mt-5 text-white">
-                From the first conversation to a working, owned, and manageable system.
+              <h2 className="section-title mt-4 text-white">
+                How the work moves.
               </h2>
             </div>
 
             <div className="grid gap-3">
               {service.process.map((item, index) => (
-                <div key={item} className="rounded-[22px] border border-cyan-100/12 bg-white/[0.045] px-5 py-5">
+                <div key={item} className="rounded-[16px] border border-cyan-100/12 bg-white/[0.045] px-4 py-4">
                   <div className="text-xs font-semibold uppercase tracking-[0.18em] text-[color:var(--color-accent)]">
                     Step {index + 1}
                   </div>
@@ -134,11 +134,11 @@ export default async function DirectServicePage({ params }: ServicePageProps) {
       </Reveal>
 
       <Reveal delayMs={120}>
-        <section className="section-shell section-shell-light">
+        <section className="section-shell section-shell-light !py-10 lg:!py-12">
           <div className="section-inner grid gap-5 lg:grid-cols-2">
-            <article className="rounded-[26px] border border-slate-200 bg-white px-6 py-7 shadow-[0_18px_38px_rgba(15,23,42,0.06)]">
-              <p className="eyebrow text-[#9f412c]">Good Fit Signals</p>
-              <ul className="mt-5 grid gap-4">
+            <article className="rounded-[18px] border border-slate-200 bg-white px-5 py-5 shadow-[0_18px_30px_rgba(15,23,42,0.05)]">
+              <p className="eyebrow text-[#9f412c]">Good Fit</p>
+              <ul className="mt-4 grid gap-3">
                 {service.signals.map((item) => (
                   <li key={item} className="border-l border-[#9f412c]/28 pl-4 text-base font-semibold leading-7 text-slate-700">
                     {item}
@@ -147,9 +147,9 @@ export default async function DirectServicePage({ params }: ServicePageProps) {
               </ul>
             </article>
 
-            <article className="rounded-[26px] border border-slate-200 bg-white px-6 py-7 shadow-[0_18px_38px_rgba(15,23,42,0.06)]">
-              <p className="eyebrow text-[#9f412c]">Boundary</p>
-              <ul className="mt-5 grid gap-4">
+            <article className="rounded-[18px] border border-slate-200 bg-white px-5 py-5 shadow-[0_18px_30px_rgba(15,23,42,0.05)]">
+              <p className="eyebrow text-[#9f412c]">Not a Fit</p>
+              <ul className="mt-4 grid gap-3">
                 {service.exclusions.map((item) => (
                   <li key={item} className="border-l border-[#9f412c]/28 pl-4 text-base font-semibold leading-7 text-slate-700">
                     {item}
@@ -162,21 +162,21 @@ export default async function DirectServicePage({ params }: ServicePageProps) {
       </Reveal>
 
       <Reveal delayMs={150}>
-        <section className="section-shell section-shell-dark">
+        <section className="section-shell section-shell-dark !py-10 lg:!py-12">
           <div className="section-inner">
             <div className="max-w-[900px]">
               <p className="eyebrow text-[color:var(--color-accent)]">Related Services</p>
-              <h2 className="section-title mt-5 text-white">
-                This service connects back into the larger Build, Grow, and Operate model.
+              <h2 className="section-title mt-4 text-white">
+                Other services that often go with this.
               </h2>
             </div>
 
-            <div className="mt-10 grid gap-4 lg:grid-cols-3">
+            <div className="mt-6 grid gap-4 lg:grid-cols-3">
               {service.related.map((item) => (
                 <Link
                   key={item.label}
                   href={item.href}
-                  className="rounded-[24px] border border-cyan-100/12 bg-white/[0.045] px-5 py-6 transition hover:border-cyan-100/24 hover:bg-white/[0.07]"
+                  className="rounded-[18px] border border-cyan-100/12 bg-white/[0.045] px-5 py-5 transition hover:border-cyan-100/24 hover:bg-white/[0.07]"
                 >
                   <h3 className="text-xl font-semibold tracking-[-0.035em] text-white">{item.label}</h3>
                   <p className="mt-3 text-sm leading-6 text-slate-300">{item.detail}</p>

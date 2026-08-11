@@ -12,14 +12,14 @@ export function Hero() {
             Farcelis AI Consulting
           </p>
           <h1 className="max-w-[600px] text-balance text-[3.2rem] font-semibold tracking-[-0.1em] text-white sm:text-[3.7rem] lg:text-[4rem] lg:leading-[1.05]">
-            Execution breaks long before it scales.
+            Websites, tools, and follow-up that keep work moving.
           </h1>
           <p className="mt-6 max-w-[560px] text-pretty text-[1.25rem] leading-[1.6] text-white/72">
-            Farcelis builds the operational systems that keep workflows,
-            decisions, and teams aligned under real pressure.
+            Farcelis builds websites, quote tools, apps, dashboards, automations,
+            and support paths for businesses that need clearer systems.
           </p>
           <p className="mt-4 text-sm font-semibold uppercase tracking-[0.18em] text-white/42">
-            This is not software. It is the structure behind execution.
+            Build what is missing. Grow what needs attention. Operate what has to keep working.
           </p>
 
           <div className="mt-10 flex flex-col gap-3 sm:flex-row">

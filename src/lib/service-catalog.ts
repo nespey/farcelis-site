@@ -46,10 +46,10 @@ export type DirectService = {
 export const capabilityGroups: CapabilityGroup[] = [
   {
     label: "Build",
-    detail: "Need a website, app, portal, dashboard, automation, or code cleaned up and launched? Start here.",
-    headline: "You have an idea or messy system. We turn it into something real.",
+    detail: "Need a website, quote tool, app, portal, dashboard, automation, or code cleaned up? Start here.",
+    headline: "You need something built, fixed, or connected.",
     buyerPrompt:
-      "If you need something built, rebuilt, connected, coded, launched, or made usable, Build is where you start.",
+      "Websites, quote tools, apps, dashboards, automations, and the connections between them.",
     outcomes: [
       "We build websites, apps, portals, dashboards, and internal tools.",
       "We build AI agents, automations, and the connections between your platforms.",
@@ -72,41 +72,41 @@ export const capabilityGroups: CapabilityGroup[] = [
       {
         href: contactPathFor("website-development"),
         label: "Website Development",
-        detail: "We build or rebuild your website, service pages, landing pages, and inquiry paths so people understand what you offer and what to do next.",
+        detail: "Websites that explain what you do and help visitors contact you.",
       },
       {
         href: contactPathFor("app-portal-development"),
         label: "App & Portal Development",
-        detail: "We build web apps and private portals where clients, teams, or leaders can log in, see information, request work, and manage activity.",
+        detail: "Client portals, internal tools, and private apps for repeated work.",
       },
       {
         href: "/services/quote-pricing-tools",
         label: "Quote & Pricing Tools",
-        detail: "We build website quote builders and pricing calculators that help buyers understand scope and request follow-up.",
+        detail: "Website tools that let visitors get an estimate and request follow-up.",
       },
       {
         href: contactPathFor("ai-agents-automations"),
         label: "AI Agents & Automations",
-        detail: "We build assistants and automated workflows that help with intake, follow-up, reporting, CRM updates, and repeatable tasks.",
+        detail: "Helpers for intake, follow-up, reports, CRM updates, and repeated tasks.",
       },
       {
         href: contactPathFor("platform-connections"),
         label: "Platform Connections",
-        detail: "We connect the tools you already use so your website, CRM, forms, workspaces, dashboards, and automations stop living in separate places.",
+        detail: "Make your website, CRM, forms, dashboards, and tools work together.",
       },
       {
         href: contactPathFor("dashboards-decision-views"),
         label: "Dashboards and Decision Views",
-        detail: "We build the dashboards and views leaders need to see what is happening, what is stuck, and what needs action.",
+        detail: "Simple views that show what is happening, what is stuck, and what needs action.",
       },
     ],
   },
   {
     label: "Grow",
-    detail: "Already have something to sell? Start here for SEO, AEO, ads, content, CRM, and lead follow-up.",
-    headline: "You need the right people to find you, understand you, and take action.",
+    detail: "Need more people to find you, understand you, and become leads? Start here.",
+    headline: "You need better visibility and better follow-up.",
     buyerPrompt:
-      "If you already have an offer but need more visibility, better campaigns, stronger content, or cleaner lead handling, Grow is where you start.",
+      "Search, ads, content, CRM, and lead follow-up that connect to real inquiries.",
     outcomes: [
       "We help buyers find you through SEO and AEO.",
       "We build ads, landing pages, content, and offers around what you sell.",
@@ -130,41 +130,41 @@ export const capabilityGroups: CapabilityGroup[] = [
       {
         href: contactPathFor("seo-search-visibility"),
         label: "SEO & Search Visibility",
-        detail: "We improve the pages, structure, topics, and signals that help people find you in traditional search.",
+        detail: "Help people find your business on Google and other search engines.",
       },
       {
         href: contactPathFor("aeo-ai-search-visibility"),
         label: "AEO & AI Search Visibility",
-        detail: "AEO means answer-engine optimization: we structure your site so AI search tools can understand, summarize, and cite what you offer.",
+        detail: "Help AI search tools understand and recommend what your business offers.",
       },
       {
         href: contactPathFor("google-ads-paid-search"),
         label: "Google Ads / Paid Search",
-        detail: "We build paid search paths tied to real landing pages, tracking, CRM follow-up, and measurable next steps.",
+        detail: "Ads for people already searching for what you sell.",
       },
       {
         href: contactPathFor("meta-ads-paid-social"),
         label: "Meta Ads / Paid Social",
-        detail: "We build social ad paths with audience, creative, landing page, lead handling, and follow-up in one plan.",
+        detail: "Facebook and Instagram ads tied to a clear offer and follow-up.",
       },
       {
         href: contactPathFor("crm-revenue-operations"),
         label: "CRM & Revenue Operations",
-        detail: "We clean up how leads are captured, routed, followed up, tracked, and reported so opportunities do not disappear.",
+        detail: "Make sure leads are captured, followed up, tracked, and not lost.",
       },
       {
         href: contactPathFor("content-revenue-systems"),
         label: "Content & Revenue Systems",
-        detail: "We plan the content, offers, campaigns, and publishing rhythm that keeps your market hearing from you with a purpose.",
+        detail: "Plan pages, posts, offers, and campaigns that support sales.",
       },
     ],
   },
   {
     label: "Operate",
-    detail: "Need the work managed after it exists? Start here for Control Layer, workflows, reporting, support, and maintenance.",
-    headline: "You need the work to stay visible, owned, managed, and moving.",
+    detail: "Need someone to keep the work organized after it launches? Start here.",
+    headline: "You need the work to stay organized and moving.",
     buyerPrompt:
-      "If you already have systems, tools, campaigns, code, or teams in motion and need them managed with control, Operate is where you start.",
+      "Workflows, reporting, support, maintenance, and clearer ownership.",
     outcomes: [
       "We create rules for AI use, workflow, ownership, and decision-making.",
       "We put the Farcelis Control Layer around intake, visibility, reporting, and action.",
@@ -187,27 +187,27 @@ export const capabilityGroups: CapabilityGroup[] = [
       {
         href: contactPathFor("ai-strategy-governance"),
         label: "AI Strategy & Governance",
-        detail: "We help you decide where AI should be used, where it should not, who owns it, and how it gets reviewed.",
+        detail: "Decide where AI should help, what rules it needs, and who reviews it.",
       },
       {
         href: contactPathFor("workflow-managed-operations"),
         label: "Workflow & Managed Operations",
-        detail: "We design the workflow, ownership, cadence, follow-up, reporting, and support rhythm that keeps work moving.",
+        detail: "Organize tasks, owners, handoffs, follow-up, and support.",
       },
       {
         href: contactPathFor("farcelis-control-layer"),
         label: "The Farcelis Control Layer",
-        detail: "This is our operating environment for intake, visibility, ownership, reporting, intervention, and action.",
+        detail: "A shared place to see requests, owners, status, and next actions.",
       },
       {
         href: contactPathFor("reporting-decision-systems"),
         label: "Reporting & Decision Systems",
-        detail: "We build the reporting views and decision rhythm leaders need to see what is working, what is stuck, and what needs action.",
+        detail: "Reports that show what is working, what is stuck, and what to do next.",
       },
       {
         href: contactPathFor("deployment-operations"),
         label: "Deployment Operations",
-        detail: "We keep the websites, apps, portals, dashboards, code releases, hosting path, documentation, and support rhythm managed after launch.",
+        detail: "Keep websites, apps, hosting, updates, and support handled after launch.",
       },
     ],
   },
@@ -255,7 +255,7 @@ export const directServices: DirectService[] = [
       {
         href: "/services/seo-aeo-visibility",
         label: "SEO & AEO Visibility",
-        detail: "Make the site easier for buyers and answer engines to understand.",
+        detail: "Make the site easier for people, Google, and AI search tools to understand.",
       },
       {
         href: "/services/marketing-automation-crm",
@@ -445,34 +445,34 @@ export const directServices: DirectService[] = [
     slug: "quote-pricing-tools",
     navLabel: "Quote & Pricing Tools",
     eyebrow: "Build / Quote & Pricing Tools",
-    title: "Quote builders and pricing calculators that help buyers take the next step.",
+    title: "Website quote builders that help buyers understand cost before they call.",
     summary:
-      "Farcelis builds website tools that let visitors answer a few questions, see an estimate or price range, and request follow-up without waiting for a manual first quote.",
-    primaryCta: "Discuss quote and pricing tools",
+      "Farcelis builds website tools that let visitors answer a few questions, see an estimate or price range, and send the request to your team.",
+    primaryCta: "Ask about a quote builder",
     secondaryCta: { href: "/services/website-development", label: "See website development" },
     capabilities: [
-      "Website quote builders and estimate forms",
-      "Pricing calculators with clear inputs and ranges",
-      "Service package selectors and add-on logic",
-      "Lead capture tied to the quote details",
-      "CRM, email, and reporting handoff",
+      "Quote builders and estimate request forms",
+      "Price ranges based on simple questions",
+      "Package selectors and add-on choices",
+      "Contact forms tied to the quote details",
+      "Email, CRM, and reporting follow-up",
     ],
     process: [
-      "Clarify what the buyer needs to answer before a useful quote can be shown.",
-      "Map the service options, add-ons, rules, and price ranges.",
-      "Build a simple website tool that feels easy to complete.",
-      "Send the quote request, buyer details, and selected options into follow-up.",
-      "Review what people quote most often and where they drop off.",
+      "List the questions a buyer must answer.",
+      "Map the service options, add-ons, and price ranges.",
+      "Build the quote builder into the website.",
+      "Send the quote request and contact details to the right person.",
+      "Track which services people ask about most.",
     ],
     signals: [
       "Buyers ask for pricing before they are ready for a sales call.",
       "The team spends time creating similar estimates by hand.",
-      "A simple quote range would help visitors decide whether to keep going.",
+      "A simple price range would help visitors decide whether to keep going.",
     ],
     exclusions: [
       "Pricing logic that the business cannot explain or maintain.",
       "Instant final prices for work that still needs human review.",
-      "Forms that collect information but do not create a clear follow-up path.",
+      "Forms that collect details but do not send them anywhere useful.",
     ],
     related: [
       {
@@ -552,13 +552,13 @@ export const directServices: DirectService[] = [
     slug: "aeo-ai-search-visibility",
     navLabel: "AEO / AI Search Visibility",
     eyebrow: "Grow / AEO / AI Search Visibility",
-    title: "AI search visibility built so answer engines can understand and cite the offer.",
+    title: "AI search visibility that helps tools like ChatGPT understand what you offer.",
     summary:
       "Farcelis structures pages, resources, proof, schema, and question-answer content so AI search tools can understand what you do and summarize it accurately.",
     primaryCta: "Discuss AEO and AI search visibility",
     secondaryCta: { href: "/services/seo-search-visibility", label: "See SEO visibility" },
     capabilities: [
-      "Answer-engine readiness review",
+      "AI search readiness review",
       "Question and answer content architecture",
       "Schema, evidence, and citation signal planning",
       "Service pages structured for AI summaries",
@@ -568,7 +568,7 @@ export const directServices: DirectService[] = [
       "Review how AI search tools currently describe the business.",
       "Identify the questions buyers and AI systems need answered clearly.",
       "Structure service pages, resources, proof, and schema around those answers.",
-      "Build content that is useful to people and understandable to answer engines.",
+      "Build content that is useful to people and clear to AI search tools.",
       "Monitor whether the business is being summarized accurately over time.",
     ],
     signals: [
@@ -603,9 +603,9 @@ export const directServices: DirectService[] = [
     slug: "seo-aeo-visibility",
     navLabel: "SEO & AEO Visibility",
     eyebrow: "Grow / SEO & AEO Visibility",
-    title: "Search and answer-engine visibility built on clean structure, evidence, and useful content.",
+    title: "Search visibility for Google and AI search tools.",
     summary:
-      "Farcelis connects technical SEO, AEO readiness, schema, resource strategy, and citation evidence so buyers and answer engines can understand what the company does.",
+      "Farcelis improves pages, structure, proof, and answers so buyers, Google, and AI search tools can understand what the company does.",
     primaryCta: "Discuss search visibility",
     secondaryCta: { href: "/resources", label: "See resource strategy" },
     capabilities: [
@@ -616,7 +616,7 @@ export const directServices: DirectService[] = [
       "Citation, review, and authority signals",
     ],
     process: [
-      "Baseline how search engines and answer engines understand the company.",
+      "Baseline how search engines and AI search tools understand the company.",
       "Clean service architecture, metadata, routes, and schema opportunities.",
       "Build pages and resources around buyer questions.",
       "Connect proof, results, and citations to service claims.",
@@ -624,7 +624,7 @@ export const directServices: DirectService[] = [
     ],
     signals: [
       "People ask for services you offer but cannot find them clearly.",
-      "AI answer engines describe the company vaguely or incompletely.",
+      "AI search tools describe the company vaguely or incompletely.",
       "Content exists but is not organized around searchable buyer intent.",
     ],
     exclusions: [
@@ -636,7 +636,7 @@ export const directServices: DirectService[] = [
       {
         href: "/services/website-development",
         label: "Website Development",
-        detail: "Give search and answer engines a clearer public structure.",
+        detail: "Give search tools and buyers a clearer public structure.",
       },
       {
         href: "/services/content-revenue-systems",

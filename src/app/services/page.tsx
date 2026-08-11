@@ -13,8 +13,8 @@ export default function ServicesPage() {
     <>
       <PageIntro
         eyebrow="Services"
-        title="Farcelis helps leaders build, grow, and operate systems that can actually be owned."
-        description="Some clients arrive with code, tools, and deployment problems. Others arrive with an idea and no technical map. Farcelis turns both starting points into clean websites, apps, portals, dashboards, automations, growth systems, and operating environments."
+        title="Websites, quote tools, automations, ads, and operations support for businesses that need clearer systems."
+        description="Choose what you need built, promoted, or managed. Farcelis helps with the website, the follow-up, and the tools behind the work."
         actions={[
           { href: "/contact", label: "Work With Farcelis" },
           { href: "/control-layer", label: "Explore the Control Layer", variant: "secondary" },
@@ -23,9 +23,9 @@ export default function ServicesPage() {
         className="services-page-intro"
         asideTitle="How to read this page"
         asideItems={[
-          "Build when the business needs a website, app, portal, automation, Control Layer, or deployment path.",
-          "Grow when visibility, content, campaigns, CRM, and revenue follow-through need to operate together.",
-          "Operate when systems, workflows, reporting, AI use, and execution cadence need sustained control.",
+          "Build when you need a website, quote builder, app, portal, dashboard, automation, or launch support.",
+          "Grow when you need more people to find you, understand you, and become leads.",
+          "Operate when you need the work organized, tracked, supported, and maintained after launch.",
         ]}
       />
 
@@ -35,10 +35,10 @@ export default function ServicesPage() {
             <div className="max-w-[880px]">
               <p className="eyebrow text-[color:var(--color-accent)]">Service Lanes</p>
               <h2 className="section-title mt-3 text-white">
-                Build what is missing, grow what needs attention, and operate what has to stay visible.
+                Start with what you need done.
               </h2>
               <p className="mt-3 max-w-[760px] text-sm leading-6 text-slate-300">
-                Build, Grow, and Operate keep Farcelis simple in the first conversation. Choose a service area or start with the pillar that best matches the work.
+                Build, Grow, and Operate keep the first conversation simple. Choose a service or start with the lane that fits the problem.
               </p>
             </div>
 

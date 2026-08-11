@@ -16,8 +16,8 @@ export default function InsightsPage() {
     <>
       <PageIntro
         eyebrow="Insights"
-        title="Practical thinking for leaders building AI-enabled operating systems."
-        description="Farcelis insights focus on AI adoption, workflow architecture, governance, CRM and revenue operations, marketing systems, and the Control Layer model behind reliable execution."
+        title="Practical thinking for clearer websites, growth, workflow, and AI use."
+        description="Farcelis insights focus on the real work behind better service pages, lead follow-up, CRM, reporting, automation, and operations support."
         actions={[
           { href: "/services", label: "Review Services" },
           { href: "/resources", label: "Review Resources", variant: "secondary" },

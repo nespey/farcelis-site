@@ -9,7 +9,7 @@ export default function LegalNoticePage() {
       sections={[
         {
           heading: "Company Information",
-          body: "Farcelis AI Consulting LLC operates as a Florida-based business providing AI consulting, operational systems design, workflow architecture, execution systems, and related strategic services.",
+          body: "Farcelis AI Consulting LLC operates as a Florida-based business providing AI consulting, website and tool development, workflow support, automation, reporting, growth support, and related strategic services.",
         },
         {
           heading: "Website Use",
@@ -25,7 +25,7 @@ export default function LegalNoticePage() {
         },
         {
           heading: "Relationship and Platform References",
-          body: "References to organizations, platforms, technologies, tools, certifications, integrations, prior work, or business relationships are intended to describe relevant experience, capabilities, supported systems, or factual relationship context. Farcelis AI Consulting LLC does not claim that any third-party organization uses, endorses, sponsors, or has adopted any Farcelis product, service, Control Layer, or operating system unless that claim is expressly stated and authorized.",
+          body: "References to organizations, platforms, technologies, tools, certifications, integrations, prior work, or business relationships are intended to describe relevant experience, supported systems, or factual relationship context. Farcelis AI Consulting LLC does not claim that any third-party organization uses, endorses, sponsors, or has adopted any Farcelis product, service, or Control Layer unless that claim is expressly stated and authorized.",
         },
       ]}
     />

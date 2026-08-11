@@ -56,9 +56,8 @@ export function Footer() {
             />
           </Link>
           <p className="mt-5 max-w-[760px] text-base leading-7 text-slate-300">
-            Farcelis is an AI operational systems firm for leaders who need stronger workflow
-            architecture, cleaner execution, and more reliable visibility before complexity
-            compounds into drag.
+            Farcelis helps businesses build websites and tools, grow with clearer marketing
+            and follow-up, and keep the work organized after launch.
           </p>
           <div className="mt-5 flex flex-col gap-5 sm:flex-row sm:items-end">
             <div className="space-y-0.5 text-sm leading-6 text-slate-400">

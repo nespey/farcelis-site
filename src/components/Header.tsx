@@ -10,22 +10,22 @@ const resourceLinks = [
   {
     href: "/resources",
     label: "Resource Library",
-    detail: "Guides, briefings, and playbooks that support the Services path.",
+    detail: "Guides and checklists that help you choose the right service.",
   },
   {
     href: "/insights",
     label: "Insights & Playbooks",
-    detail: "Practical thinking on AI adoption, governance, workflow, and growth.",
+    detail: "Plain-language notes on websites, growth, workflow, and AI use.",
   },
   {
     href: "/events",
     label: "Webinars & Briefings",
-    detail: "Executive sessions and workshops for AI-enabled operating systems.",
+    detail: "Short sessions on practical business and technology problems.",
   },
   {
     href: "/products",
     label: "Tools & Assessments",
-    detail: "Diagnostics, generators, and enablement systems that support Build, Grow, and Operate.",
+    detail: "Simple tools that help clarify what to build, grow, or manage.",
   },
 ];
 
@@ -209,7 +209,7 @@ export function Header() {
                       SERVICES
                     </div>
                     <p className="mx-auto mt-2 max-w-[820px] text-sm leading-6 text-slate-100">
-                      Build what is missing, grow what needs attention, and operate the systems that have to stay visible, owned, and controlled.
+                      Choose what you need: something built, more leads, or help keeping the work organized.
                     </p>
                   </div>
 
@@ -261,7 +261,7 @@ export function Header() {
                       Resources
                     </div>
                     <p className="mx-auto mt-2 max-w-[420px] text-sm leading-6 text-slate-100">
-                      Thinking, briefings, and tools that help buyers understand the Build, Grow, and Operate path.
+                      Guides, examples, and tools that help you choose the right next step.
                     </p>
                   </div>
 
