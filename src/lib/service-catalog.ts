@@ -25,6 +25,8 @@ export const contactPathFor = (work: string | string[]) => {
   return `/contact?work=${encodeURIComponent(values.join(","))}`;
 };
 
+const servicePathFor = (slug: string) => `/services/${slug}`;
+
 export type DirectService = {
   slug: string;
   navLabel: string;
@@ -70,12 +72,12 @@ export const capabilityGroups: CapabilityGroup[] = [
     },
     links: [
       {
-        href: contactPathFor("website-development"),
+        href: servicePathFor("website-development"),
         label: "Website Development",
         detail: "Websites that explain what you do and help visitors contact you.",
       },
       {
-        href: contactPathFor("app-portal-development"),
+        href: servicePathFor("app-portal-development"),
         label: "App & Portal Development",
         detail: "Client portals, internal tools, and private apps for repeated work.",
       },
@@ -85,17 +87,17 @@ export const capabilityGroups: CapabilityGroup[] = [
         detail: "Website tools that let visitors get an estimate and request follow-up.",
       },
       {
-        href: contactPathFor("ai-agents-automations"),
+        href: servicePathFor("ai-agents-automations"),
         label: "AI Agents & Automations",
         detail: "Helpers for intake, follow-up, reports, CRM updates, and repeated tasks.",
       },
       {
-        href: contactPathFor("platform-connections"),
+        href: servicePathFor("platform-connections"),
         label: "Platform Connections",
         detail: "Make your website, CRM, forms, dashboards, and tools work together.",
       },
       {
-        href: contactPathFor("dashboards-decision-views"),
+        href: servicePathFor("dashboards-decision-views"),
         label: "Dashboards and Decision Views",
         detail: "Simple views that show what is happening, what is stuck, and what needs action.",
       },
@@ -128,32 +130,32 @@ export const capabilityGroups: CapabilityGroup[] = [
     },
     links: [
       {
-        href: contactPathFor("seo-search-visibility"),
+        href: servicePathFor("seo-search-visibility"),
         label: "SEO & Search Visibility",
         detail: "Help people find your business on Google and other search engines.",
       },
       {
-        href: contactPathFor("aeo-ai-search-visibility"),
+        href: servicePathFor("aeo-ai-search-visibility"),
         label: "AEO & AI Search Visibility",
         detail: "Help AI search tools understand and recommend what your business offers.",
       },
       {
-        href: contactPathFor("google-ads-paid-search"),
+        href: servicePathFor("google-ads-paid-search"),
         label: "Google Ads / Paid Search",
         detail: "Ads for people already searching for what you sell.",
       },
       {
-        href: contactPathFor("meta-ads-paid-social"),
+        href: servicePathFor("meta-ads-paid-social"),
         label: "Meta Ads / Paid Social",
         detail: "Facebook and Instagram ads tied to a clear offer and follow-up.",
       },
       {
-        href: contactPathFor("crm-revenue-operations"),
+        href: servicePathFor("crm-revenue-operations"),
         label: "CRM & Revenue Operations",
         detail: "Make sure leads are captured, followed up, tracked, and not lost.",
       },
       {
-        href: contactPathFor("content-revenue-systems"),
+        href: servicePathFor("content-revenue-systems"),
         label: "Content & Revenue Systems",
         detail: "Plan pages, posts, offers, and campaigns that support sales.",
       },
@@ -185,27 +187,27 @@ export const capabilityGroups: CapabilityGroup[] = [
     },
     links: [
       {
-        href: contactPathFor("ai-strategy-governance"),
+        href: servicePathFor("ai-strategy-governance"),
         label: "AI Strategy & Governance",
         detail: "Decide where AI should help, what rules it needs, and who reviews it.",
       },
       {
-        href: contactPathFor("workflow-managed-operations"),
+        href: servicePathFor("workflow-managed-operations"),
         label: "Workflow & Managed Operations",
         detail: "Organize tasks, owners, handoffs, follow-up, and support.",
       },
       {
-        href: contactPathFor("farcelis-control-layer"),
+        href: "/control-layer",
         label: "The Farcelis Control Layer",
         detail: "A shared place to see requests, owners, status, and next actions.",
       },
       {
-        href: contactPathFor("reporting-decision-systems"),
+        href: servicePathFor("reporting-decision-systems"),
         label: "Reporting & Decision Systems",
         detail: "Reports that show what is working, what is stuck, and what to do next.",
       },
       {
-        href: contactPathFor("deployment-operations"),
+        href: servicePathFor("deployment-operations"),
         label: "Deployment Operations",
         detail: "Keep websites, apps, hosting, updates, and support handled after launch.",
       },
@@ -383,6 +385,108 @@ export const directServices: DirectService[] = [
         href: "/control-layer",
         label: "Farcelis Control Layer",
         detail: "Place dashboards inside the operating layer for visibility and action.",
+      },
+    ],
+  },
+  {
+    slug: "ai-agents-automations",
+    navLabel: "AI Agents & Automations",
+    eyebrow: "Build / AI Agents & Automations",
+    title: "AI agents and automations for repeated work, intake, and follow-up.",
+    summary:
+      "Farcelis builds practical automations and AI-assisted workflows that help teams collect information, follow up, update tools, prepare reports, and reduce repeated manual work.",
+    primaryCta: "Discuss AI agents and automations",
+    secondaryCta: { href: "/services/platform-connections", label: "See platform connections" },
+    capabilities: [
+      "Intake and follow-up automations",
+      "CRM updates and task creation",
+      "AI assistants for repeated internal work",
+      "Report drafts, summaries, and routing",
+      "Human review points before anything sensitive moves forward",
+    ],
+    process: [
+      "Identify the repeated work that is wasting time.",
+      "Map the inputs, tools, owners, and review points.",
+      "Build the smallest useful automation first.",
+      "Test the handoff before expanding the workflow.",
+      "Document what it does, who owns it, and when it needs review.",
+    ],
+    signals: [
+      "The team repeats the same update, summary, or follow-up every week.",
+      "Leads or requests sit too long before someone acts.",
+      "Useful information exists but has to be copied between tools by hand.",
+    ],
+    exclusions: [
+      "Automations that remove needed human judgment.",
+      "AI agents with no clear owner or review process.",
+      "Workflows built before the business can explain the current process.",
+    ],
+    related: [
+      {
+        href: "/services/platform-connections",
+        label: "Platform Connections",
+        detail: "Connect the tools the automation needs to read from or write to.",
+      },
+      {
+        href: "/services/crm-revenue-operations",
+        label: "CRM & Revenue Operations",
+        detail: "Use automation to improve lead capture and follow-up.",
+      },
+      {
+        href: "/services/workflow-managed-operations",
+        label: "Workflow & Managed Operations",
+        detail: "Make sure automated work fits the way the team actually operates.",
+      },
+    ],
+  },
+  {
+    slug: "platform-connections",
+    navLabel: "Platform Connections",
+    eyebrow: "Build / Platform Connections",
+    title: "Platform connections that make your website, CRM, forms, and reports work together.",
+    summary:
+      "Farcelis connects the tools a business already uses so leads, requests, updates, dashboards, and follow-up do not get lost between systems.",
+    primaryCta: "Discuss platform connections",
+    secondaryCta: { href: "/platforms", label: "See platform experience" },
+    capabilities: [
+      "Website form and CRM handoff",
+      "Email, task, and notification routing",
+      "Dashboard and reporting data connections",
+      "Automation paths between common business tools",
+      "Connection checks before launch",
+    ],
+    process: [
+      "List the tools that already carry the work.",
+      "Map where information starts, changes, and needs to land.",
+      "Connect the smallest useful path first.",
+      "Test the handoff with real examples.",
+      "Document owners, access, and support notes.",
+    ],
+    signals: [
+      "People copy the same information from one system to another.",
+      "Forms submit, but follow-up depends on someone noticing an email.",
+      "Reports are incomplete because the data lives in too many places.",
+    ],
+    exclusions: [
+      "Connections without clear access or ownership.",
+      "Fragile workarounds that no one can support after launch.",
+      "Data movement without review of privacy, security, or permission needs.",
+    ],
+    related: [
+      {
+        href: "/services/website-development",
+        label: "Website Development",
+        detail: "Make sure public forms and service pages create useful next steps.",
+      },
+      {
+        href: "/services/ai-agents-automations",
+        label: "AI Agents & Automations",
+        detail: "Add automation once the connection path is clear.",
+      },
+      {
+        href: "/services/dashboards-decision-views",
+        label: "Dashboards and Decision Views",
+        detail: "Turn connected data into views leaders can use.",
       },
     ],
   },
@@ -855,6 +959,57 @@ export const directServices: DirectService[] = [
     ],
   },
   {
+    slug: "crm-revenue-operations",
+    navLabel: "CRM & Revenue Operations",
+    eyebrow: "Grow / CRM & Revenue Operations",
+    title: "CRM and revenue operations that keep leads from getting lost.",
+    summary:
+      "Farcelis helps businesses capture leads clearly, route them to the right follow-up, track status, and see what is happening after someone raises their hand.",
+    primaryCta: "Discuss CRM and revenue operations",
+    secondaryCta: { href: "/services/marketing-automation-crm", label: "See marketing automation" },
+    capabilities: [
+      "Lead capture and routing",
+      "CRM cleanup and field structure",
+      "Follow-up stages and task paths",
+      "Pipeline and revenue reporting",
+      "Form, email, and campaign handoff",
+    ],
+    process: [
+      "Review how leads enter the business today.",
+      "Clean the fields, stages, owners, and follow-up rules.",
+      "Connect forms, campaigns, and quote requests to the CRM.",
+      "Build reporting around real next actions.",
+      "Document the follow-up path so the team can run it.",
+    ],
+    signals: [
+      "Leads arrive but no one is sure who owns the next step.",
+      "The CRM has records but does not show what needs action.",
+      "Marketing activity is disconnected from sales follow-up.",
+    ],
+    exclusions: [
+      "CRM cleanup with no agreement on how follow-up should work.",
+      "Fields and dashboards no one will maintain.",
+      "Campaign reporting that does not connect to actual inquiries.",
+    ],
+    related: [
+      {
+        href: "/services/quote-pricing-tools",
+        label: "Quote & Pricing Tools",
+        detail: "Send quote requests into a cleaner follow-up path.",
+      },
+      {
+        href: "/services/platform-connections",
+        label: "Platform Connections",
+        detail: "Connect forms, email, CRM, and reporting.",
+      },
+      {
+        href: "/services/content-revenue-systems",
+        label: "Content & Revenue Systems",
+        detail: "Tie content and campaigns back to lead handling.",
+      },
+    ],
+  },
+  {
     slug: "content-revenue-systems",
     navLabel: "Content & Revenue Systems",
     eyebrow: "Grow / Content & Revenue Systems",
@@ -953,6 +1108,57 @@ export const directServices: DirectService[] = [
         href: "/services/managed-operations",
         label: "Managed Operations",
         detail: "Use reporting cadence to drive follow-through.",
+      },
+    ],
+  },
+  {
+    slug: "workflow-managed-operations",
+    navLabel: "Workflow & Managed Operations",
+    eyebrow: "Operate / Workflow & Managed Operations",
+    title: "Workflow and managed operations support for work that needs to stay organized.",
+    summary:
+      "Farcelis helps organize tasks, owners, handoffs, follow-up, reporting, and support so the work keeps moving after the first build or campaign is live.",
+    primaryCta: "Discuss workflow and managed operations",
+    secondaryCta: { href: "/services/managed-operations", label: "See managed operations" },
+    capabilities: [
+      "Task and owner mapping",
+      "Intake, routing, and escalation paths",
+      "Follow-up rhythm and support cadence",
+      "Operating checklists and review habits",
+      "Managed support for live websites, tools, and workflows",
+    ],
+    process: [
+      "Map where work enters and who owns each step.",
+      "Clarify handoffs, timing, and escalation points.",
+      "Set the cadence for review, reporting, and support.",
+      "Document the workflow so it can be repeated.",
+      "Operate and improve the path as real work moves through it.",
+    ],
+    signals: [
+      "People ask for updates because status is unclear.",
+      "Work gets done, but only because one person remembers everything.",
+      "A website, app, dashboard, or automation needs support after launch.",
+    ],
+    exclusions: [
+      "Managed work with no owner on the client side.",
+      "Support requests without a clear intake path.",
+      "Operating cadence that no one is willing to follow.",
+    ],
+    related: [
+      {
+        href: "/services/deployment-operations",
+        label: "Deployment Operations",
+        detail: "Keep live websites, apps, and tools stable after release.",
+      },
+      {
+        href: "/control-layer",
+        label: "The Farcelis Control Layer",
+        detail: "Use a shared view for requests, owners, status, and next actions.",
+      },
+      {
+        href: "/services/reporting-decision-systems",
+        label: "Reporting & Decision Systems",
+        detail: "Make the operating rhythm visible to leaders.",
       },
     ],
   },
