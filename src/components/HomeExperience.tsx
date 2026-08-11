@@ -29,19 +29,19 @@ export function HomeExperience() {
           <div className="eyebrow">Farcelis AI Consulting LLC</div>
 
           <h1 className="hero-title">
-            <span className="hero-title-line">If your systems can&apos;t hold,</span>
+            <span className="hero-title-line">Websites, tools, and follow-up</span>
             <br />
-            <span className="hero-title-line">nothing else matters.</span>
+            <span className="hero-title-line">that keep work moving.</span>
           </h1>
 
           <p className="hero-subtext">
-            Farcelis builds AI-driven execution infrastructure that brings order to complexity,
-            aligns workflows, and gives companies control before growth turns unstable.
+            Farcelis builds websites, quote tools, apps, dashboards, automations,
+            and support paths for businesses that need clearer systems.
           </p>
 
           <div className="hero-actions">
             <Link href="/contact" className="btn-primary">
-              Start Building Structure
+              Work With Farcelis
             </Link>
             <Link href="/services" className="btn-secondary">
               Review Services
@@ -53,20 +53,20 @@ export function HomeExperience() {
       <section className="system-hook-section">
         <div className="system-anchor">
           <h2>
-            Operating problems
+            Scattered websites,
             <br />
-            aren’t people problems.
+            forms, tools, and follow-up
             <br />
             <br />
-            They’re system failures
+            make customers wait
             <br />
-            hiding in plain sight.
+            and teams guess.
           </h2>
-          <p>When structure breaks, everything downstream pays for it.</p>
+          <p>Farcelis helps make the next step clear.</p>
           <p className="system-payoff">
-            Execution starts moving
+            The work gets captured,
             <br />
-            <span>without friction.</span>
+            <span>owned, and followed up.</span>
           </p>
         </div>
 
@@ -76,54 +76,54 @@ export function HomeExperience() {
 
           <div className="timeline-row timeline-row-a">
             <span className="timeline-node timeline-node-orange" aria-hidden="true" />
-            <span className="timeline-text">Work doesn’t move cleanly.</span>
+            <span className="timeline-text">A visitor has a question.</span>
           </div>
           <div className="timeline-row timeline-row-b">
             <span className="timeline-node timeline-node-orange" aria-hidden="true" />
-            <span className="timeline-text">Ownership drifts.</span>
+            <span className="timeline-text">The form is too vague.</span>
           </div>
           <div className="timeline-row timeline-row-c">
             <span className="timeline-node timeline-node-orange" aria-hidden="true" />
-            <span className="timeline-text">Problems show up too late.</span>
+            <span className="timeline-text">The quote details are missing.</span>
           </div>
           <div className="timeline-row timeline-row-d">
             <span className="timeline-node timeline-node-orange" aria-hidden="true" />
-            <span className="timeline-text">Teams fall out of sync.</span>
+            <span className="timeline-text">Follow-up depends on memory.</span>
           </div>
 
           <div className="timeline-pivot">
             <span className="timeline-pivot-rule" aria-hidden="true" />
             <span className="timeline-node timeline-node-pivot" data-system-pivot aria-hidden="true" />
-            <span className="timeline-pivot-text">This isn’t random.</span>
+            <span className="timeline-pivot-text">This can be fixed.</span>
           </div>
 
           <div className="timeline-row timeline-row-intervene">
             <span className="timeline-node timeline-node-white" aria-hidden="true" />
             <span className="timeline-text timeline-text-strong">
-              Leadership intervenes.
+              Farcelis maps the path.
               <br />
-              Partners with Farcelis.
+              Then builds it.
             </span>
           </div>
           <div className="timeline-row timeline-row-build-a">
             <span className="timeline-node timeline-node-green" aria-hidden="true" />
-            <span className="timeline-text">Structure gets rebuilt.</span>
+            <span className="timeline-text">Service pages get clearer.</span>
           </div>
           <div className="timeline-row timeline-row-build-b">
             <span className="timeline-node timeline-node-green" aria-hidden="true" />
-            <span className="timeline-text">Define how work flows.</span>
+            <span className="timeline-text">Forms ask better questions.</span>
           </div>
           <div className="timeline-row timeline-row-build-c">
             <span className="timeline-node timeline-node-green" aria-hidden="true" />
-            <span className="timeline-text">Stabilize decisions and handoffs.</span>
+            <span className="timeline-text">Quote requests carry the right details.</span>
           </div>
           <div className="timeline-row timeline-row-build-d">
             <span className="timeline-node timeline-node-green" aria-hidden="true" />
-            <span className="timeline-text">Remove coordination drag.</span>
+            <span className="timeline-text">Leads go to the right follow-up.</span>
           </div>
           <div className="timeline-row timeline-row-build-e">
             <span className="timeline-node timeline-node-green" aria-hidden="true" />
-            <span className="timeline-text">Make it hold under pressure.</span>
+            <span className="timeline-text">The team can see what happened.</span>
           </div>
           <span className="timeline-arrow" aria-hidden="true">↓</span>
         </div>
@@ -134,13 +134,12 @@ export function HomeExperience() {
           <div className="showcase-container">
             <div className="mx-auto max-w-[1380px]">
               <h2 className="text-[clamp(2rem,2.65vw,2.5rem)] font-medium leading-[1.1] tracking-[-0.045em] text-white">
-                The Farcelis Control Layer<span className="align-super text-[0.28em] tracking-normal">TM</span> turns scattered execution
+                The Farcelis Control Layer<span className="align-super text-[0.28em] tracking-normal">TM</span> gives teams one place
                 <br />
-                into a live operating workspace.
+                to see requests, owners, status, and next actions.
               </h2>
               <p className="mx-auto mt-6 max-w-[760px] text-lg leading-8 text-slate-300">
-                It is the operating frame Farcelis deploys when a business, team, or environment
-                needs one place for intake, routing, accountability, and intervention.
+                Use it when forms, tasks, dashboards, approvals, and follow-up need to stop living in separate places.
               </p>
             </div>
           </div>
@@ -166,10 +165,10 @@ export function HomeExperience() {
           <div className="showcase-container">
             <div className="validation-inner">
               <h2 className="text-[clamp(1.45rem,2.15vw,1.95rem)] font-[550] leading-[1.18] tracking-[-0.04em] text-slate-950">
-                Validation comes from environments where structure has to hold.
+                Built for real teams, real requests, and real follow-up.
               </h2>
               <p className="text-base leading-8 text-slate-600">
-                Working inside real operations sharpens both sides. Systems get tested. Assumptions get broken. What holds becomes repeatable.
+                Farcelis work is shaped around practical use: what the customer sees, what the team receives, and what has to happen next.
               </p>
             </div>
             <div className="logo-row opacity-80">
@@ -184,12 +183,12 @@ export function HomeExperience() {
           <div className="w-full px-6 lg:px-12">
             <div className="w-full">
               <h2 className="mx-auto max-w-none text-center text-[clamp(1.5rem,2.1vw,2.05rem)] font-medium leading-[1.12] tracking-[-0.04em] text-white">
-                If execution keeps slipping, the next move is not more software.
+                Need the website, quote path, dashboard, or follow-up cleaned up?
                 <br />
-                It is a stronger system.
+                Start with the service that matches the problem.
               </h2>
               <p className="mx-auto mt-5 max-w-none text-center text-[clamp(1rem,1.08vw,1.08rem)] leading-7 text-slate-300">
-                Farcelis builds the operating structure that keeps ownership, routing, and execution intact when the pressure increases.
+                Farcelis can build what is missing, grow what needs attention, or keep the work organized after launch.
               </p>
               <div className="closing-cta-actions mt-6 flex flex-col items-center justify-center gap-3 sm:flex-row">
                 <Link
