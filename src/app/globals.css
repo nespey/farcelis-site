@@ -571,12 +571,20 @@ a {
 }
 
 .system-anchor .system-payoff {
+  max-width: 620px;
   margin-top: clamp(11.5rem, 18vw, 17rem);
   font-size: clamp(2.16rem, 3.15vw, 3.6rem);
   font-weight: 500;
   line-height: 1.12;
   letter-spacing: -0.055em;
   color: #ffffff;
+}
+
+.system-payoff-line {
+  display: inline-block;
+  font: inherit;
+  color: inherit;
+  white-space: nowrap;
 }
 
 .system-payoff span {
