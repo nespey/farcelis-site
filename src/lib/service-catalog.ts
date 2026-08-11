@@ -38,6 +38,14 @@ export type DirectService = {
     href: string;
     label: string;
   };
+  buildKicker?: string;
+  buildTitle?: string;
+  buildSummary?: string;
+  processKicker?: string;
+  processTitle?: string;
+  signalsKicker?: string;
+  exclusionsKicker?: string;
+  relatedTitle?: string;
   capabilities: string[];
   process: string[];
   signals: string[];
@@ -224,34 +232,44 @@ export const directServices: DirectService[] = [
     slug: "website-development",
     navLabel: "Website Development",
     eyebrow: "Build / Website Development",
-    title: "Websites that explain the offer, capture demand, and connect into the operating system.",
+    title: "Build a website people understand, trust, and use.",
     summary:
-      "Farcelis builds service websites, landing pages, resource hubs, and conversion paths that make the business easier to understand and easier to act on.",
+      "New site, rebuild, cleanup, or custom feature: Farcelis builds the path from first visit to follow-up.",
     primaryCta: "Discuss website development",
     secondaryCta: { href: "/services/seo-aeo-visibility", label: "See SEO & AEO visibility" },
+    buildKicker: "Where to Start",
+    buildTitle: "What stage is the website in?",
+    buildSummary:
+      "Start with what needs to change. Farcelis can build new, rebuild what exists, or connect the website to the follow-up systems behind it.",
+    processKicker: "How We Build",
+    processTitle: "A practical path from idea to launch.",
+    signalsKicker: "When This Helps",
+    exclusionsKicker: "When It Does Not",
+    relatedTitle: "Services that usually connect to website work.",
     capabilities: [
-      "Site architecture and page flow",
-      "Conversion-ready service pages",
-      "Resource and gated access paths",
-      "Analytics, forms, and CRM handoff",
-      "Performance, accessibility, and search foundations",
+      "New website build",
+      "Existing website rebuild",
+      "Service pages and landing pages",
+      "Quote, intake, and contact forms",
+      "SEO and AEO-ready structure",
+      "CRM, email, and reporting handoff",
     ],
     process: [
-      "Clarify the offer, audience, and page inventory.",
-      "Map visitor questions to a qualified next action.",
-      "Build inside the existing stack and visual system.",
-      "Connect forms, analytics, CRM handoff, and tracking.",
-      "Launch with mobile, metadata, speed, and route checks.",
+      "Clarify what the site needs to do and who it needs to serve.",
+      "Choose the right build path: custom, WordPress, Squarespace, or the platform already in place.",
+      "Build the pages, forms, and calls to action around the way people actually buy.",
+      "Connect contact, quote, CRM, email, analytics, and reporting where they matter.",
+      "Launch with mobile, speed, search, access, and maintenance checks.",
     ],
     signals: [
-      "The site no longer represents what the company actually sells.",
-      "Offers live in conversations instead of clear pages.",
-      "Traffic arrives but does not create a qualified next action.",
+      "The current site no longer explains what the business sells.",
+      "Visitors ask basic questions the website should already answer.",
+      "Inquiries, quote requests, or follow-up are still handled by hand.",
     ],
     exclusions: [
-      "Logo-only refreshes without a clearer conversion path.",
-      "Disconnected landing pages with no owner or follow-up.",
-      "Sites that cannot be maintained after launch.",
+      "A logo-only refresh with no change to message, pages, or follow-up.",
+      "One-off landing pages nobody will own after launch.",
+      "A platform choice made before the website goals are clear.",
     ],
     related: [
       {
@@ -262,7 +280,7 @@ export const directServices: DirectService[] = [
       {
         href: "/services/marketing-automation-crm",
         label: "Marketing Automation & CRM",
-        detail: "Turn form activity and inquiries into visible follow-up.",
+        detail: "Turn contact forms, quote requests, and inquiries into visible follow-up.",
       },
       {
         href: "/services/quote-pricing-tools",
@@ -272,7 +290,7 @@ export const directServices: DirectService[] = [
       {
         href: "/services/content-revenue-systems",
         label: "Content & Revenue Systems",
-        detail: "Connect publishing, campaigns, and revenue reporting.",
+        detail: "Keep pages, offers, campaigns, and reporting connected after launch.",
       },
     ],
   },

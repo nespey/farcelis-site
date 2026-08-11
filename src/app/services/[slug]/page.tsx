@@ -5,7 +5,7 @@ import { notFound } from "next/navigation";
 import { PageIntro } from "@/components/PageIntro";
 import { Reveal } from "@/components/Reveal";
 import { buildMetadata } from "@/lib/metadata";
-import { directServices, getDirectService } from "@/lib/service-catalog";
+import { contactPathFor, directServices, getDirectService } from "@/lib/service-catalog";
 import { site } from "@/lib/site-data";
 
 const staticServiceSlugs = new Set([
@@ -75,7 +75,7 @@ export default async function DirectServicePage({ params }: ServicePageProps) {
         title={service.title}
         description={service.summary}
         actions={[
-          { href: "/contact", label: service.primaryCta },
+          { href: `${contactPathFor(service.slug)}#contact-top`, label: service.primaryCta },
           service.secondaryCta
             ? { href: service.secondaryCta.href, label: service.secondaryCta.label, variant: "secondary" }
             : { href: "/services", label: "View all services", variant: "secondary" },
@@ -86,12 +86,12 @@ export default async function DirectServicePage({ params }: ServicePageProps) {
         <section className="section-shell section-shell-light !py-10 lg:!py-12">
           <div className="section-inner grid gap-7 lg:grid-cols-[minmax(0,0.8fr)_minmax(0,1.2fr)]">
             <div>
-              <p className="eyebrow text-[#9f412c]">What Farcelis Builds</p>
+              <p className="eyebrow text-[#9f412c]">{service.buildKicker ?? "What Farcelis Builds"}</p>
               <h2 className="section-title mt-4 text-slate-950">
-                Clear work you can point to and use.
+                {service.buildTitle ?? "Clear work you can point to and use."}
               </h2>
               <p className="mt-4 max-w-[620px] text-base leading-7 text-slate-600">
-                Tell us what needs to work better. We help turn that into the right website, tool, workflow, or follow-up path.
+                {service.buildSummary ?? "Tell us what needs to work better. We help turn that into the right website, tool, workflow, or follow-up path."}
               </p>
             </div>
 
@@ -99,7 +99,7 @@ export default async function DirectServicePage({ params }: ServicePageProps) {
               {service.capabilities.map((item) => (
                 <div
                   key={item}
-                  className="rounded-[16px] border border-slate-200 bg-white px-4 py-4 text-sm font-semibold leading-6 text-slate-800 shadow-[0_18px_30px_rgba(15,23,42,0.05)]"
+                  className="rounded-[12px] border border-slate-200 bg-white px-4 py-3 text-sm font-semibold leading-5 text-slate-800 shadow-[0_14px_24px_rgba(15,23,42,0.045)]"
                 >
                   {item}
                 </div>
@@ -113,19 +113,19 @@ export default async function DirectServicePage({ params }: ServicePageProps) {
         <section className="section-shell section-shell-dark !py-10 lg:!py-12">
           <div className="section-inner grid gap-7 lg:grid-cols-[minmax(0,0.72fr)_minmax(0,1.28fr)]">
             <div>
-              <p className="eyebrow text-[color:var(--color-accent)]">Engagement Path</p>
+              <p className="eyebrow text-[color:var(--color-accent)]">{service.processKicker ?? "Engagement Path"}</p>
               <h2 className="section-title mt-4 text-white">
-                How the work moves.
+                {service.processTitle ?? "How the work moves."}
               </h2>
             </div>
 
             <div className="grid gap-3">
               {service.process.map((item, index) => (
-                <div key={item} className="rounded-[16px] border border-cyan-100/12 bg-white/[0.045] px-4 py-4">
+                <div key={item} className="rounded-[12px] border border-cyan-100/12 bg-white/[0.045] px-4 py-3.5">
                   <div className="text-xs font-semibold uppercase tracking-[0.18em] text-[color:var(--color-accent)]">
                     Step {index + 1}
                   </div>
-                  <p className="mt-2 text-lg leading-7 text-slate-100">{item}</p>
+                  <p className="mt-1.5 text-base leading-6 text-slate-100">{item}</p>
                 </div>
               ))}
             </div>
@@ -137,7 +137,7 @@ export default async function DirectServicePage({ params }: ServicePageProps) {
         <section className="section-shell section-shell-light !py-10 lg:!py-12">
           <div className="section-inner grid gap-5 lg:grid-cols-2">
             <article className="rounded-[18px] border border-slate-200 bg-white px-5 py-5 shadow-[0_18px_30px_rgba(15,23,42,0.05)]">
-              <p className="eyebrow text-[#9f412c]">Good Fit</p>
+              <p className="eyebrow text-[#9f412c]">{service.signalsKicker ?? "Good Fit"}</p>
               <ul className="mt-4 grid gap-3">
                 {service.signals.map((item) => (
                   <li key={item} className="border-l border-[#9f412c]/28 pl-4 text-base font-semibold leading-7 text-slate-700">
@@ -148,7 +148,7 @@ export default async function DirectServicePage({ params }: ServicePageProps) {
             </article>
 
             <article className="rounded-[18px] border border-slate-200 bg-white px-5 py-5 shadow-[0_18px_30px_rgba(15,23,42,0.05)]">
-              <p className="eyebrow text-[#9f412c]">Not a Fit</p>
+              <p className="eyebrow text-[#9f412c]">{service.exclusionsKicker ?? "Not a Fit"}</p>
               <ul className="mt-4 grid gap-3">
                 {service.exclusions.map((item) => (
                   <li key={item} className="border-l border-[#9f412c]/28 pl-4 text-base font-semibold leading-7 text-slate-700">
@@ -167,19 +167,19 @@ export default async function DirectServicePage({ params }: ServicePageProps) {
             <div className="max-w-[900px]">
               <p className="eyebrow text-[color:var(--color-accent)]">Related Services</p>
               <h2 className="section-title mt-4 text-white">
-                Other services that often go with this.
+                {service.relatedTitle ?? "Other services that often go with this."}
               </h2>
             </div>
 
-            <div className="mt-6 grid gap-4 lg:grid-cols-3">
+            <div className="mt-6 grid gap-3 md:grid-cols-2 xl:grid-cols-4">
               {service.related.map((item) => (
                 <Link
                   key={item.label}
                   href={item.href}
-                  className="rounded-[18px] border border-cyan-100/12 bg-white/[0.045] px-5 py-5 transition hover:border-cyan-100/24 hover:bg-white/[0.07]"
+                  className="rounded-[14px] border border-cyan-100/12 bg-white/[0.045] px-4 py-4 transition hover:border-cyan-100/24 hover:bg-white/[0.07]"
                 >
-                  <h3 className="text-xl font-semibold tracking-[-0.035em] text-white">{item.label}</h3>
-                  <p className="mt-3 text-sm leading-6 text-slate-300">{item.detail}</p>
+                  <h3 className="text-lg font-semibold tracking-[-0.03em] text-white">{item.label}</h3>
+                  <p className="mt-2 text-sm leading-5 text-slate-300">{item.detail}</p>
                 </Link>
               ))}
             </div>
