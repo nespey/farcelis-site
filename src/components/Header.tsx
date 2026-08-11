@@ -103,6 +103,8 @@ export function Header() {
   const [activeMenu, setActiveMenu] = useState<MenuKey | null>(null);
   const headerRef = useRef<HTMLElement | null>(null);
   const lastScrollY = useRef(0);
+  const topNavItemClass =
+    "inline-flex min-h-11 cursor-pointer items-center rounded-full px-1 text-sm font-medium tracking-[0.01em] transition duration-150 hover:-translate-y-0.5 hover:text-white focus:outline-none focus-visible:ring-2 focus-visible:ring-cyan-100/70";
 
   const closeMenus = useCallback(() => {
     setActiveMenu(null);
@@ -167,8 +169,8 @@ export function Header() {
             : "bg-transparent"
         }`}
       >
-        <div className="section-inner grid min-h-16 grid-cols-[auto_1fr_auto] items-center gap-4 sm:min-h-20 lg:gap-6">
-          <Link href="/" onClick={closeMenus} className="flex min-h-10 items-center gap-3">
+        <div className="section-inner grid min-h-16 grid-cols-[auto_1fr_auto] items-center gap-4 sm:min-h-20 lg:grid-cols-[192px_1fr_192px] lg:gap-6">
+          <Link href="/" onClick={closeMenus} className="flex min-h-10 items-center gap-3 justify-self-start">
             <Image
               src="/logos/farcelis-ai-logo.png"
               alt="Farcelis AI Consulting"
@@ -189,7 +191,7 @@ export function Header() {
                 onClick={() => {
                   setActiveMenu(activeMenu === "services" ? null : "services");
                 }}
-                className={`inline-flex min-h-11 items-center rounded-full px-1 text-sm font-medium tracking-[0.01em] transition focus:outline-none focus-visible:ring-2 focus-visible:ring-cyan-100/70 ${
+                className={`${topNavItemClass} ${
                   activeMenu === "services" ? "text-white" : "text-slate-300 hover:text-white"
                 }`}
               >
@@ -229,7 +231,7 @@ export function Header() {
             <Link
               href="/industries"
               onClick={closeMenus}
-              className="inline-flex min-h-11 items-center rounded-full px-1 text-sm font-medium tracking-[0.01em] text-slate-300 transition hover:text-white focus:outline-none focus-visible:ring-2 focus-visible:ring-cyan-100/70"
+              className={`${topNavItemClass} text-slate-300`}
             >
               Industries
             </Link>
@@ -241,7 +243,7 @@ export function Header() {
                 aria-expanded={activeMenu === "resources"}
                 aria-controls="resources-menu"
                 onClick={() => setActiveMenu(activeMenu === "resources" ? null : "resources")}
-                className={`inline-flex min-h-11 items-center rounded-full px-1 text-sm font-medium tracking-[0.01em] transition focus:outline-none focus-visible:ring-2 focus-visible:ring-cyan-100/70 ${
+                className={`${topNavItemClass} ${
                   activeMenu === "resources" ? "text-white" : "text-slate-300 hover:text-white"
                 }`}
               >
@@ -285,7 +287,7 @@ export function Header() {
             <Link
               href="/results"
               onClick={closeMenus}
-              className="inline-flex min-h-11 items-center rounded-full px-1 text-sm font-medium tracking-[0.01em] text-slate-300 transition hover:text-white focus:outline-none focus-visible:ring-2 focus-visible:ring-cyan-100/70"
+              className={`${topNavItemClass} text-slate-300`}
             >
               Results
             </Link>
@@ -293,7 +295,7 @@ export function Header() {
             <Link
               href="/team"
               onClick={closeMenus}
-              className="inline-flex min-h-11 items-center rounded-full px-1 text-sm font-medium tracking-[0.01em] text-slate-300 transition hover:text-white focus:outline-none focus-visible:ring-2 focus-visible:ring-cyan-100/70"
+              className={`${topNavItemClass} text-slate-300`}
             >
               Leadership
             </Link>
@@ -301,7 +303,7 @@ export function Header() {
             <Link
               href="/contact"
               onClick={closeMenus}
-              className="inline-flex min-h-11 items-center rounded-full px-1 text-sm font-medium tracking-[0.01em] text-slate-300 transition hover:text-white focus:outline-none focus-visible:ring-2 focus-visible:ring-cyan-100/70"
+              className={`${topNavItemClass} text-slate-300`}
             >
               Contact
             </Link>
@@ -324,7 +326,13 @@ export function Header() {
               <span className={`block h-0.5 w-5 rounded-full bg-current transition ${mobileOpen ? "-translate-y-2 -rotate-45" : ""}`} />
             </span>
           </button>
-          <span className="hidden min-h-10 w-[152px] lg:block" aria-hidden="true" />
+          <Link
+            href="/contact"
+            onClick={closeMenus}
+            className="hidden min-h-11 items-center justify-center justify-self-end rounded-full bg-[linear-gradient(135deg,#f19a6b,#f05cff)] px-5 text-sm font-semibold text-white shadow-[0_18px_36px_rgba(240,92,255,0.22)] transition duration-150 hover:-translate-y-0.5 hover:brightness-110 focus:outline-none focus-visible:ring-2 focus-visible:ring-cyan-100/70 lg:inline-flex"
+          >
+            Start Building Structure
+          </Link>
         </div>
 
       <div
