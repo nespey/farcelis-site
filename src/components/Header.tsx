@@ -160,6 +160,10 @@ export function Header() {
 
   return (
     <>
+      {/*
+        Keep the desktop nav visually centered regardless of whether the
+        right-side CTA is present on a given route.
+      */}
       <header
         ref={headerRef}
         className={`fixed inset-x-0 top-0 z-50 backdrop-blur-xl transition-transform duration-300 ${
@@ -182,7 +186,7 @@ export function Header() {
             />
           </Link>
 
-          <nav className="hidden items-center gap-5 lg:flex xl:gap-7">
+          <nav className="absolute left-1/2 hidden -translate-x-1/2 items-center gap-5 lg:flex xl:gap-7">
             <div className="relative">
               <button
                 type="button"
@@ -310,7 +314,7 @@ export function Header() {
             </Link>
           </nav>
 
-          {!isContactPage ? (
+          {!isContactPage && pathname !== "/" ? (
             <Link
               href="/contact"
               onClick={closeMenus}
@@ -406,7 +410,7 @@ export function Header() {
               ))}
             </div>
 
-            {!isContactPage ? (
+            {!isContactPage && pathname !== "/" ? (
               <Link
                 href="/contact"
                 onClick={closeMenus}
