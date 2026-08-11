@@ -1,7 +1,5 @@
 import Link from "next/link";
 
-import { PageIntro } from "@/components/PageIntro";
-import { Reveal } from "@/components/Reveal";
 import { buildMetadata } from "@/lib/metadata";
 import { contactPathFor } from "@/lib/service-catalog";
 
@@ -13,179 +11,166 @@ const contactHref = contactPathFor([
   "crm-revenue-operations",
 ]);
 
+const benefits = [
+  "Shows buyers a realistic estimate or price range.",
+  "Captures the details your team needs for follow-up.",
+  "Turns pricing interest into a cleaner sales conversation.",
+  "Connects quote requests to email, CRM, or reporting when needed.",
+];
+
 const examples = [
   {
-    title: "Quote Builder",
-    body: "A visitor chooses what they need, answers a few questions, sees a practical estimate, and can ask for follow-up.",
+    title: "Construction & Contractors",
+    body: "Estimate project type, size, materials, timing, and service area before the first call.",
   },
   {
-    title: "Pricing Calculator",
-    body: "A simple tool that changes the price range as the buyer selects services, quantities, add-ons, timing, or package level.",
+    title: "Home Services",
+    body: "Let customers price repairs, installations, inspections, cleanings, or service packages.",
   },
   {
-    title: "Estimate Request Flow",
-    body: "A guided intake path for work that still needs review, such as construction, custom services, consulting, repairs, or installations.",
+    title: "Professional Services",
+    body: "Help buyers scope consulting, marketing, design, accounting, legal intake, or advisory work.",
   },
   {
-    title: "Package Selector",
-    body: "A clearer way for buyers to compare good, better, and best options before they contact the company.",
+    title: "Events & Venues",
+    body: "Build estimates for guest count, packages, add-ons, staffing, rooms, dates, and deposits.",
+  },
+  {
+    title: "Manufacturing & Custom Orders",
+    body: "Collect specifications, quantities, options, delivery needs, and review notes.",
+  },
+  {
+    title: "Digital Services",
+    body: "Let buyers compare website, ads, content, automation, hosting, or support packages.",
   },
 ];
 
-const buildPieces = [
-  "Questions that match how the business actually quotes work.",
-  "Clear price ranges, package options, add-ons, and review rules.",
-  "A polished website experience that works on desktop and mobile.",
-  "A follow-up button that sends the quote details to the right person.",
-  "Optional CRM, email, and reporting connections after launch.",
-];
-
-const fitSignals = [
-  "Your buyers ask, \"What will this cost?\" before they are ready for a call.",
-  "Your team keeps building similar quotes by hand.",
-  "Your service has enough patterns to estimate, but still needs human review before final pricing.",
-  "You want a website feature that helps serious buyers raise their hand.",
+const toolTypes = [
+  "Quote builder",
+  "Pricing calculator",
+  "Package selector",
+  "Estimate request form",
+  "Service configurator",
+  "Add-on calculator",
 ];
 
 export const metadata = buildMetadata({
   path: "/services/quote-pricing-tools",
   title: "Quote & Pricing Tools | Farcelis",
   description:
-    "Farcelis builds website quote builders, pricing calculators, estimate request flows, and package selectors that help buyers understand scope and request follow-up.",
+    "Farcelis builds quote builders, pricing calculators, package selectors, and estimate request tools for service businesses.",
 });
 
 export default function QuotePricingToolsPage() {
   return (
     <>
-      <PageIntro
-        eyebrow="Build / Quote & Pricing Tools"
-        title="Let buyers build a quote before they ask for a call."
-        description="Farcelis builds website tools that help visitors choose what they need, see an estimate or price range, and send the details to your team for follow-up."
-        actions={[
-          { href: contactHref, label: "Build a Quote Tool" },
-          { href: "/services", label: "Review Services", variant: "secondary" },
-        ]}
-      />
-
-      <Reveal delayMs={40}>
-        <section className="section-shell section-shell-light">
-          <div className="section-inner">
-            <div className="max-w-[860px]">
-              <p className="eyebrow text-[#9f412c]">What It Can Become</p>
-              <h2 className="section-title mt-5 text-slate-950">
-                A clear pricing experience for companies that quote, estimate, or package their work.
-              </h2>
-              <p className="mt-5 max-w-[760px] text-base leading-8 text-slate-600">
-                This is not a generic form. It is a small website tool built around how the company sells. The goal is to help a buyer understand the range, then make it easy to request the next conversation.
-              </p>
-            </div>
-
-            <div className="mt-8 grid gap-4 lg:grid-cols-4">
-              {examples.map((item) => (
-                <article
-                  key={item.title}
-                  className="rounded-[22px] border border-slate-200 bg-white px-5 py-6 shadow-[0_18px_38px_rgba(15,23,42,0.06)]"
-                >
-                  <h3 className="text-lg font-semibold tracking-[-0.035em] text-slate-950">{item.title}</h3>
-                  <p className="mt-3 text-sm leading-6 text-slate-600">{item.body}</p>
-                </article>
-              ))}
-            </div>
-          </div>
-        </section>
-      </Reveal>
-
-      <Reveal delayMs={80}>
-        <section className="section-shell section-shell-dark">
-          <div className="section-inner grid gap-10 lg:grid-cols-[minmax(0,0.78fr)_minmax(0,1.22fr)]">
-            <div>
-              <p className="eyebrow text-[color:var(--color-accent)]">What Farcelis Builds</p>
-              <h2 className="section-title mt-5 text-white">
-                The front-end tool, the quote logic, and the handoff after someone is interested.
-              </h2>
-              <p className="mt-5 text-base leading-8 text-slate-300">
-                The buyer sees a simple experience. Behind it, the business gets a cleaner intake path and better follow-up information.
-              </p>
-            </div>
-
-            <div className="grid gap-3">
-              {buildPieces.map((item, index) => (
-                <div key={item} className="rounded-[20px] border border-cyan-100/12 bg-white/[0.045] px-5 py-4">
-                  <div className="text-xs font-semibold uppercase tracking-[0.18em] text-[color:var(--color-accent)]">
-                    Part {index + 1}
-                  </div>
-                  <p className="mt-2 text-base font-semibold leading-7 text-white">{item}</p>
-                </div>
-              ))}
-            </div>
-          </div>
-        </section>
-      </Reveal>
-
-      <Reveal delayMs={120}>
-        <section className="section-shell section-shell-light">
-          <div className="section-inner grid gap-6 lg:grid-cols-[minmax(0,1fr)_minmax(320px,0.45fr)]">
-            <div>
-              <p className="eyebrow text-[#9f412c]">Good Fit</p>
-              <h2 className="section-title mt-5 text-slate-950">
-                Useful when pricing questions slow down the first step.
-              </h2>
-              <div className="mt-7 grid gap-3 sm:grid-cols-2">
-                {fitSignals.map((item) => (
-                  <div
-                    key={item}
-                    className="rounded-[20px] border border-slate-200 bg-white px-5 py-5 text-sm font-semibold leading-6 text-slate-700 shadow-[0_18px_38px_rgba(15,23,42,0.06)]"
-                  >
-                    {item}
-                  </div>
-                ))}
-              </div>
-            </div>
-
-            <aside className="rounded-[24px] border border-slate-200 bg-white px-6 py-6 shadow-[0_18px_38px_rgba(15,23,42,0.06)]">
-              <p className="eyebrow text-[#9f412c]">Connects To</p>
-              <div className="mt-5 grid gap-3">
-                {[
-                  "Website Development",
-                  "App & Portal Development",
-                  "Platform Connections",
-                  "Dashboards and Decision Views",
-                  "CRM & Revenue Operations",
-                ].map((item) => (
-                  <div key={item} className="rounded-[16px] border border-slate-200 bg-slate-50 px-4 py-3 text-sm font-semibold text-slate-800">
-                    {item}
-                  </div>
-                ))}
-              </div>
-            </aside>
-          </div>
-        </section>
-      </Reveal>
-
-      <Reveal delayMs={150}>
-        <section className="section-shell section-shell-dark">
-          <div className="section-inner flex flex-col gap-5 text-center">
-            <p className="eyebrow text-[color:var(--color-accent)]">Next Step</p>
-            <h2 className="section-title mx-auto max-w-[840px] text-white">
-              If a quote tool would help your buyers make the first move, Farcelis can build the first version.
-            </h2>
-            <div className="flex flex-col items-center justify-center gap-3 sm:flex-row">
+      <section className="section-shell section-shell-dark !pt-8 !pb-5 lg:!pt-10 lg:!pb-6">
+        <div className="section-inner grid gap-6 lg:grid-cols-[minmax(0,0.9fr)_minmax(340px,0.42fr)] lg:items-end">
+          <div>
+            <p className="eyebrow text-[color:var(--color-accent)]">Build / Quote & Pricing Tools</p>
+            <h1 className="mt-4 max-w-[920px] text-[clamp(1.9rem,3vw,3.15rem)] font-medium leading-[1.06] tracking-[-0.035em] text-white">
+              Give buyers a quote path before they call.
+            </h1>
+            <p className="mt-4 max-w-[820px] text-base leading-7 text-slate-300">
+              Farcelis builds website quote builders, pricing calculators, and estimate request tools for companies that need better pricing intake.
+            </p>
+            <div className="mt-5 flex flex-col gap-3 sm:flex-row">
               <Link
                 href={contactHref}
-                className="inline-flex min-h-12 items-center justify-center rounded-full bg-[color:var(--color-accent)] px-6 text-sm font-semibold text-white shadow-[0_14px_34px_rgba(255,124,82,0.25)] transition hover:brightness-110"
+                className="inline-flex min-h-11 items-center justify-center rounded-full bg-[color:var(--color-accent)] px-5 text-sm font-semibold text-white shadow-[0_14px_34px_rgba(255,124,82,0.22)] transition hover:brightness-110"
               >
                 Build a Quote Tool
               </Link>
               <Link
-                href="/services/website-development"
-                className="inline-flex min-h-12 items-center justify-center rounded-full border border-cyan-100/18 bg-cyan-100/6 px-6 text-sm font-semibold text-cyan-50 transition hover:border-cyan-100/32 hover:bg-cyan-100/10"
+                href="/services"
+                className="inline-flex min-h-11 items-center justify-center rounded-full border border-cyan-100/18 bg-cyan-100/6 px-5 text-sm font-semibold text-cyan-50 transition hover:border-cyan-100/32 hover:bg-cyan-100/10"
               >
-                See Website Development
+                Review Services
               </Link>
             </div>
           </div>
-        </section>
-      </Reveal>
+
+          <aside className="rounded-[18px] border border-cyan-100/12 bg-[#173343] p-4">
+            <p className="text-xs font-semibold uppercase tracking-[0.18em] text-[color:var(--color-accent)]">
+              Tool Types
+            </p>
+            <div className="mt-3 grid gap-2">
+              {toolTypes.map((item) => (
+                <div key={item} className="rounded-[12px] border border-cyan-100/10 bg-[#1c3c4d] px-3 py-2 text-sm font-semibold text-white">
+                  {item}
+                </div>
+              ))}
+            </div>
+          </aside>
+        </div>
+      </section>
+
+      <section className="section-shell section-shell-dark !py-5 lg:!py-6">
+        <div className="section-inner grid gap-4 lg:grid-cols-[minmax(0,0.55fr)_minmax(0,1fr)]">
+          <div>
+            <p className="eyebrow text-[color:var(--color-accent)]">What We Are Offering</p>
+            <h2 className="mt-3 max-w-[560px] text-[clamp(1.45rem,2.2vw,2.1rem)] font-medium leading-[1.12] tracking-[-0.03em] text-white">
+              A website feature that helps visitors price, choose, and request follow-up.
+            </h2>
+          </div>
+
+          <div className="grid gap-2 sm:grid-cols-2">
+            {benefits.map((item) => (
+              <div
+                key={item}
+                className="rounded-[16px] border border-cyan-100/12 bg-[#173343] px-4 py-3 text-sm font-semibold leading-6 text-slate-100"
+              >
+                {item}
+              </div>
+            ))}
+          </div>
+        </div>
+      </section>
+
+      <section className="section-shell section-shell-dark !py-5 lg:!py-6">
+        <div className="section-inner">
+          <div className="flex flex-col gap-2 lg:flex-row lg:items-end lg:justify-between">
+            <div>
+              <p className="eyebrow text-[color:var(--color-accent)]">Who Can Use This</p>
+              <h2 className="mt-3 max-w-[760px] text-[clamp(1.45rem,2.2vw,2.1rem)] font-medium leading-[1.12] tracking-[-0.03em] text-white">
+                Companies that quote, estimate, package, or customize what they sell.
+              </h2>
+            </div>
+            <p className="max-w-[520px] text-sm leading-6 text-slate-300">
+              The tool does not need to give a final price. It can show a range, collect the right details, and route the request to a person.
+            </p>
+          </div>
+
+          <div className="mt-5 grid gap-3 md:grid-cols-2 xl:grid-cols-3">
+            {examples.map((item) => (
+              <article
+                key={item.title}
+                className="rounded-[16px] border border-cyan-100/12 bg-[#173343] px-4 py-4"
+              >
+                <h3 className="text-base font-semibold text-white">{item.title}</h3>
+                <p className="mt-2 text-sm leading-6 text-slate-300">{item.body}</p>
+              </article>
+            ))}
+          </div>
+        </div>
+      </section>
+
+      <section className="section-shell section-shell-dark !pt-5 !pb-10 lg:!pt-6 lg:!pb-12">
+        <div className="section-inner grid gap-4 rounded-[20px] border border-cyan-100/12 bg-[#173343] p-5 lg:grid-cols-[minmax(0,1fr)_auto] lg:items-center">
+          <div>
+            <p className="eyebrow text-[color:var(--color-accent)]">Next Step</p>
+            <h2 className="mt-3 max-w-[760px] text-[clamp(1.35rem,2vw,1.95rem)] font-medium leading-[1.14] tracking-[-0.03em] text-white">
+              If pricing questions slow down your first conversation, Farcelis can build the quote path.
+            </h2>
+          </div>
+          <Link
+            href={contactHref}
+            className="inline-flex min-h-11 items-center justify-center rounded-full bg-[color:var(--color-accent)] px-5 text-sm font-semibold text-white shadow-[0_14px_34px_rgba(255,124,82,0.22)] transition hover:brightness-110"
+          >
+            Build a Quote Tool
+          </Link>
+        </div>
+      </section>
     </>
   );
 }
