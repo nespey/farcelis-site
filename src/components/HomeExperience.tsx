@@ -29,12 +29,11 @@ export function HomeExperience() {
           <div className="eyebrow">Farcelis AI Consulting LLC</div>
 
           <h1 className="hero-title">
-            Build it, grow it, use it
+            Build it. Grow it. Use it.
           </h1>
 
           <p className="hero-subtext">
-            Get time back by making the tools, workflows, and systems your business already depends on
-            easier to use together.
+            Connect the tools, workflows, and systems your business already depends on, and get your time back.
           </p>
 
           <div className="hero-actions">
