@@ -44,7 +44,7 @@ export function HomeExperience() {
               Start Building Structure
             </Link>
             <Link href="/services" className="btn-secondary">
-              Explore the System
+              Review Services
             </Link>
           </div>
         </div>

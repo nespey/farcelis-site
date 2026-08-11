@@ -1,8 +1,6 @@
 "use client";
 
-import { FormEvent, useEffect, useMemo, useState } from "react";
-
-import { site } from "@/lib/site-data";
+import { FormEvent, useCallback, useEffect, useMemo, useState } from "react";
 
 type WorkInterest = {
   id: string;
@@ -27,68 +25,23 @@ const workInterests: WorkInterest[] = [
   { id: "workflow-managed-operations", label: "Workflow & Managed Operations", description: "Work routing, ownership, cadence, reporting, and support." },
   { id: "farcelis-control-layer", label: "The Farcelis Control Layer", description: "A structured operating layer for intake, visibility, and action." },
   { id: "reporting-decision-systems", label: "Reporting & Decision Systems", description: "Leadership-ready reporting and decision rhythm." },
-  { id: "deployment-operations-operate", label: "Deployment Operations", description: "Keep hosted websites, apps, releases, checks, and support stable.", emailLabel: "Deployment Operations - ongoing continuity" },
+  { id: "deployment-operations", label: "Deployment Operations", description: "Keep hosted websites, apps, releases, checks, and support stable.", emailLabel: "Deployment Operations - ongoing continuity" },
 ];
 
-export function GeneralStrategyIntake() {
-  const [selectedIds, setSelectedIds] = useState<string[]>([]);
-  const [goalText, setGoalText] = useState("");
-  const [contextText, setContextText] = useState("");
-  const [sourceContext, setSourceContext] = useState("");
+type SubmitState =
+  | { status: "idle" }
+  | { status: "sending" }
+  | { status: "success" }
+  | { status: "error"; message: string };
 
-  useEffect(() => {
-    const params = new URLSearchParams(window.location.search);
-    const work = params
-      .get("work")
-      ?.split(",")
-      .map((item) => item.trim())
-      .filter(Boolean);
-    const request = params.get("request");
-    const topic = params.get("topic");
+const normalizeInitialWork = (initialWork: string[]) => {
+  const allowedIds = new Set(workInterests.map((item) => item.id));
+  return initialWork.filter((id) => allowedIds.has(id));
+};
 
-    if (work?.length) {
-      setSelectedIds((current) => Array.from(new Set([...current, ...work])));
-    }
-
-    if (request === "briefing") {
-      setSelectedIds((current) =>
-        Array.from(new Set([...current, "ai-strategy-governance", "workflow-managed-operations"])),
-      );
-      setSourceContext(
-        topic
-          ? `Resource selected: Webinars & Briefings - ${topic}.`
-          : "Resource selected: Webinars & Briefings.",
-      );
-    }
-
-    if (request === "use-case") {
-      setSourceContext(
-        topic
-          ? `Resource selected: Insights & Playbooks - ${topic}.`
-          : "Resource selected: Insights & Playbooks.",
-      );
-    }
-
-    if (request === "tool-assessment") {
-      setSourceContext(
-        topic
-          ? `Resource selected: Tools & Assessments - ${topic}.`
-          : "Resource selected: Tools & Assessments.",
-      );
-    }
-
-    if (request === "build") {
-      setSourceContext("Starting point selected: Build.");
-    }
-
-    if (request === "grow") {
-      setSourceContext("Starting point selected: Grow.");
-    }
-
-    if (request === "operate") {
-      setSourceContext("Starting point selected: Operate.");
-    }
-  }, []);
+export function GeneralStrategyIntake({ initialWork = [] }: { initialWork?: string[] }) {
+  const [selectedIds, setSelectedIds] = useState<string[]>(() => normalizeInitialWork(initialWork));
+  const [submitState, setSubmitState] = useState<SubmitState>({ status: "idle" });
 
   const selectedItems = useMemo(
     () => workInterests.filter((item) => selectedIds.includes(item.id)),
@@ -107,9 +60,34 @@ export function GeneralStrategyIntake() {
     textarea.style.height = `${textarea.scrollHeight}px`;
   };
 
-  const handleSubmit = (event: FormEvent<HTMLFormElement>) => {
+  const dismissSuccess = useCallback(() => {
+    setSubmitState((current) => (current.status === "success" ? { status: "idle" } : current));
+  }, []);
+
+  useEffect(() => {
+    if (submitState.status !== "success") {
+      return;
+    }
+
+    const timeout = window.setTimeout(dismissSuccess, 60000);
+    const events: Array<keyof WindowEventMap> = ["pointermove", "pointerdown", "wheel", "keydown", "scroll"];
+
+    events.forEach((eventName) => {
+      window.addEventListener(eventName, dismissSuccess, { once: true, passive: true });
+    });
+
+    return () => {
+      window.clearTimeout(timeout);
+      events.forEach((eventName) => {
+        window.removeEventListener(eventName, dismissSuccess);
+      });
+    };
+  }, [dismissSuccess, submitState.status]);
+
+  const handleSubmit = async (event: FormEvent<HTMLFormElement>) => {
     event.preventDefault();
-    const form = new FormData(event.currentTarget);
+    const formElement = event.currentTarget;
+    const form = new FormData(formElement);
     const name = String(form.get("name") ?? "");
     const email = String(form.get("email") ?? "");
     const company = String(form.get("company") ?? "");
@@ -117,32 +95,35 @@ export function GeneralStrategyIntake() {
     const context = String(form.get("context") ?? "");
     const selectedWork = selectedItems.map((item) => item.emailLabel ?? item.label);
 
-    const subject = "Farcelis General Strategy inquiry";
-    const bodyLines = [
-      "Path: General Strategy",
-      `Name: ${name}`,
-      `Email: ${email}`,
-      `Company: ${company}`,
-      "",
-      "Selected work areas:",
-      selectedWork.length > 0 ? selectedWork.map((item) => `- ${item}`).join("\n") : "None selected",
-    ];
+    setSubmitState({ status: "sending" });
 
-    if (sourceContext) {
-      bodyLines.push("", "Source context:", sourceContext);
+    try {
+      const response = await fetch("/api/contact", {
+        method: "POST",
+        headers: { "Content-Type": "application/json" },
+        body: JSON.stringify({
+          name,
+          email,
+          company,
+          goal,
+          context,
+          selectedWork,
+        }),
+      });
+
+      if (!response.ok) {
+        throw new Error("The inquiry could not be sent.");
+      }
+
+      formElement.reset();
+      setSelectedIds([]);
+      setSubmitState({ status: "success" });
+    } catch (error) {
+      setSubmitState({
+        status: "error",
+        message: error instanceof Error ? error.message : "The inquiry could not be sent.",
+      });
     }
-
-    const body = [
-      ...bodyLines,
-      "",
-      "What they want to build, grow, or stabilize:",
-      goal,
-      "",
-      "What already exists / useful context:",
-      context,
-    ].join("\n");
-
-    window.location.href = `mailto:${site.contact.founderEmail}?subject=${encodeURIComponent(subject)}&body=${encodeURIComponent(body)}`;
   };
 
   return (
@@ -180,7 +161,7 @@ export function GeneralStrategyIntake() {
         </div>
       </section>
 
-      <form id="strategy-form" onSubmit={handleSubmit} className="surface-dark grid gap-2 rounded-[18px] p-3">
+      <form id="contact-form" onSubmit={handleSubmit} className="surface-dark grid gap-2 rounded-[18px] p-3 scroll-mt-28">
         <p className="eyebrow text-[color:var(--color-accent)]">Inquiry Details</p>
         <div className="grid gap-2 sm:grid-cols-2 xl:grid-cols-3">
           <input
@@ -219,10 +200,7 @@ export function GeneralStrategyIntake() {
         <div className="grid gap-2 xl:grid-cols-2">
           <textarea
             name="goal"
-            required
             rows={2}
-            value={goalText}
-            onChange={(event) => setGoalText(event.target.value)}
             onInput={resizeTextarea}
             placeholder="What are you trying to build, grow, or stabilize?"
             className="max-h-40 min-h-16 resize-none overflow-y-auto rounded-[14px] border border-white/10 bg-white/6 px-3.5 py-2.5 text-sm leading-5 text-white outline-none placeholder:text-slate-400 focus:border-cyan-100/40"
@@ -230,8 +208,6 @@ export function GeneralStrategyIntake() {
           <textarea
             name="context"
             rows={2}
-            value={contextText}
-            onChange={(event) => setContextText(event.target.value)}
             onInput={resizeTextarea}
             placeholder="What already exists, and what is missing, messy, stuck, or hard to manage?"
             className="max-h-40 min-h-16 resize-none overflow-y-auto rounded-[14px] border border-white/10 bg-white/6 px-3.5 py-2.5 text-sm leading-5 text-white outline-none placeholder:text-slate-400 focus:border-cyan-100/40"
@@ -239,11 +215,39 @@ export function GeneralStrategyIntake() {
         </div>
         <button
           type="submit"
+          disabled={submitState.status === "sending"}
           className="min-h-10 rounded-full bg-[color:var(--color-accent)] px-6 text-sm font-semibold text-white shadow-[0_14px_34px_rgba(255,124,82,0.25)] transition hover:brightness-110"
         >
-          Send Inquiry
+          {submitState.status === "sending" ? "Sending..." : "Send Inquiry"}
         </button>
+        {submitState.status === "error" ? (
+          <div className="rounded-[16px] border border-red-300/30 bg-red-500/10 px-4 py-3 text-sm leading-6 text-red-100">
+            {submitState.message}
+          </div>
+        ) : null}
       </form>
+
+      {submitState.status === "success" ? (
+        <div
+          role="dialog"
+          aria-modal="true"
+          aria-labelledby="contact-success-title"
+          className="fixed inset-0 z-[80] flex items-center justify-center bg-[#06141d]/72 px-5 backdrop-blur-md transition-opacity"
+        >
+          <div className="surface-dark max-w-[520px] rounded-[24px] border border-[color:var(--color-accent)]/24 px-6 py-6 text-center text-white shadow-[0_30px_90px_rgba(3,8,16,0.5)]">
+            <p className="eyebrow text-[color:var(--color-accent)]">Inquiry Sent</p>
+            <h2
+              id="contact-success-title"
+              className="mt-3 text-[clamp(1.45rem,2vw,1.9rem)] font-semibold leading-tight tracking-[-0.035em]"
+            >
+              Thanks for reaching out to Farcelis.
+            </h2>
+            <p className="mt-4 text-sm leading-6 text-slate-300">
+              Your inquiry has been received. Nathan will review it directly, and you will receive a confirmation email with the details you submitted.
+            </p>
+          </div>
+        </div>
+      ) : null}
     </div>
   );
 }

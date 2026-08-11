@@ -35,7 +35,7 @@ const adoptionStages = [
     detail: "Measure whether the behavior is showing up in the workflow after rollout.",
   },
   {
-    label: "Operational Capability",
+    label: "Operational Service",
     detail: "Convert training into repeatable team behavior that holds under pressure.",
   },
 ];
@@ -55,7 +55,7 @@ const intentSignals = [
   "Reinforcement loops",
   "Guided prompt practice",
   "Behavioral adoption tracking",
-  "Capability growth over time",
+  "Service maturity over time",
 ];
 
 const scenarios: IntentScenario[] = [
@@ -93,7 +93,7 @@ const scenarios: IntentScenario[] = [
     failingPattern: "Executives sponsor AI rollout but cannot see whether teams are adopting the right behaviors.",
     structuralShift:
       "INTENT+ gives leadership adoption signals tied to governance, decision visibility, and operating accountability.",
-    signals: ["Adoption quality", "Governance checkpoints", "Capability heat map"],
+    signals: ["Adoption quality", "Governance checkpoints", "Service heat map"],
   },
   {
     id: "onboarding",
@@ -128,7 +128,7 @@ export function IntentAdaptiveLearningEngine() {
               </p>
               <div className="intent-hero-actions">
                 <Link href="/contact">Build Adoption Structure</Link>
-                <Link href="/products">View Tools & Assessments</Link>
+                <Link href="/services">Review Services</Link>
               </div>
             </div>
 

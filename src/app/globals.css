@@ -233,6 +233,16 @@ a {
   background: transparent;
 }
 
+.services-page-intro {
+  padding-top: clamp(1.5rem, 3vw, 2.5rem) !important;
+  padding-bottom: clamp(1.5rem, 3vw, 2.5rem) !important;
+}
+
+.services-lanes-section {
+  padding-top: clamp(1rem, 2vw, 1.75rem) !important;
+  padding-bottom: clamp(2rem, 4vw, 3rem) !important;
+}
+
 .results-public-proof-section {
   padding-bottom: clamp(2rem, 4vw, 3.5rem);
 }

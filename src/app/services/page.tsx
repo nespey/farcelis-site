@@ -8,21 +8,6 @@ import { seo } from "@/lib/site-data";
 
 export const metadata = buildMetadata(seo.services);
 
-const operatingPrinciples = [
-  {
-    title: "System before tooling",
-    body: "We identify how work should enter, move, get owned, and get measured before recommending another platform or AI layer.",
-  },
-  {
-    title: "Execution before automation",
-    body: "Automation only helps when the underlying workflow is clear enough to automate without hiding accountability.",
-  },
-  {
-    title: "Governance before scale",
-    body: "AI adoption needs usage rules, decision rights, risk boundaries, and review habits before it expands across a team.",
-  },
-];
-
 export default function ServicesPage() {
   return (
     <>
@@ -34,6 +19,8 @@ export default function ServicesPage() {
           { href: "/contact", label: "Work With Farcelis" },
           { href: "/control-layer", label: "Explore the Control Layer", variant: "secondary" },
         ]}
+        compact
+        className="services-page-intro"
         asideTitle="How to read this page"
         asideItems={[
           "Build when the business needs a website, app, portal, automation, Control Layer, or deployment path.",
@@ -42,52 +29,25 @@ export default function ServicesPage() {
         ]}
       />
 
-      <Reveal delayMs={40}>
-        <section className="section-shell section-shell-dark">
-          <div className="section-inner grid gap-12 lg:grid-cols-[minmax(0,0.78fr)_minmax(0,1.22fr)]">
-            <div>
-              <p className="eyebrow text-[color:var(--color-accent)]">Service Model</p>
-              <h2 className="section-title mt-5 text-white">
-                The model is simple: build the right thing, connect it to growth, then keep it operating.
-              </h2>
-            </div>
-
-            <div className="grid gap-4">
-              {operatingPrinciples.map((principle) => (
-                <article
-                  key={principle.title}
-                  className="rounded-[24px] border border-cyan-100/12 bg-white/[0.045] px-6 py-6"
-                >
-                  <h3 className="text-xl font-semibold tracking-[-0.035em] text-white">
-                    {principle.title}
-                  </h3>
-                  <p className="mt-3 text-base leading-7 text-slate-300">{principle.body}</p>
-                </article>
-              ))}
-            </div>
-          </div>
-        </section>
-      </Reveal>
-
       <Reveal delayMs={90}>
-        <section className="section-shell section-shell-dark">
+        <section className="section-shell section-shell-dark services-lanes-section">
           <div className="section-inner">
             <div className="max-w-[880px]">
-              <p className="eyebrow text-[color:var(--color-accent)]">Capability Lanes</p>
-              <h2 className="section-title mt-5 text-white">
-                Choose the path that matches what the buyer is trying to do.
+              <p className="eyebrow text-[color:var(--color-accent)]">Service Lanes</p>
+              <h2 className="section-title mt-3 text-white">
+                Build what is missing, grow what needs attention, and operate what has to stay visible.
               </h2>
-              <p className="mt-5 max-w-[760px] text-base leading-8 text-slate-300">
-                Build, Grow, and Operate keep Farcelis simple in the first conversation. The details still exist underneath, but the buyer does not have to sort through every service before they understand where to start.
+              <p className="mt-3 max-w-[760px] text-sm leading-6 text-slate-300">
+                Build, Grow, and Operate keep Farcelis simple in the first conversation. Choose a service area or start with the pillar that best matches the work.
               </p>
             </div>
 
-            <div className="mt-12 grid gap-5 lg:grid-cols-3">
+            <div className="mt-6 grid gap-3 lg:grid-cols-3">
               {capabilityGroups.map((group) => (
                 <article
                   key={group.label}
                   id={group.label.toLowerCase()}
-                  className="rounded-[24px] border border-cyan-100/12 bg-[#1c3c4d] p-3 text-center shadow-[0_24px_70px_rgba(3,8,16,0.22)]"
+                  className="rounded-[18px] border border-cyan-100/12 bg-[#1c3c4d] p-2.5 text-center shadow-[0_24px_70px_rgba(3,8,16,0.22)]"
                 >
                   <div
                     className={`relative isolate flex min-h-12 items-center justify-center overflow-hidden rounded-[12px] border px-4 py-2.5 text-lg font-black uppercase tracking-[0.3em] shadow-[inset_0_1px_0_rgba(255,255,255,0.08)] ${
@@ -98,31 +58,36 @@ export default function ServicesPage() {
                           : "border-indigo-100/16 bg-[#3e506c]"
                     }`}
                   >
-                    <span className="relative z-10 text-[color:var(--color-accent)] [text-shadow:0_1px_10px_rgba(3,8,16,1),0_0_18px_rgba(3,8,16,0.9)]">
+                    <span className="relative z-10 text-white">
                       {group.label}
                     </span>
                   </div>
 
-                  <h3 className="mx-auto mt-5 max-w-[330px] text-2xl font-semibold tracking-[-0.04em] text-white">
+                  <h3 className="mx-auto mt-3 max-w-[360px] text-xl font-semibold tracking-[-0.035em] text-white">
                     {group.headline}
                   </h3>
-                  <p className="mx-auto mt-4 max-w-[340px] text-sm leading-6 text-slate-200">
+                  <p className="mx-auto mt-2 max-w-[380px] text-xs leading-5 text-slate-200">
                     {group.buyerPrompt}
                   </p>
-                  <div className="mt-6 grid gap-2.5 rounded-[16px] border border-cyan-100/10 bg-[#173343] p-3 text-left">
-                    {group.outcomes.map((outcome) => (
-                      <div
-                        key={outcome}
-                        className="flex gap-3 px-2 py-2 text-sm font-semibold leading-6 text-white"
+                  <div className="mt-3 grid gap-1.5 rounded-[14px] border border-cyan-100/10 bg-[#173343] p-2">
+                    {group.links.map((service) => (
+                      <Link
+                        key={service.label}
+                        href={service.href}
+                        className="rounded-[10px] border border-cyan-100/10 bg-[#1c3c4d] px-2.5 py-2 text-center transition hover:-translate-y-0.5 hover:border-cyan-100/24 hover:bg-[#24495c]"
                       >
-                        <span className="mt-2 h-1.5 w-1.5 shrink-0 rounded-full bg-[color:var(--color-accent)]" />
-                        <span>{outcome}</span>
-                      </div>
+                        <span className="block text-[0.78rem] font-semibold leading-4 text-white">
+                          {service.label}
+                        </span>
+                        <span className="mx-auto mt-1 block max-w-[20rem] text-[0.66rem] leading-4 text-slate-300">
+                          {service.detail}
+                        </span>
+                      </Link>
                     ))}
                   </div>
                   <Link
                     href={group.actionHref}
-                    className="mt-6 inline-flex min-h-11 items-center justify-center rounded-full bg-[color:var(--color-accent)] px-5 text-sm font-semibold text-white shadow-[0_14px_34px_rgba(255,124,82,0.25)] transition hover:brightness-110"
+                    className="mt-3 inline-flex min-h-10 items-center justify-center rounded-full bg-[color:var(--color-accent)] px-5 text-sm font-semibold text-white shadow-[0_14px_34px_rgba(255,124,82,0.25)] transition hover:brightness-110"
                   >
                     {group.primaryCta}
                   </Link>

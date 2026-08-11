@@ -16,7 +16,7 @@ const platformBands = [
   "Reporting environments",
 ];
 
-const stackCapabilities = [
+const stackServices = [
   {
     title: "AI agents and assistants",
     platform: "Role-specific assistants for intake, follow-up, documentation, research, customer support, marketing, and operational execution.",
@@ -98,7 +98,7 @@ export default function PlatformsPage() {
           <div className="section-inner">
             <div className="platform-stack-header">
               <div className="max-w-[820px]">
-                <p className="eyebrow text-[#9f412c]">Platform Capabilities</p>
+                <p className="eyebrow text-[#9f412c]">Platform Services</p>
                 <h2 className="section-title mt-5 text-slate-950">
                   Platforms, assistants, and reporting should behave like one operating system.
                 </h2>
@@ -128,7 +128,7 @@ export default function PlatformsPage() {
             </div>
 
             <div className="mt-12 grid gap-4 md:grid-cols-2">
-              {stackCapabilities.map((capability, index) => (
+              {stackServices.map((capability, index) => (
                 <div
                   key={capability.title}
                   className={`platform-stack-card enterprise-card ${

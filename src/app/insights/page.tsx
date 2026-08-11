@@ -19,8 +19,8 @@ export default function InsightsPage() {
         title="Practical thinking for leaders building AI-enabled operating systems."
         description="Farcelis insights focus on AI adoption, workflow architecture, governance, CRM and revenue operations, marketing systems, and the Control Layer model behind reliable execution."
         actions={[
-          { href: "/contact?request=use-case#strategy-form", label: "Send a Use Case" },
-          { href: "/contact?request=use-case#strategy-form", label: "Add Insight Context", variant: "secondary" },
+          { href: "/services", label: "Review Services" },
+          { href: "/resources", label: "Review Resources", variant: "secondary" },
         ]}
       />
 
@@ -70,7 +70,7 @@ export default function InsightsPage() {
                 </h2>
               </div>
               <p className="max-w-[360px] text-sm font-semibold leading-7 text-slate-500">
-                Use these essays when you want deeper thinking on AI adoption, growth systems, operating rhythm, and the decisions behind cleaner execution.
+                These are the long-form pieces. They should feel editorial, complete, and materially different from podcasts or the standalone blog.
               </p>
             </div>
 

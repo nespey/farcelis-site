@@ -20,6 +20,11 @@ export type CapabilityGroup = {
   links: ServiceLink[];
 };
 
+export const contactPathFor = (work: string | string[]) => {
+  const values = Array.isArray(work) ? work : [work];
+  return `/contact?work=${encodeURIComponent(values.join(","))}`;
+};
+
 export type DirectService = {
   slug: string;
   navLabel: string;
@@ -50,36 +55,42 @@ export const capabilityGroups: CapabilityGroup[] = [
       "We build AI agents, automations, and the connections between your platforms.",
       "We clean up code, launch the work, document it, and make sure it can be owned.",
     ],
-    primaryCta: "Talk Through a Build",
+    primaryCta: "Build with Farcelis",
     pathHref: "/services/build",
-    actionHref: "/contact?request=build&work=website-development,app-portal-development,ai-agents-automations,platform-connections,dashboards-decision-views#strategy-form",
+    actionHref: contactPathFor([
+      "website-development",
+      "app-portal-development",
+      "ai-agents-automations",
+      "platform-connections",
+      "dashboards-decision-views",
+    ]),
     handoff: {
       title: "Build creates the asset. Grow makes it findable. Operate keeps it working.",
       body: "A site, app, portal, dashboard, or automation is only useful when it connects to visibility, follow-up, ownership, and support. Farcelis builds with that next handoff in mind.",
     },
     links: [
       {
-        href: "/services/website-development",
+        href: contactPathFor("website-development"),
         label: "Website Development",
         detail: "We build or rebuild your website, service pages, landing pages, and inquiry paths so people understand what you offer and what to do next.",
       },
       {
-        href: "/services/app-portal-development",
+        href: contactPathFor("app-portal-development"),
         label: "App & Portal Development",
         detail: "We build web apps and private portals where clients, teams, or leaders can log in, see information, request work, and manage activity.",
       },
       {
-        href: "/platforms",
+        href: contactPathFor("ai-agents-automations"),
         label: "AI Agents & Automations",
         detail: "We build assistants and automated workflows that help with intake, follow-up, reporting, CRM updates, and repeatable tasks.",
       },
       {
-        href: "/platforms",
+        href: contactPathFor("platform-connections"),
         label: "Platform Connections",
         detail: "We connect the tools you already use so your website, CRM, forms, workspaces, dashboards, and automations stop living in separate places.",
       },
       {
-        href: "/services/dashboards-decision-views",
+        href: contactPathFor("dashboards-decision-views"),
         label: "Dashboards and Decision Views",
         detail: "We build the dashboards and views leaders need to see what is happening, what is stuck, and what needs action.",
       },
@@ -96,41 +107,48 @@ export const capabilityGroups: CapabilityGroup[] = [
       "We build ads, landing pages, content, and offers around what you sell.",
       "We connect leads to CRM, follow-up, reporting, and revenue handoff.",
     ],
-    primaryCta: "Map a Growth Path",
+    primaryCta: "Grow with Farcelis",
     pathHref: "/services/grow",
-    actionHref: "/contact?request=grow&work=seo-search-visibility,aeo-ai-search-visibility,google-ads-paid-search,meta-ads-paid-social,crm-revenue-operations,content-revenue-systems#strategy-form",
+    actionHref: contactPathFor([
+      "seo-search-visibility",
+      "aeo-ai-search-visibility",
+      "google-ads-paid-search",
+      "meta-ads-paid-social",
+      "crm-revenue-operations",
+      "content-revenue-systems",
+    ]),
     handoff: {
       title: "Grow creates movement. Operate keeps that movement from becoming chaos.",
       body: "Visibility, campaigns, content, and CRM only matter when someone owns the follow-through. Farcelis connects growth activity into operating rhythm, reporting, and decision support.",
     },
     links: [
       {
-        href: "/services/seo-search-visibility",
+        href: contactPathFor("seo-search-visibility"),
         label: "SEO & Search Visibility",
         detail: "We improve the pages, structure, topics, and signals that help people find you in traditional search.",
       },
       {
-        href: "/services/aeo-ai-search-visibility",
-        label: "AEO / AI Search Visibility",
+        href: contactPathFor("aeo-ai-search-visibility"),
+        label: "AEO & AI Search Visibility",
         detail: "AEO means answer-engine optimization: we structure your site so AI search tools can understand, summarize, and cite what you offer.",
       },
       {
-        href: "/services/google-ads-paid-search",
+        href: contactPathFor("google-ads-paid-search"),
         label: "Google Ads / Paid Search",
         detail: "We build paid search paths tied to real landing pages, tracking, CRM follow-up, and measurable next steps.",
       },
       {
-        href: "/services/meta-ads-paid-social",
+        href: contactPathFor("meta-ads-paid-social"),
         label: "Meta Ads / Paid Social",
         detail: "We build social ad paths with audience, creative, landing page, lead handling, and follow-up in one plan.",
       },
       {
-        href: "/services/marketing-automation-crm",
+        href: contactPathFor("crm-revenue-operations"),
         label: "CRM & Revenue Operations",
         detail: "We clean up how leads are captured, routed, followed up, tracked, and reported so opportunities do not disappear.",
       },
       {
-        href: "/services/content-revenue-systems",
+        href: contactPathFor("content-revenue-systems"),
         label: "Content & Revenue Systems",
         detail: "We plan the content, offers, campaigns, and publishing rhythm that keeps your market hearing from you with a purpose.",
       },
@@ -147,36 +165,42 @@ export const capabilityGroups: CapabilityGroup[] = [
       "We put the Farcelis Control Layer around intake, visibility, reporting, and action.",
       "We manage operations, deployment continuity, maintenance, and support rhythm.",
     ],
-    primaryCta: "Stabilize Operations",
+    primaryCta: "Operate with Farcelis",
     pathHref: "/services/operate",
-    actionHref: "/contact?request=operate&work=ai-strategy-governance,workflow-managed-operations,farcelis-control-layer,reporting-decision-systems,deployment-operations-operate#strategy-form",
+    actionHref: contactPathFor([
+      "ai-strategy-governance",
+      "workflow-managed-operations",
+      "farcelis-control-layer",
+      "reporting-decision-systems",
+      "deployment-operations",
+    ]),
     handoff: {
       title: "Operate stabilizes the system, and it can point back to what needs to be built or grown.",
       body: "When operations expose a missing portal, unclear reporting layer, weak campaign handoff, or fragile deployment path, Farcelis can move back into Build or Grow without losing the operating model.",
     },
     links: [
       {
-        href: "/services/ai-strategy-governance",
+        href: contactPathFor("ai-strategy-governance"),
         label: "AI Strategy & Governance",
         detail: "We help you decide where AI should be used, where it should not, who owns it, and how it gets reviewed.",
       },
       {
-        href: "/services/workflow-operations",
+        href: contactPathFor("workflow-managed-operations"),
         label: "Workflow & Managed Operations",
         detail: "We design the workflow, ownership, cadence, follow-up, reporting, and support rhythm that keeps work moving.",
       },
       {
-        href: "/control-layer",
+        href: contactPathFor("farcelis-control-layer"),
         label: "The Farcelis Control Layer",
         detail: "This is our operating environment for intake, visibility, ownership, reporting, intervention, and action.",
       },
       {
-        href: "/services/reporting-decision-systems",
+        href: contactPathFor("reporting-decision-systems"),
         label: "Reporting & Decision Systems",
         detail: "We build the reporting views and decision rhythm leaders need to see what is working, what is stuck, and what needs action.",
       },
       {
-        href: "/services/deployment-operations",
+        href: contactPathFor("deployment-operations"),
         label: "Deployment Operations",
         detail: "We keep the websites, apps, portals, dashboards, code releases, hosting path, documentation, and support rhythm managed after launch.",
       },

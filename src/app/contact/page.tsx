@@ -5,7 +5,22 @@ import { seo, site } from "@/lib/site-data";
 
 export const metadata = buildMetadata(seo.contact);
 
-export default function ContactPage() {
+const parseWorkParams = (work?: string | string[]) => {
+  const values = Array.isArray(work) ? work : work ? [work] : [];
+  return values
+    .flatMap((value) => value.split(","))
+    .map((value) => value.trim())
+    .filter(Boolean);
+};
+
+export default async function ContactPage({
+  searchParams,
+}: {
+  searchParams?: Promise<{ work?: string | string[] }>;
+}) {
+  const params = searchParams ? await searchParams : undefined;
+  const initialWork = parseWorkParams(params?.work);
+
   return (
     <>
       <section className="section-shell section-shell-dark !pt-5 !pb-2 lg:!pt-6 lg:!pb-3">
@@ -23,7 +38,7 @@ export default function ContactPage() {
       <Reveal delayMs={70}>
         <section className="section-shell section-shell-dark !py-3 lg:!py-4">
           <div className="section-inner grid gap-5 lg:grid-cols-[minmax(0,1fr)_310px]">
-            <GeneralStrategyIntake />
+            <GeneralStrategyIntake initialWork={initialWork} />
 
             <aside className="surface-dark self-start rounded-[22px] px-4 py-3.5 text-white">
               <p className="eyebrow text-[color:var(--color-accent)]">Contact Details</p>
@@ -34,27 +49,18 @@ export default function ContactPage() {
                 Select the work areas that fit, add whatever context you have, and Farcelis can route the next conversation from there.
               </p>
               <div className="mt-3 space-y-2.5">
-                <a
-                  href={`mailto:${site.contact.founderEmail}`}
-                  className="hover-lift block rounded-[16px] border border-white/10 bg-white/6 px-3.5 py-2.5"
-                >
+                <div className="block rounded-[16px] border border-white/10 bg-white/6 px-3.5 py-2.5">
                   <div className="text-[0.66rem] uppercase tracking-[0.18em] text-slate-400">Founder Contact</div>
                   <div className="mt-1 text-[0.95rem] font-semibold">{site.contact.founderEmail}</div>
-                </a>
-                <a
-                  href={`mailto:${site.contact.email}`}
-                  className="hover-lift block rounded-[16px] border border-white/10 bg-white/6 px-3.5 py-2.5"
-                >
+                </div>
+                <div className="block rounded-[16px] border border-white/10 bg-white/6 px-3.5 py-2.5">
                   <div className="text-[0.66rem] uppercase tracking-[0.18em] text-slate-400">General Contact</div>
                   <div className="mt-1 text-[0.95rem] font-semibold">{site.contact.email}</div>
-                </a>
-                <a
-                  href={site.contact.phoneHref}
-                  className="hover-lift block rounded-[16px] border border-white/10 bg-white/6 px-3.5 py-2.5"
-                >
+                </div>
+                <div className="block rounded-[16px] border border-white/10 bg-white/6 px-3.5 py-2.5">
                   <div className="text-[0.66rem] uppercase tracking-[0.18em] text-slate-400">Phone</div>
                   <div className="mt-1 text-[0.95rem] font-semibold">{site.contact.phone}</div>
-                </a>
+                </div>
               </div>
             </aside>
           </div>

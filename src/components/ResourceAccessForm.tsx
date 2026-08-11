@@ -2,8 +2,6 @@
 
 import { FormEvent, useState } from "react";
 
-import { site } from "@/lib/site-data";
-
 const fields = [
   { label: "Name", name: "name", type: "text", autoComplete: "name" },
   { label: "Work email", name: "email", type: "email", autoComplete: "email" },
@@ -12,29 +10,43 @@ const fields = [
 ];
 
 export function ResourceAccessForm() {
-  const [submitted, setSubmitted] = useState(false);
+  const [status, setStatus] = useState<"idle" | "sending" | "sent" | "error">("idle");
 
-  const handleSubmit = (event: FormEvent<HTMLFormElement>) => {
+  const handleSubmit = async (event: FormEvent<HTMLFormElement>) => {
     event.preventDefault();
-    const form = new FormData(event.currentTarget);
+    const formElement = event.currentTarget;
+    const form = new FormData(formElement);
     const name = String(form.get("name") ?? "");
     const email = String(form.get("email") ?? "");
     const company = String(form.get("company") ?? "");
     const resource = String(form.get("resource") ?? "");
     const improvement = String(form.get("improvement") ?? "");
-    const subject = `Farcelis resource access request: ${resource || "Executive resource"}`;
-    const body = [
-      `Name: ${name}`,
-      `Work email: ${email}`,
-      `Company: ${company}`,
-      `Resource requested: ${resource}`,
-      "",
-      "What they are trying to improve:",
-      improvement,
-    ].join("\n");
 
-    window.location.href = `mailto:${site.contact.founderEmail}?subject=${encodeURIComponent(subject)}&body=${encodeURIComponent(body)}`;
-    setSubmitted(true);
+    setStatus("sending");
+
+    try {
+      const response = await fetch("/api/contact", {
+        method: "POST",
+        headers: { "Content-Type": "application/json" },
+        body: JSON.stringify({
+          name,
+          email,
+          company,
+          goal: resource ? `Resource requested: ${resource}` : "",
+          context: improvement,
+          selectedWork: ["Resource request"],
+        }),
+      });
+
+      if (!response.ok) {
+        throw new Error("Inquiry failed");
+      }
+
+      formElement.reset();
+      setStatus("sent");
+    } catch {
+      setStatus("error");
+    }
   };
 
   return (
@@ -46,7 +58,7 @@ export function ResourceAccessForm() {
             name={field.name}
             type={field.type}
             autoComplete={field.autoComplete}
-            required
+            required={field.name === "name" || field.name === "email"}
             className="min-h-12 rounded-[14px] border border-cyan-100/14 bg-white/[0.045] px-4 text-base font-normal text-white outline-none transition focus:border-cyan-100/34"
           />
         </label>
@@ -55,19 +67,24 @@ export function ResourceAccessForm() {
         What are you trying to improve?
         <textarea
           name="improvement"
-          required
           className="min-h-28 rounded-[14px] border border-cyan-100/14 bg-white/[0.045] px-4 py-3 text-base font-normal text-white outline-none transition focus:border-cyan-100/34"
         />
       </label>
       <button
         type="submit"
+        disabled={status === "sending"}
         className="site-cta mt-2 inline-flex min-h-12 items-center justify-center rounded-full bg-[linear-gradient(135deg,#ff8e5b,#f05cff)] px-6 py-3 text-sm font-semibold text-white"
       >
-        Prepare Access Request
+        {status === "sending" ? "Sending..." : "Send Inquiry"}
       </button>
-      {submitted ? (
+      {status === "sent" ? (
         <div className="rounded-[18px] border border-[color:var(--color-accent)]/20 bg-[rgba(242,139,91,0.11)] px-4 py-3 text-sm leading-6 text-slate-100">
-          Your email client is opening with the access request prepared for Farcelis.
+          Your inquiry was sent to Farcelis.
+        </div>
+      ) : null}
+      {status === "error" ? (
+        <div className="rounded-[18px] border border-red-300/30 bg-red-500/10 px-4 py-3 text-sm leading-6 text-red-100">
+          The inquiry could not be sent. Please try again.
         </div>
       ) : null}
     </form>

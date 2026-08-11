@@ -2,7 +2,6 @@
 
 import Image from "next/image";
 import Link from "next/link";
-import { usePathname } from "next/navigation";
 import { useCallback, useEffect, useRef, useState } from "react";
 
 import { capabilityGroups } from "@/lib/service-catalog";
@@ -26,7 +25,7 @@ const resourceLinks = [
   {
     href: "/products",
     label: "Tools & Assessments",
-    detail: "Support tools mapped back to the Build, Grow, and Operate service paths.",
+    detail: "Diagnostics, generators, and enablement systems that support Build, Grow, and Operate.",
   },
 ];
 
@@ -46,7 +45,7 @@ function CapabilityPillarHeader({ label }: { label: string }) {
             : "border-indigo-100/16 bg-[#3e506c]"
       }`}
     >
-      <span className="relative z-10 text-[color:var(--color-accent)] [text-shadow:0_1px_10px_rgba(3,8,16,1),0_0_18px_rgba(3,8,16,0.9)]">{label}</span>
+      <span className="relative z-10 text-white">{label}</span>
     </div>
   );
 }
@@ -98,7 +97,6 @@ function ServicePillarColumn({
 }
 
 export function Header() {
-  const pathname = usePathname();
   const [elevated, setElevated] = useState(false);
   const [hidden, setHidden] = useState(false);
   const [mobileOpen, setMobileOpen] = useState(false);
@@ -110,7 +108,6 @@ export function Header() {
     setActiveMenu(null);
     setMobileOpen(false);
   }, []);
-  const isContactPage = pathname === "/contact";
 
   useEffect(() => {
     const onScroll = () => {
@@ -160,10 +157,6 @@ export function Header() {
 
   return (
     <>
-      {/*
-        Keep the desktop nav visually centered regardless of whether the
-        right-side CTA is present on a given route.
-      */}
       <header
         ref={headerRef}
         className={`fixed inset-x-0 top-0 z-50 backdrop-blur-xl transition-transform duration-300 ${
@@ -174,7 +167,7 @@ export function Header() {
             : "bg-transparent"
         }`}
       >
-        <div className="section-inner flex min-h-16 items-center justify-between gap-6 sm:min-h-20">
+        <div className="section-inner grid min-h-16 grid-cols-[auto_1fr_auto] items-center gap-4 sm:min-h-20 lg:gap-6">
           <Link href="/" onClick={closeMenus} className="flex min-h-10 items-center gap-3">
             <Image
               src="/logos/farcelis-ai-logo.png"
@@ -186,7 +179,7 @@ export function Header() {
             />
           </Link>
 
-          <nav className="absolute left-1/2 hidden -translate-x-1/2 items-center gap-5 lg:flex xl:gap-7">
+          <nav className="hidden items-center justify-center gap-5 lg:flex xl:gap-7">
             <div className="relative">
               <button
                 type="button"
@@ -213,7 +206,7 @@ export function Header() {
                 <div className="surface-dark max-h-[calc(100vh-5.75rem)] overflow-hidden rounded-[22px] border border-cyan-100/14 bg-[#173343] p-3 shadow-[0_28px_80px_rgba(3,8,16,0.46)]">
                   <div className="rounded-[16px] border border-cyan-100/10 bg-[#1c3c4d] px-4 py-3 text-center">
                     <div className="text-xs font-semibold uppercase tracking-[0.2em] text-[color:var(--color-accent)]">
-                      Services
+                      SERVICES
                     </div>
                     <p className="mx-auto mt-2 max-w-[820px] text-sm leading-6 text-slate-100">
                       Build what is missing, grow what needs attention, and operate the systems that have to stay visible, owned, and controlled.
@@ -314,16 +307,6 @@ export function Header() {
             </Link>
           </nav>
 
-          {!isContactPage && pathname !== "/" ? (
-            <Link
-              href="/contact"
-              onClick={closeMenus}
-              className="site-cta hidden min-h-11 items-center justify-center rounded-full bg-[linear-gradient(135deg,#ff8e5b,#f05cff)] px-5 py-2.5 text-sm font-semibold text-white hover:shadow-[0_18px_38px_rgba(240,92,255,0.24)] sm:inline-flex"
-            >
-              Start Building Structure
-            </Link>
-          ) : null}
-
           <button
             type="button"
             aria-expanded={mobileOpen}
@@ -332,7 +315,7 @@ export function Header() {
               setActiveMenu(null);
               setMobileOpen((open) => !open);
             }}
-            className="inline-flex h-10 w-10 items-center justify-center rounded-full border border-cyan-100/18 bg-white/[0.04] text-white transition hover:border-cyan-100/32 hover:bg-white/[0.08] sm:h-11 sm:w-11 lg:hidden"
+            className="inline-flex h-10 w-10 items-center justify-center justify-self-end rounded-full border border-cyan-100/18 bg-white/[0.04] text-white transition hover:border-cyan-100/32 hover:bg-white/[0.08] sm:h-11 sm:w-11 lg:hidden"
           >
             <span className="sr-only">Open navigation</span>
             <span className="grid gap-1.5" aria-hidden="true">
@@ -341,6 +324,7 @@ export function Header() {
               <span className={`block h-0.5 w-5 rounded-full bg-current transition ${mobileOpen ? "-translate-y-2 -rotate-45" : ""}`} />
             </span>
           </button>
+          <span className="hidden min-h-10 w-[152px] lg:block" aria-hidden="true" />
         </div>
 
       <div
@@ -409,16 +393,6 @@ export function Header() {
                 </Link>
               ))}
             </div>
-
-            {!isContactPage && pathname !== "/" ? (
-              <Link
-                href="/contact"
-                onClick={closeMenus}
-                className="site-cta inline-flex min-h-12 items-center justify-center rounded-full bg-[linear-gradient(135deg,#ff8e5b,#f05cff)] px-6 py-3 text-sm font-semibold text-white"
-              >
-                Start Building Structure
-              </Link>
-            ) : null}
           </div>
         </div>
       </header>
