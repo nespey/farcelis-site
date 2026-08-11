@@ -95,12 +95,12 @@ export default async function TeamMemberPage({
               </div>
 
               <div className="mt-8 flex flex-col gap-3 sm:flex-row">
-                <a
-                  href={`mailto:${member.email}`}
+                <Link
+                  href="/contact"
                   className="site-cta inline-flex min-h-12 items-center justify-center rounded-full bg-[linear-gradient(135deg,#ff8e5b,#f05cff)] px-6 py-3 text-sm font-semibold text-white hover:shadow-[0_20px_40px_rgba(240,92,255,0.24)]"
                 >
                   {member.email}
-                </a>
+                </Link>
                 <Link
                   href="/contact"
                   className="site-cta inline-flex min-h-12 items-center justify-center rounded-full border border-slate-300 px-6 py-3 text-sm font-semibold text-slate-900 hover:border-slate-950"
