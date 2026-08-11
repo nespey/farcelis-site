@@ -56,7 +56,7 @@ export function HomeExperience() {
           </h2>
           <p>Leads, tasks, reports, and handoffs should not have to be chased across disconnected tools.</p>
           <p className="system-payoff">
-            Connect the pieces.
+            Connect the work.
             <br />
             <span>Get time back.</span>
           </p>
