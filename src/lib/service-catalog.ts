@@ -80,6 +80,11 @@ export const capabilityGroups: CapabilityGroup[] = [
         detail: "We build web apps and private portals where clients, teams, or leaders can log in, see information, request work, and manage activity.",
       },
       {
+        href: "/services/quote-pricing-tools",
+        label: "Quote & Pricing Tools",
+        detail: "We build website quote builders and pricing calculators that help buyers understand scope and request follow-up.",
+      },
+      {
         href: contactPathFor("ai-agents-automations"),
         label: "AI Agents & Automations",
         detail: "We build assistants and automated workflows that help with intake, follow-up, reporting, CRM updates, and repeatable tasks.",
@@ -258,6 +263,11 @@ export const directServices: DirectService[] = [
         detail: "Turn form activity and inquiries into visible follow-up.",
       },
       {
+        href: "/services/quote-pricing-tools",
+        label: "Quote & Pricing Tools",
+        detail: "Let buyers configure a quote or estimate before they request follow-up.",
+      },
+      {
         href: "/services/content-revenue-systems",
         label: "Content & Revenue Systems",
         detail: "Connect publishing, campaigns, and revenue reporting.",
@@ -309,6 +319,11 @@ export const directServices: DirectService[] = [
         detail: "Connect the tool to the systems already carrying the work.",
       },
       {
+        href: "/services/quote-pricing-tools",
+        label: "Quote & Pricing Tools",
+        detail: "Build a buyer-facing quote experience when pricing questions slow down sales.",
+      },
+      {
         href: "/services/workflow-operations",
         label: "Workflow & Operations",
         detail: "Clarify the path of work before building the surface.",
@@ -358,6 +373,11 @@ export const directServices: DirectService[] = [
         href: "/services/reporting-decision-systems",
         label: "Reporting & Decision Systems",
         detail: "Move from a dashboard into a broader decision rhythm.",
+      },
+      {
+        href: "/services/quote-pricing-tools",
+        label: "Quote & Pricing Tools",
+        detail: "See how quote activity can become useful sales and pricing signal.",
       },
       {
         href: "/control-layer",
@@ -418,6 +438,62 @@ export const directServices: DirectService[] = [
         href: "/control-layer",
         label: "Farcelis Control Layer",
         detail: "Place deployment work inside a visible command rhythm.",
+      },
+    ],
+  },
+  {
+    slug: "quote-pricing-tools",
+    navLabel: "Quote & Pricing Tools",
+    eyebrow: "Build / Quote & Pricing Tools",
+    title: "Quote builders and pricing calculators that help buyers take the next step.",
+    summary:
+      "Farcelis builds website tools that let visitors answer a few questions, see an estimate or price range, and request follow-up without waiting for a manual first quote.",
+    primaryCta: "Discuss quote and pricing tools",
+    secondaryCta: { href: "/services/website-development", label: "See website development" },
+    capabilities: [
+      "Website quote builders and estimate forms",
+      "Pricing calculators with clear inputs and ranges",
+      "Service package selectors and add-on logic",
+      "Lead capture tied to the quote details",
+      "CRM, email, and reporting handoff",
+    ],
+    process: [
+      "Clarify what the buyer needs to answer before a useful quote can be shown.",
+      "Map the service options, add-ons, rules, and price ranges.",
+      "Build a simple website tool that feels easy to complete.",
+      "Send the quote request, buyer details, and selected options into follow-up.",
+      "Review what people quote most often and where they drop off.",
+    ],
+    signals: [
+      "Buyers ask for pricing before they are ready for a sales call.",
+      "The team spends time creating similar estimates by hand.",
+      "A simple quote range would help visitors decide whether to keep going.",
+    ],
+    exclusions: [
+      "Pricing logic that the business cannot explain or maintain.",
+      "Instant final prices for work that still needs human review.",
+      "Forms that collect information but do not create a clear follow-up path.",
+    ],
+    related: [
+      {
+        href: "/services/website-development",
+        label: "Website Development",
+        detail: "Place the quote tool inside a clear website and service path.",
+      },
+      {
+        href: "/services/app-portal-development",
+        label: "App & Portal Development",
+        detail: "Turn the quote flow into a fuller client or internal tool when needed.",
+      },
+      {
+        href: "/services/marketing-automation-crm",
+        label: "CRM & Revenue Operations",
+        detail: "Route quote requests into follow-up, pipeline, and reporting.",
+      },
+      {
+        href: "/services/dashboards-decision-views",
+        label: "Dashboards and Decision Views",
+        detail: "See which services, budgets, and quote paths are creating interest.",
       },
     ],
   },

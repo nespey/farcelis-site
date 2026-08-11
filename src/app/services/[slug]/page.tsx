@@ -13,6 +13,7 @@ const staticServiceSlugs = new Set([
   "workflow-operations",
   "managed-operations",
   "deployment-operations",
+  "quote-pricing-tools",
 ]);
 
 type ServicePageProps = {
@@ -77,7 +78,7 @@ export default async function DirectServicePage({ params }: ServicePageProps) {
           { href: "/contact", label: service.primaryCta },
           service.secondaryCta
             ? { href: service.secondaryCta.href, label: service.secondaryCta.label, variant: "secondary" }
-            : { href: "/services", label: "View all capabilities", variant: "secondary" },
+            : { href: "/services", label: "View all services", variant: "secondary" },
         ]}
       />
 
