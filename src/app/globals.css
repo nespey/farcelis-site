@@ -969,7 +969,7 @@ a {
   width: auto;
   margin: 0 0 16px;
   font-family: var(--font-ferwalter), var(--font-manrope), Arial, Helvetica, sans-serif;
-  font-size: 12px;
+  font-size: 15px;
   font-weight: 700;
   line-height: 1.4;
   letter-spacing: 0.12em;
@@ -1191,7 +1191,7 @@ a {
 
   .hero .eyebrow {
     margin-bottom: 18px;
-    font-size: 12px;
+    font-size: 14px;
     letter-spacing: 0.12em;
   }
 
