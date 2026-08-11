@@ -329,7 +329,7 @@ export function Header() {
           <Link
             href="/contact"
             onClick={closeMenus}
-            className="btn-primary hidden whitespace-nowrap justify-self-end transition duration-150 hover:-translate-y-0.5 hover:brightness-110 focus:outline-none focus-visible:ring-2 focus-visible:ring-cyan-100/70 lg:inline-flex"
+            className="site-cta hidden min-h-11 items-center justify-center justify-self-end whitespace-nowrap rounded-full bg-[linear-gradient(135deg,#ff8e5b,#f05cff)] px-5 py-2.5 text-sm font-semibold text-white transition duration-150 hover:-translate-y-0.5 hover:shadow-[0_18px_38px_rgba(240,92,255,0.24)] hover:brightness-110 focus:outline-none focus-visible:ring-2 focus-visible:ring-cyan-100/70 lg:inline-flex"
           >
             Start Building Structure
           </Link>
