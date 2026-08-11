@@ -157,10 +157,10 @@ export function HomeExperience() {
         <section className="structured-section section-shell-light validation-section">
           <div className="showcase-container">
             <div className="validation-inner">
-              <h2 className="text-[clamp(1.45rem,2.15vw,1.95rem)] font-[550] leading-[1.18] tracking-[-0.04em] text-slate-950">
+              <h2 className="mx-auto text-center text-[clamp(1.45rem,2.15vw,1.95rem)] font-[550] leading-[1.18] tracking-[-0.04em] text-slate-950">
                 Trusted in places where the work has to hold.
               </h2>
-              <p className="text-base leading-8 text-slate-600">
+              <p className="mx-auto text-center text-base leading-8 text-slate-600">
                 Farcelis works inside real operations, where tools, workflows, and handoffs have to perform.
               </p>
             </div>
