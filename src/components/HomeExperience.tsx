@@ -50,20 +50,15 @@ export function HomeExperience() {
       <section className="system-hook-section">
         <div className="system-anchor">
           <h2>
-            Operating problems
+            Good teams lose time
             <br />
-            aren&apos;t people problems.
-            <br />
-            <br />
-            They&apos;re system failures
-            <br />
-            hiding in plain sight.
+            when the work is scattered.
           </h2>
-          <p>When structure breaks, everything downstream pays for it.</p>
+          <p>Leads, tasks, reports, and handoffs should not have to be chased across disconnected tools.</p>
           <p className="system-payoff">
-            Execution starts moving
+            Connect the pieces.
             <br />
-            <span>without friction.</span>
+            <span>Get time back.</span>
           </p>
         </div>
 
