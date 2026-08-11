@@ -29,14 +29,12 @@ export function HomeExperience() {
           <div className="eyebrow">Farcelis AI Consulting LLC</div>
 
           <h1 className="hero-title">
-            <span className="hero-title-line">If your systems can&apos;t hold,</span>
-            <br />
-            <span className="hero-title-line">nothing else matters.</span>
+            Build it. Grow it. Run it without chaos
           </h1>
 
           <p className="hero-subtext">
-            Farcelis builds AI-driven execution infrastructure that brings order to complexity,
-            aligns workflows, and gives companies control before growth turns unstable.
+            Get time back by turning the tools, workflows, and systems your business already depends on
+            into one cleaner way to work.
           </p>
 
           <div className="hero-actions">
