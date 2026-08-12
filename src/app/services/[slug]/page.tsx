@@ -205,8 +205,18 @@ function WebsiteDevelopmentShowcase({ service }: { service: NonNullable<ReturnTy
     <Reveal delayMs={40}>
       <section className="section-shell section-shell-light !py-6 lg:!py-8">
         <div className="section-inner">
-          <div className="grid items-center gap-6 overflow-hidden rounded-[24px] border border-cyan-100/10 bg-[#061824] px-6 py-6 shadow-[0_26px_80px_rgba(0,0,0,0.2)] lg:grid-cols-[minmax(0,0.48fr)_minmax(0,1.52fr)] lg:px-8">
-            <div className="relative z-10">
+          <div className="relative overflow-hidden px-6 py-10 lg:min-h-[420px] lg:px-8 lg:py-14">
+            <Image
+              src="/images/services/website-development-lightflow-hero.png"
+              alt="High-speed light flow and floating digital windows representing fast connected website development"
+              fill
+              sizes="100vw"
+              className="absolute inset-0 object-cover object-center"
+              priority={false}
+            />
+            <div className="absolute inset-0 bg-[linear-gradient(90deg,#061824_0%,rgba(6,24,36,0.96)_22%,rgba(6,24,36,0.68)_48%,rgba(6,24,36,0.08)_100%)]" />
+            <div className="absolute inset-y-0 left-0 w-1/2 bg-[radial-gradient(circle_at_22%_45%,rgba(255,127,80,0.18),transparent_38%)]" />
+            <div className="relative z-10 max-w-[580px]">
               <p className="eyebrow text-[color:var(--color-accent)]">Website Work</p>
               <h2 className="max-w-[560px] text-4xl font-semibold tracking-[-0.06em] text-white md:text-5xl">
                 Build it new. Rebuild what is there. Add what is missing.
@@ -214,17 +224,6 @@ function WebsiteDevelopmentShowcase({ service }: { service: NonNullable<ReturnTy
               <p className="mt-4 max-w-[520px] text-base leading-7 text-slate-300">
                 The site should make the offer clear, earn trust quickly, and move the right person to the next step.
               </p>
-            </div>
-
-            <div className="relative -mr-8 min-h-[280px] lg:-mr-20 lg:min-h-[360px]">
-              <Image
-                src="/images/services/website-development-lightflow.png"
-                alt="Abstract light flow with floating website panels representing fast website development and connected digital paths"
-                width={739}
-                height={415}
-                className="absolute inset-y-0 right-0 h-full w-full object-cover object-center"
-                priority={false}
-              />
             </div>
           </div>
 
