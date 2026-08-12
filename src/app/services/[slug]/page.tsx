@@ -234,9 +234,9 @@ function WebsiteDevelopmentShowcase({ service }: { service: NonNullable<ReturnTy
 
           <div className="mt-4 grid gap-3 md:grid-cols-3">
             {[
-              ["New build", "A new site built around the offer, audience, and next step."],
-              ["Rebuild or cleanup", "A sharper site when the current one feels outdated or hard to manage."],
-              ["Feature add-on", "Quote tools, forms, landing pages, and connections added where needed."],
+              ["NEW BUILD", "A new site built around the offer, audience, and next step."],
+              ["REBUILD OR CLEANUP", "A sharper site when the current one feels outdated or hard to manage."],
+              ["FEATURE ADD-ON", "Quote tools, forms, landing pages, and connections added where needed."],
             ].map(([title, detail]) => (
               <div
                 key={title}
