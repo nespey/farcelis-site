@@ -221,11 +221,12 @@ function WebsiteDevelopmentShowcase({ service }: { service: NonNullable<ReturnTy
             />
             <div className="absolute inset-0 bg-[linear-gradient(90deg,#061824_0%,rgba(6,24,36,0.86)_24%,rgba(6,24,36,0.42)_50%,rgba(6,24,36,0)_100%)]" />
             <div className="absolute inset-0 bg-[radial-gradient(circle_at_58%_43%,rgba(38,196,255,0.22),transparent_36%),radial-gradient(circle_at_36%_68%,rgba(255,126,70,0.2),transparent_34%)] mix-blend-screen" />
-            <div className="relative z-10 max-w-[580px]">
-              <h2 className="max-w-[560px] text-4xl font-semibold tracking-[-0.06em] text-white md:text-5xl">
-                Build it new. Rebuild what is there. Add what is missing.
+            <div className="relative z-10 max-w-[620px] text-center">
+              <h2 className="mx-auto max-w-[620px] text-4xl font-semibold tracking-[-0.06em] text-white md:text-5xl">
+                <span className="block">Build it new. Rebuild what is there.</span>
+                <span className="block">Add what is missing.</span>
               </h2>
-              <p className="mt-4 max-w-[520px] text-base leading-7 text-slate-300">
+              <p className="mx-auto mt-4 max-w-[600px] text-base leading-7 text-slate-300">
                 The site should make the offer clear, earn trust quickly, and move the right person to the next step.
               </p>
             </div>
