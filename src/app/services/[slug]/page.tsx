@@ -76,6 +76,7 @@ export default async function DirectServicePage({ params }: ServicePageProps) {
         eyebrow={service.eyebrow}
         title={service.title}
         description={service.summary}
+        compact={isWebsiteDevelopment}
         actions={[
           { href: `${contactPathFor(service.slug)}#contact-top`, label: service.primaryCta },
           service.secondaryCta
@@ -203,21 +204,20 @@ export default async function DirectServicePage({ params }: ServicePageProps) {
 function WebsiteDevelopmentShowcase({ service }: { service: NonNullable<ReturnType<typeof getDirectService>> }) {
   return (
     <Reveal delayMs={40}>
-      <section className="section-shell section-shell-light !py-6 lg:!py-8">
+      <section className="section-shell section-shell-light !pt-2 !pb-6 lg:!pt-3 lg:!pb-8">
         <div className="section-inner">
-          <div className="relative overflow-hidden px-6 py-10 lg:min-h-[420px] lg:px-8 lg:py-14">
+          <div className="relative overflow-hidden px-6 py-10 lg:min-h-[430px] lg:px-8 lg:py-14">
             <Image
               src="/images/services/website-development-lightflow-hero.png"
               alt="High-speed light flow and floating digital windows representing fast connected website development"
               fill
               sizes="100vw"
-              className="absolute inset-0 object-cover object-center"
+              className="absolute inset-0 object-cover object-center brightness-[1.28] contrast-[1.12] saturate-[1.55]"
               priority={false}
             />
-            <div className="absolute inset-0 bg-[linear-gradient(90deg,#061824_0%,rgba(6,24,36,0.96)_22%,rgba(6,24,36,0.68)_48%,rgba(6,24,36,0.08)_100%)]" />
-            <div className="absolute inset-y-0 left-0 w-1/2 bg-[radial-gradient(circle_at_22%_45%,rgba(255,127,80,0.18),transparent_38%)]" />
+            <div className="absolute inset-0 bg-[linear-gradient(90deg,#061824_0%,rgba(6,24,36,0.86)_24%,rgba(6,24,36,0.42)_50%,rgba(6,24,36,0)_100%)]" />
+            <div className="absolute inset-0 bg-[radial-gradient(circle_at_58%_43%,rgba(38,196,255,0.22),transparent_36%),radial-gradient(circle_at_36%_68%,rgba(255,126,70,0.2),transparent_34%)] mix-blend-screen" />
             <div className="relative z-10 max-w-[580px]">
-              <p className="eyebrow text-[color:var(--color-accent)]">Website Work</p>
               <h2 className="max-w-[560px] text-4xl font-semibold tracking-[-0.06em] text-white md:text-5xl">
                 Build it new. Rebuild what is there. Add what is missing.
               </h2>
