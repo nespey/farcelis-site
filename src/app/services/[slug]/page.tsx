@@ -249,16 +249,16 @@ function WebsiteDevelopmentShowcase({ service }: { service: NonNullable<ReturnTy
               aria-hidden="true"
             />
             <div className="absolute inset-0 bg-[linear-gradient(180deg,rgba(3,18,28,0.92)_0%,rgba(3,18,28,0.84)_46%,rgba(3,18,28,0.94)_100%)]" />
-            <div className="relative z-10 mx-auto flex max-w-[330px] flex-col items-center text-center">
-              <h2 className="text-[1.62rem] font-semibold leading-[1.08] tracking-[-0.055em] text-white">
-                <span className="block">Build it new.</span>
-                <span className="mt-1 block">Rebuild what is there.</span>
+            <div className="website-dev-mobile-copy relative z-10 mx-auto flex flex-col items-center text-center">
+              <h2 className="website-dev-mobile-heading font-semibold leading-[1.08] tracking-[-0.055em] text-white">
+                <span className="block whitespace-nowrap">Build it new. Rebuild what is there.</span>
                 <span className="mt-2 block">Add what is missing.</span>
               </h2>
-              <p className="mt-4 max-w-[300px] text-[0.94rem] leading-6 text-slate-200">
-                Make the offer clear, earn trust quickly, and move the right person to the next step.
+              <p className="website-dev-mobile-subcopy mt-4 flex flex-col items-center text-slate-200">
+                <span>The site should make the offer clear and earn trust quickly.</span>
+                <span>Then move the right person to the next step.</span>
               </p>
-              <div className="mt-7 flex flex-col items-center gap-3 text-[0.88rem] font-semibold uppercase tracking-[0.04em] text-white">
+              <div className="website-dev-mobile-options mt-7 flex flex-col items-center gap-3 text-[0.88rem] font-semibold uppercase tracking-[0.04em] text-white">
                 <span>NEW BUILD</span>
                 <span>REBUILD OR CLEANUP</span>
                 <span>FEATURE ADD-ON</span>

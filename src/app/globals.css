@@ -8561,6 +8561,37 @@ main :is(.border-t, .border-b, .border-y, .divide-y > :not([hidden]) ~ :not([hid
     box-shadow: 0 22px 44px rgba(0, 0, 0, 0.22);
   }
 
+  .website-dev-mobile-copy {
+    width: min(100%, 340px);
+    max-width: 340px;
+  }
+
+  .website-dev-mobile-heading {
+    width: 100%;
+    font-size: clamp(1.42rem, 5.35vw, 1.62rem);
+    text-align: center;
+  }
+
+  .website-dev-mobile-subcopy {
+    width: 100%;
+    max-width: 330px;
+    font-size: clamp(0.86rem, 3.85vw, 0.94rem);
+    line-height: 1.55;
+    text-align: center;
+  }
+
+  .website-dev-mobile-subcopy span {
+    display: block;
+    width: 100%;
+    text-align: center;
+    text-wrap: balance;
+  }
+
+  .website-dev-mobile-options {
+    width: 100%;
+    text-align: center;
+  }
+
   .website-dev-visual {
     min-height: 390px;
     padding: 2rem 1rem;
