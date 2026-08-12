@@ -203,27 +203,26 @@ export default async function DirectServicePage({ params }: ServicePageProps) {
 function WebsiteDevelopmentShowcase({ service }: { service: NonNullable<ReturnType<typeof getDirectService>> }) {
   return (
     <Reveal delayMs={40}>
-      <section className="section-shell section-shell-light !py-8 lg:!py-10">
+      <section className="section-shell section-shell-light !py-6 lg:!py-8">
         <div className="section-inner">
-          <div className="grid items-center gap-8 lg:grid-cols-[minmax(0,0.54fr)_minmax(0,1.46fr)]">
-            <div>
-              <p className="eyebrow text-[color:var(--color-accent)]">Problems We Fix</p>
-              <h2 className="section-title mt-4 max-w-[620px] text-white">
-                Websites that look better, load faster, and bring the next step into view.
+          <div className="grid items-center gap-6 overflow-hidden rounded-[24px] border border-cyan-100/10 bg-[#061824] px-6 py-6 shadow-[0_26px_80px_rgba(0,0,0,0.2)] lg:grid-cols-[minmax(0,0.48fr)_minmax(0,1.52fr)] lg:px-8">
+            <div className="relative z-10">
+              <p className="eyebrow text-[color:var(--color-accent)]">Website Work</p>
+              <h2 className="max-w-[560px] text-4xl font-semibold tracking-[-0.06em] text-white md:text-5xl">
+                Build it new. Rebuild what is there. Add what is missing.
               </h2>
-              <p className="mt-4 max-w-[560px] text-base leading-7 text-slate-300">
-                New build, rebuild, cleanup, or a feature added to what already exists.
-                The goal is simple: make the site easier to understand, easier to trust, and easier to use.
+              <p className="mt-4 max-w-[520px] text-base leading-7 text-slate-300">
+                The site should make the offer clear, earn trust quickly, and move the right person to the next step.
               </p>
             </div>
 
-            <div className="relative">
+            <div className="relative -mr-8 min-h-[280px] lg:-mr-20 lg:min-h-[360px]">
               <Image
-                src="/images/services/website-development-problems.png"
-                alt="Website development service visual showing responsive websites, growth, performance, and code cleanup"
-                width={1024}
-                height={1536}
-                className="mx-auto h-auto w-full max-w-[860px]"
+                src="/images/services/website-development-lightflow.png"
+                alt="Abstract light flow with floating website panels representing fast website development and connected digital paths"
+                width={739}
+                height={415}
+                className="absolute inset-y-0 right-0 h-full w-full object-cover object-center"
                 priority={false}
               />
             </div>
