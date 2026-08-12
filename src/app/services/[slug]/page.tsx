@@ -221,12 +221,12 @@ function WebsiteDevelopmentShowcase({ service }: { service: NonNullable<ReturnTy
             />
             <div className="absolute inset-0 bg-[linear-gradient(90deg,#061824_0%,rgba(6,24,36,0.86)_24%,rgba(6,24,36,0.42)_50%,rgba(6,24,36,0)_100%)]" />
             <div className="absolute inset-0 bg-[radial-gradient(circle_at_58%_43%,rgba(38,196,255,0.22),transparent_36%),radial-gradient(circle_at_36%_68%,rgba(255,126,70,0.2),transparent_34%)] mix-blend-screen" />
-            <div className="relative z-10 max-w-[600px] text-center">
-              <h2 className="mx-auto max-w-[600px] text-[28px] font-semibold leading-[1.06] tracking-[-0.055em] text-white md:text-[31px] lg:text-[32px]">
+            <div className="relative z-10 flex max-w-[600px] flex-col items-center text-center">
+              <h2 className="inline-flex max-w-[600px] flex-col items-center text-center text-[28px] font-semibold leading-[1.06] tracking-[-0.055em] text-white md:text-[31px] lg:text-[32px]">
                 <span className="block whitespace-nowrap">Build it new. Rebuild what is there.</span>
                 <span className="mt-2 block">Add what is missing.</span>
               </h2>
-              <p className="mx-auto mt-4 max-w-[500px] text-center text-base leading-7 text-slate-300">
+              <p className="mt-4 inline-flex max-w-[500px] flex-col items-center text-center text-base leading-7 text-slate-300">
                 <span className="block">The site should make the offer clear and earn trust quickly.</span>
                 <span className="block">Then move the right person to the next step.</span>
               </p>
