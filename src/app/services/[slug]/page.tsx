@@ -173,7 +173,11 @@ export default async function DirectServicePage({ params }: ServicePageProps) {
       )}
 
       <Reveal delayMs={150}>
-        <section className="section-shell section-shell-dark !py-10 lg:!py-12">
+        <section
+          className={`section-shell section-shell-dark ${
+            isWebsiteDevelopment ? "!pt-4 !pb-8 lg:!pt-5 lg:!pb-10" : "!py-10 lg:!py-12"
+          }`}
+        >
           <div className="section-inner">
             <div className="max-w-[900px]">
               <p className="eyebrow text-[color:var(--color-accent)]">Related Services</p>
@@ -187,10 +191,10 @@ export default async function DirectServicePage({ params }: ServicePageProps) {
                 <Link
                   key={item.label}
                   href={item.href}
-                  className="rounded-[14px] border border-cyan-100/12 bg-white/[0.045] px-4 py-3.5 text-center transition hover:border-cyan-100/24 hover:bg-white/[0.07]"
+                  className="flex min-h-[84px] flex-col items-center justify-center rounded-[14px] border border-cyan-100/12 bg-white/[0.045] px-4 py-3 text-center transition hover:border-cyan-100/24 hover:bg-white/[0.07]"
                 >
                   <h3 className="text-lg font-semibold tracking-[-0.03em] text-white">{item.label}</h3>
-                  <p className="mt-1.5 text-sm leading-5 text-slate-300">{item.detail}</p>
+                  <p className="mt-1.5 max-w-full text-sm leading-5 text-slate-300">{item.detail}</p>
                 </Link>
               ))}
             </div>
@@ -231,11 +235,14 @@ function WebsiteDevelopmentShowcase({ service }: { service: NonNullable<ReturnTy
             {[
               ["New build", "A new site built around the offer, audience, and next step."],
               ["Rebuild or cleanup", "A sharper site when the current one feels outdated or hard to manage."],
-              ["Feature add-on", "Quote tools, forms, landing pages, dashboards, and connections added where they fit."],
+              ["Feature add-on", "Quote tools, forms, landing pages, and connections added where needed."],
             ].map(([title, detail]) => (
-              <div key={title} className="rounded-[16px] border border-cyan-100/12 bg-white/[0.045] px-5 py-3.5 text-center">
+              <div
+                key={title}
+                className="flex min-h-[84px] flex-col items-center justify-center rounded-[16px] border border-cyan-100/12 bg-white/[0.045] px-5 py-3 text-center"
+              >
                 <h3 className="text-lg font-semibold tracking-[-0.04em] text-white">{title}</h3>
-                <p className="mt-1.5 text-sm leading-5 text-slate-300">{detail}</p>
+                <p className="mt-1.5 max-w-full text-sm leading-5 text-slate-300">{detail}</p>
               </div>
             ))}
           </div>
