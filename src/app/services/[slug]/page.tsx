@@ -208,29 +208,29 @@ export default async function DirectServicePage({ params }: ServicePageProps) {
 function WebsiteDevelopmentShowcase({ service }: { service: NonNullable<ReturnType<typeof getDirectService>> }) {
   return (
     <Reveal delayMs={40}>
-      <section className="section-shell section-shell-light !pt-0 !pb-0 lg:!pt-0 lg:!pb-0">
+      <section className="website-dev-showcase section-shell section-shell-light !pt-0 !pb-0 lg:!pt-0 lg:!pb-0">
         <div className="section-inner">
-          <div className="relative overflow-hidden px-6 py-8 lg:min-h-[440px] lg:px-8 lg:py-10">
+          <div className="website-dev-visual relative overflow-hidden px-6 py-8 lg:min-h-[440px] lg:px-8 lg:py-10">
             <Image
               src="/images/services/website-development-lightflow-hero.png"
               alt="High-speed light flow and floating digital windows representing fast connected website development"
               fill
               sizes="100vw"
-              className="absolute inset-0 object-cover object-center brightness-[1.28] contrast-[1.12] saturate-[1.55]"
+              className="website-dev-visual-image absolute inset-0 object-cover object-center brightness-[1.28] contrast-[1.12] saturate-[1.55]"
               priority={false}
             />
             <div className="absolute inset-0 bg-[linear-gradient(90deg,#061824_0%,rgba(6,24,36,0.86)_24%,rgba(6,24,36,0.42)_50%,rgba(6,24,36,0)_100%)]" />
             <div className="absolute inset-0 bg-[radial-gradient(circle_at_58%_43%,rgba(38,196,255,0.22),transparent_36%),radial-gradient(circle_at_36%_68%,rgba(255,126,70,0.2),transparent_34%)] mix-blend-screen" />
-            <div className="relative z-10 flex max-w-[600px] -translate-x-8 flex-col items-center text-center md:-translate-x-12 lg:-translate-x-14">
-              <h2 className="inline-flex max-w-[600px] flex-col items-center text-center text-[28px] font-semibold leading-[1.06] tracking-[-0.055em] text-white md:text-[31px] lg:text-[32px]">
+            <div className="website-dev-copy relative z-10 flex max-w-[600px] -translate-x-8 flex-col items-center text-center md:-translate-x-12 lg:-translate-x-14">
+              <h2 className="website-dev-stack-heading inline-flex max-w-[600px] flex-col items-center text-center text-[28px] font-semibold leading-[1.06] tracking-[-0.055em] text-white md:text-[31px] lg:text-[32px]">
                 <span className="block whitespace-nowrap">Build it new. Rebuild what is there.</span>
                 <span className="mt-2 block">Add what is missing.</span>
               </h2>
-              <p className="mt-4 inline-flex max-w-[500px] flex-col items-center text-center text-base leading-7 text-slate-300">
+              <p className="website-dev-stack-copy mt-4 inline-flex max-w-[500px] flex-col items-center text-center text-base leading-7 text-slate-300">
                 <span className="block">The site should make the offer clear and earn trust quickly.</span>
                 <span className="block">Then move the right person to the next step.</span>
               </p>
-              <div className="mt-12 inline-flex flex-col items-center gap-5 text-center text-lg font-semibold uppercase tracking-[-0.04em] text-white">
+              <div className="website-dev-stack-options mt-12 inline-flex flex-col items-center gap-5 text-center text-lg font-semibold uppercase tracking-[-0.04em] text-white">
                 <span>NEW BUILD</span>
                 <span>REBUILD OR CLEANUP</span>
                 <span>FEATURE ADD-ON</span>
