@@ -298,9 +298,9 @@ export const directServices: DirectService[] = [
     slug: "app-portal-development",
     navLabel: "App & Portal Development",
     eyebrow: "Build / App & Portal Development",
-    title: "Apps, portals, and dashboards built around the work people need to control.",
+    title: "Apps and portals that make repeated work easier to manage.",
     summary:
-      "Farcelis turns repeated operational patterns into internal tools, client portals, intake systems, dashboards, and command surfaces that reduce scattered execution.",
+      "Farcelis builds client portals, internal tools, login areas, intake paths, dashboards, and workspaces that help people see status, request work, and keep the next step clear.",
     primaryCta: "Discuss app and portal development",
     secondaryCta: { href: "/control-layer", label: "Explore the Control Layer" },
     capabilities: [
@@ -309,6 +309,7 @@ export const directServices: DirectService[] = [
       "Dashboards and command surfaces",
       "Role-based views and workflow states",
       "Release-ready documentation and handoff",
+      "Mobile-ready access for repeated work",
     ],
     process: [
       "Define the operating job the tool must perform.",
@@ -354,9 +355,9 @@ export const directServices: DirectService[] = [
     slug: "dashboards-decision-views",
     navLabel: "Dashboards and Decision Views",
     eyebrow: "Build / Dashboards and Decision Views",
-    title: "Dashboards and decision views built so leaders can see what needs action.",
+    title: "Dashboards that show what needs action next.",
     summary:
-      "Farcelis builds practical dashboards, status views, and decision surfaces that show what is happening, what is stuck, who owns the next move, and what needs attention now.",
+      "Farcelis builds dashboards, status views, and decision screens that show what is happening, what is stuck, who owns the next move, and what needs attention now.",
     primaryCta: "Discuss dashboards and decision views",
     secondaryCta: { href: "/services/reporting-decision-systems", label: "See reporting systems" },
     capabilities: [
@@ -365,6 +366,7 @@ export const directServices: DirectService[] = [
       "Client, team, or executive visibility surfaces",
       "Workflow, revenue, and delivery signal views",
       "Decision-ready layouts that show ownership and next steps",
+      "Review views for weekly operating rhythm",
     ],
     process: [
       "Clarify what decisions the dashboard needs to support.",
@@ -410,7 +412,7 @@ export const directServices: DirectService[] = [
     slug: "ai-agents-automations",
     navLabel: "AI Agents & Automations",
     eyebrow: "Build / AI Agents & Automations",
-    title: "AI agents and automations for repeated work, intake, and follow-up.",
+    title: "AI agents and automations that save time on repeated work.",
     summary:
       "Farcelis builds practical automations and AI-assisted workflows that help teams collect information, follow up, update tools, prepare reports, and reduce repeated manual work.",
     primaryCta: "Discuss AI agents and automations",
@@ -421,6 +423,7 @@ export const directServices: DirectService[] = [
       "AI assistants for repeated internal work",
       "Report drafts, summaries, and routing",
       "Human review points before anything sensitive moves forward",
+      "Clear ownership for automated workflows",
     ],
     process: [
       "Identify the repeated work that is wasting time.",
@@ -461,7 +464,7 @@ export const directServices: DirectService[] = [
     slug: "platform-connections",
     navLabel: "Platform Connections",
     eyebrow: "Build / Platform Connections",
-    title: "Platform connections that make your website, CRM, forms, and reports work together.",
+    title: "Platform connections that make your tools work together.",
     summary:
       "Farcelis connects the tools a business already uses so leads, requests, updates, dashboards, and follow-up do not get lost between systems.",
     primaryCta: "Discuss platform connections",
@@ -472,6 +475,7 @@ export const directServices: DirectService[] = [
       "Dashboard and reporting data connections",
       "Automation paths between common business tools",
       "Connection checks before launch",
+      "Cleaner handoffs between existing systems",
     ],
     process: [
       "List the tools that already carry the work.",

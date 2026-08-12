@@ -15,9 +15,9 @@ export const servicePageContent: Record<string, ServicePageContent> = {
   "app-portal-development": {
     image: "/images/services/adobe-stock/app-portal-development.jpeg",
     imageAlt:
-      "App and portal development interface with mobile screens and dashboard views",
+      "App and portal development interface with client portal screens, dashboards, and mobile access",
     seoIntro:
-      "Farcelis builds app and portal development solutions for businesses that need client portals, internal tools, login areas, dashboards, intake paths, and repeatable workspaces. We turn recurring work into usable digital tools that help teams, clients, and leaders see information, request work, manage status, and keep the next step clear.",
+      "Farcelis provides app and portal development for businesses that need client portals, internal tools, login areas, dashboards, intake systems, and repeatable workspaces. We build digital tools that help teams and clients see status, request work, manage information, and keep the next step clear.",
   },
   "quote-pricing-tools": {
     image: "/images/services/adobe-stock/quote-pricing-tools.jpeg",
@@ -29,21 +29,21 @@ export const servicePageContent: Record<string, ServicePageContent> = {
   "ai-agents-automations": {
     image: "/images/services/adobe-stock/ai-agents-automations.jpeg",
     imageAlt:
-      "AI automation workflow dashboard showing connected tasks and system actions",
+      "AI agents and automation workflow dashboard showing connected tasks, approvals, and system actions",
     seoIntro:
-      "Farcelis builds AI agents and automations for businesses that repeat the same intake, follow-up, reporting, CRM update, task routing, or internal support work. We focus on practical automation with clear owners, review points, and tool connections so teams save time without losing control.",
+      "Farcelis builds AI agents and business automations for repeated intake, follow-up, reporting, CRM updates, task routing, and internal support work. We create practical automation with clear owners, review points, and tool connections so teams save time without losing control.",
   },
   "platform-connections": {
     image: "/images/services/adobe-stock/platform-connections.jpeg",
     imageAlt:
-      "Connected business platforms and data systems feeding a central digital hub",
+      "Platform connections linking website forms, CRM records, dashboards, email, and business data",
     seoIntro:
-      "Farcelis creates platform connections between websites, forms, CRMs, email, dashboards, spreadsheets, workspaces, and reporting tools. We help businesses stop copying information between systems by connecting the tools they already use into cleaner intake, follow-up, visibility, and operating paths.",
+      "Farcelis creates platform connections between websites, forms, CRMs, email, dashboards, spreadsheets, workspaces, and reporting tools. We help businesses stop copying information by hand and connect the tools they already use into cleaner intake, follow-up, visibility, and operating paths.",
   },
   "dashboards-decision-views": {
     image: "/images/services/adobe-stock/dashboards-decision-views.jpeg",
     imageAlt:
-      "Business dashboard with charts, metrics, and decision views on a computer monitor",
+      "Business dashboard and decision view with charts, metrics, status signals, and leadership reporting",
     seoIntro:
       "Farcelis builds dashboards and decision views that help leaders see what is happening, what is stuck, who owns the next move, and what needs attention. These business intelligence and reporting views turn scattered data into practical visibility for operations, revenue, delivery, and leadership decisions.",
   },
