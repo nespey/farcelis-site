@@ -14,7 +14,7 @@ export default function EventsPage() {
         description="Webinars, live briefings, workshops, and enablement sessions give prospects a way to understand the Farcelis operating model before a formal engagement."
         actions={[
           { href: "#sessions", label: "View Sessions" },
-          { href: "/contact?request=briefing#strategy-form", label: "Request a Briefing", variant: "secondary" },
+          { href: "/contact", label: "Host a Briefing", variant: "secondary" },
         ]}
         asideTitle="Formats"
         asideItems={["Executive webinars", "Live briefings", "Workshops", "Enablement sessions"]}
@@ -47,7 +47,7 @@ export default function EventsPage() {
                   <p className="mt-4 text-base leading-8 text-slate-600">{event.description}</p>
                   <p className="mt-5 text-sm font-semibold text-slate-500">{event.audience}</p>
                   <a
-                    href={`/contact?request=briefing&topic=${encodeURIComponent(event.title)}#strategy-form`}
+                    href="/contact"
                     className="mt-6 inline-flex min-h-9 items-center text-sm font-semibold text-[#9f412c]"
                   >
                     Request this session

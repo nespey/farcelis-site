@@ -78,7 +78,7 @@ const diagnostics: Diagnostic[] = [
 
 const scanPhases = [
   ["Signal Collection", "Capture workflow rhythm, reporting patterns, dependencies, ownership structures, and automation behavior."],
-  ["System Mapping", "Identify how the tools, forms, workflows, and handoffs actually connect."],
+  ["System Mapping", "Identify how operational systems actually connect, overlap, or conflict in practice."],
   ["Friction Detection", "Surface delays, redundancies, governance gaps, weak integrations, and manual workarounds."],
   ["Risk Exposure", "Reveal where instability expands under growth, automation, or AI adoption."],
   ["Stabilization Priorities", "Deliver the highest-impact corrective actions for operational alignment."],

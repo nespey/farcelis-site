@@ -46,9 +46,6 @@ export default async function InsightArticlePage({ params }: InsightPageProps) {
   if (!article) {
     notFound();
   }
-
-  const inquiryHref = `/contact?request=use-case&topic=${encodeURIComponent(article.title)}#strategy-form`;
-
   const articleSchema = {
     "@context": "https://schema.org",
     "@type": "Article",
@@ -179,8 +176,8 @@ export default async function InsightArticlePage({ params }: InsightPageProps) {
                 <Link href="/insights" className="site-cta inline-flex min-h-12 items-center justify-center rounded-full border border-slate-300 px-6 py-3 text-sm font-semibold text-slate-900 hover:border-slate-950">
                   Back to Insights
                 </Link>
-                <Link href={inquiryHref} className="site-cta inline-flex min-h-12 items-center justify-center rounded-full bg-[linear-gradient(135deg,#f19a6b,#c75d33)] px-6 py-3 text-sm font-semibold text-white">
-                  Add This Insight to Inquiry
+                <Link href="/contact" className="site-cta inline-flex min-h-12 items-center justify-center rounded-full bg-[linear-gradient(135deg,#f19a6b,#c75d33)] px-6 py-3 text-sm font-semibold text-white">
+                  Discuss This Pattern
                 </Link>
               </div>
             </div>

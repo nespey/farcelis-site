@@ -3,7 +3,6 @@ import Link from "next/link";
 import { PageIntro } from "@/components/PageIntro";
 import { Reveal } from "@/components/Reveal";
 import { buildMetadata } from "@/lib/metadata";
-import { contactPathFor } from "@/lib/service-catalog";
 import { products, seo } from "@/lib/site-data";
 
 export const metadata = buildMetadata(seo.products);
@@ -12,13 +11,13 @@ export default function ProductsPage() {
   return (
     <>
       <PageIntro
-        eyebrow="Tools & Assessments"
-        title="Farcelis tools support the Build, Grow, and Operate service paths."
-        description="These diagnostics, generators, assistants, and enablement systems help clarify scope, speed up implementation, and make the Farcelis operating model easier to use without creating a separate service lane."
+        eyebrow="Product Suite"
+        title="Farcelis product surfaces turn consulting patterns into repeatable operating systems."
+        description="The Farcelis suite packages Control Layer design, readiness diagnostics, AI assistants, adaptive learning, implementation acceleration, and AI-driven growth architecture into named systems leaders can understand and buy."
         compact
         className="product-suite-intro"
         actions={[
-          { href: contactPathFor(["ai-strategy-governance", "workflow-managed-operations"]), label: "Ask where this fits" },
+          { href: "/contact", label: "Request Product Fit Review" },
           { href: "/services", label: "See Services", variant: "secondary" },
         ]}
       />
@@ -27,9 +26,9 @@ export default function ProductsPage() {
         <section className="section-shell section-shell-light product-suite-list-section">
           <div className="section-inner">
             <div className="max-w-[840px]">
-              <p className="eyebrow text-[#9f412c]">Supporting Systems</p>
+              <p className="eyebrow text-[#9f412c]">Named Systems</p>
               <h2 className="mt-4 max-w-[780px] text-[clamp(1.45rem,2vw,2rem)] font-medium leading-[1.16] tracking-[-0.035em] text-slate-950">
-                These are not a separate offer path. They are the tools Farcelis uses to make services clearer, faster, and easier to operate.
+                Farcelis product pages make the model concrete without shrinking it into a generic software pitch.
               </h2>
             </div>
 
@@ -37,7 +36,7 @@ export default function ProductsPage() {
               {products.map((product) => (
                 <Link
                   key={product.slug}
-                  href={product.slug === "control-layer" ? contactPathFor("farcelis-control-layer") : "/services"}
+                  href={product.slug === "control-layer" ? "/control-layer" : `/products/${product.slug}`}
                   className="enterprise-card flex h-full min-h-[380px] flex-col rounded-[24px] border border-white/10 bg-white/[0.055] px-6 py-6 shadow-[0_18px_38px_rgba(15,23,42,0.06)]"
                 >
                   <div className="text-sm font-semibold uppercase tracking-[0.18em] text-[#9f412c]">
@@ -57,7 +56,7 @@ export default function ProductsPage() {
                       </div>
                     ))}
                   </div>
-                  <div className="mt-auto pt-6 text-sm font-semibold text-[#f19a6b]">Review service fit</div>
+                  <div className="mt-auto pt-6 text-sm font-semibold text-[#f19a6b]">Explore product</div>
                 </Link>
               ))}
             </div>

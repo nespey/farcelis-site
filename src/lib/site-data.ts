@@ -140,9 +140,9 @@ export const site = {
   name: "Farcelis AI Consulting LLC",
   shortName: "Farcelis",
   domain: "https://www.farcelis.io",
-  tagline: "Websites, automations, growth, and operations support for businesses that need clearer systems.",
+  tagline: "AI operational systems for leaders who need structure, visibility, and execution control.",
   summary:
-    "Farcelis helps businesses build websites and tools, grow with clearer marketing and follow-up, and keep the work organized after launch.",
+    "Farcelis is an AI operational systems firm that designs workflow architecture, execution systems, and structured decision environments for founders, CEOs, organizations, and complex operating teams.",
   contact: {
     email: "info@farcelis.io",
     founderEmail: "nespey@farcelis.io",
@@ -186,10 +186,10 @@ export const site = {
     { href: "/", label: "Home" },
     { href: "/control-layer", label: "Control Layer" },
     { href: "/services", label: "Services" },
+    { href: "/products", label: "Products" },
     { href: "/platforms", label: "Platforms" },
     { href: "/industries", label: "Industries" },
     { href: "/resources", label: "Resources" },
-    { href: "/products", label: "Tools & Assessments" },
     { href: "/events", label: "Events" },
     { href: "/insights", label: "Insights" },
     { href: "/team", label: "Our Team" },
@@ -201,21 +201,21 @@ export const site = {
 export const seo = {
   home: {
     path: "/",
-    title: "Farcelis AI Consulting | Websites, Automations, Growth & Operations",
+    title: "Farcelis AI Consulting | Operational Systems & Control Layer",
     description:
-      "Farcelis helps businesses build websites, quote tools, automations, dashboards, growth systems, and practical operations support.",
+      "Farcelis is an AI operational systems firm that designs workflow architecture, execution systems, and Control Layer implementations for leaders who need clarity, speed, and operational control.",
   },
   controlLayer: {
     path: "/control-layer",
-    title: "Farcelis Control Layer | Keep Work Visible and Organized",
+    title: "Farcelis Control Layer | AI-Powered Operational System",
     description:
-      "The Farcelis Control Layer gives teams one place to see requests, owners, status, next actions, and follow-up.",
+      "The Farcelis Control Layer centralizes workflows, data, and decisions into a single system. Eliminate operational chaos and execute with clarity and precision.",
   },
   services: {
     path: "/services",
-    title: "Services | Farcelis Websites, Growth & Operations",
+    title: "AI Consulting Services | Farcelis Operational Systems",
     description:
-      "Review Farcelis services for websites, quote tools, apps, automations, SEO, ads, CRM, reporting, workflow, and support.",
+      "Farcelis builds AI consulting and operational system design engagements that structure workflows, automate operations, and improve execution across teams and organizations.",
   },
   aiStrategyGovernance: {
     path: "/services/ai-strategy-governance",
@@ -235,41 +235,35 @@ export const seo = {
     description:
       "Farcelis provides managed operations support for leaders who need operating cadence, workflow triage, executive follow-through, AI enablement, and clearer execution.",
   },
-  deploymentOperations: {
-    path: "/services/deployment-operations",
-    title: "Deployment Operations | Idea-to-Launch Build Support | Farcelis",
-    description:
-      "Farcelis helps clients move from idea, rough build, or GitHub-connected tool into a clean, deployed, documented, monitored, and manageable website, app, portal, dashboard, or AI-assisted system.",
-  },
   platforms: {
     path: "/platforms",
-    title: "Platform Connections | Farcelis Consulting",
+    title: "AI Platforms & Integrations | Farcelis Consulting",
     description:
-      "Farcelis connects websites, forms, CRM, ads, dashboards, automations, and reporting tools so work does not get lost between systems.",
+      "Farcelis connects AI agents, CRM systems, workflow platforms, marketing tools, and reporting environments into cleaner operating systems.",
   },
   products: {
     path: "/products",
-    title: "Farcelis Tools & Assessments",
+    title: "Farcelis Product Suite | AI Operating Systems",
     description:
-      "Explore Farcelis diagnostics, generators, enablement systems, and assessment tools that support the Build, Grow, and Operate service paths.",
+      "Explore Farcelis proprietary product surfaces, including the Control Layer, Pulse Thread Coaching Assistant, INTENT+ Adaptive Learning Engine, RapidRamp Generator, and AI Marketing Blueprint Generator.",
   },
   industries: {
     path: "/industries",
-    title: "Industries | Farcelis AI Consulting",
+    title: "Industries & Operating Environments | Farcelis AI Consulting",
     description:
-      "Farcelis supports contractors, professional services, growth teams, operations-heavy teams, and companies that need clearer websites, tools, workflows, and follow-up.",
+      "Farcelis supports companies, government contractors, professional services teams, growth organizations, and complex operating environments with AI-enabled workflow structure.",
   },
   insights: {
     path: "/insights",
-    title: "Insights | Farcelis",
+    title: "AI Operations Insights | Farcelis",
     description:
-      "Farcelis insights on websites, AI use, workflow, automation, CRM, SEO, ads, and practical business operations.",
+      "Farcelis insights on AI adoption, workflow architecture, governance, automation, CRM operations, SEO systems, and execution control.",
   },
   resources: {
     path: "/resources",
-    title: "Resources | Farcelis",
+    title: "AI Operations Resources & Whitepapers | Farcelis",
     description:
-      "Use Farcelis guides, checklists, briefings, and tools to choose what to build, grow, or manage next.",
+      "Request Farcelis executive briefings, AI readiness guides, workflow architecture reports, CRM operations blueprints, and growth system playbooks.",
   },
   events: {
     path: "/events",
@@ -279,21 +273,21 @@ export const seo = {
   },
   team: {
     path: "/team",
-    title: "Farcelis Leadership",
+    title: "Farcelis Leadership | AI Systems & Operational Design Experts",
     description:
-      "Meet the Farcelis leadership team helping clients build websites and tools, improve growth, and keep operations organized.",
+      "Meet the Farcelis leadership team building AI-driven operational systems, workflow architecture, and Control Layer environments for modern organizations.",
   },
   results: {
     path: "/results",
-    title: "Organizations Working With Farcelis",
+    title: "Organizations Working With Farcelis | AI Systems & Operations",
     description:
       "Farcelis AI Consulting has supported organizations across automation, operations, and system design. Explore companies that have worked with Farcelis.",
   },
   contact: {
     path: "/contact",
-    title: "Contact Farcelis",
+    title: "Contact Farcelis | AI Operational Systems Strategy Call",
     description:
-      "Contact Farcelis to discuss websites, quote tools, automations, SEO, ads, CRM, reporting, workflow, and support.",
+      "Connect with Farcelis to discuss AI consulting, operational systems, workflow design, and Control Layer implementation for your organization.",
   },
 } satisfies Record<string, SeoEntry>;
 
@@ -740,7 +734,7 @@ export const industryFocus: Industry[] = [
     slug: "small-mid-market-businesses",
     title: "Small and mid-market businesses",
     description:
-      "Practical websites, AI help, workflow, CRM, marketing, and reporting for companies that need clearer follow-up without enterprise overhead.",
+      "Practical AI, workflow, CRM, marketing, and operating systems for companies that need enterprise discipline without enterprise overhead.",
     signals: ["Growth is outrunning process", "The owner still holds too many answers", "Tools exist but do not behave like a system"],
     offers: ["AI readiness snapshot", "CRM and workflow rebuild", "Managed operations support", "Growth systems setup"],
   },
@@ -787,9 +781,9 @@ export const insightCards: InfoCard[] = [
       "A practical view of how intake, execution, visibility, and intervention can sit above existing tools without forcing a full platform replacement.",
   },
   {
-    title: "Marketing works better when follow-up is clear",
+    title: "Marketing systems are operating systems",
     description:
-      "SEO, social media, blogs, campaigns, CRM, and content all perform better when someone owns the follow-up and reporting.",
+      "SEO, social media, blogs, campaigns, CRM, and content all perform better when they are connected to ownership, cadence, and measurable flow.",
   },
   {
     title: "AI agents need governance",
@@ -1613,19 +1607,19 @@ export const teamMembers: TeamMember[] = [
     email: "nespey@farcelis.io",
     image: "/images/team/nathan-espey.png",
     specialties: [
-      "Websites and business tools",
-      "Workflow design",
-      "Control Layer design",
-      "AI strategy",
-      "Dashboards and reporting",
-      "Operations support",
+      "AI-driven operational systems",
+      "Workflow architecture",
+      "Control layer design",
+      "Enterprise AI strategy",
+      "Execution systems",
+      "Organizational transformation",
     ],
     bio: [
-      "As Founder and CEO of Farcelis, Nathan Espey helps clients turn scattered work into clearer websites, tools, dashboards, workflows, and follow-up paths.",
-      "Nathan focuses on practical builds that solve a real business problem: a website that is easier to understand, a quote flow that captures better leads, a dashboard that shows what needs attention, or an automation that removes repeated manual work.",
-      "His background spans operations, government contracting, and business systems. That experience keeps Farcelis focused on work that can be launched, used, maintained, and improved after the first version is live.",
-      "Nathan also leads the Farcelis Control Layer work, which gives teams one place to see requests, owners, status, and next actions.",
-      "His work has helped clients reduce onboarding time, increase delivery speed, and create more reliable follow-up without adding unnecessary overhead.",
+      "As Founder and CEO of Farcelis, Nathan Espey leads the development of advanced AI-driven operational systems designed to bring structure, clarity, and execution control to modern businesses. His work centers on building what Farcelis defines as the Control Layer, a centralized system that organizes inflows, outflows, workflows, and decision-making into a single, actionable environment.",
+      "Nathan specializes in translating complex operational chaos into structured, scalable systems that enable leaders to move faster with greater precision. His approach blends AI automation, systems architecture, and real-world operational experience to create environments where strategy and execution are fully aligned.",
+      "Drawing on leadership experience across operations, government contracting, and enterprise strategy, Nathan focuses on practical implementation, not theory. His systems are designed to work in live environments, integrating with existing tools while introducing a higher level of visibility, coordination, and control.",
+      "Farcelis systems, including the Farcelis Control Layer, Pulse Thread Coaching Assistant(TM), and INTENT+(TM) Adaptive Learning Engine, are built to reduce friction, accelerate execution, and improve decision clarity across teams and organizations.",
+      "Nathan's work has helped clients reduce onboarding time, increase delivery speed, and create sustainable operational scale without increasing overhead.",
     ],
   },
   {
@@ -1645,11 +1639,11 @@ export const teamMembers: TeamMember[] = [
       "Strategic partnerships",
     ],
     bio: [
-      "As Chief Growth Officer at Farcelis, Katalin leads client relationships, market strategy, and growth conversations.",
-      "She helps business owners and leaders explain what is not working, where leads or tasks are getting lost, and what needs to become clearer for customers and teams.",
-      "Katalin keeps Farcelis grounded in real client needs instead of generic technology promises. Her work helps shape websites, service offers, follow-up paths, and operating support around what the client is actually trying to fix.",
-      "Her approach prioritizes trust, clarity, and practical value. Every client conversation starts with the real pressure the business is facing.",
-      "At Farcelis, she helps turn client discovery into clear Build, Grow, and Operate opportunities.",
+      "As Chief Growth Officer at Farcelis, Katalin leads the development of client relationships, market strategy, and growth pathways for Farcelis Control Layer implementations. She is responsible for helping business leaders identify where operational drag, fragmented workflows, and unclear ownership are limiting execution, then translating those realities into clear opportunities for structured improvement.",
+      "Katalin specializes in relationship development, client discovery, and strategic growth alignment, with a focus on connecting Farcelis with leaders who need stronger operating systems before AI, automation, and agents can create lasting value. Her work ensures that growth is not driven by generic technology promises, but by a precise understanding of each client's workflows, constraints, priorities, and execution gaps.",
+      "Working at the intersection of business development, operational strategy, and AI-enabled transformation, she helps shape how Farcelis communicates the value of the Control Layer to clients in complex business environments. She plays a critical role in identifying where organizations are ready for workflow optimization, where leadership visibility is breaking down, and where managed agents can support better coordination, follow-through, and scale.",
+      "Katalin's approach prioritizes trust, clarity, and practical value, ensuring that every client conversation begins with the real pressures leaders are facing rather than abstract technology. She works closely with business owners, executives, and operational teams to surface the points where work gets stuck, decisions slow down, and leaders become the default control system.",
+      "At Farcelis, she is a core driver behind the expansion of the Control Layer as a repeatable, client-ready offering, helping turn Farcelis from a custom systems practice into a scalable growth platform for AI-assisted operational transformation.",
     ],
   },
   {
@@ -1668,11 +1662,11 @@ export const teamMembers: TeamMember[] = [
       "Control Layer integration",
     ],
     bio: [
-      "Celeste Hartley serves as Chief Marketing Officer of Farcelis, focused on clear marketing systems that help buyers find, understand, and contact the business.",
-      "Celeste specializes in SEO, content, campaigns, landing pages, and follow-up paths that connect marketing activity to real inquiries.",
-      "Her work brings together search visibility, content planning, campaign tracking, and CRM handoff so leads do not disappear after a form is submitted.",
-      "She helps shape growth tools and playbooks that make marketing easier to run, measure, and improve.",
-      "Her focus is on marketing that creates attention and turns that attention into visible next steps.",
+      "Celeste Hartley serves as Chief Marketing Officer of Farcelis, operating as an AI-driven digital persona responsible for architecting and executing scalable growth systems across the firm and its clients. She leads the development of marketing environments that integrate directly into the Farcelis Control Layer, ensuring that lead generation, content, and conversion activity are fully aligned with operational workflows and business objectives.",
+      "Celeste specializes in building structured, data-driven growth systems that move beyond traditional marketing campaigns. Her approach focuses on creating continuous, automated pipelines that connect inbound demand, customer engagement, and revenue generation into a single, trackable system.",
+      "Working at the intersection of AI, automation, and behavioral analytics, she designs and deploys intelligent marketing frameworks that adapt in real time. These systems integrate SEO intelligence, content automation, funnel optimization, and performance tracking into unified environments that reduce friction and increase conversion efficiency.",
+      "Leveraging tools such as the AI Marketing Blueprint Generator(TM), advanced SEO modeling, and adaptive content systems, Celeste has helped drive significant increases in qualified lead flow, conversion rates, and campaign performance while eliminating the need for manual oversight and fragmented tooling.",
+      "Her focus is on building marketing systems that do not just generate attention, but translate directly into measurable business outcomes within the broader Farcelis operational framework.",
     ],
   },
   {
@@ -1690,11 +1684,11 @@ export const teamMembers: TeamMember[] = [
       "Control Layer implementation",
     ],
     bio: [
-      "Dominic Chase serves as Chief Operating Officer at Farcelis, focused on launch support, workflow setup, deployment, and day-to-day operating follow-through.",
-      "Dominic helps make sure the work is not just designed well, but actually runs under real business conditions.",
-      "He works across websites, tools, automations, reporting, and support paths so teams know what is live, what changed, and who owns the next step.",
-      "Dominic's approach is practical and disciplined. He keeps builds usable, documented, and aligned with how teams actually work.",
-      "At Farcelis, he helps move client work from idea or rough build into something launched, supported, and easier to maintain.",
+      "Dominic Chase serves as Chief Operating Officer at Farcelis, overseeing the execution, deployment, and performance of AI-driven operational systems across client environments. He is responsible for translating the Farcelis Control Layer from structured design into fully functional, real-world implementations that drive measurable results.",
+      "Dominic specializes in operational execution, workflow integration, and system deployment, ensuring that every Control Layer is not only built correctly, but performs reliably under real business conditions. His work focuses on aligning automation, data flow, and team activity into cohesive systems that reduce friction and increase output without increasing complexity.",
+      "Working closely with system architecture and strategy, he leads the buildout of AI-enabled workflows, automation frameworks, and integrated operational environments. This includes the deployment of proprietary tools such as the RapidRamp Generator(TM) and Blueprint Readiness Snapshot(TM), as well as the integration of custom AI agents into daily business processes.",
+      "Dominic's approach is grounded in execution discipline. He ensures that systems are not theoretical or over-engineered, but practical, usable, and aligned with how teams actually operate. His work has helped organizations significantly reduce manual workload, improve coordination across teams, and increase operational throughput without sacrificing quality.",
+      "At Farcelis, he plays a critical role in scaling the Control Layer from a structured framework into a repeatable, high-performance system that can be deployed across companies, teams, and environments.",
     ],
   },
 ];

@@ -9,7 +9,6 @@ import { PulseThreadPreview } from "@/components/PulseThreadPreview";
 import { RapidRampGenerator } from "@/components/RapidRampGenerator";
 import { Reveal } from "@/components/Reveal";
 import { buildMetadata } from "@/lib/metadata";
-import { contactPathFor } from "@/lib/service-catalog";
 import { getProductBySlug, products, site } from "@/lib/site-data";
 
 type ProductPageProps = {
@@ -136,8 +135,8 @@ export default async function ProductDetailPage({ params }: ProductPageProps) {
         title={product.title}
         description={product.description}
         actions={[
-          { href: contactPathFor(["ai-strategy-governance", "workflow-managed-operations"]), label: "Discuss Service Fit" },
-          { href: "/services", label: "Review Services", variant: "secondary" },
+          { href: "/contact", label: "Request Product Review" },
+          { href: "/products", label: "View Product Suite", variant: "secondary" },
         ]}
       />
 

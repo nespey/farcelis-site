@@ -5,7 +5,7 @@ export default function manifest(): MetadataRoute.Manifest {
     name: "Farcelis AI Consulting",
     short_name: "Farcelis",
     description:
-      "Farcelis helps businesses build websites, tools, automations, growth systems, and operations support.",
+      "Farcelis is an AI operational systems firm focused on workflow architecture, execution systems, and flagship Control Layer implementations.",
     start_url: "/",
     display: "standalone",
     background_color: "#f5f1ea",

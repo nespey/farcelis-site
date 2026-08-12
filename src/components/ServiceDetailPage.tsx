@@ -68,13 +68,14 @@ export function ServiceDetailPage({ service }: ServiceDetailPageProps) {
                   Clear pieces, connected to the next step.
                 </h2>
               </div>
-              <div className="grid gap-3 sm:grid-cols-2 xl:grid-cols-3">
+              <div className="service-detail-capability-list grid gap-x-8 gap-y-3 sm:grid-cols-2 xl:grid-cols-3">
                 {service.capabilities.slice(0, 6).map((item) => (
                   <div
                     key={item}
-                    className="flex min-h-[76px] items-center justify-center rounded-[14px] border border-cyan-100/12 bg-white/[0.045] px-4 py-3 text-center text-sm font-semibold leading-5 text-slate-100"
+                    className="service-detail-capability-item flex items-start gap-3 border-t border-cyan-100/14 pt-3 text-left"
                   >
-                    {item}
+                    <span aria-hidden="true" className="mt-2 h-1.5 w-1.5 shrink-0 rounded-full bg-[color:var(--color-accent)]" />
+                    <span className="text-sm font-semibold leading-6 text-slate-100">{item}</span>
                   </div>
                 ))}
               </div>
