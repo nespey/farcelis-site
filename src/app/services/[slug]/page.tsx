@@ -175,7 +175,7 @@ export default async function DirectServicePage({ params }: ServicePageProps) {
       <Reveal delayMs={150}>
         <section
           className={`section-shell section-shell-dark ${
-            isWebsiteDevelopment ? "!pt-4 !pb-8 lg:!pt-5 lg:!pb-10" : "!py-10 lg:!py-12"
+            isWebsiteDevelopment ? "!pt-0 !pb-8 lg:!pt-1 lg:!pb-10" : "!py-10 lg:!py-12"
           }`}
         >
           <div className="section-inner">
@@ -208,9 +208,9 @@ export default async function DirectServicePage({ params }: ServicePageProps) {
 function WebsiteDevelopmentShowcase({ service }: { service: NonNullable<ReturnType<typeof getDirectService>> }) {
   return (
     <Reveal delayMs={40}>
-      <section className="section-shell section-shell-light !pt-0 !pb-5 lg:!pt-0 lg:!pb-7">
+      <section className="section-shell section-shell-light !pt-0 !pb-0 lg:!pt-0 lg:!pb-0">
         <div className="section-inner">
-          <div className="relative overflow-hidden px-6 py-8 lg:min-h-[400px] lg:px-8 lg:py-10">
+          <div className="relative overflow-hidden px-6 py-8 lg:min-h-[440px] lg:px-8 lg:py-10">
             <Image
               src="/images/services/website-development-lightflow-hero.png"
               alt="High-speed light flow and floating digital windows representing fast connected website development"
@@ -230,23 +230,12 @@ function WebsiteDevelopmentShowcase({ service }: { service: NonNullable<ReturnTy
                 <span className="block">The site should make the offer clear and earn trust quickly.</span>
                 <span className="block">Then move the right person to the next step.</span>
               </p>
-            </div>
-          </div>
-
-          <div className="mt-4 grid gap-3 md:grid-cols-3">
-            {[
-              ["NEW BUILD", "A new site built around the offer, audience, and next step."],
-              ["REBUILD OR CLEANUP", "A sharper site when the current one feels outdated or hard to manage."],
-              ["FEATURE ADD-ON", "Quote tools, forms, landing pages, and connections added where needed."],
-            ].map(([title, detail]) => (
-              <div
-                key={title}
-                className="flex min-h-[84px] flex-col items-center justify-center rounded-[16px] border border-cyan-100/12 bg-white/[0.045] px-5 py-3 text-center"
-              >
-                <h3 className="text-lg font-semibold tracking-[-0.04em] text-white">{title}</h3>
-                <p className="mt-1.5 max-w-full text-sm leading-5 text-slate-300">{detail}</p>
+              <div className="mt-12 inline-flex flex-col items-center gap-5 text-center text-lg font-semibold uppercase tracking-[-0.04em] text-white">
+                <span>NEW BUILD</span>
+                <span>REBUILD OR CLEANUP</span>
+                <span>FEATURE ADD-ON</span>
               </div>
-            ))}
+            </div>
           </div>
         </div>
       </section>
