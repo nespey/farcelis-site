@@ -140,33 +140,37 @@ export default async function DirectServicePage({ params }: ServicePageProps) {
         </>
       )}
 
-      <Reveal delayMs={120}>
-        <section className="section-shell section-shell-light !py-10 lg:!py-12">
-          <div className="section-inner grid gap-5 lg:grid-cols-2">
-            <article className="rounded-[18px] border border-slate-200 bg-white px-5 py-5 shadow-[0_18px_30px_rgba(15,23,42,0.05)]">
-              <p className="eyebrow text-[#9f412c]">{service.signalsKicker ?? "Good Fit"}</p>
-              <ul className="mt-4 grid gap-3">
-                {service.signals.map((item) => (
-                  <li key={item} className="border-l border-[#9f412c]/28 pl-4 text-base font-semibold leading-7 text-slate-700">
-                    {item}
-                  </li>
-                ))}
-              </ul>
-            </article>
+      {isWebsiteDevelopment ? (
+        <WebsiteDevelopmentHandoff />
+      ) : (
+        <Reveal delayMs={120}>
+          <section className="section-shell section-shell-light !py-10 lg:!py-12">
+            <div className="section-inner grid gap-5 lg:grid-cols-2">
+              <article className="rounded-[18px] border border-slate-200 bg-white px-5 py-5 shadow-[0_18px_30px_rgba(15,23,42,0.05)]">
+                <p className="eyebrow text-[#9f412c]">{service.signalsKicker ?? "Good Fit"}</p>
+                <ul className="mt-4 grid gap-3">
+                  {service.signals.map((item) => (
+                    <li key={item} className="border-l border-[#9f412c]/28 pl-4 text-base font-semibold leading-7 text-slate-700">
+                      {item}
+                    </li>
+                  ))}
+                </ul>
+              </article>
 
-            <article className="rounded-[18px] border border-slate-200 bg-white px-5 py-5 shadow-[0_18px_30px_rgba(15,23,42,0.05)]">
-              <p className="eyebrow text-[#9f412c]">{service.exclusionsKicker ?? "Not a Fit"}</p>
-              <ul className="mt-4 grid gap-3">
-                {service.exclusions.map((item) => (
-                  <li key={item} className="border-l border-[#9f412c]/28 pl-4 text-base font-semibold leading-7 text-slate-700">
-                    {item}
-                  </li>
-                ))}
-              </ul>
-            </article>
-          </div>
-        </section>
-      </Reveal>
+              <article className="rounded-[18px] border border-slate-200 bg-white px-5 py-5 shadow-[0_18px_30px_rgba(15,23,42,0.05)]">
+                <p className="eyebrow text-[#9f412c]">{service.exclusionsKicker ?? "Not a Fit"}</p>
+                <ul className="mt-4 grid gap-3">
+                  {service.exclusions.map((item) => (
+                    <li key={item} className="border-l border-[#9f412c]/28 pl-4 text-base font-semibold leading-7 text-slate-700">
+                      {item}
+                    </li>
+                  ))}
+                </ul>
+              </article>
+            </div>
+          </section>
+        </Reveal>
+      )}
 
       <Reveal delayMs={150}>
         <section className="section-shell section-shell-dark !py-10 lg:!py-12">
@@ -198,13 +202,11 @@ export default async function DirectServicePage({ params }: ServicePageProps) {
 }
 
 function WebsiteDevelopmentShowcase({ service }: { service: NonNullable<ReturnType<typeof getDirectService>> }) {
-  const primaryCapabilities = service.capabilities.slice(0, 4);
-  const supportingCapabilities = service.capabilities.slice(4);
-  const previewSteps = [
-    "Clear offer",
-    "Service pages",
-    "Quote or contact path",
-    "Follow-up handoff",
+  const sitePlan = [
+    ["Offer", "What the business does and who it serves."],
+    ["Pages", "Services, locations, proof, and next steps."],
+    ["Intake", "Contact, quote, or booking requests."],
+    ["Follow-up", "Email, CRM, reporting, or owner handoff."],
   ];
 
   return (
@@ -221,25 +223,17 @@ function WebsiteDevelopmentShowcase({ service }: { service: NonNullable<ReturnTy
                 {service.buildSummary ?? "Build new, rebuild what exists, or add the pages and forms that turn interest into follow-up."}
               </p>
 
-              <div className="mt-6 grid gap-3 sm:grid-cols-2">
-                {primaryCapabilities.map((item) => (
+              <div className="mt-6 grid gap-2.5 sm:grid-cols-2">
+                {service.capabilities.map((item, index) => (
                   <div
                     key={item}
-                    className="rounded-[14px] border border-slate-200 bg-white px-4 py-4 shadow-[0_16px_28px_rgba(15,23,42,0.055)]"
+                    className="flex items-center gap-3 border-b border-cyan-100/10 bg-transparent py-3"
                   >
-                    <p className="text-base font-semibold text-slate-950">{item}</p>
+                    <span className="text-xs font-semibold uppercase tracking-[0.18em] text-[#ff9a68]">
+                      {String(index + 1).padStart(2, "0")}
+                    </span>
+                    <p className="text-base font-semibold text-slate-100">{item}</p>
                   </div>
-                ))}
-              </div>
-
-              <div className="mt-3 flex flex-wrap gap-2">
-                {supportingCapabilities.map((item) => (
-                  <span
-                    key={item}
-                    className="rounded-full border border-slate-200 bg-white px-3 py-2 text-sm font-semibold text-slate-700"
-                  >
-                    {item}
-                  </span>
                 ))}
               </div>
             </div>
@@ -277,45 +271,28 @@ function WebsiteDevelopmentShowcase({ service }: { service: NonNullable<ReturnTy
                     </div>
                   </div>
 
-                  <div className="bg-[#edf4f7] p-5">
-                    <div className="rounded-[16px] border border-slate-200 bg-white p-4 shadow-[0_18px_34px_rgba(15,23,42,0.12)]">
-                      <div className="flex items-center justify-between border-b border-slate-200 pb-3">
-                        <div className="flex items-center gap-2">
-                          <div className="h-7 w-7 rounded-full bg-slate-950" />
-                          <div>
-                            <div className="h-2.5 w-20 rounded-full bg-slate-900" />
-                            <div className="mt-1.5 h-2 w-14 rounded-full bg-slate-200" />
-                          </div>
-                        </div>
-                        <div className="h-8 w-24 rounded-full bg-[linear-gradient(120deg,#ff7f50,#e346dc)]" />
-                      </div>
-
-                      <div className="grid gap-4 py-5 md:grid-cols-[1fr_0.78fr]">
-                        <div>
-                          <div className="h-4 w-28 rounded-full bg-[#ff7f50]" />
-                          <div className="mt-3 h-7 w-full max-w-[250px] rounded-full bg-slate-950" />
-                          <div className="mt-2 h-7 w-4/5 rounded-full bg-slate-950" />
-                          <div className="mt-4 grid gap-2">
-                            <div className="h-2.5 w-full rounded-full bg-slate-200" />
-                            <div className="h-2.5 w-5/6 rounded-full bg-slate-200" />
-                            <div className="h-2.5 w-3/5 rounded-full bg-slate-200" />
-                          </div>
-                        </div>
-                        <div className="grid gap-2">
-                          {previewSteps.map((item, index) => (
-                            <div key={item} className="flex items-center gap-2 rounded-[10px] border border-slate-200 bg-slate-50 px-3 py-2">
-                              <span className="flex h-6 w-6 items-center justify-center rounded-full bg-slate-950 text-[11px] font-semibold text-white">
-                                {index + 1}
+                  <div className="bg-[#0a1b28] p-5">
+                    <div className="grid h-full content-between gap-4 rounded-[16px] border border-cyan-100/12 bg-[linear-gradient(145deg,rgba(255,255,255,0.08),rgba(255,255,255,0.025))] p-5">
+                      <div>
+                        <p className="text-xs font-semibold uppercase tracking-[0.2em] text-[#ff9a68]">Site Map</p>
+                        <div className="mt-4 grid gap-3">
+                          {sitePlan.map(([label, detail], index) => (
+                            <div key={label} className="grid grid-cols-[44px_1fr] items-start gap-3 border-b border-cyan-100/10 pb-3 last:border-b-0 last:pb-0">
+                              <span className="text-sm font-semibold text-slate-400">
+                                {String(index + 1).padStart(2, "0")}
                               </span>
-                              <span className="text-xs font-semibold text-slate-700">{item}</span>
+                              <div>
+                                <p className="text-base font-semibold text-white">{label}</p>
+                                <p className="mt-1 text-sm leading-5 text-slate-300">{detail}</p>
+                              </div>
                             </div>
                           ))}
                         </div>
                       </div>
 
-                      <div className="grid grid-cols-3 gap-2 border-t border-slate-200 pt-3">
-                        {["Mobile ready", "Search ready", "Lead ready"].map((item) => (
-                          <div key={item} className="rounded-[10px] bg-slate-100 px-3 py-2 text-center text-xs font-semibold text-slate-700">
+                      <div className="grid grid-cols-3 gap-2 border-t border-cyan-100/10 pt-4">
+                        {["Mobile", "Search", "Follow-up"].map((item) => (
+                          <div key={item} className="border-l border-[#ff7f50]/45 pl-3 text-xs font-semibold uppercase tracking-[0.14em] text-slate-300">
                             {item}
                           </div>
                         ))}
@@ -348,6 +325,28 @@ function WebsiteDevelopmentShowcase({ service }: { service: NonNullable<ReturnTy
                 </div>
               ))}
             </div>
+          </div>
+        </div>
+      </section>
+    </Reveal>
+  );
+}
+
+function WebsiteDevelopmentHandoff() {
+  return (
+    <Reveal delayMs={120}>
+      <section className="section-shell section-shell-light !py-8 lg:!py-10">
+        <div className="section-inner">
+          <div className="rounded-[18px] border border-cyan-100/12 bg-[linear-gradient(135deg,rgba(255,127,80,0.16),rgba(227,70,220,0.1)_46%,rgba(255,255,255,0.045))] px-6 py-6 lg:flex lg:items-center lg:justify-between lg:gap-8">
+            <div>
+              <p className="eyebrow text-[color:var(--color-accent)]">What Comes Next</p>
+              <h2 className="mt-3 max-w-[980px] text-3xl font-semibold tracking-[-0.05em] text-white md:text-4xl">
+                The website should not stop at looking better. It should make the next step easier.
+              </h2>
+            </div>
+            <p className="mt-4 max-w-[440px] text-base leading-7 text-slate-300 lg:mt-0">
+              Search visibility, quote paths, CRM, content, and reporting can connect after the core site is clear.
+            </p>
           </div>
         </div>
       </section>
