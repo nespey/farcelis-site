@@ -18,7 +18,7 @@ const exploreRight = [
 const certificationFooterImage = (image: string) => {
   const file = image.split("/").pop() ?? image;
   if (/microsoft-developer-cert/i.test(file)) {
-    return "/images/certifications/footer/ms-365.svg";
+    return "/images/certifications/footer/ms-365.png";
   }
 
   return `/images/certifications/footer/${file.replace(/\.(jpe?g|png)$/i, ".png")}`;
