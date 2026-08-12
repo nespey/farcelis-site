@@ -55,11 +55,11 @@ export const servicePageContent: Record<string, ServicePageContent> = {
       "Farcelis provides SEO and search visibility services for businesses that need stronger website structure, service pages, metadata, internal links, buyer-question content, and search-ready pages. We help Google, Bing, Apple, and other search engines understand what the business offers so the right people can find it.",
   },
   "aeo-ai-search-visibility": {
-    image: "/images/services/adobe-stock/aeo-ai-search-visibility.jpeg",
+    image: "/images/services/adobe-stock/seo-search-visibility.jpeg",
     imageAlt:
-      "AI search and semantic data network representing answer engine visibility",
+      "Search visibility analytics and content performance review for answer engine optimization",
     seoIntro:
-      "Farcelis builds AEO and AI search visibility systems for companies that want tools like ChatGPT, Gemini, Perplexity, and other AI search engines to understand what they offer. We structure pages, proof, answers, schema, and resources so AI search tools can summarize the business clearly and accurately.",
+      "Farcelis builds AEO and AI search visibility systems for companies that need answer engines and AI search tools to understand their services. We structure pages, proof, buyer questions, schema, and resources so the business can be found, summarized, and cited more clearly.",
   },
   "seo-aeo-visibility": {
     image: "/images/services/adobe-stock/aeo-ai-search-visibility.jpeg",
@@ -94,7 +94,7 @@ export const servicePageContent: Record<string, ServicePageContent> = {
     imageAlt:
       "CRM and revenue operations dashboard showing sales pipeline and lead scoring",
     seoIntro:
-      "Farcelis helps businesses improve CRM and revenue operations so leads are captured, routed, followed up, tracked, and not lost. We clean up fields, stages, forms, owners, pipeline views, and reporting so marketing activity turns into visible sales and service follow-through.",
+      "Farcelis helps businesses improve CRM and revenue operations so leads are captured, routed, followed up, tracked, and moved to the right next step. We clean up fields, stages, forms, owners, pipeline views, and reporting so marketing activity turns into visible sales and service follow-through.",
   },
   "marketing-automation-crm": {
     image: "/images/services/adobe-stock/crm-revenue-operations.jpeg",
@@ -136,7 +136,7 @@ export const servicePageContent: Record<string, ServicePageContent> = {
     imageAlt:
       "DevOps deployment operations pipeline and cloud release dashboard on a laptop",
     seoIntro:
-      "Farcelis provides deployment operations for websites, apps, portals, dashboards, and AI-assisted tools that need clean releases, hosting, domains, GitHub, Vercel, environment variables, documentation, support, and maintenance after launch. We help businesses keep digital systems stable and manageable.",
+      "Farcelis provides deployment operations for websites, apps, portals, dashboards, and AI-assisted tools that need clean releases, hosting, domains, environment settings, documentation, support, and maintenance after launch. We help businesses keep digital systems stable, updated, and manageable.",
   },
 };
 

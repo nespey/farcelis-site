@@ -512,14 +512,14 @@ export const directServices: DirectService[] = [
     slug: "deployment-operations",
     navLabel: "Deployment Operations",
     eyebrow: "Build / Deployment Operations",
-    title: "Deployment support for GitHub, Vercel, domains, releases, and live application upkeep.",
+    title: "Deployment operations for websites, apps, hosting, releases, and upkeep.",
     summary:
       "Farcelis Deployment Operations helps clients move from idea, rough build, or existing repository into a clean, deployed, documented, and manageable website, app, portal, dashboard, or AI-assisted tool.",
     primaryCta: "Discuss deployment operations",
     secondaryCta: { href: "/services/managed-operations", label: "See managed operations" },
     capabilities: [
       "Idea-to-build intake and technical direction",
-      "GitHub and Vercel release paths",
+      "Code repository and release paths",
       "Domain, DNS, and environment review",
       "Secrets and dependency readiness checks",
       "Launch documentation and rollback notes",
@@ -537,7 +537,7 @@ export const directServices: DirectService[] = [
     signals: [
       "The client has a clear idea for a website, app, portal, dashboard, or automation but does not know where to start.",
       "A useful app exists but ownership after launch is unclear.",
-      "GitHub, Vercel, domains, and secrets feel fragile or undocumented.",
+      "Hosting, domains, code access, and launch settings feel fragile or undocumented.",
       "The business needs a release rhythm instead of one-off fixes.",
     ],
     exclusions: [
@@ -674,7 +674,7 @@ export const directServices: DirectService[] = [
     slug: "aeo-ai-search-visibility",
     navLabel: "AEO / AI Search Visibility",
     eyebrow: "Grow / AEO / AI Search Visibility",
-    title: "AI search visibility that helps tools like ChatGPT understand what you offer.",
+    title: "AI search visibility for answer engines and buyer questions.",
     summary:
       "Farcelis structures pages, resources, proof, schema, and question-answer content so AI search tools can understand what you do and summarize it accurately.",
     primaryCta: "Discuss AEO and AI search visibility",
@@ -685,6 +685,7 @@ export const directServices: DirectService[] = [
       "Schema, evidence, and citation signal planning",
       "Service pages structured for AI summaries",
       "Resource paths that make expertise easier to reference",
+      "Clear answer paths for buyer questions",
     ],
     process: [
       "Review how AI search tools currently describe the business.",
@@ -980,7 +981,7 @@ export const directServices: DirectService[] = [
     slug: "crm-revenue-operations",
     navLabel: "CRM & Revenue Operations",
     eyebrow: "Grow / CRM & Revenue Operations",
-    title: "CRM and revenue operations that keep leads from getting lost.",
+    title: "CRM and revenue operations that keep every lead moving.",
     summary:
       "Farcelis helps businesses capture leads clearly, route them to the right follow-up, track status, and see what is happening after someone raises their hand.",
     primaryCta: "Discuss CRM and revenue operations",
@@ -991,6 +992,7 @@ export const directServices: DirectService[] = [
       "Follow-up stages and task paths",
       "Pipeline and revenue reporting",
       "Form, email, and campaign handoff",
+      "Sales and service follow-through",
     ],
     process: [
       "Review how leads enter the business today.",

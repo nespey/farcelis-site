@@ -13,6 +13,9 @@ type ServiceDetailPageProps = {
 
 export function ServiceDetailPage({ service }: ServiceDetailPageProps) {
   const content = getServicePageContent(service.slug);
+  const coverItems = service.capabilities.slice(0, service.capabilities.length >= 6 ? 6 : 4);
+  const imageObjectPosition =
+    service.slug === "aeo-ai-search-visibility" ? "object-right-center" : "object-center";
 
   return (
     <>
@@ -20,7 +23,7 @@ export function ServiceDetailPage({ service }: ServiceDetailPageProps) {
         <div className="section-inner grid gap-7 lg:grid-cols-[minmax(0,0.9fr)_minmax(360px,0.7fr)] lg:items-center">
           <div className="service-detail-copy">
             <p className="eyebrow text-[color:var(--color-accent)]">{service.eyebrow}</p>
-            <h1 className="mt-4 max-w-[840px] text-[clamp(2.15rem,4vw,4.25rem)] font-medium leading-[1.02] tracking-[-0.055em] text-white">
+            <h1 className="mt-4 max-w-[880px] text-[clamp(2.1rem,3.55vw,3.85rem)] font-medium leading-[1.03] tracking-[-0.055em] text-white [text-wrap:balance]">
               {service.title}
             </h1>
             <p className="mt-5 max-w-[780px] text-base leading-7 text-slate-300 lg:text-lg lg:leading-8">
@@ -51,7 +54,7 @@ export function ServiceDetailPage({ service }: ServiceDetailPageProps) {
               width={1200}
               height={820}
               sizes="(max-width: 1024px) 100vw, 42vw"
-              className="h-full min-h-[310px] w-full object-cover"
+              className={`h-full min-h-[310px] w-full object-cover ${imageObjectPosition}`}
               priority
             />
           </figure>
@@ -64,18 +67,17 @@ export function ServiceDetailPage({ service }: ServiceDetailPageProps) {
             <div className="grid gap-4 lg:grid-cols-[minmax(0,0.42fr)_minmax(0,1fr)] lg:items-start">
               <div>
                 <p className="eyebrow text-[color:var(--color-accent)]">What This Covers</p>
-                <h2 className="mt-3 max-w-[520px] text-[clamp(1.7rem,2.8vw,2.6rem)] font-medium leading-[1.08] tracking-[-0.045em] text-white">
-                  Clear pieces, connected to the next step.
+                <h2 className="mt-3 max-w-[520px] text-[clamp(1.65rem,2.55vw,2.35rem)] font-medium leading-[1.08] tracking-[-0.045em] text-white [text-wrap:balance]">
+                  The work Farcelis handles on this page.
                 </h2>
               </div>
-              <div className="service-detail-capability-list grid gap-x-8 gap-y-3 sm:grid-cols-2 xl:grid-cols-3">
-                {service.capabilities.slice(0, 6).map((item) => (
+              <div className="service-detail-capability-list grid gap-3 sm:grid-cols-2 xl:grid-cols-3">
+                {coverItems.map((item) => (
                   <div
                     key={item}
-                    className="service-detail-capability-item flex items-start gap-3 border-t border-cyan-100/14 pt-3 text-left"
+                    className="service-detail-capability-item flex min-h-[48px] items-center justify-center rounded-[12px] border border-cyan-100/10 bg-white/[0.035] px-4 py-3 text-center"
                   >
-                    <span aria-hidden="true" className="mt-2 h-1.5 w-1.5 shrink-0 rounded-full bg-[color:var(--color-accent)]" />
-                    <span className="text-sm font-semibold leading-6 text-slate-100">{item}</span>
+                    <span className="text-sm font-semibold leading-5 text-slate-100">{item}</span>
                   </div>
                 ))}
               </div>
