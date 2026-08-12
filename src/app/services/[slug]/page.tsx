@@ -181,15 +181,15 @@ export default async function DirectServicePage({ params }: ServicePageProps) {
               </h2>
             </div>
 
-            <div className="mt-6 grid gap-3 md:grid-cols-2 xl:grid-cols-4">
+            <div className="mt-5 grid gap-3 md:grid-cols-2 xl:grid-cols-4">
               {service.related.map((item) => (
                 <Link
                   key={item.label}
                   href={item.href}
-                  className="rounded-[14px] border border-cyan-100/12 bg-white/[0.045] px-4 py-4 transition hover:border-cyan-100/24 hover:bg-white/[0.07]"
+                  className="rounded-[14px] border border-cyan-100/12 bg-white/[0.045] px-4 py-3.5 text-center transition hover:border-cyan-100/24 hover:bg-white/[0.07]"
                 >
                   <h3 className="text-lg font-semibold tracking-[-0.03em] text-white">{item.label}</h3>
-                  <p className="mt-2 text-sm leading-5 text-slate-300">{item.detail}</p>
+                  <p className="mt-1.5 text-sm leading-5 text-slate-300">{item.detail}</p>
                 </Link>
               ))}
             </div>
@@ -227,15 +227,15 @@ function WebsiteDevelopmentShowcase({ service }: { service: NonNullable<ReturnTy
             </div>
           </div>
 
-          <div className="mt-5 grid gap-3 md:grid-cols-3">
+          <div className="mt-4 grid gap-3 md:grid-cols-3">
             {[
-              ["New build", "A new site built around the offer, audience, pages, and follow-up path."],
-              ["Rebuild or cleanup", "A sharper site when the current one is outdated, confusing, slow, or hard to manage."],
-              ["Feature add-on", "Quote tools, intake forms, landing pages, dashboards, and connections added where they fit."],
+              ["New build", "A new site built around the offer, audience, and next step."],
+              ["Rebuild or cleanup", "A sharper site when the current one feels outdated or hard to manage."],
+              ["Feature add-on", "Quote tools, forms, landing pages, dashboards, and connections added where they fit."],
             ].map(([title, detail]) => (
-              <div key={title} className="rounded-[16px] border border-cyan-100/12 bg-white/[0.045] px-5 py-4">
+              <div key={title} className="rounded-[16px] border border-cyan-100/12 bg-white/[0.045] px-5 py-3.5 text-center">
                 <h3 className="text-lg font-semibold tracking-[-0.04em] text-white">{title}</h3>
-                <p className="mt-2 text-sm leading-6 text-slate-300">{detail}</p>
+                <p className="mt-1.5 text-sm leading-5 text-slate-300">{detail}</p>
               </div>
             ))}
           </div>

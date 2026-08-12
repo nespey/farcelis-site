@@ -275,22 +275,22 @@ export const directServices: DirectService[] = [
       {
         href: "/services/seo-aeo-visibility",
         label: "SEO & AEO Visibility",
-        detail: "Make the site easier for people, Google, and AI search tools to understand.",
+        detail: "Make the site easier to find and understand.",
       },
       {
         href: "/services/marketing-automation-crm",
         label: "Marketing Automation & CRM",
-        detail: "Turn contact forms, quote requests, and inquiries into visible follow-up.",
+        detail: "Turn inquiries into visible follow-up.",
       },
       {
         href: "/services/quote-pricing-tools",
         label: "Quote & Pricing Tools",
-        detail: "Let buyers configure a quote or estimate before they request follow-up.",
+        detail: "Let buyers request a clearer estimate.",
       },
       {
         href: "/services/content-revenue-systems",
         label: "Content & Revenue Systems",
-        detail: "Keep pages, offers, campaigns, and reporting connected after launch.",
+        detail: "Keep pages, offers, and reporting connected.",
       },
     ],
   },
