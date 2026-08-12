@@ -3,206 +3,93 @@ import Link from "next/link";
 import { PageIntro } from "@/components/PageIntro";
 import { Reveal } from "@/components/Reveal";
 import { buildMetadata } from "@/lib/metadata";
+import { capabilityGroups } from "@/lib/service-catalog";
 import { seo } from "@/lib/site-data";
 
 export const metadata = buildMetadata(seo.services);
-
-const operatingPrinciples = [
-  {
-    title: "System before tooling",
-    body: "We identify how work should enter, move, get owned, and get measured before recommending another platform or AI layer.",
-  },
-  {
-    title: "Execution before automation",
-    body: "Automation only helps when the underlying workflow is clear enough to automate without hiding accountability.",
-  },
-  {
-    title: "Governance before scale",
-    body: "AI adoption needs usage rules, decision rights, risk boundaries, and review habits before it expands across a team.",
-  },
-];
-
-const capabilityLanes = [
-  {
-    id: "ai-strategy-governance",
-    eyebrow: "Capability Lane",
-    title: "AI Strategy & Governance",
-    description:
-      "For leaders deciding where AI belongs, what should be governed, how teams should use it, and what adoption should look like before tools multiply.",
-    builds: [
-      "AI readiness assessment",
-      "Use-case and risk prioritization",
-      "Governance and usage policy",
-      "Leadership adoption roadmap",
-    ],
-    href: "/services/ai-strategy-governance",
-    cta: "Explore AI governance",
-  },
-  {
-    id: "workflow-operations",
-    eyebrow: "Capability Lane",
-    title: "Workflow & Operations",
-    description:
-      "For teams where routing, handoffs, ownership, reporting, cadence, or follow-through have become too informal to hold under pressure.",
-    builds: [
-      "Workflow and handoff mapping",
-      "Ownership and escalation structure",
-      "Operating cadence design",
-      "Execution visibility model",
-    ],
-    href: "/services/workflow-operations",
-    cta: "Explore workflow operations",
-  },
-  {
-    id: "control-layer",
-    eyebrow: "Flagship System",
-    title: "Control Layer Design & Deployment",
-    description:
-      "For organizations that need one operating environment above existing tools so intake, ownership, visibility, and intervention live in a controlled frame.",
-    builds: [
-      "Control Layer architecture",
-      "Reporting and visibility design",
-      "Priority and workflow mapping",
-      "Implementation support",
-    ],
-    href: "/control-layer",
-    cta: "Explore the Control Layer",
-  },
-  {
-    id: "platforms-integrations",
-    eyebrow: "Connected Stack",
-    title: "Platforms, Agents & Integrations",
-    description:
-      "For companies that need AI agents, CRM, work management, collaboration, and reporting tools connected around real responsibilities.",
-    builds: [
-      "AI assistants and agents",
-      "CRM and revenue workflows",
-      "Platform integration logic",
-      "Operational dashboards",
-    ],
-    href: "/platforms",
-    cta: "Explore platforms",
-  },
-  {
-    id: "growth-systems",
-    eyebrow: "Growth Operations",
-    title: "Marketing, SEO, Content & Revenue Systems",
-    description:
-      "For teams that need social, blogs, SEO, campaigns, lead capture, CRM follow-through, and reporting to behave like one operating system.",
-    builds: [
-      "SEO and content systems",
-      "Social media management",
-      "Campaign and lead workflows",
-      "Revenue operations visibility",
-    ],
-    href: "/contact",
-    cta: "Discuss growth systems",
-  },
-  {
-    id: "managed-operations",
-    eyebrow: "Execution Support",
-    title: "Managed Operations & Enablement",
-    description:
-      "For leaders who need operating support while the system matures: triage, follow-through, meeting cadence, workflow cleanup, AI enablement, and executive visibility.",
-    builds: [
-      "Weekly operating cadence",
-      "Workflow triage and cleanup",
-      "Executive follow-through",
-      "AI enablement in live work",
-    ],
-    href: "/services/managed-operations",
-    cta: "Explore managed operations",
-  },
-];
 
 export default function ServicesPage() {
   return (
     <>
       <PageIntro
-        eyebrow="Capabilities"
-        title="Farcelis organizes AI, workflow, platforms, growth, and execution into clear service lanes."
-        description="This page is the map. Each lane below explains what problem it solves, what Farcelis builds, and where to go next."
+        eyebrow="Services"
+        title="Websites, quote tools, automations, ads, and operations support for businesses that need clearer systems."
+        description="Choose what you need built, promoted, or managed. Farcelis helps with the website, the follow-up, and the tools behind the work."
         actions={[
           { href: "/contact", label: "Work With Farcelis" },
           { href: "/control-layer", label: "Explore the Control Layer", variant: "secondary" },
         ]}
+        compact
+        className="services-page-intro"
         asideTitle="How to read this page"
         asideItems={[
-          "Choose AI Strategy when the question is what AI should do, how it should be governed, and how adoption should happen.",
-          "Choose Workflow & Operations when work is already moving but routing, ownership, cadence, or visibility are breaking down.",
-          "Choose Control Layer when the business needs a single operating environment above the tools already in place.",
+          "Build when you need a website, quote builder, app, portal, dashboard, automation, or launch support.",
+          "Grow when you need more people to find you, understand you, and become leads.",
+          "Operate when you need the work organized, tracked, supported, and maintained after launch.",
         ]}
       />
 
-      <Reveal delayMs={40}>
-        <section className="section-shell section-shell-dark">
-          <div className="section-inner grid gap-12 lg:grid-cols-[minmax(0,0.78fr)_minmax(0,1.22fr)]">
-            <div>
-              <p className="eyebrow text-[color:var(--color-accent)]">Service Model</p>
-              <h2 className="section-title mt-5 text-white">
-                The model is simple: stabilize the operating logic, then apply AI and automation where they can actually hold.
-              </h2>
-            </div>
-
-            <div className="grid gap-4">
-              {operatingPrinciples.map((principle) => (
-                <article
-                  key={principle.title}
-                  className="rounded-[24px] border border-cyan-100/12 bg-white/[0.045] px-6 py-6"
-                >
-                  <h3 className="text-xl font-semibold tracking-[-0.035em] text-white">
-                    {principle.title}
-                  </h3>
-                  <p className="mt-3 text-base leading-7 text-slate-300">{principle.body}</p>
-                </article>
-              ))}
-            </div>
-          </div>
-        </section>
-      </Reveal>
-
       <Reveal delayMs={90}>
-        <section className="section-shell section-shell-light">
+        <section className="section-shell section-shell-dark services-lanes-section">
           <div className="section-inner">
             <div className="max-w-[880px]">
-              <p className="eyebrow text-[#9f412c]">Capability Lanes</p>
-              <h2 className="section-title mt-5 text-slate-950">
-                Distinct paths, clear jobs, one operating system underneath.
+              <p className="eyebrow text-[color:var(--color-accent)]">Service Lanes</p>
+              <h2 className="section-title mt-3 text-white">
+                Start with what you need done.
               </h2>
-              <p className="mt-5 max-w-[760px] text-base leading-8 text-slate-600">
-                The lanes are not meant to be a long menu of disconnected services. They are the major ways Farcelis enters a business depending on the problem a leader is trying to solve.
+              <p className="mt-3 max-w-[760px] text-sm leading-6 text-slate-300">
+                Build, Grow, and Operate keep the first conversation simple. Choose a service or start with the lane that fits the problem.
               </p>
             </div>
 
-            <div className="mt-12 grid gap-5 lg:grid-cols-2">
-              {capabilityLanes.map((lane) => (
+            <div className="mt-6 grid gap-3 lg:grid-cols-3">
+              {capabilityGroups.map((group) => (
                 <article
-                  key={lane.id}
-                  id={lane.id}
-                  className="enterprise-card rounded-[28px] border border-slate-200 bg-white px-6 py-7 shadow-[0_18px_38px_rgba(15,23,42,0.06)]"
+                  key={group.label}
+                  id={group.label.toLowerCase()}
+                  className="rounded-[18px] border border-cyan-100/12 bg-[#1c3c4d] p-2.5 text-center shadow-[0_24px_70px_rgba(3,8,16,0.22)]"
                 >
-                  <p className="text-xs font-semibold uppercase tracking-[0.18em] text-[#9f412c]">
-                    {lane.eyebrow}
-                  </p>
-                  <h3 className="mt-4 text-2xl font-semibold tracking-[-0.04em] text-slate-950">
-                    {lane.title}
-                  </h3>
-                  <p className="mt-4 text-base leading-8 text-slate-600">{lane.description}</p>
-                  <ul className="mt-6 grid gap-2 sm:grid-cols-2">
-                    {lane.builds.map((item) => (
-                      <li
-                        key={item}
-                        className="border-l border-[#9f412c]/24 pl-4 text-sm font-semibold leading-6 text-slate-700"
-                      >
-                        {item}
-                      </li>
-                    ))}
-                  </ul>
-                  <Link
-                    href={lane.href}
-                    className="capability-lane-action mt-7"
+                  <div
+                    className={`relative isolate flex min-h-12 items-center justify-center overflow-hidden rounded-[12px] border px-4 py-2.5 text-lg font-black uppercase tracking-[0.3em] shadow-[inset_0_1px_0_rgba(255,255,255,0.08)] ${
+                      group.label === "Build"
+                        ? "border-cyan-100/16 bg-[#285869]"
+                        : group.label === "Grow"
+                          ? "border-emerald-100/16 bg-[#315f55]"
+                          : "border-indigo-100/16 bg-[#3e506c]"
+                    }`}
                   >
-                    {lane.cta}
+                    <span className="relative z-10 text-white">
+                      {group.label}
+                    </span>
+                  </div>
+
+                  <h3 className="mx-auto mt-3 max-w-[360px] text-xl font-semibold tracking-[-0.035em] text-white">
+                    {group.headline}
+                  </h3>
+                  <p className="mx-auto mt-2 max-w-[380px] text-xs leading-5 text-slate-200">
+                    {group.buyerPrompt}
+                  </p>
+                  <div className="mt-3 grid gap-1.5 rounded-[14px] border border-cyan-100/10 bg-[#173343] p-2">
+                    {group.links.map((service) => (
+                      <Link
+                        key={service.label}
+                        href={service.href}
+                        className="rounded-[10px] border border-cyan-100/10 bg-[#1c3c4d] px-2.5 py-2 text-center transition hover:-translate-y-0.5 hover:border-cyan-100/24 hover:bg-[#24495c]"
+                      >
+                        <span className="block text-[0.78rem] font-semibold leading-4 text-white">
+                          {service.label}
+                        </span>
+                        <span className="mx-auto mt-1 block max-w-[20rem] text-[0.66rem] leading-4 text-slate-300">
+                          {service.detail}
+                        </span>
+                      </Link>
+                    ))}
+                  </div>
+                  <Link
+                    href={group.actionHref}
+                    className="mt-3 inline-flex min-h-10 items-center justify-center rounded-full bg-[color:var(--color-accent)] px-5 text-sm font-semibold text-white shadow-[0_14px_34px_rgba(255,124,82,0.25)] transition hover:brightness-110"
+                  >
+                    {group.primaryCta}
                   </Link>
                 </article>
               ))}
