@@ -77,6 +77,7 @@ export default async function DirectServicePage({ params }: ServicePageProps) {
         title={service.title}
         description={service.summary}
         compact={isWebsiteDevelopment}
+        className={isWebsiteDevelopment ? "website-dev-page-intro" : ""}
         actions={[
           { href: `${contactPathFor(service.slug)}#contact-top`, label: service.primaryCta },
           service.secondaryCta
@@ -176,7 +177,7 @@ export default async function DirectServicePage({ params }: ServicePageProps) {
         <section
           className={`section-shell section-shell-dark ${
             isWebsiteDevelopment ? "!pt-0 !pb-8 lg:!pt-1 lg:!pb-10" : "!py-10 lg:!py-12"
-          }`}
+          } ${isWebsiteDevelopment ? "website-dev-related-section" : ""}`}
         >
           <div className="section-inner">
             <div className="max-w-[900px]">
@@ -210,7 +211,7 @@ function WebsiteDevelopmentShowcase({ service }: { service: NonNullable<ReturnTy
     <Reveal delayMs={40}>
       <section className="website-dev-showcase section-shell section-shell-light !pt-0 !pb-0 lg:!pt-0 lg:!pb-0">
         <div className="section-inner">
-          <div className="website-dev-visual relative overflow-hidden px-6 py-8 lg:min-h-[440px] lg:px-8 lg:py-10">
+          <div className="website-dev-visual relative hidden overflow-hidden px-6 py-8 md:block lg:min-h-[440px] lg:px-8 lg:py-10">
             <Image
               src="/images/services/website-development-lightflow-hero.png"
               alt="High-speed light flow and floating digital windows representing fast connected website development"
@@ -231,6 +232,33 @@ function WebsiteDevelopmentShowcase({ service }: { service: NonNullable<ReturnTy
                 <span className="block">Then move the right person to the next step.</span>
               </p>
               <div className="website-dev-stack-options mt-12 inline-flex flex-col items-center gap-5 text-center text-lg font-semibold uppercase tracking-[-0.04em] text-white">
+                <span>NEW BUILD</span>
+                <span>REBUILD OR CLEANUP</span>
+                <span>FEATURE ADD-ON</span>
+              </div>
+            </div>
+          </div>
+          <div className="website-dev-mobile-panel relative overflow-hidden px-5 py-7 md:hidden">
+            <Image
+              src="/images/services/website-development-lightflow-hero.png"
+              alt=""
+              fill
+              sizes="100vw"
+              className="absolute inset-0 object-cover object-center brightness-[1.18] contrast-[1.08] saturate-[1.45]"
+              priority={false}
+              aria-hidden="true"
+            />
+            <div className="absolute inset-0 bg-[linear-gradient(180deg,rgba(3,18,28,0.92)_0%,rgba(3,18,28,0.84)_46%,rgba(3,18,28,0.94)_100%)]" />
+            <div className="relative z-10 mx-auto flex max-w-[330px] flex-col items-center text-center">
+              <h2 className="text-[1.62rem] font-semibold leading-[1.08] tracking-[-0.055em] text-white">
+                <span className="block">Build it new.</span>
+                <span className="mt-1 block">Rebuild what is there.</span>
+                <span className="mt-2 block">Add what is missing.</span>
+              </h2>
+              <p className="mt-4 max-w-[300px] text-[0.94rem] leading-6 text-slate-200">
+                Make the offer clear, earn trust quickly, and move the right person to the next step.
+              </p>
+              <div className="mt-7 flex flex-col items-center gap-3 text-[0.88rem] font-semibold uppercase tracking-[0.04em] text-white">
                 <span>NEW BUILD</span>
                 <span>REBUILD OR CLEANUP</span>
                 <span>FEATURE ADD-ON</span>
