@@ -3,18 +3,11 @@ import Link from "next/link";
 
 import { certifications, site } from "@/lib/site-data";
 
-const exploreLeft = [
+const exploreLinks = [
   { href: "/services", label: "Services" },
-  { href: "/platforms", label: "Platforms" },
   { href: "/industries", label: "Industries" },
-  { href: "/results", label: "Results" },
-];
-
-const exploreRight = [
   { href: "/resources", label: "Resources" },
-  { href: "/insights", label: "Insights" },
-  { href: "/events", label: "Briefings" },
-  { href: "/products", label: "Tools" },
+  { href: "/results", label: "Results" },
   { href: "/team", label: "Leadership" },
   { href: "/contact", label: "Contact" },
 ];
@@ -42,9 +35,9 @@ const certificationToneClass = (name: string) => {
 
 export function Footer() {
   return (
-    <footer className="relative overflow-hidden border-t border-cyan-100/10 bg-[#061824] py-12 text-slate-300 shadow-[0_-28px_90px_rgba(2,8,14,0.22)]">
+    <footer className="relative overflow-hidden border-t border-cyan-100/10 bg-[#061824] py-10 text-slate-300 shadow-[0_-28px_90px_rgba(2,8,14,0.22)]">
       <div className="pointer-events-none absolute inset-0 bg-[radial-gradient(circle_at_12%_12%,rgba(242,139,91,0.08),transparent_24%),radial-gradient(circle_at_84%_18%,rgba(97,192,215,0.08),transparent_20%),linear-gradient(180deg,rgba(255,255,255,0.01),rgba(255,255,255,0))]" />
-      <div className="section-inner relative grid items-start gap-8 lg:grid-cols-[minmax(0,1fr)_minmax(220px,260px)_minmax(0,1fr)]">
+      <div className="section-inner relative grid items-start gap-7 lg:grid-cols-[minmax(0,1fr)_minmax(220px,280px)_minmax(0,1fr)]">
         <div className="max-w-[760px]">
           <Link href="/" aria-label="Farcelis AI Consulting home">
             <Image
@@ -55,11 +48,11 @@ export function Footer() {
               className="h-10 w-auto brightness-[1.55]"
             />
           </Link>
-          <p className="mt-5 max-w-[760px] text-base leading-7 text-slate-300">
-            Farcelis helps businesses build websites and tools, grow with clearer marketing
-            and follow-up, and keep the work organized after launch.
+          <p className="mt-5 max-w-[760px] text-xl font-semibold leading-8 tracking-[-0.03em] text-white">
+            Stop losing time to scattered work. Farcelis connects the websites, tools,
+            workflows, and follow-up your business depends on.
           </p>
-          <div className="mt-5 flex flex-col gap-5 sm:flex-row sm:items-end">
+          <div className="mt-4 flex flex-col gap-4 sm:flex-row sm:items-end">
             <div className="space-y-0.5 text-sm leading-6 text-slate-400">
               <div>{site.contact.email}</div>
               <div>{site.contact.phone}</div>
@@ -93,55 +86,15 @@ export function Footer() {
 
         <div className="mx-auto w-full max-w-[260px]">
           <p className="eyebrow footer-column-heading text-[color:var(--color-accent)]">Explore</p>
-          <div className="mx-auto mt-5 grid w-[240px] grid-cols-2 gap-x-4 gap-y-2 text-center text-sm leading-6 text-slate-300">
-            <div className="grid gap-2">
-              {exploreLeft.map((item) => (
-                <Link
-                  key={item.href}
-                  href={item.href}
-                  className="inline-flex min-h-9 items-center justify-center transition hover:text-white"
-                >
-                  {item.label}
-                </Link>
-              ))}
-            </div>
-            <div className="grid gap-2">
-              {exploreRight.map((item) => (
-                <Link
-                  key={item.href}
-                  href={item.href}
-                  className="inline-flex min-h-9 items-center justify-center transition hover:text-white"
-                >
-                  {item.label}
-                </Link>
-              ))}
-            </div>
-          </div>
-          <div className="mx-auto mt-5 grid w-[152px] grid-cols-2 gap-3">
-            {[
-              {
-                src: "/images/certifications/sba-sdvosb.jpg",
-                alt: "SBA Service-Disabled Veteran-Owned Certified",
-              },
-              {
-                src: "/images/certifications/sba-edwosb.jpg",
-                alt: "SBA EDWOSB Certified",
-              },
-            ].map((badge) => (
-              <div
-                key={badge.src}
-                className="rounded-[12px] border border-white/8 bg-white/[0.035] p-1.5 shadow-[0_10px_22px_rgba(3,8,16,0.16)]"
+          <div className="mx-auto mt-5 grid w-[260px] grid-cols-3 gap-x-5 gap-y-3 text-center text-sm leading-6 text-slate-300">
+            {exploreLinks.map((item) => (
+              <Link
+                key={item.href}
+                href={item.href}
+                className="inline-flex min-h-8 items-center justify-center transition hover:-translate-y-0.5 hover:text-white"
               >
-                <div className="relative aspect-[4/5] overflow-hidden rounded-[8px] bg-white/95">
-                  <Image
-                    src={badge.src}
-                    alt={badge.alt}
-                    fill
-                    sizes="70px"
-                    className="object-contain p-1"
-                  />
-                </div>
-              </div>
+                {item.label}
+              </Link>
             ))}
           </div>
         </div>
@@ -164,7 +117,7 @@ export function Footer() {
         </div>
       </div>
 
-      <div className="section-inner relative mt-8 flex flex-col gap-4 pt-4 text-sm text-slate-400 lg:flex-row lg:items-center lg:justify-between">
+      <div className="section-inner relative mt-6 flex flex-col gap-3 pt-3 text-sm text-slate-400 lg:flex-row lg:items-center lg:justify-between">
         <div>© 2026 Farcelis AI Consulting. All rights reserved.</div>
         <div className="flex flex-wrap gap-x-4 gap-y-2">
           {site.legalLinks.map((item) => (
