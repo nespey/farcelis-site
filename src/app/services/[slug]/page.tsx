@@ -140,9 +140,7 @@ export default async function DirectServicePage({ params }: ServicePageProps) {
         </>
       )}
 
-      {isWebsiteDevelopment ? (
-        <WebsiteDevelopmentHandoff />
-      ) : (
+      {!isWebsiteDevelopment && (
         <Reveal delayMs={120}>
           <section className="section-shell section-shell-light !py-10 lg:!py-12">
             <div className="section-inner grid gap-5 lg:grid-cols-2">
@@ -325,28 +323,6 @@ function WebsiteDevelopmentShowcase({ service }: { service: NonNullable<ReturnTy
                 </div>
               ))}
             </div>
-          </div>
-        </div>
-      </section>
-    </Reveal>
-  );
-}
-
-function WebsiteDevelopmentHandoff() {
-  return (
-    <Reveal delayMs={120}>
-      <section className="section-shell section-shell-light !py-8 lg:!py-10">
-        <div className="section-inner">
-          <div className="rounded-[18px] border border-cyan-100/12 bg-[linear-gradient(135deg,rgba(255,127,80,0.16),rgba(227,70,220,0.1)_46%,rgba(255,255,255,0.045))] px-6 py-6 lg:flex lg:items-center lg:justify-between lg:gap-8">
-            <div>
-              <p className="eyebrow text-[color:var(--color-accent)]">What Comes Next</p>
-              <h2 className="mt-3 max-w-[980px] text-3xl font-semibold tracking-[-0.05em] text-white md:text-4xl">
-                The website should not stop at looking better. It should make the next step easier.
-              </h2>
-            </div>
-            <p className="mt-4 max-w-[440px] text-base leading-7 text-slate-300 lg:mt-0">
-              Search visibility, quote paths, CRM, content, and reporting can connect after the core site is clear.
-            </p>
           </div>
         </div>
       </section>
