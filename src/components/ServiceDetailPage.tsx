@@ -75,9 +75,9 @@ export function ServiceDetailPage({ service }: ServiceDetailPageProps) {
                 {coverItems.map((item) => (
                   <div
                     key={item}
-                    className="service-detail-capability-item flex min-h-[48px] items-center justify-center rounded-[12px] border border-cyan-100/10 bg-white/[0.035] px-4 py-3 text-center"
+                    className="service-detail-capability-item flex min-h-[32px] items-center justify-center px-3 py-1 text-center"
                   >
-                    <span className="text-sm font-semibold leading-5 text-slate-100">{item}</span>
+                    <span className="text-sm font-semibold leading-5 text-slate-200">{item}</span>
                   </div>
                 ))}
               </div>
