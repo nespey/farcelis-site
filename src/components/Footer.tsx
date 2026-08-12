@@ -3,10 +3,13 @@ import Link from "next/link";
 
 import { certifications, site } from "@/lib/site-data";
 
-const exploreLinks = [
+const exploreLeft = [
   { href: "/services", label: "Services" },
   { href: "/industries", label: "Industries" },
   { href: "/resources", label: "Resources" },
+];
+
+const exploreRight = [
   { href: "/results", label: "Results" },
   { href: "/team", label: "Leadership" },
   { href: "/contact", label: "Contact" },
@@ -86,15 +89,47 @@ export function Footer() {
 
         <div className="mx-auto w-full max-w-[260px]">
           <p className="eyebrow footer-column-heading text-[color:var(--color-accent)]">Explore</p>
-          <div className="mx-auto mt-5 grid w-[260px] grid-cols-3 gap-x-5 gap-y-3 text-center text-sm leading-6 text-slate-300">
-            {exploreLinks.map((item) => (
-              <Link
-                key={item.href}
-                href={item.href}
-                className="inline-flex min-h-8 items-center justify-center transition hover:-translate-y-0.5 hover:text-white"
+          <div className="mx-auto mt-5 grid w-[250px] grid-cols-2 gap-x-8 text-center text-sm leading-6 text-slate-300">
+            {[exploreLeft, exploreRight].map((column, columnIndex) => (
+              <div key={columnIndex} className="grid gap-2.5">
+                {column.map((item) => (
+                  <Link
+                    key={item.href}
+                    href={item.href}
+                    className="inline-flex min-h-8 items-center justify-center transition hover:-translate-y-0.5 hover:text-white"
+                  >
+                    {item.label}
+                  </Link>
+                ))}
+              </div>
+            ))}
+          </div>
+
+          <div className="mx-auto mt-4 grid w-[134px] grid-cols-2 gap-3">
+            {[
+              {
+                src: "/images/certifications/sba-sdvosb.jpg",
+                alt: "SBA Service-Disabled Veteran-Owned Certified",
+              },
+              {
+                src: "/images/certifications/sba-edwosb.jpg",
+                alt: "SBA EDWOSB Certified",
+              },
+            ].map((badge) => (
+              <div
+                key={badge.src}
+                className="rounded-[10px] border border-white/8 bg-white/[0.035] p-1.5 shadow-[0_10px_22px_rgba(3,8,16,0.16)]"
               >
-                {item.label}
-              </Link>
+                <div className="relative aspect-[4/5] overflow-hidden rounded-[7px] bg-white/95">
+                  <Image
+                    src={badge.src}
+                    alt={badge.alt}
+                    fill
+                    sizes="62px"
+                    className="object-contain p-1"
+                  />
+                </div>
+              </div>
             ))}
           </div>
         </div>
