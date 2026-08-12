@@ -236,7 +236,7 @@ export const directServices: DirectService[] = [
     summary:
       "New site, rebuild, cleanup, or custom feature: Farcelis builds the path from first visit to follow-up.",
     primaryCta: "Discuss website development",
-    secondaryCta: { href: "/services/seo-aeo-visibility", label: "See SEO & AEO visibility" },
+    secondaryCta: { href: "/services/seo-search-visibility", label: "See SEO visibility" },
     buildKicker: "Where to Start",
     buildTitle: "Start with what the site needs to do.",
     buildSummary:
@@ -273,13 +273,13 @@ export const directServices: DirectService[] = [
     ],
     related: [
       {
-        href: "/services/seo-aeo-visibility",
-        label: "SEO & AEO Visibility",
+        href: "/services/seo-search-visibility",
+        label: "SEO & Search Visibility",
         detail: "Make the site easier to find and understand.",
       },
       {
-        href: "/services/marketing-automation-crm",
-        label: "Marketing Automation & CRM",
+        href: "/services/crm-revenue-operations",
+        label: "CRM & Revenue Operations",
         detail: "Turn inquiries into visible follow-up.",
       },
       {
