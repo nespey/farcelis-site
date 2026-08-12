@@ -208,9 +208,9 @@ export default async function DirectServicePage({ params }: ServicePageProps) {
 function WebsiteDevelopmentShowcase({ service }: { service: NonNullable<ReturnType<typeof getDirectService>> }) {
   return (
     <Reveal delayMs={40}>
-      <section className="section-shell section-shell-light !pt-2 !pb-6 lg:!pt-3 lg:!pb-8">
+      <section className="section-shell section-shell-light !pt-0 !pb-5 lg:!pt-0 lg:!pb-7">
         <div className="section-inner">
-          <div className="relative overflow-hidden px-6 py-10 lg:min-h-[430px] lg:px-8 lg:py-14">
+          <div className="relative overflow-hidden px-6 py-8 lg:min-h-[400px] lg:px-8 lg:py-10">
             <Image
               src="/images/services/website-development-lightflow-hero.png"
               alt="High-speed light flow and floating digital windows representing fast connected website development"
