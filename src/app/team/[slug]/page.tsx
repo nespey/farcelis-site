@@ -62,7 +62,7 @@ export default async function TeamMemberPage({
               <div className="relative aspect-[4/5] overflow-hidden rounded-[20px]">
                 <Image
                   src={member.image}
-                  alt={member.name}
+                  alt={`${member.name}, ${member.role} at Farcelis AI Consulting`}
                   fill
                   sizes="(max-width: 1024px) 380px, 380px"
                   className="object-cover"

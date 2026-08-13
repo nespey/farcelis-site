@@ -243,6 +243,50 @@ a {
   padding-bottom: clamp(2rem, 4vw, 3rem) !important;
 }
 
+.team-page-intro {
+  padding-top: clamp(3.5rem, 6vw, 5.5rem) !important;
+  padding-bottom: clamp(2rem, 3.5vw, 3rem) !important;
+}
+
+.team-page-intro .display-page {
+  max-width: 940px;
+  font-size: clamp(2.25rem, 3.2vw, 3.4rem);
+  line-height: 1.08;
+  text-wrap: balance;
+}
+
+.team-page-intro .lede {
+  max-width: 940px;
+}
+
+.team-grid-section {
+  padding-top: clamp(1rem, 2vw, 1.75rem) !important;
+  padding-bottom: clamp(3rem, 5vw, 4.5rem) !important;
+}
+
+.team-grid {
+  max-width: 1600px;
+}
+
+.leadership-card {
+  min-height: 100%;
+}
+
+@media (min-width: 1280px) {
+  .leadership-card-image {
+    aspect-ratio: 4 / 4.35;
+  }
+
+  .leadership-card-copy {
+    min-height: 188px;
+    align-items: flex-start;
+  }
+
+  .leadership-card-copy .eyebrow {
+    min-height: 2.2em;
+  }
+}
+
 .results-public-proof-section {
   padding-bottom: clamp(2rem, 4vw, 3.5rem);
 }
