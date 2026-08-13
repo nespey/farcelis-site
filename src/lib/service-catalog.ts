@@ -582,6 +582,7 @@ export const directServices: DirectService[] = [
       "Package selectors and add-on choices",
       "Contact forms tied to the quote details",
       "Email, CRM, and reporting follow-up",
+      "Buyer interest and pricing signal views",
     ],
     process: [
       "List the questions a buyer must answer.",

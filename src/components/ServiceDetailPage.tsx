@@ -13,7 +13,13 @@ type ServiceDetailPageProps = {
 
 export function ServiceDetailPage({ service }: ServiceDetailPageProps) {
   const content = getServicePageContent(service.slug);
-  const coverItems = service.capabilities.slice(0, service.capabilities.length >= 6 ? 6 : 4);
+  const coverItems = service.capabilities.slice(0, service.capabilities.length >= 6 ? 6 : 3);
+  const relatedGridClass =
+    service.related.length === 3
+      ? "md:grid-cols-3"
+      : service.related.length === 2
+        ? "md:grid-cols-2"
+        : "md:grid-cols-2 xl:grid-cols-4";
   const imageObjectPosition =
     service.slug === "aeo-ai-search-visibility" ? "object-right-center" : "object-center";
 
@@ -71,7 +77,7 @@ export function ServiceDetailPage({ service }: ServiceDetailPageProps) {
                   The work Farcelis handles on this page.
                 </h2>
               </div>
-              <div className="service-detail-capability-list grid gap-3 sm:grid-cols-2 xl:grid-cols-3">
+              <div className="service-detail-capability-list grid gap-3 sm:grid-cols-3">
                 {coverItems.map((item) => (
                   <div
                     key={item}
@@ -104,7 +110,7 @@ export function ServiceDetailPage({ service }: ServiceDetailPageProps) {
               </Link>
             </div>
 
-            <div className="mt-5 grid gap-3 md:grid-cols-2 xl:grid-cols-4">
+            <div className={`mt-5 grid gap-3 ${relatedGridClass}`}>
               {service.related.map((item) => (
                 <Link
                   key={item.label}
@@ -114,7 +120,9 @@ export function ServiceDetailPage({ service }: ServiceDetailPageProps) {
                   <h3 className="text-base font-semibold tracking-[-0.03em] text-white">
                     {item.label}
                   </h3>
-                  <p className="mt-1.5 text-sm leading-5 text-slate-300">{item.detail}</p>
+                  <p className="mx-auto mt-1.5 max-w-[34rem] text-center text-sm leading-5 text-slate-300">
+                    {item.detail}
+                  </p>
                 </Link>
               ))}
             </div>

@@ -22,7 +22,7 @@ export const servicePageContent: Record<string, ServicePageContent> = {
   "quote-pricing-tools": {
     image: "/images/services/adobe-stock/quote-pricing-tools.jpeg",
     imageAlt:
-      "Digital quote and pricing tool with invoice, estimate, and calculation interface",
+      "Digital quote and pricing dashboard with analytics, estimate logic, and buyer request signals",
     seoIntro:
       "Farcelis builds quote builders, pricing calculators, estimate request forms, and package selectors for companies that need buyers to understand price range before the first call. These website tools collect the right details, guide visitors through options, and send clean quote requests to email, CRM, or reporting for follow-up.",
   },
