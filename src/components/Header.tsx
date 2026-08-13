@@ -37,15 +37,15 @@ function CapabilityPillarHeader({ label }: { label: string }) {
 
   return (
     <div
-      className={`relative isolate flex min-h-12 items-center justify-center overflow-hidden rounded-[12px] border px-4 py-2.5 text-lg font-black uppercase tracking-[0.3em] shadow-[inset_0_1px_0_rgba(255,255,255,0.08)] ${
+      className={`relative isolate flex min-h-12 -translate-y-px items-center justify-center overflow-hidden rounded-[12px] border px-4 py-2.5 text-xl font-black uppercase tracking-[0.32em] shadow-[inset_0_1px_0_rgba(255,255,255,0.08)] ${
         pillar === "Build"
-          ? "border-cyan-100/16 bg-[#285869]"
+          ? "border-cyan-100/16 bg-[#376c7c]"
           : pillar === "Grow"
-            ? "border-emerald-100/16 bg-[#315f55]"
-            : "border-indigo-100/16 bg-[#3e506c]"
+            ? "border-emerald-100/16 bg-[#3f745f]"
+            : "border-indigo-100/16 bg-[#53647f]"
       }`}
     >
-      <span className="relative z-10 text-white">{label}</span>
+      <span className="relative z-10 text-[#ff955f]">{label}</span>
     </div>
   );
 }
