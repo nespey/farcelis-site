@@ -83,7 +83,9 @@ export function ServiceDetailPage({ service }: ServiceDetailPageProps) {
                     key={item}
                     className="service-detail-capability-item flex min-h-[32px] items-center justify-center px-3 py-1 text-center"
                   >
-                    <span className="text-sm font-semibold leading-5 text-slate-200">{item}</span>
+                    <span className="text-sm font-semibold leading-5 text-slate-200 [text-wrap:balance]">
+                      {item}
+                    </span>
                   </div>
                 ))}
               </div>
@@ -117,10 +119,10 @@ export function ServiceDetailPage({ service }: ServiceDetailPageProps) {
                   href={item.href}
                   className="flex min-h-[82px] flex-col items-center justify-center rounded-[14px] border border-cyan-100/12 bg-white/[0.045] px-4 py-3 text-center transition hover:border-cyan-100/24 hover:bg-white/[0.07]"
                 >
-                  <h3 className="text-base font-semibold tracking-[-0.03em] text-white">
+                  <h3 className="text-center text-base font-semibold tracking-[-0.03em] text-white [text-wrap:balance]">
                     {item.label}
                   </h3>
-                  <p className="mx-auto mt-1.5 max-w-[34rem] text-center text-sm leading-5 text-slate-300">
+                  <p className="mx-auto mt-1.5 max-w-[24rem] text-center text-sm leading-5 text-slate-300 [text-wrap:balance]">
                     {item.detail}
                   </p>
                 </Link>

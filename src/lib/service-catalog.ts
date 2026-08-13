@@ -275,7 +275,7 @@ export const directServices: DirectService[] = [
       {
         href: "/services/seo-search-visibility",
         label: "SEO & Search Visibility",
-        detail: "Make the site easier to find and understand.",
+        detail: "Make the site easier to find.",
       },
       {
         href: "/services/crm-revenue-operations",
@@ -285,7 +285,7 @@ export const directServices: DirectService[] = [
       {
         href: "/services/quote-pricing-tools",
         label: "Quote & Pricing Tools",
-        detail: "Let buyers request a clearer estimate.",
+        detail: "Let buyers request a clear estimate.",
       },
       {
         href: "/services/content-revenue-systems",
@@ -332,22 +332,22 @@ export const directServices: DirectService[] = [
       {
         href: "/control-layer",
         label: "Farcelis Control Layer",
-        detail: "See the flagship command-surface model.",
+        detail: "Use a shared command surface.",
       },
       {
         href: "/platforms",
         label: "Platforms & Integrations",
-        detail: "Connect the tool to the systems already carrying the work.",
+        detail: "Connect the tool to existing systems.",
       },
       {
         href: "/services/quote-pricing-tools",
         label: "Quote & Pricing Tools",
-        detail: "Build a buyer-facing quote experience when pricing questions slow down sales.",
+        detail: "Build a buyer-facing quote path.",
       },
       {
         href: "/services/workflow-operations",
         label: "Workflow & Operations",
-        detail: "Clarify the path of work before building the surface.",
+        detail: "Clarify the work before the build.",
       },
     ],
   },
@@ -365,7 +365,7 @@ export const directServices: DirectService[] = [
       "Operating metrics tied to action",
       "Client, team, or executive visibility surfaces",
       "Workflow, revenue, and delivery signal views",
-      "Decision-ready layouts that show ownership and next steps",
+      "Decision views with owners and next steps",
       "Review views for weekly operating rhythm",
     ],
     process: [
@@ -389,22 +389,22 @@ export const directServices: DirectService[] = [
       {
         href: "/services/app-portal-development",
         label: "App & Portal Development",
-        detail: "Build the working surface around the dashboard when people need to act inside it.",
+        detail: "Build the working surface around it.",
       },
       {
         href: "/services/reporting-decision-systems",
         label: "Reporting & Decision Systems",
-        detail: "Move from a dashboard into a broader decision rhythm.",
+        detail: "Turn views into decision rhythm.",
       },
       {
         href: "/services/quote-pricing-tools",
         label: "Quote & Pricing Tools",
-        detail: "See how quote activity can become useful sales and pricing signal.",
+        detail: "Show quote activity as sales signal.",
       },
       {
         href: "/control-layer",
         label: "Farcelis Control Layer",
-        detail: "Place dashboards inside the operating layer for visibility and action.",
+        detail: "Place dashboards inside the operating layer.",
       },
     ],
   },
@@ -422,7 +422,7 @@ export const directServices: DirectService[] = [
       "CRM updates and task creation",
       "AI assistants for repeated internal work",
       "Report drafts, summaries, and routing",
-      "Human review points before anything sensitive moves forward",
+      "Human review before sensitive work moves",
       "Clear ownership for automated workflows",
     ],
     process: [
@@ -446,17 +446,17 @@ export const directServices: DirectService[] = [
       {
         href: "/services/platform-connections",
         label: "Platform Connections",
-        detail: "Connect the tools the automation needs to read from or write to.",
+        detail: "Connect the tools automation uses.",
       },
       {
         href: "/services/crm-revenue-operations",
         label: "CRM & Revenue Operations",
-        detail: "Use automation to improve lead capture and follow-up.",
+        detail: "Improve lead capture and follow-up.",
       },
       {
         href: "/services/workflow-managed-operations",
         label: "Workflow & Managed Operations",
-        detail: "Make sure automated work fits the way the team actually operates.",
+        detail: "Fit automation into daily work.",
       },
     ],
   },
@@ -473,7 +473,7 @@ export const directServices: DirectService[] = [
       "Website form and CRM handoff",
       "Email, task, and notification routing",
       "Dashboard and reporting data connections",
-      "Automation paths between common business tools",
+      "Automation paths between tools",
       "Connection checks before launch",
       "Cleaner handoffs between existing systems",
     ],
@@ -498,17 +498,17 @@ export const directServices: DirectService[] = [
       {
         href: "/services/website-development",
         label: "Website Development",
-        detail: "Make sure public forms and service pages create useful next steps.",
+        detail: "Make forms create useful next steps.",
       },
       {
         href: "/services/ai-agents-automations",
         label: "AI Agents & Automations",
-        detail: "Add automation once the connection path is clear.",
+        detail: "Automate after the path is clear.",
       },
       {
         href: "/services/dashboards-decision-views",
         label: "Dashboards and Decision Views",
-        detail: "Turn connected data into views leaders can use.",
+        detail: "Turn connected data into clear views.",
       },
     ],
   },
@@ -605,22 +605,22 @@ export const directServices: DirectService[] = [
       {
         href: "/services/website-development",
         label: "Website Development",
-        detail: "Place the quote tool inside a clear website and service path.",
+        detail: "Put the quote tool inside a clear site.",
       },
       {
         href: "/services/app-portal-development",
         label: "App & Portal Development",
-        detail: "Turn the quote flow into a fuller client or internal tool when needed.",
+        detail: "Turn the quote flow into a client tool.",
       },
       {
         href: "/services/marketing-automation-crm",
         label: "CRM & Revenue Operations",
-        detail: "Route quote requests into follow-up, pipeline, and reporting.",
+        detail: "Route quote requests into follow-up.",
       },
       {
         href: "/services/dashboards-decision-views",
         label: "Dashboards and Decision Views",
-        detail: "See which services, budgets, and quote paths are creating interest.",
+        detail: "See which quote paths create interest.",
       },
     ],
   },

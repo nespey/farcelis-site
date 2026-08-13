@@ -20,9 +20,9 @@ export const servicePageContent: Record<string, ServicePageContent> = {
       "Farcelis provides app and portal development for businesses that need client portals, internal tools, login areas, dashboards, intake systems, and repeatable workspaces. We build digital tools that help teams and clients see status, request work, manage information, and keep the next step clear.",
   },
   "quote-pricing-tools": {
-    image: "/images/services/adobe-stock/quote-pricing-tools.jpeg",
+    image: "/images/services/adobe-stock/quote-pricing-tools.png",
     imageAlt:
-      "Digital quote and pricing dashboard with analytics, estimate logic, and buyer request signals",
+      "Dark quote builder and pricing calculator interface with estimate sliders, package choices, and request form fields",
     seoIntro:
       "Farcelis builds quote builders, pricing calculators, estimate request forms, and package selectors for companies that need buyers to understand price range before the first call. These website tools collect the right details, guide visitors through options, and send clean quote requests to email, CRM, or reporting for follow-up.",
   },
