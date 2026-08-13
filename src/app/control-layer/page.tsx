@@ -337,19 +337,19 @@ export default function ControlLayerPage() {
   const possibilityCards = [
     {
       title: "Any operating surface",
-      body: "If the work is scattered, the Control Layer gives it a command surface. Revenue, delivery, cash, compliance, hiring, household logistics, and executive pressure all become visible enough to move.",
+      body: "If the work is scattered, the Control Layer gives it one clear operating view. Revenue, delivery, cash, compliance, hiring, household logistics, and executive pressure become visible enough to move.",
     },
     {
       title: "Any signal source",
-      body: "The system does not wait for perfect data. It pulls signal from email, calendars, spreadsheets, CRMs, forms, documents, finance tools, task systems, and human check-ins, then turns noise into routed work.",
+      body: "It can pull signal from email, calendars, spreadsheets, CRMs, forms, documents, finance tools, task systems, and human check-ins, then turn noise into routed work.",
     },
     {
       title: "Any decision rhythm",
-      body: "Daily triage, weekly reviews, contract calls, cash planning, family planning, pursuit tracking, and escalation loops stop floating. Each rhythm gets a place, an owner, and a next move.",
+      body: "Daily triage, weekly reviews, contract calls, cash planning, pursuit tracking, and escalation loops stop floating. Each rhythm gets a place, an owner, and a next move.",
     },
     {
       title: "Any visual language",
-      body: "The board can feel like a secure command post, a bright household cockpit, a founder's cockpit, a sales war room, or a mission board built for one exact team. The environment bends to the client.",
+      body: "The board can look and feel like the environment it supports: executive, sales, operations, household, compliance, or support. The system bends to the client.",
     },
   ];
 
@@ -358,9 +358,9 @@ export default function ControlLayerPage() {
       <DashboardActivityDriver />
       <PageIntro
         className="control-intro-section control-hero"
-        eyebrow="Custom Execution Systems"
-        title="A Control Layer can become whatever operating surface your work, household, or organization needs."
-        description="The two builds below are not the limits of the product. They are proof that the same architecture can be tailored into radically different command environments, each with its own data, rhythm, integrations, visual language, and decision logic."
+        eyebrow="Custom Operating Systems"
+        title="One place to see the work, owners, status, and next move."
+        description="The Farcelis Control Layer is a custom dashboard and operating surface that pulls scattered tools, requests, tasks, reports, and decisions into one place people can actually use."
         actions={[
           { href: "/contact", label: "Work With Farcelis" },
           { href: "/services", label: "See Service Paths", variant: "secondary" },
@@ -378,13 +378,11 @@ export default function ControlLayerPage() {
               <div className="control-case-copy">
                 <p className="eyebrow text-[color:var(--color-accent)]">Cyber / GovCon Control Layer</p>
                 <h2 className="section-title mt-5 text-white">
-                  A mission-ready command surface for contracts, evidence, delivery risk, and leadership decisions.
+                  A shared operating dashboard for contracts, evidence, delivery risk, and leadership decisions.
                 </h2>
                 <p className="mt-6 max-w-[780px] text-lg leading-8 text-slate-300">
-                  This is one possible operating view for a compliance-driven cybersecurity company: contract lanes, CMMC evidence, deliverables,
-                  burn trackers, ownership, and executive stoplights moving in one governed frame. The board keeps scanning, clearing,
-                  re-ranking, and surfacing the next intervention so the team is not hunting through email, folder systems, and stale
-                  status calls to understand what matters.
+                  This is one example for a compliance-driven cybersecurity company. Contract work, evidence, delivery risks, owners, and
+                  decisions live in one view so the team can see what needs attention without hunting through email, folders, and status calls.
                 </p>
                 <div className="case-proof-grid">
                   {["Evidence readiness", "Contract closeout", "Owner accountability", "Decision queue"].map((item) => (
@@ -411,8 +409,8 @@ export default function ControlLayerPage() {
               <figcaption className="founder-quote-copy">
                 <p className="eyebrow text-[#ff7f4f]">Same Architecture, Different Life</p>
                 <blockquote>
-                  Every organization eventually needs a command system built around how it actually moves. The Control Layer should
-                  adapt to the work, learn from its signals, and reduce pressure instead of forcing people to bend around another tool.
+                  Every organization eventually needs one clear place to see what is moving, what is stuck, and who owns the next step.
+                  The Control Layer should reduce pressure instead of forcing people to bend around another tool.
                 </blockquote>
                 <p className="founder-quote-name">Nathan Espey</p>
                 <p className="founder-quote-role">Founder, Farcelis AI Consulting LLC</p>
@@ -436,10 +434,9 @@ export default function ControlLayerPage() {
                   A personal operating system for the work that normally lives in your head.
                 </h2>
                 <p className="mt-6 max-w-[780px] text-lg leading-8 text-slate-300">
-                  This is a different kind of Control Layer: a live command center for finances, calendars, appointments, embedded email, job-finder
-                  activity, shared lists, follow-ups, and family logistics stay visible together. It keeps moving in the background,
-                  turning new signals into tasks, updating priorities, and showing what needs attention before it becomes another
-                  open loop.
+                  This is a different kind of Control Layer: finances, calendars, appointments, email, job-finder activity, shared lists,
+                  follow-ups, and family logistics stay visible together. It turns new signals into tasks and shows what needs attention
+                  before it becomes another open loop.
                 </p>
                 <div className="case-proof-grid">
                   {["Bills and cash flow", "Appointments", "Family tasks", "Career pipeline"].map((item) => (
@@ -469,12 +466,11 @@ export default function ControlLayerPage() {
               <div className="infinite-copy">
                 <p className="eyebrow endless-kicker text-[#9f412c]">Endless System Shapes</p>
                 <h2 className="section-title mt-5 text-white">
-                  The real product is a Control Layer shaped around whatever needs to be commanded.
+                  The real product is one operating view shaped around the work that needs to stay visible.
                 </h2>
                 <p className="mt-6 max-w-[760px] text-lg leading-8 text-slate-300">
-                  A founder can command revenue, delivery, cash, and content. A contractor can command compliance, obligations,
-                  evidence, and risk. A household can command calendars, bills, email, appointments, and career movement. The
-                  architecture adapts to the environment instead of forcing the environment into a template.
+                  A business can use it for revenue, delivery, content, contracts, reporting, calendars, follow-up, or support. The point is
+                  not another tool. It is a place where the important work has an owner, a status, and a next move.
                 </p>
               </div>
 

@@ -20,8 +20,7 @@ export function ServiceDetailPage({ service }: ServiceDetailPageProps) {
       : service.related.length === 2
         ? "md:grid-cols-2"
         : "md:grid-cols-2 xl:grid-cols-4";
-  const imageObjectPosition =
-    service.slug === "aeo-ai-search-visibility" ? "object-right-center" : "object-center";
+  const imageObjectPosition = "object-center";
 
   return (
     <>
@@ -117,12 +116,12 @@ export function ServiceDetailPage({ service }: ServiceDetailPageProps) {
                 <Link
                   key={item.label}
                   href={item.href}
-                  className="flex min-h-[82px] flex-col items-center justify-center rounded-[14px] border border-cyan-100/12 bg-white/[0.045] px-4 py-3 text-center transition hover:border-cyan-100/24 hover:bg-white/[0.07]"
+                  className="flex min-h-[82px] flex-col items-center justify-center rounded-[14px] border border-cyan-100/12 bg-white/[0.045] px-5 py-3 text-center transition hover:border-cyan-100/24 hover:bg-white/[0.07]"
                 >
-                  <h3 className="text-center text-base font-semibold tracking-[-0.03em] text-white [text-wrap:balance]">
+                  <h3 className="mx-auto max-w-[23rem] text-center text-base font-semibold leading-5 tracking-[-0.03em] text-white [text-wrap:balance]">
                     {item.label}
                   </h3>
-                  <p className="mx-auto mt-1.5 max-w-[24rem] text-center text-sm leading-5 text-slate-300 [text-wrap:balance]">
+                  <p className="mx-auto mt-1.5 max-w-[21rem] text-center text-sm leading-5 text-slate-300 [text-wrap:balance]">
                     {item.detail}
                   </p>
                 </Link>

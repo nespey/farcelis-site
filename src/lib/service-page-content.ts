@@ -50,16 +50,16 @@ export const servicePageContent: Record<string, ServicePageContent> = {
   "seo-search-visibility": {
     image: "/images/services/adobe-stock/seo-search-visibility.jpeg",
     imageAlt:
-      "SEO analytics dashboard showing website traffic and search visibility performance",
+      "SEO search bar, website optimization, and search visibility interface on a dark digital background",
     seoIntro:
-      "Farcelis provides SEO and search visibility services for businesses that need stronger website structure, service pages, metadata, internal links, buyer-question content, and search-ready pages. We help Google, Bing, Apple, and other search engines understand what the business offers so the right people can find it.",
+      "Farcelis provides SEO and search visibility services for businesses that need clearer website structure, stronger service pages, search-ready metadata, internal links, local search signals, and buyer-question content. We help Google, Bing, Apple, and other search engines understand what the business offers so the right people can find it and take the next step.",
   },
   "aeo-ai-search-visibility": {
-    image: "/images/services/adobe-stock/seo-search-visibility.jpeg",
+    image: "/images/services/adobe-stock/aeo-ai-search-visibility.jpeg",
     imageAlt:
-      "Search visibility analytics and content performance review for answer engine optimization",
+      "Semantic search relevance interface connecting answer engine content, citations, and AI search results",
     seoIntro:
-      "Farcelis builds AEO and AI search visibility systems for companies that need answer engines and AI search tools to understand their services. We structure pages, proof, buyer questions, schema, and resources so the business can be found, summarized, and cited more clearly.",
+      "Farcelis builds AEO and AI search visibility for companies that want answer engines and AI search tools to understand, summarize, and cite their services. We structure service pages, proof, buyer questions, schema, and resource paths so tools like ChatGPT, Gemini, Perplexity, and AI search can describe the business clearly.",
   },
   "seo-aeo-visibility": {
     image: "/images/services/adobe-stock/aeo-ai-search-visibility.jpeg",
@@ -78,9 +78,9 @@ export const servicePageContent: Record<string, ServicePageContent> = {
   "meta-ads-paid-social": {
     image: "/images/services/adobe-stock/meta-ads-paid-social.jpeg",
     imageAlt:
-      "Paid social media advertising dashboard with campaign analytics and audience data",
+      "Paid social media campaign interface showing digital campaign, organic reach, and paid ad paths",
     seoIntro:
-      "Farcelis builds Meta Ads and paid social campaigns for businesses that need better audience targeting, creative testing, landing-page alignment, lead capture, and follow-up. We connect Facebook and Instagram ad activity to clear offers, visible reporting, and revenue operations.",
+      "Meta Ads are paid social ads on Facebook and Instagram. Farcelis builds paid social campaigns for businesses that need better audience targeting, creative testing, landing pages, lead forms, follow-up paths, and reporting so attention turns into clear inquiries instead of scattered clicks.",
   },
   "google-meta-ads": {
     image: "/images/services/adobe-stock/google-ads-paid-search.jpeg",
@@ -92,9 +92,9 @@ export const servicePageContent: Record<string, ServicePageContent> = {
   "crm-revenue-operations": {
     image: "/images/services/adobe-stock/crm-revenue-operations.jpeg",
     imageAlt:
-      "CRM and revenue operations dashboard showing sales pipeline and lead scoring",
+      "CRM revenue operations analytics dashboard with pipeline charts, lead status, and sales reporting",
     seoIntro:
-      "Farcelis helps businesses improve CRM and revenue operations so leads are captured, routed, followed up, tracked, and moved to the right next step. We clean up fields, stages, forms, owners, pipeline views, and reporting so marketing activity turns into visible sales and service follow-through.",
+      "Farcelis improves CRM and revenue operations for businesses that need leads captured, routed, followed up, tracked, and moved to the right next step. We clean up fields, stages, forms, owners, pipeline views, email handoffs, and reporting so sales and service work stays visible and nothing gets lost.",
   },
   "marketing-automation-crm": {
     image: "/images/services/adobe-stock/crm-revenue-operations.jpeg",
@@ -106,37 +106,37 @@ export const servicePageContent: Record<string, ServicePageContent> = {
   "content-revenue-systems": {
     image: "/images/services/adobe-stock/content-revenue-systems.jpeg",
     imageAlt:
-      "Content marketing calendar and campaign dashboard for revenue systems",
+      "Dark content marketing and campaign dashboard with publishing, ads, audience, and revenue signals",
     seoIntro:
-      "Farcelis builds content and revenue systems that connect website pages, blog posts, offers, social content, email, campaigns, SEO, paid ads, CRM, and reporting. We help businesses turn scattered content activity into a practical growth system that supports demand, trust, and follow-up.",
+      "Farcelis builds content and revenue systems for businesses that need website pages, offers, blog posts, social content, email, campaigns, SEO, ads, CRM, and reporting connected. We turn scattered publishing into a repeatable system that supports demand, trust, follow-up, and sales.",
   },
   "ai-strategy-governance": {
     image: "/images/services/adobe-stock/ai-strategy-governance.jpeg",
     imageAlt:
-      "AI governance and strategy interface showing privacy, transparency, and accountability controls",
+      "AI ethics and governance interface showing privacy, accountability, security, and responsible AI controls",
     seoIntro:
-      "Farcelis provides AI strategy and governance for businesses that need clear rules for where AI should help, what tools are allowed, who reviews the work, and how risk is managed. We help teams adopt AI in practical ways while protecting ownership, privacy, quality, and control.",
+      "Farcelis provides AI strategy and governance for businesses that need clear rules for where AI should help, where it should not, who reviews it, what data is allowed, and how risk is managed. We help teams use AI safely, clearly, and productively without losing ownership, privacy, quality, or control.",
   },
   "workflow-managed-operations": {
     image: "/images/services/adobe-stock/workflow-managed-operations.jpeg",
     imageAlt:
       "Business workflow and managed operations system showing automated process routing",
     seoIntro:
-      "Farcelis supports workflow and managed operations for businesses that need tasks, owners, handoffs, follow-up, reporting, and support to stay organized after launch. We help teams keep websites, tools, campaigns, dashboards, and operating work moving without relying on memory or scattered updates.",
+      "Farcelis provides workflow and managed operations support for businesses that need tasks, owners, handoffs, follow-up, reporting, and support handled after a website, app, campaign, dashboard, or automation goes live. We help teams stop chasing updates, keep the right work visible, and get time back from the systems they already depend on.",
   },
   "reporting-decision-systems": {
     image: "/images/services/adobe-stock/reporting-decision-systems.jpeg",
     imageAlt:
       "Executive reporting and decision system dashboard with business analytics",
     seoIntro:
-      "Farcelis builds reporting and decision systems that give leaders clearer visibility into performance, risk, status, ownership, and next steps. We turn dashboards, meetings, metrics, and operating signals into decision-ready reporting that helps teams act sooner.",
+      "Farcelis builds reporting and decision systems for businesses that need clear dashboards, status views, KPI reporting, operating reviews, and leadership-ready updates. We turn scattered data into reports people can understand, trust, and use to decide what happens next.",
   },
   "deployment-operations": {
     image: "/images/services/adobe-stock/deployment-operations.jpeg",
     imageAlt:
-      "DevOps deployment operations pipeline and cloud release dashboard on a laptop",
+      "Website and app launch support interface with hosting, release, maintenance, and code deployment controls",
     seoIntro:
-      "Farcelis provides deployment operations for websites, apps, portals, dashboards, and AI-assisted tools that need clean releases, hosting, domains, environment settings, documentation, support, and maintenance after launch. We help businesses keep digital systems stable, updated, and manageable.",
+      "Farcelis provides launch, hosting, and website support for businesses that have an idea, a rough build, or a live digital product that needs to work online. We help set up the site or app, connect the domain, prepare releases, document access, manage updates, and keep the live system stable so the client does not have to figure out the technical path alone.",
   },
 };
 
