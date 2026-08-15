@@ -173,6 +173,27 @@ function IndustryPillarColumn({
   );
 }
 
+function ResourceMenuLink({
+  item,
+  onClose,
+}: {
+  item: (typeof resourceLinks)[number];
+  onClose: () => void;
+}) {
+  return (
+    <Link
+      href={item.href}
+      onClick={onClose}
+      className="flex min-h-[132px] flex-col justify-center rounded-[16px] border border-cyan-100/10 bg-[#1c3c4d] px-4 py-4 text-center transition hover:-translate-y-0.5 hover:border-cyan-100/24 hover:bg-[#24495c] focus:outline-none focus-visible:ring-2 focus-visible:ring-cyan-100/70"
+    >
+      <span className="text-sm font-semibold leading-5 text-white">{item.label}</span>
+      <span className="mx-auto mt-2 max-w-[16rem] text-xs leading-5 text-slate-300">
+        {item.detail}
+      </span>
+    </Link>
+  );
+}
+
 export function Header() {
   const [elevated, setElevated] = useState(false);
   const [hidden, setHidden] = useState(false);
@@ -386,34 +407,40 @@ export function Header() {
               </button>
               <div
                 id="resources-menu"
-                className={`absolute left-1/2 top-full z-40 -translate-x-1/2 pt-4 transition duration-200 ${
+                className={`fixed left-1/2 top-16 z-40 w-[min(960px,calc(100vw-2rem))] -translate-x-1/2 pt-3 transition duration-200 sm:top-20 ${
                   activeMenu === "resources"
                     ? "pointer-events-auto opacity-100"
                     : "pointer-events-none opacity-0"
                 }`}
               >
-                <div className="surface-dark min-w-[500px] rounded-[24px] border border-cyan-100/14 bg-[#173343] p-4 shadow-[0_28px_80px_rgba(3,8,16,0.46)]">
-                  <div className="rounded-[18px] border border-cyan-100/10 bg-[#1c3c4d] px-4 py-3 text-center">
+                <div className="surface-dark max-h-[calc(100vh-5.75rem)] overflow-hidden rounded-[22px] border border-cyan-100/14 bg-[#173343] p-3 shadow-[0_28px_80px_rgba(3,8,16,0.46)]">
+                  <div className="rounded-[16px] border border-cyan-100/10 bg-[#1c3c4d] px-4 py-3 text-center">
                     <div className="text-xs font-semibold uppercase tracking-[0.2em] text-[color:var(--color-accent)]">
-                      Resources
+                      RESOURCES
                     </div>
-                    <p className="mx-auto mt-2 max-w-[420px] text-sm leading-6 text-slate-100">
+                    <p className="mx-auto mt-2 max-w-[760px] text-sm leading-6 text-slate-100">
                       Guides, examples, and tools that help you choose the right next step.
                     </p>
                   </div>
 
-                  <div className="mt-3 grid gap-2">
+                  <div className="mt-2.5 grid gap-2.5 md:grid-cols-2 xl:grid-cols-4">
                     {resourceLinks.map((item) => (
-                      <Link
+                      <ResourceMenuLink
                         key={item.label}
-                        href={item.href}
+                        item={item}
                         onClick={closeMenus}
-                        className="block rounded-[16px] border border-cyan-100/12 bg-[#1c3c4d] px-4 py-3 text-center transition hover:border-cyan-100/22 hover:bg-[#24495c] hover:text-white"
-                      >
-                        <div className="text-sm font-semibold text-white">{item.label}</div>
-                        <div className="mx-auto mt-1 max-w-[420px] text-xs leading-6 text-slate-100">{item.detail}</div>
-                      </Link>
+                      />
                     ))}
+                  </div>
+
+                  <div className="mt-2.5 rounded-[16px] border border-cyan-100/10 bg-[#1c3c4d] px-4 py-3 text-center">
+                    <Link
+                      href="/resources"
+                      onClick={closeMenus}
+                      className="inline-flex min-h-10 items-center justify-center rounded-full border border-cyan-100/18 bg-cyan-100/7 px-6 py-2 text-sm font-semibold text-cyan-50 transition hover:border-cyan-100/30 hover:bg-cyan-100/10"
+                    >
+                      Explore Resources
+                    </Link>
                   </div>
                 </div>
               </div>
@@ -538,6 +565,9 @@ export function Header() {
 
             <div>
               <p className="eyebrow text-[color:var(--color-accent)]">Resources</p>
+              <p className="mt-2 text-sm leading-6 text-slate-200">
+                Guides, examples, and tools that help you choose the right next step.
+              </p>
               <div className="mt-3 grid gap-2">
                 {resourceLinks.map((item) => (
                   <Link
@@ -549,6 +579,13 @@ export function Header() {
                     {item.label}
                   </Link>
                 ))}
+                <Link
+                  href="/resources"
+                  onClick={closeMenus}
+                  className="rounded-full border border-cyan-100/14 bg-cyan-100/7 px-4 py-3 text-center text-sm font-semibold text-cyan-50"
+                >
+                  Explore Resources
+                </Link>
               </div>
             </div>
 
