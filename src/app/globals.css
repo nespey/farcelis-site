@@ -309,18 +309,18 @@ a {
   }
 
   .leadership-card:nth-child(2) .leadership-card-image img {
-    object-position: 50% 12% !important;
-    transform: scale(1.14);
+    object-position: 50% 0% !important;
+    transform: scale(1.05);
   }
 
   .leadership-card:nth-child(3) .leadership-card-image img {
-    object-position: 50% 16% !important;
-    transform: scale(1.1);
+    object-position: 50% 10% !important;
+    transform: scale(1.14);
   }
 
   .leadership-card:nth-child(4) .leadership-card-image img {
-    object-position: 50% 14% !important;
-    transform: scale(1.12);
+    object-position: 50% 0% !important;
+    transform: scale(1.06);
   }
 
   .leadership-card-copy {
