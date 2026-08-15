@@ -116,7 +116,7 @@ export default function ResultsPage() {
       <Reveal delayMs={160}>
         <section className="section-shell section-shell-dark results-recommendation-section">
           <div className="section-inner">
-            <div className="grid w-full max-w-[860px] gap-6 rounded-[26px] border border-white/10 bg-white/[0.04] p-6 shadow-[0_20px_56px_rgba(3,8,16,0.22)] sm:grid-cols-[132px_minmax(0,1fr)] sm:items-center lg:p-7">
+            <div className="grid w-full max-w-[860px] gap-5 rounded-[26px] border border-white/10 bg-white/[0.04] p-4 shadow-[0_20px_56px_rgba(3,8,16,0.22)] sm:grid-cols-[132px_minmax(0,1fr)] sm:items-center">
               <div className="relative mx-auto aspect-square w-full max-w-[132px] overflow-hidden rounded-[20px] border border-white/10 bg-white/[0.05] shadow-[0_14px_34px_rgba(3,8,16,0.22)] sm:mx-0">
                 <Image
                   src="/images/proof/seated-closer.jpg"
@@ -126,14 +126,16 @@ export default function ResultsPage() {
                   className="object-cover object-top"
                 />
               </div>
-              <div>
-                <h2 className="max-w-[620px] text-[clamp(1.35rem,1.8vw,1.8rem)] font-semibold leading-tight tracking-[-0.025em] text-slate-100">
-                  Results are not decorations. They are the evidence that the system held.
-                </h2>
-                <p className="mt-4 max-w-[620px] text-base italic leading-8 text-slate-300">
-                  “The point of proof is not to sound impressive. It is to show that pressure entered the system, the work got organized, and leaders had something clearer to act on.”
-                </p>
-                <p className="mt-4 text-xs font-semibold uppercase tracking-[0.18em] text-slate-500">
+              <div className="flex min-h-[132px] flex-col justify-between">
+                <div>
+                  <h2 className="max-w-[620px] text-[clamp(1.2rem,1.45vw,1.45rem)] font-semibold leading-[1.12] tracking-[-0.025em] text-slate-100">
+                    Results are not decorations. They are the evidence that the system held.
+                  </h2>
+                  <p className="mt-3 max-w-[620px] text-sm italic leading-6 text-slate-300">
+                    “The point of proof is not to sound impressive. It is to show that pressure entered the system, the work got organized, and leaders had something clearer to act on.”
+                  </p>
+                </div>
+                <p className="mt-3 text-[0.68rem] font-semibold uppercase leading-none tracking-[0.18em] text-slate-500">
                   Nathan Espey, Founder & CEO
                 </p>
               </div>

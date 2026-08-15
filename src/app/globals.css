@@ -355,11 +355,11 @@ a {
 
 .results-public-proof-section {
   padding-top: clamp(1rem, 1.75vw, 1.5rem) !important;
-  padding-bottom: clamp(2rem, 4vw, 3.5rem);
+  padding-bottom: clamp(0.5rem, 1vw, 0.875rem) !important;
 }
 
 .results-recommendation-section {
-  padding-top: clamp(1.5rem, 3vw, 2.75rem);
+  padding-top: clamp(0.375rem, 0.75vw, 0.7rem) !important;
   padding-bottom: clamp(3rem, 5vw, 4.5rem);
 }
 
