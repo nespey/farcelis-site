@@ -245,7 +245,7 @@ a {
 
 .team-page-intro {
   padding-top: clamp(0.875rem, 1.5vw, 1.375rem) !important;
-  padding-bottom: clamp(2rem, 3.5vw, 3rem) !important;
+  padding-bottom: clamp(1rem, 2vw, 1.75rem) !important;
 }
 
 .team-page-intro .display-page {
@@ -260,7 +260,7 @@ a {
 }
 
 .team-grid-section {
-  padding-top: clamp(1rem, 2vw, 1.75rem) !important;
+  padding-top: clamp(0.25rem, 0.8vw, 0.75rem) !important;
   padding-bottom: clamp(3rem, 5vw, 4.5rem) !important;
 }
 
