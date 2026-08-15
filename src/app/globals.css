@@ -5507,7 +5507,7 @@ main :is(.border-t, .border-b, .border-y, .divide-y > :not([hidden]) ~ :not([hid
 
 .control-layer-hero-grid {
   display: grid;
-  grid-template-columns: minmax(0, 0.78fr) minmax(520px, 1fr);
+  grid-template-columns: minmax(0, 0.72fr) minmax(560px, 1fr);
   gap: clamp(1.2rem, 2.6vw, 2.4rem);
   align-items: start;
 }
@@ -5517,25 +5517,23 @@ main :is(.border-t, .border-b, .border-y, .divide-y > :not([hidden]) ~ :not([hid
   padding-top: 0.15rem;
 }
 
-.control-layer-signal-pill {
-  display: flex;
-  min-height: 42px;
-  align-items: center;
-  justify-content: center;
-  border-radius: 13px;
-  border: 1px solid rgba(186, 230, 253, 0.13);
-  background: rgba(255, 255, 255, 0.055);
-  padding: 0.55rem 0.8rem;
-  color: #f4fbff;
-  font-size: 0.78rem;
-  font-weight: 800;
-  text-align: center;
+.control-layer-proof-list {
+  display: grid;
+  gap: 0.7rem;
+  margin-top: 1.25rem;
+  padding-left: 1rem;
+  border-left: 1px solid rgba(242, 139, 91, 0.74);
 }
 
-.control-layer-hero-visual {
-  display: grid;
-  gap: 0.82rem;
-  min-width: 0;
+.control-layer-proof-list p {
+  color: #cdd9e2;
+  font-size: 0.95rem;
+  line-height: 1.55;
+}
+
+.control-layer-proof-list strong {
+  color: #ffffff;
+  font-weight: 850;
 }
 
 .control-layer-hero-visual .dashboard-mini-frame {
@@ -5557,7 +5555,7 @@ main :is(.border-t, .border-b, .border-y, .divide-y > :not([hidden]) ~ :not([hid
 }
 
 .dashboard-mini-frame--hero .case-dashboard {
-  aspect-ratio: 2.18;
+  aspect-ratio: 1.58;
   border-radius: 18px;
 }
 
@@ -5623,6 +5621,87 @@ main :is(.border-t, .border-b, .border-y, .divide-y > :not([hidden]) ~ :not([hid
 
 .control-flow-line .active {
   color: #ff955f;
+}
+
+.control-crosswalk-section {
+  padding-top: clamp(1.25rem, 2.2vw, 2rem);
+  padding-bottom: clamp(1.25rem, 2.2vw, 2rem);
+}
+
+.control-crosswalk-grid {
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  gap: 0.85rem;
+  margin-top: 1.25rem;
+}
+
+.control-crosswalk-card {
+  display: flex;
+  min-height: 118px;
+  flex-direction: column;
+  justify-content: center;
+  border-radius: 16px;
+  border: 1px solid rgba(186, 230, 253, 0.13);
+  background: rgba(255, 255, 255, 0.055);
+  padding: 1rem;
+  text-align: center;
+  transition: transform 180ms ease, border-color 180ms ease, background 180ms ease;
+}
+
+.control-crosswalk-card:hover {
+  transform: translateY(-3px);
+  border-color: rgba(242, 139, 91, 0.42);
+  background: rgba(255, 255, 255, 0.075);
+}
+
+.control-crosswalk-card strong {
+  color: #ffffff;
+  font-size: 0.98rem;
+  font-weight: 850;
+  line-height: 1.25;
+}
+
+.control-crosswalk-card span {
+  margin-top: 0.55rem;
+  color: #cbd8e1;
+  font-size: 0.82rem;
+  line-height: 1.45;
+}
+
+.control-compact-quote {
+  display: grid;
+  grid-template-columns: 72px minmax(0, 1fr);
+  gap: 1rem;
+  align-items: center;
+  max-width: 980px;
+  margin: 1.25rem auto 0;
+  border-radius: 18px;
+  border: 1px solid rgba(186, 230, 253, 0.14);
+  background: rgba(255, 255, 255, 0.048);
+  padding: 0.85rem 1rem;
+}
+
+.control-compact-quote img {
+  width: 72px;
+  height: 72px;
+  border-radius: 14px;
+  object-fit: cover;
+}
+
+.control-compact-quote blockquote {
+  margin-top: 0.35rem;
+  color: #f8fbff;
+  font-size: clamp(1rem, 1.35vw, 1.28rem);
+  font-weight: 650;
+  line-height: 1.25;
+  letter-spacing: -0.02em;
+}
+
+.control-compact-quote p:last-child {
+  margin-top: 0.35rem;
+  color: #b8c8d3;
+  font-size: 0.78rem;
+  font-weight: 700;
 }
 
 .control-showcase-section .section-inner,
@@ -7168,14 +7247,8 @@ main :is(.border-t, .border-b, .border-y, .divide-y > :not([hidden]) ~ :not([hid
     max-width: 840px;
   }
 
-  .control-layer-hero-visual {
+  .control-crosswalk-grid {
     grid-template-columns: repeat(2, minmax(0, 1fr));
-  }
-}
-
-@media (max-width: 820px) {
-  .control-layer-hero-visual {
-    grid-template-columns: 1fr;
   }
 }
 
@@ -9189,15 +9262,6 @@ main :is(.border-t, .border-b, .border-y, .divide-y > :not([hidden]) ~ :not([hid
     max-width: none;
   }
 
-  .control-layer-signal-pill {
-    min-height: 38px;
-    font-size: 0.72rem;
-  }
-
-  .control-layer-hero-visual {
-    gap: 0.65rem;
-  }
-
   .dashboard-mini-frame--hero {
     border-radius: 18px !important;
     padding: 5px !important;
@@ -9221,8 +9285,18 @@ main :is(.border-t, .border-b, .border-y, .divide-y > :not([hidden]) ~ :not([hid
     font-size: 1.35rem;
   }
 
-  .control-flow-line {
-    font-size: 0.68rem;
+  .control-crosswalk-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .control-compact-quote {
+    grid-template-columns: 56px minmax(0, 1fr);
+    align-items: start;
+  }
+
+  .control-compact-quote img {
+    width: 56px;
+    height: 56px;
   }
 
   .service-detail-hero .site-cta,

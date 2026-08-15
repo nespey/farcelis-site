@@ -2,34 +2,22 @@
 
 import { Reveal } from "@/components/Reveal";
 import { DashboardActivityDriver } from "@/components/DashboardActivityDriver";
+import { SystemFlowRail } from "@/components/SystemFlowRail";
 import { seo } from "@/lib/site-data";
 import { buildMetadata } from "@/lib/metadata";
 
 export const metadata = buildMetadata(seo.controlLayer);
 
-const householdLogos = [
-  { name: "Maple", logo: "/logos/control-layer/household/maple.png" },
-  { name: "Familymind", logo: "/logos/control-layer/household/familymind.png" },
-  { name: "Skylight", logo: "/logos/control-layer/household/skylight.png" },
-  { name: "Cozyla", logo: "/logos/control-layer/household/cozyla.png" },
-  { name: "Cozi", logo: "/logos/control-layer/household/cozi.png" },
-  { name: "TimeTree", logo: "/logos/control-layer/household/timetree.png" },
-  { name: "Google Calendar", logo: "/logos/control-layer/household/google-calendar.svg" },
-  { name: "FamCal", logo: "/logos/control-layer/household/famcal.jpg" },
-  { name: "Calendara", logo: "/logos/control-layer/household/calendara.png" },
-  { name: "Reclaim AI", logo: "/logos/control-layer/household/reclaim-ai.png" },
-  { name: "Motion", logo: "/logos/control-layer/household/motion.png" },
-  { name: "Gemini", logo: "/logos/control-layer/household/gemini.png" },
+const integrationLogos = [
   { name: "ChatGPT", logo: "/logos/control-layer/household/chatgpt.png" },
-  { name: "Any.do", logo: "/logos/control-layer/household/anydo.png" },
+  { name: "Gemini", logo: "/logos/control-layer/household/gemini.png" },
+  { name: "Google Calendar", logo: "/logos/control-layer/household/google-calendar.svg" },
   { name: "Todoist", logo: "/logos/control-layer/household/todoist.svg" },
-  { name: "TickTick", logo: "/logos/control-layer/household/ticktick.svg" },
   { name: "Notion", logo: "/logos/control-layer/household/notion.svg" },
   { name: "ClickUp", logo: "/logos/control-layer/household/clickup.png" },
-  { name: "Sunsama", logo: "/logos/control-layer/household/sunsama.png" },
 ];
 
-type ControlLayerLogo = (typeof householdLogos)[number];
+type ControlLayerLogo = (typeof integrationLogos)[number];
 
 function LogoScroll({
   logos,
@@ -327,21 +315,16 @@ export default function ControlLayerPage() {
         <div className="section-inner control-layer-hero-grid">
           <div className="control-layer-hero-copy">
             <p className="eyebrow text-[color:var(--color-accent)]">Farcelis Control Layer</p>
-            <h1 className="mt-4 text-[clamp(2.05rem,3.4vw,3.55rem)] font-medium leading-[1.02] tracking-[-0.055em] text-white [text-wrap:balance]">
-              One operating view for scattered work, owners, status, and next moves.
+            <h1 className="mt-4 text-[clamp(2rem,3.05vw,3.2rem)] font-medium leading-[1.03] tracking-[-0.055em] text-white [text-wrap:balance]">
+              The operating layer above scattered tools.
             </h1>
             <p className="mt-5 text-base leading-7 text-slate-300 lg:text-lg lg:leading-8">
-              The Farcelis Control Layer sits above the tools you already use and turns requests, deadlines, documents, reports, approvals, and follow-up into routed work with a clear owner, status, and next action.
+              It gives teams one place to capture intake, route work, assign owners, track decisions, and see what needs attention before momentum turns into drift.
             </p>
-            <div className="mt-5 grid gap-2 sm:grid-cols-2">
-              {[
-                "Pull signals from tools and people",
-                "Route work into accountable next steps",
-                "Show leaders what is stuck or moving",
-                "Shape the view around the operation",
-              ].map((item) => (
-                <span key={item} className="control-layer-signal-pill">{item}</span>
-              ))}
+            <div className="control-layer-proof-list">
+              <p><strong>Signals in:</strong> email, forms, meetings, documents, dashboards, CRMs, calendars, and task systems.</p>
+              <p><strong>Control in the middle:</strong> routing, ownership, status, escalation, and decision cadence.</p>
+              <p><strong>Execution out:</strong> clearer follow-up, reporting, handoffs, and leadership visibility.</p>
             </div>
             <div className="mt-6 flex flex-col gap-3 sm:flex-row">
               <a
@@ -362,9 +345,6 @@ export default function ControlLayerPage() {
             <div className="dashboard-mini-frame dashboard-mini-frame--cyber dashboard-mini-frame--hero">
               <ParagonMockDashboard />
             </div>
-            <div className="dashboard-mini-frame dashboard-mini-frame--home dashboard-mini-frame--hero">
-              <HouseholdMockDashboard />
-            </div>
           </div>
         </div>
       </section>
@@ -374,72 +354,21 @@ export default function ControlLayerPage() {
           <div className="section-inner">
             <div className="control-integration-header">
               <p className="eyebrow text-[color:var(--color-accent)]">Integration Layer</p>
-              <h2>Connect the tools already carrying the work.</h2>
+              <h2>Pull useful signals out of the tools already in play.</h2>
               <p>
-                Calendars, inboxes, task systems, notes, AI assistants, and shared planning tools can feed the Control Layer instead of living as separate places to check.
+                The Control Layer does not replace every tool. It connects the pieces that matter, then makes the work visible enough to manage.
               </p>
             </div>
-            <LogoScroll logos={householdLogos} />
-            <div className="control-flow-line" aria-label="Control Layer operating flow">
-              {["Input", "Intake", "Route", "Execute", "Track", "Close"].map((stage, index) => (
-                <span className={index === 2 ? "active" : ""} key={stage}>{stage}</span>
-              ))}
+            <LogoScroll logos={integrationLogos} />
+            <div className="surface-dark px-1 py-0">
+              <SystemFlowRail steps={["Input", "Intake", "Route", "Execute", "Track", "Close"]} />
             </div>
-            <LogoScroll logos={householdLogos} reverse />
+            <LogoScroll logos={integrationLogos} reverse />
           </div>
         </section>
       </Reveal>
 
       <Reveal delayMs={110}>
-        <section className="section-shell control-showcase-section">
-          <div className="section-inner">
-            <div className="control-case-grid">
-              <div className="dashboard-mini-frame dashboard-mini-frame--cyber">
-                <ParagonMockDashboard />
-              </div>
-              <div className="control-case-copy">
-                <p className="eyebrow text-[color:var(--color-accent)]">Business Control Layer</p>
-                <h2 className="section-title mt-5 text-white">
-                  A shared operating dashboard for delivery, risk, reporting, and leadership decisions.
-                </h2>
-                <p className="mt-6 max-w-[780px] text-lg leading-8 text-slate-300">
-                  Contract work, evidence, delivery risks, owners, approvals, and decisions can live in one view so the team sees what needs attention without hunting through email, folders, and status calls.
-                </p>
-                <div className="case-proof-grid">
-                  {["Intake", "Routing", "Owner accountability", "Decision queue"].map((item) => (
-                    <span key={item}>{item}</span>
-                  ))}
-                </div>
-              </div>
-            </div>
-          </div>
-        </section>
-      </Reveal>
-
-      <Reveal delayMs={150}>
-        <section className="section-shell control-bridge-section">
-          <div className="section-inner">
-            <figure className="founder-quote-card">
-              <div className="founder-quote-image">
-                <img
-                  src="/images/nathan-headshot-library-2026.png"
-                  alt="Nathan Espey"
-                />
-              </div>
-              <figcaption className="founder-quote-copy">
-                <p className="eyebrow text-[#ff7f4f]">Same Architecture, Different Life</p>
-                <blockquote>
-                  The Control Layer should reduce pressure instead of forcing people to bend around another tool.
-                </blockquote>
-                <p className="founder-quote-name">Nathan Espey</p>
-                <p className="founder-quote-role">Founder, Farcelis AI Consulting LLC</p>
-              </figcaption>
-            </figure>
-          </div>
-        </section>
-      </Reveal>
-
-      <Reveal delayMs={190}>
         <section className="section-shell control-showcase-section control-showcase-section--home">
           <div className="section-inner">
             <div className="control-case-grid">
@@ -447,20 +376,62 @@ export default function ControlLayerPage() {
                 <HouseholdMockDashboard />
               </div>
               <div className="control-case-copy">
-                <p className="eyebrow text-[color:var(--color-accent)]">Household / Daily Life Control Layer</p>
+                <p className="eyebrow text-[color:var(--color-accent)]">Example Operating Surface</p>
                 <h2 className="section-title mt-5 text-white">
-                  A personal operating system for the work that normally lives in your head.
+                  One structure can support business, household, delivery, or leadership work.
                 </h2>
                 <p className="mt-6 max-w-[780px] text-lg leading-8 text-slate-300">
-                  This is a different kind of Control Layer: finances, calendars, appointments, email, job-finder activity, shared lists,
-                  follow-ups, and family logistics stay visible together. It turns new signals into tasks and shows what needs attention
-                  before it becomes another open loop.
+                  The visual layer changes with the environment. The operating logic stays the same: capture the signal, route the work, name the owner, track status, and close the loop.
                 </p>
                 <div className="case-proof-grid">
-                  {["Bills and cash flow", "Appointments", "Family tasks", "Career pipeline"].map((item) => (
+                  {["Signal capture", "Owner routing", "Status visibility", "Close-loop follow-up"].map((item) => (
                     <span key={item}>{item}</span>
                   ))}
                 </div>
+              </div>
+            </div>
+          </div>
+        </section>
+      </Reveal>
+
+      <Reveal delayMs={190}>
+        <section className="section-shell section-shell-dark control-crosswalk-section">
+          <div className="section-inner">
+            <div className="flex flex-col gap-5 lg:flex-row lg:items-center">
+              <p className="eyebrow shrink-0 text-[color:var(--color-accent)]">Connected Paths</p>
+              <div className="hidden h-px flex-1 bg-[color:var(--color-accent)]/70 lg:block" />
+              <div className="flex flex-col gap-3 sm:flex-row">
+                <a href={controlContactPath} className="site-cta inline-flex min-h-11 items-center justify-center rounded-full bg-[color:var(--color-accent)] px-5 py-2.5 text-center text-sm font-semibold text-white hover:brightness-110">
+                  Start Control Layer Review
+                </a>
+                <a href="/services" className="site-cta inline-flex min-h-11 items-center justify-center rounded-full border border-cyan-100/18 bg-cyan-100/6 px-5 py-2.5 text-center text-sm font-semibold text-cyan-50 hover:border-cyan-100/28 hover:bg-cyan-100/8">
+                  See Service Paths
+                </a>
+              </div>
+            </div>
+
+            <div className="control-crosswalk-grid">
+              {[
+                { href: "/services/workflow-managed-operations", title: "Workflow & Managed Operations", body: "Routing, ownership, cadence, support, and escalation once work is moving." },
+                { href: "/services/reporting-decision-systems", title: "Reporting & Decision Systems", body: "Leadership-ready views for what is working, stuck, overdue, or ready." },
+                { href: "/services/platform-connections", title: "Platform Connections", body: "Website, CRM, forms, documents, dashboards, and work tools connected cleanly." },
+                { href: "/services/dashboards-decision-views", title: "Dashboards and Decision Views", body: "Focused views that show status, risk, owners, and next action." },
+                { href: "/industries/operations-heavy-teams", title: "Operations-Heavy Teams", body: "Best fit when requests arrive from everywhere and daily work needs clearer routing." },
+                { href: "/resources", title: "Tools & Assessments", body: "Use assessments to decide whether a Control Layer is the right next move." },
+              ].map((item) => (
+                <a key={item.href} href={item.href} className="control-crosswalk-card">
+                  <strong>{item.title}</strong>
+                  <span>{item.body}</span>
+                </a>
+              ))}
+            </div>
+
+            <div className="control-compact-quote">
+              <img src="/images/nathan-headshot-library-2026.png" alt="Nathan Espey" />
+              <div>
+                <p className="eyebrow text-[#ff7f4f]">Founder Note</p>
+                <blockquote>The Control Layer should reduce pressure instead of forcing people to bend around another tool.</blockquote>
+                <p>Nathan Espey · Founder, Farcelis AI Consulting LLC</p>
               </div>
             </div>
           </div>
