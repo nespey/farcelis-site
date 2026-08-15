@@ -12,7 +12,8 @@ const resourceCategories = [
     href: "/resources/library",
     eyebrow: "Gated Library",
     title: "Resource Library",
-    description: "Briefings, reports, guides, and playbooks for deeper evaluation.",
+    description:
+      "A gated collection of briefings, reports, guides, and playbooks for leaders who need more context before they approve a build or operating change.",
     cta: "Open library",
     image: "/images/resources/adobe-stock/resource-library.jpeg",
     imageAlt: "Business team reviewing analytics on a digital tablet.",
@@ -21,7 +22,8 @@ const resourceCategories = [
     href: "/insights",
     eyebrow: "Public Thinking",
     title: "Insights & Playbooks",
-    description: "Plain-language strategy notes for websites, growth, workflow, and AI.",
+    description:
+      "Plain-language articles and playbooks that explain website, growth, workflow, CRM, and AI decisions without turning every answer into vendor noise.",
     cta: "Read insights",
     image: "/images/resources/adobe-stock/insights-playbooks.jpeg",
     imageAlt: "Dark strategy notebook and planning tools on a desk.",
@@ -30,7 +32,8 @@ const resourceCategories = [
     href: "/events",
     eyebrow: "Briefing Sessions",
     title: "Webinars & Briefings",
-    description: "Short sessions for practical business and technology decisions.",
+    description:
+      "Focused sessions for owners, operators, and teams who want practical guidance before choosing a service path, tool, or implementation approach.",
     cta: "View briefings",
     image: "/images/resources/adobe-stock/webinars-briefings.jpeg",
     imageAlt: "Professional watching a virtual briefing on a laptop.",
@@ -39,17 +42,12 @@ const resourceCategories = [
     href: "/products",
     eyebrow: "Decision Tools",
     title: "Tools & Assessments",
-    description: "Diagnostic tools that clarify what to build, grow, or manage.",
+    description:
+      "Simple assessments and productized tools that help clarify what is stuck, what is ready, and what should be built, grown, or managed next.",
     cta: "Use tools",
     image: "/images/resources/adobe-stock/tools-assessments.jpeg",
     imageAlt: "Digital audit checklist dashboard on a laptop.",
   },
-];
-
-const resourceFit = [
-  "Use the library when leaders need a briefing, guide, or gated asset before buying.",
-  "Use insights when the question needs public explanation, examples, or strategic context.",
-  "Use webinars and tools when the next step needs education, assessment, or product fit.",
 ];
 
 export default function ResourcesPage() {
@@ -130,7 +128,7 @@ export default function ResourcesPage() {
           <div className="section-inner">
             <div className="flex flex-col gap-5 lg:flex-row lg:items-center">
               <p className="eyebrow shrink-0 text-[color:var(--color-accent)]">
-                What Usually Fits
+                Related Paths
               </p>
               <div className="hidden h-px flex-1 bg-[color:var(--color-accent)]/70 lg:block" />
               <div className="flex flex-col gap-3 sm:flex-row">
@@ -149,16 +147,6 @@ export default function ResourcesPage() {
               </div>
             </div>
 
-            <div className="mt-8 grid gap-3 lg:grid-cols-3">
-              {resourceFit.map((item) => (
-                <div
-                  key={item}
-                  className="rounded-[14px] border border-cyan-100/12 bg-cyan-100/5 px-5 py-5 text-center text-sm font-semibold leading-6 text-white"
-                >
-                  {item}
-                </div>
-              ))}
-            </div>
           </div>
         </section>
       </Reveal>
