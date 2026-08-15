@@ -13,38 +13,38 @@ type WorkInterest = {
 type SelectionGroup = "service" | "industry" | "resource";
 
 const workInterests: WorkInterest[] = [
-  { id: "website-development", label: "Website Development", description: "Service pages, landing pages, resource hubs, and inquiry paths." },
-  { id: "app-portal-development", label: "App & Portal Development", description: "Web apps, client portals, dashboards, and login-based tools." },
-  { id: "ai-agents-automations", label: "AI Agents & Automations", description: "Assistants and repeatable workflows tied to real tasks." },
-  { id: "platform-connections", label: "Platform Connections", description: "Connect websites, CRM, forms, workspaces, and dashboards." },
-  { id: "dashboards-decision-views", label: "Dashboards and Decision Views", description: "Views that show what is happening, stuck, and ready for action." },
-  { id: "seo-search-visibility", label: "SEO & Search Visibility", description: "Pages, structure, topics, and signals for traditional search." },
-  { id: "aeo-ai-search-visibility", label: "AEO & AI Search Visibility", description: "Structure content so AI search can understand and cite the offer." },
-  { id: "google-ads-paid-search", label: "Google Ads/Paid Search", description: "Paid search tied to landing pages, tracking, and follow-up." },
-  { id: "meta-ads-paid-social", label: "Meta Ads/Paid Social", description: "Social ad paths with audience, creative, landing pages, and leads." },
-  { id: "crm-revenue-operations", label: "CRM & Revenue Operations", description: "Lead capture, routing, follow-up, reporting, and handoffs." },
-  { id: "content-revenue-systems", label: "Content & Revenue Systems", description: "Content, offers, campaigns, and publishing rhythm in one system." },
-  { id: "ai-strategy-governance", label: "AI Strategy & Governance", description: "Use rules, ownership, risk boundaries, and adoption structure." },
-  { id: "workflow-managed-operations", label: "Workflow & Managed Operations", description: "Work routing, ownership, cadence, reporting, and support." },
-  { id: "farcelis-control-layer", label: "The Farcelis Control Layer", description: "A structured operating layer for intake, visibility, and action." },
+  { id: "website-development", label: "Website Development", description: "Service pages, hubs, landing pages, and inquiry paths." },
+  { id: "app-portal-development", label: "App & Portal Development", description: "Web apps, portals, dashboards, and login tools." },
+  { id: "ai-agents-automations", label: "AI Agents & Automations", description: "Assistants and repeatable workflows for real tasks." },
+  { id: "platform-connections", label: "Platform Connections", description: "Connect websites, CRM, forms, and workspaces." },
+  { id: "dashboards-decision-views", label: "Dashboards and Decision Views", description: "Views for status, blockers, and next actions." },
+  { id: "seo-search-visibility", label: "SEO & Search Visibility", description: "Pages, structure, topics, and search signals." },
+  { id: "aeo-ai-search-visibility", label: "AEO & AI Search Visibility", description: "Content structure AI search can understand." },
+  { id: "google-ads-paid-search", label: "Google Ads/Paid Search", description: "Paid search tied to tracking and follow-up." },
+  { id: "meta-ads-paid-social", label: "Meta Ads/Paid Social", description: "Social ad paths with creative, pages, and leads." },
+  { id: "crm-revenue-operations", label: "CRM & Revenue Operations", description: "Lead capture, routing, reporting, and handoffs." },
+  { id: "content-revenue-systems", label: "Content & Revenue Systems", description: "Content, offers, campaigns, and publishing rhythm." },
+  { id: "ai-strategy-governance", label: "AI Strategy & Governance", description: "Rules, ownership, risk, and adoption structure." },
+  { id: "workflow-managed-operations", label: "Workflow & Managed Operations", description: "Routing, ownership, cadence, and support." },
+  { id: "farcelis-control-layer", label: "The Farcelis Control Layer", description: "A shared layer for intake, visibility, and action." },
   { id: "reporting-decision-systems", label: "Reporting & Decision Systems", description: "Leadership-ready reporting and decision rhythm." },
-  { id: "deployment-operations", label: "Deployment Operations", description: "Keep hosted websites, apps, releases, checks, and support stable.", emailLabel: "Deployment Operations - ongoing continuity" },
+  { id: "deployment-operations", label: "Deployment Operations", description: "Hosted websites, apps, checks, and support.", emailLabel: "Deployment Operations - ongoing continuity" },
 ];
 
 const industryInterests: WorkInterest[] = [
-  { id: "professional-services-consulting", label: "Professional Services & Consulting", description: "Client delivery, documentation, and follow-up visibility." },
-  { id: "government-contractors-public-sector", label: "Government Contractors & Public Sector", description: "Accountable workflows, deadline control, and reporting." },
-  { id: "small-mid-market-businesses", label: "Small & Mid-Market Businesses", description: "Practical systems for growing teams and lean operators." },
+  { id: "professional-services-consulting", label: "Professional Services & Consulting", description: "Client delivery, documentation, and visibility." },
+  { id: "government-contractors-public-sector", label: "Government Contractors & Public Sector", description: "Accountable workflows, deadlines, and reporting." },
+  { id: "small-mid-market-businesses", label: "Small & Mid-Market Businesses", description: "Practical systems for lean growing teams." },
   { id: "growth-revenue-teams", label: "Growth & Revenue Teams", description: "Lead flow, content, CRM, ads, and follow-through." },
-  { id: "operations-heavy-teams", label: "Operations-Heavy Teams", description: "Routing, ownership, escalation, and daily work movement." },
-  { id: "education-enablement", label: "Education & Enablement", description: "Learning paths, adoption support, and knowledge transfer." },
+  { id: "operations-heavy-teams", label: "Operations-Heavy Teams", description: "Routing, ownership, escalation, and movement." },
+  { id: "education-enablement", label: "Education & Enablement", description: "Learning paths, adoption, and knowledge transfer." },
 ];
 
 const resourceInterests: WorkInterest[] = [
   { id: "resource-library", label: "Resource Library", description: "Guides, reports, checklists, and gated assets." },
-  { id: "insights-playbooks", label: "Insights & Playbooks", description: "Plain-language strategy notes and operating examples." },
-  { id: "webinars-briefings", label: "Webinars & Briefings", description: "Short sessions for practical business and technology choices." },
-  { id: "tools-assessments", label: "Tools & Assessments", description: "Diagnostics that clarify readiness, fit, and next steps." },
+  { id: "insights-playbooks", label: "Insights & Playbooks", description: "Strategy notes and operating examples." },
+  { id: "webinars-briefings", label: "Webinars & Briefings", description: "Short sessions for practical technology choices." },
+  { id: "tools-assessments", label: "Tools & Assessments", description: "Diagnostics for readiness, fit, and next steps." },
 ];
 
 type SubmitState =
@@ -207,7 +207,7 @@ export function GeneralStrategyIntake({
 
   return (
     <div className="grid gap-2">
-      <section className="rounded-[18px] border border-cyan-100/12 bg-[#1c3c4d] px-3 py-2.5 text-white lg:px-4">
+      <section className="rounded-[18px] border border-cyan-100/12 bg-[#1c3c4d] px-3 py-2 text-white lg:px-4">
         <div className="flex flex-col gap-2 text-center sm:text-left">
           <p className="eyebrow text-[color:var(--color-accent)]">Select Service Areas</p>
           <p className="text-xs leading-5 text-slate-300">
@@ -224,22 +224,22 @@ export function GeneralStrategyIntake({
                 type="button"
                 onClick={() => toggleService(item.id)}
                 aria-pressed={selected}
-                className={`min-h-[54px] rounded-[12px] border px-2.5 py-1.5 text-center transition ${
+                className={`min-h-[46px] rounded-[11px] border px-2.5 py-1 text-center transition ${
                   selected
                     ? "border-[color:var(--color-accent)] bg-[rgba(242,139,91,0.16)] shadow-[0_12px_30px_rgba(255,124,82,0.12)]"
                     : "border-cyan-100/10 bg-[#173343] hover:border-cyan-100/24 hover:bg-[#214557]"
                 }`}
               >
-                <span className="block text-[0.74rem] font-semibold leading-4 text-white">{item.label}</span>
-                <span className="mx-auto mt-0.5 block max-w-[15rem] text-[0.66rem] leading-3 text-slate-300">
+                <span className="block text-[0.72rem] font-semibold leading-4 text-white">{item.label}</span>
+                <span className="mx-auto mt-0.5 block max-w-full truncate text-[0.62rem] leading-3 text-slate-300">
                   {item.description}
                 </span>
               </button>
             );
           })}
         </div>
-        <div className="mt-3 grid gap-3 lg:grid-cols-[minmax(0,1.5fr)_minmax(280px,1fr)]">
-          <div>
+        <div className="mt-2.5 grid gap-2.5 lg:grid-cols-[minmax(0,1.5fr)_minmax(280px,1fr)]">
+          <div className="rounded-[14px] border border-cyan-100/12 bg-[#163342] px-2.5 py-2">
             <p className="eyebrow text-[0.62rem] text-[color:var(--color-accent)]">Identify Your Industry</p>
             <div className="mt-1.5 grid gap-1.5 sm:grid-cols-2 xl:grid-cols-3">
               {industryInterests.map((item) => {
@@ -251,14 +251,14 @@ export function GeneralStrategyIntake({
                     type="button"
                     onClick={() => toggleIndustry(item.id)}
                     aria-pressed={selected}
-                    className={`min-h-[50px] rounded-[12px] border px-2.5 py-1.5 text-center transition ${
+                    className={`min-h-[42px] rounded-[11px] border px-2.5 py-1 text-center transition ${
                       selected
                         ? "border-[color:var(--color-accent)] bg-[rgba(242,139,91,0.16)] shadow-[0_12px_30px_rgba(255,124,82,0.12)]"
                         : "border-cyan-100/10 bg-[#173343] hover:border-cyan-100/24 hover:bg-[#214557]"
                     }`}
                   >
-                    <span className="block text-[0.72rem] font-semibold leading-4 text-white">{item.label}</span>
-                    <span className="mx-auto mt-0.5 block max-w-[13.5rem] text-[0.64rem] leading-3 text-slate-300">
+                    <span className="block text-[0.7rem] font-semibold leading-4 text-white">{item.label}</span>
+                    <span className="mx-auto mt-0.5 block max-w-full truncate text-[0.6rem] leading-3 text-slate-300">
                       {item.description}
                     </span>
                   </button>
@@ -266,7 +266,7 @@ export function GeneralStrategyIntake({
               })}
             </div>
           </div>
-          <div>
+          <div className="rounded-[14px] border border-[color:var(--color-accent)]/18 bg-[#193846] px-2.5 py-2">
             <p className="eyebrow text-[0.62rem] text-[color:var(--color-accent)]">Resource Interest</p>
             <div className="mt-1.5 grid gap-1.5 sm:grid-cols-2">
               {resourceInterests.map((item) => {
@@ -278,14 +278,14 @@ export function GeneralStrategyIntake({
                     type="button"
                     onClick={() => toggleResource(item.id)}
                     aria-pressed={selected}
-                    className={`min-h-[50px] rounded-[12px] border px-2.5 py-1.5 text-center transition ${
+                    className={`min-h-[42px] rounded-[11px] border px-2.5 py-1 text-center transition ${
                       selected
                         ? "border-[color:var(--color-accent)] bg-[rgba(242,139,91,0.16)] shadow-[0_12px_30px_rgba(255,124,82,0.12)]"
                         : "border-cyan-100/10 bg-[#173343] hover:border-cyan-100/24 hover:bg-[#214557]"
                     }`}
                   >
-                    <span className="block text-[0.72rem] font-semibold leading-4 text-white">{item.label}</span>
-                    <span className="mx-auto mt-0.5 block max-w-[13.5rem] text-[0.64rem] leading-3 text-slate-300">
+                    <span className="block text-[0.7rem] font-semibold leading-4 text-white">{item.label}</span>
+                    <span className="mx-auto mt-0.5 block max-w-full truncate text-[0.6rem] leading-3 text-slate-300">
                       {item.description}
                     </span>
                   </button>
