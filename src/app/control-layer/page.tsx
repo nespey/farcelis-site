@@ -1,30 +1,11 @@
 /* eslint-disable @next/next/no-img-element */
 
-import { PageIntro } from "@/components/PageIntro";
 import { Reveal } from "@/components/Reveal";
 import { DashboardActivityDriver } from "@/components/DashboardActivityDriver";
 import { seo } from "@/lib/site-data";
 import { buildMetadata } from "@/lib/metadata";
 
 export const metadata = buildMetadata(seo.controlLayer);
-
-const cyberLogos = [
-  { name: "Booz Allen", logo: "/logos/control-layer/cyber/booz-allen.png" },
-  { name: "Leidos", logo: "/logos/control-layer/cyber/leidos.png" },
-  { name: "General Dynamics", logo: "/logos/control-layer/cyber/general-dynamics.png" },
-  { name: "Lockheed Martin", logo: "/logos/control-layer/cyber/lockheed-martin.png" },
-  { name: "Northrop Grumman", logo: "/logos/control-layer/cyber/northrop-grumman.png" },
-  { name: "Peraton", logo: "/logos/control-layer/cyber/peraton.png" },
-  { name: "CACI", logo: "/logos/control-layer/cyber/caci.png" },
-  { name: "RTX", logo: "/logos/control-layer/cyber/rtx.png" },
-  { name: "BAE Systems", logo: "/logos/control-layer/cyber/bae-systems.png" },
-  { name: "Accenture Federal", logo: "/logos/control-layer/cyber/accenture-federal.png" },
-  { name: "Microsoft", logo: "/logos/control-layer/cyber/microsoft.png" },
-  { name: "Cisco", logo: "/logos/control-layer/cyber/cisco.png" },
-  { name: "Fortinet", logo: "/logos/control-layer/cyber/fortinet.png" },
-  { name: "CrowdStrike", logo: "/logos/control-layer/cyber/crowdstrike.png" },
-  { name: "Cloudflare", logo: "/logos/control-layer/cyber/cloudflare.png" },
-];
 
 const householdLogos = [
   { name: "Maple", logo: "/logos/control-layer/household/maple.png" },
@@ -48,14 +29,16 @@ const householdLogos = [
   { name: "Sunsama", logo: "/logos/control-layer/household/sunsama.png" },
 ];
 
+type ControlLayerLogo = (typeof householdLogos)[number];
+
 function LogoScroll({
   logos,
   reverse = false,
-  variant = "cyber",
+  variant = "household",
 }: {
-  logos: typeof cyberLogos;
+  logos: ControlLayerLogo[];
   reverse?: boolean;
-  variant?: "cyber" | "household";
+  variant?: "household";
 }) {
   const lane = [...logos, ...logos];
 
@@ -334,69 +317,106 @@ function HouseholdMockDashboard() {
 }
 
 export default function ControlLayerPage() {
-  const possibilityCards = [
-    {
-      title: "Any operating surface",
-      body: "If the work is scattered, the Control Layer gives it one clear operating view. Revenue, delivery, cash, compliance, hiring, household logistics, and executive pressure become visible enough to move.",
-    },
-    {
-      title: "Any signal source",
-      body: "It can pull signal from email, calendars, spreadsheets, CRMs, forms, documents, finance tools, task systems, and human check-ins, then turn noise into routed work.",
-    },
-    {
-      title: "Any decision rhythm",
-      body: "Daily triage, weekly reviews, contract calls, cash planning, pursuit tracking, and escalation loops stop floating. Each rhythm gets a place, an owner, and a next move.",
-    },
-    {
-      title: "Any visual language",
-      body: "The board can look and feel like the environment it supports: executive, sales, operations, household, compliance, or support. The system bends to the client.",
-    },
-  ];
+  const controlContactPath =
+    "/contact?work=farcelis-control-layer,workflow-managed-operations,reporting-decision-systems,platform-connections,dashboards-decision-views,ai-strategy-governance&industry=operations-heavy-teams,professional-services-consulting,small-mid-market-businesses&resource=tools-assessments#contact-top";
 
   return (
     <>
       <DashboardActivityDriver />
-      <PageIntro
-        className="control-intro-section control-hero"
-        eyebrow="Custom Operating Systems"
-        title="One place to see the work, owners, status, and next move."
-        description="The Farcelis Control Layer is a custom dashboard and operating surface that pulls scattered tools, requests, tasks, reports, and decisions into one place people can actually use."
-        actions={[
-          { href: "/contact", label: "Work With Farcelis" },
-          { href: "/services", label: "See Service Paths", variant: "secondary" },
-        ]}
-      />
+      <section className="section-shell section-shell-dark control-layer-hero">
+        <div className="section-inner control-layer-hero-grid">
+          <div className="control-layer-hero-copy">
+            <p className="eyebrow text-[color:var(--color-accent)]">Farcelis Control Layer</p>
+            <h1 className="mt-4 text-[clamp(2.05rem,3.4vw,3.55rem)] font-medium leading-[1.02] tracking-[-0.055em] text-white [text-wrap:balance]">
+              One operating view for scattered work, owners, status, and next moves.
+            </h1>
+            <p className="mt-5 text-base leading-7 text-slate-300 lg:text-lg lg:leading-8">
+              The Farcelis Control Layer sits above the tools you already use and turns requests, deadlines, documents, reports, approvals, and follow-up into routed work with a clear owner, status, and next action.
+            </p>
+            <div className="mt-5 grid gap-2 sm:grid-cols-2">
+              {[
+                "Pull signals from tools and people",
+                "Route work into accountable next steps",
+                "Show leaders what is stuck or moving",
+                "Shape the view around the operation",
+              ].map((item) => (
+                <span key={item} className="control-layer-signal-pill">{item}</span>
+              ))}
+            </div>
+            <div className="mt-6 flex flex-col gap-3 sm:flex-row">
+              <a
+                href={controlContactPath}
+                className="site-cta inline-flex min-h-12 items-center justify-center rounded-full bg-[linear-gradient(135deg,#ff8e5b,#f05cff)] px-6 py-3 text-center text-sm font-semibold text-white hover:shadow-[0_20px_40px_rgba(240,92,255,0.24)]"
+              >
+                Work With Farcelis
+              </a>
+              <a
+                href="/services"
+                className="site-cta inline-flex min-h-12 items-center justify-center rounded-full border border-cyan-200/18 bg-cyan-200/6 px-6 py-3 text-center text-sm font-semibold text-cyan-50 hover:border-cyan-100/28 hover:bg-cyan-100/8"
+              >
+                See Service Paths
+              </a>
+            </div>
+          </div>
+          <div className="control-layer-hero-visual">
+            <div className="dashboard-mini-frame dashboard-mini-frame--cyber dashboard-mini-frame--hero">
+              <ParagonMockDashboard />
+            </div>
+            <div className="dashboard-mini-frame dashboard-mini-frame--home dashboard-mini-frame--hero">
+              <HouseholdMockDashboard />
+            </div>
+          </div>
+        </div>
+      </section>
 
       <Reveal delayMs={60}>
+        <section className="section-shell control-integration-section">
+          <div className="section-inner">
+            <div className="control-integration-header">
+              <p className="eyebrow text-[color:var(--color-accent)]">Integration Layer</p>
+              <h2>Connect the tools already carrying the work.</h2>
+              <p>
+                Calendars, inboxes, task systems, notes, AI assistants, and shared planning tools can feed the Control Layer instead of living as separate places to check.
+              </p>
+            </div>
+            <LogoScroll logos={householdLogos} />
+            <div className="control-flow-line" aria-label="Control Layer operating flow">
+              {["Input", "Intake", "Route", "Execute", "Track", "Close"].map((stage, index) => (
+                <span className={index === 2 ? "active" : ""} key={stage}>{stage}</span>
+              ))}
+            </div>
+            <LogoScroll logos={householdLogos} reverse />
+          </div>
+        </section>
+      </Reveal>
+
+      <Reveal delayMs={110}>
         <section className="section-shell control-showcase-section">
           <div className="section-inner">
-            <LogoScroll logos={cyberLogos} variant="cyber" />
             <div className="control-case-grid">
               <div className="dashboard-mini-frame dashboard-mini-frame--cyber">
                 <ParagonMockDashboard />
               </div>
               <div className="control-case-copy">
-                <p className="eyebrow text-[color:var(--color-accent)]">Cyber / GovCon Control Layer</p>
+                <p className="eyebrow text-[color:var(--color-accent)]">Business Control Layer</p>
                 <h2 className="section-title mt-5 text-white">
-                  A shared operating dashboard for contracts, evidence, delivery risk, and leadership decisions.
+                  A shared operating dashboard for delivery, risk, reporting, and leadership decisions.
                 </h2>
                 <p className="mt-6 max-w-[780px] text-lg leading-8 text-slate-300">
-                  This is one example for a compliance-driven cybersecurity company. Contract work, evidence, delivery risks, owners, and
-                  decisions live in one view so the team can see what needs attention without hunting through email, folders, and status calls.
+                  Contract work, evidence, delivery risks, owners, approvals, and decisions can live in one view so the team sees what needs attention without hunting through email, folders, and status calls.
                 </p>
                 <div className="case-proof-grid">
-                  {["Evidence readiness", "Contract closeout", "Owner accountability", "Decision queue"].map((item) => (
+                  {["Intake", "Routing", "Owner accountability", "Decision queue"].map((item) => (
                     <span key={item}>{item}</span>
                   ))}
                 </div>
               </div>
             </div>
-            <LogoScroll logos={cyberLogos} reverse variant="cyber" />
           </div>
         </section>
       </Reveal>
 
-      <Reveal delayMs={120}>
+      <Reveal delayMs={150}>
         <section className="section-shell control-bridge-section">
           <div className="section-inner">
             <figure className="founder-quote-card">
@@ -409,7 +429,6 @@ export default function ControlLayerPage() {
               <figcaption className="founder-quote-copy">
                 <p className="eyebrow text-[#ff7f4f]">Same Architecture, Different Life</p>
                 <blockquote>
-                  Every organization eventually needs one clear place to see what is moving, what is stuck, and who owns the next step.
                   The Control Layer should reduce pressure instead of forcing people to bend around another tool.
                 </blockquote>
                 <p className="founder-quote-name">Nathan Espey</p>
@@ -420,10 +439,9 @@ export default function ControlLayerPage() {
         </section>
       </Reveal>
 
-      <Reveal delayMs={150}>
+      <Reveal delayMs={190}>
         <section className="section-shell control-showcase-section control-showcase-section--home">
           <div className="section-inner">
-            <LogoScroll logos={householdLogos} variant="household" />
             <div className="control-case-grid">
               <div className="dashboard-mini-frame dashboard-mini-frame--home">
                 <HouseholdMockDashboard />
@@ -443,44 +461,6 @@ export default function ControlLayerPage() {
                     <span key={item}>{item}</span>
                   ))}
                 </div>
-              </div>
-            </div>
-            <LogoScroll logos={householdLogos} reverse variant="household" />
-          </div>
-        </section>
-      </Reveal>
-
-      <Reveal delayMs={210}>
-        <section className="section-shell section-shell-dark infinite-control-section">
-          <div className="section-inner">
-            <div className="endless-anchor-layout">
-              <div className="possibility-stack">
-                {possibilityCards.slice(0, 2).map((point) => (
-                  <div key={point.title} className="possibility-card">
-                    <strong>{point.title}</strong>
-                    <p>{point.body}</p>
-                  </div>
-                ))}
-              </div>
-
-              <div className="infinite-copy">
-                <p className="eyebrow endless-kicker text-[#9f412c]">Endless System Shapes</p>
-                <h2 className="section-title mt-5 text-white">
-                  The real product is one operating view shaped around the work that needs to stay visible.
-                </h2>
-                <p className="mt-6 max-w-[760px] text-lg leading-8 text-slate-300">
-                  A business can use it for revenue, delivery, content, contracts, reporting, calendars, follow-up, or support. The point is
-                  not another tool. It is a place where the important work has an owner, a status, and a next move.
-                </p>
-              </div>
-
-              <div className="possibility-stack">
-                {possibilityCards.slice(2).map((point) => (
-                  <div key={point.title} className="possibility-card">
-                    <strong>{point.title}</strong>
-                    <p>{point.body}</p>
-                  </div>
-                ))}
               </div>
             </div>
           </div>
