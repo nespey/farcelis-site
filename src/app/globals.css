@@ -308,6 +308,21 @@ a {
     object-position: 50% 18% !important;
   }
 
+  .leadership-card:nth-child(2) .leadership-card-image img {
+    object-position: 50% 12% !important;
+    transform: scale(1.14);
+  }
+
+  .leadership-card:nth-child(3) .leadership-card-image img {
+    object-position: 50% 16% !important;
+    transform: scale(1.1);
+  }
+
+  .leadership-card:nth-child(4) .leadership-card-image img {
+    object-position: 50% 14% !important;
+    transform: scale(1.12);
+  }
+
   .leadership-card-copy {
     min-height: 96px;
     align-items: flex-start;
