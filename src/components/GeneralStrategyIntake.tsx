@@ -1,6 +1,7 @@
 "use client";
 
 import { FormEvent, useCallback, useEffect, useMemo, useState } from "react";
+import type { Dispatch, SetStateAction } from "react";
 
 type WorkInterest = {
   id: string;
@@ -8,6 +9,8 @@ type WorkInterest = {
   description: string;
   emailLabel?: string;
 };
+
+type SelectionGroup = "service" | "industry" | "resource";
 
 const workInterests: WorkInterest[] = [
   { id: "website-development", label: "Website Development", description: "Service pages, landing pages, resource hubs, and inquiry paths." },
@@ -28,30 +31,100 @@ const workInterests: WorkInterest[] = [
   { id: "deployment-operations", label: "Deployment Operations", description: "Keep hosted websites, apps, releases, checks, and support stable.", emailLabel: "Deployment Operations - ongoing continuity" },
 ];
 
+const industryInterests: WorkInterest[] = [
+  { id: "professional-services-consulting", label: "Professional Services & Consulting", description: "Client delivery, documentation, and follow-up visibility." },
+  { id: "government-contractors-public-sector", label: "Government Contractors & Public Sector", description: "Accountable workflows, deadline control, and reporting." },
+  { id: "small-mid-market-businesses", label: "Small & Mid-Market Businesses", description: "Practical systems for growing teams and lean operators." },
+  { id: "growth-revenue-teams", label: "Growth & Revenue Teams", description: "Lead flow, content, CRM, ads, and follow-through." },
+  { id: "operations-heavy-teams", label: "Operations-Heavy Teams", description: "Routing, ownership, escalation, and daily work movement." },
+  { id: "education-enablement", label: "Education & Enablement", description: "Learning paths, adoption support, and knowledge transfer." },
+];
+
+const resourceInterests: WorkInterest[] = [
+  { id: "resource-library", label: "Resource Library", description: "Guides, reports, checklists, and gated assets." },
+  { id: "insights-playbooks", label: "Insights & Playbooks", description: "Plain-language strategy notes and operating examples." },
+  { id: "webinars-briefings", label: "Webinars & Briefings", description: "Short sessions for practical business and technology choices." },
+  { id: "tools-assessments", label: "Tools & Assessments", description: "Diagnostics that clarify readiness, fit, and next steps." },
+];
+
 type SubmitState =
   | { status: "idle" }
   | { status: "sending" }
   | { status: "success" }
   | { status: "error"; message: string };
 
-const normalizeInitialWork = (initialWork: string[]) => {
-  const allowedIds = new Set(workInterests.map((item) => item.id));
-  return initialWork.filter((id) => allowedIds.has(id));
+const normalizeInitialSelection = (initialSelection: string[], items: WorkInterest[]) => {
+  const allowedIds = new Set(items.map((item) => item.id));
+  return initialSelection.filter((id) => allowedIds.has(id));
 };
 
-export function GeneralStrategyIntake({ initialWork = [] }: { initialWork?: string[] }) {
-  const [selectedIds, setSelectedIds] = useState<string[]>(() => normalizeInitialWork(initialWork));
+export function GeneralStrategyIntake({
+  initialWork = [],
+  initialIndustry = [],
+  initialResource = [],
+}: {
+  initialWork?: string[];
+  initialIndustry?: string[];
+  initialResource?: string[];
+}) {
+  const [selectedServiceIds, setSelectedServiceIds] = useState<string[]>(() =>
+    normalizeInitialSelection(initialWork, workInterests),
+  );
+  const [selectedIndustryIds, setSelectedIndustryIds] = useState<string[]>(() =>
+    normalizeInitialSelection(initialIndustry, industryInterests),
+  );
+  const [selectedResourceIds, setSelectedResourceIds] = useState<string[]>(() =>
+    normalizeInitialSelection(initialResource, resourceInterests),
+  );
   const [submitState, setSubmitState] = useState<SubmitState>({ status: "idle" });
 
-  const selectedItems = useMemo(
-    () => workInterests.filter((item) => selectedIds.includes(item.id)),
-    [selectedIds],
+  const selectedServiceItems = useMemo(
+    () => workInterests.filter((item) => selectedServiceIds.includes(item.id)),
+    [selectedServiceIds],
   );
 
-  const toggleInterest = (id: string) => {
-    setSelectedIds((current) =>
+  const selectedIndustryItems = useMemo(
+    () => industryInterests.filter((item) => selectedIndustryIds.includes(item.id)),
+    [selectedIndustryIds],
+  );
+
+  const selectedResourceItems = useMemo(
+    () => resourceInterests.filter((item) => selectedResourceIds.includes(item.id)),
+    [selectedResourceIds],
+  );
+
+  const selectedItems = useMemo(
+    () => [
+      ...selectedServiceItems.map((item) => ({ ...item, group: "service" as const })),
+      ...selectedIndustryItems.map((item) => ({ ...item, group: "industry" as const })),
+      ...selectedResourceItems.map((item) => ({ ...item, group: "resource" as const })),
+    ],
+    [selectedIndustryItems, selectedResourceItems, selectedServiceItems],
+  );
+
+  const toggleSelection = (
+    id: string,
+    setSelection: Dispatch<SetStateAction<string[]>>,
+  ) => {
+    setSelection((current) =>
       current.includes(id) ? current.filter((item) => item !== id) : [...current, id],
     );
+  };
+
+  const toggleService = (id: string) => toggleSelection(id, setSelectedServiceIds);
+  const toggleIndustry = (id: string) => toggleSelection(id, setSelectedIndustryIds);
+  const toggleResource = (id: string) => toggleSelection(id, setSelectedResourceIds);
+
+  const removeSelectedItem = (group: SelectionGroup, id: string) => {
+    if (group === "service") {
+      setSelectedServiceIds((current) => current.filter((item) => item !== id));
+      return;
+    }
+    if (group === "industry") {
+      setSelectedIndustryIds((current) => current.filter((item) => item !== id));
+      return;
+    }
+    setSelectedResourceIds((current) => current.filter((item) => item !== id));
   };
 
   const resizeTextarea = (event: FormEvent<HTMLTextAreaElement>) => {
@@ -93,7 +166,11 @@ export function GeneralStrategyIntake({ initialWork = [] }: { initialWork?: stri
     const company = String(form.get("company") ?? "");
     const goal = String(form.get("goal") ?? "");
     const context = String(form.get("context") ?? "");
-    const selectedWork = selectedItems.map((item) => item.emailLabel ?? item.label);
+    const selectedWork = [
+      ...selectedServiceItems.map((item) => `Service Area: ${item.emailLabel ?? item.label}`),
+      ...selectedIndustryItems.map((item) => `Industry: ${item.emailLabel ?? item.label}`),
+      ...selectedResourceItems.map((item) => `Resource Interest: ${item.emailLabel ?? item.label}`),
+    ];
 
     setSubmitState({ status: "sending" });
 
@@ -116,7 +193,9 @@ export function GeneralStrategyIntake({ initialWork = [] }: { initialWork?: stri
       }
 
       formElement.reset();
-      setSelectedIds([]);
+      setSelectedServiceIds([]);
+      setSelectedIndustryIds([]);
+      setSelectedResourceIds([]);
       setSubmitState({ status: "success" });
     } catch (error) {
       setSubmitState({
@@ -130,20 +209,20 @@ export function GeneralStrategyIntake({ initialWork = [] }: { initialWork?: stri
     <div className="grid gap-2">
       <section className="rounded-[18px] border border-cyan-100/12 bg-[#1c3c4d] px-3 py-2.5 text-white lg:px-4">
         <div className="flex flex-col gap-2 text-center sm:text-left">
-          <p className="eyebrow text-[color:var(--color-accent)]">Select Work Areas</p>
+          <p className="eyebrow text-[color:var(--color-accent)]">Select Service Areas</p>
           <p className="text-xs leading-5 text-slate-300">
-            Choose one or more areas you want Farcelis to help with. These selections are added to the intake message.
+            Choose service areas, identify your environment, and flag the resource path that brought you here.
           </p>
         </div>
         <div className="mt-2 grid gap-1.5 sm:grid-cols-2 xl:grid-cols-4">
           {workInterests.map((item) => {
-            const selected = selectedIds.includes(item.id);
+            const selected = selectedServiceIds.includes(item.id);
 
             return (
               <button
                 key={item.id}
                 type="button"
-                onClick={() => toggleInterest(item.id)}
+                onClick={() => toggleService(item.id)}
                 aria-pressed={selected}
                 className={`min-h-[54px] rounded-[12px] border px-2.5 py-1.5 text-center transition ${
                   selected
@@ -158,6 +237,62 @@ export function GeneralStrategyIntake({ initialWork = [] }: { initialWork?: stri
               </button>
             );
           })}
+        </div>
+        <div className="mt-3 grid gap-3 lg:grid-cols-[minmax(0,1.5fr)_minmax(280px,1fr)]">
+          <div>
+            <p className="eyebrow text-[0.62rem] text-[color:var(--color-accent)]">Identify Your Industry</p>
+            <div className="mt-1.5 grid gap-1.5 sm:grid-cols-2 xl:grid-cols-3">
+              {industryInterests.map((item) => {
+                const selected = selectedIndustryIds.includes(item.id);
+
+                return (
+                  <button
+                    key={item.id}
+                    type="button"
+                    onClick={() => toggleIndustry(item.id)}
+                    aria-pressed={selected}
+                    className={`min-h-[50px] rounded-[12px] border px-2.5 py-1.5 text-center transition ${
+                      selected
+                        ? "border-[color:var(--color-accent)] bg-[rgba(242,139,91,0.16)] shadow-[0_12px_30px_rgba(255,124,82,0.12)]"
+                        : "border-cyan-100/10 bg-[#173343] hover:border-cyan-100/24 hover:bg-[#214557]"
+                    }`}
+                  >
+                    <span className="block text-[0.72rem] font-semibold leading-4 text-white">{item.label}</span>
+                    <span className="mx-auto mt-0.5 block max-w-[13.5rem] text-[0.64rem] leading-3 text-slate-300">
+                      {item.description}
+                    </span>
+                  </button>
+                );
+              })}
+            </div>
+          </div>
+          <div>
+            <p className="eyebrow text-[0.62rem] text-[color:var(--color-accent)]">Resource Interest</p>
+            <div className="mt-1.5 grid gap-1.5 sm:grid-cols-2">
+              {resourceInterests.map((item) => {
+                const selected = selectedResourceIds.includes(item.id);
+
+                return (
+                  <button
+                    key={item.id}
+                    type="button"
+                    onClick={() => toggleResource(item.id)}
+                    aria-pressed={selected}
+                    className={`min-h-[50px] rounded-[12px] border px-2.5 py-1.5 text-center transition ${
+                      selected
+                        ? "border-[color:var(--color-accent)] bg-[rgba(242,139,91,0.16)] shadow-[0_12px_30px_rgba(255,124,82,0.12)]"
+                        : "border-cyan-100/10 bg-[#173343] hover:border-cyan-100/24 hover:bg-[#214557]"
+                    }`}
+                  >
+                    <span className="block text-[0.72rem] font-semibold leading-4 text-white">{item.label}</span>
+                    <span className="mx-auto mt-0.5 block max-w-[13.5rem] text-[0.64rem] leading-3 text-slate-300">
+                      {item.description}
+                    </span>
+                  </button>
+                );
+              })}
+            </div>
+          </div>
         </div>
       </section>
 
@@ -189,7 +324,7 @@ export function GeneralStrategyIntake({ initialWork = [] }: { initialWork?: stri
               <button
                 key={item.id}
                 type="button"
-                onClick={() => toggleInterest(item.id)}
+                onClick={() => removeSelectedItem(item.group, item.id)}
                 className="rounded-full border border-[color:var(--color-accent)]/40 bg-[rgba(242,139,91,0.14)] px-2.5 py-1 text-[0.68rem] font-semibold text-white transition hover:bg-[rgba(242,139,91,0.22)]"
               >
                 {item.label} ×
