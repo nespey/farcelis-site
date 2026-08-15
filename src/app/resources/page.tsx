@@ -80,7 +80,7 @@ export default function ResourcesPage() {
       </section>
 
       <Reveal delayMs={60}>
-        <section className="section-shell section-shell-light !pb-[clamp(2rem,4vw,3.75rem)] !pt-[clamp(1rem,2vw,1.875rem)]">
+        <section className="section-shell section-shell-light !pb-[clamp(1.5rem,3vw,2.8125rem)] !pt-[clamp(1rem,2vw,1.875rem)]">
           <div className="section-inner">
             <div className="max-w-[780px]">
               <p className="eyebrow text-[#9f412c]">Resource Pathways</p>
@@ -124,7 +124,7 @@ export default function ResourcesPage() {
       </Reveal>
 
       <Reveal delayMs={120}>
-        <section className="section-shell section-shell-dark !pt-[clamp(2rem,4vw,3.5rem)]">
+        <section className="section-shell section-shell-dark !pb-[clamp(1.5rem,3vw,2.625rem)] !pt-[clamp(1.5rem,3vw,2.625rem)]">
           <div className="section-inner">
             <div className="flex flex-col gap-5 lg:flex-row lg:items-center">
               <p className="eyebrow shrink-0 text-[color:var(--color-accent)]">
