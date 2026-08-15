@@ -8841,18 +8841,19 @@ main :is(.border-t, .border-b, .border-y, .divide-y > :not([hidden]) ~ :not([hid
 
 .service-detail-coverage-prototype {
   display: grid;
-  grid-template-columns: minmax(260px, 0.32fr) minmax(0, 1fr);
-  gap: clamp(1.5rem, 3vw, 3.5rem);
-  align-items: start;
+  grid-template-columns: max-content minmax(0, 1fr);
+  gap: clamp(2rem, 3.4vw, 4.25rem);
+  align-items: center;
 }
 
 .service-detail-coverage-label {
-  max-width: 20rem;
-  font-size: clamp(1rem, 1.18vw, 1.18rem);
+  max-width: none;
+  font-size: clamp(0.84rem, 0.9vw, 0.95rem);
   font-weight: 800;
   line-height: 1.35;
-  letter-spacing: 0.16em;
+  letter-spacing: 0.14em;
   text-transform: uppercase;
+  white-space: nowrap;
 }
 
 .service-detail-coverage-body {

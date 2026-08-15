@@ -15,6 +15,16 @@ export function ServiceDetailPage({ service }: ServiceDetailPageProps) {
   const content = getServicePageContent(service.slug);
   const coverItems = service.capabilities.slice(0, service.capabilities.length >= 6 ? 6 : 3);
   const useCoveragePrototype = service.slug === "ai-strategy-governance";
+  const coverageItems = useCoveragePrototype
+    ? [
+        "Where AI should be used",
+        "Where AI needs approval",
+        "Who owns AI decisions",
+        "What data AI can access",
+        "How teams should adopt it",
+        "How rules get documented",
+      ]
+    : coverItems;
   const relatedGridClass =
     service.related.length === 3
       ? "md:grid-cols-3"
@@ -78,7 +88,7 @@ export function ServiceDetailPage({ service }: ServiceDetailPageProps) {
                 <div className="service-detail-coverage-body">
                   <span className="service-detail-coverage-rule" aria-hidden="true" />
                   <div className="service-detail-coverage-items">
-                    {coverItems.map((item) => (
+                    {coverageItems.map((item) => (
                       <span key={item} className="service-detail-coverage-item">
                         {item}
                       </span>
