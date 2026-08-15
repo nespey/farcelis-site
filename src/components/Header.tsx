@@ -428,7 +428,7 @@ export function Header() {
                       <ResourceMenuLink
                         key={item.label}
                         item={item}
-                        onClick={closeMenus}
+                        onClose={closeMenus}
                       />
                     ))}
                   </div>
