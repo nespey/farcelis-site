@@ -125,13 +125,11 @@ export function ServiceDetailPage({ service }: ServiceDetailPageProps) {
       <Reveal delayMs={100}>
         <section className="service-detail-related section-shell section-shell-dark">
           <div className="section-inner">
-            <div className="flex flex-col gap-3 lg:flex-row lg:items-end lg:justify-between">
-              <div>
-                <p className="eyebrow text-[color:var(--color-accent)]">Related Services</p>
-                <h2 className="mt-3 max-w-[760px] text-[clamp(1.7rem,2.8vw,2.6rem)] font-medium leading-[1.08] tracking-[-0.045em] text-white">
-                  Services that usually connect to this work.
-                </h2>
-              </div>
+            <div className="service-detail-related-header">
+              <p className="service-detail-related-label text-[color:var(--color-accent)]">
+                Related Services
+              </p>
+              <span className="service-detail-related-rule" aria-hidden="true" />
               <Link
                 href={`${contactPathFor(service.slug)}#contact-top`}
                 className="site-cta inline-flex min-h-11 items-center justify-center rounded-full border border-cyan-200/18 bg-cyan-200/6 px-5 py-3 text-center text-sm font-semibold text-cyan-50 hover:border-cyan-100/28 hover:bg-cyan-100/8"
