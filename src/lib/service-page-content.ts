@@ -92,14 +92,14 @@ export const servicePageContent: Record<string, ServicePageContent> = {
   "crm-revenue-operations": {
     image: "/images/services/adobe-stock/crm-revenue-operations.jpeg",
     imageAlt:
-      "CRM and revenue operations team reviewing lead scoring, pipeline status, and follow-up activity",
+      "Dark CRM and revenue operations interface with glowing customer, sales, support, and pipeline icons",
     seoIntro:
       "Farcelis improves CRM and revenue operations for businesses that need leads captured, routed, followed up, tracked, and moved to the right next step. We clean up fields, stages, forms, owners, pipeline views, email handoffs, and reporting so sales and service work stays visible and nothing gets lost.",
   },
   "marketing-automation-crm": {
     image: "/images/services/adobe-stock/crm-revenue-operations.jpeg",
     imageAlt:
-      "Marketing automation and CRM team reviewing lead flow, pipeline status, and follow-up actions",
+      "Dark marketing automation and CRM interface showing connected customer, sales, support, and follow-up workflows",
     seoIntro:
       "Farcelis builds marketing automation and CRM systems for businesses that need leads, quote requests, email follow-up, pipeline stages, owners, and revenue reporting to stay organized. We connect forms, campaigns, CRM records, and follow-up so opportunities are visible and not lost.",
   },
