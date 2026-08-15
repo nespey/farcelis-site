@@ -90,14 +90,14 @@ export const servicePageContent: Record<string, ServicePageContent> = {
       "Farcelis builds paid advertising systems for Google Ads, paid search, Meta Ads, and paid social campaigns that need clear offers, landing pages, conversion tracking, CRM routing, and reporting. We connect ad traffic to real inquiries and follow-up instead of disconnected clicks.",
   },
   "crm-revenue-operations": {
-    image: "/images/services/adobe-stock/crm-revenue-operations-2039343633.jpeg",
+    image: "/images/services/adobe-stock/crm-revenue-operations.jpeg",
     imageAlt:
       "CRM and revenue operations team reviewing lead scoring, pipeline status, and follow-up activity",
     seoIntro:
       "Farcelis improves CRM and revenue operations for businesses that need leads captured, routed, followed up, tracked, and moved to the right next step. We clean up fields, stages, forms, owners, pipeline views, email handoffs, and reporting so sales and service work stays visible and nothing gets lost.",
   },
   "marketing-automation-crm": {
-    image: "/images/services/adobe-stock/crm-revenue-operations-2039343633.jpeg",
+    image: "/images/services/adobe-stock/crm-revenue-operations.jpeg",
     imageAlt:
       "Marketing automation and CRM team reviewing lead flow, pipeline status, and follow-up actions",
     seoIntro:
