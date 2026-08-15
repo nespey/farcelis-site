@@ -103,29 +103,6 @@ export default async function IndustryDetailPage({ params }: IndustryPageProps) 
       </Reveal>
 
       <Reveal delayMs={100}>
-        <section className="section-shell section-shell-light !py-[clamp(1.75rem,3.5vw,3rem)]">
-          <div className="section-inner grid gap-6 lg:grid-cols-[minmax(0,0.68fr)_minmax(0,1.32fr)] lg:items-start">
-            <div>
-              <p className="eyebrow text-[#9f412c]">Farcelis Focus</p>
-              <h2 className="mt-4 text-[clamp(1.75rem,2.75vw,2.7rem)] font-medium leading-[1.06] tracking-[-0.055em] text-slate-950 [text-wrap:balance]">
-                The work is industry-aware, but the fix is operational.
-              </h2>
-            </div>
-            <div className="grid gap-3 sm:grid-cols-2">
-              {industry.offers.map((offer) => (
-                <div
-                  key={offer}
-                  className="rounded-[16px] border border-slate-200 bg-white px-5 py-4 text-base font-semibold leading-6 tracking-[-0.03em] text-slate-950 shadow-[0_14px_30px_rgba(15,23,42,0.05)]"
-                >
-                  {offer}
-                </div>
-              ))}
-            </div>
-          </div>
-        </section>
-      </Reveal>
-
-      <Reveal delayMs={130}>
         <section className="section-shell section-shell-dark !py-[clamp(1.75rem,3.5vw,3rem)]">
           <div className="section-inner">
             <div className="service-detail-related-header">
@@ -157,21 +134,6 @@ export default async function IndustryDetailPage({ params }: IndustryPageProps) 
                 </Link>
               ))}
             </div>
-          </div>
-        </section>
-      </Reveal>
-
-      <Reveal delayMs={160}>
-        <section className="section-shell section-shell-dark !pt-0">
-          <div className="section-inner grid gap-3 md:grid-cols-3">
-            {industry.proofPoints.map((point) => (
-              <div
-                key={point}
-                className="rounded-[16px] border border-cyan-100/12 bg-white/[0.04] px-5 py-4 text-sm font-semibold leading-6 text-slate-100"
-              >
-                {point}
-              </div>
-            ))}
           </div>
         </section>
       </Reveal>

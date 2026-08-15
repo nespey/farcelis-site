@@ -33,6 +33,32 @@ const resourceLinks = [
 type MenuKey = "services" | "industries" | "resources";
 type CapabilityPillar = "Build" | "Grow" | "Operate";
 
+const industryMenuGroups: {
+  label: CapabilityPillar;
+  headline: string;
+  detail: string;
+  slugs: string[];
+}[] = [
+  {
+    label: "Build",
+    headline: "You need structure around delivery and client-facing systems.",
+    detail: "Best fit when the work depends on clearer intake, portals, documentation, and repeatable client follow-through.",
+    slugs: ["professional-services-consulting", "small-mid-market-businesses"],
+  },
+  {
+    label: "Grow",
+    headline: "You need visibility, adoption, and better handoffs.",
+    detail: "Best fit when growth, enablement, content, CRM, or learning work needs a stronger operating path.",
+    slugs: ["growth-revenue-teams", "education-enablement"],
+  },
+  {
+    label: "Operate",
+    headline: "You need accountable workflows and leadership visibility.",
+    detail: "Best fit when approvals, deadlines, routing, reporting, and operational control matter every day.",
+    slugs: ["government-contractors-public-sector", "operations-heavy-teams"],
+  },
+];
+
 function CapabilityPillarHeader({ label }: { label: string }) {
   const pillar = label as CapabilityPillar;
 
@@ -108,13 +134,42 @@ function IndustryMenuLink({
     <Link
       href={`/industries/${item.slug}`}
       onClick={onClose}
-      className="flex min-h-[92px] flex-col justify-center rounded-[14px] border border-cyan-100/10 bg-[#173343] px-4 py-3 text-center transition hover:-translate-y-0.5 hover:border-cyan-100/24 hover:bg-[#214557] focus:outline-none focus-visible:ring-2 focus-visible:ring-cyan-100/70"
+      className="flex min-h-[88px] flex-col justify-center rounded-[12px] border border-cyan-100/10 bg-[#173343] px-3 py-2.5 text-center transition hover:-translate-y-0.5 hover:border-cyan-100/24 hover:bg-[#214557] focus:outline-none focus-visible:ring-2 focus-visible:ring-cyan-100/70"
     >
       <span className="text-[0.82rem] font-semibold leading-5 text-white">{item.title}</span>
       <span className="mx-auto mt-1.5 max-w-[20rem] text-[0.68rem] leading-4 text-slate-300">
         {item.cardKicker}: {item.signals[0]}
       </span>
     </Link>
+  );
+}
+
+function IndustryPillarColumn({
+  group,
+  onClose,
+}: {
+  group: (typeof industryMenuGroups)[number];
+  onClose: () => void;
+}) {
+  const items = group.slugs
+    .map((slug) => industryFocus.find((item) => item.slug === slug))
+    .filter((item): item is (typeof industryFocus)[number] => Boolean(item));
+
+  return (
+    <div className="flex h-full flex-col rounded-[16px] border border-cyan-100/10 bg-[#1c3c4d] p-2.5 text-center">
+      <CapabilityPillarHeader label={group.label} />
+      <p className="mx-auto mt-2 max-w-[310px] text-xs font-semibold leading-5 text-white">
+        {group.headline}
+      </p>
+      <p className="mx-auto mt-1.5 max-w-[320px] text-[0.7rem] leading-4 text-slate-300">
+        {group.detail}
+      </p>
+      <div className="mt-2.5 grid gap-1.5">
+        {items.map((item) => (
+          <IndustryMenuLink key={item.slug} item={item} onClose={onClose} />
+        ))}
+      </div>
+    </div>
   );
 }
 
@@ -283,17 +338,21 @@ export function Header() {
                     </p>
                   </div>
 
-                  <div className="mt-2.5 grid gap-2.5 md:grid-cols-2 lg:grid-cols-3">
-                    {industryFocus.map((item) => (
-                      <IndustryMenuLink key={item.slug} item={item} onClose={closeMenus} />
+                  <div className="mt-2.5 grid gap-2.5 lg:grid-cols-3">
+                    {industryMenuGroups.map((group) => (
+                      <IndustryPillarColumn
+                        key={`industry-${group.label}`}
+                        group={group}
+                        onClose={closeMenus}
+                      />
                     ))}
                   </div>
 
-                  <div className="mt-2.5 flex justify-center">
+                  <div className="mt-2.5 rounded-[16px] border border-cyan-100/10 bg-[#1c3c4d] px-4 py-3 text-center">
                     <Link
                       href="/industries"
                       onClick={closeMenus}
-                      className="inline-flex min-h-10 items-center justify-center rounded-full border border-cyan-100/18 bg-cyan-100/7 px-5 py-2 text-sm font-semibold text-cyan-50 transition hover:border-cyan-100/30 hover:bg-cyan-100/10"
+                      className="inline-flex min-h-10 items-center justify-center rounded-full border border-cyan-100/18 bg-cyan-100/7 px-6 py-2 text-sm font-semibold text-cyan-50 transition hover:border-cyan-100/30 hover:bg-cyan-100/10"
                     >
                       See All Industries
                     </Link>
