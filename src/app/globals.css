@@ -267,6 +267,7 @@ a {
 
 .results-page-intro {
   padding-top: clamp(0.875rem, 1.5vw, 1.375rem) !important;
+  padding-bottom: clamp(1rem, 1.75vw, 1.5rem) !important;
 }
 
 .team-grid {
@@ -353,6 +354,7 @@ a {
 }
 
 .results-public-proof-section {
+  padding-top: clamp(1rem, 1.75vw, 1.5rem) !important;
   padding-bottom: clamp(2rem, 4vw, 3.5rem);
 }
 
