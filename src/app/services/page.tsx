@@ -52,21 +52,21 @@ export default function ServicesPage() {
                   <div
                     className={`relative isolate flex min-h-12 items-center justify-center overflow-hidden rounded-[12px] border px-4 py-2.5 text-lg font-black uppercase tracking-[0.3em] shadow-[inset_0_1px_0_rgba(255,255,255,0.08)] ${
                       group.label === "Build"
-                        ? "border-cyan-100/16 bg-[#285869]"
+                        ? "border-cyan-100/16 bg-[#376c7c]"
                         : group.label === "Grow"
-                          ? "border-emerald-100/16 bg-[#315f55]"
-                          : "border-indigo-100/16 bg-[#3e506c]"
+                          ? "border-emerald-100/16 bg-[#3f745f]"
+                          : "border-indigo-100/16 bg-[#53647f]"
                     }`}
                   >
-                    <span className="relative z-10 text-white">
+                    <span className="relative z-10 text-[#ff955f]">
                       {group.label}
                     </span>
                   </div>
 
-                  <h3 className="mx-auto mt-3 max-w-[360px] text-xl font-semibold tracking-[-0.035em] text-white">
+                  <h3 className="mx-auto mt-3 max-w-[360px] text-center text-xl font-semibold leading-7 tracking-[-0.035em] text-white">
                     {group.headline}
                   </h3>
-                  <p className="mx-auto mt-2 max-w-[380px] text-xs leading-5 text-slate-200">
+                  <p className="mx-auto mt-2 max-w-[380px] text-center text-xs leading-5 text-slate-200">
                     {group.buyerPrompt}
                   </p>
                   <div className="mt-3 grid gap-1.5 rounded-[14px] border border-cyan-100/10 bg-[#173343] p-2">
