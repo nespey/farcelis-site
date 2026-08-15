@@ -30,7 +30,7 @@ export default function TeamPage() {
                   href={`/team/${member.slug}`}
                   className="leadership-card group grid overflow-hidden rounded-[24px] border border-slate-200 bg-white shadow-[0_18px_40px_rgba(15,23,42,0.07)] transition hover:-translate-y-1 hover:shadow-[0_24px_48px_rgba(15,23,42,0.12)] sm:grid-cols-[220px_minmax(0,1fr)] xl:block"
                 >
-                  <div className="leadership-card-image relative aspect-[4/5] overflow-hidden sm:h-full sm:min-h-[280px] xl:min-h-0">
+                  <div className="leadership-card-image relative aspect-[4/5] overflow-hidden sm:min-h-[280px] xl:min-h-0">
                     <Image
                       src={member.image}
                       alt={`${member.name}, ${member.role} at Farcelis AI Consulting`}

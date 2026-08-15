@@ -265,25 +265,59 @@ a {
 }
 
 .team-grid {
-  max-width: 1600px;
+  max-width: 1500px;
 }
 
 .leadership-card {
+  background: rgba(18, 43, 57, 0.86) !important;
+  border-color: rgba(111, 176, 202, 0.18) !important;
   min-height: 100%;
+}
+
+.leadership-card-image img {
+  object-position: 50% 34%;
+}
+
+.leadership-card:nth-child(1) .leadership-card-image img {
+  object-position: 50% 28%;
+}
+
+.leadership-card:nth-child(2) .leadership-card-image img {
+  object-position: 50% 30%;
+}
+
+.leadership-card:nth-child(3) .leadership-card-image img {
+  object-position: 50% 30%;
+}
+
+.leadership-card:nth-child(4) .leadership-card-image img {
+  object-position: 50% 28%;
+}
+
+.leadership-card-copy {
+  color: var(--color-text);
+}
+
+.leadership-card-copy .eyebrow {
+  color: rgba(255, 142, 91, 0.96) !important;
 }
 
 @media (min-width: 1280px) {
   .leadership-card-image {
-    aspect-ratio: 4 / 4.35;
+    height: clamp(220px, 15vw, 270px) !important;
+    aspect-ratio: auto;
   }
 
   .leadership-card-copy {
-    min-height: 188px;
+    min-height: 156px;
     align-items: flex-start;
+    padding: 1.25rem 1.35rem 1.35rem;
   }
 
   .leadership-card-copy .eyebrow {
-    min-height: 2.2em;
+    min-height: 2.6em;
+    font-size: 0.61rem;
+    letter-spacing: 0.2em;
   }
 }
 
