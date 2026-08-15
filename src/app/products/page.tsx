@@ -31,15 +31,15 @@ const fitSignals = [
 export default function ProductsPage() {
   return (
     <>
-      <section className="section-shell section-shell-dark !pb-[clamp(1.25rem,2.4vw,2.25rem)] !pt-[clamp(1.25rem,2.4vw,2.25rem)]">
-        <div className="section-inner grid gap-7 lg:grid-cols-[minmax(0,0.96fr)_minmax(420px,0.7fr)] lg:items-center">
+      <section className="section-shell section-shell-dark !pb-[clamp(1rem,2vw,1.875rem)] !pt-[clamp(1rem,2vw,1.875rem)]">
+        <div className="section-inner grid gap-7 lg:grid-cols-[minmax(0,0.96fr)_minmax(420px,0.7fr)] lg:items-start">
           <div>
             <p className="eyebrow text-[color:var(--color-accent)]">Tools & Assessments</p>
             <h1 className="mt-4 max-w-[760px] text-[clamp(2.05rem,3.2vw,3.35rem)] font-medium leading-[1.02] tracking-[-0.055em] text-white [text-wrap:balance]">
-              Tools and assessments for clearer next steps.
+              Assessments that turn messy signals into a clearer path.
             </h1>
             <p className="mt-5 max-w-[760px] text-base leading-7 text-slate-300 lg:text-lg lg:leading-8">
-              Use Farcelis tools to clarify readiness, fit, workflow pressure, and decision risk before choosing what to build, grow, or operate.
+              Use the Control Layer, readiness snapshots, coaching assistants, adaptive learning, RapidRamp, and marketing blueprint tools to decide what needs structure, automation, enablement, or growth support next.
             </p>
             <div className="mt-6 flex flex-col gap-3 sm:flex-row">
               <Link
@@ -71,16 +71,16 @@ export default function ProductsPage() {
       </section>
 
       <Reveal delayMs={60}>
-        <section className="section-shell section-shell-light !pb-[clamp(1.75rem,3vw,3rem)] !pt-[clamp(1rem,2vw,1.875rem)]">
+        <section className="section-shell section-shell-light !pb-[clamp(1.75rem,3vw,3rem)] !pt-[clamp(0.75rem,1.6vw,1.5rem)]">
           <div className="section-inner">
-            <div className="max-w-[840px]">
+            <div className="max-w-none">
               <p className="eyebrow text-[#9f412c]">Available Tools</p>
-              <h2 className="mt-4 max-w-[780px] text-[clamp(1.7rem,2.45vw,2.45rem)] font-medium leading-[1.05] tracking-[-0.055em] text-slate-950">
-                Start with the assessment that matches the question.
+              <h2 className="mt-4 whitespace-normal text-[clamp(1.55rem,2.15vw,2.15rem)] font-medium leading-[1.05] tracking-[-0.045em] text-slate-950 lg:whitespace-nowrap">
+                Pick the tool that matches the operating question.
               </h2>
             </div>
 
-            <div className="mt-8 grid items-stretch gap-4 md:grid-cols-2 lg:grid-cols-3">
+            <div className="mt-7 grid items-stretch gap-4 md:grid-cols-2 lg:grid-cols-3">
               {products.map((product) => (
                 <Link
                   key={product.slug}
