@@ -9,17 +9,17 @@ export const metadata = buildMetadata(seo.industries);
 
 const industryCardDescriptions: Record<string, string> = {
   "professional-services-consulting":
-    "Client delivery, documentation, and follow-up systems for professional service teams.",
+    "Client delivery and follow-up systems for service teams.",
   "government-contractors-public-sector":
-    "Deadline, documentation, and reporting workflows for accountable public-sector work.",
+    "Deadline and reporting workflows for accountable teams.",
   "small-mid-market-businesses":
-    "Practical websites, CRM, automation, and operations support for growing companies.",
+    "Websites, CRM, automation, and operations support.",
   "growth-revenue-teams":
-    "SEO, content, ads, CRM, and reporting connected to visible follow-through.",
+    "SEO, content, ads, CRM, and reporting connected.",
   "operations-heavy-teams":
-    "Intake, routing, escalation, and dashboard systems for complex daily work.",
+    "Intake, routing, escalation, and dashboard systems.",
   "education-enablement":
-    "AI adoption, learning paths, and knowledge systems people can actually use.",
+    "AI adoption, learning paths, and knowledge systems.",
 };
 
 export default function IndustriesPage() {
@@ -85,7 +85,7 @@ export default function IndustriesPage() {
                     <h3 className="mt-3 min-h-6 text-xl font-semibold leading-6 tracking-[-0.04em] text-slate-950">
                       {item.title}
                     </h3>
-                    <p className="mt-3 line-clamp-2 min-h-12 text-sm leading-6 text-slate-600">
+                    <p className="mt-3 truncate text-sm leading-6 text-slate-600">
                       {industryCardDescriptions[item.slug] ?? item.description}
                     </p>
                     <div className="mt-4 text-sm font-semibold text-[#9f412c]">View industry services</div>
