@@ -9,9 +9,9 @@ import { industryFocus } from "@/lib/site-data";
 
 const resourceLinks = [
   {
-    href: "/resources",
+    href: "/resources/library",
     label: "Resource Library",
-    detail: "Guides and checklists that help you choose the right service.",
+    detail: "Briefings, reports, guides, and playbooks for deeper evaluation.",
   },
   {
     href: "/insights",
