@@ -27,15 +27,6 @@ const recommendationCards = [
     tags: ["CRM cleanup", "Outbound readiness"],
   },
   {
-    source: "Executive support engagement",
-    context: "Vendor sourcing, urgent coordination, and executive follow-through",
-    quote: "The pressure came off the executive desk without losing urgency.",
-    story:
-      "Time-sensitive vendor sourcing and coordination work was handled with enough structure that leadership had faster options, cleaner follow-up, and fewer loose ends during a compressed decision window.",
-    proofLine: "Faster vendor options and cleaner follow-through",
-    tags: ["Vendor sourcing", "Follow-through"],
-  },
-  {
     source: "Senior operations recommendation",
     context: "Organizational assessment and implementation",
     quote: "The work moved from diagnosis into disciplined action.",
@@ -116,53 +107,55 @@ export default function ResultsPage() {
       <Reveal delayMs={160}>
         <section className="section-shell section-shell-dark results-recommendation-section">
           <div className="section-inner">
-            <div className="grid w-full max-w-[860px] gap-5 rounded-[26px] border border-white/10 bg-white/[0.04] p-4 shadow-[0_20px_56px_rgba(3,8,16,0.22)] sm:grid-cols-[132px_minmax(0,1fr)] sm:items-center">
-              <div className="relative mx-auto aspect-square w-full max-w-[132px] overflow-hidden rounded-[20px] border border-white/10 bg-white/[0.05] shadow-[0_14px_34px_rgba(3,8,16,0.22)] sm:mx-0">
-                <Image
-                  src="/images/proof/seated-closer.jpg"
-                  alt="Nathan Espey seated in a suit"
-                  fill
-                  sizes="132px"
-                  className="object-cover object-top"
-                />
-              </div>
-              <div className="flex min-h-[132px] flex-col justify-between">
-                <div>
-                  <h2 className="max-w-[620px] text-[clamp(1.2rem,1.45vw,1.45rem)] font-semibold leading-[1.12] tracking-[-0.025em] text-slate-100">
-                    Results are not decorations. They are the evidence that the system held.
-                  </h2>
-                  <p className="mt-3 max-w-[620px] text-sm italic leading-6 text-slate-300">
-                    “The point of proof is not to sound impressive. It is to show that pressure entered the system, the work got organized, and leaders had something clearer to act on.”
+            <div className="results-proof-divider" aria-hidden="true" />
+
+            <div className="results-proof-grid">
+              <article className="results-proof-card results-founder-proof">
+                <div className="relative mx-auto aspect-square w-full max-w-[132px] overflow-hidden rounded-[20px] border border-white/10 bg-white/[0.05] shadow-[0_14px_34px_rgba(3,8,16,0.22)] sm:mx-0">
+                  <Image
+                    src="/images/proof/seated-closer.jpg"
+                    alt="Nathan Espey seated in a suit"
+                    fill
+                    sizes="132px"
+                    className="object-cover object-top"
+                  />
+                </div>
+                <div className="flex min-h-[132px] flex-col justify-between">
+                  <div>
+                    <h2 className="max-w-[620px] text-[clamp(1.2rem,1.45vw,1.45rem)] font-semibold leading-[1.12] tracking-[-0.025em] text-slate-100">
+                      Results are not decorations. They are the evidence that the system held.
+                    </h2>
+                    <p className="mt-3 max-w-[620px] text-sm italic leading-6 text-slate-300">
+                      “The point of proof is not to sound impressive. It is to show that pressure entered the system, the work got organized, and leaders had something clearer to act on.”
+                    </p>
+                  </div>
+                  <p className="mt-3 text-[0.68rem] font-semibold uppercase leading-none tracking-[0.18em] text-slate-500">
+                    Nathan Espey, Founder & CEO
                   </p>
                 </div>
-                <p className="mt-3 text-[0.68rem] font-semibold uppercase leading-none tracking-[0.18em] text-slate-500">
-                  Nathan Espey, Founder & CEO
-                </p>
-              </div>
-            </div>
+              </article>
 
-            <div className="mt-8 grid gap-5 lg:grid-cols-2">
               {recommendationCards.map((card, index) => (
                 <article
                   key={card.source}
-                  className={`flex min-h-[360px] flex-col rounded-[28px] border px-7 py-7 ${
+                  className={`results-proof-card flex flex-col ${
                     index === 0
-                      ? "border-[color:var(--color-accent)]/22 bg-[linear-gradient(180deg,rgba(242,139,91,0.15),rgba(255,255,255,0.035))]"
+                      ? "border-[color:var(--color-accent)]/22 bg-[linear-gradient(180deg,rgba(242,139,91,0.14),rgba(255,255,255,0.035))]"
                       : "border-white/8 bg-white/[0.04]"
                   }`}
                 >
-                  <div className="text-sm font-semibold uppercase tracking-[0.18em] text-[color:var(--color-accent)]">
+                  <div className="text-xs font-semibold uppercase tracking-[0.18em] text-[color:var(--color-accent)]">
                     {card.source}
                   </div>
-                  <p className="mt-5 text-[clamp(1.65rem,2.2vw,2.25rem)] font-medium italic leading-[1.28] tracking-[-0.04em] text-slate-100">
+                  <p className="mt-3 text-[clamp(1.2rem,1.45vw,1.45rem)] font-medium italic leading-[1.22] tracking-[-0.035em] text-slate-100">
                     “{card.quote}”
                   </p>
-                  <p className="mt-5 text-base leading-8 text-slate-300">{card.story}</p>
+                  <p className="mt-3 text-sm leading-6 text-slate-300">{card.story}</p>
                   <div className="mt-auto border-t border-white/10 pt-5">
-                    <p className="text-xs font-semibold uppercase tracking-[0.16em] text-slate-500">
+                    <p className="text-[0.68rem] font-semibold uppercase tracking-[0.16em] text-slate-500">
                       {card.context}
                     </p>
-                    <p className="mt-3 text-base font-semibold leading-7 text-slate-100">
+                    <p className="mt-2 text-sm font-semibold leading-6 text-slate-100">
                       {card.proofLine}
                     </p>
                   </div>
