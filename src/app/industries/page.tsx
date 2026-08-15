@@ -25,7 +25,7 @@ const industryCardDescriptions: Record<string, string> = {
 export default function IndustriesPage() {
   return (
     <>
-      <section className="section-shell section-shell-dark !py-[clamp(2rem,4vw,3.5rem)]">
+      <section className="section-shell section-shell-dark !pb-[clamp(2rem,4vw,3.5rem)] !pt-[clamp(1rem,2vw,1.75rem)]">
         <div className="section-inner">
           <p className="eyebrow text-[color:var(--color-accent)]">Industries</p>
           <h1 className="mt-4 max-w-[720px] text-[clamp(2.15rem,3.35vw,3.45rem)] font-medium leading-[1.02] tracking-[-0.055em] text-white [text-wrap:balance]">
