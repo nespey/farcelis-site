@@ -265,37 +265,30 @@ a {
 }
 
 .team-grid {
-  max-width: 1500px;
+  max-width: 1580px;
 }
 
 .leadership-card {
   background: rgba(18, 43, 57, 0.86) !important;
   border-color: rgba(111, 176, 202, 0.18) !important;
   min-height: 100%;
+  display: flex;
+  flex-direction: column;
+}
+
+.leadership-card-image {
+  background:
+    radial-gradient(circle at 50% 8%, rgba(97, 192, 215, 0.12), transparent 42%),
+    rgba(8, 25, 35, 0.48);
 }
 
 .leadership-card-image img {
-  object-position: 50% 34%;
-}
-
-.leadership-card:nth-child(1) .leadership-card-image img {
-  object-position: 50% 28%;
-}
-
-.leadership-card:nth-child(2) .leadership-card-image img {
-  object-position: 50% 30%;
-}
-
-.leadership-card:nth-child(3) .leadership-card-image img {
-  object-position: 50% 30%;
-}
-
-.leadership-card:nth-child(4) .leadership-card-image img {
-  object-position: 50% 28%;
+  object-position: 50% 50%;
 }
 
 .leadership-card-copy {
   color: var(--color-text);
+  gap: 0.45rem;
 }
 
 .leadership-card-copy .eyebrow {
@@ -303,21 +296,41 @@ a {
 }
 
 @media (min-width: 1280px) {
+  .team-grid {
+    gap: clamp(0.9rem, 1.2vw, 1.25rem);
+  }
+
   .leadership-card-image {
-    height: clamp(220px, 15vw, 270px) !important;
+    height: clamp(315px, 20vw, 365px) !important;
     aspect-ratio: auto;
   }
 
+  .leadership-card-image img {
+    object-fit: contain !important;
+    object-position: 50% 50% !important;
+  }
+
   .leadership-card-copy {
-    min-height: 156px;
+    min-height: 104px;
     align-items: flex-start;
-    padding: 1.25rem 1.35rem 1.35rem;
+    padding: 0.85rem 1.2rem 0.95rem;
   }
 
   .leadership-card-copy .eyebrow {
-    min-height: 2.6em;
-    font-size: 0.61rem;
-    letter-spacing: 0.2em;
+    min-height: 0;
+    font-size: 0.58rem;
+    line-height: 1.18;
+    letter-spacing: 0.18em;
+  }
+
+  .leadership-card-copy h2 {
+    margin-top: 0.28rem !important;
+    font-size: clamp(1.2rem, 1.22vw, 1.45rem) !important;
+    line-height: 1.06;
+  }
+
+  .leadership-card-copy div {
+    margin-top: 0.35rem !important;
   }
 }
 
