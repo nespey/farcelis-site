@@ -14,6 +14,7 @@ type ServiceDetailPageProps = {
 export function ServiceDetailPage({ service }: ServiceDetailPageProps) {
   const content = getServicePageContent(service.slug);
   const coverItems = service.capabilities.slice(0, service.capabilities.length >= 6 ? 6 : 3);
+  const useCoveragePrototype = service.slug === "ai-strategy-governance";
   const relatedGridClass =
     service.related.length === 3
       ? "md:grid-cols-3"
@@ -69,26 +70,44 @@ export function ServiceDetailPage({ service }: ServiceDetailPageProps) {
       <Reveal delayMs={60}>
         <section className="service-detail-capabilities section-shell section-shell-dark">
           <div className="section-inner">
-            <div className="grid gap-4 lg:grid-cols-[minmax(0,0.42fr)_minmax(0,1fr)] lg:items-start">
-              <div>
-                <p className="eyebrow text-[color:var(--color-accent)]">What This Covers</p>
-                <h2 className="mt-3 max-w-[520px] text-[clamp(1.65rem,2.55vw,2.35rem)] font-medium leading-[1.08] tracking-[-0.045em] text-white [text-wrap:balance]">
-                  The work Farcelis handles on this page.
-                </h2>
-              </div>
-              <div className="service-detail-capability-list grid gap-3 sm:grid-cols-3">
-                {coverItems.map((item) => (
-                  <div
-                    key={item}
-                    className="service-detail-capability-item flex min-h-[32px] items-center justify-center px-3 py-1 text-center"
-                  >
-                    <span className="text-sm font-semibold leading-5 text-slate-200 [text-wrap:balance]">
-                      {item}
-                    </span>
+            {useCoveragePrototype ? (
+              <div className="service-detail-coverage-prototype">
+                <p className="service-detail-coverage-label text-[color:var(--color-accent)]">
+                  What Clients Usually Need Here
+                </p>
+                <div className="service-detail-coverage-body">
+                  <span className="service-detail-coverage-rule" aria-hidden="true" />
+                  <div className="service-detail-coverage-items">
+                    {coverItems.map((item) => (
+                      <span key={item} className="service-detail-coverage-item">
+                        {item}
+                      </span>
+                    ))}
                   </div>
-                ))}
+                </div>
               </div>
-            </div>
+            ) : (
+              <div className="grid gap-4 lg:grid-cols-[minmax(0,0.42fr)_minmax(0,1fr)] lg:items-start">
+                <div>
+                  <p className="eyebrow text-[color:var(--color-accent)]">What This Covers</p>
+                  <h2 className="mt-3 max-w-[520px] text-[clamp(1.65rem,2.55vw,2.35rem)] font-medium leading-[1.08] tracking-[-0.045em] text-white [text-wrap:balance]">
+                    The work Farcelis handles on this page.
+                  </h2>
+                </div>
+                <div className="service-detail-capability-list grid gap-3 sm:grid-cols-3">
+                  {coverItems.map((item) => (
+                    <div
+                      key={item}
+                      className="service-detail-capability-item flex min-h-[32px] items-center justify-center px-3 py-1 text-center"
+                    >
+                      <span className="text-sm font-semibold leading-5 text-slate-200 [text-wrap:balance]">
+                        {item}
+                      </span>
+                    </div>
+                  ))}
+                </div>
+              </div>
+            )}
           </div>
         </section>
       </Reveal>

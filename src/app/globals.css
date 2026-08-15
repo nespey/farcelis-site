@@ -1,6 +1,7 @@
 @import "tailwindcss";
 
 :root {
+  --font-manrope: Manrope, Inter, "Helvetica Neue", Arial, sans-serif;
   --color-accent: #f28b5b;
   --color-accent-2: #61c0d7;
   --color-accent-3: #8d77ff;
@@ -8838,6 +8839,52 @@ main :is(.border-t, .border-b, .border-y, .divide-y > :not([hidden]) ~ :not([hid
   min-height: 0;
 }
 
+.service-detail-coverage-prototype {
+  display: grid;
+  grid-template-columns: minmax(260px, 0.32fr) minmax(0, 1fr);
+  gap: clamp(1.5rem, 3vw, 3.5rem);
+  align-items: start;
+}
+
+.service-detail-coverage-label {
+  max-width: 20rem;
+  font-size: clamp(1rem, 1.18vw, 1.18rem);
+  font-weight: 800;
+  line-height: 1.35;
+  letter-spacing: 0.16em;
+  text-transform: uppercase;
+}
+
+.service-detail-coverage-body {
+  display: grid;
+  gap: 1.05rem;
+  padding-top: 0.18rem;
+}
+
+.service-detail-coverage-rule {
+  display: block;
+  height: 1px;
+  width: 100%;
+  background: linear-gradient(90deg, rgba(255, 126, 75, 0.95), rgba(255, 126, 75, 0.32));
+}
+
+.service-detail-coverage-items {
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  column-gap: clamp(1.5rem, 3vw, 4rem);
+  row-gap: 1.05rem;
+}
+
+.service-detail-coverage-item {
+  display: block;
+  text-align: center;
+  font-size: clamp(0.9rem, 0.95vw, 1rem);
+  font-weight: 650;
+  line-height: 1.45;
+  color: rgb(226 232 240);
+  text-wrap: balance;
+}
+
 .service-detail-image-wrap .object-right-center {
   object-position: right center;
 }
@@ -8882,6 +8929,21 @@ main :is(.border-t, .border-b, .border-y, .divide-y > :not([hidden]) ~ :not([hid
   .service-detail-capability-list {
     gap: 0.85rem;
   }
+
+  .service-detail-coverage-prototype {
+    grid-template-columns: 1fr;
+    gap: 1rem;
+  }
+
+  .service-detail-coverage-label {
+    max-width: none;
+  }
+
+  .service-detail-coverage-items {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    column-gap: 1rem;
+    row-gap: 0.9rem;
+  }
 }
 
 @media (max-width: 640px) {
@@ -8892,5 +8954,13 @@ main :is(.border-t, .border-b, .border-y, .divide-y > :not([hidden]) ~ :not([hid
 
   .service-detail-image-wrap {
     aspect-ratio: 1 / 0.82;
+  }
+
+  .service-detail-coverage-items {
+    grid-template-columns: 1fr;
+  }
+
+  .service-detail-coverage-item {
+    text-align: left;
   }
 }

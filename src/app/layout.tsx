@@ -1,6 +1,5 @@
 import type { Metadata, Viewport } from "next";
 import { Analytics } from "@vercel/analytics/next";
-import { Manrope } from "next/font/google";
 import localFont from "next/font/local";
 
 import { Footer } from "@/components/Footer";
@@ -10,11 +9,6 @@ import { SiteExperienceLayer } from "@/components/SiteExperienceLayer";
 import { StructuredData } from "@/components/StructuredData";
 import { site } from "@/lib/site-data";
 import "./globals.css";
-
-const manrope = Manrope({
-  variable: "--font-manrope",
-  subsets: ["latin"],
-});
 
 const ferwalter = localFont({
   src: "../../public/fonts/ferwalter-regular.otf",
@@ -56,7 +50,7 @@ export default function RootLayout({
   children: React.ReactNode;
 }>) {
   return (
-    <html lang="en" className={`${manrope.variable} ${ferwalter.variable} h-full antialiased`}>
+    <html lang="en" className={`${ferwalter.variable} h-full antialiased`}>
       <body className="min-h-full">
         <a href="#main-content" className="skip-link">
           Skip to main content
