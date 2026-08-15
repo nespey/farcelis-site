@@ -5,6 +5,7 @@ import Link from "next/link";
 import { useCallback, useEffect, useRef, useState } from "react";
 
 import { capabilityGroups } from "@/lib/service-catalog";
+import { industryFocus } from "@/lib/site-data";
 
 const resourceLinks = [
   {
@@ -29,7 +30,7 @@ const resourceLinks = [
   },
 ];
 
-type MenuKey = "services" | "resources";
+type MenuKey = "services" | "industries" | "resources";
 type CapabilityPillar = "Build" | "Grow" | "Operate";
 
 function CapabilityPillarHeader({ label }: { label: string }) {
@@ -93,6 +94,27 @@ function ServicePillarColumn({
         ))}
       </div>
     </div>
+  );
+}
+
+function IndustryMenuLink({
+  item,
+  onClose,
+}: {
+  item: (typeof industryFocus)[number];
+  onClose: () => void;
+}) {
+  return (
+    <Link
+      href={`/industries/${item.slug}`}
+      onClick={onClose}
+      className="flex min-h-[92px] flex-col justify-center rounded-[14px] border border-cyan-100/10 bg-[#173343] px-4 py-3 text-center transition hover:-translate-y-0.5 hover:border-cyan-100/24 hover:bg-[#214557] focus:outline-none focus-visible:ring-2 focus-visible:ring-cyan-100/70"
+    >
+      <span className="text-[0.82rem] font-semibold leading-5 text-white">{item.title}</span>
+      <span className="mx-auto mt-1.5 max-w-[20rem] text-[0.68rem] leading-4 text-slate-300">
+        {item.cardKicker}: {item.signals[0]}
+      </span>
+    </Link>
   );
 }
 
@@ -228,13 +250,57 @@ export function Header() {
               </div>
             </div>
 
-            <Link
-              href="/industries"
-              onClick={closeMenus}
-              className={`${topNavItemClass} text-slate-300`}
-            >
-              Industries
-            </Link>
+            <div className="relative">
+              <button
+                type="button"
+                aria-haspopup="true"
+                aria-expanded={activeMenu === "industries"}
+                aria-controls="industries-menu"
+                onClick={() => {
+                  setActiveMenu(activeMenu === "industries" ? null : "industries");
+                }}
+                className={`${topNavItemClass} ${
+                  activeMenu === "industries" ? "text-white" : "text-slate-300 hover:text-white"
+                }`}
+              >
+                Industries
+              </button>
+              <div
+                id="industries-menu"
+                className={`fixed left-1/2 top-16 z-40 w-[min(1040px,calc(100vw-2rem))] -translate-x-1/2 pt-3 transition duration-200 sm:top-20 ${
+                  activeMenu === "industries"
+                    ? "pointer-events-auto opacity-100"
+                    : "pointer-events-none opacity-0"
+                }`}
+              >
+                <div className="surface-dark max-h-[calc(100vh-5.75rem)] overflow-hidden rounded-[22px] border border-cyan-100/14 bg-[#173343] p-3 shadow-[0_28px_80px_rgba(3,8,16,0.46)]">
+                  <div className="rounded-[16px] border border-cyan-100/10 bg-[#1c3c4d] px-4 py-3 text-center">
+                    <div className="text-xs font-semibold uppercase tracking-[0.2em] text-[color:var(--color-accent)]">
+                      INDUSTRIES
+                    </div>
+                    <p className="mx-auto mt-2 max-w-[760px] text-sm leading-6 text-slate-100">
+                      Choose the environment closest to yours, then see the services that usually fit.
+                    </p>
+                  </div>
+
+                  <div className="mt-2.5 grid gap-2.5 md:grid-cols-2 lg:grid-cols-3">
+                    {industryFocus.map((item) => (
+                      <IndustryMenuLink key={item.slug} item={item} onClose={closeMenus} />
+                    ))}
+                  </div>
+
+                  <div className="mt-2.5 flex justify-center">
+                    <Link
+                      href="/industries"
+                      onClick={closeMenus}
+                      className="inline-flex min-h-10 items-center justify-center rounded-full border border-cyan-100/18 bg-cyan-100/7 px-5 py-2 text-sm font-semibold text-cyan-50 transition hover:border-cyan-100/30 hover:bg-cyan-100/10"
+                    >
+                      See All Industries
+                    </Link>
+                  </div>
+                </div>
+              </div>
+            </div>
 
             <div className="relative">
               <button
@@ -369,6 +435,32 @@ export function Header() {
             </div>
 
             <div>
+              <p className="eyebrow text-[color:var(--color-accent)]">Industries</p>
+              <p className="mt-2 text-sm leading-6 text-slate-200">
+                Choose the environment closest to yours, then see the services that usually fit.
+              </p>
+              <div className="mt-3 grid gap-2">
+                {industryFocus.map((item) => (
+                  <Link
+                    key={`mobile-${item.slug}`}
+                    href={`/industries/${item.slug}`}
+                    onClick={closeMenus}
+                    className="rounded-[16px] border border-cyan-100/12 bg-white/[0.035] px-4 py-3 text-sm font-semibold text-white"
+                  >
+                    {item.title}
+                  </Link>
+                ))}
+                <Link
+                  href="/industries"
+                  onClick={closeMenus}
+                  className="rounded-full border border-cyan-100/14 bg-cyan-100/7 px-4 py-3 text-center text-sm font-semibold text-cyan-50"
+                >
+                  See All Industries
+                </Link>
+              </div>
+            </div>
+
+            <div>
               <p className="eyebrow text-[color:var(--color-accent)]">Resources</p>
               <div className="mt-3 grid gap-2">
                 {resourceLinks.map((item) => (
@@ -386,7 +478,6 @@ export function Header() {
 
             <div className="grid grid-cols-2 gap-2">
               {[
-                { href: "/industries", label: "Industries" },
                 { href: "/results", label: "Results" },
                 { href: "/team", label: "Leadership" },
                 { href: "/contact", label: "Contact" },

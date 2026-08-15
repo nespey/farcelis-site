@@ -61,8 +61,20 @@ export type Industry = {
   slug: string;
   title: string;
   description: string;
+  seoTitle: string;
+  seoDescription: string;
+  eyebrow: string;
+  image: string;
+  imageAlt: string;
+  cardKicker: string;
   signals: string[];
   offers: string[];
+  serviceCrosswalk: {
+    href: string;
+    label: string;
+    detail: string;
+  }[];
+  proofPoints: string[];
 };
 
 export type ResourceOffer = {
@@ -722,51 +734,213 @@ export const products: Product[] = [
 export const industryFocus: Industry[] = [
   {
     slug: "professional-services-consulting",
-    title: "Professional services and consulting",
+    title: "Professional Services & Consulting",
     description:
-      "Client delivery, project visibility, knowledge work, internal coordination, and leadership reporting across fast-moving service teams.",
-    signals: ["Client work lives in too many systems", "Delivery status depends on manual follow-up", "Project knowledge is hard to reuse"],
-    offers: ["Control Layer deployment", "Client delivery dashboards", "Knowledge workflow design", "AI assistants for documentation"],
+      "Farcelis helps consulting firms and professional service teams tighten client delivery, internal visibility, documentation, and follow-up without turning the business into a heavy enterprise machine.",
+    seoTitle: "AI Operations Consulting for Professional Services Firms",
+    seoDescription:
+      "Farcelis supports professional services and consulting firms with client delivery systems, AI documentation workflows, dashboards, CRM follow-up, and managed operations.",
+    eyebrow: "Industry / Professional Services",
+    image: "/images/industries/adobe-stock/professional-services-consulting.jpeg",
+    imageAlt: "Business consultant presenting a dark digital process improvement interface",
+    cardKicker: "Client Delivery",
+    signals: [
+      "Client work lives across inboxes, documents, meetings, and project tools",
+      "Leaders need delivery visibility before a client has to ask for status",
+      "Reusable knowledge is trapped in individual notes or one-off files",
+    ],
+    offers: [
+      "Client delivery dashboards",
+      "Proposal, intake, and handoff workflows",
+      "AI-assisted documentation systems",
+      "Operating cadence for account and project visibility",
+    ],
+    serviceCrosswalk: [
+      { href: "/services/app-portal-development", label: "App & Portal Development", detail: "Client portals and internal workspaces for repeated delivery." },
+      { href: "/services/workflow-managed-operations", label: "Workflow & Managed Operations", detail: "Handoffs, ownership, and cadence for active client work." },
+      { href: "/services/ai-agents-automations", label: "AI Agents & Automations", detail: "Drafting, routing, and documentation support for recurring tasks." },
+      { href: "/services/reporting-decision-systems", label: "Reporting & Decision Systems", detail: "Delivery visibility leaders can act on quickly." },
+    ],
+    proofPoints: [
+      "Turn scattered delivery activity into a clearer client operating model.",
+      "Make project status, risks, owners, and next actions easier to see.",
+      "Use AI where it reduces administrative drag without weakening judgment.",
+    ],
   },
   {
-    slug: "government-contractors",
-    title: "Government contractors and public-sector adjacent teams",
+    slug: "government-contractors-public-sector",
+    title: "Government Contractors & Public Sector",
     description:
-      "Compliance-aware workflows, documentation, deadline control, stakeholder coordination, and operating visibility for high-accountability environments.",
-    signals: ["Documentation pressure is high", "Deadlines create coordination risk", "Approvals move through unclear channels"],
-    offers: ["Compliance-aware workflow mapping", "Deadline control systems", "Stakeholder visibility", "Reporting cadence design"],
+      "Farcelis supports government contractors and public-sector teams that need cleaner documentation, deadline control, stakeholder visibility, and AI use that respects accountability.",
+    seoTitle: "AI Workflow Support for Government Contractors and Public Sector Teams",
+    seoDescription:
+      "Farcelis helps government contractors and public-sector teams structure compliance-aware workflows, reporting cadence, deadline visibility, and responsible AI operations.",
+    eyebrow: "Industry / Public Accountability",
+    image: "/images/industries/adobe-stock/government-contractors-public-sector.jpeg",
+    imageAlt: "Dark analytics dashboard with centralized data and public-sector reporting signals",
+    cardKicker: "High-Accountability Work",
+    signals: [
+      "Documentation, approvals, and deadlines create operational risk",
+      "Status updates move through too many informal channels",
+      "AI interest is real, but governance and review rules need to come first",
+    ],
+    offers: [
+      "Compliance-aware workflow mapping",
+      "Deadline and deliverable visibility",
+      "AI governance and usage boundaries",
+      "Reporting cadence for stakeholders and leadership",
+    ],
+    serviceCrosswalk: [
+      { href: "/services/ai-strategy-governance", label: "AI Strategy & Governance", detail: "Use cases, rules, review paths, and responsible adoption." },
+      { href: "/services/workflow-managed-operations", label: "Workflow & Managed Operations", detail: "Routing, approvals, and accountable follow-through." },
+      { href: "/services/reporting-decision-systems", label: "Reporting & Decision Systems", detail: "Operational signals for leaders and stakeholders." },
+      { href: "/services/deployment-operations", label: "Deployment Operations", detail: "Managed launch and support for websites, portals, and tools." },
+    ],
+    proofPoints: [
+      "Structure work so deadlines and responsibilities are visible earlier.",
+      "Define AI support around review, documentation, and decision boundaries.",
+      "Keep stakeholder reporting tied to real operating activity.",
+    ],
   },
   {
     slug: "small-mid-market-businesses",
-    title: "Small and mid-market businesses",
+    title: "Small & Mid-Market Businesses",
     description:
-      "Practical websites, AI help, workflow, CRM, marketing, and reporting for companies that need clearer follow-up without enterprise overhead.",
-    signals: ["Growth is outrunning process", "The owner still holds too many answers", "Tools exist but do not behave like a system"],
-    offers: ["AI readiness snapshot", "CRM and workflow rebuild", "Managed operations support", "Growth systems setup"],
+      "Farcelis helps small and mid-market companies build practical websites, CRM follow-up, automations, dashboards, and operating support that fit the business they actually run.",
+    seoTitle: "Websites, AI Automation, CRM, and Operations for SMBs",
+    seoDescription:
+      "Farcelis supports small and mid-market businesses with websites, CRM and revenue operations, workflow automation, dashboards, AI help, and managed operations.",
+    eyebrow: "Industry / SMB Operations",
+    image: "/images/industries/adobe-stock/small-mid-market-businesses.jpeg",
+    imageAlt: "Designer sketching a website wireframe for a growing business",
+    cardKicker: "Practical Growth",
+    signals: [
+      "Growth is outrunning the current process",
+      "The owner or a small leadership team still holds too many answers",
+      "Tools exist, but they do not behave like one working system",
+    ],
+    offers: [
+      "Website and service-page rebuilds",
+      "CRM and follow-up structure",
+      "Quote, pricing, and intake tools",
+      "Managed operations support after launch",
+    ],
+    serviceCrosswalk: [
+      { href: "/services/website-development", label: "Website Development", detail: "Clear pages, forms, and calls to action for real buyers." },
+      { href: "/services/crm-revenue-operations", label: "CRM & Revenue Operations", detail: "Lead capture, follow-up, ownership, and reporting." },
+      { href: "/services/quote-pricing-tools", label: "Quote & Pricing Tools", detail: "Estimate and intake paths that reduce back-and-forth." },
+      { href: "/services/managed-operations", label: "Managed Operations", detail: "Ongoing support when the business needs steady execution." },
+    ],
+    proofPoints: [
+      "Make the website, CRM, intake, and reporting easier to understand and own.",
+      "Build systems sized for the business instead of forcing enterprise overhead.",
+      "Create a practical path from inquiry to follow-up to visible action.",
+    ],
   },
   {
-    slug: "growth-marketing-revenue",
-    title: "Growth, marketing, and revenue organizations",
+    slug: "growth-revenue-teams",
+    title: "Growth & Revenue Teams",
     description:
-      "Lead flow, campaign operations, SEO, content systems, customer handoffs, and reporting tied back to execution and revenue movement.",
-    signals: ["Campaigns are disconnected from CRM", "Content lacks operating cadence", "Lead handoffs are inconsistent"],
-    offers: ["AI Marketing Blueprint", "SEO and blog systems", "Social media operations", "Revenue workflow design"],
+      "Farcelis helps growth and revenue teams connect SEO, content, ads, CRM, lead handoffs, and reporting so marketing activity turns into visible follow-through.",
+    seoTitle: "AI Marketing, CRM, SEO, and Revenue Operations Support",
+    seoDescription:
+      "Farcelis helps growth and revenue teams improve SEO, AEO, ads, content systems, CRM follow-up, campaign operations, and revenue reporting.",
+    eyebrow: "Industry / Growth Systems",
+    image: "/images/industries/adobe-stock/growth-revenue-teams.jpeg",
+    imageAlt: "Dark CRM interface with glowing customer relationship and revenue operations icons",
+    cardKicker: "Lead Flow",
+    signals: [
+      "Campaigns are disconnected from CRM reality",
+      "Content and SEO work lack a steady operating cadence",
+      "Lead handoffs are inconsistent after the first conversion",
+    ],
+    offers: [
+      "SEO, AEO, and content operating plans",
+      "CRM and revenue workflow design",
+      "Paid search and paid social campaign structure",
+      "Reporting loops tied to follow-up and pipeline movement",
+    ],
+    serviceCrosswalk: [
+      { href: "/services/seo-search-visibility", label: "SEO & Search Visibility", detail: "Search-ready structure for buyers already looking." },
+      { href: "/services/aeo-ai-search-visibility", label: "AEO & AI Search Visibility", detail: "Help AI search tools understand the offer clearly." },
+      { href: "/services/crm-revenue-operations", label: "CRM & Revenue Operations", detail: "Lead stages, handoffs, reporting, and follow-up." },
+      { href: "/services/content-revenue-systems", label: "Content & Revenue Systems", detail: "Campaign and content planning tied to sales motion." },
+    ],
+    proofPoints: [
+      "Connect visibility work to CRM movement and ownership.",
+      "Turn campaigns, content, and reporting into one revenue operating rhythm.",
+      "Make follow-up measurable instead of hoping leads find their way through.",
+    ],
   },
   {
     slug: "operations-heavy-teams",
-    title: "Operations-heavy teams",
+    title: "Operations-Heavy Teams",
     description:
-      "Intake, assignment, escalation, reporting, automation, and decision cadence for teams where complexity shows up as daily friction.",
-    signals: ["Requests arrive from everywhere", "Escalations happen too late", "Ownership is visible only after something slips"],
-    offers: ["Intake and routing design", "Escalation logic", "Operational dashboards", "Workflow automation"],
+      "Farcelis helps operations-heavy teams clean up intake, assignment, escalation, reporting, automation, and decision cadence where daily friction is already costing time.",
+    seoTitle: "Workflow Automation and Managed Operations for Complex Teams",
+    seoDescription:
+      "Farcelis supports operations-heavy teams with workflow automation, intake routing, escalation logic, dashboards, AI agents, and managed operations.",
+    eyebrow: "Industry / Operational Control",
+    image: "/images/industries/adobe-stock/operations-heavy-teams.jpeg",
+    imageAlt: "Business operator using a dark Kanban workflow interface for process control",
+    cardKicker: "Work Movement",
+    signals: [
+      "Requests arrive from everywhere and need clearer routing",
+      "Escalations happen after the cost is already visible",
+      "Ownership is hard to see until something slips",
+    ],
+    offers: [
+      "Intake and routing design",
+      "Escalation and decision logic",
+      "Operational dashboards and status views",
+      "Automation for repeatable handoffs and reports",
+    ],
+    serviceCrosswalk: [
+      { href: "/services/workflow-managed-operations", label: "Workflow & Managed Operations", detail: "Make intake, ownership, and handoffs easier to run." },
+      { href: "/services/ai-agents-automations", label: "AI Agents & Automations", detail: "Support repeated tasks, triage, and reporting." },
+      { href: "/services/dashboards-decision-views", label: "Dashboards and Decision Views", detail: "See what is moving, blocked, or ready for action." },
+      { href: "/control-layer", label: "The Farcelis Control Layer", detail: "A shared operating view above scattered tools." },
+    ],
+    proofPoints: [
+      "Reduce daily ambiguity around who owns what next.",
+      "Build operating views that show friction before it becomes failure.",
+      "Use automation to support the process after the process is clear.",
+    ],
   },
   {
-    slug: "education-training-enablement",
-    title: "Education, training, and enablement environments",
+    slug: "education-enablement",
+    title: "Education & Enablement",
     description:
-      "Structured learning systems, AI enablement, internal adoption paths, and repeatable knowledge workflows for teams that need change to stick.",
-    signals: ["Training does not translate into behavior", "AI adoption is uneven", "Knowledge transfer depends on individuals"],
-    offers: ["INTENT+ learning paths", "AI enablement programs", "Knowledge workflows", "Adoption coaching systems"],
+      "Farcelis helps education, training, and enablement teams turn learning content, AI adoption, and internal knowledge transfer into repeatable systems people can actually use.",
+    seoTitle: "AI Enablement, Training Systems, and Knowledge Workflows",
+    seoDescription:
+      "Farcelis supports education and enablement environments with AI training systems, knowledge workflows, adoption programs, learning paths, and operational dashboards.",
+    eyebrow: "Industry / Enablement Systems",
+    image: "/images/industries/adobe-stock/education-enablement.jpeg",
+    imageAlt: "Business user holding a tablet with AI education and corporate training icons",
+    cardKicker: "Adoption",
+    signals: [
+      "Training does not reliably turn into changed behavior",
+      "AI adoption is uneven across roles, teams, or confidence levels",
+      "Knowledge transfer still depends on a few individuals",
+    ],
+    offers: [
+      "AI enablement programs",
+      "Learning path and knowledge workflow design",
+      "Reusable content and resource systems",
+      "Adoption dashboards and follow-through cadence",
+    ],
+    serviceCrosswalk: [
+      { href: "/services/ai-strategy-governance", label: "AI Strategy & Governance", detail: "Define safe, useful AI adoption before tools spread." },
+      { href: "/services/content-revenue-systems", label: "Content & Revenue Systems", detail: "Structure content into repeatable learning assets." },
+      { href: "/services/app-portal-development", label: "App & Portal Development", detail: "Private portals for training, resources, and enablement." },
+      { href: "/services/reporting-decision-systems", label: "Reporting & Decision Systems", detail: "Track adoption, completion, usage, and follow-through." },
+    ],
+    proofPoints: [
+      "Translate enablement material into operating habits and support paths.",
+      "Help teams adopt AI through structured use cases and review rules.",
+      "Make knowledge easier to find, reuse, update, and measure.",
+    ],
   },
 ];
 
