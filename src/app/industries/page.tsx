@@ -7,6 +7,21 @@ import { industryFocus, seo } from "@/lib/site-data";
 
 export const metadata = buildMetadata(seo.industries);
 
+const industryCardDescriptions: Record<string, string> = {
+  "professional-services-consulting":
+    "Client delivery, documentation, and follow-up systems for professional service teams.",
+  "government-contractors-public-sector":
+    "Deadline, documentation, and reporting workflows for accountable public-sector work.",
+  "small-mid-market-businesses":
+    "Practical websites, CRM, automation, and operations support for growing companies.",
+  "growth-revenue-teams":
+    "SEO, content, ads, CRM, and reporting connected to visible follow-through.",
+  "operations-heavy-teams":
+    "Intake, routing, escalation, and dashboard systems for complex daily work.",
+  "education-enablement":
+    "AI adoption, learning paths, and knowledge systems people can actually use.",
+};
+
 export default function IndustriesPage() {
   return (
     <>
@@ -41,8 +56,8 @@ export default function IndustriesPage() {
           <div className="section-inner">
             <div className="max-w-[760px]">
               <p className="eyebrow text-[#9f412c]">Industry Crosswalk</p>
-              <h2 className="mt-4 text-[clamp(1.9rem,3vw,3rem)] font-medium leading-[1.05] tracking-[-0.055em] text-slate-950 [text-wrap:balance]">
-                Choose the closest environment, then follow the services that usually fit.
+              <h2 className="mt-4 max-w-none whitespace-normal text-[clamp(1.7rem,2.45vw,2.45rem)] font-medium leading-[1.05] tracking-[-0.055em] text-slate-950 lg:whitespace-nowrap">
+                Choose your environment, then follow the right services.
               </h2>
             </div>
 
@@ -67,11 +82,13 @@ export default function IndustriesPage() {
                     <p className="text-xs font-semibold uppercase tracking-[0.16em] text-[#9f412c]">
                       {item.cardKicker}
                     </p>
-                    <h3 className="mt-3 text-xl font-semibold leading-6 tracking-[-0.04em] text-slate-950">
+                    <h3 className="mt-3 min-h-6 text-xl font-semibold leading-6 tracking-[-0.04em] text-slate-950">
                       {item.title}
                     </h3>
-                    <p className="mt-3 text-sm leading-6 text-slate-600">{item.description}</p>
-                    <div className="mt-5 text-sm font-semibold text-[#9f412c]">View industry services</div>
+                    <p className="mt-3 line-clamp-2 min-h-12 text-sm leading-6 text-slate-600">
+                      {industryCardDescriptions[item.slug] ?? item.description}
+                    </p>
+                    <div className="mt-4 text-sm font-semibold text-[#9f412c]">View industry services</div>
                   </div>
                 </Link>
               ))}
