@@ -8,6 +8,27 @@ import { seo } from "@/lib/site-data";
 
 export const metadata = buildMetadata(seo.services);
 
+const serviceLaneCopy: Record<
+  string,
+  {
+    headline: string;
+    prompt: string;
+  }
+> = {
+  Build: {
+    headline: "Build what the business needs.",
+    prompt: "Websites, apps, dashboards, automations, and platform connections.",
+  },
+  Grow: {
+    headline: "Grow visibility and lead follow-up.",
+    prompt: "Search, ads, content, CRM, and revenue handoff.",
+  },
+  Operate: {
+    headline: "Operate with clearer ownership.",
+    prompt: "Workflows, reporting, support, maintenance, and ownership.",
+  },
+};
+
 export default function ServicesPage() {
   return (
     <>
@@ -47,7 +68,7 @@ export default function ServicesPage() {
                 <article
                   key={group.label}
                   id={group.label.toLowerCase()}
-                  className="rounded-[18px] border border-cyan-100/12 bg-[#1c3c4d] p-2.5 text-center shadow-[0_24px_70px_rgba(3,8,16,0.22)]"
+                  className="flex h-full flex-col rounded-[18px] border border-cyan-100/12 bg-[#1c3c4d] p-2.5 text-center shadow-[0_24px_70px_rgba(3,8,16,0.22)]"
                 >
                   <div
                     className={`relative isolate flex min-h-12 items-center justify-center overflow-hidden rounded-[12px] border px-4 py-2.5 text-lg font-black uppercase tracking-[0.3em] shadow-[inset_0_1px_0_rgba(255,255,255,0.08)] ${
@@ -63,18 +84,20 @@ export default function ServicesPage() {
                     </span>
                   </div>
 
-                  <h3 className="mx-auto mt-3 max-w-[360px] text-center text-xl font-semibold leading-7 tracking-[-0.035em] text-white">
-                    {group.headline}
-                  </h3>
-                  <p className="mx-auto mt-2 max-w-[380px] text-center text-xs leading-5 text-slate-200">
-                    {group.buyerPrompt}
-                  </p>
-                  <div className="mt-3 grid gap-1.5 rounded-[14px] border border-cyan-100/10 bg-[#173343] p-2">
+                  <div className="mx-auto flex min-h-[84px] w-full max-w-[430px] flex-col items-center justify-center text-center">
+                    <h3 className="text-center text-xl font-semibold leading-7 tracking-[-0.035em] text-white">
+                      {serviceLaneCopy[group.label]?.headline ?? group.headline}
+                    </h3>
+                    <p className="mt-2 max-w-[390px] text-center text-xs leading-5 text-slate-200">
+                      {serviceLaneCopy[group.label]?.prompt ?? group.buyerPrompt}
+                    </p>
+                  </div>
+                  <div className="mt-3 grid flex-1 auto-rows-fr gap-1.5 rounded-[14px] border border-cyan-100/10 bg-[#173343] p-2">
                     {group.links.map((service) => (
                       <Link
                         key={service.label}
                         href={service.href}
-                        className="rounded-[10px] border border-cyan-100/10 bg-[#1c3c4d] px-2.5 py-2 text-center transition hover:-translate-y-0.5 hover:border-cyan-100/24 hover:bg-[#24495c]"
+                        className="flex min-h-[62px] flex-col justify-center rounded-[10px] border border-cyan-100/10 bg-[#1c3c4d] px-2.5 py-2 text-center transition hover:-translate-y-0.5 hover:border-cyan-100/24 hover:bg-[#24495c]"
                       >
                         <span className="block text-[0.78rem] font-semibold leading-4 text-white">
                           {service.label}
@@ -87,7 +110,7 @@ export default function ServicesPage() {
                   </div>
                   <Link
                     href={group.actionHref}
-                    className="mt-3 inline-flex min-h-10 items-center justify-center rounded-full bg-[color:var(--color-accent)] px-5 text-sm font-semibold text-white shadow-[0_14px_34px_rgba(255,124,82,0.25)] transition hover:brightness-110"
+                    className="mt-3 inline-flex min-h-10 items-center justify-center self-center rounded-full bg-[color:var(--color-accent)] px-5 text-sm font-semibold text-white shadow-[0_14px_34px_rgba(255,124,82,0.25)] transition hover:brightness-110"
                   >
                     {group.primaryCta}
                   </Link>
