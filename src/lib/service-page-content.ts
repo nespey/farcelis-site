@@ -55,16 +55,16 @@ export const servicePageContent: Record<string, ServicePageContent> = {
       "Farcelis provides SEO and search visibility services for businesses that need clearer website structure, stronger service pages, search-ready metadata, internal links, local search signals, and buyer-question content. We help Google, Bing, Apple, and other search engines understand what the business offers so the right people can find it and take the next step.",
   },
   "aeo-ai-search-visibility": {
-    image: "/images/services/adobe-stock/aeo-ai-search-visibility.jpeg",
+    image: "/images/services/adobe-stock/aeo-ai-search-visibility-1970008827.jpeg",
     imageAlt:
-      "Semantic search relevance interface connecting answer engine content, citations, and AI search results",
+      "AI search visibility and answer engine optimization shown through connected digital search data and content signals",
     seoIntro:
       "Farcelis builds AEO and AI search visibility for companies that want answer engines and AI search tools to understand, summarize, and cite their services. We structure service pages, proof, buyer questions, schema, and resource paths so tools like ChatGPT, Gemini, Perplexity, and AI search can describe the business clearly.",
   },
   "seo-aeo-visibility": {
-    image: "/images/services/adobe-stock/aeo-ai-search-visibility.jpeg",
+    image: "/images/services/adobe-stock/aeo-ai-search-visibility-1970008827.jpeg",
     imageAlt:
-      "Search visibility and AI answer engine optimization represented by connected search data",
+      "SEO and AEO visibility represented by connected digital search data, content signals, and answer engine paths",
     seoIntro:
       "Farcelis strengthens SEO and AEO visibility for businesses that need clearer service pages, stronger search structure, better metadata, answer-ready content, and proof that Google, Bing, Apple, and AI search tools can understand. We help people and search systems find the offer, trust it, and take the next step.",
   },
@@ -90,16 +90,16 @@ export const servicePageContent: Record<string, ServicePageContent> = {
       "Farcelis builds paid advertising systems for Google Ads, paid search, Meta Ads, and paid social campaigns that need clear offers, landing pages, conversion tracking, CRM routing, and reporting. We connect ad traffic to real inquiries and follow-up instead of disconnected clicks.",
   },
   "crm-revenue-operations": {
-    image: "/images/services/adobe-stock/crm-revenue-operations.jpeg",
+    image: "/images/services/adobe-stock/crm-revenue-operations-2039343633.jpeg",
     imageAlt:
-      "CRM revenue operations analytics dashboard with pipeline charts, lead status, and sales reporting",
+      "CRM and revenue operations team reviewing lead scoring, pipeline status, and follow-up activity",
     seoIntro:
       "Farcelis improves CRM and revenue operations for businesses that need leads captured, routed, followed up, tracked, and moved to the right next step. We clean up fields, stages, forms, owners, pipeline views, email handoffs, and reporting so sales and service work stays visible and nothing gets lost.",
   },
   "marketing-automation-crm": {
-    image: "/images/services/adobe-stock/crm-revenue-operations.jpeg",
+    image: "/images/services/adobe-stock/crm-revenue-operations-2039343633.jpeg",
     imageAlt:
-      "Marketing automation and CRM workflow showing leads, pipeline, and follow-up tasks",
+      "Marketing automation and CRM team reviewing lead flow, pipeline status, and follow-up actions",
     seoIntro:
       "Farcelis builds marketing automation and CRM systems for businesses that need leads, quote requests, email follow-up, pipeline stages, owners, and revenue reporting to stay organized. We connect forms, campaigns, CRM records, and follow-up so opportunities are visible and not lost.",
   },
