@@ -80,6 +80,7 @@ export default function ResultsPage() {
         eyebrow=""
         title="Proof that Farcelis brings order, judgment, and traction."
         description="Recognition, media, roundtable work, and client-safe recommendations show where the work held."
+        className="results-page-intro"
       />
 
       <Reveal delayMs={60}>
