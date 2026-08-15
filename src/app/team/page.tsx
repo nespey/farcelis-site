@@ -13,8 +13,8 @@ export default function TeamPage() {
     <>
       <PageIntro
         eyebrow="Leadership"
-        title="Meet the people behind Farcelis."
-        description="Farcelis is led by operators who build websites, growth systems, workflows, and reporting that help clients get time back."
+        title="The operators behind Farcelis."
+        description="Operators building websites, workflows, growth systems, and reporting that give clients time back."
         asideTitle="Leadership Spine"
         asideItems={["Operational design", "Deployment discipline", "Growth architecture"]}
         className="team-page-intro"
