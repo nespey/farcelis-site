@@ -5,6 +5,7 @@ import { Reveal } from "@/components/Reveal";
 import { DashboardActivityDriver } from "@/components/DashboardActivityDriver";
 import { IntegrationLogoLane } from "@/components/IntegrationLogoLane";
 import { SystemFlowRail } from "@/components/SystemFlowRail";
+import { WorkspacePreview } from "@/components/WorkspacePreview";
 import { seo } from "@/lib/site-data";
 import { buildMetadata } from "@/lib/metadata";
 
@@ -347,8 +348,8 @@ export default function ControlLayerPage() {
                 </p>
               </div>
               <div className="control-operating-board" aria-label="Farcelis Control Layer live operating workspace example">
-                <div className="dashboard-mini-frame dashboard-mini-frame--cyber dashboard-mini-frame--operating">
-                  <ParagonMockDashboard />
+                <div className="control-homepage-board-frame">
+                  <WorkspacePreview compact />
                 </div>
               </div>
               <div className="control-brief-copy">
