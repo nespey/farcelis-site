@@ -5507,9 +5507,9 @@ main :is(.border-t, .border-b, .border-y, .divide-y > :not([hidden]) ~ :not([hid
 
 .control-layer-hero-grid {
   display: grid;
-  grid-template-columns: minmax(0, 0.72fr) minmax(560px, 1fr);
-  gap: clamp(1.2rem, 2.6vw, 2.4rem);
-  align-items: start;
+  grid-template-columns: minmax(0, 0.9fr) minmax(360px, 0.7fr);
+  gap: clamp(1.4rem, 2.8vw, 2.8rem);
+  align-items: center;
 }
 
 .control-layer-hero-copy {
@@ -5545,7 +5545,7 @@ main :is(.border-t, .border-b, .border-y, .divide-y > :not([hidden]) ~ :not([hid
   position: relative;
   width: 100%;
   min-width: 0;
-  min-height: clamp(360px, 43vw, 620px);
+  aspect-ratio: 1.34 / 1;
   overflow: hidden;
   border: 1px solid rgba(139, 218, 231, 0.24);
   border-radius: 22px;
@@ -5570,9 +5570,9 @@ main :is(.border-t, .border-b, .border-y, .divide-y > :not([hidden]) ~ :not([hid
   display: block;
   width: 100%;
   height: 100%;
-  min-height: inherit;
+  min-height: 310px;
   object-fit: cover;
-  object-position: center 48%;
+  object-position: center 52%;
 }
 
 .control-integration-section {
@@ -9284,7 +9284,7 @@ main :is(.border-t, .border-b, .border-y, .divide-y > :not([hidden]) ~ :not([hid
   }
 
   .control-layer-hero-image {
-    min-height: min(72vh, 520px);
+    aspect-ratio: 1.34 / 1;
     border-radius: 18px;
   }
 
