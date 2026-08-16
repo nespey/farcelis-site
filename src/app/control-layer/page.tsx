@@ -304,6 +304,14 @@ export default function ControlLayerPage() {
                 See Service Paths
               </a>
             </div>
+            <div className="control-compact-quote control-compact-quote--hero">
+              <img src="/images/nathan-headshot-library-2026.png" alt="Nathan Espey" />
+              <div>
+                <p className="eyebrow text-[#ff7f4f]">Founder Note</p>
+                <blockquote>The Control Layer should reduce pressure instead of forcing people to bend around another tool.</blockquote>
+                <p>Nathan Espey · Founder, Farcelis AI Consulting LLC</p>
+              </div>
+            </div>
           </div>
           <div className="control-layer-hero-visual">
             <div className="control-layer-hero-image">
@@ -323,13 +331,6 @@ export default function ControlLayerPage() {
       <Reveal delayMs={60}>
         <section className="section-shell control-integration-section">
           <div className="section-inner">
-            <div className="control-integration-header">
-              <p className="eyebrow text-[color:var(--color-accent)]">Integration Layer</p>
-              <h2>Pull useful signals out of the tools already in play.</h2>
-              <p>
-                The Control Layer does not replace every tool. It connects the pieces that matter, then makes the work visible enough to manage.
-              </p>
-            </div>
             <div className="control-homepage-flow">
               <IntegrationLogoLane reverse />
               <div className="surface-dark px-1 py-0">
@@ -337,37 +338,32 @@ export default function ControlLayerPage() {
               </div>
               <IntegrationLogoLane />
             </div>
-          </div>
-        </section>
-      </Reveal>
-
-      <Reveal delayMs={110}>
-        <section className="section-shell control-showcase-section control-showcase-section--home">
-          <div className="section-inner">
-            <div className="control-case-grid">
-              <div className="dashboard-mini-frame dashboard-mini-frame--home">
-                <HouseholdMockDashboard />
-              </div>
-              <div className="control-case-copy">
-                <p className="eyebrow text-[color:var(--color-accent)]">Example Operating Surface</p>
-                <h2 className="section-title mt-5 text-white">
-                  One structure can support business, household, delivery, or leadership work.
-                </h2>
-                <p className="mt-6 max-w-[780px] text-lg leading-8 text-slate-300">
-                  The visual layer changes with the environment. The operating logic stays the same: capture the signal, route the work, name the owner, track status, and close the loop.
+            <div className="control-operating-brief">
+              <div className="control-brief-copy">
+                <p className="eyebrow text-[color:var(--color-accent)]">Integration Layer</p>
+                <h2>Pull useful signals out of the tools already in play.</h2>
+                <p>
+                  The Control Layer does not replace every tool. It connects the pieces that matter, then makes the work visible enough to manage.
                 </p>
-                <div className="case-proof-grid">
-                  {["Signal capture", "Owner routing", "Status visibility", "Close-loop follow-up"].map((item) => (
-                    <span key={item}>{item}</span>
-                  ))}
+              </div>
+              <div className="control-operating-board" aria-label="Farcelis Control Layer live operating workspace example">
+                <div className="dashboard-mini-frame dashboard-mini-frame--cyber dashboard-mini-frame--operating">
+                  <ParagonMockDashboard />
                 </div>
+              </div>
+              <div className="control-brief-copy">
+                <p className="eyebrow text-[color:var(--color-accent)]">Managed Visibility</p>
+                <h2>Manage intake, owners, status, and exceptions in one operating frame.</h2>
+                <p>
+                  The board gives live work a place to land, a route to follow, an owner to answer for it, and a clear next move before follow-up disappears.
+                </p>
               </div>
             </div>
           </div>
         </section>
       </Reveal>
 
-      <Reveal delayMs={190}>
+      <Reveal delayMs={110}>
         <section className="section-shell section-shell-dark control-crosswalk-section">
           <div className="section-inner">
             <div className="flex flex-col gap-5 lg:flex-row lg:items-center">
@@ -397,15 +393,6 @@ export default function ControlLayerPage() {
                   <span>{item.body}</span>
                 </a>
               ))}
-            </div>
-
-            <div className="control-compact-quote">
-              <img src="/images/nathan-headshot-library-2026.png" alt="Nathan Espey" />
-              <div>
-                <p className="eyebrow text-[#ff7f4f]">Founder Note</p>
-                <blockquote>The Control Layer should reduce pressure instead of forcing people to bend around another tool.</blockquote>
-                <p>Nathan Espey · Founder, Farcelis AI Consulting LLC</p>
-              </div>
             </div>
           </div>
         </section>

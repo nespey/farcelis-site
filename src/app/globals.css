@@ -5592,6 +5592,61 @@ main :is(.border-t, .border-b, .border-y, .divide-y > :not([hidden]) ~ :not([hid
   gap: 0.42rem;
 }
 
+.control-operating-brief {
+  display: grid;
+  grid-template-columns: minmax(230px, 0.72fr) minmax(500px, 1fr) minmax(230px, 0.72fr);
+  gap: clamp(1rem, 2vw, 2rem);
+  align-items: center;
+  margin-top: clamp(1rem, 1.7vw, 1.6rem);
+}
+
+.control-brief-copy {
+  min-width: 0;
+}
+
+.control-brief-copy h2 {
+  margin-top: 0.65rem;
+  color: #ffffff;
+  font-size: clamp(1.2rem, 1.65vw, 1.7rem);
+  font-weight: 650;
+  line-height: 1.1;
+  letter-spacing: -0.035em;
+  text-wrap: balance;
+}
+
+.control-brief-copy p:last-child {
+  margin-top: 0.75rem;
+  color: #cbd8e1;
+  font-size: 0.94rem;
+  line-height: 1.58;
+}
+
+.control-operating-board {
+  display: grid;
+  justify-items: center;
+  min-width: 0;
+}
+
+.dashboard-mini-frame--operating {
+  width: min(100%, 760px);
+  min-width: 0;
+  max-width: 760px;
+  justify-self: center;
+  border-radius: 24px;
+  padding: 7px;
+}
+
+.dashboard-mini-frame--operating::before {
+  inset: -24px -28px;
+  border-radius: 38px;
+  filter: blur(12px);
+}
+
+.dashboard-mini-frame--operating .case-dashboard {
+  aspect-ratio: 1.58;
+  border-radius: 18px;
+}
+
 .control-integration-header {
   display: grid;
   grid-template-columns: minmax(180px, 0.36fr) minmax(280px, 0.72fr) minmax(320px, 1fr);
@@ -5723,6 +5778,31 @@ main :is(.border-t, .border-b, .border-y, .divide-y > :not([hidden]) ~ :not([hid
   color: #b8c8d3;
   font-size: 0.78rem;
   font-weight: 700;
+}
+
+.control-compact-quote--hero {
+  max-width: 720px;
+  margin: 1.05rem 0 0;
+  grid-template-columns: 56px minmax(0, 1fr);
+  gap: 0.8rem;
+  padding: 0.75rem 0.85rem;
+}
+
+.control-compact-quote--hero img {
+  width: 56px;
+  height: 56px;
+  border-radius: 12px;
+}
+
+.control-compact-quote--hero blockquote {
+  margin-top: 0.22rem;
+  font-size: clamp(0.9rem, 1.05vw, 1.05rem);
+  line-height: 1.22;
+}
+
+.control-compact-quote--hero p:last-child {
+  margin-top: 0.24rem;
+  font-size: 0.72rem;
 }
 
 .control-showcase-section .section-inner,
@@ -7266,6 +7346,19 @@ main :is(.border-t, .border-b, .border-y, .divide-y > :not([hidden]) ~ :not([hid
 
   .control-layer-hero-copy {
     max-width: 840px;
+  }
+
+  .control-operating-brief {
+    grid-template-columns: 1fr;
+    gap: 1rem;
+  }
+
+  .control-operating-board {
+    order: -1;
+  }
+
+  .dashboard-mini-frame--operating {
+    width: min(100%, 720px);
   }
 
   .control-crosswalk-grid {
@@ -9303,6 +9396,24 @@ main :is(.border-t, .border-b, .border-y, .divide-y > :not([hidden]) ~ :not([hid
 
   .control-integration-header h2 {
     font-size: 1.35rem;
+  }
+
+  .control-operating-brief {
+    margin-top: 1rem;
+  }
+
+  .control-brief-copy {
+    text-align: left;
+  }
+
+  .dashboard-mini-frame--operating {
+    border-radius: 18px;
+    padding: 5px;
+  }
+
+  .dashboard-mini-frame--operating .case-dashboard {
+    aspect-ratio: 1.28;
+    border-radius: 14px;
   }
 
   .control-crosswalk-grid {
