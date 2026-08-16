@@ -1,5 +1,6 @@
 /* eslint-disable @next/next/no-img-element */
 
+import Image from "next/image";
 import { Reveal } from "@/components/Reveal";
 import { DashboardActivityDriver } from "@/components/DashboardActivityDriver";
 import { IntegrationLogoLane } from "@/components/IntegrationLogoLane";
@@ -305,8 +306,15 @@ export default function ControlLayerPage() {
             </div>
           </div>
           <div className="control-layer-hero-visual">
-            <div className="dashboard-mini-frame dashboard-mini-frame--cyber dashboard-mini-frame--hero">
-              <ParagonMockDashboard />
+            <div className="control-layer-hero-image">
+              <Image
+                src="/images/control-layer/adobe-stock/control-layer-hero.jpeg"
+                alt="Dark integrated operations center with live signal waves and connected data surfaces"
+                width={1344}
+                height={1800}
+                priority
+                sizes="(max-width: 1080px) 100vw, 50vw"
+              />
             </div>
           </div>
         </div>

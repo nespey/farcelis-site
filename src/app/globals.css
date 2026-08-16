@@ -5536,27 +5536,43 @@ main :is(.border-t, .border-b, .border-y, .divide-y > :not([hidden]) ~ :not([hid
   font-weight: 850;
 }
 
-.control-layer-hero-visual .dashboard-mini-frame {
+.control-layer-hero-visual {
   width: 100%;
   min-width: 0;
-  max-width: none;
+}
+
+.control-layer-hero-image {
+  position: relative;
+  width: 100%;
+  min-width: 0;
+  min-height: clamp(360px, 43vw, 620px);
+  overflow: hidden;
+  border: 1px solid rgba(139, 218, 231, 0.24);
   border-radius: 22px;
-  padding: 7px;
+  background: #102a37;
   justify-self: stretch;
   box-shadow:
     0 28px 74px rgba(3, 8, 16, 0.46),
     inset 0 1px 0 rgba(255, 255, 255, 0.12);
 }
 
-.dashboard-mini-frame--hero::before {
-  inset: -18px -20px;
-  border-radius: 34px;
-  filter: blur(10px);
+.control-layer-hero-image::after {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background:
+    linear-gradient(90deg, rgba(4, 24, 32, 0.1), rgba(4, 24, 32, 0.18)),
+    linear-gradient(180deg, rgba(255, 255, 255, 0.08), transparent 24%, rgba(2, 12, 18, 0.24));
+  pointer-events: none;
 }
 
-.dashboard-mini-frame--hero .case-dashboard {
-  aspect-ratio: 1.58;
-  border-radius: 18px;
+.control-layer-hero-image img {
+  display: block;
+  width: 100%;
+  height: 100%;
+  min-height: inherit;
+  object-fit: cover;
+  object-position: center 48%;
 }
 
 .control-integration-section {
@@ -9267,14 +9283,13 @@ main :is(.border-t, .border-b, .border-y, .divide-y > :not([hidden]) ~ :not([hid
     max-width: none;
   }
 
-  .dashboard-mini-frame--hero {
-    border-radius: 18px !important;
-    padding: 5px !important;
+  .control-layer-hero-image {
+    min-height: min(72vh, 520px);
+    border-radius: 18px;
   }
 
-  .dashboard-mini-frame--hero .case-dashboard {
-    aspect-ratio: 1.25;
-    border-radius: 14px;
+  .control-layer-hero-image img {
+    object-position: center 52%;
   }
 
   .control-integration-section {
