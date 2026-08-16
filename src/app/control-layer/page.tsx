@@ -2,49 +2,12 @@
 
 import { Reveal } from "@/components/Reveal";
 import { DashboardActivityDriver } from "@/components/DashboardActivityDriver";
+import { IntegrationLogoLane } from "@/components/IntegrationLogoLane";
 import { SystemFlowRail } from "@/components/SystemFlowRail";
 import { seo } from "@/lib/site-data";
 import { buildMetadata } from "@/lib/metadata";
 
 export const metadata = buildMetadata(seo.controlLayer);
-
-const integrationLogos = [
-  { name: "ChatGPT", logo: "/logos/control-layer/household/chatgpt.png" },
-  { name: "Gemini", logo: "/logos/control-layer/household/gemini.png" },
-  { name: "Google Calendar", logo: "/logos/control-layer/household/google-calendar.svg" },
-  { name: "Todoist", logo: "/logos/control-layer/household/todoist.svg" },
-  { name: "Notion", logo: "/logos/control-layer/household/notion.svg" },
-  { name: "ClickUp", logo: "/logos/control-layer/household/clickup.png" },
-];
-
-type ControlLayerLogo = (typeof integrationLogos)[number];
-
-function LogoScroll({
-  logos,
-  reverse = false,
-  variant = "household",
-}: {
-  logos: ControlLayerLogo[];
-  reverse?: boolean;
-  variant?: "household";
-}) {
-  const lane = [...logos, ...logos];
-
-  return (
-    <div className={`case-logo-lane ${reverse ? "case-logo-lane--reverse" : ""} case-logo-lane--${variant}`}>
-      <div className="case-logo-track">
-        {lane.map((logo, index) => (
-          <div className="case-logo-pill" key={`${logo.name}-${index}`}>
-            <span className="case-logo-mark">
-              <img src={logo.logo} alt="" loading="lazy" />
-            </span>
-            <span>{logo.name}</span>
-          </div>
-        ))}
-      </div>
-    </div>
-  );
-}
 
 function ParagonMockDashboard() {
   const tabs = ["Command", "Pipeline", "Delivery", "Compliance", "Executive", "Decisions", "Continuity", "Documents"];
@@ -359,11 +322,13 @@ export default function ControlLayerPage() {
                 The Control Layer does not replace every tool. It connects the pieces that matter, then makes the work visible enough to manage.
               </p>
             </div>
-            <LogoScroll logos={integrationLogos} />
-            <div className="surface-dark px-1 py-0">
-              <SystemFlowRail steps={["Input", "Intake", "Route", "Execute", "Track", "Close"]} />
+            <div className="control-homepage-flow">
+              <IntegrationLogoLane reverse />
+              <div className="surface-dark px-1 py-0">
+                <SystemFlowRail steps={["Input", "Intake", "Route", "Execute", "Track", "Close"]} />
+              </div>
+              <IntegrationLogoLane />
             </div>
-            <LogoScroll logos={integrationLogos} reverse />
           </div>
         </section>
       </Reveal>

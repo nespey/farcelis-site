@@ -5571,6 +5571,11 @@ main :is(.border-t, .border-b, .border-y, .divide-y > :not([hidden]) ~ :not([hid
   gap: 0.72rem;
 }
 
+.control-homepage-flow {
+  display: grid;
+  gap: 0.42rem;
+}
+
 .control-integration-header {
   display: grid;
   grid-template-columns: minmax(180px, 0.36fr) minmax(280px, 0.72fr) minmax(320px, 1fr);
