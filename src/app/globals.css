@@ -5577,7 +5577,7 @@ main :is(.border-t, .border-b, .border-y, .divide-y > :not([hidden]) ~ :not([hid
 
 .control-integration-section {
   overflow: hidden;
-  padding-top: 1rem;
+  padding-top: 0.25rem;
   padding-bottom: clamp(0.9rem, 1.6vw, 1.5rem);
   background: transparent !important;
 }
@@ -9395,7 +9395,7 @@ main :is(.border-t, .border-b, .border-y, .divide-y > :not([hidden]) ~ :not([hid
   }
 
   .control-integration-section {
-    padding-top: 1rem;
+    padding-top: 0.25rem;
     padding-bottom: 0.9rem;
   }
 
