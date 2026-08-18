@@ -164,7 +164,7 @@ export default async function ProductDetailPage({ params }: ProductPageProps) {
                   View Product Suite
                 </a>
               </div>
-              <div className="control-compact-quote control-compact-quote--hero">
+              <div className="control-compact-quote control-compact-quote--hero pulse-thread-quote--hero">
                 <Image
                   src="/images/team/katalin-pulse-thread-quote.jpeg"
                   alt="Katalin Espey"
@@ -173,8 +173,8 @@ export default async function ProductDetailPage({ params }: ProductPageProps) {
                 />
                 <div>
                   <p className="eyebrow text-[#ff7f4f]">Service Perspective</p>
-                  <blockquote>Pulse Thread keeps decisions, owners, and follow-up from going cold after the call ends.</blockquote>
-                  <p>Katalin Espey · Chief Services Officer</p>
+                  <blockquote>Pulse Thread names the owner, keeps the context warm, and turns follow-up into visible work.</blockquote>
+                  <p>Katalin Espey · Chief Growth Officer</p>
                 </div>
               </div>
             </div>
