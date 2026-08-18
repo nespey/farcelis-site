@@ -135,7 +135,7 @@ export default async function ProductDetailPage({ params }: ProductPageProps) {
     return (
       <>
         <JsonLd data={productSchema} />
-        <section className="section-shell section-shell-dark control-layer-hero">
+        <section className="section-shell section-shell-dark control-layer-hero pulse-thread-hero">
           <div className="section-inner control-layer-hero-grid">
             <div className="control-layer-hero-copy">
               <p className="eyebrow text-[color:var(--color-accent)]">Catalyst Thread</p>
@@ -190,6 +190,10 @@ export default async function ProductDetailPage({ params }: ProductPageProps) {
                 />
               </div>
             </div>
+          </div>
+          <div className="section-inner pulse-thread-hero-preview-anchor">
+            <p className="eyebrow text-[color:var(--color-accent)]">Pulse Thread Preview</p>
+            <h2>Meetings create motion. Pulse Thread turns motion into follow-through.</h2>
           </div>
         </section>
 

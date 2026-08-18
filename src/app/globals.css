@@ -4719,6 +4719,31 @@ main :is(.border-t, .border-b, .border-y, .divide-y > :not([hidden]) ~ :not([hid
     linear-gradient(145deg, #04141d 0%, #082231 52%, #061824 100%);
 }
 
+.pulse-thread-hero {
+  padding-bottom: clamp(0.8rem, 1.4vw, 1.25rem);
+}
+
+.pulse-thread-hero-preview-anchor {
+  margin-top: clamp(0.7rem, 1.2vw, 1rem);
+  padding-top: clamp(0.55rem, 1vw, 0.85rem);
+  border-top: 1px solid rgba(242, 139, 91, 0.62);
+}
+
+.pulse-thread-hero-preview-anchor h2 {
+  max-width: 880px;
+  margin-top: 0.45rem;
+  color: #f4f8fa;
+  font-size: clamp(1.35rem, 2.2vw, 2.15rem);
+  font-weight: 550;
+  line-height: 1.06;
+  letter-spacing: -0.04em;
+  text-wrap: balance;
+}
+
+.pulse-preview-section .pulse-preview-intro {
+  display: none;
+}
+
 .pulse-preview-intro {
   display: grid;
   grid-template-columns: minmax(0, 1fr) minmax(260px, 0.34fr);
