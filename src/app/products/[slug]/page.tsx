@@ -138,12 +138,12 @@ export default async function ProductDetailPage({ params }: ProductPageProps) {
         <section className="section-shell section-shell-dark control-layer-hero pulse-thread-hero">
           <div className="section-inner control-layer-hero-grid">
             <div className="control-layer-hero-copy">
-              <p className="eyebrow text-[color:var(--color-accent)]">Catalyst Thread</p>
+              <p className="eyebrow text-[color:var(--color-accent)]">Pulse Thread Coaching Assistant</p>
               <h1 className="mt-4 text-[clamp(2rem,3.05vw,3.2rem)] font-medium leading-[1.03] tracking-[-0.055em] text-white [text-wrap:balance]">
-                AI coaching that keeps follow-up alive after the meeting.
+                Turn meetings into clear next steps.
               </h1>
               <p className="mt-5 text-base leading-7 text-slate-300 lg:text-lg lg:leading-8">
-                Pulse Thread turns conversations into clear decisions, named owners, useful follow-up, and status pulses that land inside the workflows teams already use.
+                Pulse Thread helps teams capture what was decided, who owns each action, what needs follow-up, and where the work should go next.
               </p>
               <div className="control-layer-proof-list">
                 <p><strong>Signals in:</strong> meetings, notes, emails, client calls, leadership check-ins, and training conversations.</p>
