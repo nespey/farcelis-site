@@ -5553,6 +5553,70 @@ main :is(.border-t, .border-b, .border-y, .divide-y > :not([hidden]) ~ :not([hid
   object-position: center 48%;
 }
 
+.product-tool-hero {
+  padding-bottom: clamp(0.8rem, 1.4vw, 1.25rem);
+}
+
+.product-tool-hero-image img {
+  object-position: center;
+}
+
+.product-tool-overview-section {
+  padding-top: clamp(0.8rem, 1.4vw, 1.25rem);
+  padding-bottom: clamp(0.8rem, 1.4vw, 1.25rem);
+  background: transparent !important;
+}
+
+.product-tool-overview-grid {
+  display: grid;
+  grid-template-columns: minmax(260px, 0.45fr) minmax(0, 1fr);
+  gap: clamp(1rem, 1.8vw, 1.8rem);
+  align-items: start;
+}
+
+.product-tool-overview-grid h2 {
+  margin-top: 0.55rem;
+  color: #ffffff;
+  font-size: clamp(1.35rem, 2.1vw, 2.15rem);
+  font-weight: 600;
+  line-height: 1.08;
+  letter-spacing: -0.04em;
+  text-wrap: balance;
+}
+
+.product-tool-step-grid {
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  gap: 0.85rem;
+}
+
+.product-tool-step-grid article {
+  min-height: 126px;
+  border-radius: 16px;
+  border: 1px solid rgba(186, 230, 253, 0.13);
+  background: rgba(255, 255, 255, 0.055);
+  padding: 1rem;
+}
+
+.product-tool-step-grid span {
+  display: block;
+  color: #ff8c5a;
+  font-size: 0.72rem;
+  font-weight: 850;
+  letter-spacing: 0.16em;
+}
+
+.product-tool-step-grid p {
+  margin-top: 0.55rem;
+  color: #dbe7ee;
+  font-size: 0.9rem;
+  line-height: 1.5;
+}
+
+.product-tool-connected-paths {
+  padding-top: clamp(0.8rem, 1.5vw, 1.35rem);
+}
+
 .control-integration-section {
   overflow: hidden;
   padding-top: 0.25rem;
@@ -9396,6 +9460,15 @@ main :is(.border-t, .border-b, .border-y, .divide-y > :not([hidden]) ~ :not([hid
   .control-integration-section {
     padding-top: 0.25rem;
     padding-bottom: 0.9rem;
+  }
+
+  .product-tool-overview-grid,
+  .product-tool-step-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .product-tool-step-grid article {
+    min-height: 0;
   }
 
   .control-integration-header {
