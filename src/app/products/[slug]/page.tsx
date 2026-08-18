@@ -196,6 +196,41 @@ export default async function ProductDetailPage({ params }: ProductPageProps) {
         <Reveal delayMs={40}>
           <PulseThreadPreview />
         </Reveal>
+
+        <Reveal delayMs={90}>
+          <section className="section-shell section-shell-dark control-crosswalk-section">
+            <div className="section-inner">
+              <div className="flex flex-col gap-5 lg:flex-row lg:items-center">
+                <p className="eyebrow shrink-0 text-[color:var(--color-accent)]">Connected Paths</p>
+                <div className="hidden h-px flex-1 bg-[color:var(--color-accent)]/70 lg:block" />
+                <div className="flex flex-col gap-3 sm:flex-row">
+                  <a href={pulseContactPath} className="site-cta inline-flex min-h-11 items-center justify-center rounded-full bg-[color:var(--color-accent)] px-5 py-2.5 text-center text-sm font-semibold text-white hover:brightness-110">
+                    Start PulseThread Review
+                  </a>
+                  <a href="/services" className="site-cta inline-flex min-h-11 items-center justify-center rounded-full border border-cyan-100/18 bg-cyan-100/6 px-5 py-2.5 text-center text-sm font-semibold text-cyan-50 hover:border-cyan-100/28 hover:bg-cyan-100/8">
+                    See Service Paths
+                  </a>
+                </div>
+              </div>
+
+              <div className="control-crosswalk-grid">
+                {[
+                  { href: "/services/ai-agents-automations", title: "AI Agents & Automations", body: "Assistant flows that extract actions, draft follow-up, and keep human review intact." },
+                  { href: "/services/workflow-managed-operations", title: "Workflow & Managed Operations", body: "Routing, ownership, cadence, support, and escalation once follow-up starts moving." },
+                  { href: "/services/crm-revenue-operations", title: "CRM & Revenue Operations", body: "Lead, client, and meeting follow-up connected to pipeline and account visibility." },
+                  { href: "/control-layer", title: "Farcelis Control Layer", body: "The operating home where decisions, owners, status, and next actions stay visible." },
+                  { href: "/industries/education-enablement", title: "Education & Enablement", body: "Best fit when training, adoption, and coaching need to turn into changed behavior." },
+                  { href: "/industries/growth-revenue-teams", title: "Growth & Revenue Teams", body: "Best fit when conversations, campaigns, and handoffs need cleaner follow-through." },
+                ].map((item) => (
+                  <a key={item.href} href={item.href} className="control-crosswalk-card">
+                    <strong>{item.title}</strong>
+                    <span>{item.body}</span>
+                  </a>
+                ))}
+              </div>
+            </div>
+          </section>
+        </Reveal>
       </>
     );
   }

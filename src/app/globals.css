@@ -5045,56 +5045,6 @@ main :is(.border-t, .border-b, .border-y, .divide-y > :not([hidden]) ~ :not([hid
   color: #e8f8fb;
 }
 
-.pulse-preview-cta {
-  display: flex;
-  flex-wrap: wrap;
-  gap: 0.72rem;
-  align-items: center;
-  margin-top: 0.85rem;
-  border-radius: 22px;
-  background: rgba(4, 18, 27, 0.48);
-  padding: 0.9rem;
-}
-
-.pulse-preview-cta div {
-  flex: 1 1 20rem;
-  display: grid;
-  gap: 0.2rem;
-}
-
-.pulse-preview-cta strong {
-  color: #ffffff;
-  font-size: 0.95rem;
-}
-
-.pulse-preview-cta span {
-  color: #aebfca;
-  font-size: 0.82rem;
-}
-
-.pulse-preview-cta a {
-  display: inline-flex;
-  min-height: 2.85rem;
-  align-items: center;
-  justify-content: center;
-  border-radius: 999px;
-  padding: 0.72rem 1rem;
-  color: #ffffff;
-  font-size: 0.82rem;
-  font-weight: 800;
-  line-height: 1.15;
-  text-decoration: none;
-}
-
-.pulse-preview-cta a:nth-of-type(1) {
-  background: #ff8c5a;
-}
-
-.pulse-preview-cta a:nth-of-type(2) {
-  border: 1px solid rgba(186, 230, 253, 0.18);
-  color: #dce8ed;
-}
-
 .workflow-quote-section {
   padding-top: clamp(3.6rem, 6vw, 6.2rem);
   padding-bottom: clamp(3.6rem, 6vw, 6.2rem);
@@ -8481,14 +8431,9 @@ main :is(.border-t, .border-b, .border-y, .divide-y > :not([hidden]) ~ :not([hid
     grid-template-columns: 1fr;
   }
 
-  .pulse-landing-zone,
-  .pulse-preview-cta {
+  .pulse-landing-zone {
     border-radius: 18px;
     padding: 0.82rem;
-  }
-
-  .pulse-preview-cta a {
-    width: 100%;
   }
 
   .workflow-preview-shell {

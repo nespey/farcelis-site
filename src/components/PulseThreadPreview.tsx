@@ -1,7 +1,6 @@
 "use client";
 
 import { useMemo, useState } from "react";
-import Link from "next/link";
 
 type PulseAction =
   | "extract"
@@ -253,14 +252,6 @@ export function PulseThreadPreview() {
             </div>
           </div>
 
-          <div className="pulse-preview-cta">
-            <div>
-              <strong>Show us where decisions currently disappear.</strong>
-              <span>We will show you what the assistant should catch.</span>
-            </div>
-            <Link href="/contact">See Pulse Thread For Our Team</Link>
-            <Link href="/contact">Map Our Follow-Up Drag</Link>
-          </div>
         </div>
       </div>
     </section>
