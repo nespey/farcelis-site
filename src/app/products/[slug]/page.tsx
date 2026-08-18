@@ -1,4 +1,5 @@
 import { notFound } from "next/navigation";
+import Image from "next/image";
 
 import { AIMarketingBlueprintGenerator } from "@/components/AIMarketingBlueprintGenerator";
 import { BlueprintReadinessSnapshot } from "@/components/BlueprintReadinessSnapshot";
@@ -127,6 +128,78 @@ export default async function ProductDetailPage({ params }: ProductPageProps) {
     );
   }
 
+  if (isPulseThread) {
+    const pulseContactPath =
+      "/contact?work=ai-agents-automations,workflow-managed-operations,crm-revenue-operations,farcelis-control-layer,reporting-decision-systems&industry=education-enablement,growth-revenue-teams,professional-services-consulting,operations-heavy-teams&resource=tools-assessments#contact-top";
+
+    return (
+      <>
+        <JsonLd data={productSchema} />
+        <section className="section-shell section-shell-dark control-layer-hero">
+          <div className="section-inner control-layer-hero-grid">
+            <div className="control-layer-hero-copy">
+              <p className="eyebrow text-[color:var(--color-accent)]">Catalyst Thread</p>
+              <h1 className="mt-4 text-[clamp(2rem,3.05vw,3.2rem)] font-medium leading-[1.03] tracking-[-0.055em] text-white [text-wrap:balance]">
+                AI coaching that keeps follow-up alive after the meeting.
+              </h1>
+              <p className="mt-5 text-base leading-7 text-slate-300 lg:text-lg lg:leading-8">
+                Pulse Thread turns conversations into clear decisions, named owners, useful follow-up, and status pulses that land inside the workflows teams already use.
+              </p>
+              <div className="control-layer-proof-list">
+                <p><strong>Signals in:</strong> meetings, notes, emails, client calls, leadership check-ins, and training conversations.</p>
+                <p><strong>Coaching in the middle:</strong> decisions, owners, blockers, tone, timing, and adoption prompts.</p>
+                <p><strong>Execution out:</strong> follow-up drafts, task routing, meeting recaps, CRM notes, and Control Layer status pulses.</p>
+              </div>
+              <div className="mt-6 flex flex-col gap-3 sm:flex-row">
+                <a
+                  href={pulseContactPath}
+                  className="site-cta inline-flex min-h-12 items-center justify-center rounded-full bg-[linear-gradient(135deg,#ff8e5b,#f05cff)] px-6 py-3 text-center text-sm font-semibold text-white hover:shadow-[0_20px_40px_rgba(240,92,255,0.24)]"
+                >
+                  Review PulseThread Fit
+                </a>
+                <a
+                  href="/products"
+                  className="site-cta inline-flex min-h-12 items-center justify-center rounded-full border border-cyan-200/18 bg-cyan-200/6 px-6 py-3 text-center text-sm font-semibold text-cyan-50 hover:border-cyan-100/28 hover:bg-cyan-100/8"
+                >
+                  View Product Suite
+                </a>
+              </div>
+              <div className="control-compact-quote control-compact-quote--hero">
+                <Image
+                  src="/images/team/katalin-pulse-thread-quote.jpeg"
+                  alt="Katalin Espey"
+                  width={112}
+                  height={112}
+                />
+                <div>
+                  <p className="eyebrow text-[#ff7f4f]">Service Perspective</p>
+                  <blockquote>Pulse Thread keeps decisions, owners, and follow-up from going cold after the call ends.</blockquote>
+                  <p>Katalin Espey · Chief Services Officer</p>
+                </div>
+              </div>
+            </div>
+            <div className="control-layer-hero-visual">
+              <div className="control-layer-hero-image pulse-thread-hero-image">
+                <Image
+                  src="/images/products/adobe-stock/pulse-thread-coaching-assistant.jpeg"
+                  alt="AI meeting assistant surfacing action items and real-time collaboration insights"
+                  width={4752}
+                  height={3168}
+                  priority
+                  sizes="(max-width: 1080px) 100vw, 50vw"
+                />
+              </div>
+            </div>
+          </div>
+        </section>
+
+        <Reveal delayMs={40}>
+          <PulseThreadPreview />
+        </Reveal>
+      </>
+    );
+  }
+
   return (
     <>
       <JsonLd data={productSchema} />
@@ -139,12 +212,6 @@ export default async function ProductDetailPage({ params }: ProductPageProps) {
           { href: "/products", label: "View Product Suite", variant: "secondary" },
         ]}
       />
-
-      {isPulseThread ? (
-        <Reveal delayMs={40}>
-          <PulseThreadPreview />
-        </Reveal>
-      ) : null}
 
       {!isPulseThread ? (
         <>

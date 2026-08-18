@@ -5575,6 +5575,10 @@ main :is(.border-t, .border-b, .border-y, .divide-y > :not([hidden]) ~ :not([hid
   object-position: center 52%;
 }
 
+.pulse-thread-hero-image img {
+  object-position: center 48%;
+}
+
 .control-integration-section {
   overflow: hidden;
   padding-top: 0.25rem;
