@@ -4724,7 +4724,7 @@ main :is(.border-t, .border-b, .border-y, .divide-y > :not([hidden]) ~ :not([hid
 }
 
 .pulse-thread-hero-preview-anchor {
-  margin-top: 0.2rem;
+  margin-top: -1.25rem;
   padding-top: 0;
 }
 
