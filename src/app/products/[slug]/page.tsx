@@ -202,7 +202,7 @@ export default async function ProductDetailPage({ params }: ProductPageProps) {
         </Reveal>
 
         <Reveal delayMs={90}>
-          <section className="section-shell section-shell-dark control-crosswalk-section">
+          <section className="section-shell section-shell-dark control-crosswalk-section pulse-thread-connected-paths">
             <div className="section-inner">
               <div className="flex flex-col gap-5 lg:flex-row lg:items-center">
                 <p className="eyebrow shrink-0 text-[color:var(--color-accent)]">Connected Paths</p>
