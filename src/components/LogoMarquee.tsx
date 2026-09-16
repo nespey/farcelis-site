@@ -20,6 +20,8 @@ const bareLogoFrame: Record<string, string> = {
   "Paragon Cyber Solutions": "h-[44px] w-[150px]",
   "Soltaic": "h-[40px] w-[138px]",
   "Upwork": "h-[42px] w-[138px]",
+  "Oak Lawn United Methodist Church": "h-[82px] w-[132px]",
+  "Natural Born Champions": "h-[84px] w-[96px]",
 };
 
 const defaultBareLogoFrame = "h-[72px] w-[132px]";
@@ -53,7 +55,10 @@ export function LogoMarquee({ logos, dark = true, bare = false }: LogoMarqueePro
       ) : null}
 
       <div className="logo-marquee-viewport relative overflow-hidden">
-        <div className={`logo-marquee-track flex w-max ${bare ? "gap-7 pr-7" : "gap-10 pr-10"}`}>
+        <div
+          className={`logo-marquee-track flex w-max ${bare ? "gap-7 pr-7" : "gap-10 pr-10"}`}
+          style={bare ? { animationDuration: `${logos.length * 3.75}s` } : undefined}
+        >
           {renderLogos.map((logo, index) => {
             const key = `${logo.name}-${index}`;
             const base = dark
@@ -66,7 +71,7 @@ export function LogoMarquee({ logos, dark = true, bare = false }: LogoMarqueePro
               <div
                 className={`logo-rail-tile hover-lift flex items-center justify-center ${
                   bare
-                    ? "min-h-[112px] min-w-[188px] px-0 py-3"
+                    ? "min-h-[112px] w-[188px] px-0 py-3"
                     : `min-h-[122px] min-w-[248px] rounded-[24px] border px-8 py-7 ${base}`
                 }`}
               >

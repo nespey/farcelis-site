@@ -347,6 +347,8 @@ export const approvedLogos: Partner[] = [
   { name: "Paragon Cyber Solutions", logo: "/logos/approved/rail/paragon-rail.png", href: "https://paragoncybersolutions.com/" },
   { name: "NexAlign", logo: "/logos/approved/rail/nexalign-rail.png", href: "https://nexalign.app/login?from_url=https%3A%2F%2Fnexalign.app%2F" },
   { name: "Eagle", logo: "/logos/approved/rail/eagle-rail.png", href: "https://www.eagleeng.com/" },
+  { name: "Oak Lawn United Methodist Church", logo: "/logos/approved/rail/oak-lawn-umc-rail.svg", href: "https://olumc.org/" },
+  { name: "Natural Born Champions", logo: "/logos/approved/rail/natural-born-champions-rail.svg", href: "https://www.naturalbornchampions.com/" },
 ];
 
 export const services: Service[] = [
