@@ -1,5 +1,6 @@
 import { notFound } from "next/navigation";
 import Image from "next/image";
+import Link from "next/link";
 
 import { AIMarketingBlueprintGenerator } from "@/components/AIMarketingBlueprintGenerator";
 import { BlueprintReadinessSnapshot } from "@/components/BlueprintReadinessSnapshot";
@@ -178,12 +179,12 @@ function StandardToolProductPage({ product, config }: { product: Product; config
               >
                 {config.primaryLabel}
               </a>
-              <a
+              <Link
                 href="/services"
                 className="site-cta inline-flex min-h-12 items-center justify-center rounded-full border border-cyan-200/18 bg-cyan-200/6 px-6 py-3 text-center text-sm font-semibold text-cyan-50 hover:border-cyan-100/28 hover:bg-cyan-100/8"
               >
                 {config.secondaryLabel}
-              </a>
+              </Link>
             </div>
             {config.quote ? (
               <div className="control-compact-quote control-compact-quote--hero">
@@ -233,9 +234,9 @@ function StandardToolProductPage({ product, config }: { product: Product; config
                 <a href={config.contactPath} className="site-cta inline-flex min-h-11 items-center justify-center rounded-full bg-[color:var(--color-accent)] px-5 py-2.5 text-center text-sm font-semibold text-white hover:brightness-110">
                   {config.primaryLabel}
                 </a>
-                <a href="/services" className="site-cta inline-flex min-h-11 items-center justify-center rounded-full border border-cyan-100/18 bg-cyan-100/6 px-5 py-2.5 text-center text-sm font-semibold text-cyan-50 hover:border-cyan-100/28 hover:bg-cyan-100/8">
+                <Link href="/services" className="site-cta inline-flex min-h-11 items-center justify-center rounded-full border border-cyan-100/18 bg-cyan-100/6 px-5 py-2.5 text-center text-sm font-semibold text-cyan-50 hover:border-cyan-100/28 hover:bg-cyan-100/8">
                   See Service Paths
-                </a>
+                </Link>
               </div>
             </div>
 
@@ -405,12 +406,12 @@ export default async function ProductDetailPage({ params }: ProductPageProps) {
                 >
                   Review PulseThread Fit
                 </a>
-                <a
+                <Link
                   href="/products"
                   className="site-cta inline-flex min-h-12 items-center justify-center rounded-full border border-cyan-200/18 bg-cyan-200/6 px-6 py-3 text-center text-sm font-semibold text-cyan-50 hover:border-cyan-100/28 hover:bg-cyan-100/8"
                 >
                   View Product Suite
-                </a>
+                </Link>
               </div>
               <div className="control-compact-quote control-compact-quote--hero pulse-thread-quote--hero">
                 <Image
@@ -459,9 +460,9 @@ export default async function ProductDetailPage({ params }: ProductPageProps) {
                   <a href={pulseContactPath} className="site-cta inline-flex min-h-11 items-center justify-center rounded-full bg-[color:var(--color-accent)] px-5 py-2.5 text-center text-sm font-semibold text-white hover:brightness-110">
                     Start PulseThread Review
                   </a>
-                  <a href="/services" className="site-cta inline-flex min-h-11 items-center justify-center rounded-full border border-cyan-100/18 bg-cyan-100/6 px-5 py-2.5 text-center text-sm font-semibold text-cyan-50 hover:border-cyan-100/28 hover:bg-cyan-100/8">
+                  <Link href="/services" className="site-cta inline-flex min-h-11 items-center justify-center rounded-full border border-cyan-100/18 bg-cyan-100/6 px-5 py-2.5 text-center text-sm font-semibold text-cyan-50 hover:border-cyan-100/28 hover:bg-cyan-100/8">
                     See Service Paths
-                  </a>
+                  </Link>
                 </div>
               </div>
 

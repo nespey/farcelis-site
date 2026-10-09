@@ -44,6 +44,12 @@ export function HomeExperience() {
               Review Services
             </Link>
           </div>
+          <p className="mt-5 text-sm text-slate-200">
+            Want to see where the time goes?{" "}
+            <Link href="/time-leak-test" className="font-semibold text-[#f28b5b] underline decoration-[#f28b5b]/50 underline-offset-4 hover:text-white">
+              Take the free 15-minute Time Leak Test →
+            </Link>
+          </p>
         </div>
       </section>
 
