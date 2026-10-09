@@ -11,6 +11,7 @@ export default function sitemap(): MetadataRoute.Sitemap {
   }));
 
   const dynamicRoutes = [
+    "/time-leak-test",
     ...products
       .filter((product) => product.slug !== "control-layer")
       .map((product) => `/products/${product.slug}`),

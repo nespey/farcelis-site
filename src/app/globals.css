@@ -1,5 +1,22 @@
 @import "tailwindcss";
 
+@media print {
+  header, footer, .time-leak-intro, .time-leak-workspace, .site-progress, .system-scan-button, .system-scan-shell, .skip-link {
+    display: none !important;
+  }
+  html, body, main, #time-leak-result, #time-leak-result > div {
+    background: #fff !important;
+    color: #111827 !important;
+    box-shadow: none !important;
+  }
+  #time-leak-result, #time-leak-result * {
+    color: #111827 !important;
+    background: #fff !important;
+    box-shadow: none !important;
+  }
+  #time-leak-result button, #time-leak-result a { display: none !important; }
+}
+
 :root {
   --font-manrope: Manrope, Inter, "Helvetica Neue", Arial, sans-serif;
   --color-accent: #f28b5b;
