@@ -5,7 +5,6 @@ import localFont from "next/font/local";
 import { Footer } from "@/components/Footer";
 import { GoogleAnalytics } from "@/components/GoogleAnalytics";
 import { Header } from "@/components/Header";
-import { SiteExperienceLayer } from "@/components/SiteExperienceLayer";
 import { StructuredData } from "@/components/StructuredData";
 import { site } from "@/lib/site-data";
 import "./globals.css";
@@ -62,7 +61,6 @@ export default function RootLayout({
             <Header />
             <main id="main-content">{children}</main>
             <Footer />
-            <SiteExperienceLayer />
           </div>
         </div>
         <Analytics />

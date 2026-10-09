@@ -77,6 +77,26 @@ export function GeneralStrategyIntake({
     normalizeInitialSelection(initialResource, resourceInterests),
   );
   const [submitState, setSubmitState] = useState<SubmitState>({ status: "idle" });
+  const [goalText, setGoalText] = useState("");
+  const [contextText, setContextText] = useState("");
+
+  useEffect(() => {
+    const timeout = window.setTimeout(() => {
+      const raw = window.sessionStorage.getItem("farcelis_time_leak_inquiry");
+      if (!raw) return;
+      window.sessionStorage.removeItem("farcelis_time_leak_inquiry");
+      try {
+        const inquiry = JSON.parse(raw) as { workflow?: unknown; summary?: unknown };
+        if (typeof inquiry.workflow === "string" && typeof inquiry.summary === "string") {
+          setGoalText(`I would like a Workflow Handoff Review for ${inquiry.workflow}.`);
+          setContextText(inquiry.summary.slice(0, 2400));
+        }
+      } catch {
+        // Ignore an invalid browser-stored draft.
+      }
+    }, 0);
+    return () => window.clearTimeout(timeout);
+  }, []);
 
   const selectedServiceItems = useMemo(
     () => workInterests.filter((item) => selectedServiceIds.includes(item.id)),
@@ -193,6 +213,8 @@ export function GeneralStrategyIntake({
       }
 
       formElement.reset();
+      setGoalText("");
+      setContextText("");
       setSelectedServiceIds([]);
       setSelectedIndustryIds([]);
       setSelectedResourceIds([]);
@@ -336,6 +358,8 @@ export function GeneralStrategyIntake({
           <textarea
             name="goal"
             rows={2}
+            value={goalText}
+            onChange={(event) => setGoalText(event.target.value)}
             onInput={resizeTextarea}
             placeholder="What are you trying to build, grow, or stabilize?"
             className="max-h-40 min-h-16 resize-none overflow-y-auto rounded-[14px] border border-white/10 bg-white/6 px-3.5 py-2.5 text-sm leading-5 text-white outline-none placeholder:text-slate-400 focus:border-cyan-100/40"
@@ -343,6 +367,8 @@ export function GeneralStrategyIntake({
           <textarea
             name="context"
             rows={2}
+            value={contextText}
+            onChange={(event) => setContextText(event.target.value)}
             onInput={resizeTextarea}
             placeholder="What already exists, and what is missing, messy, stuck, or hard to manage?"
             className="max-h-40 min-h-16 resize-none overflow-y-auto rounded-[14px] border border-white/10 bg-white/6 px-3.5 py-2.5 text-sm leading-5 text-white outline-none placeholder:text-slate-400 focus:border-cyan-100/40"

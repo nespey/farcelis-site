@@ -9562,3 +9562,17 @@ main :is(.border-t, .border-b, .border-y, .divide-y > :not([hidden]) ~ :not([hid
     justify-self: stretch;
   }
 }
+
+/* Keep the assessment form readable despite the site's border reset. */
+main .time-leak-workspace input,
+main .time-leak-workspace select {
+  border: 1px solid #cbd5e1 !important;
+  box-shadow: 0 1px 2px rgba(15, 23, 42, 0.04);
+}
+
+main .time-leak-workspace input:focus-visible,
+main .time-leak-workspace select:focus-visible {
+  border-color: #9f412c !important;
+  outline: 2px solid rgba(242, 139, 91, 0.28);
+  outline-offset: 1px;
+}
