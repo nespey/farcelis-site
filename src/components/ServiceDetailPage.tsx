@@ -4,6 +4,7 @@ import Link from "next/link";
 import { Reveal } from "@/components/Reveal";
 import { contactPathFor, getDirectService } from "@/lib/service-catalog";
 import { getServicePageContent } from "@/lib/service-page-content";
+import growthSections from "@/lib/steadyfyre-growth-sections.json";
 
 type Service = NonNullable<ReturnType<typeof getDirectService>>;
 
@@ -13,6 +14,7 @@ type ServiceDetailPageProps = {
 
 export function ServiceDetailPage({ service }: ServiceDetailPageProps) {
   const content = getServicePageContent(service.slug);
+  const reviewedSections = (growthSections as Record<string, { heading: string; body: string }[]>)[service.slug] ?? [];
   const coverageItems =
     content.clientNeeds ?? service.capabilities.slice(0, service.capabilities.length >= 6 ? 6 : 3);
   const relatedGridClass =
@@ -88,6 +90,19 @@ export function ServiceDetailPage({ service }: ServiceDetailPageProps) {
           </div>
         </section>
       </Reveal>
+
+      {reviewedSections.length > 0 ? (
+        <section className="section-shell section-shell-dark" aria-label="More about this service">
+          <div className="section-inner grid gap-6 py-14 md:grid-cols-2">
+            {reviewedSections.map((section) => (
+              <article key={section.heading} className="rounded-[18px] border border-cyan-100/14 bg-white/[0.045] p-7">
+                <h2 className="text-2xl font-medium text-white">{section.heading}</h2>
+                <p className="mt-4 whitespace-pre-line text-base leading-7 text-slate-300">{section.body}</p>
+              </article>
+            ))}
+          </div>
+        </section>
+      ) : null}
 
       <Reveal delayMs={100}>
         <section className="service-detail-related section-shell section-shell-dark">
