@@ -91,10 +91,10 @@ export function TimeLeakReview() {
             <h2 className="mt-3 text-[clamp(1.6rem,2.5vw,2.2rem)] font-semibold leading-tight tracking-[-0.04em] text-slate-950">Tell us which handoff to review.</h2>
             {sendState === "sent" ? (
               <div role="status" className="mt-6 rounded-[18px] border border-[#3c9b97]/50 bg-[#123e43] p-5 sm:p-6">
-                <h3 className="text-xl font-semibold text-slate-950">Your results are with Farcelis.</h3>
-                <p className="mt-2 text-sm leading-6 text-slate-700">Your request has been emailed to you and Nathan. Complete the secure $395 payment using the same email address. After payment, Farcelis will contact you to schedule the review. Stripe will show any applicable tax before you pay.</p>
+                <h3 className="text-xl font-semibold text-white">Your results are with Farcelis.</h3>
+                <p className="mt-2 text-sm leading-6 text-slate-200">Your request has been emailed to you and Nathan. Complete the secure $395 payment using the same email address. After payment, Farcelis will contact you to schedule the review. Stripe will show any applicable tax before you pay.</p>
                 <a href={timeLeakReviewPaymentUrl} className="site-cta mt-5 inline-flex min-h-12 items-center justify-center rounded-full bg-[linear-gradient(135deg,#ff8e5b,#f05cff)] px-6 py-3 text-center text-sm font-semibold text-white transition hover:shadow-[0_16px_30px_rgba(240,92,255,0.22)]">Continue to secure checkout</a>
-                <p className="mt-3 text-xs leading-5 text-slate-600">You can also use the payment link in your confirmation email.</p>
+                <p className="mt-3 text-xs leading-5 text-slate-300">You can also use the payment link in your confirmation email.</p>
               </div>
             ) : (
               <form onSubmit={submit} className="mt-6 grid gap-5">
