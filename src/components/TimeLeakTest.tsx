@@ -3,6 +3,7 @@
 import Link from "next/link";
 import Image from "next/image";
 import { useState } from "react";
+import { trackTimeLeakEvent } from "@/lib/time-leak-analytics";
 
 type Workflow = "quote" | "update" | "intake";
 type FieldKey = "weekly" | "chased" | "chaseMinutes" | "reentered" | "reentryMinutes";
@@ -118,6 +119,7 @@ export function TimeLeakTest() {
                 if (!valid) return;
                 setShowResult(true);
                 setCopyState("idle");
+                trackTimeLeakEvent("time_leak_test_completed", details.label);
                 requestAnimationFrame(() => document.getElementById("time-leak-result")?.scrollIntoView({ behavior: "smooth", block: "start" }));
               }}
             >
@@ -188,7 +190,7 @@ export function TimeLeakTest() {
                   <p className="mt-2 text-xs leading-5 text-slate-400">{totalHours >= 2 ? "Your estimate makes this worth examining now." : "If this is a small or unusual week, validate it with a longer sample first."} The review fee covers diagnosis and scope; implementation is quoted separately.</p>
                 </div>
                 <div className="mt-7 flex flex-col gap-3 sm:flex-row sm:flex-wrap">
-                  <Link href="/time-leak-review" onClick={() => window.sessionStorage.setItem("farcelis_time_leak_inquiry", JSON.stringify({ workflow: details.label, summary }))} className="site-cta inline-flex min-h-12 items-center justify-center rounded-full bg-[linear-gradient(135deg,#ff8e5b,#f05cff)] px-6 py-3 text-center text-sm font-semibold text-white transition hover:shadow-[0_20px_40px_rgba(240,92,255,0.24)]">Request the $395 review</Link>
+                  <Link href="/time-leak-review" onClick={() => { window.sessionStorage.setItem("farcelis_time_leak_inquiry", JSON.stringify({ workflow: details.label, summary })); trackTimeLeakEvent("time_leak_review_opened", details.label); }} className="site-cta inline-flex min-h-12 items-center justify-center rounded-full bg-[linear-gradient(135deg,#ff8e5b,#f05cff)] px-6 py-3 text-center text-sm font-semibold text-white transition hover:shadow-[0_20px_40px_rgba(240,92,255,0.24)]">Request the $395 review</Link>
                   <button type="button" onClick={async () => { try { await navigator.clipboard.writeText(summary); setCopyState("copied"); } catch { setCopyState("error"); } }} className="inline-flex min-h-12 items-center justify-center rounded-full border border-cyan-100/25 px-5 py-3 text-sm font-semibold text-white transition hover:bg-white/8">{copyState === "copied" ? "Copied to clipboard" : "Copy summary"}</button>
                   <button type="button" onClick={() => window.print()} className="inline-flex min-h-12 items-center justify-center rounded-full border border-cyan-100/25 px-5 py-3 text-sm font-semibold text-white transition hover:bg-white/8">Print / save PDF</button>
                 </div>

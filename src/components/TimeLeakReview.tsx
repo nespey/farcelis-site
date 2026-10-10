@@ -3,6 +3,7 @@
 import Link from "next/link";
 import { FormEvent, useEffect, useState } from "react";
 import { timeLeakReviewPaymentUrl } from "@/lib/time-leak-offer";
+import { openTimeLeakCheckout, trackTimeLeakEvent } from "@/lib/time-leak-analytics";
 
 const workflowOptions = [
   "Quotes and new inquiries",
@@ -61,9 +62,12 @@ export function TimeLeakReview() {
       });
       if (!response.ok) throw new Error("Your request could not be sent. Please try again.");
       setSendState("sent");
+      trackTimeLeakEvent("time_leak_review_requested", workflow);
     } catch {
       setSendState("error");
+      return;
     }
+    openTimeLeakCheckout(workflow, timeLeakReviewPaymentUrl);
   };
 
   return (
@@ -88,7 +92,7 @@ export function TimeLeakReview() {
             {sendState === "sent" ? (
               <div role="status" className="mt-6 rounded-[18px] border border-[#3c9b97]/50 bg-[#123e43] p-5 sm:p-6">
                 <h3 className="text-xl font-semibold text-slate-950">Your results are with Farcelis.</h3>
-                <p className="mt-2 text-sm leading-6 text-slate-700">Your request has been emailed to you and Nathan. Complete the secure $395 payment using the same email address to book the review. Stripe will show any applicable tax before you pay.</p>
+                <p className="mt-2 text-sm leading-6 text-slate-700">Your request has been emailed to you and Nathan. Complete the secure $395 payment using the same email address. After payment, Farcelis will contact you to schedule the review. Stripe will show any applicable tax before you pay.</p>
                 <a href={timeLeakReviewPaymentUrl} className="site-cta mt-5 inline-flex min-h-12 items-center justify-center rounded-full bg-[linear-gradient(135deg,#ff8e5b,#f05cff)] px-6 py-3 text-center text-sm font-semibold text-white transition hover:shadow-[0_16px_30px_rgba(240,92,255,0.22)]">Continue to secure checkout</a>
                 <p className="mt-3 text-xs leading-5 text-slate-600">You can also use the payment link in your confirmation email.</p>
               </div>
@@ -101,9 +105,9 @@ export function TimeLeakReview() {
                 <div><label htmlFor="review-company" className="block text-sm font-semibold text-slate-900">Company <span className="font-normal text-slate-500">(optional)</span></label><input id="review-company" name="company" autoComplete="organization" value={company} onChange={(event) => setCompany(event.target.value)} className="mt-2 min-h-12 w-full rounded-[12px] border border-slate-300 bg-white px-4 py-2.5 text-base text-slate-950 outline-none focus:ring-2 focus:ring-[#f28b5b]/30" /></div>
                 <div><label htmlFor="review-workflow" className="block text-sm font-semibold text-slate-900">Workflow to review</label><select id="review-workflow" name="workflow" value={workflow} onChange={(event) => setWorkflow(event.target.value)} className="mt-2 min-h-12 w-full rounded-[12px] border border-slate-300 bg-white px-4 py-2.5 text-base text-slate-950 outline-none focus:ring-2 focus:ring-[#f28b5b]/30">{workflowOptions.map((option) => <option key={option}>{option}</option>)}</select><p className="mt-2 text-sm leading-6 text-slate-600">Likely build to assess: {likelyBuilds[workflow]}</p></div>
                 <div><label htmlFor="review-summary" className="block text-sm font-semibold text-slate-900">Time leak summary or process notes</label><textarea id="review-summary" name="summary" rows={7} required maxLength={2400} value={summary} onChange={(event) => setSummary(event.target.value)} placeholder="Paste your test result, or describe the requests, handoffs, and repeat work you want reviewed." className="mt-2 w-full rounded-[12px] border border-slate-300 bg-white px-4 py-3 text-base leading-6 text-slate-950 outline-none placeholder:text-slate-400 focus:ring-2 focus:ring-[#f28b5b]/30" /></div>
-                <p className="text-xs leading-5 text-slate-500">Sending this request does not charge you. Checkout opens only after your results are sent.</p>
+                <p className="text-xs leading-5 text-slate-500">Sending this request does not charge you. Secure Stripe checkout opens after your results are sent. Farcelis will contact you to schedule after payment.</p>
                 {sendState === "error" ? <p role="alert" className="rounded-[12px] border border-red-300 bg-red-50 p-3 text-sm text-red-800">Your request could not be sent. Please try again or email info@farcelis.io.</p> : null}
-                <button type="submit" disabled={sendState === "sending"} className="site-cta inline-flex min-h-12 items-center justify-center rounded-full bg-[linear-gradient(135deg,#ff8e5b,#f05cff)] px-7 py-3 text-sm font-semibold text-white transition disabled:opacity-60 hover:shadow-[0_16px_30px_rgba(240,92,255,0.22)]">{sendState === "sending" ? "Sending results…" : "Send results and continue"}</button>
+                <button type="submit" disabled={sendState === "sending"} className="site-cta inline-flex min-h-12 items-center justify-center rounded-full bg-[linear-gradient(135deg,#ff8e5b,#f05cff)] px-7 py-3 text-sm font-semibold text-white transition disabled:opacity-60 hover:shadow-[0_16px_30px_rgba(240,92,255,0.22)]">{sendState === "sending" ? "Sending results…" : "Send results and open checkout"}</button>
               </form>
             )}
           </div>
@@ -114,7 +118,7 @@ export function TimeLeakReview() {
               <li>A map of the current handoff and where it stalls</li>
               <li>A prioritized fix list and scoped implementation quote</li>
             </ul>
-            <p className="mt-5 border-t border-slate-200 pt-5 text-xs leading-5 text-slate-500">The fee covers diagnosis and scope. Implementation is separate. The free test is an estimate; the review checks the process with you.</p>
+            <p className="mt-5 border-t border-slate-200 pt-5 text-xs leading-5 text-slate-500">The fee covers diagnosis and scope. If you want Farcelis to make the fix, implementation and any ongoing support are scoped and priced separately. The free test is an estimate; the review checks the process with you.</p>
           </aside>
         </div>
       </section>

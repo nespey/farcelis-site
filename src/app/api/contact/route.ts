@@ -106,7 +106,7 @@ export async function POST(request: Request) {
     `Hi ${name},`,
     "",
     timeLeakReview
-      ? "Your Workflow Handoff Review request and process notes have been received. Complete the secure $395 checkout using this same email address to book the review:"
+      ? "Your Workflow Handoff Review request and process notes have been received. Complete the secure $395 checkout using this same email address. After payment, Farcelis will contact you to schedule the review:"
       : "Thanks for reaching out to Farcelis. Your inquiry has been received, and I will review it directly.",
     ...(timeLeakReview ? [timeLeakReviewPaymentUrl, "Any applicable tax is shown by Stripe before payment. The review covers diagnosis and scope; implementation is quoted separately."] : []),
     "",
