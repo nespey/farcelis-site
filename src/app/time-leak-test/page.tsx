@@ -3,13 +3,13 @@ import type { Metadata } from "next";
 import { TimeLeakTest } from "@/components/TimeLeakTest";
 
 export const metadata: Metadata = {
-  title: "15-Minute Time Leak Test | Farcelis AI Consulting",
+  title: "Time Leak Test | Farcelis AI Consulting",
   description:
-    "Find where one recurring workflow is costing your team time. Use your own last 10 requests to estimate the weekly effort spent on follow-up and duplicate entry.",
+    "Take the free Time Leak Test. Use your last 10 requests to estimate time spent on follow-up and duplicate entry. No email required.",
   alternates: { canonical: "/time-leak-test" },
   openGraph: {
-    title: "Where is your time going? | Farcelis AI Consulting",
-    description: "A practical, free test for the handoffs and repeat work hiding in your day.",
+    title: "Free Time Leak Test | Farcelis AI Consulting",
+    description: "Use your last 10 requests to see how much time goes into follow-up and duplicate entry.",
     url: "/time-leak-test",
   },
 };

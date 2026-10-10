@@ -101,19 +101,15 @@ export function TimeLeakTest() {
     <>
       <section className="time-leak-intro section-shell section-shell-dark !pb-5 !pt-6 lg:!pb-6 lg:!pt-8">
         <div className="section-inner">
-          <p className="eyebrow text-[color:var(--color-accent)]">Free Workflow Diagnostic</p>
-          <h1 className="mt-2 text-[clamp(1.75rem,3vw,2.7rem)] font-semibold leading-[1.08] tracking-[-0.045em] text-white">Find your time leaks.</h1>
-          <p className="mt-2 max-w-[850px] text-sm leading-6 text-slate-300 sm:text-base">See where one recurring process is taking your team’s time, then get a practical first move.</p>
-          <div className="mt-4 flex flex-wrap items-center gap-x-5 gap-y-2">
-            <a href="#assessment" className="site-cta inline-flex min-h-10 items-center justify-center rounded-full bg-[linear-gradient(135deg,#ff8e5b,#f05cff)] px-5 py-2 text-center text-sm font-semibold text-white transition hover:shadow-[0_20px_40px_rgba(240,92,255,0.24)]">Start the free test</a>
-          </div>
-          <p className="mt-3 text-xs leading-5 text-slate-400">About 15 minutes · No email required · Entries stay in this browser tab</p>
+          <h1 className="text-[clamp(1.7rem,3vw,2.7rem)] font-semibold leading-[1.08] tracking-[-0.045em] text-white">Time Leak Test</h1>
+          <p className="mt-2 max-w-[850px] text-sm leading-6 text-slate-300 sm:text-base">See how much time your team spends chasing answers and entering the same information twice.</p>
+          <p className="mt-3 text-xs leading-5 text-slate-400">Free · About 15 minutes · No email required</p>
         </div>
       </section>
 
       <section id="assessment" className="time-leak-workspace section-shell section-shell-dark scroll-mt-20 !pb-[clamp(2rem,4vw,3.5rem)] !pt-3">
         <div className="section-inner">
-          <div className="grid gap-4 xl:grid-cols-[minmax(0,1fr)_280px] xl:items-start">
+          <div className="max-w-[1100px]">
             <form
               className="rounded-[20px] border border-cyan-100/12 bg-[#102b3a] p-5 shadow-[0_18px_38px_rgba(2,10,18,0.15)] sm:p-6"
               onSubmit={(event) => {
@@ -124,10 +120,7 @@ export function TimeLeakTest() {
                 requestAnimationFrame(() => document.getElementById("time-leak-result")?.scrollIntoView({ behavior: "smooth", block: "start" }));
               }}
             >
-              <div className="mb-4">
-                <p className="eyebrow text-[color:var(--color-accent)]">The 15-Minute Time Leak Test</p>
-                <h2 className="mt-1 text-lg font-semibold text-white">Use your last 10 requests.</h2>
-              </div>
+              <p className="mb-4 text-sm leading-6 text-slate-300">Pick one process. Use its last 10 requests and count minutes spent working, not waiting for a reply.</p>
               <div className="grid gap-5 md:grid-cols-[minmax(0,1fr)_220px] md:items-end">
                 <div>
                   <label htmlFor="workflow" className="block text-sm font-semibold text-slate-900">Which workflow are you reviewing?</label>
@@ -141,18 +134,18 @@ export function TimeLeakTest() {
 
               <div className="mt-5 grid gap-5 border-t border-slate-200 pt-5 md:grid-cols-2 md:gap-6">
                 <fieldset className="min-w-0">
-                  <legend className="text-base font-semibold text-slate-950">01 / Follow-up and chasing</legend>
+                  <legend className="text-base font-semibold text-slate-950">Follow-up and chasing</legend>
                   <p className="mt-1 text-sm leading-6 text-slate-600">Time spent asking for missing details, checking status, or following up again.</p>
                   <div className="mt-4 grid gap-4">
-                    <NumberField id="chased" label="How many of the last 10 needed this?" value={values.chased} onChange={(value) => setField("chased", value)} min={0} max={10} placeholder="0 to 10" />
+                    <NumberField id="chased" label="Of the last 10, how many needed follow-up?" value={values.chased} onChange={(value) => setField("chased", value)} min={0} max={10} placeholder="0 to 10" />
                     <NumberField id="chaseMinutes" label="Minutes spent on each one" value={values.chaseMinutes} onChange={(value) => setField("chaseMinutes", value)} min={0} max={240} placeholder="e.g. 8" />
                   </div>
                 </fieldset>
                 <fieldset className="min-w-0 border-t border-slate-200 pt-6 md:border-l md:border-t-0 md:pl-8 md:pt-0">
-                  <legend className="text-base font-semibold text-slate-950">02 / Duplicate entry</legend>
+                  <legend className="text-base font-semibold text-slate-950">Duplicate entry</legend>
                   <p className="mt-1 text-sm leading-6 text-slate-600">Time spent copying the same information into another tool, sheet, or message.</p>
                   <div className="mt-4 grid gap-4">
-                    <NumberField id="reentered" label="How many of the last 10 needed this?" value={values.reentered} onChange={(value) => setField("reentered", value)} min={0} max={10} placeholder="0 to 10" />
+                    <NumberField id="reentered" label="Of the last 10, how many were entered twice?" value={values.reentered} onChange={(value) => setField("reentered", value)} min={0} max={10} placeholder="0 to 10" />
                     <NumberField id="reentryMinutes" label="Minutes spent on each one" value={values.reentryMinutes} onChange={(value) => setField("reentryMinutes", value)} min={0} max={240} placeholder="e.g. 5" />
                   </div>
                 </fieldset>
@@ -162,15 +155,6 @@ export function TimeLeakTest() {
                 <button type="submit" className="site-cta inline-flex min-h-12 shrink-0 items-center justify-center rounded-full bg-[linear-gradient(135deg,#ff8e5b,#f05cff)] px-7 py-3 text-sm font-semibold text-white transition hover:shadow-[0_16px_30px_rgba(240,92,255,0.22)] focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-[#9f412c]">See my estimate</button>
               </div>
             </form>
-            <aside className="rounded-[20px] border border-cyan-100/12 bg-[#102b3a] p-5 shadow-[0_18px_38px_rgba(2,10,18,0.12)]">
-              <p className="eyebrow text-[color:var(--color-accent)]">How to Count</p>
-              <ol className="mt-5 space-y-5 text-sm leading-6 text-slate-600">
-                <li><strong className="block text-slate-950">1. Stay specific.</strong> Choose one repeat process, not the whole business.</li>
-                <li><strong className="block text-slate-950">2. Check the last 10.</strong> Use email, CRM, tickets, or chat if your memory is uncertain.</li>
-                <li><strong className="block text-slate-950">3. Use actual effort.</strong> Enter the minutes people spent, not elapsed time waiting for a reply.</li>
-              </ol>
-              <div className="mt-6 border-t border-slate-200 pt-5 text-xs leading-5 text-slate-500">No benchmark and no assumed labor rate. Your entries are calculated in this page and are not submitted to Farcelis.</div>
-            </aside>
           </div>
         </div>
       </section>
