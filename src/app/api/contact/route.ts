@@ -1,4 +1,5 @@
 import { NextResponse } from "next/server";
+import { timeLeakReviewPaymentUrl } from "@/lib/time-leak-offer";
 
 const ownerEmail = "nespey@farcelis.io";
 const phone = "(813) 999-5775";
@@ -10,6 +11,7 @@ type ContactPayload = {
   goal?: string;
   context?: string;
   selectedWork?: string[];
+  timeLeakReview?: boolean;
 };
 
 const clean = (value: unknown) => (typeof value === "string" ? value.trim() : "");
@@ -73,6 +75,7 @@ export async function POST(request: Request) {
   const selectedWork = Array.isArray(payload.selectedWork)
     ? payload.selectedWork.map(clean).filter(Boolean)
     : [];
+  const timeLeakReview = payload.timeLeakReview === true;
 
   if (!name || !email) {
     return NextResponse.json({ error: "Name and email are required." }, { status: 400 });
@@ -82,11 +85,12 @@ export async function POST(request: Request) {
     selectedWork.length > 0 ? selectedWork.map((item) => `- ${item}`).join("\n") : "None selected";
 
   const ownerMessage = [
-    "New Farcelis website inquiry",
+    timeLeakReview ? "New Workflow Handoff Review request (payment pending)" : "New Farcelis website inquiry",
     "",
     `Name: ${name}`,
     `Email: ${email}`,
     `Company: ${company || "Not provided"}`,
+    ...(timeLeakReview ? ["Payment status: Not confirmed by this form. Verify in Stripe before scheduling."] : []),
     "",
     "Selected service, industry, and resource context:",
     selectedWorkText,
@@ -101,7 +105,10 @@ export async function POST(request: Request) {
   const visitorMessage = [
     `Hi ${name},`,
     "",
-    "Thanks for reaching out to Farcelis. Your inquiry has been received, and I will review it directly.",
+    timeLeakReview
+      ? "Your Workflow Handoff Review request and process notes have been received. Complete the secure $395 checkout using this same email address to book the review:"
+      : "Thanks for reaching out to Farcelis. Your inquiry has been received, and I will review it directly.",
+    ...(timeLeakReview ? [timeLeakReviewPaymentUrl, "Any applicable tax is shown by Stripe before payment. The review covers diagnosis and scope; implementation is quoted separately."] : []),
     "",
     "Selected service, industry, and resource context:",
     selectedWorkText,
@@ -123,13 +130,13 @@ export async function POST(request: Request) {
     await sendResendEmail({
       to: email,
       bcc: ownerEmail,
-      subject: "Farcelis inquiry received",
+      subject: timeLeakReview ? "Your Farcelis review request and payment link" : "Farcelis inquiry received",
       text: visitorMessage,
     });
 
     await sendResendEmail({
       to: ownerEmail,
-      subject: "New Farcelis website inquiry",
+      subject: timeLeakReview ? "New Workflow Handoff Review request (payment pending)" : "New Farcelis website inquiry",
       text: ownerMessage,
     });
   } catch (error) {

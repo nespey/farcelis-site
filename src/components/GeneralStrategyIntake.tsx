@@ -88,7 +88,7 @@ export function GeneralStrategyIntake({
       try {
         const inquiry = JSON.parse(raw) as { workflow?: unknown; summary?: unknown };
         if (typeof inquiry.workflow === "string" && typeof inquiry.summary === "string") {
-          setGoalText(`I would like a Workflow Handoff Review for ${inquiry.workflow}.`);
+          setGoalText(`I would like the $395 Workflow Handoff Review for ${inquiry.workflow}.`);
           setContextText(inquiry.summary.slice(0, 2400));
         }
       } catch {
