@@ -109,7 +109,7 @@ export function TimeLeakTest() {
 
       <section id="assessment" className="time-leak-workspace section-shell section-shell-dark scroll-mt-20 !pb-[clamp(2rem,4vw,3.5rem)] !pt-3">
         <div className="section-inner">
-          <div className="max-w-[1100px]">
+          <div className="w-full">
             <form
               className="rounded-[20px] border border-cyan-100/12 bg-[#102b3a] p-5 shadow-[0_18px_38px_rgba(2,10,18,0.15)] sm:p-6"
               onSubmit={(event) => {
@@ -121,19 +121,20 @@ export function TimeLeakTest() {
               }}
             >
               <p className="mb-4 text-sm leading-6 text-slate-300">Pick one process. Use its last 10 requests and count minutes spent working, not waiting for a reply.</p>
-              <div className="grid gap-5 md:grid-cols-[minmax(0,1fr)_220px] md:items-end">
-                <div>
-                  <label htmlFor="workflow" className="block text-sm font-semibold text-slate-900">Which workflow are you reviewing?</label>
-                  <select id="workflow" name="workflow" value={workflow} onChange={(event) => { setWorkflow(event.target.value as Workflow); setShowResult(false); setCopyState("idle"); }} className="mt-2 min-h-12 w-full rounded-[12px] border border-slate-300 bg-white px-4 py-2.5 text-base text-slate-950 outline-none focus:border-[#9f412c] focus:ring-2 focus:ring-[#f28b5b]/25">
-                    {(Object.keys(workflows) as Workflow[]).map((key) => <option key={key} value={key}>{workflows[key].label}</option>)}
-                  </select>
+              <div className="grid gap-6 border-t border-slate-200 pt-5 md:grid-cols-2 xl:grid-cols-3 xl:gap-8">
+                <div className="min-w-0 md:col-span-2 xl:col-span-1">
+                  <div className="grid gap-4 md:grid-cols-[minmax(0,1fr)_220px] md:items-end xl:grid-cols-1">
+                    <div>
+                      <label htmlFor="workflow" className="block text-sm font-semibold text-slate-900">Which workflow are you reviewing?</label>
+                      <select id="workflow" name="workflow" value={workflow} onChange={(event) => { setWorkflow(event.target.value as Workflow); setShowResult(false); setCopyState("idle"); }} className="mt-2 min-h-12 w-full rounded-[12px] border border-slate-300 bg-white px-4 py-2.5 text-base text-slate-950 outline-none focus:border-[#9f412c] focus:ring-2 focus:ring-[#f28b5b]/25">
+                        {(Object.keys(workflows) as Workflow[]).map((key) => <option key={key} value={key}>{workflows[key].label}</option>)}
+                      </select>
+                    </div>
+                    <NumberField id="weekly" label="Requests in a typical week" value={values.weekly} onChange={(value) => setField("weekly", value)} min={1} max={10000} placeholder="e.g. 20" />
+                  </div>
+                  <p className="mt-3 text-sm leading-6 text-slate-600">{details.example}</p>
                 </div>
-                <NumberField id="weekly" label="Requests in a typical week" value={values.weekly} onChange={(value) => setField("weekly", value)} min={1} max={10000} placeholder="e.g. 20" />
-              </div>
-              <p className="mt-3 text-sm leading-6 text-slate-600">{details.example}</p>
-
-              <div className="mt-5 grid gap-5 border-t border-slate-200 pt-5 md:grid-cols-2 md:gap-6">
-                <fieldset className="min-w-0">
+                <fieldset className="min-w-0 border-t border-slate-200 pt-5 md:pt-5 xl:border-l xl:border-t-0 xl:pl-8 xl:pt-0">
                   <legend className="text-base font-semibold text-slate-950">Follow-up and chasing</legend>
                   <p className="mt-1 text-sm leading-6 text-slate-600">Time spent asking for missing details, checking status, or following up again.</p>
                   <div className="mt-4 grid gap-4">
@@ -141,7 +142,7 @@ export function TimeLeakTest() {
                     <NumberField id="chaseMinutes" label="Minutes spent on each one" value={values.chaseMinutes} onChange={(value) => setField("chaseMinutes", value)} min={0} max={240} placeholder="e.g. 8" />
                   </div>
                 </fieldset>
-                <fieldset className="min-w-0 border-t border-slate-200 pt-6 md:border-l md:border-t-0 md:pl-8 md:pt-0">
+                <fieldset className="min-w-0 border-t border-slate-200 pt-5 md:border-l md:pl-8 xl:border-t-0 xl:pt-0">
                   <legend className="text-base font-semibold text-slate-950">Duplicate entry</legend>
                   <p className="mt-1 text-sm leading-6 text-slate-600">Time spent copying the same information into another tool, sheet, or message.</p>
                   <div className="mt-4 grid gap-4">
