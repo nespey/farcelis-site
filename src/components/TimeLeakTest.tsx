@@ -1,6 +1,7 @@
 "use client";
 
 import Link from "next/link";
+import Image from "next/image";
 import { useState } from "react";
 
 type Workflow = "quote" | "update" | "intake";
@@ -161,10 +162,10 @@ export function TimeLeakTest() {
       </section>
 
       {showResult && valid ? (
-        <section id="time-leak-result" aria-live="polite" className="section-shell section-shell-dark scroll-mt-20 !py-[clamp(2.5rem,5vw,5rem)]">
+        <section id="time-leak-result" aria-live="polite" className="section-shell section-shell-dark scroll-mt-20 py-[clamp(2.5rem,5vw,5rem)]">
           <div className="section-inner">
-            <p className="eyebrow text-[color:var(--color-accent)]">Your Workflow Snapshot</p>
-            <div className="mt-5 grid gap-5 lg:grid-cols-[minmax(0,0.9fr)_minmax(0,1.1fr)]">
+            <p className="time-leak-screen-result eyebrow text-[color:var(--color-accent)]">Your Workflow Snapshot</p>
+            <div className="time-leak-screen-result mt-5 grid gap-5 lg:grid-cols-[minmax(0,0.9fr)_minmax(0,1.1fr)]">
               <div className="rounded-[22px] border border-cyan-100/12 bg-[#142f3e] p-6 sm:p-8">
                 <h2 className="text-base font-semibold text-slate-200">Estimated time on these activities</h2>
                 <p className="mt-4 flex flex-wrap items-baseline gap-x-3 text-white"><span className="text-[clamp(3.5rem,7vw,5.5rem)] font-semibold leading-none tracking-[-0.06em]">{hours(totalHours)}</span><span className="text-lg font-medium">hours per week</span></p>
@@ -194,6 +195,39 @@ export function TimeLeakTest() {
                 {copyState === "error" ? <p role="status" className="mt-3 text-sm text-[#f28b5b]">Copy failed. Use Print / save PDF to keep your result.</p> : null}
               </div>
             </div>
+            <article className="time-leak-print-report" aria-label="Printable Time Leak Test result">
+              <div className="time-leak-print-header">
+                <Image src="/logos/farcelis-ai-logo.png" alt="Farcelis AI Consulting" width={188} height={63} />
+                <div><p>Time Leak Test</p><span>Workflow summary</span></div>
+              </div>
+              <div className="time-leak-print-heading">
+                <p className="time-leak-print-kicker">Your result</p>
+                <h2>{details.label}</h2>
+                <p>Based on {numbers.weekly} requests in a typical week and the proportions in your last 10.</p>
+              </div>
+              <div className="time-leak-print-total">
+                <div><span className="time-leak-print-number">{hours(totalHours)}</span><span className="time-leak-print-unit">hours per week</span></div>
+                <p>Estimated time spent on follow-up and duplicate entry. This is time spent, not a promise that all of it can be saved.</p>
+              </div>
+              <div className="time-leak-print-breakdown">
+                <div><span>Follow-up and chasing</span><strong>{hours(chaseHours)} hours/week</strong><small>{numbers.chased} of 10 × {numbers.chaseMinutes} minutes each</small></div>
+                <div><span>Duplicate entry</span><strong>{hours(reentryHours)} hours/week</strong><small>{numbers.reentered} of 10 × {numbers.reentryMinutes} minutes each</small></div>
+              </div>
+              <div className="time-leak-print-next">
+                <p className="time-leak-print-kicker">Where to start</p>
+                <h3>{totalHours > 0 ? `Look first at ${primary}.` : "Review the handoff before changing tools."}</h3>
+                <p>{details.firstMove}</p>
+              </div>
+              <div className="time-leak-print-offer">
+                <div><p className="time-leak-print-kicker">A clear path forward</p><h3>Workflow Handoff Review <span>· $395 fixed</span></h3></div>
+                <p>Farcelis traces the handoff in a 60-minute working session. You receive a process map, a prioritized fix list, and a scoped implementation quote. Based on this result, we would assess: {details.build}</p>
+                <p><strong>Explore the review:</strong> www.farcelis.io/time-leak-review</p>
+              </div>
+              <div className="time-leak-print-footer">
+                <p>A sample of 10 may not represent every week. Validate unusual weeks with a longer sample. Implementation is quoted separately.</p>
+                <div><strong>Farcelis AI Consulting</strong><span>farcelis.io · info@farcelis.io · (813) 999-5775</span></div>
+              </div>
+            </article>
           </div>
         </section>
       ) : null}

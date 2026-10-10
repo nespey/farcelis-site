@@ -608,7 +608,7 @@ export function Header() {
           </div>
         </div>
       </header>
-      <div className="h-16 sm:h-20" aria-hidden="true" />
+      <div className="site-header-spacer h-16 sm:h-20" aria-hidden="true" />
     </>
   );
 }
