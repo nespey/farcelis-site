@@ -28,7 +28,7 @@ export async function generateMetadata({ params }: InsightPageProps) {
 
   return buildMetadata({
     path: `/insights/${article.slug}`,
-    title: `${article.title} | ${site.shortName} Insights`,
+    title: `${article.searchTitle || article.title} | ${site.shortName}`,
     description: article.dek,
     image: article.coverImage,
   });

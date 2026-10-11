@@ -126,6 +126,7 @@ export type BlogPost = {
 export type InsightArticle = {
   slug: string;
   title: string;
+  searchTitle?: string;
   author: string;
   date: string;
   category: string;
@@ -1194,6 +1195,7 @@ export const insightArticles: InsightArticle[] = [
   {
     slug: "benchmark-mirage-ai-accuracy",
     title: "The Benchmark Mirage: Unveiling AI Accuracy Myths and Meta's Llama 4 Controversy",
+    searchTitle: "The Benchmark Mirage: AI Accuracy and Llama 4",
     author: "Nathan Espey",
     date: "April 9, 2025",
     category: "AI Governance",
@@ -1256,6 +1258,7 @@ export const insightArticles: InsightArticle[] = [
   {
     slug: "digital-marketing-hidden-issues-ai-fixes",
     title: "Why Your Digital Marketing Isn't Working: Hidden Issues and AI Fixes",
+    searchTitle: "Why Digital Marketing Isn't Working: Hidden Issues and AI Fixes",
     author: "Nathan Espey",
     date: "April 2, 2025",
     category: "Marketing Operations",
@@ -1318,6 +1321,7 @@ export const insightArticles: InsightArticle[] = [
   {
     slug: "ceo-guide-ai-strategic-disruption",
     title: "Navigating the AI Storm: A CEO's Guide to Strategic Disruption",
+    searchTitle: "A CEO's Guide to AI Strategic Disruption",
     author: "Nathan Espey",
     date: "March 31, 2025",
     category: "Executive AI",

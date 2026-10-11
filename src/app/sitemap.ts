@@ -5,9 +5,6 @@ import { blogPosts, industryFocus, insightArticles, products, seo, site, teamMem
 export default function sitemap(): MetadataRoute.Sitemap {
   const staticRoutes = Object.values(seo).map((entry) => ({
     url: `${site.domain}${entry.path}`,
-    lastModified: new Date(),
-    changeFrequency: "weekly" as const,
-    priority: entry.path === "/" ? 1 : 0.8,
   }));
 
   const dynamicRoutes = [
@@ -24,9 +21,6 @@ export default function sitemap(): MetadataRoute.Sitemap {
     ...blogPosts.map((post) => `/insights/blog/${post.slug}`),
   ].map((path) => ({
     url: `${site.domain}${path}`,
-    lastModified: new Date(),
-    changeFrequency: "monthly" as const,
-    priority: 0.72,
   }));
 
   return [...staticRoutes, ...dynamicRoutes];
