@@ -14,6 +14,7 @@ type Inquiry = {
 const serviceNames: Record<string, string> = {
   grants: "Grants & proposals",
   books: "Books & reporting",
+  proposals: "Government & commercial proposals",
   both: "Grants, proposals & bookkeeping",
 };
 
