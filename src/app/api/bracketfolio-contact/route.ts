@@ -70,7 +70,7 @@ export async function POST(request: Request) {
       headers: { Authorization: `Bearer ${apiKey}`, "Content-Type": "application/json" },
       body: JSON.stringify({
         from: process.env.FARCELIS_EMAIL_FROM ?? "Farcelis <no-reply@farcelis.io>",
-        to: "kespey@farcelis.io",
+        to: "info@bracketfolio.io",
         reply_to: email,
         subject: `BracketFolio inquiry: ${serviceNames[service]}`,
         text,
