@@ -3,6 +3,7 @@ import Image from "next/image";
 import Link from "next/link";
 
 import { PageIntro } from "@/components/PageIntro";
+import { BracketFolioLink } from "@/components/BracketFolioLink";
 import { Reveal } from "@/components/Reveal";
 import { buildMetadata } from "@/lib/metadata";
 import { capabilityGroups } from "@/lib/service-catalog";
@@ -109,9 +110,9 @@ export default function ServicesPage() {
                           </span>
                         </Link>
                         {group.label === "Operate" && service.label === "Reporting & Decision Systems" && (
-                          <Link
-                            href="https://bracketfolio.io/"
-                            aria-label="BracketFolio: grant writing, proposals, bookkeeping, and financial reporting"
+                          <BracketFolioLink
+                            placement="services_operate"
+                            ariaLabel="BracketFolio: grant writing, proposals, bookkeeping, and financial reporting"
                             className="flex min-h-[62px] flex-col items-center justify-center rounded-[10px] border border-cyan-100/10 bg-[#1c3c4d] px-2.5 py-2 text-center transition hover:-translate-y-0.5 hover:border-cyan-100/24 hover:bg-[#24495c]"
                           >
                             <span className="flex items-center justify-center gap-1.5">
@@ -122,7 +123,7 @@ export default function ServicesPage() {
                             <span className="mx-auto mt-1 block max-w-[20rem] text-[0.66rem] leading-4 text-slate-300">
                               Grant writing, proposals, bookkeeping, and financial reporting.
                             </span>
-                          </Link>
+                          </BracketFolioLink>
                         )}
                       </Fragment>
                     ))}

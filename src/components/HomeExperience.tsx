@@ -3,6 +3,7 @@
 import Image from "next/image";
 import Link from "next/link";
 
+import { BracketFolioLink } from "@/components/BracketFolioLink";
 import { IntegrationLogoLane } from "@/components/IntegrationLogoLane";
 import { LogoMarquee } from "@/components/LogoMarquee";
 import { Reveal } from "@/components/Reveal";
@@ -200,10 +201,10 @@ export function HomeExperience() {
               </div>
               <p className="mx-auto mt-8 max-w-[720px] text-center text-sm leading-6 text-slate-300">
                 Farcelis AI Consulting LLC also operates{" "}
-                <Link href="https://bracketfolio.io/" className="inline-flex items-center gap-1.5 align-middle transition-opacity hover:opacity-80">
+                <BracketFolioLink placement="homepage" className="inline-flex items-center gap-1.5 align-middle transition-opacity hover:opacity-80">
                   <Image src="/brand/bracketfolio/sculpted-symbol-transparent.png" alt="" width={565} height={575} className="h-6 w-auto" />
                   <Image src="/brand/bracketfolio/sculpted-wordmark-transparent.png" alt="BracketFolio" width={1410} height={155} className="h-[15px] w-auto" />
-                </Link>
+                </BracketFolioLink>
                 , providing grant writing, proposal development, bookkeeping, and financial reporting.
               </p>
             </div>
