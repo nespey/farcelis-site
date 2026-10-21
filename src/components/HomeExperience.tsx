@@ -197,6 +197,13 @@ export function HomeExperience() {
                   Work With Farcelis
                 </Link>
               </div>
+              <p className="mx-auto mt-8 max-w-[720px] text-center text-sm leading-6 text-slate-300">
+                Farcelis AI Consulting LLC also operates{" "}
+                <Link href="https://bracketfolio.io/" className="font-semibold text-white underline underline-offset-4 hover:text-[color:var(--color-accent)]">
+                  BracketFolio
+                </Link>
+                , providing grant writing, proposal development, bookkeeping, and financial reporting.
+              </p>
             </div>
           </div>
         </section>
