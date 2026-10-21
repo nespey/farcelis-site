@@ -1,3 +1,5 @@
+import { Fragment } from "react";
+import Image from "next/image";
 import Link from "next/link";
 
 import { PageIntro } from "@/components/PageIntro";
@@ -94,18 +96,35 @@ export default function ServicesPage() {
                   </div>
                   <div className="mt-3 grid flex-1 auto-rows-fr gap-1.5 rounded-[14px] border border-cyan-100/10 bg-[#173343] p-2">
                     {group.links.map((service) => (
-                      <Link
-                        key={service.label}
-                        href={service.href}
-                        className="flex min-h-[62px] flex-col justify-center rounded-[10px] border border-cyan-100/10 bg-[#1c3c4d] px-2.5 py-2 text-center transition hover:-translate-y-0.5 hover:border-cyan-100/24 hover:bg-[#24495c]"
-                      >
-                        <span className="block text-[0.78rem] font-semibold leading-4 text-white">
-                          {service.label}
-                        </span>
-                        <span className="mx-auto mt-1 block max-w-[20rem] text-[0.66rem] leading-4 text-slate-300">
-                          {service.detail}
-                        </span>
-                      </Link>
+                      <Fragment key={service.label}>
+                        <Link
+                          href={service.href}
+                          className="flex min-h-[62px] flex-col justify-center rounded-[10px] border border-cyan-100/10 bg-[#1c3c4d] px-2.5 py-2 text-center transition hover:-translate-y-0.5 hover:border-cyan-100/24 hover:bg-[#24495c]"
+                        >
+                          <span className="block text-[0.78rem] font-semibold leading-4 text-white">
+                            {service.label}
+                          </span>
+                          <span className="mx-auto mt-1 block max-w-[20rem] text-[0.66rem] leading-4 text-slate-300">
+                            {service.detail}
+                          </span>
+                        </Link>
+                        {group.label === "Operate" && service.label === "Reporting & Decision Systems" && (
+                          <Link
+                            href="https://bracketfolio.io/"
+                            aria-label="BracketFolio: grant writing, proposals, bookkeeping, and financial reporting"
+                            className="flex min-h-[62px] flex-col items-center justify-center rounded-[10px] border border-cyan-100/10 bg-[#1c3c4d] px-2.5 py-2 text-center transition hover:-translate-y-0.5 hover:border-cyan-100/24 hover:bg-[#24495c]"
+                          >
+                            <span className="flex items-center justify-center gap-1.5">
+                              <Image src="/brand/bracketfolio/sculpted-symbol-transparent.png" alt="" width={22} height={22} />
+                              <Image src="/brand/bracketfolio/sculpted-wordmark-transparent.png" alt="BracketFolio" width={133} height={15} />
+                            </span>
+                            <span className="mt-0.5 block text-[0.62rem] leading-3 text-[#e1bd7e]">A Farcelis business</span>
+                            <span className="mx-auto mt-1 block max-w-[20rem] text-[0.66rem] leading-4 text-slate-300">
+                              Grant writing, proposals, bookkeeping, and financial reporting.
+                            </span>
+                          </Link>
+                        )}
+                      </Fragment>
                     ))}
                   </div>
                   <Link
