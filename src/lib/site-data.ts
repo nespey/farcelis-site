@@ -349,6 +349,7 @@ export const approvedLogos: Partner[] = [
   { name: "Eagle", logo: "/logos/approved/rail/eagle-rail.png", href: "https://www.eagleeng.com/" },
   { name: "Oak Lawn United Methodist Church", logo: "/logos/approved/rail/oak-lawn-umc-rail.svg", href: "https://olumc.org/" },
   { name: "Natural Born Champions", logo: "/logos/approved/rail/natural-born-champions-rail.svg", href: "https://www.naturalbornchampions.com/" },
+  { name: "One of a Kind Restoration", logo: "/logos/approved/rail/one-of-a-kind-restoration-rail.png", href: "https://oneofakind.pro/" },
 ];
 
 export const services: Service[] = [

@@ -22,6 +22,7 @@ const bareLogoFrame: Record<string, string> = {
   "Upwork": "h-[42px] w-[138px]",
   "Oak Lawn United Methodist Church": "h-[82px] w-[132px]",
   "Natural Born Champions": "h-[84px] w-[96px]",
+  "One of a Kind Restoration": "h-[78px] w-[160px]",
 };
 
 const defaultBareLogoFrame = "h-[72px] w-[132px]";
